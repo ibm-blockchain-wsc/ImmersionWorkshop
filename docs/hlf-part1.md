@@ -1,5 +1,5 @@
-Section 1 - Overview of Hyperledger Fabric Smart Contract installation lab
-==========================================================================
+Section 1 - Overview of Hyperledger Fabric Smart Contract installation lab part 1
+=================================================================================
 
 In this lab, you will work with the Marbles demo application, which is
 considered by many to be a de facto \"hello world\" application for
@@ -39,10 +39,10 @@ You will **install** the Marbles chaincode on the peer nodes,
 chaincode. I will explain later in the lab the difference between the
 install and instantiate actions and what each one does.
 
-Section 2 - Description of the subsequent sections in this lab
-============================================================== 
+Section 2 - Description of the subsequent sections in Part 1
+============================================================ 
 
-This section provides a brief description of the subsequent sections in the
+This section provides a brief description of the subsequent sections in Part 1 of the
 lab, where you will get hands-on experience with the Hyperledger Fabric
 command line interface (CLI). In most production implementations you
 would perform many of these functions through other means, such as
@@ -1575,7 +1575,7 @@ portion of the lab!
 
 Stay logged in to your two terminal sessions and leave your Hyperledger
 Fabric network and all the chaincode Docker containers up and running-
-you will use what you created here in the next lab where you will
+you will use what you created here in the Part 2 of the lab where you will
 install a front-end application offering a browser-based UI from which
 you will interact with the marbles chaincode that you have installed in
-this lab.
+here in Part 1.

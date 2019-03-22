@@ -1,8 +1,8 @@
-Section 1: Lab Overview
-=======================
+Section 1: Lab Part 2 Overview
+==============================
 
-In this lab, you will use the Hyperledger Fabric network that you
-created in the previous lab and configure the Marbles User Interface
+In this part of the lab, you will use the Hyperledger Fabric network that you
+created in the Part 1 of the lab and configure the Marbles User Interface
 (UI) web application so that it will integrate with the marbles
 chaincode that you installed in the previous lab.
 
@@ -794,4 +794,6 @@ assignments:
 UI and then number *4* in the window that pops up. Edit the list of
 names at the bottom and click **Create**. Do your new users show up in
 both companies' sessions? What happens if you add a name that exists
-already?   **End of lab!**
+already? 
+
+**End of lab!**
