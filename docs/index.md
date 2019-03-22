@@ -1,5 +1,5 @@
 # Blockchain Immersion Workshop
-Welcome! This two-day workshop combines lectures and hands-on labs to teach you the foundamentals of blockchain for business. On Day 1, we focus on blockchain 101, blockchain use cases, and the open source framework called Hyperledger Fabric that powers blockchain for business. On Day 2, you will learn about the IBM-specific offerings that leverage Hyperledger Fabric, and how our unique combination of expertise, governance and operations tooling, and infrastructure capabilities with LinuxONE can help you achieve business results faster and more securely.
+Welcome! This two-day workshop combines lectures and hands-on labs to teach you the fundamentals of blockchain for business. On Day 1, we focus on blockchain 101, blockchain use cases, and the open source framework called Hyperledger Fabric that powers blockchain for business. On Day 2, you will learn about the IBM-specific offerings that leverage Hyperledger Fabric, and how our unique combination of expertise, governance and operations tooling, and infrastructure capabilities with LinuxONE can help you achieve business results faster and more securely.
 
 ## Agenda
 
