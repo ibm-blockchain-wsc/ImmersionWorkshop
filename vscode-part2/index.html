@@ -63,7 +63,11 @@
                 </li>
                 <li class="">
                     
-    <a class="" href="../hlf/">Lab</a>
+    <a class="" href="../hlf-part1/">Part 1</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../hlf-part2/">Part 2</a>
                 </li>
     </ul>
 	    </li>
@@ -200,7 +204,7 @@ who is with DigiBank. Isabella will issue a paper for the network. The
 paper will have an ID number, when it was issued, the maturity date, and
 the face value (\$). Balaji, from DigiBank, will then buy the paper and
 then eventually redeem it.</p>
-<p><img alt="image" src="images/papernet_overview.png" /></p>
+<p><img alt="image" src="../images/papernet_overview.png" /></p>
 <p>Below is the full breakdown of Part 2 of this lab:</p>
 <ul>
 <li>
@@ -332,7 +336,7 @@ an <code>Untitled Workplace</code>, but have the <code>fabric-samples</code> fol
 </code></pre>
 <p>You should see two files in there. One named <code>docker-compose-yml</code> and
 another named <code>monitordocker.sh</code></p>
-<p><img alt="image" src="images/13.png" /></p>
+<p><img alt="image" src="../images/13.png" /></p>
 <p><strong>6.</strong> Within the <code>docker-compose.yml</code> file, replace the <code>net_basic</code>
 with <code>fabricvscodelocalfabric_basic</code> on line 11 and save your file by
 pressing <code>control + s</code></p>
@@ -376,7 +380,7 @@ Creating cliMagnetoCorp ... done
 <code>cliMagnetoCorp</code> container, which is our Administrator Console. This
 will allow use to use Fabric <code>peer</code> commands. Conveniently, the
 <code>cliMagnetoCorp</code> container is the <code>hyperledger/fabric-tools</code> image.</p>
-<p><img alt="image" src="images/papernet_magnetocorp.png" /></p>
+<p><img alt="image" src="../images/papernet_magnetocorp.png" /></p>
 <p><strong>12.</strong> We can also do a <code>docker ps -a</code> command to see all of our docker
 containers. We should see two new containers - <code>cliMagnetoCorp</code> and
 <code>logspout</code></p>
@@ -395,7 +399,7 @@ folder to the contract folder of <code>MagnetoCorp</code> :</p>
 <p>Within the <code>lib</code> folder, you\'ll see 3 javascript (.js) files in there.
 Click on the <strong>papercontract.js</strong> file, which will open it that file
 within VSCode</p>
-<p><img alt="image" src="images/14.png" /></p>
+<p><img alt="image" src="../images/14.png" /></p>
 <p>Let\'s dissect our <code>papercontract.js</code> file as it is our smart contract.
 We will only go over the <code>issue</code> transaction, but the other transactions
 follow pretty closely to this one</p>
@@ -470,12 +474,12 @@ grab the files we need to install the smart contract. The
 tells us that the language of our smart contract is nodejs. The picture
 below goes into detail, visually, as to how we are actually installing a
 copy of the commercial paper smart contract on our peer.</p>
-<p><img alt="image" src="images/papernet_magnetoinstall.png" /></p>
+<p><img alt="image" src="../images/papernet_magnetoinstall.png" /></p>
 <p><strong>3.</strong> Since our network is connected to our VSCode instance, you can
 refresh the <code>Local Fabric Ops</code> panel in VSCode under the IBM Blockchain
 extension. The refresh button is revealed when you hover your mouse over
 the <code>Local Fabric Ops</code> panel</p>
-<p><img alt="image" src="images/15.png" /></p>
+<p><img alt="image" src="../images/15.png" /></p>
 <p><strong>4.</strong> Since we have installed the smart contract, we should actually
 make it active by instantiating it. <strong>NOTE:</strong> scroll over to see the
 entire command below :</p>
@@ -491,12 +495,12 @@ installation of the smart contract, the instantiation goes into the
 <code>cliMagnetoCorp</code> container. After successfully instantiating the smart
 contract, there will be a commercial paper smart contract docker image
 and container.</p>
-<p><img alt="image" src="images/papernet_magnetoinstant.png" /></p>
+<p><img alt="image" src="../images/papernet_magnetoinstant.png" /></p>
 <p><strong>5.</strong> You will know our instantiate command worked when we simply get
 our command prompt back. You can really verify it worked by going back
 to the VSCode and refreshing the <code>Local Fabric Ops</code> panel and you should
 see it under the <code>instantiate</code> section.</p>
-<p><img alt="image" src="images/16.png" /></p>
+<p><img alt="image" src="../images/16.png" /></p>
 <h2 id="section-4-issue-identities">Section 4: Issue Identities</h2>
 <p>Now that we have a ready-to-use smart contract, let\'s issue some
 identities so that those identities can invoke and query transactions.</p>
@@ -516,7 +520,7 @@ tecadmin@ubuntubase:~/Desktop/mycontract/fabric-samples/commercial-paper/organiz
 same folder. That is, the <code>application</code> folder within <code>MagnetoCorp</code>. You
 should see 4 files in there: <code>.eslintrc.js, addToWallet.js, issue.js</code>,
 and <code>package.json</code></p>
-<p><img alt="image" src="images/17.png" /></p>
+<p><img alt="image" src="../images/17.png" /></p>
 <p><strong>3.</strong> Click on <code>issue.js</code>, which will open the file within VSCode.
 Let\'s discuss what the file is trying to do.</p>
 <p>Below we bring in two key Hyperledger Fabric SDK classes into scope --
@@ -578,7 +582,7 @@ ports by doing the following command from your terminal application.
 <pre><code>tecadmin@ubuntubase:~/Desktop/mycontract/fabric-samples/commercial-paper/organization/magnetocorp/application$ docker ps -a
 </code></pre>
 <p>Once you have modified the file, please <strong>save it (control + s)</strong>.</p>
-<p><img alt="image" src="images/18.png" /></p>
+<p><img alt="image" src="../images/18.png" /></p>
 <p><strong>5.</strong> Enter the following command below to install the needed packages
 from the <code>package.json</code> file. <strong>NOTE:</strong> scroll over to see the entire
 command below :</p>
@@ -653,7 +657,7 @@ gateway allows the application to focus on transaction generation,
 submission and response. It coordinates the transaction proposal,
 ordering and notification processing between the different network
 components.</p>
-<p><img alt="image" src="images/papernet_magnetoissue.png" /></p>
+<p><img alt="image" src="../images/papernet_magnetoissue.png" /></p>
 <p><strong>9.</strong> Since we have created an identity for MagnetoCorp, let\'s also
 create Balaji from DigiBank. To do so, we will need a third command line
 tab. We can add another command line tab by clicking on
@@ -726,7 +730,7 @@ can add in a query to get the status of our paper.</p>
 Obviously, this is MagnetoCorp (Isabella) and DigiBank (Balaji). Both
 participants are allowed to interact with the commercial paper
 blockchain network through their application.</p>
-<p><img alt="image" src="images/papernet_magnetodigi.png" /></p>
+<p><img alt="image" src="../images/papernet_magnetodigi.png" /></p>
 <h2 id="section-5-upgrade-smart-contract">Section 5: Upgrade Smart Contract</h2>
 <p><strong>1.</strong> From our Explorer perspective, navigate to the contract/lib
 folder of <code>DigiBank</code> :</p>
@@ -975,7 +979,7 @@ gateway.disconnect();
 gateway to our IBM Blockchain extension. To do that, switch back to the
 IBM Blockchain extension within VSCode and click on the gear icon in the
 bottom left. Then, click on <code>Command Palette</code></p>
-<p><img alt="image" src="images/19.png" /></p>
+<p><img alt="image" src="../images/19.png" /></p>
 <p><strong>6</strong> To add a Fabric Gateway, type this in the search bar of our list
 of commands to execute :</p>
 <pre><code>&gt;IBM Blockchain Platform: Add Gateway
@@ -985,12 +989,12 @@ a perspective. In this case, we are acting as <code>Balaji</code> from <code>Dig
 in this commercial paper network. If there were more actors, you could
 envision more gateways being incorportated here</p>
 <p><strong>7.</strong> For the name of the gateway, enter <code>papercontract</code></p>
-<p><img alt="image" src="images/20.png" /></p>
+<p><img alt="image" src="../images/20.png" /></p>
 <p><strong>8.</strong> When it asks for a <code>file path to a connection profile</code>, select
 <code>Browse</code></p>
 <p><strong>9.</strong> Then navigate to the <code>networkConnection.yaml</code> file within
 <code>Digibank</code> to grab the connection profile</p>
-<p><img alt="image" src="images/21.png" /></p>
+<p><img alt="image" src="../images/21.png" /></p>
 <p><strong>10.</strong> It will then ask us if we would like to use an existing wallet
 or create a new wallet. We want to choose
 <code>Use an existing wallet on my file system</code></p>
@@ -998,10 +1002,10 @@ or create a new wallet. We want to choose
 <code>Browse</code></p>
 <p><strong>12.</strong> Then, we will navigate to our user\'s, <code>Balaji</code>, wallet. Click
 on <code>Select</code> once you have clicked and highlighted on <code>wallet</code></p>
-<p><img alt="image" src="images/22.png" /></p>
+<p><img alt="image" src="../images/22.png" /></p>
 <p><strong>13.</strong> We will then see a new Fabric Gateway within the IBM Blockchain
 extension as well as <code>successful</code> messages from the output</p>
-<p><img alt="image" src="images/23.png" /></p>
+<p><img alt="image" src="../images/23.png" /></p>
 <p><strong>14.</strong> We can then click on <code>Admin@org1.example.com</code> and then it will
 show all of our channels. Furthermore, it will show all the smart
 contracts available on the channel. You\'ll see we have
@@ -1020,7 +1024,7 @@ the <code>contract</code> folder of <code>Digibank</code>. Click on or highlight
 <code>contract</code> folder :</p>
 <pre><code>fabric-samples -&gt; commercial-paper -&gt; organization -&gt; digibank -&gt; contract
 </code></pre>
-<p><img alt="image" src="images/24.png" /></p>
+<p><img alt="image" src="../images/24.png" /></p>
 <p><strong>17.</strong> Here we will name the smart contract <code>papercontract</code> and give it
 version <code>0.0.2</code>. First, untoggle the <code>contract</code> folder and click on the
 <code>package.json</code> file to open it. Within that file, change lines 2 and 3
@@ -1028,13 +1032,13 @@ to look like this below :</p>
 <pre><code>"name": "papercontract",
 "version": "0.0.2",
 </code></pre>
-<p><img alt="image" src="images/25.png" /></p>
+<p><img alt="image" src="../images/25.png" /></p>
 <p><strong>18.</strong> Switch back to the IBM Blockchain extension. From there click on
 the gear in the bottom left and select <code>Command Palette</code>. When the
 search bar of available commands appears, type in the following below :</p>
 <pre><code>&gt; IBM Blockchain Platform: Package a Smart Contract Project
 </code></pre>
-<p><img alt="image" src="images/26.png" /></p>
+<p><img alt="image" src="../images/26.png" /></p>
 <p><strong>22.</strong> When it asks for a <code>workplace folder to package</code> choose
 <code>contract</code>. Then it will pull in the folder and name it
 <code>papercontract@0.0.2</code> based on our modifications to the <code>package.json</code>
@@ -1043,7 +1047,7 @@ file</p>
 current smart contract. To do so, within the <code>Local Fabric Ops</code> pane,
 untoggle the <code>Channels</code> and right click on <code>mychannel</code>. Then select
 <code>Upgrade Smart Contract</code></p>
-<p><img alt="image" src="images/27.png" /></p>
+<p><img alt="image" src="../images/27.png" /></p>
 <p><strong>24.</strong> It will then ask which current smart contract we want to
 upgrade. We want to select <code>papercontract@0</code> to upgrade. Then it will
 ask which <code>smart contract version to preform an upgrade with</code>, we want
@@ -1054,7 +1058,7 @@ but rather - simply - press enter to execute our upgrade. You will know
 this was successful if we click on <code>Admin@org1.example.com</code> under the
 <code>papercontract</code> gateway. Further, untoggle the <code>papercontract@0.0.2</code>
 smart contract to see all the available transactions and queries.</p>
-<p><img alt="image" src="images/28.png" /></p>
+<p><img alt="image" src="../images/28.png" /></p>
 <p>Now, we have successfully upgraded our smart contract to include the
 <code>getPaper</code> query. Now, lets have some fun and make some transactions and
 queries!</p>
@@ -1241,7 +1245,7 @@ the <code>Fabric Gateway</code> and click on the <code>papercontect</code> gatew
 there, click on <code>Admin@org1.example.com</code> and untoggle to the
 transactions and query. Then, right click on the <code>buy</code> transaction and
 select <code>Submit Transaction</code></p>
-<p><img alt="image" src="images/29.png" /></p>
+<p><img alt="image" src="../images/29.png" /></p>
 <p>When it asks for some arguments to pass in with the buy transaction,
 enter this below :</p>
 <pre><code>MagnetoCorp,00002,MagnetoCorp,DigiBank,5900000,2019-07-31
@@ -1275,7 +1279,7 @@ To do this, go to the <code>Fabric Gateway</code> pane and click on the
 <code>papercontract</code> gateway. From there, click on <code>Admin@org1.example.com</code>
 and untoggle to the transactions and query. Then, right click on
 <code>redeem</code>and select <code>Submit Transaction</code></p>
-<p><img alt="image" src="images/30.png" /></p>
+<p><img alt="image" src="../images/30.png" /></p>
 <p>When it asks for some arguments to pass through, enter this below :</p>
 <pre><code>MagnetoCorp,00002,DigiBank,2019-12-30
 </code></pre>

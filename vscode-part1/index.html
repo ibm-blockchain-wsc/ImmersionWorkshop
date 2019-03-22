@@ -63,7 +63,11 @@
                 </li>
                 <li class="">
                     
-    <a class="" href="../hlf/">Lab</a>
+    <a class="" href="../hlf-part1/">Part 1</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../hlf-part2/">Part 2</a>
                 </li>
     </ul>
 	    </li>
@@ -284,13 +288,13 @@ should be the <code>IBM Blockchain Platform</code> extension. I promise we didn\
 manipulate the algothrim to make it the top choice! If you see the IBM
 Blockchain Platform (IBP) extension, please click on <code>install</code> to
 install the extension.</p>
-<p><img alt="image" src="images/1.png" /></p>
+<p><img alt="image" src="../images/1.png" /></p>
 <p><strong>5.</strong> Once you have successfully installed the extension, you should
 see an outline of a block just below the extensions button
 (approximately, the 6th button in VSCode). Go ahead and click on that
 button. Once you do, you\'ll be welcomed with the IBM Blockchain
 Platform VSCode Homepage with the sides being divided into thirds.</p>
-<p><img alt="image" src="images/2.png" /></p>
+<p><img alt="image" src="../images/2.png" /></p>
 <p>The IBM Blockchain Extension perspective is broken into thirds on the
 left. It is broken into <code>Smart Contract Packages</code>, <code>Local Fabric Ops</code>
 and <code>Fabric Gateways</code>. <code>Smart Contract Packages</code> is the home for all of
@@ -320,7 +324,7 @@ three dots - <code>...</code> - and click on those dots. We\'ll be presented wit
 two options. <code>Start Fabric Runtime</code> and <code>Teardown Fabric Runtime</code> are
 those two options. We will want to click on <code>Start Fabric Runtime</code> in
 this case.</p>
-<p><img alt="image" src="images/3.png" /></p>
+<p><img alt="image" src="../images/3.png" /></p>
 <p>This will start our local Hyperledger Fabric network. It will stand up a
 peer, certificate authority, orderer and a couchdb container. In
 addition to standing up these containers, it will join our peer to a
@@ -357,7 +361,7 @@ IBM Blockchain Platform-related.</p>
 this command below into the search bar:</p>
 <pre><code>&gt;IBM Blockchain Platform: Create Smart Contract Project
 </code></pre>
-<p><img alt="image" src="images/4.png" /></p>
+<p><img alt="image" src="../images/4.png" /></p>
 <p>This command will generate a skeleton smart contract for us. We will
 walk through all that it generates in a second.</p>
 <p><strong>3.</strong> We might get a message that says :</p>
@@ -374,7 +378,7 @@ skeleton smart contract.</p>
 new project, let\'s create a new folder for our smart contract. We can
 call this folder <code>mycontract</code>. Then click on <code>open</code> to allow VSCode to
 generate our smart contract in that folder.</p>
-<p><img alt="image" src="images/5.png" /></p>
+<p><img alt="image" src="../images/5.png" /></p>
 <p><strong>6.</strong> We will get another pop-up asking :</p>
 <pre><code>Choose how to open your new project
 </code></pre>
@@ -382,7 +386,7 @@ generate our smart contract in that folder.</p>
 <p><strong>7.</strong> So we have created our smart contract, but gosh darnit, where is
 it? Well, let\'s click on the <code>Explorer</code> in the top left. It\'s the
 first botton on our left side panel</p>
-<p><img alt="image" src="images/6.png" /></p>
+<p><img alt="image" src="../images/6.png" /></p>
 <p><strong>8.</strong> From the <code>Explorer</code> page, we will see all the open tabs we have
 open in VSCode and then all the smart contracts we created in our
 workspace, which should only be our [mycontract]{.title-ref}.</p>
@@ -390,7 +394,7 @@ workspace, which should only be our [mycontract]{.title-ref}.</p>
 on <code>my-contract.js</code> it will open that file within VSCode. From there we
 can inspect this file to see what our smart contract is capable of. In
 this case, we only have <code>instantiate, transaction1 and transaction2</code></p>
-<p><img alt="image" src="images/7.png" /></p>
+<p><img alt="image" src="../images/7.png" /></p>
 <p>The main file in our smart contract is the <code>my-contract.js</code> file. It
 contains information as to the various transactions we can do as well as
 pulling in some predefined classes. Take a look at these lines in the
@@ -450,7 +454,7 @@ smart contract name and then set its version to <code>0.0.1</code> - in this cas
 you will have the option to install and instantiate our smart contract
 package. Since we all are very smart, we know that we have to install
 before instantiating. So do that by clicking on <code>+ Install</code>.</p>
-<p><img alt="image" src="images/8.png" /></p>
+<p><img alt="image" src="../images/8.png" /></p>
 <p><strong>5.</strong> Installing chaincode is a peer level operation, so we will get a
 pop-up message asking which peer to install the chaincode on. Simply
 click on the peer it gives us, in this case it is
@@ -478,7 +482,7 @@ Function: instantiate
 <p><strong>8.</strong> We will know if we successfully instantiated the smart contract
 when it says so underneath the <code>Instantiated</code> section in the
 <code>Local Fabric Ops</code> panel.</p>
-<p><img alt="image" src="images/9.png" /></p>
+<p><img alt="image" src="../images/9.png" /></p>
 <h2 id="section-5-unit-test-our-smart-contract">Section 5: Unit Test our Smart Contract</h2>
 <p>In this section, we will test our smart contract to make sure the
 transactions will work the way they should. This test does not commit
@@ -492,7 +496,7 @@ actually click on the <code>my-contract.js</code> file to open it in our VSCode.
 <p><strong>2.</strong> Once you have the file open, right click on <code>my-contract.js</code> and
 then select <code>Open in Terminal</code> - this will open this file path directly
 to our terminal at the bottom of our VSCode</p>
-<p><img alt="image" src="images/10.png" /></p>
+<p><img alt="image" src="../images/10.png" /></p>
 <p><strong>3.</strong> From there you will see your terminal go directly to our <code>test</code>
 folder. We can verify it by entering <code>pwd</code> and observing that we are in
 the path from where we created our smart contract folder back in section
@@ -516,7 +520,7 @@ transaction2 hello world
 
 3 passing (25ms)
 </code></pre>
-<p><img alt="image" src="images/11.png" /></p>
+<p><img alt="image" src="../images/11.png" /></p>
 <h2 id="section-6-submit-transactions">Section 6: Submit Transactions</h2>
 <p>In this section we will actually submit transactions after knowing that
 our smart contract is good to go!</p>
@@ -596,7 +600,7 @@ they might add or delete lines with certain files.)
 <p>We could even do this if we wanted too :</p>
 <pre><code>const args = ["I'm going to brag to my friends about my blockchain skillz and not my spelling skills"];
 </code></pre>
-<p><img alt="image" src="images/12.png" /></p>
+<p><img alt="image" src="../images/12.png" /></p>
 <p><strong>4.</strong> Before we do anything further, please <strong>save (control + s)</strong> this
 file. Now that we have data to put onto the ledger, click on <code>Run Test</code>
 to submit the transaction and we should see this in the terminal. The
