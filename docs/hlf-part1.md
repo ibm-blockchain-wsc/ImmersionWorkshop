@@ -1575,7 +1575,7 @@ portion of the lab!
 
 Stay logged in to your two terminal sessions and leave your Hyperledger
 Fabric network and all the chaincode Docker containers up and running-
-you will use what you created here in the Part 2 of the lab where you will
+you will use what you created here in Part 2 of the lab where you will
 install a front-end application offering a browser-based UI from which
 you will interact with the marbles chaincode that you have installed in
 here in Part 1.
