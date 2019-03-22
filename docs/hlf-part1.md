@@ -475,8 +475,8 @@ there are other TLS-related variables to specify private keys,
 certificates and root certificates.
 
 *ports* statements map ports on our Linux on IBM Z host to ports within
-the Docker container. The syntax is *\<host port\>:\<Docker container
-port\>*. For example, the service for **ca1** has this port statement:
+the Docker container. The syntax is *&lt;host port&gt;:&lt;Docker container port&gt;*. 
+For example, the service for **ca1** has this port statement:
 
     ports:
       - "8054:7054"
