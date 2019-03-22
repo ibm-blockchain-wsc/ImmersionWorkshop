@@ -77,7 +77,10 @@
     <a class="current" href="./">Introduction</a>
     <ul class="subnav">
             
-    <li class="toctree-l3"><a href="#welcome-to-the-vscode-lab-austin">Welcome to the VSCode Lab -- Austin</a></li>
+    <li class="toctree-l3"><a href="#visual-studio-code-overview-lab">Visual Studio Code Overview Lab</a></li>
+    
+
+    <li class="toctree-l3"><a href="#foreword-why-and-the-benefits-of-vscode-and-ibm-blockchain">Foreword: Why and the Benefits of VSCode and IBM Blockchain</a></li>
     
 
     </ul>
@@ -148,7 +151,207 @@
           <div role="main">
             <div class="section">
               
-                <h2 id="welcome-to-the-vscode-lab-austin">Welcome to the VSCode Lab -- Austin</h2>
+                <h2 id="visual-studio-code-overview-lab">Visual Studio Code Overview Lab</h2>
+<p><strong>Note: This is a rough draft of a lab right now, which means grammar is
+optional now. I will fix this before the lab is ready for showtime :)</strong></p>
+<p>Welcome to the Visual Studio Code (VSCode) Overview Lab. Throughout the
+course of this lab experience you will see how impactful the VSCode
+application and the IBM Blockchain Platform extension is when creating
+your smart contract (chaincode). The first part (<code>part 1</code>) of this lab
+is very basic and is meant to walk you through getting started with the
+IBM Blockchain Platform extension. <code>Part 2</code> follows a tutorial called
+<code>Commercial Paper</code> which will utilize the new application programming
+model in Hyperledger Fabric version <code>1.4</code> - which is the first long term
+support release of Hyperledger Fabric.</p>
+<p>Speaking of Hyperledger Fabric, we will be using a locally deployed
+Fabric whose components will run as Docker containers on your lab
+workstation. If you want to deploy your smart contract to a production
+environment, you can connect your IBM Blockchain Platform VSCode
+extension to the IBM Blockchain Platform in the public IBM Cloud.
+Furthermore, in the future you will be able to connect this to your IBM
+Blockchain Platform running in IBM Cloud Private. This will empower you
+and your company to write and test your smart contract within VSCode
+before you deploy it into production. We might incorporate this
+capability into the <code>Blockchain Immersion Workshop</code> later this year. To
+keep abreast of all the updates to the workshop, check the workshop\'s
+github page for updates.</p>
+<p>We hope you enjoy this lab and please let us know if you run into an
+issue or think something doesn\'t look right.</p>
+<p>In this lab we will be using the following versions:</p>
+<ul>
+<li>Visual Studio Code: 1.31.1</li>
+<li>IBM Blockchain Platform Extension: 0.3.2</li>
+<li>Hyperledger Fabric: v1.4</li>
+</ul>
+<p>Special thanks to the following contributors to this lab:</p>
+<ul>
+<li>Matthew Golby-Kirk</li>
+<li>Matt Lucas</li>
+<li>Dennis Miller</li>
+<li>Jin VanStee</li>
+<li>Barry Silliman</li>
+<li>Garrett Woodworth</li>
+<li>Austin Grice</li>
+</ul>
+<h1 id="foreword-why-and-the-benefits-of-vscode-and-ibm-blockchain">Foreword: Why and the Benefits of VSCode and IBM Blockchain</h1>
+<p>One of the hurdles in getting started with blockchain is the creation
+and testing of a smart contract or \"chaincode.\" Before, you had to
+package your smart contract, install it on your blockchain peer and then
+instantiate the chaincode on the channel. Furthermore, you had to submit
+transactions and hope that all of the lines of code you created simply
+worked. This hassle created a lot of questions. For example, does the
+smart contract even work before installing it on our blockchain network?
+How do we know that our smart contract is good for all the participants
+in our network? Does our smart contract have to abide by some legalities
+that have been set in place by the state or federal government? These
+questions, and many more, have to be answered when formulating our
+blockchain network and creating the smart contract. What if we could
+have an environment for testing our smart contract before it goes into
+production? The IBM Blockchain Platform extension has been created to
+assist users in developing, testing, and deploying smart contracts,
+enabling users to connect to a local Hyperledger Fabric development
+environment (what the lab today covers) to test smart contracts before
+deploying them into a production environment (IBM Blockchain Platform
+running in the cloud or within your own premises with IBM Blockchain
+Platform on IBM Cloud Private).</p>
+<p>Within VSCode, you can employ a series of commands to gain the maximum
+benefit of your blockchain network. Over the course of this lab, we will
+use quite a few of these commands. Below is a series of commands:</p>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Add Gateway</td>
+<td>Add a Hyperledger Fabric instance gateway</td>
+</tr>
+<tr>
+<td>Add Identity To Wallet</td>
+<td>Add an identity to be used when connecting to a Hyperledger Fabric gateway</td>
+</tr>
+<tr>
+<td>Connect Via Gateway</td>
+<td>Connect to a Hyperledger Fabric blockchain using a gateway</td>
+</tr>
+<tr>
+<td>Create Smart Contract Project</td>
+<td>Create a new JavaScript or TypeScript smart contract project</td>
+</tr>
+<tr>
+<td>Create Identity (register and enroll)</td>
+<td>Create, register and enroll a new identity from the runtime certificate authority</td>
+</tr>
+<tr>
+<td>Debug</td>
+<td>Debug a Smart Contract</td>
+</tr>
+<tr>
+<td>Delete Gateway</td>
+<td>Delete a Hyperledger Fabric instance gateway</td>
+</tr>
+<tr>
+<td>Delete Package</td>
+<td>Delete a smart contract package</td>
+</tr>
+<tr>
+<td>Disconnect From Gateway</td>
+<td>Disconnect from the blockchain gateway you're currently connected to</td>
+</tr>
+<tr>
+<td>Edit Gateway</td>
+<td>Edit connection profile or wallet used for connecting to a blockchain gateway</td>
+</tr>
+<tr>
+<td>Export Connection Details</td>
+<td>Export connection details for the a Hyperledger Fabric instance</td>
+</tr>
+<tr>
+<td>Export Package</td>
+<td>Export an already-packaged smart contract package to use outside VSCode</td>
+</tr>
+<tr>
+<td>Generate Smart Contract Tests</td>
+<td>Create a functional level test file for instantiated smart contracts</td>
+</tr>
+<tr>
+<td>Import Package</td>
+<td>Import a smart contract package</td>
+</tr>
+<tr>
+<td>Install Smart Contract</td>
+<td>Install a smart contract package onto a peer</td>
+</tr>
+<tr>
+<td>Instantiate Smart Contract</td>
+<td>Instantiate an installed smart contract package onto a channel</td>
+</tr>
+<tr>
+<td>Open Fabric Runtime Terminal</td>
+<td>Open a terminal with access to the Fabric runtime (peer CLI)</td>
+</tr>
+<tr>
+<td>Package a Smart Contract Project</td>
+<td>Create a new smart contract package from a project in the Explorer</td>
+</tr>
+<tr>
+<td>Refresh Fabric Gateways</td>
+<td>Refresh the Fabric Gateways view</td>
+</tr>
+<tr>
+<td>Refresh Smart Contract Packages</td>
+<td>Refresh the Smart Contract Packages view</td>
+</tr>
+<tr>
+<td>Restart Local Fabric Ops</td>
+<td>Refresh the Local Fabric Ops view</td>
+</tr>
+<tr>
+<td>Start Fabric Runtime</td>
+<td>Start a Hyperledger Fabric instance</td>
+</tr>
+<tr>
+<td>Stop Fabric Runtime</td>
+<td>Stop a Hyperledger Fabric instance</td>
+</tr>
+<tr>
+<td>Submit Transaction</td>
+<td>Submit a transaction to a smart contract</td>
+</tr>
+<tr>
+<td>Evaluate Transaction</td>
+<td>Evaluate a smart contract transaction</td>
+</tr>
+<tr>
+<td>Teardown Fabric Runtime</td>
+<td>Teardown the local_fabric runtime (hard reset)</td>
+</tr>
+<tr>
+<td>Toggle Development Mode</td>
+<td>Toggle the Hyperledger Fabric instance development mode</td>
+</tr>
+<tr>
+<td>Upgrade Smart Contract</td>
+<td>Upgrade an instantiated smart contract</td>
+</tr>
+<tr>
+<td>View Homepage</td>
+<td>View the extensions homepage</td>
+</tr>
+</tbody>
+</table>
+<p>As you can see, these commands can do a lot. With the IBM Blockchain
+Platform extension only being at version 0.3.2 (as of 3/12/2019), you
+can expect the list of commands and features to evolve. If you think
+there is a feature or enhancement that should be created, you can create
+an issue here:</p>
+<p><a href="https://github.com/IBM-Blockchain/blockchain-vscode-extension/issues">https://github.com/IBM-Blockchain/blockchain-vscode-extension/issues</a></p>
+<p>Equally, if you want to stay on top of all the releases of the extension
+and what updates came with each release, you can view that here:</p>
+<p><a href="https://github.com/IBM-Blockchain/blockchain-vscode-extension/releases">https://github.com/IBM-Blockchain/blockchain-vscode-extension/releases</a></p>
               
             </div>
           </div>
