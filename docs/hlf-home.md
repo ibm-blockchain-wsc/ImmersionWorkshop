@@ -8,10 +8,10 @@ This lab is broken into two parts. The first part deals with the chaincode and t
 	This lab runs on Linux on IBM Z systems in the IBM Washington Systems Center (WSC). In order to connect to this environment, you must use the CISCO AnyConnect client to establish a virtual private network (VPN) connection into the WSC network. You will be given connection information at the beginning of the lab.
 
 !!! tip
-    If you find any typos, errors, or just want to provide helpful feedback to make this lab better, please click [here](https://github.ibm.com/silliman/2019FastStart/tree/master) to create an issue in the repository.  Thanks for your feedback!
+	If you find any typos, errors, or just want to provide helpful feedback to make this lab better, please click on the GitHub icon in the lower left corner of this page to be taken to our GitHub repository, from where you can create an Issue to suggest a correction or improvement.  Thanks for your feedback!
 
 ## Acknowledgements
-* Special thanks to John Harrison for getting the application which was used for the initial version of this lab to work!
+* Special thanks to John Harrison who was the first person to get the application used in this lab to work on Hyperledger Fabric running on IBM Z!
 
 ## Author
 * Barry Silliman
