@@ -2,7 +2,7 @@ Section 1 - Overview of Hyperledger Fabric Smart Contract installation lab part 
 =================================================================================
 
 In this lab, you will work with the Marbles demo application, which is
-considered by many to be a de facto \"hello world\" application for
+considered by many to be a de facto "hello world" application for
 getting started with Hyperledger Fabric. Hyperledger Fabric is one of
 several projects within the open-source Hyperledger collaborative effort
 hosted by the Linux Foundation. Hyperledger Fabric provides the
@@ -13,7 +13,7 @@ You will use Docker Compose to bring up a Hyperledger Fabric network in
 which two organizations will participate. There will be one orderer
 service for the entire network, and each organization will use its own
 certificate authority service and have two peer nodes. Each peer node
-will use CouchDB for its ledger store. Each peer node\'s CouchDB will
+will use CouchDB for its ledger store. Each peer node's CouchDB will
 run in a separate Docker container. That makes eleven Docker containers,
 as follows:
 
@@ -111,19 +111,19 @@ your team. As you proceed through the lab, you will have to be logged in
 to more than one terminal session. When that becomes necessary, simply
 follow the same procedure used to log in to your first terminal session.
 
-Let\'s get started!
+Let's get started!
 
-**Step 3.1:** Navigate to the home directory by entering *cd \~* (the
-"tilde" character, i.e., '*\~*', represents the user's home directory in
-Linux). This directory is also usually set in the \$HOME environment
-variable, so *cd \$HOME* will also usually get you to your home
+**Step 3.1:** Navigate to the home directory by entering *cd ~* (the
+"tilde" character, i.e., '*~*', represents the user's home directory in
+Linux). This directory is also usually set in the $HOME environment
+variable, so *cd $HOME* will also usually get you to your home
 directory:
 
     bcuser@ubuntu16045:~$ cd ~
     bcuser@ubuntu16045:~$ 
 
 *Note:* You may already be in your home directory prior to entering *cd
-\~*, in which case you\'ll just stay there- not a problem.
+~*, in which case you'll just stay there- not a problem.
 
 **Step 3.2:** Retrieve the zmarbles compressed tarball prepared for this
 lab with the following command:
@@ -239,7 +239,7 @@ enter *./generateArtifacts.sh tim* instead of just
 
 **Note: If you pick your own channel name, it must start with a
 lowercase character, and only contain lowercase characters, numbers, or
-the dash (\'-\') character, or the period (\'.\').**
+the dash ('-') character, or the period ('.').**
 
 So, enter the command below, optionally specifying a custom channel name
 (not shown here) as the lone argument to the *generateArtifacts.sh*
@@ -337,7 +337,7 @@ inside *generateArtifacts.sh*:
     -rw-r--r-- 1 bcuser bcuser   282 Oct 22 14:08 Org1MSPanchors.tx
 
 *genesis.block* will be passed to the *orderer* at startup, and will be
-used to configure the orderer\'s *system channel*. This file contains
+used to configure the orderer's *system channel*. This file contains
 the x.509 signing certificates for every organization defined within the
 consortia that were specified within the *configtx.yaml* file when
 *configtxgen* was run. The *system channel* contains other values such
