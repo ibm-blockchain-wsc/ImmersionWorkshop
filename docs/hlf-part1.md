@@ -645,7 +645,7 @@ the channel to endorse a transaction proposal.
 
 **Note:** A policy of requiring unanimous consent implies that each
 member organization should build an available and resilient
-infrastructure since if even one organization\'s peers are unavailable,
+infrastructure since if even one organization's peers are unavailable,
 then additions to the blockchain for that channel would grind to a halt.
 Then again, who runs in production without an available and resilient
 infrastructure anyway?
@@ -673,7 +673,7 @@ Docker container. For most of the rest of the lab, you will be entering
 commands within this Bash shell.
 
 Instead of working as user *bcuser* on the ubuntu16045 server in the
-*\~/zmarbles* directory, you are now inside the Docker container with ID
+*~/zmarbles* directory, you are now inside the Docker container with ID
 *acd1f96d8807* (your ID will differ), working in the
 */opt/gopath/src/github.com/hyperledger/fabric/peer* directory. It is no
 coincidence that that directory is the value of the *working\_dir*
@@ -710,7 +710,7 @@ going to join all four peers to our channel, you only need to issue the
 channel creation command once. You can issue it from any of the four
 peers, so pick your favorite peer and issue the source command. In this
 screen snippet, I have chosen Org 1, peer 1. Issue the command below,
-leaving the arguments \'1 1\' as is, or change it to one of the other
+leaving the arguments '1 1' as is, or change it to one of the other
 valid combinations as described in the previous step:
 
     root@acd1f96d8807:/opt/gopath/src/github.com/hyperledger/fabric/peer# source scripts/setpeer 1 1
@@ -754,7 +754,7 @@ and thank me later for setting this up for you:
     2018-10-22 18:54:06.608 UTC [cli.common] readBlock -> INFO 002 Received block: 0
 
 The last line before you get your command prompt back will contain the
-words \"Received block: 0\". This indicates that your channel creation
+words "Received block: 0". This indicates that your channel creation
 was successful, and the peer received the initial, or *genesis* block
 for the channel, which is block 0. Programmers love to start counting
 things at zero instead of one- it makes them feel special.
@@ -808,10 +808,10 @@ returned at the end of the output:
     2018-10-22 18:56:48.488 UTC [channelCmd] InitCmdFactory -> INFO 001 Endorser and orderer connections initialized
     Channels peers has joined:
 
-**Step 6.3:** Issue *peer channel join -b \$CHANNEL\_NAME.block* to join
+**Step 6.3:** Issue *peer channel join -b $CHANNEL_NAME.block* to join
 the channel you set up when you ran *generateArtifacts.sh* a little
 while ago. Among the many things that script did, it exported an
-environment variable named \$CHANNEL\_NAME set to the channel name you
+environment variable named $CHANNEL_NAME set to the channel name you
 specified (or *mychannel* if you did not specify your own name), and
 then the Docker Compose file is set up to pass this environment variable
 to the *cli* container. If you are still on the happy path, your output
@@ -850,7 +850,7 @@ returned at the end of the output:
     2018-10-22 18:58:46.476 UTC [channelCmd] InitCmdFactory -> INFO 001 Endorser and orderer connections initialized
     Channels peers has joined: 
 
-**Step 6.7:** Issue *peer channel join -b \$CHANNEL\_NAME.block* to join
+**Step 6.7:** Issue *peer channel join -b $CHANNEL\_NAME.block* to join
 your channel. Your output should look similar to this:
 
     root@acd1f96d8807:/opt/gopath/src/github.com/hyperledger/fabric/peer# peer channel join -b $CHANNEL_NAME.block 
@@ -886,7 +886,7 @@ are returned at the end of the output:
     2018-10-22 19:00:20.604 UTC [channelCmd] InitCmdFactory -> INFO 001 Endorser and orderer connections initialized
     Channels peers has joined: 
 
-**Step 6.11:** Issue *peer channel join -b \$CHANNEL\_NAME.block* to
+**Step 6.11:** Issue *peer channel join -b $CHANNEL\_NAME.block* to
 join your channel. Your output should look similar to this:
 
     root@acd1f96d8807:/opt/gopath/src/github.com/hyperledger/fabric/peer# peer channel join -b $CHANNEL_NAME.block 
@@ -927,7 +927,7 @@ are returned at the end of the output:
     2018-10-22 19:01:56.401 UTC [channelCmd] InitCmdFactory -> INFO 001 Endorser and orderer connections initialized
     Channels peers has joined: 
 
-**Step 6.15:** Issue *peer channel join -b \$CHANNEL\_NAME.block* to
+**Step 6.15:** Issue *peer channel join -b $CHANNEL\_NAME.block* to
 join your channel. (Am I being redundant? Am I repeating myself? Am I
 saying the same thing over and over again?) Your output should look
 similar to this:
@@ -1034,7 +1034,7 @@ In this section, you will install the chaincode on two of your peers.
     CORE_PEER_ADDRESS=peer0.unitedmarbles.com:7051
 
 **Step 8.2:** Try this command to list the chaincodes installed on the
-peer. It will return an empty list, as you haven\'t yet installed any
+peer. It will return an empty list, as you haven't yet installed any
 chaincode on any of the peers:
 
     root@acd1f96d8807:/opt/gopath/src/github.com/hyperledger/fabric/peer# peer chaincode list --installed
@@ -1052,7 +1052,7 @@ shown here:
 
 **Step 8.4:** Repeat the command from *Step 8.2:* - Tip: you could
 probably use the up arrow key a couple of times to retrieve that command
-as an alternative to doing a copy-and-paste here, but I\'ll leave it up
+as an alternative to doing a copy-and-paste here, but I'll leave it up
 to you:
 
     root@a20e5320179f:/opt/gopath/src/github.com/hyperledger/fabric/peer# peer chaincode list --installed
@@ -1060,9 +1060,9 @@ to you:
     Name: marbles, Version: 1.0, Path: github.com/hyperledger/fabric/examples/chaincode/go/marbles, Id: 19776f7d2a186d5188b748254a5767bd9689f3723672450c3fdd2daa62b4b746
     root@a20e5320179f:/opt/gopath/src/github.com/hyperledger/fabric/peer#
 
-**Note:** I won\'t have you repeat the \"before\" and \"after\" *peer
+**Note:** I won't have you repeat the "before" and "after" *peer
 chaincode list \--installed* commands on any of the other peers on which
-you install it, but I won\'t take extraordinary measures to stop you if
+you install it, but I won't take extraordinary measures to stop you if
 you insist on doing it.
 
 **Step 8.5:** Switch to *peer0* in *Org1MSP*:
@@ -1088,10 +1088,10 @@ shown here:
     2018-10-22 19:08:51.195 UTC [chaincodeCmd] install -> INFO 003 Installed remotely response:<status:200 payload:"OK" > 
 
 An interesting thing to note is that for the *peer chaincode install*
-command you did not need to specify the \$FABRIC\_TLS environment
+command you did not need to specify the $FABRIC\_TLS environment
 variable. This is because this operation does not cause the peer to
 communicate with the orderer. Also, you did not need to specify the
-\$CHANNEL\_NAME environment variable. This is because the *peer
+$CHANNEL\_NAME environment variable. This is because the *peer
 chaincode install* command only installs the chaincode on the peer node.
 You only need to do this once per peer. That is, even if you wanted to
 invoke the same chaincode on multiple channels on a peer, you only
@@ -1109,7 +1109,7 @@ In the previous section, you installed chaincode on two of your four
 peers. Chaincode installation is a peer-level operation. Chaincode
 instantiation, however, is a channel-level operation. It only needs to
 be performed once on the channel, no matter how many peers have joined
-the channel. I\'ll try to prove it to you in this section.
+the channel. I'll try to prove it to you in this section.
 
 Chaincode instantiation causes a transaction to occur on the channel, so
 even if a peer on the channel does not have the chaincode installed, it
@@ -1192,7 +1192,7 @@ entering:
     CORE_PEER_ADDRESS=peer0.unitedmarbles.com:7051
 
 **Step 9.6:** On Terminal Session 1, enter this command to list
-instantiated chaincodes on your channel. Spoiler alert- there aren\'t
+instantiated chaincodes on your channel. Spoiler alert- there aren't
 any, so you will get an empty list:
 
     root@a20e5320179f:/opt/gopath/src/github.com/hyperledger/fabric/peer# peer chaincode list --instantiated --channelID ${CHANNEL_NAME}
@@ -1207,7 +1207,7 @@ the chaincode on the channel:
     2018-10-22 19:16:30.024 UTC [chaincodeCmd] checkChaincodeCmdParams -> INFO 002 Using default vscc
 
 **Note:** In your prior commands, when specifying the channel name, you
-used lowercase 'c' as the argument, e.g., *-c \$CHANNEL\_NAME*. In the
+used lowercase 'c' as the argument, e.g., *-c $CHANNEL\_NAME*. In the
 *peer chaincode instantiate* command however, you use an uppercase 'C'
 as the argument to specify the channel name, e.g., *-C mychannel*,
 because -c is used to specify the arguments given to the chaincode. Why
@@ -1263,8 +1263,8 @@ to see that your instantiated chaincode on your channel is now listed:
 **Step 9.11:** Remember when I said at the beginning of this section
 that I would try to prove it to you that you only need to do the
 *instantiate* once on a channel, and not on every peer in the channel?
-Let\'s find out if I\'m lying. You did the *instantiate* on peer \"0
-0\". Switch to another peer:
+Let's find out if I'm lying. You did the *instantiate* on peer "0
+0". Switch to another peer:
 
     root@acd1f96d8807:/opt/gopath/src/github.com/hyperledger/fabric/peer# source scripts/setpeer 1 1
     CORE_PEER_TLS_KEY_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/unitedmarbles.com/peers/peer0.unitedmarbles.com/tls/server.key
@@ -1314,10 +1314,10 @@ commands* in Terminal session 1, while you will enter *docker ps* and
 **Step 10.2:** You will use the marbles chaincode to create a new
 Marbles owner named John. If you would like to use a different name than
 John, that is fine but then there will be other places later where you
-would need to use your "custom" name instead of John. And John\'s the
+would need to use your "custom" name instead of John. And John's the
 guy who first got this lab working about three years ago so I think he
-deserves a marble, don\'t you, so if you do want to show off and change
-the name then I\'m going to let you figure out later where it might need
+deserves a marble, don't you, so if you do want to show off and change
+the name then I'm going to let you figure out later where it might need
 to be changed.
 
 Enter this command in Terminal session 1:
@@ -1527,7 +1527,7 @@ peer).
 
 If you are ambitious and want to install the chaincode on that fourth
 peer, try the useful Docker commands I have shown you from PuTTY session
-2 to see that the chaincode\'s Docker image and Docker containerare
+2 to see that the chaincode's Docker image and Docker container are
 created when you invoke a transaction on that fourth peer.
 
 Try some or all of these commands from Terminal session 1:
