@@ -1,0 +1,20 @@
+site_name: Marbles Connect-a-thon Lab
+repo_url: https://github.com/ibm-blockchain-wsc/ImmersionWorkshop.git
+edit_uri: ''
+nav:
+    - Home: index.md
+    - Hyperledger Fabric Lab:
+        - Introduction: hlf-home.md
+        - Lab: hlf.md
+    - VSCode Lab:
+        - Introduction: vscode-home.md
+        - Part 1: vscode-part1.md
+        - Part 2: vscode-part2.md
+    - IBM Blockchain Platform Connect-a-thon Lab:
+        - Introduction: connect-home.md
+        - Part 1: connect-part1.md
+        - Part 2: connect-part2.md
+
+theme: readthedocs
+markdown_extensions:
+  - admonition
