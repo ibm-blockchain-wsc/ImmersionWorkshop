@@ -14,7 +14,7 @@ deploy to a local network that is running on your laptop, but you can
 also connect the IBM Blockchain Platform VSCode extension to either your
 IBM Blockchain Platform network running in the cloud or your IBM
 Blockchain Platform on IBM Cloud Private network on-premises. Below is a
-breakdown of `Part 1` of our lab:
+breakdown of `Part 1` of our lab
 
 -   Install and Start up a Blockchain Network:
 
@@ -84,7 +84,7 @@ application. You can enter them from the terminal application, but the
 instructions below will all be within the VSCode terminal. `Part 2` of
 this lab, you will use the terminal application.
 
-**1.** Open up your teminal and type in the following commands:
+**1.** Open up your teminal and type in the following commands below
 
     tecadmin@ubuntubase:~$ node -v # We want Node to be v8.x or higher
     v8.11.3
@@ -97,10 +97,10 @@ this lab, you will use the terminal application.
     tecadmin@ubuntubase:~$ docker-compose --version # We want Docker Compose to be v1.14.0 or higher
     docker-compose version 1.14.0, build c7bdf9e
 
-If you get a version that doesn\'t support our qualifications, raise
+If you get a version that doesn't support our qualifications, raise
 your hand and tell the instructor.
 
-**2.** From the same command line, enter the following command:
+**2.** From the same command line, enter the following command below
 
     tecadmin@ubuntubase:~$ code
 
@@ -178,7 +178,7 @@ those images and containers.
 
 **7.** How do we know if we have a successful blockchain network up and
 running? I\'m glad you asked! We will see messages flooding the `Output`
-panel. We will want to see a message that resembles the one below:
+panel. We will want to see a message that resembles the one below
 
     [2/20/2019 7:26:54 PM] [INFO] 2019-02-21 00:26:34.756 UTC [cli.common] readBlock -> INFO 002 Received block: 0
     [2/20/2019 7:26:54 PM] [INFO] 2019-02-21 00:26:34.930 UTC [channelCmd] InitCmdFactory -> INFO 001 Endorser and orderer connections initialized
@@ -201,7 +201,7 @@ do a series of commands, some that are VSCode-related and some that are
 IBM Blockchain Platform-related.
 
 **2.** You will notice a series of commands pop up. Go ahead and enter
-this command below into the search bar:
+this command below into the search bar
 
     >IBM Blockchain Platform: Create Smart Contract Project 
 
@@ -210,7 +210,7 @@ this command below into the search bar:
 This command will generate a skeleton smart contract for us. We will
 walk through all that it generates in a second.
 
-**3.** We might get a message that says :
+**3.** We might get a message that says 
 
     Can this extension install missing npm packages before proceeding?
 
@@ -218,7 +218,7 @@ Select `yes` if that message comes up. What it is installing is
 `generator-fabric` which is actually the generator that creates our
 skeleton smart contract.
 
-**4.** We\'ll then get a message that says :
+**4.** We\'ll then get a message that says 
 
     Chose smart contract language (esc to cancel)
 
@@ -231,7 +231,7 @@ generate our smart contract in that folder.
 
 ![image](images/5.png)
 
-**6.** We will get another pop-up asking :
+**6.** We will get another pop-up asking 
 
     Choose how to open your new project
 
@@ -267,7 +267,7 @@ existence. We'll examine these transactions soon, but for now notice how
 MyContract extends the Hyperledger Fabric Contract class which is the
 first line of code here. Our mycontract will use built-in features of
 these classes, such as automatic method invocation, a per-transaction
-context, transaction handlers, and class-shared state :
+context, transaction handlers, and class-shared state 
 
     const { Contract } = require('fabric-contract-api');
 
@@ -281,7 +281,6 @@ argument in addition to ctx and transaction2 expects 2 different
 arugments in addition to ctx. The instantiate transaction expects an
 `instantiate` argument when actually instantiating this smart contract.
 You can see that below. In fact, we will instantiate in the next section
-:
 
     async instantiate(ctx) {
        console.info('instantiate');
@@ -309,7 +308,7 @@ navigating to the IBP Extension (the block outline within our VSCode).
 **2.** Once we are in the IBP extension, repeat the steps from
 `section 2, step 1` by clicking on the gear in the bottom left and then
 selecting `Command Palette`. When it asks us for a command to run, type
-this in and press enter :
+this in below and press enter 
 
     >IBM Blockchain Platform: Package a Smart Contract Project
 
@@ -330,7 +329,7 @@ pop-up message asking which peer to install the chaincode on. Simply
 click on the peer it gives us, in this case it is
 `peer0.org1.example.com`. Then it will ask what to install. We will want
 to install `mycontract@0.0.1` onto that peer. Press `enter` to begin
-this operation :
+this operation 
 
     Peer: peer0.org1.example.com
     Package: mycontract@0.0.1
@@ -346,7 +345,7 @@ it will ask what channel to instantiate the chaincode on. You will want
 to instantiate on `mychannel` and then the `mycontract@0.0.1` as the
 smart contract. Then it will ask what function we want to pass through.
 We want to enter `instantiate` here. Then for the last popup message,
-simply just press `enter` and it will begin to instantiate :
+simply just press `enter` and it will begin to instantiate 
 
     Channel: mychannel
     Package: mycontract@0.0.1 # It should say installed to the right of the package
@@ -384,13 +383,13 @@ the path from where we created our smart contract folder back in section
 2. Equally, we can do a `ls -l` command to verify that we see our
 `my-contract.js` file in there.
 
-**4.** To test our smart contract code, simply enter `npm test` from the
-terminal in VSCode :
+**4.** To test our smart contract code, simply enter `npm test` below from the
+terminal in VSCode 
 
     tecadmin@ubuntubase:~/Desktop/mycontract/test$ npm test
 
 **5.** From there, we will test our smart contract. If we are
-successful, we will see the following messages below :
+successful, we will see the following messages below 
 
     #instantiate
     instantiate
@@ -412,8 +411,8 @@ Section 6: Submit Transactions
 In this section we will actually submit transactions after knowing that
 our smart contract is good to go!
 
-**1.** Enter the following command to see all of our Docker containers
-running. Please do this from the command line in VSCode :
+**1.** Enter the following command below to see all of our Docker containers
+running. Please do this from the command line in VSCode 
 
     tecadmin@ubuntubase:~/Desktop/mycontract/test$ docker ps -a
 
@@ -422,7 +421,7 @@ orderer, couchdb and the chaincode container
 
 **2.** To see the logs of our chaincode container enter the following
 commmand from your terminal in VSCode. **NOTE:** scroll to see the
-entire command below :
+entire command below 
 
     tecadmin@ubuntubase:~/Desktop/mycontract/test$ docker logs -f fabricvscodelocalfabric-peer0.org1.example.com-mycontract-0.0.1
 
@@ -440,7 +439,7 @@ possible transactions: `instantiate, transaction1, transaction2`
 **5.** Once you have untoggled all the required things, right click on
 `transaction1` and select `Submit Transaction`. Again there will be a
 popup in the top middle of VSCode. When it asks for an argument, type in
-`Hello` and press enter :
+`Hello` and press enter 
 
     Arguments: "Hello"
 
@@ -448,9 +447,9 @@ popup in the top middle of VSCode. When it asks for an argument, type in
 transaction coming through the chaincode container.
 
 **7.** Equally, you could check the logs of your peer by entering the
-following command within VSCode. I\'m grep-ing these logs because there
+following command below within VSCode. I\'m grep-ing these logs because there
 is a lot of output due to the signatures and messages a transaction
-sends, but I\'m just wanting to see all the blocks :
+sends, but I\'m just wanting to see all the blocks 
 
     tecadmin@ubuntubase:~/Desktop/mycontract/test$ docker logs -f fabricvscodelocalfabric_peer0.org1.example.com | grep block
     2019-02-21 20:02:09.209 UTC [endorser] callChaincode -> INFO 093 [mychannel][c55f59cc] Entry chaincode: name:"mycontract" 
@@ -484,7 +483,7 @@ Then click on `Generate Smart Contract Tests`.
 
 **2.** When another pop-up opens, select `JavaScript` as the smart
 contract language. In VSCode you will see a new file open again. In my
-case it is called `MyContract-mycontract@0.0.1.test.js` :
+case it is called `MyContract-mycontract@0.0.1.test.js` 
 
     SmartContract Language: JavaScript
     File Name: MyContract-mycontract@0.0.1.test.js
@@ -498,12 +497,11 @@ in my case it is on line 71, but that could be different for you. A
 couple of lines down (on 83 for me) you\'ll see (**NOTE:** I realize the
 picture differs, but with each release of the IBM Blockchain extension,
 they might add or delete lines with certain files.)
-`const args = [''];`. Now, place some text between those two apostrophes 
-:
+`const args = [''];`. Now, place some text between those two apostrophes. See below to get an example
 
     const args = ['This is test transaction']; 
 
-We could even do this if we wanted too :
+We could even do this if we wanted too 
 
     const args = ["I'm going to brag to my friends about my blockchain skillz and not my spelling skills"];
 
@@ -514,7 +512,7 @@ file. Now that we have data to put onto the ledger, click on `Run Test`
 to submit the transaction and we should see this in the terminal. The
 `Run Test` button can be found by placing your cursor just above the
 `transaction1` code. The output below will occur within your VSCode
-terminal :
+terminal 
 
     tecadmin@ubuntubase:~/Desktop/mycontract$ cd /home/tecadmin/Desktop/mycontract
     tecadmin@ubuntubase:~/Desktop/mycontract$ node_modules/.bin/mocha functionalTests/MyContract-mycontract@0.0.1.test.js --grep="transaction1" 
@@ -527,7 +525,7 @@ terminal :
 
 **5.** Again, we can check the logs of our chaincode container within
 your VSCode terminal. **NOTE:** scroll over to see the entire command
-below :
+below 
 
     tecadmin@ubuntubase:~/Desktop/mycontract$ docker logs -f fabricvscodelocalfabric-peer0.org1.example.com-mycontract-0.0.1
 
@@ -544,7 +542,7 @@ below :
 
 **6.** If we wanted to check the logs of the peer, we can do that as
 well within your VSCode terminal. You\'ll see similar output as what is
-below :
+below 
 
     tecadmin@ubuntubase:~/Desktop/mycontract$ docker logs -f fabricvscodelocalfabric_peer0.org1.example.com | grep block
     2019-02-21 20:29:41.609 UTC [endorser] callChaincode -> INFO 09f [mychannel][40cef608] Entry chaincode: name:"mycontract" 
