@@ -25,7 +25,7 @@ Section 2: Marbles user interface setup
 packages needed by the Marbles user interface. First you will verify
 that the *node\_modules* directory does not exist. This directory will
 be created when you run an npm *install* in the next step, so right now
-it shouldn\'t exist:
+it shouldn't exist:
 
     bcuser@ubuntu16045:~/zmarbles/marblesUI$ ls -l node_modules
     ls: cannot access 'node_modules': No such file or directory
@@ -263,7 +263,7 @@ differences between *connection\_profile1.json* and
 *connection\_profile2.json*, try the *diff* command and observe its
 output. This command lists sections of the two files that it finds
 different. The lines from the first file, *blockchain\_creds1.json*,
-start with '\<' (added by the diff command output, not in the actual
+start with '<' (added by the diff command output, not in the actual
 file), and the lines from the second file, *blockchain\_creds2.json*,
 start with '\>':
 
@@ -347,7 +347,7 @@ by a service provider- think "Blockchain-as-a-service". The chosen
 topology is use-case dependent and beyond the scope of this lab.
 
 **Step 3.1:** You are now ready to start the server for UnitedMarbles.
-Back up to the *\~/zmarbles/marblesUI* directory:
+Back up to the *~/zmarbles/marblesUI* directory:
 
     bcuser@ubuntu16045:~/zmarbles/marblesUI/config$ cd ..
     bcuser@ubuntu16045:~/zmarbles/marblesUI$
@@ -520,26 +520,26 @@ you spent taking this lab- assuming you don't get off the hook when you
 tell her that nowhere was JavaScript mentioned on the agenda.
 
 **Step 3.3:** Open up a web browser window or tab and point to
-*http://\<your\_IP\_goes\_here\>:3001*. Captain Obvious says to plug in
-your IP address instead of *\<your\_IP\_goes\_here\>*. Listen to him.
+*http://<your\_IP\_goes\_here\>:3001*. Substitute your team's assigned 
+IP address instead of *<your\_IP\_goes\_here\>*. 
 You should see a window pop up that looks like this:
 
 ![image](images/lab3/2019-01-20_13-13-53_UserChoice.png)
 
 **Step 3.4:** You are given a choice between *Express* and *Guided* for
-setting up the demo. Don\'t short-change yourself- pick *Guided*,
-you\'ll learn more. After you click *Guided*, you will see this:
+setting up the demo. Don't short-change yourself- pick *Guided*,
+you'll learn more. After you click *Guided*, you will see this:
 
 ![image](images/lab3/2019-01-20_13-18-31_GuidedStep1.png)
 
-Read the text in the window to see what\'s going on.
+Read the text in the window to see what's going on.
 
 **Step 3.5:** If you do not see *Step 1 Complete*, ask an instructor for
 help. Otherwise, click *Next Step* and you should see this:
 
 ![image](images/lab3/2019-01-20_13-19-49_GuidedStep2.png)
 
-Click the \'+\' sign if you wish to see the settings used to contact the
+Click the '+' sign if you wish to see the settings used to contact the
 Fabric Certificate Authority.
 
 **Step 3.6:** If you do not see *Step 2 Complete*, ask an instructor for
@@ -547,7 +547,7 @@ help. Otherwise, click *Next Step* and you should see this:
 
 ![image](images/lab3/2019-01-20_13-20-56_GuidedStep3.png)
 
-Click the \'+\' sign to see information about your environment and your
+Click the '+' sign to see information about your environment and your
 marbles chaincode.
 
 **Step 3.7:** If you do not see *Step 3 Complete*, ask an instructor for
@@ -559,7 +559,7 @@ help. Otherwise, click *Next Step* and you should see this:
 further input from you to complete, this step will not proceed until you
 click the *Create* button. Before you do that you have an opportunity to
 review and change the names that you use for new marbles owners in
-addition to the owner named \'Barry\' that should already exist (though
+addition to the owner named 'Barry' that should already exist (though
 not evident from this screen) if you created it in the first part of
 this lab.
 
@@ -737,7 +737,7 @@ If you peek at your browser session from United Marbles, (port 3001),
 you will not notice any changes yet.
 
 **Step 3.13:** Open a browser tab or window and navigate to
-*http://\<your\_IP\_here\>:3002*. You will again be given a choice of
+*http://<your\_IP\_here\>:3002*. You will again be given a choice of
 *Express* or *Guided* and feel free to choose whichever path suits your
 fancy. If you choose *Express*, everything should hopefully sail through
 until you see a screen with all Marbles Inc. owners and marbles, as well
@@ -747,7 +747,7 @@ as all United Marbles owners and marbles:
 
 **Step 3.14:** If you go back to your screen for United Marbles (port
 3001) you should observe that it has been updated to show the owners and
-marbles for Marbles Inc. in addition to United Marbles\' own owners and
+marbles for Marbles Inc. in addition to United Marbles' own owners and
 marbles:
 
 ![image](images/lab3/UnitedMarblesUpdatedPage.png)
