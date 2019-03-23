@@ -132,26 +132,55 @@ OK
 ## Take a look at your peer setup environment variables
 In order to operate your peer a number of environment variables need to be set. Let's take a look at some of the environment variables set for the Hyperledger Fabric cli to work with your peer:
 
-`env | grep CORE`
+`env | grep "CORE\|FABRIC"`
 
 Sample Output:
 ```
 CORE_PEER_LOCALMSPID=org0
+FABRIC_CFG_PATH=/home/fabric-ca-client/fabric-binaries/config
 CORE_PEER_TLS_ENABLED=true
 CORE_PEER_MSPCONFIGPATH=/home/org0/admin
 CORE_PEER_TLS_ROOTCERT_FILE=/home/org0/peertls.pem
-CORE_PEER_ADDRESS=192.168.22.81:30035
+CORE_PEER_ADDRESS=192.168.22.81:30787
 ```
 
-`CORE_PEER_LOCALMSPID=org0` defines the local MSP or Membership Services Provider of the peer which contains the identifying information (i.e., certs and keys) for the peer as well as the certificates of trusted Certificate Authorities which are authorized to issue identities on behalf of the organization. (In this example `org0` is the MSPID, yours will correspond with your team)
+`CORE_PEER_LOCALMSPID` defines the local MSP or Membership Services Provider of the peer which contains the identifying information (i.e., certs and keys) for the peer as well as the certificates of trusted Certificate Authorities which are authorized to issue identities on behalf of the organization. (In the sample output above `org0` is the MSPID, yours will correspond with your team)
+
+`FABRIC_CFG_PATH=/home/fabric-ca-client/fabric-binaries/config` defines the config path that holds config files such as core.yaml required for some fabric binary tools such as the peer command used in `peer chaincode list --installed` below.
 
 `CORE_PEER_TLS_ENABLED=true` is used to enable transport layer security (TLS) communication.
 
 `CORE_PEER_MSPCONFIGPATH` points to the MSP material you are using to operate the peer
 
-`CORE_PEER_TLS_ROOTCERT_FILE` is the root TLS certificate for the peer which your system needs to trust to have a TLS connection with the peer. 
+`CORE_PEER_TLS_ROOTCERT_FILE` is the path to the root TLS certificate for the peer which your system needs to trust to have a TLS connection with the peer. 
 
 `CORE_PEER_ADDRESS` is the peer's IP address used to connect with the peer. 
+
+Additionally, a few more variables are set for ease of use in later commands. You can see the values of these variables with the command below:
+
+`env | grep "CHANNEL\|CC_NAME\|ORDERER_CA\|ORDERER_1\|team\|credential" | grep -v "DOCKER"`
+
+Sample Output:
+```
+ORDERER_1=192.168.22.81:30634
+CC_NAME=marbles
+CHANNEL=mychannel
+team=team00
+ORDERER_CA=/home/org0/ordererca.pem
+credential=p@ssw0rd
+``` 
+
+`ORDERER_1` is the orderer's IP address used to connect to the orderer.
+
+`CC_NAME` is the name of the chaincode that we are targeting on the channel.
+
+`CHANNEL` is the name of the channel we are targeting. Remember a channel in Hyperledger Fabric is it's own subnetwork of communication with its own ledger. 
+
+`team` is the name of the team that you are a part of for this lab which is used to differentiate between different lab members.
+
+`ORDERER_CA` is the path to the root TLS certificate for the orderer which your system needs to trust to have a TLS connection with the orderer.
+
+`credential` is the password you will use to authenticate to the cluster for both the private docker registry as well as the Kubernetes API server. 
 
 ## Check the chaincode on the peer and the channel
 
