@@ -9,6 +9,10 @@ hosted by the Linux Foundation. Hyperledger Fabric provides the
 distributed ledger, a.k.a. blockchain, technology that is the core of
 IBM Blockchain solutions and services.
 
+Below is a diagram that depicts the blockchain network you will build and operate:
+
+![Marbles HLF Network](images/marbles-hlf-lab.png)
+
 You will use Docker Compose to bring up a Hyperledger Fabric network in
 which two organizations will participate. There will be one orderer
 service for the entire network, and each organization will use its own
