@@ -70,7 +70,7 @@
     <a class="current" href="./">Part 2</a>
     <ul class="subnav">
             
-    <li class="toctree-l3"><a href="#section-1-lab-overview">Section 1: Lab Overview</a></li>
+    <li class="toctree-l3"><a href="#section-1-lab-part-2-overview">Section 1: Lab Part 2 Overview</a></li>
     
 
     <li class="toctree-l3"><a href="#section-2-marbles-user-interface-setup">Section 2: Marbles user interface setup</a></li>
@@ -158,9 +158,9 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="section-1-lab-overview">Section 1: Lab Overview</h1>
-<p>In this lab, you will use the Hyperledger Fabric network that you
-created in the previous lab and configure the Marbles User Interface
+                <h1 id="section-1-lab-part-2-overview">Section 1: Lab Part 2 Overview</h1>
+<p>In this part of the lab, you will use the Hyperledger Fabric network that you
+created in the Part 1 of the lab and configure the Marbles User Interface
 (UI) web application so that it will integrate with the marbles
 chaincode that you installed in the previous lab.</p>
 <p>You will use two browser sessions to simulate acting as a user for each
@@ -177,7 +177,7 @@ bcuser@ubuntu16045:~/zmarbles/marblesUI$
 packages needed by the Marbles user interface. First you will verify
 that the <em>node_modules</em> directory does not exist. This directory will
 be created when you run an npm <em>install</em> in the next step, so right now
-it shouldn\'t exist:</p>
+it shouldn't exist:</p>
 <pre><code>bcuser@ubuntu16045:~/zmarbles/marblesUI$ ls -l node_modules
 ls: cannot access 'node_modules': No such file or directory
 </code></pre>
@@ -401,7 +401,7 @@ differences between <em>connection_profile1.json</em> and
 <em>connection_profile2.json</em>, try the <em>diff</em> command and observe its
 output. This command lists sections of the two files that it finds
 different. The lines from the first file, <em>blockchain_creds1.json</em>,
-start with '\&lt;' (added by the diff command output, not in the actual
+start with '&lt;' (added by the diff command output, not in the actual
 file), and the lines from the second file, <em>blockchain_creds2.json</em>,
 start with '>':</p>
 <pre><code>bcuser@ubuntu16045:~/zmarbles/marblesUI/config$ diff connection_profile1.json connection_profile2.json 
@@ -481,7 +481,7 @@ own server, or perhaps both companies would log in to a server provided
 by a service provider- think "Blockchain-as-a-service". The chosen
 topology is use-case dependent and beyond the scope of this lab.</p>
 <p><strong>Step 3.1:</strong> You are now ready to start the server for UnitedMarbles.
-Back up to the <em>\~/zmarbles/marblesUI</em> directory:</p>
+Back up to the <em>~/zmarbles/marblesUI</em> directory:</p>
 <pre><code>bcuser@ubuntu16045:~/zmarbles/marblesUI/config$ cd ..
 bcuser@ubuntu16045:~/zmarbles/marblesUI$
 </code></pre>
@@ -645,46 +645,46 @@ the marbles application because she wants a return on the time and money
 you spent taking this lab- assuming you don't get off the hook when you
 tell her that nowhere was JavaScript mentioned on the agenda.</p>
 <p><strong>Step 3.3:</strong> Open up a web browser window or tab and point to
-<em>http://\&lt;your_IP_goes_here>:3001</em>. Captain Obvious says to plug in
-your IP address instead of <em>\&lt;your_IP_goes_here></em>. Listen to him.
+<em>http://&lt;your_IP_goes_here>:3001</em>. Substitute your team's assigned 
+IP address instead of <em>&lt;your_IP_goes_here></em>. 
 You should see a window pop up that looks like this:</p>
-<p><img alt="image" src="images/lab3/2019-01-20_13-13-53_UserChoice.png" /></p>
+<p><img alt="image" src="../images/lab3/2019-01-20_13-13-53_UserChoice.png" /></p>
 <p><strong>Step 3.4:</strong> You are given a choice between <em>Express</em> and <em>Guided</em> for
-setting up the demo. Don\'t short-change yourself- pick <em>Guided</em>,
-you\'ll learn more. After you click <em>Guided</em>, you will see this:</p>
-<p><img alt="image" src="images/lab3/2019-01-20_13-18-31_GuidedStep1.png" /></p>
-<p>Read the text in the window to see what\'s going on.</p>
+setting up the demo. Don't short-change yourself- pick <em>Guided</em>,
+you'll learn more. After you click <em>Guided</em>, you will see this:</p>
+<p><img alt="image" src="../images/lab3/2019-01-20_13-18-31_GuidedStep1.png" /></p>
+<p>Read the text in the window to see what's going on.</p>
 <p><strong>Step 3.5:</strong> If you do not see <em>Step 1 Complete</em>, ask an instructor for
 help. Otherwise, click <em>Next Step</em> and you should see this:</p>
-<p><img alt="image" src="images/lab3/2019-01-20_13-19-49_GuidedStep2.png" /></p>
-<p>Click the \'+\' sign if you wish to see the settings used to contact the
+<p><img alt="image" src="../images/lab3/2019-01-20_13-19-49_GuidedStep2.png" /></p>
+<p>Click the '+' sign if you wish to see the settings used to contact the
 Fabric Certificate Authority.</p>
 <p><strong>Step 3.6:</strong> If you do not see <em>Step 2 Complete</em>, ask an instructor for
 help. Otherwise, click <em>Next Step</em> and you should see this:</p>
-<p><img alt="image" src="images/lab3/2019-01-20_13-20-56_GuidedStep3.png" /></p>
-<p>Click the \'+\' sign to see information about your environment and your
+<p><img alt="image" src="../images/lab3/2019-01-20_13-20-56_GuidedStep3.png" /></p>
+<p>Click the '+' sign to see information about your environment and your
 marbles chaincode.</p>
 <p><strong>Step 3.7:</strong> If you do not see <em>Step 3 Complete</em>, ask an instructor for
 help. Otherwise, click <em>Next Step</em> and you should see this:</p>
-<p><img alt="image" src="images/lab3/2019-01-20_13-22-12_GuidedStep4-010.png" /></p>
+<p><img alt="image" src="../images/lab3/2019-01-20_13-22-12_GuidedStep4-010.png" /></p>
 <p><strong>Step 3.8:</strong> Unlike the first three steps, which did not require
 further input from you to complete, this step will not proceed until you
 click the <em>Create</em> button. Before you do that you have an opportunity to
 review and change the names that you use for new marbles owners in
-addition to the owner named \'Barry\' that should already exist (though
+addition to the owner named 'Barry' that should already exist (though
 not evident from this screen) if you created it in the first part of
 this lab.</p>
 <p>Click the <em>Create</em> button when you are ready and after several seconds
 you should see <em>Step 4 Complete</em> on the screen:</p>
-<p><img alt="image" src="images/lab3/2019-01-20_13-24-08_GuidedStep4-020.png" /></p>
+<p><img alt="image" src="../images/lab3/2019-01-20_13-24-08_GuidedStep4-020.png" /></p>
 <p><strong>Step 3.9:</strong> If you do not see <em>Step 4 Complete</em>, ask an instructor for
 help. Otherwise, click <em>Next Step</em> and you should see this:</p>
-<p><img alt="image" src="images/lab3/2019-01-20_13-25-29_GuidedStep5.png" /></p>
+<p><img alt="image" src="../images/lab3/2019-01-20_13-25-29_GuidedStep5.png" /></p>
 <p>This should just give you a smiley face and a message saying that setup
 is complete.</p>
 <p><strong>Step 3.10:</strong> Click <em>Enter</em> and you should be returned to a screen that
 looks similar to this (your names may differ):</p>
-<p><img alt="image" src="images/lab3/UnitedMarblesMainPage.png" /></p>
+<p><img alt="image" src="../images/lab3/UnitedMarblesMainPage.png" /></p>
 <p><strong>Step 3.11:</strong> What about John's marble for Marbles Inc.? You only
 started up the server for United Marbles, so why does Marbles Inc show
 up and why is John so lonely? When you did the previous lab, the first
@@ -837,17 +837,17 @@ debug: Open your browser to http://localhost:3002 and login as "admin" to initia
 <p>If you peek at your browser session from United Marbles, (port 3001),
 you will not notice any changes yet.</p>
 <p><strong>Step 3.13:</strong> Open a browser tab or window and navigate to
-<em>http://\&lt;your_IP_here>:3002</em>. You will again be given a choice of
+<em>http://&lt;your_IP_here>:3002</em>. You will again be given a choice of
 <em>Express</em> or <em>Guided</em> and feel free to choose whichever path suits your
 fancy. If you choose <em>Express</em>, everything should hopefully sail through
 until you see a screen with all Marbles Inc. owners and marbles, as well
 as all United Marbles owners and marbles:</p>
-<p><img alt="image" src="images/lab3/MarblesIncUpdatedPage.png" /></p>
+<p><img alt="image" src="../images/lab3/MarblesIncUpdatedPage.png" /></p>
 <p><strong>Step 3.14:</strong> If you go back to your screen for United Marbles (port
 3001) you should observe that it has been updated to show the owners and
-marbles for Marbles Inc. in addition to United Marbles\' own owners and
+marbles for Marbles Inc. in addition to United Marbles' own owners and
 marbles:</p>
-<p><img alt="image" src="images/lab3/UnitedMarblesUpdatedPage.png" /></p>
+<p><img alt="image" src="../images/lab3/UnitedMarblesUpdatedPage.png" /></p>
 <p>Remember, you are looking at the United Marbles session but you see all
 the new users and marbles created by the Marbles Inc administrator.</p>
 <p><strong>Step 3.15:</strong> Play with your marbles!! Here are some things you can do.
@@ -889,7 +889,8 @@ assignments:</p>
 UI and then number <em>4</em> in the window that pops up. Edit the list of
 names at the bottom and click <strong>Create</strong>. Do your new users show up in
 both companies' sessions? What happens if you add a name that exists
-already?   <strong>End of lab!</strong></p>
+already? </p>
+<p><strong>End of lab!</strong></p>
               
             </div>
           </div>

@@ -66,10 +66,10 @@
     <a class="current" href="./">Part 1</a>
     <ul class="subnav">
             
-    <li class="toctree-l3"><a href="#section-1-overview-of-hyperledger-fabric-smart-contract-installation-lab">Section 1 - Overview of Hyperledger Fabric Smart Contract installation lab</a></li>
+    <li class="toctree-l3"><a href="#section-1-overview-of-hyperledger-fabric-smart-contract-installation-lab-part-1">Section 1 - Overview of Hyperledger Fabric Smart Contract installation lab part 1</a></li>
     
 
-    <li class="toctree-l3"><a href="#section-2-description-of-the-subsequent-sections-in-this-lab">Section 2 - Description of the subsequent sections in this lab</a></li>
+    <li class="toctree-l3"><a href="#section-2-description-of-the-subsequent-sections-in-part-1">Section 2 - Description of the subsequent sections in Part 1</a></li>
     
 
     <li class="toctree-l3"><a href="#section-3-extract-the-artifacts-necessary-to-run-the-lab">Section 3 - Extract the artifacts necessary to run the lab</a></li>
@@ -179,9 +179,9 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="section-1-overview-of-hyperledger-fabric-smart-contract-installation-lab">Section 1 - Overview of Hyperledger Fabric Smart Contract installation lab</h1>
+                <h1 id="section-1-overview-of-hyperledger-fabric-smart-contract-installation-lab-part-1">Section 1 - Overview of Hyperledger Fabric Smart Contract installation lab part 1</h1>
 <p>In this lab, you will work with the Marbles demo application, which is
-considered by many to be a de facto \"hello world\" application for
+considered by many to be a de facto "hello world" application for
 getting started with Hyperledger Fabric. Hyperledger Fabric is one of
 several projects within the open-source Hyperledger collaborative effort
 hosted by the Linux Foundation. Hyperledger Fabric provides the
@@ -191,7 +191,7 @@ IBM Blockchain solutions and services.</p>
 which two organizations will participate. There will be one orderer
 service for the entire network, and each organization will use its own
 certificate authority service and have two peer nodes. Each peer node
-will use CouchDB for its ledger store. Each peer node\'s CouchDB will
+will use CouchDB for its ledger store. Each peer node's CouchDB will
 run in a separate Docker container. That makes eleven Docker containers,
 as follows:</p>
 <ul>
@@ -214,8 +214,8 @@ orderer, just as most production implementations will require.</p>
 <strong>instantiate</strong> the chaincode, and <strong>invoke</strong> functions of the
 chaincode. I will explain later in the lab the difference between the
 install and instantiate actions and what each one does.</p>
-<h1 id="section-2-description-of-the-subsequent-sections-in-this-lab">Section 2 - Description of the subsequent sections in this lab</h1>
-<p>This section provides a brief description of the subsequent sections in the
+<h1 id="section-2-description-of-the-subsequent-sections-in-part-1">Section 2 - Description of the subsequent sections in Part 1</h1>
+<p>This section provides a brief description of the subsequent sections in Part 1 of the
 lab, where you will get hands-on experience with the Hyperledger Fabric
 command line interface (CLI). In most production implementations you
 would perform many of these functions through other means, such as
@@ -280,17 +280,17 @@ successfully logged in to the Linux on Z Ubuntu instance assigned to
 your team. As you proceed through the lab, you will have to be logged in
 to more than one terminal session. When that becomes necessary, simply
 follow the same procedure used to log in to your first terminal session.</p>
-<p>Let\'s get started!</p>
-<p><strong>Step 3.1:</strong> Navigate to the home directory by entering <em>cd \~</em> (the
-"tilde" character, i.e., '<em>\~</em>', represents the user's home directory in
-Linux). This directory is also usually set in the \$HOME environment
-variable, so <em>cd \$HOME</em> will also usually get you to your home
+<p>Let's get started!</p>
+<p><strong>Step 3.1:</strong> Navigate to the home directory by entering <em>cd ~</em> (the
+"tilde" character, i.e., '<em>~</em>', represents the user's home directory in
+Linux). This directory is also usually set in the $HOME environment
+variable, so <em>cd $HOME</em> will also usually get you to your home
 directory:</p>
 <pre><code>bcuser@ubuntu16045:~$ cd ~
 bcuser@ubuntu16045:~$
 </code></pre>
 <p><em>Note:</em> You may already be in your home directory prior to entering <em>cd
-\~</em>, in which case you\'ll just stay there- not a problem.</p>
+~</em>, in which case you'll just stay there- not a problem.</p>
 <p><strong>Step 3.2:</strong> Retrieve the zmarbles compressed tarball prepared for this
 lab with the following command:</p>
 <pre><code>bcuser@ubuntu16045:~$ wget https://raw.githubusercontent.com/silliman/2019FastStart/master/zmarbles.tar.gz
@@ -385,7 +385,7 @@ enter <em>./generateArtifacts.sh tim</em> instead of just
 <em>./generateArtifacts.sh</em> when directed below to enter the command.</p>
 <p><strong>Note: If you pick your own channel name, it must start with a
 lowercase character, and only contain lowercase characters, numbers, or
-the dash (\'-\') character, or the period (\'.\').</strong></p>
+the dash ('-') character, or the period ('.').</strong></p>
 <p>So, enter the command below, optionally specifying a custom channel name
 (not shown here) as the lone argument to the <em>generateArtifacts.sh</em>
 script:</p>
@@ -479,7 +479,7 @@ total 28
 -rw-r--r-- 1 bcuser bcuser   282 Oct 22 14:08 Org1MSPanchors.tx
 </code></pre>
 <p><em>genesis.block</em> will be passed to the <em>orderer</em> at startup, and will be
-used to configure the orderer\'s <em>system channel</em>. This file contains
+used to configure the orderer's <em>system channel</em>. This file contains
 the x.509 signing certificates for every organization defined within the
 consortia that were specified within the <em>configtx.yaml</em> file when
 <em>configtxgen</em> was run. The <em>system channel</em> contains other values such
@@ -590,8 +590,8 @@ that TLS is enabled- <em>CORE_PEER_TLS_ENABLED=true</em> for the peers and
 there are other TLS-related variables to specify private keys,
 certificates and root certificates.</p>
 <p><em>ports</em> statements map ports on our Linux on IBM Z host to ports within
-the Docker container. The syntax is <em>\&lt;host port>:\&lt;Docker container
-port></em>. For example, the service for <strong>ca1</strong> has this port statement:</p>
+the Docker container. The syntax is <em>&lt;host port&gt;:&lt;Docker container port&gt;</em>. 
+For example, the service for <strong>ca1</strong> has this port statement:</p>
 <pre><code>ports:
   - "8054:7054"
 </code></pre>
@@ -740,7 +740,7 @@ two-thirds), or even unanimous consent (100%) of the organizations in
 the channel to endorse a transaction proposal.</p>
 <p><strong>Note:</strong> A policy of requiring unanimous consent implies that each
 member organization should build an available and resilient
-infrastructure since if even one organization\'s peers are unavailable,
+infrastructure since if even one organization's peers are unavailable,
 then additions to the blockchain for that channel would grind to a halt.
 Then again, who runs in production without an available and resilient
 infrastructure anyway?</p>
@@ -763,7 +763,7 @@ enter. In other words, you are entering a Bash shell within the <em>cli</em>
 Docker container. For most of the rest of the lab, you will be entering
 commands within this Bash shell.</p>
 <p>Instead of working as user <em>bcuser</em> on the ubuntu16045 server in the
-<em>\~/zmarbles</em> directory, you are now inside the Docker container with ID
+<em>~/zmarbles</em> directory, you are now inside the Docker container with ID
 <em>acd1f96d8807</em> (your ID will differ), working in the
 <em>/opt/gopath/src/github.com/hyperledger/fabric/peer</em> directory. It is no
 coincidence that that directory is the value of the <em>working_dir</em>
@@ -794,7 +794,7 @@ going to join all four peers to our channel, you only need to issue the
 channel creation command once. You can issue it from any of the four
 peers, so pick your favorite peer and issue the source command. In this
 screen snippet, I have chosen Org 1, peer 1. Issue the command below,
-leaving the arguments \'1 1\' as is, or change it to one of the other
+leaving the arguments '1 1' as is, or change it to one of the other
 valid combinations as described in the previous step:</p>
 <pre><code>root@acd1f96d8807:/opt/gopath/src/github.com/hyperledger/fabric/peer# source scripts/setpeer 1 1
 CORE_PEER_TLS_ROOTCERT_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/marblesinc.com/peers/peer1.marblesinc.com/tls/ca.crt
@@ -832,7 +832,7 @@ and thank me later for setting this up for you:</p>
 2018-10-22 18:54:06.608 UTC [cli.common] readBlock -&gt; INFO 002 Received block: 0
 </code></pre>
 <p>The last line before you get your command prompt back will contain the
-words \"Received block: 0\". This indicates that your channel creation
+words "Received block: 0". This indicates that your channel creation
 was successful, and the peer received the initial, or <em>genesis</em> block
 for the channel, which is block 0. Programmers love to start counting
 things at zero instead of one- it makes them feel special.</p>
@@ -878,10 +878,10 @@ returned at the end of the output:</p>
 2018-10-22 18:56:48.488 UTC [channelCmd] InitCmdFactory -&gt; INFO 001 Endorser and orderer connections initialized
 Channels peers has joined:
 </code></pre>
-<p><strong>Step 6.3:</strong> Issue <em>peer channel join -b \$CHANNEL_NAME.block</em> to join
+<p><strong>Step 6.3:</strong> Issue <em>peer channel join -b $CHANNEL_NAME.block</em> to join
 the channel you set up when you ran <em>generateArtifacts.sh</em> a little
 while ago. Among the many things that script did, it exported an
-environment variable named \$CHANNEL_NAME set to the channel name you
+environment variable named $CHANNEL_NAME set to the channel name you
 specified (or <em>mychannel</em> if you did not specify your own name), and
 then the Docker Compose file is set up to pass this environment variable
 to the <em>cli</em> container. If you are still on the happy path, your output
@@ -916,7 +916,7 @@ returned at the end of the output:</p>
 2018-10-22 18:58:46.476 UTC [channelCmd] InitCmdFactory -&gt; INFO 001 Endorser and orderer connections initialized
 Channels peers has joined:
 </code></pre>
-<p><strong>Step 6.7:</strong> Issue <em>peer channel join -b \$CHANNEL_NAME.block</em> to join
+<p><strong>Step 6.7:</strong> Issue <em>peer channel join -b $CHANNEL_NAME.block</em> to join
 your channel. Your output should look similar to this:</p>
 <pre><code>root@acd1f96d8807:/opt/gopath/src/github.com/hyperledger/fabric/peer# peer channel join -b $CHANNEL_NAME.block 
 2018-10-22 18:59:12.019 UTC [channelCmd] InitCmdFactory -&gt; INFO 001 Endorser and orderer connections initialized
@@ -948,7 +948,7 @@ are returned at the end of the output:</p>
 2018-10-22 19:00:20.604 UTC [channelCmd] InitCmdFactory -&gt; INFO 001 Endorser and orderer connections initialized
 Channels peers has joined:
 </code></pre>
-<p><strong>Step 6.11:</strong> Issue <em>peer channel join -b \$CHANNEL_NAME.block</em> to
+<p><strong>Step 6.11:</strong> Issue <em>peer channel join -b $CHANNEL_NAME.block</em> to
 join your channel. Your output should look similar to this:</p>
 <pre><code>root@acd1f96d8807:/opt/gopath/src/github.com/hyperledger/fabric/peer# peer channel join -b $CHANNEL_NAME.block 
 2018-10-22 19:00:48.877 UTC [channelCmd] InitCmdFactory -&gt; INFO 001 Endorser and orderer connections initialized
@@ -984,7 +984,7 @@ are returned at the end of the output:</p>
 2018-10-22 19:01:56.401 UTC [channelCmd] InitCmdFactory -&gt; INFO 001 Endorser and orderer connections initialized
 Channels peers has joined:
 </code></pre>
-<p><strong>Step 6.15:</strong> Issue <em>peer channel join -b \$CHANNEL_NAME.block</em> to
+<p><strong>Step 6.15:</strong> Issue <em>peer channel join -b $CHANNEL_NAME.block</em> to
 join your channel. (Am I being redundant? Am I repeating myself? Am I
 saying the same thing over and over again?) Your output should look
 similar to this:</p>
@@ -1076,7 +1076,7 @@ CORE_PEER_ID=cli
 CORE_PEER_ADDRESS=peer0.unitedmarbles.com:7051
 </code></pre>
 <p><strong>Step 8.2:</strong> Try this command to list the chaincodes installed on the
-peer. It will return an empty list, as you haven\'t yet installed any
+peer. It will return an empty list, as you haven't yet installed any
 chaincode on any of the peers:</p>
 <pre><code>root@acd1f96d8807:/opt/gopath/src/github.com/hyperledger/fabric/peer# peer chaincode list --installed
 Get installed chaincodes on peer:
@@ -1092,16 +1092,16 @@ shown here:</p>
 </code></pre>
 <p><strong>Step 8.4:</strong> Repeat the command from <em>Step 8.2:</em> - Tip: you could
 probably use the up arrow key a couple of times to retrieve that command
-as an alternative to doing a copy-and-paste here, but I\'ll leave it up
+as an alternative to doing a copy-and-paste here, but I'll leave it up
 to you:</p>
 <pre><code>root@a20e5320179f:/opt/gopath/src/github.com/hyperledger/fabric/peer# peer chaincode list --installed
 Get installed chaincodes on peer:
 Name: marbles, Version: 1.0, Path: github.com/hyperledger/fabric/examples/chaincode/go/marbles, Id: 19776f7d2a186d5188b748254a5767bd9689f3723672450c3fdd2daa62b4b746
 root@a20e5320179f:/opt/gopath/src/github.com/hyperledger/fabric/peer#
 </code></pre>
-<p><strong>Note:</strong> I won\'t have you repeat the \"before\" and \"after\" <em>peer
+<p><strong>Note:</strong> I won't have you repeat the "before" and "after" <em>peer
 chaincode list --installed</em> commands on any of the other peers on which
-you install it, but I won\'t take extraordinary measures to stop you if
+you install it, but I won't take extraordinary measures to stop you if
 you insist on doing it.</p>
 <p><strong>Step 8.5:</strong> Switch to <em>peer0</em> in <em>Org1MSP</em>:</p>
 <pre><code>root@acd1f96d8807::/opt/gopath/src/github.com/hyperledger/fabric/peer#  source scripts/setpeer 1 0
@@ -1124,10 +1124,10 @@ shown here:</p>
 2018-10-22 19:08:51.195 UTC [chaincodeCmd] install -&gt; INFO 003 Installed remotely response:&lt;status:200 payload:"OK" &gt;
 </code></pre>
 <p>An interesting thing to note is that for the <em>peer chaincode install</em>
-command you did not need to specify the \$FABRIC_TLS environment
+command you did not need to specify the $FABRIC_TLS environment
 variable. This is because this operation does not cause the peer to
 communicate with the orderer. Also, you did not need to specify the
-\$CHANNEL_NAME environment variable. This is because the <em>peer
+$CHANNEL_NAME environment variable. This is because the <em>peer
 chaincode install</em> command only installs the chaincode on the peer node.
 You only need to do this once per peer. That is, even if you wanted to
 invoke the same chaincode on multiple channels on a peer, you only
@@ -1141,7 +1141,7 @@ You will do that in the next section.   </p>
 peers. Chaincode installation is a peer-level operation. Chaincode
 instantiation, however, is a channel-level operation. It only needs to
 be performed once on the channel, no matter how many peers have joined
-the channel. I\'ll try to prove it to you in this section.</p>
+the channel. I'll try to prove it to you in this section.</p>
 <p>Chaincode instantiation causes a transaction to occur on the channel, so
 even if a peer on the channel does not have the chaincode installed, it
 will be made aware of the instantiate transaction, and thus be aware
@@ -1215,7 +1215,7 @@ CORE_LOGGING_LEVEL=DEBUG
 CORE_PEER_ADDRESS=peer0.unitedmarbles.com:7051
 </code></pre>
 <p><strong>Step 9.6:</strong> On Terminal Session 1, enter this command to list
-instantiated chaincodes on your channel. Spoiler alert- there aren\'t
+instantiated chaincodes on your channel. Spoiler alert- there aren't
 any, so you will get an empty list:</p>
 <pre><code>root@a20e5320179f:/opt/gopath/src/github.com/hyperledger/fabric/peer# peer chaincode list --instantiated --channelID ${CHANNEL_NAME}
 Get instantiated chaincodes on channel mychannel:
@@ -1228,7 +1228,7 @@ the chaincode on the channel:</p>
 2018-10-22 19:16:30.024 UTC [chaincodeCmd] checkChaincodeCmdParams -&gt; INFO 002 Using default vscc
 </code></pre>
 <p><strong>Note:</strong> In your prior commands, when specifying the channel name, you
-used lowercase 'c' as the argument, e.g., <em>-c \$CHANNEL_NAME</em>. In the
+used lowercase 'c' as the argument, e.g., <em>-c $CHANNEL_NAME</em>. In the
 <em>peer chaincode instantiate</em> command however, you use an uppercase 'C'
 as the argument to specify the channel name, e.g., <em>-C mychannel</em>,
 because -c is used to specify the arguments given to the chaincode. Why
@@ -1278,8 +1278,8 @@ root@a20e5320179f:/opt/gopath/src/github.com/hyperledger/fabric/peer#
 <p><strong>Step 9.11:</strong> Remember when I said at the beginning of this section
 that I would try to prove it to you that you only need to do the
 <em>instantiate</em> once on a channel, and not on every peer in the channel?
-Let\'s find out if I\'m lying. You did the <em>instantiate</em> on peer \"0
-0\". Switch to another peer:</p>
+Let's find out if I'm lying. You did the <em>instantiate</em> on peer "0
+0". Switch to another peer:</p>
 <pre><code>root@acd1f96d8807:/opt/gopath/src/github.com/hyperledger/fabric/peer# source scripts/setpeer 1 1
 CORE_PEER_TLS_KEY_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/unitedmarbles.com/peers/peer0.unitedmarbles.com/tls/server.key
 CORE_PEER_LOCALMSPID=Org1MSP
@@ -1321,10 +1321,10 @@ CORE_PEER_ADDRESS=peer0.unitedmarbles.com:7051
 <p><strong>Step 10.2:</strong> You will use the marbles chaincode to create a new
 Marbles owner named John. If you would like to use a different name than
 John, that is fine but then there will be other places later where you
-would need to use your "custom" name instead of John. And John\'s the
+would need to use your "custom" name instead of John. And John's the
 guy who first got this lab working about three years ago so I think he
-deserves a marble, don\'t you, so if you do want to show off and change
-the name then I\'m going to let you figure out later where it might need
+deserves a marble, don't you, so if you do want to show off and change
+the name then I'm going to let you figure out later where it might need
 to be changed.</p>
 <p>Enter this command in Terminal session 1:</p>
 <pre><code>root@acd1f96d8807:/opt/gopath/src/github.com/hyperledger/fabric/peer# peer chaincode invoke -n marbles -c '{"Args":["init_owner", "o0000000000001","John","Marbles Inc"]}' $FABRIC_TLS -C $CHANNEL_NAME
@@ -1506,7 +1506,7 @@ built until you first invoke a function against the chaincode on that
 peer).</p>
 <p>If you are ambitious and want to install the chaincode on that fourth
 peer, try the useful Docker commands I have shown you from PuTTY session
-2 to see that the chaincode\'s Docker image and Docker containerare
+2 to see that the chaincode's Docker image and Docker container are
 created when you invoke a transaction on that fourth peer.</p>
 <p>Try some or all of these commands from Terminal session 1:</p>
 <p>Create a marble for Barry, i.e., owner o0000000000002:</p>
@@ -1543,10 +1543,10 @@ bcuser@ubuntu16045:~/zmarbles$
 portion of the lab!</p>
 <p>Stay logged in to your two terminal sessions and leave your Hyperledger
 Fabric network and all the chaincode Docker containers up and running-
-you will use what you created here in the next lab where you will
+you will use what you created here in Part 2 of the lab where you will
 install a front-end application offering a browser-based UI from which
 you will interact with the marbles chaincode that you have installed in
-this lab.</p>
+here in Part 1.</p>
               
             </div>
           </div>
