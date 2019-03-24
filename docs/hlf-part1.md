@@ -132,17 +132,17 @@ directory:
 **Step 3.2:** Retrieve the zmarbles compressed tarball prepared for this
 lab with the following command:
 
-    bcuser@ubuntu16045:~$ wget https://raw.githubusercontent.com/silliman/2019FastStart/master/zmarbles.tar.gz
-    --2019-01-21 07:51:53--  https://raw.githubusercontent.com/silliman/2019FastStart/master/zmarbles.tar.gz
+    bcuser@ubuntu16045:~$ wget https://raw.githubusercontent.com/ibm-blockchain-wsc/ImmersionWorkshop/master/zmarbles.tar.gz
+    --2019-03-24 17:55:04--  https://raw.githubusercontent.com/ibm-blockchain-wsc/ImmersionWorkshop/master/zmarbles.tar.gz
     Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 151.101.248.133
     Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|151.101.248.133|:443... connected.
     HTTP request sent, awaiting response... 200 OK
     Length: 12299004 (12M) [application/octet-stream]
-    Saving to: 'zmarbles.tar.gz'
+    Saving to: ‘zmarbles.tar.gz’
 
-    zmarbles.tar.gz           100%[=====================================>]  11.73M  --.-KB/s    in 0.1s    
+    zmarbles.tar.gz                    100%[================================================================>]  11.73M  3.67MB/s    in 5.6s    
 
-    2019-01-21 07:51:53 (82.3 MB/s) - 'zmarbles.tar.gz' saved [12299004/12299004]
+    2019-03-24 17:55:10 (2.09 MB/s) - ‘zmarbles.tar.gz’ saved [12299004/12299004]
 
 **Step 3.3:** The *zmarbles* directory should not yet exist. Prove it
 with this *ls* command:
