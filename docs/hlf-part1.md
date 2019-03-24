@@ -25,6 +25,10 @@ as follows:
 -   4 CouchDB Docker containers (each peer node has its own separate
     CouchDB ledger store)
 
+Below is a diagram that depicts the blockchain network you will build and operate:
+
+![Marbles HLF Network](images/marbles-hlf-lab.png)
+
 You will also bring up a twelfth Docker container that we will call the
 *cli* container. You will use it as a convenience to enter Hyperledger
 Fabric commands targeted to specific peers. You will see how this is
