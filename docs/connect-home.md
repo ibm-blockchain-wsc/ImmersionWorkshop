@@ -4,7 +4,7 @@ The goal of the lab is to give you hands on experience interacting with IBM Bloc
 
 ![Marbles Network](images/marbles_network_diagram.png)
 
-All of the components in the above diagram reside within an IBM Cloud Private (ICP) Kubernetes cluster running on Linux on System Z. IBP4ICP packages the Hyperledger Fabric components (Certificate Authority, Orderer, Peer, and CouchDB) into Helm charts for deployment and management. For more information on IBP4ICP, please visit the [official IBP4ICP documentation](https://cloud.ibm.com/docs/services/blockchain?topic=blockchain-ibp-icp-about#overview "IBP4ICP documentation").
+All of the components in the above diagram reside within an IBM Cloud Private (ICP) Kubernetes cluster running on Linux on System Z. IBP4ICP packages the Hyperledger Fabric components (Certificate Authority, Orderer, Peer) into Kubernetes Helm charts for deployment and management. For more information on IBP4ICP, please visit the [official IBP4ICP documentation](https://cloud.ibm.com/docs/services/blockchain?topic=blockchain-ibp-icp-about#overview "IBP4ICP documentation").
 
 This lab is broken into two parts. In the first part, you will interact with your deployed peer, and enable the Marbles front end application to connect to the marbles chaincode installed on your peer. In the second part, you will go through the process of enabling the Marbles application to deploy inside an ICP Kubernetes cluster. You will be able to transact marbles with the other lab participants who are all acting as their own organizations in the Marbles business network.
 
