@@ -25,11 +25,11 @@ Blockchain Platform running in IBM Cloud Private. This will empower you
 and your company to write and test your smart contract within VSCode
 before you deploy it into production. We might incorporate this
 capability into the `Blockchain Immersion Workshop` later this year. To
-keep abreast of all the updates to the workshop, check the workshop\'s
+keep abreast of all the updates to the workshop, check the workshop's
 github page for updates.
 
 We hope you enjoy this lab and please let us know if you run into an
-issue or think something doesn\'t look right.
+issue or think something doesn't look right.
 
 In this lab we will be using the following versions:
 
@@ -51,7 +51,7 @@ Foreword: Why and the Benefits of VSCode and IBM Blockchain
 ===========================================================
 
 One of the hurdles in getting started with blockchain is the creation
-and testing of a smart contract or \"chaincode.\" Before, you had to
+and testing of a smart contract or "chaincode." Before, you had to
 package your smart contract, install it on your blockchain peer and then
 instantiate the chaincode on the channel. Furthermore, you had to submit
 transactions and hope that all of the lines of code you created simply

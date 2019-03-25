@@ -62,7 +62,7 @@ breakdown of `Part 1` of our lab
 -   Submit Transactions:
 
     -   What fun is it to have a working smart contract and have it
-            instantiated across the channel, if we can\'t submit
+            instantiated across the channel, if we can't submit
             transactions? In this section, we will actually submit
             transactions from the UI of VSCode. We will see data get
             committed to the ledger.
@@ -112,7 +112,7 @@ and work from
 
 **4.** In the search bar, type in `blockchain` and that should populate
 all the available extensions that deal with blockchain. The top choice
-should be the `IBM Blockchain Platform` extension. I promise we didn\'t
+should be the `IBM Blockchain Platform` extension. I promise we didn't
 manipulate the algothrim to make it the top choice! If you see the IBM
 Blockchain Platform (IBP) extension, please click on `install` to
 install the extension.
@@ -122,7 +122,7 @@ install the extension.
 **5.** Once you have successfully installed the extension, you should
 see an outline of a block just below the extensions button
 (approximately, the 6th button in VSCode). Go ahead and click on that
-button. Once you do, you\'ll be welcomed with the IBM Blockchain
+button. Once you do, you'll be welcomed with the IBM Blockchain
 Platform VSCode Homepage with the sides being divided into thirds.
 
 ![image](images/2.png)
@@ -132,7 +132,7 @@ left. It is broken into `Smart Contract Packages`, `Local Fabric Ops`
 and `Fabric Gateways`. `Smart Contract Packages` is the home for all of
 our smart contracts that are packaged into `.cds` files. It packages
 these smart contracts based on the files that are in the `Editor`
-perspective. Now, just because there are packages here doesn\'t mean
+perspective. Now, just because there are packages here doesn't mean
 that the smart contract is actually installed and instantiated on the
 channel. To do that we can go to the `Local Fabric Ops` pane. The
 `Local Fabric Ops` is a place where we can quickly gather and see all of
@@ -141,19 +141,19 @@ can see all the contracts that are installed and instantiated. We can
 install and instantiate smart contracts from the `Local Fabric Ops`
 field. The Channel field shows all of the channels that are in our
 blockchain network. By default when we do `Start Fabric Runtime` in the
-next command, we\'ll join a channel called `mychannel`. The Nodes field
+next command, we'll join a channel called `mychannel`. The Nodes field
 shows us all of the peers that are in our network. In the Organizations
-field, we\'ll see all the organizations that are in the network. You can
+field, we'll see all the organizations that are in the network. You can
 have an organization with no peers (nodes - in this case), but you
-can\'t have a peer without an organization. An organization can have
+can't have a peer without an organization. An organization can have
 many peers. The last pane, `Fabric Gateway`, allows you to connect to a
 Hyperledger Fabric instance by an identity. In our case, it will be the
 `Admin@org1.example.com` of our local Fabric network. In Part 2 of this
 lab, we will create an identity and submit transactions from this new
 identity.
 
-**6.** Hover your mouse over the `Local Fabric Ops` panel and we\'ll see
-three dots - `...` - and click on those dots. We\'ll be presented with
+**6.** Hover your mouse over the `Local Fabric Ops` panel and we'll see
+three dots - `...` - and click on those dots. We'll be presented with
 two options. `Start Fabric Runtime` and `Teardown Fabric Runtime` are
 those two options. We will want to click on `Start Fabric Runtime` in
 this case.
@@ -177,7 +177,7 @@ docker images. To do a full cleanup, we will need to manually remove
 those images and containers.
 
 **7.** How do we know if we have a successful blockchain network up and
-running? I\'m glad you asked! We will see messages flooding the `Output`
+running? I'm glad you asked! We will see messages flooding the `Output`
 panel. We will want to see a message that resembles the one below
 
     [2/20/2019 7:26:54 PM] [INFO] 2019-02-21 00:26:34.756 UTC [cli.common] readBlock -> INFO 002 Received block: 0
@@ -191,7 +191,7 @@ containers
 Section 3: Create our Smart Contract
 ------------------------------------
 
-Now that we have a local running Hyperledger Fabric network, let\'s
+Now that we have a local running Hyperledger Fabric network, let's
 create our Smart Contract that we will then install and instantiate onto
 our network.
 
@@ -218,14 +218,14 @@ Select `yes` if that message comes up. What it is installing is
 `generator-fabric` which is actually the generator that creates our
 skeleton smart contract.
 
-**4.** We\'ll then get a message that says 
+**4.** We'll then get a message that says 
 
     Chose smart contract language (esc to cancel)
 
 Choose `JavaScript` as our smart contract language of choice
 
 **5.** Then will pop open a folder directory. Since we are starting a
-new project, let\'s create a new folder for our smart contract. We can
+new project, let's create a new folder for our smart contract. We can
 call this folder `mycontract`. Then click on `open` to allow VSCode to
 generate our smart contract in that folder.
 
@@ -235,10 +235,10 @@ generate our smart contract in that folder.
 
     Choose how to open your new project
 
-We\'ll want to select `Add to workplace` to add it to our VSCode
+We'll want to select `Add to workplace` to add it to our VSCode
 
 **7.** So we have created our smart contract, but gosh darnit, where is
-it? Well, let\'s click on the `Explorer` in the top left. It\'s the
+it? Well, let's click on the `Explorer` in the top left. It's the
 first botton on our left side panel
 
 ![image](images/6.png)
@@ -447,9 +447,9 @@ popup in the top middle of VSCode. When it asks for an argument, type in
 transaction coming through the chaincode container.
 
 **7.** Equally, you could check the logs of your peer by entering the
-following command below within VSCode. I\'m grep-ing these logs because there
+following command below within VSCode. I'm grep-ing these logs because there
 is a lot of output due to the signatures and messages a transaction
-sends, but I\'m just wanting to see all the blocks 
+sends, but I'm just wanting to see all the blocks 
 
     tecadmin@ubuntubase:~/Desktop/mycontract/test$ docker logs -f fabricvscodelocalfabric_peer0.org1.example.com | grep block
     2019-02-21 20:02:09.209 UTC [endorser] callChaincode -> INFO 093 [mychannel][c55f59cc] Entry chaincode: name:"mycontract" 
@@ -494,7 +494,7 @@ is as annoying as someone typing `@here` on a SLACK channel
 
 **3.** Within that new file, scroll down to where you see `transaction1`,
 in my case it is on line 71, but that could be different for you. A
-couple of lines down (on 83 for me) you\'ll see (**NOTE:** I realize the
+couple of lines down (on 83 for me) you'll see (**NOTE:** I realize the
 picture differs, but with each release of the IBM Blockchain extension,
 they might add or delete lines with certain files.)
 `const args = [''];`. Now, place some text between those two apostrophes. See below to get an example
@@ -541,7 +541,7 @@ below
     transaction1
 
 **6.** If we wanted to check the logs of the peer, we can do that as
-well within your VSCode terminal. You\'ll see similar output as what is
+well within your VSCode terminal. You'll see similar output as what is
 below 
 
     tecadmin@ubuntubase:~/Desktop/mycontract$ docker logs -f fabricvscodelocalfabric_peer0.org1.example.com | grep block
