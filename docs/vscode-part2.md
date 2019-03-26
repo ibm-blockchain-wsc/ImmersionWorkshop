@@ -670,7 +670,7 @@ folder of `DigiBank`
     }
 
 **3.** From the terminal in our `digibank tab`, add a file below that
-will execute a query that we just added to our smart contract. **NOTE:**
+will execute the query that we just added to our smart contract. **NOTE:**
 there are multiple steps in this command and you will have to scroll over to see the entire series of commands below
 
     tecadmin@ubuntubase:~/Desktop/mycontract/fabric-samples/commercial-paper/organization/digibank/application$ touch getPaper.js
@@ -805,12 +805,13 @@ there are multiple steps in this command and you will have to scroll over to see
 
     To get out of vi, hit the "ESC" button. Then type in ":wq" and then press enter to save the file
 
-Who knew you would learn VSCode and `vi`! Send your hate mail to
+Who knew you would learn `vi` in a VSCode lab! Send your hate mail to
 <austin@dontsendhatemail.com> :)
 
-**4.** We now have a new file (`getPaper.js`) and then it is in our
+**4.** We now have a new file (`getPaper.js`) that calls the getPaper transactionj
+that we have added to our
 `papercontract.js` smart contract. This doesn't mean we can execute a
-getPaper query because, if you remember, we have to install and
+getPaper query quite yet because, if you remember, we have to install and
 instantiate this update onto our peer. Then - and only then - can we
 actually submit the getPaper query. The next few steps will walk us
 through how to do that.
@@ -819,9 +820,9 @@ It would be helpful to understand what we just added to our
 soon-to-be-updated smart contract. The `getPaper` query is being
 submitted by `Balaji` from `DigiBank` and it allows him to get the
 current status of the paper within the network. For example, it prints
-out the paper's identification number, paper's cost, paper's state
-(trading, redeemed, issued), paper's issue date and a few other key
-details. Here is a further breakdown of the query
+out the paper's identification number, the paper's cost, the paper's state
+(trading, redeemed, issued), the paper's issue date and a few other key
+details. Read on for a further breakdown of the query.
 
 Below, this statement brings two key Hyperledger Fabric SDK classes into
 scope -- Wallet and Gateway. Because `Balaji’s` X.509 certificate is in
@@ -854,7 +855,7 @@ different channel name, you would have to modify this line of code
     // Access commercial paper network 
     const network = await gateway.getNetwork('mychannel');
 
-Below, this statement gives the application addressability to smart
+Below, this statement gives the application addressability to the smart
 contract defined by the namespace org.papernet.commercialpaper within
 papercontract. Once an application has issued getContract, it can submit
 any transaction/query implemented within it
@@ -880,7 +881,7 @@ look above and see how we are grabbing our `paperState`
 
 Below, this part of the code looks at the
 `let paper = CommercialPaper.fromBuffer(getPaperResponse);` message and
-then defines what the current status of the paper is. There for 4
+then defines what the current status of the paper is. There are 4
 options, `UNKNOWN, ISSUED, TRADING, and REDEEMED` 
 
     let paper = CommercialPaper.fromBuffer(getPaperResponse);
@@ -893,8 +894,8 @@ options, `UNKNOWN, ISSUED, TRADING, and REDEEMED`
     paperState = "REDEEMED";
         }
 
-Below, this chunk of code simply leaves the gateway it is connected to,
-thus ending the query. No matter if our query was successful or if there
+Below, this chunk of code simply disconnects from the gateway.
+No matter if our query was successful or if there
 was an error, we'll be disconnected from the gateway 
 
     // Disconnect from the gateway
@@ -902,7 +903,7 @@ was an error, we'll be disconnected from the gateway
     gateway.disconnect();
 
 **5.** In order to upgrade our smart contract, we need to add a fabric
-gateway to our IBM Blockchain extension. To do that, switch back to the
+gateway using our IBM Blockchain extension. To do that, switch back to the
 IBM Blockchain extension within VSCode and click on the gear icon in the
 bottom left. Then, click on `Command Palette`
 
@@ -914,7 +915,7 @@ of commands to execute
     >IBM Blockchain Platform: Add Gateway 
 
 Fabric gateways are ways for us to connect to a blockchain network from
-a perspective. In this case, we are acting as `Balaji` from `DigiBank`
+the perspective of a particular user. In this case, we are acting as `Balaji` from `DigiBank`
 in this commercial paper network. If there were more actors, you could
 envision more gateways being incorportated here
 
@@ -937,7 +938,7 @@ or create a new wallet. We want to choose
 **11.** When it asks for a `file path to a wallet directory`, select
 `Browse`
 
-**12.** Then, we will navigate to our user's, `Balaji`, wallet. Click
+**12.** Then, we will navigate to the wallet of `Balaji`, our user. Click
 on `Select` once you have clicked and highlighted on `wallet`
 
 ![image](images/22.png)
@@ -1007,15 +1008,15 @@ ask which `smart contract version to preform an upgrade with`, we want
 to select `papercontract@0.0.2`. Since we have to install our upgraded
 contract on a peer, select `peer0.org1.example.com` to install the smart
 contract on. When it asks for any arguments, do not enter anything here,
-but rather - simply - press enter to execute our upgrade. You will know
+but simply press enter to execute our upgrade. You will know
 this was successful if we click on `Admin@org1.example.com` under the
-`papercontract` gateway. Further, untoggle the `papercontract@0.0.2`
+`papercontract` gateway. Then untoggle the `papercontract@0.0.2`
 smart contract to see all the available transactions and queries.
 
 ![image](images/28.png)
 
-Now, we have successfully upgraded our smart contract to include the
-`getPaper` query. Now, lets have some fun and make some transactions and
+We have successfully upgraded our smart contract to include the
+`getPaper` query. Now let's have some fun and make some transactions and
 queries!
 
 Section 6: Submit Transactions
