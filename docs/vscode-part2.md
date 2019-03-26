@@ -4,8 +4,8 @@ Part 2: Commercial Paper Tutorial
 Section 1: Overview
 -------------------
 
-This tutorial is of a commercial paper (known as `PaperNet`) trading
-network. Commercial paper itself is a type of unsecured lending in the
+This tutorial works with a sample commercial paper trading
+network called `PaperNet`. Commercial paper is a type of unsecured lending in the
 form of a "promissory note". The papers are normally issued by large
 corporations to raise funds to meet short-term financial obligations at
 a fixed rate of interest. Once issued at a fixed price, for a fixed
@@ -17,19 +17,19 @@ As an example, if a paper was issued at a face value of 10M USD for a
 6-month term at 2% interest then it could be bought for 9.8M USD (10M --
 2%) by another company or bank who are happy to bear the risk that the
 issuer will not default. Once the term is up, then the paper could be
-redeemed or sold back to the issuer for their full face value of 10M
+redeemed or sold back to the issuer for its full face value of 10M
 USD. Between buying and redemption, the paper can be bought or sold
 between different parties on a commercial paper market.
 
 These three key steps of issue, buy and redeem are the main transactions
 in a simplified commercial paper marketplace, which we will mirror in
 our lab. We will see a commercial paper issued by a company called
-MagnetoCorp and once issued on the commercial paper blockchain network,
+MagnetoCorp and, once issued on the commercial paper blockchain network,
 another company called DigiBank will first buy the paper and then redeem
 it.
 
-You'll act as a developer, end user, and administrator, each in
-different organizations, performing the following steps designed to help
+You'll act as a developer, end user, and administrator, within
+different organizations, performing various steps designed to help
 you understand what it's like to collaborate as two different
 organizations working independently, but according to mutually agreed
 rules in a Hyperledger Fabric network.
@@ -54,9 +54,10 @@ Below is the full breakdown of Part 2 of this lab:
             success for the rest of the lab. One of these containers
             will just monitor the docker network we are operating in. If
             you have no idea what a docker network is, I will explain
-            later on. The other continer is `fabric-tools`, but it is
-            named `cliMagnetoCorp` which will be how we install and
-            instantiate the first time.
+            later on. The other container contains Hyperledger Fabric 
+	    tools and is named `cliMagnetoCorp`, as MagnetoCorp will
+	    use the Hyperledger Fabric command line interface (cli)
+	    within this container.
 
 -   Install and Instantiate Smart Contract:
 
@@ -97,7 +98,7 @@ Below is the full breakdown of Part 2 of this lab:
             transaction from the command line interface as well as the
             VSCode user interface. We will also issue another paper from
             Isabella's perspective and then invoke a series of
-            transactions to buy and redeem the paper from Balaji.
+            transactions from Balaji's perspective to buy and redeem the paper.
 
 -   Lab Cleanup:
 
@@ -113,7 +114,7 @@ Section 2: Setting the Stage
 ----------------------------
 
 **NOTE:** There are two terminals we can operate in - the actual
-terminal application and the terminal found in VSCode. Unless I
+terminal application, available on your Ubuntu desktop, and the terminal window available in VSCode. Unless I
 explicitly say, only use the terminal application - meaning do **not**
 use the terminal in VSCode. On the chance that we will use the terminal
 in VSCode, I will specify that.
@@ -138,7 +139,7 @@ the `fabric-samples` github repository
     drwxr-xr-x  16 tecadmin  tecadmin  512 Feb 22 12:34 mycontract
 
 **2.** We need to know the Docker network that we are currently in so
-that we can modify some scripts, that will then create more Docker
+that we can modify some scripts that will then create more Docker
 containers for us to use. Enter the command below to see all of our
 Docker networks
 
@@ -157,10 +158,10 @@ and we can verify that by doing the following command below
 That command will show you all the containers running in this network.
 In a nutshell, docker networks are natural ways to isolate containers
 from other containers or other networks. Having containers within a
-network allows them to immediately communicate with other containers in
+network allows them to communicate with other containers in
 the network.
 
-**4.** Within VSCode, go to the `Editor` perspective and click on `File`
+**4.** Within VSCode, go to the `Explorer` perspective and click on `File`
 and select `Add Folder to Workplace..` - This will allow us to work from
 an `Untitled Workplace`, but have the `fabric-samples` folder in there.
 
@@ -168,7 +169,7 @@ an `Untitled Workplace`, but have the `fabric-samples` folder in there.
 
     fabric-samples -> commercial paper -> organizations -> magenetocorp -> configuration -> cli
 
-You should see two files in there. One named `docker-compose-yml` and
+You should see two files in there. One named `docker-compose.yml` and
 another named `monitordocker.sh`
 
 ![image](images/13.png)
@@ -190,8 +191,8 @@ MagnetoCorp. **NOTE:** scroll over to see the entire command below
     -rw-r--r--  1 tecadmin  tecadmin  1168 Feb 22 12:41 docker-compose.yml
     -rwxr-xr-x  1 tecadmin  tecadmin   751 Feb 22 12:44 monitordocker.sh
 
-**9.** Now that we have updated these files to represent the correct
-Docker network, go ahead run the monitordocker file with the name of our
+**9.** Now that we have updated these files to specify the correct
+Docker network, go ahead run the monitordocker.sh script with the name of our
 Docker network. **NOTE:** scroll over to see the entire command below 
 
     tecadmin@ubuntubase:~/Desktop/mycontract/fabric-samples/commercial-paper/organization/magnetocorp/configuration/cli/$ ./monitordocker.sh fabricvscodelocalfabric_basic
@@ -221,7 +222,7 @@ create a `cliMagnetoCorp` container for our docker network to use.
 
 When we first install the smart contract, we will go through the
 `cliMagnetoCorp` container, which is our Administrator Console. This
-will allow use to use Fabric `peer` commands. Conveniently, the
+will allow us to use Fabric `peer` commands. Conveniently, the
 `cliMagnetoCorp` container is the `hyperledger/fabric-tools` image.
 
 ![image](images/papernet_magnetocorp.png)
@@ -248,7 +249,7 @@ folder to the contract folder of `MagnetoCorp`
     fabric-samples -> commercial-paper -> organization -> magnetocorp -> contract
 
 Within the `lib` folder, you'll see 3 javascript (.js) files in there.
-Click on the **papercontract.js** file, which will open it that file
+Click on the **papercontract.js** file, which will open it 
 within VSCode
 
 ![image](images/14.png)
@@ -257,7 +258,7 @@ Let's dissect our `papercontract.js` file as it is our smart contract.
 We will only go over the `issue` transaction, but the other transactions
 follow pretty closely to this one
 
-Below, these 2 lines of code brings into scope two key Hyperledger
+Below, these 2 lines of code bring into scope two key Hyperledger
 Fabric classes that will be used extensively by the smart contract --
 Contract and Context 
 
@@ -276,7 +277,7 @@ within this class
     class CommercialPaperContract extends Contract {
 
 Below, this method defines the commercial paper `issue` transaction for
-commercial paper blockchain network. The parameters that are passed to
+the commercial paper blockchain network. The parameters that are passed to
 this method will be used to create the new commercial paper. Locate and
 examine the `buy` and `redeem` transactions within the smart contract 
 
@@ -295,7 +296,7 @@ examine the `buy` and `redeem` transactions within the smart contract
 Within the issue transaction, this statement creates a new commercial
 paper in memory using the CommercialPaper class with the supplied
 transaction inputs. Examine the buy and redeem transactions to see how
-they similarly use this class below 
+they similarly use this class 
 
     // create an instance of the paper
     let paper = CommercialPaper.createInstance(issuer, paperNumber, issueDateTime, maturityDateTime, faceValue);
@@ -365,8 +366,8 @@ and container.
 
 ![image](images/papernet_magnetoinstant.png)
 
-**5.** You will know our instantiate command worked when we simply get
-our command prompt back. You can really verify it worked by going back
+**5.** You will know our instantiate command worked when we get
+our command prompt back without any error messages. You can really verify it worked by going back
 to the VSCode and refreshing the `Local Fabric Ops` panel and you should
 see it under the `instantiate` section.
 
@@ -402,7 +403,7 @@ and `package.json`
 **3.** Click on `issue.js`, which will open the file within VSCode.
 Let's discuss what the file is trying to do.
 
-Below we bring in two key Hyperledger Fabric SDK classes into scope --
+Below we bring two key Hyperledger Fabric SDK classes into scope --
 `Wallet` and `Gateway`. Because Isabella's X.509 certificate is in the
 local file system, the application uses `FileSystemWallet` 
     
@@ -426,7 +427,7 @@ identified by `connectionProfile`, using the identity referred to in
     // Connect to gateway using application specified parameters 
     await gateway.connect(connectionProfile, connectionOptions);
 
-Below in the couple lines of code, connects the application to the
+Below in the couple lines of code, the application connects to the
 network channel `mychannel`, where the papercontract was previously
 instantiated. If you had a different channel name, you would have to
 modify this line of code 
@@ -442,7 +443,7 @@ any transaction implemented within it
     // Get addressability to commercial paper contract 
     const contract = await network.getContract('papercontract', 'org.papernet.comm...');
 
-Below, these lines of code submits a transaction to the network using
+Below, these lines of code submit a transaction to the network using
 the `issue` transaction defined within the smart contract.
 `MagnetoCorp, 00001` are the values to be used by the issue transaction
 to create a new commercial paper 
@@ -472,7 +473,7 @@ Once you have modified the file, please **save it (control + s)**.
 
 ![image](images/18.png)
 
-**5.** Enter the following command below to install the needed packages
+**5.** Enter the following command to install the needed packages
 from the `package.json` file. **NOTE:** scroll over to see the entire
 command below 
 
@@ -496,7 +497,7 @@ entire command below
     done
 
 **7.** We will know it worked if we can execute the following command
-below successfully. **NOTE:** scroll over to see the entire command
+successfully. **NOTE:** scroll over to see the entire command
 below 
 
     tecadmin@ubuntubase:~/Desktop/mycontract/fabric-samples/commercial-paper/organization/magnetocorp/application$ ls -l ../identity/user/isabella/wallet/
@@ -516,7 +517,7 @@ certificate used in this example
     Isabella's behalf, but not distributed outside of her immediate
     control
 -   a **public key** `c75bd6911a...-pub` which is cryptographically
-    linked to Isabella's private key. This is wholly contained within
+    linked to Isabella's private key. This public key is contained within
     Isabella's X.509 certificate
 -   a **certificate** `User1@org.example.com` which contains Isabella's
     public key and other X.509 attributes added by the Certificate
@@ -525,7 +526,7 @@ certificate used in this example
     cryptographically verify information signed by Isabella's private
     key
 
-**8.** Now that we have Isabella from MagnetoCorp, let's pass through
+**8.** Now that we have Isabella from MagnetoCorp, let's perform 
 the issue transaction from our terminal. **NOTE:** scroll over to see
 the entire command below 
 
@@ -568,7 +569,7 @@ command below
     tecadmin@ubuntubase:~/Desktop/mycontract/fabric-samples/commercial-paper/organization/magnetocorp/application$ cd ../../digibank/application/
     tecadmin@ubuntubase:~/Desktop/mycontract/fabric-samples/commercial-paper/organization/digibank/application$
 
-**11.** Navigate to the the application folder of DigiBank in the
+**11.** Navigate to the application folder of DigiBank in the
 editior perspective in VSCode 
 
     fabric-samples -> commercial paper -> organization -> digibank -> application
@@ -611,7 +612,7 @@ have to scroll over to see the entire command below
 
     added 318 packages in 27.138s
 
-**15.** Now, let's add an Balaji from `DigiBank`. **NOTE:** scroll over
+**15.** Now, let's add Balaji from `DigiBank`. **NOTE:** scroll over
 to see the entire command below 
 
     tecadmin@ubuntubase:~/Desktop/mycontract/fabric-samples/commercial-paper/organization/digibank/application$ node addToWallet.js 
@@ -631,8 +632,7 @@ command
     -rw-r--r--  1 tecadmin  tecadmin   182 Feb 22 12:57 cd96d5260ad4757551ed4a5a991e62130f8008a0bf996e4e4b84cd097a747fec-pub
 
 In the next section, we will actually upgrade our smart contract before
-submitting transactions. We are upgrading our smart contract because we
-can add in a query to get the status of our paper.
+submitting transactions. We are upgrading our smart contract in order to add in a query to get the status of our paper.
 
 Based on the picture below, we now have 2 participants in this network.
 Obviously, this is MagnetoCorp (Isabella) and DigiBank (Balaji). Both
@@ -670,7 +670,7 @@ folder of `DigiBank`
     }
 
 **3.** From the terminal in our `digibank tab`, add a file below that
-will execute a query that we just added to our smart contract. **NOTE:**
+will execute the query that we just added to our smart contract. **NOTE:**
 there are multiple steps in this command and you will have to scroll over to see the entire series of commands below
 
     tecadmin@ubuntubase:~/Desktop/mycontract/fabric-samples/commercial-paper/organization/digibank/application$ touch getPaper.js
@@ -805,12 +805,13 @@ there are multiple steps in this command and you will have to scroll over to see
 
     To get out of vi, hit the "ESC" button. Then type in ":wq" and then press enter to save the file
 
-Who knew you would learn VSCode and `vi`! Send your hate mail to
+Who knew you would learn `vi` in a VSCode lab! Send your hate mail to
 <austin@dontsendhatemail.com> :)
 
-**4.** We now have a new file (`getPaper.js`) and then it is in our
+**4.** We now have a new file (`getPaper.js`) that calls the getPaper transactionj
+that we have added to our
 `papercontract.js` smart contract. This doesn't mean we can execute a
-getPaper query because, if you remember, we have to install and
+getPaper query quite yet because, if you remember, we have to install and
 instantiate this update onto our peer. Then - and only then - can we
 actually submit the getPaper query. The next few steps will walk us
 through how to do that.
@@ -819,9 +820,9 @@ It would be helpful to understand what we just added to our
 soon-to-be-updated smart contract. The `getPaper` query is being
 submitted by `Balaji` from `DigiBank` and it allows him to get the
 current status of the paper within the network. For example, it prints
-out the paper's identification number, paper's cost, paper's state
-(trading, redeemed, issued), paper's issue date and a few other key
-details. Here is a further breakdown of the query
+out the paper's identification number, the paper's cost, the paper's state
+(trading, redeemed, issued), the paper's issue date and a few other key
+details. Read on for a further breakdown of the query.
 
 Below, this statement brings two key Hyperledger Fabric SDK classes into
 scope -- Wallet and Gateway. Because `Balaji’s` X.509 certificate is in
@@ -854,7 +855,7 @@ different channel name, you would have to modify this line of code
     // Access commercial paper network 
     const network = await gateway.getNetwork('mychannel');
 
-Below, this statement gives the application addressability to smart
+Below, this statement gives the application addressability to the smart
 contract defined by the namespace org.papernet.commercialpaper within
 papercontract. Once an application has issued getContract, it can submit
 any transaction/query implemented within it
@@ -880,7 +881,7 @@ look above and see how we are grabbing our `paperState`
 
 Below, this part of the code looks at the
 `let paper = CommercialPaper.fromBuffer(getPaperResponse);` message and
-then defines what the current status of the paper is. There for 4
+then defines what the current status of the paper is. There are 4
 options, `UNKNOWN, ISSUED, TRADING, and REDEEMED` 
 
     let paper = CommercialPaper.fromBuffer(getPaperResponse);
@@ -893,8 +894,8 @@ options, `UNKNOWN, ISSUED, TRADING, and REDEEMED`
     paperState = "REDEEMED";
         }
 
-Below, this chunk of code simply leaves the gateway it is connected to,
-thus ending the query. No matter if our query was successful or if there
+Below, this chunk of code simply disconnects from the gateway.
+No matter if our query was successful or if there
 was an error, we'll be disconnected from the gateway 
 
     // Disconnect from the gateway
@@ -902,7 +903,7 @@ was an error, we'll be disconnected from the gateway
     gateway.disconnect();
 
 **5.** In order to upgrade our smart contract, we need to add a fabric
-gateway to our IBM Blockchain extension. To do that, switch back to the
+gateway using our IBM Blockchain extension. To do that, switch back to the
 IBM Blockchain extension within VSCode and click on the gear icon in the
 bottom left. Then, click on `Command Palette`
 
@@ -914,7 +915,7 @@ of commands to execute
     >IBM Blockchain Platform: Add Gateway 
 
 Fabric gateways are ways for us to connect to a blockchain network from
-a perspective. In this case, we are acting as `Balaji` from `DigiBank`
+the perspective of a particular user. In this case, we are acting as `Balaji` from `DigiBank`
 in this commercial paper network. If there were more actors, you could
 envision more gateways being incorportated here
 
@@ -937,7 +938,7 @@ or create a new wallet. We want to choose
 **11.** When it asks for a `file path to a wallet directory`, select
 `Browse`
 
-**12.** Then, we will navigate to our user's, `Balaji`, wallet. Click
+**12.** Then, we will navigate to the wallet of `Balaji`, our user. Click
 on `Select` once you have clicked and highlighted on `wallet`
 
 ![image](images/22.png)
@@ -1007,15 +1008,15 @@ ask which `smart contract version to preform an upgrade with`, we want
 to select `papercontract@0.0.2`. Since we have to install our upgraded
 contract on a peer, select `peer0.org1.example.com` to install the smart
 contract on. When it asks for any arguments, do not enter anything here,
-but rather - simply - press enter to execute our upgrade. You will know
+but simply press enter to execute our upgrade. You will know
 this was successful if we click on `Admin@org1.example.com` under the
-`papercontract` gateway. Further, untoggle the `papercontract@0.0.2`
+`papercontract` gateway. Then untoggle the `papercontract@0.0.2`
 smart contract to see all the available transactions and queries.
 
 ![image](images/28.png)
 
-Now, we have successfully upgraded our smart contract to include the
-`getPaper` query. Now, lets have some fun and make some transactions and
+We have successfully upgraded our smart contract to include the
+`getPaper` query. Now let's have some fun and make some transactions and
 queries!
 
 Section 6: Submit Transactions
@@ -1066,7 +1067,7 @@ paper. **NOTE:** scroll over to see the entire command below
     Disconnect from Fabric gateway.
     Buy program complete.
 
-**4.** Let's observe the currect status of the paper. **NOTE:** scroll
+**4.** Let's observe the current status of the paper. **NOTE:** scroll
 over to see the entire command below 
 
     tecadmin@ubuntubase:~/Desktop/mycontract/fabric-samples/commercial-paper/organization/digibank/application$ node getPaper.js
@@ -1088,8 +1089,8 @@ over to see the entire command below
     Disconnect from Fabric gateway.
     getPaper program complete.
 
-**5.** Let's pretend the maturity date has been reached, we can now
-redeem this paper. Lets do that now. **NOTE:** scroll over to see the
+**5.** Let's pretend the maturity date has been reached so that we can now
+redeem this paper. Let's do that now. **NOTE:** scroll over to see the
 entire command below 
 
     tecadmin@ubuntubase:~/Desktop/mycontract/fabric-samples/commercial-paper/organization/digibank/application$ node redeem.js 
@@ -1149,7 +1150,7 @@ below
 That line of code is creating a new paper. Go ahead and **save this file
 (control + s)**.
 
-**9.** Equally, navigate to the `getPaper.js` file within `digibank` and
+**9.** Now navigate to the `getPaper.js` file within `digibank` and
 change the key below to look for a paper with an id of `00002` on line
 `68` 
 
@@ -1210,7 +1211,7 @@ scroll over to see the entire command below
     Disconnect from Fabric gateway.
     getPaper program complete.
 
-**12.** That's enough command line for right now, let's jump to VSCode
+**12.** That's enough command line for right now- let's jump to VSCode
 and buy our new paper there. Within the IBM Blockchain extension, go to
 the `Fabric Gateway` and click on the `papercontect` gateway. From
 there, click on `Admin@org1.example.com` and untoggle to the
@@ -1253,11 +1254,11 @@ are going to do a redeem transaction from the IBM Blockchain extension.
 To do this, go to the `Fabric Gateway` pane and click on the
 `papercontract` gateway. From there, click on `Admin@org1.example.com`
 and untoggle to the transactions and query. Then, right click on
-`redeem`and select `Submit Transaction`
+`redeem` and select `Submit Transaction`
 
 ![image](images/30.png)
 
-When it asks for some arguments to pass through, enter this below :
+When it asks for some arguments to pass to the transaction, enter this below :
 
     MagnetoCorp,00002,DigiBank,2019-12-30
 
@@ -1300,7 +1301,8 @@ terminal below
     docker rmi -f $(docker images -q) # to remove all of your docker images
 
 **2.** Finally, go back to your `Explorer` perspective and right click
-on all of your folders and select `Remove Folder from Workplace`. This
-will get rid of all of your folders.
+on each of your folders and select `Remove Folder from Workplace` for each one. This
+will get rid of all of your folders from your Explorer perspective, but don't worry
+as those folders are not deleted from your file system!
 
 **END OF LAB!**
