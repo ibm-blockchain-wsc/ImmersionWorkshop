@@ -18,7 +18,8 @@
 * [Trusted Identity](https://www.ibm.com/blogs/blockchain/2018/08/ibm-blockchain-trusted-identity-sovrin-steward-closed-beta-offering/ "identity")
 * [World Wire](https://www.ibm.com/blockchain/solutions/world-wire "world wire")
 
-## Additional Labs
+## Additional Use Case Walkthroughs and VSCode Labs
 * [Vehicle Lifecycle Demo Lab](https://developer.ibm.com/courses/all/blockchain-essentials "VLD lab")
+* [IMMUNIChain Walkthrough](https://github.com/austingrice/ImmunichainGuidedTour "IMMUNIChain walkthrough")
 * [IBM Blockchain Platform VSCode Extension Lab: Add Indices for Better Performing Queries](https://dwakeman.github.io/blockchain-stuff/files/Lab6-IBPVSCodeQueriesWithIndexes.pdf "indexes")
 * [IBM Blockchain Platform VSCode Extension: Add a Loopback API to your Smart Contract](https://dwakeman.github.io/blockchain-stuff/files/lab7-IBPVSCodeAddLoopbackRestfulAPIs.pdf "loopback")
