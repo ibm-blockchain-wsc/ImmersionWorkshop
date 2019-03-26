@@ -249,7 +249,7 @@ folder to the contract folder of `MagnetoCorp`
     fabric-samples -> commercial-paper -> organization -> magnetocorp -> contract
 
 Within the `lib` folder, you'll see 3 javascript (.js) files in there.
-Click on the **papercontract.js** file, which will open it that file
+Click on the **papercontract.js** file, which will open it 
 within VSCode
 
 ![image](images/14.png)
@@ -258,7 +258,7 @@ Let's dissect our `papercontract.js` file as it is our smart contract.
 We will only go over the `issue` transaction, but the other transactions
 follow pretty closely to this one
 
-Below, these 2 lines of code brings into scope two key Hyperledger
+Below, these 2 lines of code bring into scope two key Hyperledger
 Fabric classes that will be used extensively by the smart contract --
 Contract and Context 
 
@@ -277,7 +277,7 @@ within this class
     class CommercialPaperContract extends Contract {
 
 Below, this method defines the commercial paper `issue` transaction for
-commercial paper blockchain network. The parameters that are passed to
+the commercial paper blockchain network. The parameters that are passed to
 this method will be used to create the new commercial paper. Locate and
 examine the `buy` and `redeem` transactions within the smart contract 
 
@@ -296,7 +296,7 @@ examine the `buy` and `redeem` transactions within the smart contract
 Within the issue transaction, this statement creates a new commercial
 paper in memory using the CommercialPaper class with the supplied
 transaction inputs. Examine the buy and redeem transactions to see how
-they similarly use this class below 
+they similarly use this class 
 
     // create an instance of the paper
     let paper = CommercialPaper.createInstance(issuer, paperNumber, issueDateTime, maturityDateTime, faceValue);
@@ -366,8 +366,8 @@ and container.
 
 ![image](images/papernet_magnetoinstant.png)
 
-**5.** You will know our instantiate command worked when we simply get
-our command prompt back. You can really verify it worked by going back
+**5.** You will know our instantiate command worked when we get
+our command prompt back without any error messages. You can really verify it worked by going back
 to the VSCode and refreshing the `Local Fabric Ops` panel and you should
 see it under the `instantiate` section.
 
