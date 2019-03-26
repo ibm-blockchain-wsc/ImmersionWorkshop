@@ -4,8 +4,8 @@ Part 2: Commercial Paper Tutorial
 Section 1: Overview
 -------------------
 
-This tutorial is of a commercial paper (known as `PaperNet`) trading
-network. Commercial paper itself is a type of unsecured lending in the
+This tutorial works with a sample commercial paper trading
+network called `PaperNet`. Commercial paper is a type of unsecured lending in the
 form of a "promissory note". The papers are normally issued by large
 corporations to raise funds to meet short-term financial obligations at
 a fixed rate of interest. Once issued at a fixed price, for a fixed
@@ -17,19 +17,19 @@ As an example, if a paper was issued at a face value of 10M USD for a
 6-month term at 2% interest then it could be bought for 9.8M USD (10M --
 2%) by another company or bank who are happy to bear the risk that the
 issuer will not default. Once the term is up, then the paper could be
-redeemed or sold back to the issuer for their full face value of 10M
+redeemed or sold back to the issuer for its full face value of 10M
 USD. Between buying and redemption, the paper can be bought or sold
 between different parties on a commercial paper market.
 
 These three key steps of issue, buy and redeem are the main transactions
 in a simplified commercial paper marketplace, which we will mirror in
 our lab. We will see a commercial paper issued by a company called
-MagnetoCorp and once issued on the commercial paper blockchain network,
+MagnetoCorp and, once issued on the commercial paper blockchain network,
 another company called DigiBank will first buy the paper and then redeem
 it.
 
-You'll act as a developer, end user, and administrator, each in
-different organizations, performing the following steps designed to help
+You'll act as a developer, end user, and administrator, within
+different organizations, performing various steps designed to help
 you understand what it's like to collaborate as two different
 organizations working independently, but according to mutually agreed
 rules in a Hyperledger Fabric network.
@@ -54,9 +54,10 @@ Below is the full breakdown of Part 2 of this lab:
             success for the rest of the lab. One of these containers
             will just monitor the docker network we are operating in. If
             you have no idea what a docker network is, I will explain
-            later on. The other continer is `fabric-tools`, but it is
-            named `cliMagnetoCorp` which will be how we install and
-            instantiate the first time.
+            later on. The other container contains Hyperledger Fabric 
+	    tools and is named `cliMagnetoCorp`, as MagnetoCorp will
+	    use the Hyperledger Fabric command line interface (cli)
+	    within this container.
 
 -   Install and Instantiate Smart Contract:
 
@@ -97,7 +98,7 @@ Below is the full breakdown of Part 2 of this lab:
             transaction from the command line interface as well as the
             VSCode user interface. We will also issue another paper from
             Isabella's perspective and then invoke a series of
-            transactions to buy and redeem the paper from Balaji.
+            transactions from Balaji's perspective to buy and redeem the paper.
 
 -   Lab Cleanup:
 
