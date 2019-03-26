@@ -12,43 +12,42 @@ we will have you start up the local Hyperledger Fabric network so that
 we can build our smart contract on top of it. In this lab, we have you
 deploy to a local network that is running on your laptop, but you can
 also connect the IBM Blockchain Platform VSCode extension to either your
-IBM Blockchain Platform network running in the cloud or your IBM
-Blockchain Platform on IBM Cloud Private network on-premises. Below is a
-breakdown of `Part 1` of our lab
+IBM Blockchain Platform network running in the IBM Cloud or your IBM
+Blockchain Platform on IBM Cloud Private network on-premises. Below is a breakdown of Part 1 of our lab:
 
--   Install and Start up a Blockchain Network:
+* Install and Start up a Blockchain Network:
 
-    -   We must make sure that all levels of software (docker, node,
+    * We must make sure that all levels of software (docker, node,
             npm, docker-compose and yo) are at the correct level before
             we start building our smart contract. Then, we will install
             the IBM Blockchain Platform extension that will allow us to
             create and develop our smart contract. Once we have done
             that, we will then start up the Hyperledger Fabric network,
-            which will consist of a certificate authority (CA), orderer
-            (solo - meant for dev/test), couchdb, ccenv (chaincode
+            which will consist of a certificate authority (CA), Solo orderer
+            (meant for dev/test), couchdb (world state database), ccenv (chaincode
             environment), and most importantly our peer.
 
--   Create our Smart Contract:
+* Create our Smart Contract:
 
-    -   Now that we have a running Hyperledger Fabric blockchain
+    * Now that we have a running Hyperledger Fabric blockchain
             network, we will create our smart contract. The smart
             contract will be very basic in nature, but we will explain
             what the contract is trying to accomplish before we go
             through some of the unique features that the extension can
             do for us and our smart contract.
 
--   Package, Install and Instantiate our Smart Contract:
+* Package, Install and Instantiate our Smart Contract:
 
-    -   Since we have an understanding of how our smart contract
+    * Since we have an understanding of how our smart contract
             works, we will need to install (peer level command) it on
             our peer and then instantiate (channel level command) the
             installed smart contract on the channel. Once we have
             instantiated the smart contract, we will be able to submit
             transactions.
 
--   Unit Test our Smart Contract:
+* Unit Test our Smart Contract:
 
-    -   Once we have an instantiated smart contract on our channel,
+    * Once we have an instantiated smart contract on our channel,
             we will then test out the code to make sure that the
             contract will actually work when we submit transactions.
             This checks all the files within our smart contract and
@@ -59,29 +58,21 @@ breakdown of `Part 1` of our lab
             will submit tests that will commit data to the ledger. We
             will go into detail once we get to that point.
 
--   Submit Transactions:
+* Submit Transactions:
 
-    -   What fun is it to have a working smart contract and have it
-            instantiated across the channel, if we can't submit
-            transactions? In this section, we will actually submit
-            transactions from the UI of VSCode. We will see data get
-            committed to the ledger.
+    * What fun is it to have a working smart contract and have it instantiated across the channel, if we can't submit transactions? In this section, we will actually submit transactions from the UI of VSCode. We will see data get committed to the ledger.  
 
--   Generate Smart Contract Test Client:
+* Generate Smart Contract Test Client:
 
-    -   In the final section of part 1, we will generate a test file
-            that will test our smart contract, while submitting
-            transactions to the ledger. We will view the docker logs of
-            our running smart contract and see the transactions being
-            added to the logs as well as the ledger.
+    * In the final section of part 1, we will generate a test file that will test our smart contract, while submitting transactions to the ledger. We will view the docker logs of our running smart contract and see the transactions being added to the logs as well as the ledger.
 
 Section 2: Install and Start Up a Blockchain Network
 ----------------------------------------------------
 
-**NOTE:** For `Part 1` of our lab, we will be using the terminal within
+**NOTE:** For Part 1 of our lab, we will be using the terminal within
 VSCode. Do **not** execute the commands within the actual terminal
 application. You can enter them from the terminal application, but the
-instructions below will all be within the VSCode terminal. `Part 2` of
+instructions below will all be within the VSCode terminal. In Part 2 of
 this lab, you will use the terminal application.
 
 **1.** Open up your teminal and type in the following commands below
@@ -100,15 +91,14 @@ this lab, you will use the terminal application.
 If you get a version that doesn't support our qualifications, raise
 your hand and tell the instructor.
 
-**2.** From the same command line, enter the following command below
+**2.** From the same command line, enter the following command below:
 
     tecadmin@ubuntubase:~$ code
 
 This will start Visual Studio Code (VSCode)
 
-**3.** From the user interface (UI) of VSCode, click on the 4th item
-down. This will allow you to search for available extensions to install
-and work from
+**3.** From the user interface (UI) of VSCode, in the navigation menu on the left, click on the 5th item
+down. This will allow you to search for available extensions to install.
 
 **4.** In the search bar, type in `blockchain` and that should populate
 all the available extensions that deal with blockchain. The top choice
@@ -172,21 +162,19 @@ containers. In addition, it builds the crypto material (certificates,
 public and private keys) and creates and joins a sample channel called
 `mychannel`. The other option, `Teardown Fabric Runtime` basically
 cleans up the network and removes all of the containers that
-`Start Fabric Runtime` builds. It does leave the `Start Fabric Runtime`
-docker images. To do a full cleanup, we will need to manually remove
-those images and containers.
+`Start Fabric Runtime` builds. It does not remove the Hyperledger Fabric images that the `Start Fabric Runtime` pulls down into your local docker registry. To do a full cleanup, we will need to manually remove
+those images.
 
 **7.** How do we know if we have a successful blockchain network up and
 running? I'm glad you asked! We will see messages flooding the `Output`
-panel. We will want to see a message that resembles the one below
+panel. We will want to see a message that resembles the one below:
 
     [2/20/2019 7:26:54 PM] [INFO] 2019-02-21 00:26:34.756 UTC [cli.common] readBlock -> INFO 002 Received block: 0
     [2/20/2019 7:26:54 PM] [INFO] 2019-02-21 00:26:34.930 UTC [channelCmd] InitCmdFactory -> INFO 001 Endorser and orderer connections initialized
     [2/20/2019 7:26:55 PM] [INFO] 2019-02-21 00:26:35.458 UTC [channelCmd] executeJoin -> INFO 002 Successfully submitted proposal to join channel
 
 **8.** We can verify that everything is up and working by entering the
-following `docker ps -a` command that will print out all of our
-containers
+following `docker ps -a` command that will print out all of our containers.
 
 Section 3: Create our Smart Contract
 ------------------------------------
@@ -243,9 +231,7 @@ first botton on our left side panel
 
 ![image](images/6.png)
 
-**8.** From the `Explorer` page, we will see all the open tabs we have
-open in VSCode and then all the smart contracts we created in our
-workspace, which should only be our [mycontract]{.title-ref}.
+**8.** From the `Explorer` page, we will see the `mycontract` smart contract project. The project should already be expanded to show the contents of this project. If not, you can click on the twistie next to `mycontract` to review the contents of this project.
 
 **9.** If you navigate within this UI to `lib/my-contract.js` and click
 on `my-contract.js` it will open that file within VSCode. From there we
@@ -256,18 +242,12 @@ this case, we only have `instantiate, transaction1 and transaction2`
 
 The main file in our smart contract is the `my-contract.js` file. It
 contains information as to the various transactions we can do as well as
-pulling in some predefined classes. Take a look at these lines in the
-code
+pulling in some predefined classes.
 
-These couple of lines are vital to understand what is happening in our
-smart contract, below. The MyContract class contains the transaction
-definitions for mycontract - like instantiate, transaction1 and
-transaction2. It's these transactions that bring mycontract into
-existence. We'll examine these transactions soon, but for now notice how
-MyContract extends the Hyperledger Fabric Contract class which is the
-first line of code here. Our mycontract will use built-in features of
-these classes, such as automatic method invocation, a per-transaction
-context, transaction handlers, and class-shared state 
+Below are a couple lines of code from `my-contract.js` that are vital to understanding what is happening in our
+smart contract. The first line below sets the the Contract object to require the Node module `fabric-contract-api`. The `fabric-contract-api` provides the contract interface which is a high level API for application developers to implement smart contracts. The MyContract class then extends the Contract object. It contains the transaction
+definitions for mycontract - in this case they are instantiate, transaction1 and
+transaction2. We'll examine these transactions soon. By leveraging the `fabric-contract-api` we have a high level entry point to writing business logic: 
 
     const { Contract } = require('fabric-contract-api');
 
@@ -275,12 +255,10 @@ context, transaction handlers, and class-shared state
 
 You might have noticed an extra variable in each transaction definition
 -- `ctx`. It's called the transaction context, and it's always first. By
-default, it maintains both per-contract and per-transaction information
-relevant to transaction logic. We also see that transaction1 expects 1
-argument in addition to ctx and transaction2 expects 2 different
+default, it maintains both per-contract and per-transaction information relevant to transaction logic. We also see that transaction1 expects 1 argument in addition to ctx and transaction2 expects 2 different
 arugments in addition to ctx. The instantiate transaction expects an
-`instantiate` argument when actually instantiating this smart contract.
-You can see that below. In fact, we will instantiate in the next section
+`instantiate` argument.
+You can see that below. We will call instantiate in the next section.
 
     async instantiate(ctx) {
        console.info('instantiate');
@@ -303,7 +281,7 @@ network. We will realize how easy this is very soon.
 
 **1.** In order to successfully install and instantiate a smart
 contract, we first need to package our contract up. We can do this by
-navigating to the IBP Extension (the block outline within our VSCode).
+navigating to the IBP Extension (the 6th button in the left navigation bar in VSCode).
 
 **2.** Once we are in the IBP extension, repeat the steps from
 `section 2, step 1` by clicking on the gear in the bottom left and then
@@ -319,7 +297,7 @@ smart contract name and then set its version to `0.0.1` - in this case
 **4.** Now that we have our smart contract packaged up, untoggle the
 `Smart Contracts` option from within the `Local Fabric Ops` panel. There
 you will have the option to install and instantiate our smart contract
-package. Since we all are very smart, we know that we have to install
+package. We have to install
 before instantiating. So do that by clicking on `+ Install`.
 
 ![image](images/8.png)
@@ -342,8 +320,7 @@ is there before continuing.
 chaincode. To do this, simply click on the `+ Instantiate` underneath
 the `Instantiated` option. Since instantiation is a channel operation,
 it will ask what channel to instantiate the chaincode on. You will want
-to instantiate on `mychannel` and then the `mycontract@0.0.1` as the
-smart contract. Then it will ask what function we want to pass through.
+to instantiate on `mychannel` and then select the `mycontract@0.0.1` as the smart contract. Then it will ask what function we want to pass through.
 We want to enter `instantiate` here. Then for the last popup message,
 simply just press `enter` and it will begin to instantiate 
 
@@ -368,8 +345,7 @@ way you want it to. Later, we will test our transactions that commit
 data to the ledger.
 
 **1.** Jump back up to our `Explorer` perspective at the top left of
-VSCode. From there naviagate to `mycontract/test/my-contract.js` and
-actually click on the `my-contract.js` file to open it in our VSCode.
+VSCode (First icon in the navigation panel on the left). From there naviagate to `mycontract/test/my-contract.js` and click on `my-contract.js` to open it VSCode.
 
 **2.** Once you have the file open, right click on `my-contract.js` and
 then select `Open in Terminal` - this will open this file path directly
@@ -412,12 +388,12 @@ In this section we will actually submit transactions after knowing that
 our smart contract is good to go!
 
 **1.** Enter the following command below to see all of our Docker containers
-running. Please do this from the command line in VSCode 
+running. Please do this from the terminal window in VSCode: 
 
     tecadmin@ubuntubase:~/Desktop/mycontract/test$ docker ps -a
 
 You should see 5 containers running: peer, cerificate authority,
-orderer, couchdb and the chaincode container
+orderer, couchdb and the chaincode container.
 
 **2.** To see the logs of our chaincode container enter the following
 commmand from your terminal in VSCode. **NOTE:** scroll to see the
@@ -428,8 +404,8 @@ entire command below
 **NOTE:** The docker smart contract container name will be different if
 you named your smart contract something other than `mycontract`.
 
-**3.** Navigate to the IBP Extension where we will utilize the third
-panel on the left - called `Fabric Gateways`
+**3.** Navigate to the IBP Extension (6th button in the navigation panel in VSCode), where we will utilize the third
+panel on the left - called `Fabric Gateways`.
 
 **4.** From here, click on `Admin@org1.example.com` and you will see all
 the channels in our network, in this case it is just `mychannel`.
@@ -448,8 +424,7 @@ transaction coming through the chaincode container.
 
 **7.** Equally, you could check the logs of your peer by entering the
 following command below within VSCode. I'm grep-ing these logs because there
-is a lot of output due to the signatures and messages a transaction
-sends, but I'm just wanting to see all the blocks 
+is a lot of output due to the signatures and messages related to a transaction, but I just want to see all the blocks related messages:
 
     tecadmin@ubuntubase:~/Desktop/mycontract/test$ docker logs -f fabricvscodelocalfabric_peer0.org1.example.com | grep block
     2019-02-21 20:02:09.209 UTC [endorser] callChaincode -> INFO 093 [mychannel][c55f59cc] Entry chaincode: name:"mycontract" 
@@ -477,7 +452,7 @@ as well. This test is different from the unit tests in section 5 due to
 the fact that we will actually commit a transaction to the ledger with
 data.
 
-**1.** From the IBP Extension and within the `Fabric Gateways` panel,
+**1.** From the IBP Extension perspective and within the `Fabric Gateways` panel,
 right click on the smart contract - in this case `mycontract@0.0.1`.
 Then click on `Generate Smart Contract Tests`.
 
@@ -490,7 +465,7 @@ case it is called `MyContract-mycontract@0.0.1.test.js`
 
 **NOTE:** If we see a little caution box appear in the bottom, right
 click on the `X` to close that message. That little booger of a message
-is as annoying as someone typing `@here` on a SLACK channel
+is as annoying as someone typing `@here` on a Slack channel!
 
 **3.** Within that new file, scroll down to where you see `transaction1`,
 in my case it is on line 71, but that could be different for you. A
