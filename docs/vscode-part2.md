@@ -1067,7 +1067,7 @@ paper. **NOTE:** scroll over to see the entire command below
     Disconnect from Fabric gateway.
     Buy program complete.
 
-**4.** Let's observe the currect status of the paper. **NOTE:** scroll
+**4.** Let's observe the current status of the paper. **NOTE:** scroll
 over to see the entire command below 
 
     tecadmin@ubuntubase:~/Desktop/mycontract/fabric-samples/commercial-paper/organization/digibank/application$ node getPaper.js
@@ -1089,8 +1089,8 @@ over to see the entire command below
     Disconnect from Fabric gateway.
     getPaper program complete.
 
-**5.** Let's pretend the maturity date has been reached, we can now
-redeem this paper. Lets do that now. **NOTE:** scroll over to see the
+**5.** Let's pretend the maturity date has been reached so that we can now
+redeem this paper. Let's do that now. **NOTE:** scroll over to see the
 entire command below 
 
     tecadmin@ubuntubase:~/Desktop/mycontract/fabric-samples/commercial-paper/organization/digibank/application$ node redeem.js 
@@ -1150,7 +1150,7 @@ below
 That line of code is creating a new paper. Go ahead and **save this file
 (control + s)**.
 
-**9.** Equally, navigate to the `getPaper.js` file within `digibank` and
+**9.** Now navigate to the `getPaper.js` file within `digibank` and
 change the key below to look for a paper with an id of `00002` on line
 `68` 
 
@@ -1211,7 +1211,7 @@ scroll over to see the entire command below
     Disconnect from Fabric gateway.
     getPaper program complete.
 
-**12.** That's enough command line for right now, let's jump to VSCode
+**12.** That's enough command line for right now- let's jump to VSCode
 and buy our new paper there. Within the IBM Blockchain extension, go to
 the `Fabric Gateway` and click on the `papercontect` gateway. From
 there, click on `Admin@org1.example.com` and untoggle to the
@@ -1254,11 +1254,11 @@ are going to do a redeem transaction from the IBM Blockchain extension.
 To do this, go to the `Fabric Gateway` pane and click on the
 `papercontract` gateway. From there, click on `Admin@org1.example.com`
 and untoggle to the transactions and query. Then, right click on
-`redeem`and select `Submit Transaction`
+`redeem` and select `Submit Transaction`
 
 ![image](images/30.png)
 
-When it asks for some arguments to pass through, enter this below :
+When it asks for some arguments to pass to the transaction, enter this below :
 
     MagnetoCorp,00002,DigiBank,2019-12-30
 
@@ -1301,7 +1301,8 @@ terminal below
     docker rmi -f $(docker images -q) # to remove all of your docker images
 
 **2.** Finally, go back to your `Explorer` perspective and right click
-on all of your folders and select `Remove Folder from Workplace`. This
-will get rid of all of your folders.
+on each of your folders and select `Remove Folder from Workplace` for each one. This
+will get rid of all of your folders from your Explorer perspective, but don't worry
+as those folders are not deleted from your file system!
 
 **END OF LAB!**
