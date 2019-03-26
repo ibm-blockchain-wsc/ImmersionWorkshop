@@ -114,7 +114,7 @@ Section 2: Setting the Stage
 ----------------------------
 
 **NOTE:** There are two terminals we can operate in - the actual
-terminal application and the terminal found in VSCode. Unless I
+terminal application, available on your Ubuntu desktop, and the terminal window available in VSCode. Unless I
 explicitly say, only use the terminal application - meaning do **not**
 use the terminal in VSCode. On the chance that we will use the terminal
 in VSCode, I will specify that.
@@ -139,7 +139,7 @@ the `fabric-samples` github repository
     drwxr-xr-x  16 tecadmin  tecadmin  512 Feb 22 12:34 mycontract
 
 **2.** We need to know the Docker network that we are currently in so
-that we can modify some scripts, that will then create more Docker
+that we can modify some scripts that will then create more Docker
 containers for us to use. Enter the command below to see all of our
 Docker networks
 
@@ -158,10 +158,10 @@ and we can verify that by doing the following command below
 That command will show you all the containers running in this network.
 In a nutshell, docker networks are natural ways to isolate containers
 from other containers or other networks. Having containers within a
-network allows them to immediately communicate with other containers in
+network allows them to communicate with other containers in
 the network.
 
-**4.** Within VSCode, go to the `Editor` perspective and click on `File`
+**4.** Within VSCode, go to the `Explorer` perspective and click on `File`
 and select `Add Folder to Workplace..` - This will allow us to work from
 an `Untitled Workplace`, but have the `fabric-samples` folder in there.
 
@@ -169,7 +169,7 @@ an `Untitled Workplace`, but have the `fabric-samples` folder in there.
 
     fabric-samples -> commercial paper -> organizations -> magenetocorp -> configuration -> cli
 
-You should see two files in there. One named `docker-compose-yml` and
+You should see two files in there. One named `docker-compose.yml` and
 another named `monitordocker.sh`
 
 ![image](images/13.png)
@@ -191,8 +191,8 @@ MagnetoCorp. **NOTE:** scroll over to see the entire command below
     -rw-r--r--  1 tecadmin  tecadmin  1168 Feb 22 12:41 docker-compose.yml
     -rwxr-xr-x  1 tecadmin  tecadmin   751 Feb 22 12:44 monitordocker.sh
 
-**9.** Now that we have updated these files to represent the correct
-Docker network, go ahead run the monitordocker file with the name of our
+**9.** Now that we have updated these files to specify the correct
+Docker network, go ahead run the monitordocker.sh script with the name of our
 Docker network. **NOTE:** scroll over to see the entire command below 
 
     tecadmin@ubuntubase:~/Desktop/mycontract/fabric-samples/commercial-paper/organization/magnetocorp/configuration/cli/$ ./monitordocker.sh fabricvscodelocalfabric_basic
@@ -222,7 +222,7 @@ create a `cliMagnetoCorp` container for our docker network to use.
 
 When we first install the smart contract, we will go through the
 `cliMagnetoCorp` container, which is our Administrator Console. This
-will allow use to use Fabric `peer` commands. Conveniently, the
+will allow us to use Fabric `peer` commands. Conveniently, the
 `cliMagnetoCorp` container is the `hyperledger/fabric-tools` image.
 
 ![image](images/papernet_magnetocorp.png)
