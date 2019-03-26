@@ -15,6 +15,7 @@ nav:
         - Introduction: connect-home.md
         - Part 1: connect-part1.md
         - Part 2: connect-part2.md
+    - Additional Resources: references.md
 
 theme: readthedocs
 markdown_extensions:
