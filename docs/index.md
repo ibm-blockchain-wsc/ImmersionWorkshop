@@ -4,21 +4,22 @@ Welcome! This two-day workshop combines lectures and hands-on labs to teach you 
 ## Agenda
 
 ### Day 1
-* Blockchain Explained
-* Vehicle Lifecycle Demo
-* Blockchain Use Cases
-* Hyperledger Fabric Lab
-* Lunch / Informal use case discussions
-* Blockchain Explored, Deep Dive Part 1
-* VSCode Lab
+* 9am - Introductions
+* 9:15am - Blockchain Explained
+* 10am - Vehicle Lifecycle Demo
+* 10:30am - Blockchain Use Cases
+* 11am - Hyperledger Fabric Lab
+* Noon - Lunch / Informal use case discussions
+* 1pm - Blockchain Explored, Deep Dive Part 1
+* 2pm - VSCode Lab
 
 ### Day 2
-* Blockchain Explored, Deep Dive Part 2
-* IBM Blockchain Platform, LinuxONE advantages
-* Next Steps in creating your first project
-* Lunch
-* Introduction to IBM Cloud Private and Kubernetes
-* IBM Blockchain Platform for IBM Cloud Private Lab
+* 9am - Blockchain Explored, Deep Dive Part 2
+* 10am - IBM Blockchain Platform, LinuxONE advantages
+* 11:30am - Next Steps in creating your first project
+* Noon - Lunch
+* 1pm - Introduction to IBM Cloud Private and Kubernetes
+* 2pm - IBM Blockchain Platform for IBM Cloud Private Connect-a-thon Lab
 
 ## Acknowledgements
 
