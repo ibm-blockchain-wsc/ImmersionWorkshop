@@ -1,4 +1,4 @@
-# Blockchain Immersion Workshop
+# Blockchain Immersion Wildfire Workshop
 Welcome! This two-day workshop combines lectures and hands-on labs to teach you the fundamentals of blockchain for business. On Day 1, we focus on blockchain 101, blockchain use cases, and the open source framework called Hyperledger Fabric that powers blockchain for business. On Day 2, you will learn about the IBM-specific offerings that leverage Hyperledger Fabric, and how our unique combination of expertise, governance and operations tooling, and infrastructure capabilities with LinuxONE can help you achieve business results faster and more securely.
 
 ## Agenda
@@ -9,13 +9,13 @@ Welcome! This two-day workshop combines lectures and hands-on labs to teach you 
 * Blockchain Use Cases
 * Hyperledger Fabric Lab
 * Lunch / Informal use case discussions
-* Blockchain Explored Part 1
+* Blockchain Explored, Deep Dive Part 1
 * VSCode Lab
 
 ### Day 2
-* Blockchain Explored Part 2
-* IBM Blockchain Platform
-* Next Steps
+* Blockchain Explored, Deep Dive Part 2
+* IBM Blockchain Platform, LinuxONE advantages
+* Next Steps in creating your first project
 * Lunch
 * Introduction to IBM Cloud Private and Kubernetes
 * IBM Blockchain Platform for IBM Cloud Private Lab
