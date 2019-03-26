@@ -9,7 +9,6 @@
 * [Hyperledger Fabric documentation](https://hyperledger-fabric.readthedocs.io/en/latest/index.html "Official HLF readthedocs")
 * [IBM Blockchain Founder's Handbook](https://www.ibm.com/account/reg/us-en/signup?formid=urx-31528 "founder's handbook")
 * [Blockchain Essentials Badge](https://developer.ibm.com/courses/all/blockchain-essentials "blockchain essentials")
-* [Unbounded - Blockchain Network Finder](https://unbounded.network/ "unbounded network")
 
 
 ## Existing Networks
@@ -17,9 +16,10 @@
 * [TradeLens](https://www.ibm.com/blogs/think/2018/11/tradelens-how-ibm-and-maersk-are-sharing-blockchain-to-build-a-global-trade-platform/ "tradelens")
 * [Trusted Identity](https://www.ibm.com/blogs/blockchain/2018/08/ibm-blockchain-trusted-identity-sovrin-steward-closed-beta-offering/ "identity")
 * [World Wire](https://www.ibm.com/blockchain/solutions/world-wire "world wire")
+* [Unbounded - Blockchain Network Finder](https://unbounded.network/ "unbounded network")
 
-## Additional Use Case Walkthroughs and VSCode Labs
+## Additional Use Case Walk-throughs and VSCode Labs
 * [Vehicle Lifecycle Demo Lab](https://developer.ibm.com/courses/all/blockchain-essentials "VLD lab")
-* [IMMUNIChain Walkthrough](https://github.com/austingrice/ImmunichainGuidedTour "IMMUNIChain walkthrough")
+* [IMMUNIChain Walk-through](https://github.com/austingrice/ImmunichainGuidedTour "IMMUNIChain walk-through")
 * [IBM Blockchain Platform VSCode Extension Lab: Add Indices for Better Performing Queries](https://dwakeman.github.io/blockchain-stuff/files/Lab6-IBPVSCodeQueriesWithIndexes.pdf "indexes")
 * [IBM Blockchain Platform VSCode Extension: Add a Loopback API to your Smart Contract](https://dwakeman.github.io/blockchain-stuff/files/lab7-IBPVSCodeAddLoopbackRestfulAPIs.pdf "loopback")
