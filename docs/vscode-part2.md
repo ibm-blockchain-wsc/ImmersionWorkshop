@@ -403,7 +403,7 @@ and `package.json`
 **3.** Click on `issue.js`, which will open the file within VSCode.
 Let's discuss what the file is trying to do.
 
-Below we bring in two key Hyperledger Fabric SDK classes into scope --
+Below we bring two key Hyperledger Fabric SDK classes into scope --
 `Wallet` and `Gateway`. Because Isabella's X.509 certificate is in the
 local file system, the application uses `FileSystemWallet` 
     
@@ -427,7 +427,7 @@ identified by `connectionProfile`, using the identity referred to in
     // Connect to gateway using application specified parameters 
     await gateway.connect(connectionProfile, connectionOptions);
 
-Below in the couple lines of code, connects the application to the
+Below in the couple lines of code, the application connects to the
 network channel `mychannel`, where the papercontract was previously
 instantiated. If you had a different channel name, you would have to
 modify this line of code 
@@ -443,7 +443,7 @@ any transaction implemented within it
     // Get addressability to commercial paper contract 
     const contract = await network.getContract('papercontract', 'org.papernet.comm...');
 
-Below, these lines of code submits a transaction to the network using
+Below, these lines of code submit a transaction to the network using
 the `issue` transaction defined within the smart contract.
 `MagnetoCorp, 00001` are the values to be used by the issue transaction
 to create a new commercial paper 
@@ -473,7 +473,7 @@ Once you have modified the file, please **save it (control + s)**.
 
 ![image](images/18.png)
 
-**5.** Enter the following command below to install the needed packages
+**5.** Enter the following command to install the needed packages
 from the `package.json` file. **NOTE:** scroll over to see the entire
 command below 
 
@@ -497,7 +497,7 @@ entire command below
     done
 
 **7.** We will know it worked if we can execute the following command
-below successfully. **NOTE:** scroll over to see the entire command
+successfully. **NOTE:** scroll over to see the entire command
 below 
 
     tecadmin@ubuntubase:~/Desktop/mycontract/fabric-samples/commercial-paper/organization/magnetocorp/application$ ls -l ../identity/user/isabella/wallet/
@@ -517,7 +517,7 @@ certificate used in this example
     Isabella's behalf, but not distributed outside of her immediate
     control
 -   a **public key** `c75bd6911a...-pub` which is cryptographically
-    linked to Isabella's private key. This is wholly contained within
+    linked to Isabella's private key. This public key is contained within
     Isabella's X.509 certificate
 -   a **certificate** `User1@org.example.com` which contains Isabella's
     public key and other X.509 attributes added by the Certificate
@@ -526,7 +526,7 @@ certificate used in this example
     cryptographically verify information signed by Isabella's private
     key
 
-**8.** Now that we have Isabella from MagnetoCorp, let's pass through
+**8.** Now that we have Isabella from MagnetoCorp, let's perform 
 the issue transaction from our terminal. **NOTE:** scroll over to see
 the entire command below 
 
@@ -569,7 +569,7 @@ command below
     tecadmin@ubuntubase:~/Desktop/mycontract/fabric-samples/commercial-paper/organization/magnetocorp/application$ cd ../../digibank/application/
     tecadmin@ubuntubase:~/Desktop/mycontract/fabric-samples/commercial-paper/organization/digibank/application$
 
-**11.** Navigate to the the application folder of DigiBank in the
+**11.** Navigate to the application folder of DigiBank in the
 editior perspective in VSCode 
 
     fabric-samples -> commercial paper -> organization -> digibank -> application
@@ -612,7 +612,7 @@ have to scroll over to see the entire command below
 
     added 318 packages in 27.138s
 
-**15.** Now, let's add an Balaji from `DigiBank`. **NOTE:** scroll over
+**15.** Now, let's add Balaji from `DigiBank`. **NOTE:** scroll over
 to see the entire command below 
 
     tecadmin@ubuntubase:~/Desktop/mycontract/fabric-samples/commercial-paper/organization/digibank/application$ node addToWallet.js 
@@ -632,8 +632,7 @@ command
     -rw-r--r--  1 tecadmin  tecadmin   182 Feb 22 12:57 cd96d5260ad4757551ed4a5a991e62130f8008a0bf996e4e4b84cd097a747fec-pub
 
 In the next section, we will actually upgrade our smart contract before
-submitting transactions. We are upgrading our smart contract because we
-can add in a query to get the status of our paper.
+submitting transactions. We are upgrading our smart contract in order to add in a query to get the status of our paper.
 
 Based on the picture below, we now have 2 participants in this network.
 Obviously, this is MagnetoCorp (Isabella) and DigiBank (Balaji). Both
