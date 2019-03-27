@@ -5,9 +5,9 @@ Welcome! This two-day workshop combines lectures and hands-on labs to teach you 
 
 ### Day 1
 * 9am - Introductions
-* 9:15am - [Blockchain Explained](tree/master/presentations/BlockchainExplained.pdf "blockchain explained")
-* 10am - [Vehicle Lifecycle Demo](tree/master/presentations/Vehicle_Lifecycle_Demo.pdf "vehicle lifecycle demo")
-* 10:30am -[Blockchain Use Cases](tree/master/presentations/Blockchain_Use_Cases_Dallas.pdf "blockchain use cases")
+* 9:15am - [Blockchain Explained](BlockchainExplained.pdf "blockchain explained")
+* 10am - [Vehicle Lifecycle Demo](Vehicle_Lifecycle_Demo.pdf "vehicle lifecycle demo")
+* 10:30am -[Blockchain Use Cases](Blockchain_Use_Cases_Dallas.pdf "blockchain use cases")
 * 11am - Hyperledger Fabric Lab
 * Noon - Lunch / Informal use case discussions
 * 1pm - Blockchain Explored, Deep Dive Part 1
