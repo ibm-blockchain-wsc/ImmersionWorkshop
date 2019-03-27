@@ -12,7 +12,7 @@ This lab is broken into two parts. The first part deals with the chaincode and t
 
 ## Acknowledgements
 * Special thanks to John Harrison who was the first person to get the application used in this lab to work on Hyperledger Fabric running on IBM Z!
-* Thanks to Jin VanStee for contributing the overview diagram for this introductory section!
+* Thanks to Jin VanStee for contributing the overview diagram at the beginning of Part 1!
 
 ## Author
 * Barry Silliman
