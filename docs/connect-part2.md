@@ -17,9 +17,9 @@ In this part of the lab, you will:
 6. Test the marbles UI
 
 ## Only if you stopped in between the lab parts 1 and 2
-1. make sure you still have an ssh connection to your bcuser instance. If not please rerun `IP_ADDRESS=givenip` for your given ip and `ssh bcuser@$IP_ADDRESS`
+1. Make sure you still have an ssh connection to your bcuser instance. If not please rerun `IP_ADDRESS=givenip` for your given ip and `ssh bcuser@$IP_ADDRESS`
 
-2. Check to make sure you are still in your docker image. If you got out of your docker image go back into the image by first setting your TEAM with `TEAM=teamxx` where xx is the number of your team. Then, check if your container is still running with `docker ps | grep team`
+2. Check to make sure you are still inside your docker image. If you got out of your docker image, go back into the image by first setting your TEAM with `TEAM=teamxx` where xx is the number of your team. Then, check if your container is still running with `docker ps | grep team`
 	
       a) If you get sample output showing a container such as:
 
@@ -135,14 +135,15 @@ RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 COPY package.json /usr/src/app/
 RUN apk add --no-cache --virtual .build-deps make gcc g++ python \
- && npm install --silent \
+ && npm install \
  && npm install gulp -g ---unsafe-perm \
  && apk del .build-deps .build-deps make gcc g++ python
 COPY . /usr/src/app/
 EXPOSE 3001
 CMD [ "gulp", "marbles_tls" ]
 ```
-The above Dockerfile builds from an Alpine node image already out there in DockerHub. This is a bare bones Linux image of the Alpine distribution with node version 8 installed. Next, the `NPM_CONFIG_LOGLEVEL` for npm is globally set to warn so that npm will only print errors and warnings. `ENV` is used for this to persist this change as an environment variable in your finished container. Then, it uses `RUN` to run a command inside of the base `node:8-alpine` container to make a directory for the marbles application. `WORKDIR` makes this directory the current working directory. Moreover, `COPY` brings the `package.json` file (containing the names of the application's dependent node modules) into the containers `/usr/src/app` directory. The following `RUN` command uses `apk` (Alpine's package manager) to install a variety of pre-reqs to your `npm install` such as make, gcc and python, before running the actual `npm install` twice to install both the necessary node modules needed by the Marbles UI itself and gulp to start the marbles UI. Note that this is all done in one line with `&&` to make it occur in one layer. This way, at the end of the `RUN` you can use a delete command `apk del` and take the developer tools you no longer need out of your image. If you instead ran this as multiple commands, you would not be able to shrink your image size since previous layers can't be effectively deleted due to the layered file system. Finally, you copy the application itself and the connection profile materials into your working directory, document the port you will run marbles on (`3001`), and set a command for the container to run when it starts `gulp marbles_tls`. 
+
+The above Dockerfile builds from an Alpine node image in DockerHub. This is a bare bones Linux image of the Alpine distribution with node version 8 installed. Next, the `NPM_CONFIG_LOGLEVEL` for npm is globally set to warn so that npm will only print errors and warnings. `ENV` is used for this to persist this change as an environment variable in your finished container. Then, it uses `RUN` to execute a command inside of the base `node:8-alpine` container to make a directory for the marbles application. `WORKDIR` makes this directory the current working directory. Moreover, `COPY` brings the `package.json` file (containing the names of the application's dependent node modules) into the containers `/usr/src/app` directory. The following `RUN` command uses `apk` (Alpine's package manager) to install a variety of pre-reqs to your `npm install` such as make, gcc and python, before running the actual `npm install` twice to install both the necessary node modules for both the Marbles UI itself and gulp to start the marbles UI. Note that this is all done in one line with `&&` to make it occur in one layer. This way, at the end of the `RUN` command you can use a delete command `apk del` and take the developer tools you no longer need out of your image. If you instead ran this as multiple commands, you would not be able to shrink your image size since previous layers can't be effectively deleted due to the layered file system used for docker images. Finally, you copy the application itself and the connection profile materials into your working directory, document the port you will run marbles on (`3001`), and set a command for the container to run when it starts `gulp marbles_tls`. 
 
 - Now let's run docker build in the `/home/marbles` directory:
 ```
@@ -179,7 +180,10 @@ Successfully tagged marbles-team00:latest
 
 Sample Output:
 ```
-
+REPOSITORY                                                        TAG                 IMAGE ID            CREATED             SIZE
+marbles-team00                                                    latest              5cc513286904        29 seconds ago      312MB
+wsc-ibp-icp-cluster.icp:8500/lab-test/connectathon-s390x-team00   1.0                 a2d1b20e0e1e        12 hours ago        1.16GB
+node                                                              8-alpine            030469210de8        2 weeks ago         69.5MB
 ```
 ## Test the docker image locally
 - Let's test the image that was just built, by running it locally:
@@ -345,6 +349,8 @@ spec:
       labels:
         app: marbles-team00
     spec:
+      nodeSelector:
+        beta.kubernetes.io/arch: s390x
       containers:
       - name: marbles-team00
         image: wsc-ibp-icp-cluster.icp:8500/lab-test/marbles-team00:1.0
@@ -352,7 +358,7 @@ spec:
           - containerPort: 3001
         imagePullPolicy: Always
 ```
-The important parts to point out in the yaml file are that it will create a Kubernetes service called `marbles-team00-svc` and that it is pointing to the `marbles-team00` container. The service will be of type `NodePort` which means this service will be reachable outside of the cluster. The yaml file will also create a Kubernetes deployment that has one pod with one container that will be based off of the `wsc-ibp-icp-cluster.icp:8500/lab-test/marbles-team00:1.0` image that you pushed to the private registry earlier.
+The important parts to point out in the yaml file are that it will create a Kubernetes service called `marbles-team00-svc` and that it is pointing to the `marbles-team00` container. The service will be of type `NodePort` which means this service will be reachable outside of the cluster. The yaml file will also create a Kubernetes deployment that has one pod with one container that will be based off of the `wsc-ibp-icp-cluster.icp:8500/lab-test/marbles-team00:1.0` image that you pushed to the private image registry earlier. Finally, since you built the marbles-teamxx image with the s390x (z) architecture and there are machines with multiple different architectures in our cluster (s390x and amd64) you need to specify for it to run on s390x with a nodeSelector of `beta.kubernetes.io/arch: s390x`. If you built it for a different architecture, you would instead use a nodeSelector for that architecture.
 
 ## Deploy the service and test the Marbles UI
 * Now you are ready to create the Kubernetes resources. Run the following command:

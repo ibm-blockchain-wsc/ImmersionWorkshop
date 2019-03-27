@@ -17,7 +17,7 @@ An IBM Blockchain Platform network has been set up with an organization for each
 
 This container is labeled based on your team.
 
-Please open a terminal window on your computer and set your given ip address and ssh into that z machine
+Please open a terminal window on your computer, set your given ip address and ssh into that z machine
 
 `IP_ADDRESS=givenip`
 
@@ -82,12 +82,7 @@ done.
 ```
 Take particular note that 1 certificate was added and 0 removed in your output like in the sample output above.
 
-Next, set your team name and login to the private docker repository
-
-`TEAM=teamxx`
-
-`credential=p@ssw0rd`
-
+Next, login to the private docker repository:
 ```
 echo $credential | docker login wsc-ibp-icp-cluster.icp:8500 -u $TEAM --password-stdin
 ```
@@ -103,7 +98,7 @@ Now, start your unique image which will return a command prompt:
 docker run --rm -it -v /var/run/docker.sock:/var/run/docker.sock --name $TEAM -p 3000:3001 wsc-ibp-icp-cluster.icp:8500/lab-test/connectathon-s390x-$TEAM:1.0 bash
 ```
 
-This command is using Docker to run your team's container in an interactive bash shell and connect it to your machine's docker socket so you can create sibling containers from your container image. Additionally, you are giving it the name of your team and forwarding traffic on port 3000 of the host to port 3001 on your container to access your marbles application during the lab.
+This command is using Docker to run your team's container in an interactive bash shell and connect it to your machine's docker socket so you can create sibling containers from your container image. Additionally, you are giving it the name of your team and forwarding traffic on port 3000 of the host to port 3001 on your container to access your marbles application during the lab. This means marbles comes up on port 3000 in this part1 of the connectathon versus port 3001 in part2.
 
 ## Login to our Kubernetes cluster 
 Run the following command to connect to the running IBM Cloud Private Kubernetes cluster.
@@ -293,7 +288,7 @@ This will install the gulp npm package necessary to run the marbles application.
 
 Run `npm install`
 
-This will install the dependencies for the marbles application specified in the package.json file in the `/home/marbles` directory. This may take a few minutes. You will notice a bunch of `CXX(target)` in the output of this command because two of the packages (i.e., pkcs11js and grpc) needs to be compiled from source for s390x. This needs to happen since the binaries are not publicly available for this platform. When this command completes it will return your terminal to you.
+This will install the dependencies for the marbles application specified in the package.json file in the `/home/marbles` directory. This may take a few minutes. You will notice a bunch of `CXX(target)` in the output of this command because two of the packages (i.e., pkcs11js and grpc) need to be compiled from source for s390x. This needs to happen since the binaries are not publicly available for this platform. When this command completes it will return your terminal to you.
 
 Now you can start the marbles application with `gulp marbles_tls`
 
@@ -303,13 +298,13 @@ First, choose Express to setup your marbles application
 
 ![Express Option](images/ExpressOption.png)
 
-Here you can see your org, the owners and marbles you created in the `marbles_tls.json` file and the marble and owner you created with the cli. You created a black marble with the cli and the application randomly selects a color for the marbles created from the marbles_tls.json file (in this case black, but your mileage with the random function may vary)
+Here you can see your org's owners and marbles. You created the owner with your name and a black marble to its name with the cli commands at the beginning of this part of the lab. You created the other three owners by specifying the parameters in the `marbles_tls.json` file. If you are wondering about marble colors you created a black marble with the cli and the application randomly selected a color for the marbles created from the marbles_tls.json file (in my case black, but your mileage with the random function may vary)
 
 ![Marbles UI Org Picture](images/OrgUIPicture.png)
 
 We can also see the other orgs and their marbles that are connected in this connectathon.
 
-Next turn on story mode to see the marble transaction process:
+Next, turn on story mode to see the marble transaction process:
 
 1. Click on settings
 ![Settings picture](images/Settings.png)
@@ -322,11 +317,11 @@ Finally, trade some marbles to other users.
 2. Click and drag a marble from a member in your org and move it to a member of a different org
 3. Click and drag a marble from a member of a different org and drag it to a member of your org
 
-Notice that you can give marbles to other orgs but can't take them and think about why this may be the case...
+Notice that you can give marbles to other orgs but can't take them. Please think about the logic for why this may be the case for this use case...
 
-Now close the application by returning to your terminal and typing `ctrl + c` to return your terminal prompt.
+Now close the application by returning to your terminal and typing `ctrl + c` to get back your terminal prompt.
 
 You have now setup the marbles application.
 
-Please move on to part 2 where you will deploy this into your cluster.
+Please move on to part 2 where you will deploy this into our Kubernetes cluster.
 
