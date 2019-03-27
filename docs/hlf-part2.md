@@ -240,7 +240,14 @@ used.** Either use the *vi* editor if you are comfortable with that, or,
 you could use *sed*. For example, here is a *sed* command, to change the
 channel name from *mychannel* to *tim*, along with "before" and "after"
 *grep* commands to show the changes **(These commands are examples and
-only needed if you did not use the default channel name of mychannel)**:
+only needed if you did not use the default channel name of mychannel)**
+
+!!! warning
+        This step is necessary only if you did not use this lab's default channel name of *mychannel*
+        earlier in Part 1 of this lab. And of course, this example shows the steps for changing the
+        channel name to *tim*, so tailor the command shown here according to whatever *non-default* 
+        channel name you may have chosen.
+```
 
     bcuser@ubuntu16045:~/zmarbles/marblesUI/config$ grep mychannel connection_profile[12].json 
     blockchain_creds1.json:            "channel_id": "mychannel",
@@ -254,6 +261,8 @@ only needed if you did not use the default channel name of mychannel)**:
     connection_profile2.json-  },
     connection_profile2.json:  "channels": {
     connection_profile2.json-      "tim": {
+
+```
 
 **Step 2.11:** The considerations for *marbles2.json* and
 *connection\_profile2.json* are the same as for *marbles1.json* and
