@@ -10,11 +10,11 @@ Welcome! This two-day workshop combines lectures and hands-on labs to teach you 
 * 10:30am -[Blockchain Use Cases](files/Blockchain_Use_Cases_Dallas.pdf "blockchain use cases")
 * 11am - Hyperledger Fabric Lab
 * Noon - Lunch / Informal use case discussions
-* 1pm - Blockchain Explored, Deep Dive Part 1
+* 1pm - [Blockchain Explored, Deep Dive Part 1](files/BlockchainExploredPart1.pdf "blockchain explored part 1")
 * 2pm - VSCode Lab
 
 ### Day 2
-* 9am - Blockchain Explored, Deep Dive Part 2
+* 9am - [Blockchain Explored, Deep Dive Part 2](files/BlockchainExploredPart2.pdf "blockchain explored part 2")
 * 10am - IBM Blockchain Platform, LinuxONE advantages
 * 11:30am - Next Steps in creating your first project
 * Noon - Lunch
