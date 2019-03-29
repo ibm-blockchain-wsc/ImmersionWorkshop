@@ -15,10 +15,10 @@ Welcome! This two-day workshop combines lectures and hands-on labs to teach you 
 
 ### Day 2
 * 9am - [Blockchain Explored, Deep Dive Part 2](files/BlockchainExploredPart2.pdf "blockchain explored part 2")
-* 10am - IBM Blockchain Platform, LinuxONE advantages
-* 11:30am - Next Steps in creating your first project
+* 10am - [IBM Blockchain Platform, LinuxONE advantages](files/IBP_Explained.pdf "IBP Explained")
+* 11:30am - [Next Steps in creating your first project](files/BlockchainNextSteps_Dallas.pdf "blockchain next steps")
 * Noon - Lunch
-* 1pm - Introduction to IBM Cloud Private and Kubernetes
+* 1pm - [Introduction to IBM Cloud Private and Kubernetes](files/Kubernetes_ICP.pdf "ICP and Kubernetes")
 * 2pm - IBM Blockchain Platform for IBM Cloud Private Connect-a-thon Lab
 
 ## Acknowledgements
@@ -26,7 +26,6 @@ Welcome! This two-day workshop combines lectures and hands-on labs to teach you 
 * Latrell Freeman for providing us with the backbone automation scripts
 * Dave Wakeman for providing guidance on using MkDocs to make this Github Pages site
 * Thanks to the following people who helped us test out the labs: Steven Bodie, Kevin Breitenother, Victoria Coates, Jack Sykes, MacKenna Kelleher, Keziah Knopp, Jasmine Burgess
-
 
 ## Contacts
 * Austin Grice
