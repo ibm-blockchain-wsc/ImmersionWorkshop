@@ -133,16 +133,18 @@ directory:
 lab with the following command:
 
     bcuser@ubuntu16045:~$ wget https://raw.githubusercontent.com/ibm-blockchain-wsc/ImmersionWorkshop/master/zmarbles.tar.gz
-    --2019-03-24 17:55:04--  https://raw.githubusercontent.com/ibm-blockchain-wsc/ImmersionWorkshop/master/zmarbles.tar.gz
-    Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 151.101.248.133
-    Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|151.101.248.133|:443... connected.
+    --2019-04-16 14:35:19--  https://raw.githubusercontent.com/ibm-blockchain-wsc/ImmersionWorkshop/master/zmarbles.tar.gz
+    Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 151.101.200.133
+    Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|151.101.200.133|:443... connected.
     HTTP request sent, awaiting response... 200 OK
-    Length: 12299004 (12M) [application/octet-stream]
-    Saving to: ‘zmarbles.tar.gz’
+    Length: 10272273 (9.8M) [application/octet-stream]
+    Saving to: 'zmarbles.tar.gz'
 
-    zmarbles.tar.gz                    100%[================================================================>]  11.73M  3.67MB/s    in 5.6s    
+    zmarbles.tar.gz                     100%[===================================================================>]   9.80M  --.-KB/s    in 0.1s    
 
-    2019-03-24 17:55:10 (2.09 MB/s) - ‘zmarbles.tar.gz’ saved [12299004/12299004]
+    2019-04-16 14:35:19 (76.5 MB/s) - 'zmarbles.tar.gz' saved [10272273/10272273]
+
+
 
 **Step 3.3:** The *zmarbles* directory should not yet exist. Prove it
 with this *ls* command:
@@ -164,18 +166,19 @@ free to substitute *-xzvf* for *-xzf* in the command (the "*v*" is for
 
     bcuser@ubuntu16045:~$ ls -l zmarbles
     total 64
-    drwxr-xr-x 2 bcuser bcuser  4096 Jan 19 09:10 base
+    drwxr-xr-x 2 bcuser bcuser  4096 Apr 16 11:54 base
     drwxrwxr-x 2 bcuser bcuser  4096 Jan 14 07:54 bin
-    drwxr-xr-x 2 bcuser bcuser  4096 Jan 21 07:03 channel-artifacts
+    drwxr-xr-x 2 bcuser bcuser  4096 Apr 16 12:24 channel-artifacts
     drwxrwxr-x 2 bcuser bcuser  4096 Jul  3  2018 config
-    -rw-r--r-- 1 bcuser bcuser 12209 Jul 30 16:15 configtx.yaml
-    -rw-r--r-- 1 bcuser bcuser  4175 Jul 30 17:32 crypto-config.yaml
-    -rw-r--r-- 1 bcuser bcuser  6304 Jan 19 09:10 docker-compose-template.yaml
+    -rw-r--r-- 1 bcuser bcuser 12209 Jul 30  2018 configtx.yaml
+    -rw-r--r-- 1 bcuser bcuser  4175 Jul 30  2018 crypto-config.yaml
+    -rw-r--r-- 1 bcuser bcuser  6304 Apr 16 11:54 docker-compose-template.yaml
     drwxr-xr-x 3 bcuser bcuser  4096 Jun 18  2017 examples
-    -rwxr-xr-x 1 bcuser bcuser  3587 Sep 24 13:53 generateArtifacts.sh
+    -rwxr-xr-x 1 bcuser bcuser  3587 Sep 24  2018 generateArtifacts.sh
     drwxr-xr-x 2 bcuser bcuser  4096 Oct  1  2017 hostScripts
-    drwxrwxr-x 9 bcuser bcuser  4096 Jan 21 07:03 marblesUI
+    drwxrwxr-x 9 bcuser bcuser  4096 Apr 16 12:24 marblesUI
     drwxr-xr-x 2 bcuser bcuser  4096 Jan 19 14:58 scripts
+
 
 An explanation of the purpose of each of these files and directories is
 given here:
@@ -250,7 +253,7 @@ So, enter the command below, optionally specifying a custom channel name
 script:
 
     bcuser@ubuntu16045:~/zmarbles$ source ./generateArtifacts.sh    # specify a custom channel name or accept the default value of 'mychannel' 
-
+    
     Using cryptogen -> /home/bcuser/zmarbles/bin/cryptogen
 
     ##########################################################
@@ -263,44 +266,47 @@ script:
     ##########################################################
     #########  Generating Orderer Genesis block ##############
     ##########################################################
-    2018-10-22 14:08:39.575 EDT [common.tools.configtxgen] main -> WARN 001 Omitting the channel ID for configtxgen for output operations is deprecated.  Explicitly passing the channel ID will be required in the future, defaulting to 'testchainid'.
-    2018-10-22 14:08:39.575 EDT [common.tools.configtxgen] main -> INFO 002 Loading configuration
-    2018-10-22 14:08:39.587 EDT [common.tools.configtxgen.localconfig] completeInitialization -> INFO 003 orderer type: solo
-    2018-10-22 14:08:39.587 EDT [common.tools.configtxgen.localconfig] Load -> INFO 004 Loaded configuration: /home/bcuser/zmarbles/configtx.yaml
-    2018-10-22 14:08:39.600 EDT [common.tools.configtxgen.localconfig] completeInitialization -> INFO 005 orderer type: solo
-    2018-10-22 14:08:39.600 EDT [common.tools.configtxgen.localconfig] LoadTopLevel -> INFO 006 Loaded configuration: /home/bcuser/zmarbles/configtx.yaml
-    2018-10-22 14:08:39.601 EDT [common.tools.configtxgen] doOutputBlock -> INFO 007 Generating genesis block
-    2018-10-22 14:08:39.601 EDT [common.tools.configtxgen] doOutputBlock -> INFO 008 Writing genesis block
+    2019-04-16 14:38:14.682 EDT [common.tools.configtxgen] main -> WARN 001 Omitting the channel ID for configtxgen for output operations is deprecated.  Explicitly passing the channel ID will be required in the future, defaulting to 'testchainid'.
+    2019-04-16 14:38:14.682 EDT [common.tools.configtxgen] main -> INFO 002 Loading configuration
+    2019-04-16 14:38:14.695 EDT [common.tools.configtxgen.localconfig] completeInitialization -> INFO 003 orderer type: solo
+    2019-04-16 14:38:14.695 EDT [common.tools.configtxgen.localconfig] Load -> INFO 004 Loaded configuration: /home/bcuser/zmarbles/configtx.yaml
+    2019-04-16 14:38:14.709 EDT [common.tools.configtxgen.localconfig] completeInitialization -> INFO 005 orderer type: solo
+    2019-04-16 14:38:14.709 EDT [common.tools.configtxgen.localconfig] LoadTopLevel -> INFO 006 Loaded configuration: /home/bcuser/zmarbles/configtx.yaml
+    2019-04-16 14:38:14.711 EDT [common.tools.configtxgen] doOutputBlock -> INFO 007 Generating genesis block
+    2019-04-16 14:38:14.711 EDT [common.tools.configtxgen] doOutputBlock -> INFO 008 Writing genesis block
 
     #################################################################
     ### Generating channel configuration transaction 'channel.tx' ###
     #################################################################
-    2018-10-22 14:08:39.663 EDT [common.tools.configtxgen] main -> INFO 001 Loading configuration
-    2018-10-22 14:08:39.674 EDT [common.tools.configtxgen.localconfig] Load -> INFO 002 Loaded configuration: /home/bcuser/zmarbles/configtx.yaml
-    2018-10-22 14:08:39.686 EDT [common.tools.configtxgen.localconfig] completeInitialization -> INFO 003 orderer type: solo
-    2018-10-22 14:08:39.686 EDT [common.tools.configtxgen.localconfig] LoadTopLevel -> INFO 004 Loaded configuration: /home/bcuser/zmarbles/configtx.yaml
-    2018-10-22 14:08:39.686 EDT [common.tools.configtxgen] doOutputChannelCreateTx -> INFO 005 Generating new channel configtx
-    2018-10-22 14:08:39.687 EDT [common.tools.configtxgen] doOutputChannelCreateTx -> INFO 006 Writing new channel tx
+    2019-04-16 14:38:14.791 EDT [common.tools.configtxgen] main -> INFO 001 Loading configuration
+    2019-04-16 14:38:14.808 EDT [common.tools.configtxgen.localconfig] Load -> INFO 002 Loaded configuration: /home/bcuser/zmarbles/configtx.yaml
+    2019-04-16 14:38:14.824 EDT [common.tools.configtxgen.localconfig] completeInitialization -> INFO 003 orderer type: solo
+    2019-04-16 14:38:14.824 EDT [common.tools.configtxgen.localconfig] LoadTopLevel -> INFO 004 Loaded configuration: /home/bcuser/zmarbles/configtx.yaml
+    2019-04-16 14:38:14.824 EDT [common.tools.configtxgen] doOutputChannelCreateTx -> INFO 005 Generating new channel configtx
+    2019-04-16 14:38:14.825 EDT [common.tools.configtxgen.encoder] NewChannelGroup -> WARN 006 Default policy emission is deprecated, please include policy specifications for the channel group in configtx.yaml
+    2019-04-16 14:38:14.826 EDT [common.tools.configtxgen.encoder] NewChannelGroup -> WARN 007 Default policy emission is deprecated, please include policy specifications for the channel group in configtx.yaml
+    2019-04-16 14:38:14.827 EDT [common.tools.configtxgen] doOutputChannelCreateTx -> INFO 008 Writing new channel tx
 
     #################################################################
     #######    Generating anchor peer update for Org0MSP   ##########
     #################################################################
-    2018-10-22 14:08:39.749 EDT [common.tools.configtxgen] main -> INFO 001 Loading configuration
-    2018-10-22 14:08:39.759 EDT [common.tools.configtxgen.localconfig] Load -> INFO 002 Loaded configuration: /home/bcuser /zmarbles/configtx.yaml
-    2018-10-22 14:08:39.771 EDT [common.tools.configtxgen.localconfig] completeInitialization -> INFO 003 orderer type: solo
-    2018-10-22 14:08:39.771 EDT [common.tools.configtxgen.localconfig] LoadTopLevel -> INFO 004 Loaded configuration: /home/bcuser/zmarbles/configtx.yaml
-    2018-10-22 14:08:39.771 EDT [common.tools.configtxgen] doOutputAnchorPeersUpdate -> INFO 005 Generating anchor peer update
-    2018-10-22 14:08:39.772 EDT [common.tools.configtxgen] doOutputAnchorPeersUpdate -> INFO 006 Writing anchor peer update
+    2019-04-16 14:38:14.892 EDT [common.tools.configtxgen] main -> INFO 001 Loading configuration
+    2019-04-16 14:38:14.904 EDT [common.tools.configtxgen.localconfig] Load -> INFO 002 Loaded configuration: /home/bcuser/zmarbles/configtx.yaml
+    2019-04-16 14:38:14.916 EDT [common.tools.configtxgen.localconfig] completeInitialization -> INFO 003 orderer type: solo
+    2019-04-16 14:38:14.916 EDT [common.tools.configtxgen.localconfig] LoadTopLevel -> INFO 004 Loaded configuration: /home/bcuser/zmarbles/configtx.yaml
+    2019-04-16 14:38:14.916 EDT [common.tools.configtxgen] doOutputAnchorPeersUpdate -> INFO 005 Generating anchor peer update
+    2019-04-16 14:38:14.916 EDT [common.tools.configtxgen] doOutputAnchorPeersUpdate -> INFO 006 Writing anchor peer update
 
     #################################################################
     #######    Generating anchor peer update for Org1MSP   ##########
     #################################################################
-    2018-10-22 14:08:39.843 EDT [common.tools.configtxgen] main -> INFO 001 Loading configuration
-    2018-10-22 14:08:39.854 EDT [common.tools.configtxgen.localconfig] Load -> INFO 002 Loaded configuration: /home/bcuser/zmarbles/configtx.yaml
-    2018-10-22 14:08:39.872 EDT [common.tools.configtxgen.localconfig] completeInitialization -> INFO 003 orderer type: solo
-    2018-10-22 14:08:39.872 EDT [common.tools.configtxgen.localconfig] LoadTopLevel -> INFO 004 Loaded configuration: /home/bcuser/zmarbles/configtx.yaml
-    2018-10-22 14:08:39.872 EDT [common.tools.configtxgen] doOutputAnchorPeersUpdate -> INFO 005 Generating anchor peer update
-    2018-10-22 14:08:39.873 EDT [common.tools.configtxgen] doOutputAnchorPeersUpdate -> INFO 006 Writing anchor peer update
+    2019-04-16 14:38:14.981 EDT [common.tools.configtxgen] main -> INFO 001 Loading configuration
+    2019-04-16 14:38:14.993 EDT [common.tools.configtxgen.localconfig] Load -> INFO 002 Loaded configuration: /home/bcuser/zmarbles/configtx.yaml
+    2019-04-16 14:38:15.007 EDT [common.tools.configtxgen.localconfig] completeInitialization -> INFO 003 orderer type: solo
+    2019-04-16 14:38:15.007 EDT [common.tools.configtxgen.localconfig] LoadTopLevel -> INFO 004 Loaded configuration: /home/bcuser/zmarbles/configtx.yaml
+    2019-04-16 14:38:15.007 EDT [common.tools.configtxgen] doOutputAnchorPeersUpdate -> INFO 005 Generating anchor peer update
+    2019-04-16 14:38:15.008 EDT [common.tools.configtxgen] doOutputAnchorPeersUpdate -> INFO 006 Writing anchor peer update
+
 
 By the way, if you enter a command and end it with \#, everything after
 the \# is considered a comment and is ignored by the shell. So, if you
@@ -335,10 +341,10 @@ inside *generateArtifacts.sh*:
 
     bcuser@ubuntu16045:~/zmarbles$ ls -ltr channel-artifacts
     total 28
-    -rw-r--r-- 1 bcuser bcuser 12787 Oct 22 14:08 genesis.block
-    -rw-r--r-- 1 bcuser bcuser   346 Oct 22 14:08 channel.tx
-    -rw-r--r-- 1 bcuser bcuser   285 Oct 22 14:08 Org0MSPanchors.tx
-    -rw-r--r-- 1 bcuser bcuser   282 Oct 22 14:08 Org1MSPanchors.tx
+    -rw-r--r-- 1 bcuser bcuser 12975 Apr 16 14:38 genesis.block
+    -rw-r--r-- 1 bcuser bcuser   346 Apr 16 14:38 channel.tx
+    -rw-r--r-- 1 bcuser bcuser   285 Apr 16 14:38 Org0MSPanchors.tx
+    -rw-r--r-- 1 bcuser bcuser   282 Apr 16 14:38 Org1MSPanchors.tx
 
 *genesis.block* will be passed to the *orderer* at startup, and will be
 used to configure the orderer's *system channel*. This file contains
@@ -462,7 +468,7 @@ built for the **ca0** and **ca1** service will both be based on the
 *hyperledger/fabric-ca:1.4.0* Docker image because they both have this
 statement in their definition:
 
-    image: hyperledger/fabric-ca:1.4.0  
+    image: hyperledger/fabric-ca:1.4.1  
 
 *environment* statements define environment variables that are available
 to the Docker container. The Hyperledger Fabric processes make ample use
@@ -599,24 +605,24 @@ in the output below, you are ready to proceed to the next section:
 
     bcuser@ubuntu16045:~/zmarbles$ docker ps --all
     CONTAINER ID        IMAGE                                     COMMAND                  CREATED             STATUS              PORTS                                                                       NAMES
-    91819c57c22c        hyperledger/fabric-tools                  "bash"                   59 seconds ago       Up 58 seconds                                                                                                             cli
-    b62ea5779b10        hyperledger/fabric-peer                   "peer node start"        About a minute ago   Up 59 seconds       0.0.0.0:8051->7051/tcp, 0.0.0.0:8052->7052/tcp, 0.0.0.0:8053->7053/tcp      peer1.unitedmarbles.com
-    d35dbd158520        hyperledger/fabric-peer                   "peer node start"        About a minute ago   Up About a minute   0.0.0.0:7051-7053->7051-7053/tcp                                            peer0.unitedmarbles.com
-    f4421a4ec662        hyperledger/fabric-peer                   "peer node start"        About a minute ago   Up About a minute   0.0.0.0:10051->7051/tcp, 0.0.0.0:10052->7052/tcp, 0.0.0.0:10053->7053/tcp   peer1.marblesinc.com
-    0f3ab02c8ca9        hyperledger/fabric-peer                   "peer node start"        About a minute ago   Up About a minute   0.0.0.0:9051->7051/tcp, 0.0.0.0:9052->7052/tcp, 0.0.0.0:9053->7053/tcp      peer0.marblesinc.com
-    974005b9fdcf        hyperledger/fabric-couchdb:s390x-0.4.14   "tini -- /docker-ent…"   About a minute ago   Up About a minute   4369/tcp, 9100/tcp, 0.0.0.0:6984->5984/tcp                                  couchdb1
-    9eb2369169b1        hyperledger/fabric-couchdb:s390x-0.4.14   "tini -- /docker-ent…"   About a minute ago   Up About a minute   4369/tcp, 9100/tcp, 0.0.0.0:5984->5984/tcp                                  couchdb0
-    1c99d4adb8d3        hyperledger/fabric-ca                     "sh -c 'fabric-ca-se…"   About a minute ago   Up About a minute   0.0.0.0:7054->7054/tcp                                                      ca_Org0
-    e33ac4f4a133        hyperledger/fabric-couchdb:s390x-0.4.14   "tini -- /docker-ent…"   About a minute ago   Up About a minute   4369/tcp, 9100/tcp, 0.0.0.0:8984->5984/tcp                                  couchdb3
-    8adc89681b53        hyperledger/fabric-couchdb:s390x-0.4.14   "tini -- /docker-ent…"   About a minute ago   Up About a minute   4369/tcp, 9100/tcp, 0.0.0.0:7984->5984/tcp                                  couchdb2
-    6d32410a76aa        hyperledger/fabric-orderer                "orderer"                About a minute ago   Up About a minute   0.0.0.0:7050->7050/tcp                                                      orderer.blockchain.com
-    fd5092d61ba8        hyperledger/fabric-ca                     "sh -c 'fabric-ca-se…"   About a minute ago   Up About a minute   0.0.0.0:8054->7054/tcp                                                      ca_Org1
+    aaaaf5aa2798        hyperledger/fabric-tools:1.4.1            "bash"                   50 seconds ago      Up 49 seconds                                                                                   cli
+    74d437495abd        hyperledger/fabric-peer:1.4.1             "peer node start"        52 seconds ago      Up 50 seconds       0.0.0.0:7051-7053->7051-7053/tcp                                            peer0.unitedmarbles.com
+    15ea77ddb395        hyperledger/fabric-peer:1.4.1             "peer node start"        52 seconds ago      Up 51 seconds       0.0.0.0:8051->7051/tcp, 0.0.0.0:8052->7052/tcp, 0.0.0.0:8053->7053/tcp      peer1.unitedmarbles.com
+    2b8dfb70cf7c        hyperledger/fabric-peer:1.4.1             "peer node start"        52 seconds ago      Up 51 seconds       0.0.0.0:10051->7051/tcp, 0.0.0.0:10052->7052/tcp, 0.0.0.0:10053->7053/tcp   peer1.marblesinc.com
+    3706d107afca        hyperledger/fabric-peer:1.4.1             "peer node start"        54 seconds ago      Up 52 seconds       0.0.0.0:9051->7051/tcp, 0.0.0.0:9052->7052/tcp, 0.0.0.0:9053->7053/tcp      peer0.marblesinc.com
+    0333dc7b760c        hyperledger/fabric-ca:1.4.1               "sh -c 'fabric-ca-se…"   54 seconds ago      Up 53 seconds       0.0.0.0:7054->7054/tcp                                                      ca_Org0
+    7ff153c9a2ec        hyperledger/fabric-orderer:1.4.1          "orderer"                54 seconds ago      Up 53 seconds       0.0.0.0:7050->7050/tcp                                                      orderer.blockchain.com
+    a6543c36f5ba        hyperledger/fabric-couchdb:s390x-0.4.15   "tini -- /docker-ent…"   54 seconds ago      Up 52 seconds       4369/tcp, 9100/tcp, 0.0.0.0:5984->5984/tcp                                  couchdb0
+    778f48da3591        hyperledger/fabric-couchdb:s390x-0.4.15   "tini -- /docker-ent…"   54 seconds ago      Up 52 seconds       4369/tcp, 9100/tcp, 0.0.0.0:6984->5984/tcp                                  couchdb1
+    165d875c2887        hyperledger/fabric-couchdb:s390x-0.4.15   "tini -- /docker-ent…"   54 seconds ago      Up 52 seconds       4369/tcp, 9100/tcp, 0.0.0.0:8984->5984/tcp                                  couchdb3
+    86f691985650        hyperledger/fabric-ca:1.4.1               "sh -c 'fabric-ca-se…"   54 seconds ago      Up 53 seconds       0.0.0.0:8054->7054/tcp                                                      ca_Org1
+    14c370463c1c        hyperledger/fabric-couchdb:s390x-0.4.15   "tini -- /docker-ent…"   54 seconds ago      Up 53 seconds       4369/tcp, 9100/tcp, 0.0.0.0:7984->5984/tcp                                  couchdb2
     bcuser@ubuntu16045:~/zmarbles$ 
 
 Section 5 - Create a channel in the Hyperledger Fabric network
 ============================================================== 
 
-In a Hyperledger Fabric v1.4.0 network, multiple channels can be created.
+In a Hyperledger Fabric v1.4.1 network, multiple channels can be created.
 Each channel can have its own policies for things such as requirements
 for endorsement and what organizations may join the channel. This allows
 for a subset of network participants to participate in their own
@@ -661,7 +667,7 @@ problem being solved.
 **Step 5.1:** Access the *cli* Docker container:
 
     bcuser@ubuntu16045:~/zmarbles$ docker exec --interactive --tty cli bash
-    root@acd1f96d8807:/opt/gopath/src/github.com/hyperledger/fabric/peer#ic/peer#
+    root@aaaaf5aa2798:/opt/gopath/src/github.com/hyperledger/fabric/peer#ic/peer#
 
 Observe that your command prompt changes when you enter the Docker
 container's shell.
@@ -678,7 +684,7 @@ commands within this Bash shell.
 
 Instead of working as user *bcuser* on the ubuntu16045 server in the
 *~/zmarbles* directory, you are now inside the Docker container with ID
-*acd1f96d8807* (your ID will differ), working in the
+*aaaaf5aa2798* (your ID will differ), working in the
 */opt/gopath/src/github.com/hyperledger/fabric/peer* directory. It is no
 coincidence that that directory is the value of the *working\_dir*
 statement for the *cli* service in your *docker-compose.yaml* file.
@@ -717,17 +723,17 @@ screen snippet, I have chosen Org 1, peer 1. Issue the command below,
 leaving the arguments '1 1' as is, or change it to one of the other
 valid combinations as described in the previous step:
 
-    root@acd1f96d8807:/opt/gopath/src/github.com/hyperledger/fabric/peer# source scripts/setpeer 1 1
-    CORE_PEER_TLS_ROOTCERT_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/marblesinc.com/peers/peer1.marblesinc.com/tls/ca.crt
+    root@aaaaf5aa2798:/opt/gopath/src/github.com/hyperledger/fabric/peer# source scripts/setpeer 1 1
     CORE_PEER_TLS_KEY_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/unitedmarbles.com/peers/peer0.unitedmarbles.com/tls/server.key
     CORE_PEER_LOCALMSPID=Org1MSP
-    CORE_VM_ENDPOINT=unix:///host/var/run/docker.sock
-    CORE_PEER_TLS_CERT_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/unitedmarbles.com/peers/peer0.unitedmarbles.com/tls/server.crt
     CORE_PEER_TLS_ENABLED=true
-    CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/marblesinc.com/users/Admin@marblesinc.com/msp
+    CORE_PEER_TLS_CERT_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/unitedmarbles.com/peers/peer0.unitedmarbles.com/tls/server.crt
     CORE_PEER_ID=cli
-    CORE_PEER_ADDRESS=peer1.marblesinc.com:7051 
-    root@fbe81505b8a2:/opt/gopath/src/github.com/hyperledger/fabric/peer#
+    CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/marblesinc.com/users/Admin@marblesinc.com/msp
+    CORE_PEER_TLS_ROOTCERT_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/marblesinc.com/peers/peer1.marblesinc.com/tls/ca.crt
+    CORE_PEER_ADDRESS=peer1.marblesinc.com:7051
+    CORE_VM_ENDPOINT=unix:///host/var/run/docker.sock
+    root@aaaaf5aa2798:/opt/gopath/src/github.com/hyperledger/fabric/peer#
 
 The last environment variable listed, *CORE\_PEER\_ADDRESS*, determines
 to which peer your commands will be routed.
@@ -748,14 +754,14 @@ tediously long argument value for *\--cafile*.
 Enter this command now to see the value of this environment variable,
 and thank me later for setting this up for you:
 
-    root@acd1f96d8807:/opt/gopath/src/github.com/hyperledger/fabric/peer# echo $FABRIC_TLS 
-    --tls --cafile /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/ordererOrganizations/blockchain.com/orderers/orderer.blockchain.com/msp/cacerts/ca.blockchain.com-cert.pem
+    root@aaaaf5aa2798:/opt/gopath/src/github.com/hyperledger/fabric/peer# echo $FABRIC_TLS 
+    --tls --cafile /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/ordererOrganizations/blockchain.com/orderers/orderer.blockchain.com/msp/tlscacerts/tlsca.blockchain.com-cert.pem
 
 **Step 5.5:** Now enter this command:
 
-    root@acd1f96d8807:/opt/gopath/src/github.com/hyperledger/fabric/peer# peer channel create -o orderer.blockchain.com:7050  -f channel-artifacts/channel.tx  $FABRIC_TLS -c $CHANNEL_NAME
-    2018-10-22 18:54:06.576 UTC [channelCmd] InitCmdFactory -> INFO 001 Endorser and orderer connections initialized
-    2018-10-22 18:54:06.608 UTC [cli.common] readBlock -> INFO 002 Received block: 0
+    root@aaaaf5aa2798:/opt/gopath/src/github.com/hyperledger/fabric/peer# peer channel create -o orderer.blockchain.com:7050  -f channel-artifacts/channel.tx  $FABRIC_TLS -c $CHANNEL_NAME
+    2019-04-16 18:45:37.484 UTC [channelCmd] InitCmdFactory -> INFO 001 Endorser and orderer connections initialized
+    2019-04-16 18:45:37.520 UTC [cli.common] readBlock -> INFO 002 Received block: 0
 
 The last line before you get your command prompt back will contain the
 words "Received block: 0". This indicates that your channel creation
@@ -794,23 +800,24 @@ nodes, in order to show that the peer successfully joined the channel:
 
 **Step 6.1:** Point the *cli* to *peer0* for *Org0MSP*:
 
-    root@acd1f96d8807:/opt/gopath/src/github.com/hyperledger/fabric/peer# source scripts/setpeer 0 0
-    CORE_PEER_TLS_ROOTCERT_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/unitedmarbles.com/peers/peer0.unitedmarbles.com/tls/ca.crt
+    root@aaaaf5aa2798:/opt/gopath/src/github.com/hyperledger/fabric/peer# source scripts/setpeer 0 0
     CORE_PEER_TLS_KEY_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/unitedmarbles.com/peers/peer0.unitedmarbles.com/tls/server.key
     CORE_PEER_LOCALMSPID=Org0MSP
-    CORE_VM_ENDPOINT=unix:///host/var/run/docker.sock
-    CORE_PEER_TLS_CERT_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/unitedmarbles.com/peers/peer0.unitedmarbles.com/tls/server.crt
     CORE_PEER_TLS_ENABLED=true
-    CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/unitedmarbles.com/users/Admin@unitedmarbles.com/msp
+    CORE_PEER_TLS_CERT_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/unitedmarbles.com/peers/peer0.unitedmarbles.com/tls/server.crt
     CORE_PEER_ID=cli
+    CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/unitedmarbles.com/users/Admin@unitedmarbles.com/msp
+    CORE_PEER_TLS_ROOTCERT_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/unitedmarbles.com/peers/peer0.unitedmarbles.com/tls/ca.crt
     CORE_PEER_ADDRESS=peer0.unitedmarbles.com:7051
-
+    CORE_VM_ENDPOINT=unix:///host/var/run/docker.sock
+    
+    
 **Step 6.2:** Enter *peer channel list* and observe that no channels are
 returned at the end of the output:
 
-    root@acd1f96d8807:/opt/gopath/src/github.com/hyperledger/fabric/peer# peer channel list
-    2018-10-22 18:56:48.488 UTC [channelCmd] InitCmdFactory -> INFO 001 Endorser and orderer connections initialized
-    Channels peers has joined:
+    root@aaaaf5aa2798:/opt/gopath/src/github.com/hyperledger/fabric/peer# peer channel list
+    2019-04-16 18:46:48.218 UTC [channelCmd] InitCmdFactory -> INFO 001 Endorser and orderer connections initialized
+    Channels peers has joined: 
 
 **Step 6.3:** Issue *peer channel join -b $CHANNEL_NAME.block* to join
 the channel you set up when you ran *generateArtifacts.sh* a little
@@ -821,104 +828,105 @@ then the Docker Compose file is set up to pass this environment variable
 to the *cli* container. If you are still on the happy path, your output
 will look similar to this:
 
-    root@acd1f96d8807:/opt/gopath/src/github.com/hyperledger/fabric/peer# peer channel join -b $CHANNEL_NAME.block 
-    2018-10-22 18:57:38.987 UTC [channelCmd] InitCmdFactory -> INFO 001 Endorser and orderer connections initialized
-    2018-10-22 18:57:39.080 UTC [channelCmd] executeJoin -> INFO 002 Successfully submitted proposal to join channel
-    root@acd1f96d8807:/opt/gopath/src/github.com/hyperledger/fabric/peer# 
-
+    root@aaaaf5aa2798:/opt/gopath/src/github.com/hyperledger/fabric/peer# peer channel join -b $CHANNEL_NAME.block 
+    2019-04-16 18:47:50.573 UTC [channelCmd] InitCmdFactory -> INFO 001 Endorser and orderer connections initialized
+    2019-04-16 18:47:50.674 UTC [channelCmd] executeJoin -> INFO 002 Successfully submitted proposal to join channel
+    root@aaaaf5aa2798:/opt/gopath/src/github.com/hyperledger/fabric/peer# 
+    
 **Step 6.4:** Repeat the *peer channel list* command and now you should
 see your channel listed in the output:
 
-    root@acd1f96d8807:/opt/gopath/src/github.com/hyperledger/fabric/peer# peer channel list
-    2018-10-22 18:58:03.422 UTC [channelCmd] InitCmdFactory -> INFO 001 Endorser and orderer connections initialized
+    root@aaaaf5aa2798:/opt/gopath/src/github.com/hyperledger/fabric/peer# peer channel list
+    2019-04-16 18:48:18.100 UTC [channelCmd] InitCmdFactory -> INFO 001 Endorser and orderer connections initialized
     Channels peers has joined: 
     mychannel
 
 **Step 6.5:** Point the *cli* to *peer1* for *Org0MSP*:
 
-    root@acd1f96d8807:/opt/gopath/src/github.com/hyperledger/fabric/peer# source scripts/setpeer 0 1
-    CORE_PEER_TLS_ROOTCERT_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/unitedmarbles.com/peers/peer1.unitedmarbles.com/tls/ca.crt
+    root@aaaaf5aa2798:/opt/gopath/src/github.com/hyperledger/fabric/peer# source scripts/setpeer 0 1
     CORE_PEER_TLS_KEY_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/unitedmarbles.com/peers/peer0.unitedmarbles.com/tls/server.key
     CORE_PEER_LOCALMSPID=Org0MSP
-    CORE_VM_ENDPOINT=unix:///host/var/run/docker.sock
-    CORE_PEER_TLS_CERT_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/unitedmarbles.com/peers/peer0.unitedmarbles.com/tls/server.crt
     CORE_PEER_TLS_ENABLED=true
-    CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/unitedmarbles.com/users/Admin@unitedmarbles.com/msp
+    CORE_PEER_TLS_CERT_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/unitedmarbles.com/peers/peer0.unitedmarbles.com/tls/server.crt
     CORE_PEER_ID=cli
+    CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/unitedmarbles.com/users/Admin@unitedmarbles.com/msp
+    CORE_PEER_TLS_ROOTCERT_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/unitedmarbles.com/peers/peer1.unitedmarbles.com/tls/ca.crt
     CORE_PEER_ADDRESS=peer1.unitedmarbles.com:7051
+    CORE_VM_ENDPOINT=unix:///host/var/run/docker.sock
 
 **Step 6.6:** Enter *peer channel list* and observe that no channels are
 returned at the end of the output:
 
-    root@acd1f96d8807:/opt/gopath/src/github.com/hyperledger/fabric/peer# peer channel list
-    2018-10-22 18:58:46.476 UTC [channelCmd] InitCmdFactory -> INFO 001 Endorser and orderer connections initialized
+    root@aaaaf5aa2798:/opt/gopath/src/github.com/hyperledger/fabric/peer# peer channel list
+    2019-04-16 18:49:10.065 UTC [channelCmd] InitCmdFactory -> INFO 001 Endorser and orderer connections initialized
     Channels peers has joined: 
 
 **Step 6.7:** Issue *peer channel join -b $CHANNEL\_NAME.block* to join
 your channel. Your output should look similar to this:
 
-    root@acd1f96d8807:/opt/gopath/src/github.com/hyperledger/fabric/peer# peer channel join -b $CHANNEL_NAME.block 
-    2018-10-22 18:59:12.019 UTC [channelCmd] InitCmdFactory -> INFO 001 Endorser and orderer connections initialized
-    2018-10-22 18:59:12.089 UTC [channelCmd] executeJoin -> INFO 002 Successfully submitted proposal to join channel
-    root@acd1f96d8807:/opt/gopath/src/github.com/hyperledger/fabric/peer#
+    root@aaaaf5aa2798:/opt/gopath/src/github.com/hyperledger/fabric/peer# peer channel join -b $CHANNEL_NAME.block
+    2019-04-16 18:49:46.959 UTC [channelCmd] InitCmdFactory -> INFO 001 Endorser and orderer connections initialized
+    2019-04-16 18:49:47.050 UTC [channelCmd] executeJoin -> INFO 002 Successfully submitted proposal to join channel
+    root@aaaaf5aa2798:/opt/gopath/src/github.com/hyperledger/fabric/peer# 
 
 **Step 6.8:** Repeat the *peer channel list* command and now you should
 see your channel listed:
 
-    root@acd1f96d8807:/opt/gopath/src/github.com/hyperledger/fabric/peer# peer channel list
-    2018-10-22 18:59:38.267 UTC [channelCmd] InitCmdFactory -> INFO 001 Endorser and orderer connections initialized
+    root@aaaaf5aa2798:/opt/gopath/src/github.com/hyperledger/fabric/peer# peer channel list
+    2019-04-16 18:50:23.787 UTC [channelCmd] InitCmdFactory -> INFO 001 Endorser and orderer connections initialized
     Channels peers has joined: 
     mychannel
 
 **Step 6.9:** Point the *cli* to *peer0* for *Org1MSP*:
 
-    root@acd1f96d8807:/opt/gopath/src/github.com/hyperledger/fabric/peer# source scripts/setpeer 1 0
-    CORE_PEER_TLS_ROOTCERT_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/marblesinc.com/peers/peer0.marblesinc.com/tls/ca.crt
+    root@aaaaf5aa2798:/opt/gopath/src/github.com/hyperledger/fabric/peer# source scripts/setpeer 1 0
     CORE_PEER_TLS_KEY_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/unitedmarbles.com/peers/peer0.unitedmarbles.com/tls/server.key
     CORE_PEER_LOCALMSPID=Org1MSP
-    CORE_VM_ENDPOINT=unix:///host/var/run/docker.sock
-    CORE_PEER_TLS_CERT_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/unitedmarbles.com/peers/peer0.unitedmarbles.com/tls/server.crt
     CORE_PEER_TLS_ENABLED=true
-    CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/marblesinc.com/users/Admin@marblesinc.com/msp
+    CORE_PEER_TLS_CERT_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/unitedmarbles.com/peers/peer0.unitedmarbles.com/tls/server.crt
     CORE_PEER_ID=cli
+    CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/marblesinc.com/users/Admin@marblesinc.com/msp
+    CORE_PEER_TLS_ROOTCERT_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/marblesinc.com/peers/peer0.marblesinc.com/tls/ca.crt
     CORE_PEER_ADDRESS=peer0.marblesinc.com:7051
+    CORE_VM_ENDPOINT=unix:///host/var/run/docker.sock
+
 
 **Step 6.10:** Enter *peer channel list* and observe that no channels
 are returned at the end of the output:
 
-    root@acd1f96d8807:/opt/gopath/src/github.com/hyperledger/fabric/peer# peer channel list
-    2018-10-22 19:00:20.604 UTC [channelCmd] InitCmdFactory -> INFO 001 Endorser and orderer connections initialized
+    root@aaaaf5aa2798:/opt/gopath/src/github.com/hyperledger/fabric/peer# peer channel list
+    2019-04-16 18:52:35.900 UTC [channelCmd] InitCmdFactory -> INFO 001 Endorser and orderer connections initialized
     Channels peers has joined: 
 
 **Step 6.11:** Issue *peer channel join -b $CHANNEL\_NAME.block* to
 join your channel. Your output should look similar to this:
 
-    root@acd1f96d8807:/opt/gopath/src/github.com/hyperledger/fabric/peer# peer channel join -b $CHANNEL_NAME.block 
-    2018-10-22 19:00:48.877 UTC [channelCmd] InitCmdFactory -> INFO 001 Endorser and orderer connections initialized
-    2018-10-22 19:00:48.945 UTC [channelCmd] executeJoin -> INFO 002 Successfully submitted proposal to join channel
-    root@acd1f96d8807:/opt/gopath/src/github.com/hyperledger/fabric/peer# 
+    root@aaaaf5aa2798:/opt/gopath/src/github.com/hyperledger/fabric/peer# peer channel join -b $CHANNEL_NAME.block 
+    2019-04-16 18:53:03.961 UTC [channelCmd] InitCmdFactory -> INFO 001 Endorser and orderer connections initialized
+    2019-04-16 18:53:04.050 UTC [channelCmd] executeJoin -> INFO 002 Successfully submitted proposal to join channel
+    root@aaaaf5aa2798:/opt/gopath/src/github.com/hyperledger/fabric/peer# 
 
 **Step 6.12:** Repeat the *peer channel list* command and now you should
 see your channel listed in the output:
 
-    root@acd1f96d8807:/opt/gopath/src/github.com/hyperledger/fabric/peer# peer channel list
-    2018-10-22 19:01:14.560 UTC [channelCmd] InitCmdFactory -> INFO 001 Endorser and orderer connections initialized
+    root@aaaaf5aa2798:/opt/gopath/src/github.com/hyperledger/fabric/peer# peer channel list
+    2019-04-16 18:53:25.709 UTC [channelCmd] InitCmdFactory -> INFO 001 Endorser and orderer connections initialized
     Channels peers has joined: 
     mychannel
 
+
 **Step 6.13:** Point the *cli* to *peer1* for *Org1MSP*:
 
-    root@acd1f96d8807:/opt/gopath/src/github.com/hyperledger/fabric/peer# source scripts/setpeer 1 1
-    CORE_PEER_TLS_ROOTCERT_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/marblesinc.com/peers/peer1.marblesinc.com/tls/ca.crt
+    root@aaaaf5aa2798:/opt/gopath/src/github.com/hyperledger/fabric/peer# source scripts/setpeer 1 1
     CORE_PEER_TLS_KEY_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/unitedmarbles.com/peers/peer0.unitedmarbles.com/tls/server.key
     CORE_PEER_LOCALMSPID=Org1MSP
-    CORE_VM_ENDPOINT=unix:///host/var/run/docker.sock
-    CORE_PEER_TLS_CERT_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/unitedmarbles.com/peers/peer0.unitedmarbles.com/tls/server.crt
     CORE_PEER_TLS_ENABLED=true
-    CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/marblesinc.com/users/Admin@marblesinc.com/msp
+    CORE_PEER_TLS_CERT_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/unitedmarbles.com/peers/peer0.unitedmarbles.com/tls/server.crt
     CORE_PEER_ID=cli
-    CORE_LOGGING_LEVEL=DEBUG
+    CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/marblesinc.com/users/Admin@marblesinc.com/msp
+    CORE_PEER_TLS_ROOTCERT_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/marblesinc.com/peers/peer1.marblesinc.com/tls/ca.crt
     CORE_PEER_ADDRESS=peer1.marblesinc.com:7051
+    CORE_VM_ENDPOINT=unix:///host/var/run/docker.sock
 
 The output from this should be familiar to you by now so from now on I
 will not bother showing it anymore in the remainder of these lab
@@ -927,8 +935,8 @@ instructions.
 **Step 6.14:** Enter *peer channel list* and observe that no channels
 are returned at the end of the output:
 
-    root@acd1f96d8807:/opt/gopath/src/github.com/hyperledger/fabric/peer# peer channel list
-    2018-10-22 19:01:56.401 UTC [channelCmd] InitCmdFactory -> INFO 001 Endorser and orderer connections initialized
+    root@aaaaf5aa2798:/opt/gopath/src/github.com/hyperledger/fabric/peer# peer channel list
+    2019-04-16 18:54:12.476 UTC [channelCmd] InitCmdFactory -> INFO 001 Endorser and orderer connections initialized
     Channels peers has joined: 
 
 **Step 6.15:** Issue *peer channel join -b $CHANNEL\_NAME.block* to
@@ -936,18 +944,19 @@ join your channel. (Am I being redundant? Am I repeating myself? Am I
 saying the same thing over and over again?) Your output should look
 similar to this:
 
-    root@acd1f96d8807:/opt/gopath/src/github.com/hyperledger/fabric/peer# peer channel join -b $CHANNEL_NAME.block 
-    2018-10-22 19:02:34.786 UTC [channelCmd] InitCmdFactory -> INFO 001 Endorser and orderer connections initialized
-    2018-10-22 19:02:34.857 UTC [channelCmd] executeJoin -> INFO 002 Successfully submitted proposal to join channel
-    root@acd1f96d8807:/opt/gopath/src/github.com/hyperledger/fabric/peer#
-
+    root@aaaaf5aa2798:/opt/gopath/src/github.com/hyperledger/fabric/peer# peer channel join -b $CHANNEL_NAME.block 
+    2019-04-16 18:54:36.444 UTC [channelCmd] InitCmdFactory -> INFO 001 Endorser and orderer connections initialized
+    2019-04-16 18:54:36.550 UTC [channelCmd] executeJoin -> INFO 002 Successfully submitted proposal to join channel
+    root@aaaaf5aa2798:/opt/gopath/src/github.com/hyperledger/fabric/peer# 
+    
 **Step 6.16:** Repeat the *peer channel list* command and now you should
 see your channel listed in the output:
 
-    root@acd1f96d8807:/opt/gopath/src/github.com/hyperledger/fabric/peer# peer channel list
-    2018-10-22 19:03:03.188 UTC [channelCmd] InitCmdFactory -> INFO 001 Endorser and orderer connections initialized
+    root@aaaaf5aa2798:/opt/gopath/src/github.com/hyperledger/fabric/peer# peer channel list
+    2019-04-16 18:54:56.068 UTC [channelCmd] InitCmdFactory -> INFO 001 Endorser and orderer connections initialized
     Channels peers has joined: 
     mychannel
+
 
 Section 7 - Define an "anchor" peer for each organization in the channel
 =======================================================================
@@ -976,43 +985,27 @@ create* here as meaning, "create an update transaction for a channel".
 
 **Step 7.1:** Switch to *peer0* for *Org0MSP*:
 
-    root@acd1f96d8807:/opt/gopath/src/github.com/hyperledger/fabric/peer# source scripts/setpeer 0 0   # to switch to Peer 0 for Org0MSP
-    CORE_PEER_TLS_ROOTCERT_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/unitedmarbles.com/peers/peer0.unitedmarbles.com/tls/ca.crt
-    CORE_PEER_TLS_KEY_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/unitedmarbles.com/peers/peer0.unitedmarbles.com/tls/server.key
-    CORE_PEER_LOCALMSPID=Org0MSP
-    CORE_VM_ENDPOINT=unix:///host/var/run/docker.sock
-    CORE_PEER_TLS_CERT_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/unitedmarbles.com/peers/peer0.unitedmarbles.com/tls/server.crt
-    CORE_PEER_TLS_ENABLED=true
-    CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/unitedmarbles.com/users/Admin@unitedmarbles.com/msp
-    CORE_PEER_ID=cli
-    CORE_PEER_ADDRESS=peer0.unitedmarbles.com:7051
+    root@aaaaf5aa2798:/opt/gopath/src/github.com/hyperledger/fabric/peer# source scripts/setpeer 0 0   # to switch to Peer 0 for Org0MSP
 
 **Step 7.2:** Issue this command to create the anchor peer for
 *Org0MSP*:
 
-    root@acd1f96d8807:/opt/gopath/src/github.com/hyperledger/fabric/peer# peer channel create -o orderer.blockchain.com:7050 -f channel-artifacts/Org0MSPanchors.tx $FABRIC_TLS -c $CHANNEL_NAME 
-    2018-10-22 19:05:58.603 UTC [channelCmd] InitCmdFactory -> INFO 001 Endorser and orderer connections initialized
-    2018-10-22 19:05:58.619 UTC [cli.common] readBlock -> INFO 002 Received block: 0
+    root@aaaaf5aa2798:/opt/gopath/src/github.com/hyperledger/fabric/peer# peer channel create -o orderer.blockchain.com:7050 -f channel-artifacts/Org0MSPanchors.tx $FABRIC_TLS -c $CHANNEL_NAME 
+    2019-04-16 18:56:23.090 UTC [channelCmd] InitCmdFactory -> INFO 001 Endorser and orderer connections initialized
+    2019-04-16 18:56:23.106 UTC [cli.common] readBlock -> INFO 002 Received block: 0
+
 
 **Step 7.3:** Switch to *peer0* for *Org1MSP*:
 
-    root@acd1f96d8807:/opt/gopath/src/github.com/hyperledger/fabric/peer# source scripts/setpeer 1 0
-    CORE_PEER_TLS_ROOTCERT_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/marblesinc.com/peers/peer0.marblesinc.com/tls/ca.crt
-    CORE_PEER_TLS_KEY_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/unitedmarbles.com/peers/peer0.unitedmarbles.com/tls/server.key
-    CORE_PEER_LOCALMSPID=Org1MSP
-    CORE_VM_ENDPOINT=unix:///host/var/run/docker.sock
-    CORE_PEER_TLS_CERT_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/unitedmarbles.com/peers/peer0.unitedmarbles.com/tls/server.crt
-    CORE_PEER_TLS_ENABLED=true
-    CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/marblesinc.com/users/Admin@marblesinc.com/msp
-    CORE_PEER_ID=cli
-    CORE_PEER_ADDRESS=peer0.marblesinc.com:7051
+    root@aaaaf5aa2798:/opt/gopath/src/github.com/hyperledger/fabric/peer# source scripts/setpeer 1 0
+   
 
 **Step 7.4:** Issue this command to create the anchor peer for
 *Org1MSP*:
 
-    root@acd1f96d8807:/opt/gopath/src/github.com/hyperledger/fabric/peer# peer channel create -o orderer.blockchain.com:7050 -f channel-artifacts/Org1MSPanchors.tx $FABRIC_TLS -c $CHANNEL_NAME
-    2018-10-22 19:06:44.083 UTC [channelCmd] InitCmdFactory -> INFO 001 Endorser and orderer connections initialized
-    2018-10-22 19:06:44.095 UTC [cli.common] readBlock -> INFO 002 Received block: 0
+    root@aaaaf5aa2798:/opt/gopath/src/github.com/hyperledger/fabric/peer# peer channel create -o orderer.blockchain.com:7050 -f channel-artifacts/Org1MSPanchors.tx $FABRIC_TLS -c $CHANNEL_NAME
+    2019-04-16 18:57:11.686 UTC [channelCmd] InitCmdFactory -> INFO 001 Endorser and orderer connections initialized
+    2019-04-16 18:57:11.700 UTC [cli.common] readBlock -> INFO 002 Received block: 0
 
 Section 8 - Install the chaincode on the peer nodes
 ===================================================
@@ -1026,43 +1019,36 @@ In this section, you will install the chaincode on two of your peers.
 
 **Step 8.1:** Switch to *peer0* in *Org0MSP*:
 
-    root@acd1f96d8807::/opt/gopath/src/github.com/hyperledger/fabric/peer#  source scripts/setpeer 0 0
-    CORE_PEER_TLS_ROOTCERT_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/unitedmarbles.com/peers/peer0.unitedmarbles.com/tls/ca.crt
-    CORE_PEER_TLS_KEY_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/unitedmarbles.com/peers/peer0.unitedmarbles.com/tls/server.key
-    CORE_PEER_LOCALMSPID=Org0MSP
-    CORE_VM_ENDPOINT=unix:///host/var/run/docker.sock
-    CORE_PEER_TLS_CERT_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/unitedmarbles.com/peers/peer0.unitedmarbles.com/tls/server.crt
-    CORE_PEER_TLS_ENABLED=true
-    CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/unitedmarbles.com/users/Admin@unitedmarbles.com/msp
-    CORE_PEER_ID=cli
-    CORE_PEER_ADDRESS=peer0.unitedmarbles.com:7051
+    root@aaaaf5aa2798::/opt/gopath/src/github.com/hyperledger/fabric/peer#  source scripts/setpeer 0 0
+    
 
 **Step 8.2:** Try this command to list the chaincodes installed on the
 peer. It will return an empty list, as you haven't yet installed any
 chaincode on any of the peers:
 
-    root@acd1f96d8807:/opt/gopath/src/github.com/hyperledger/fabric/peer# peer chaincode list --installed
+    root@aaaaf5aa2798:/opt/gopath/src/github.com/hyperledger/fabric/peer# peer chaincode list --installed
     Get installed chaincodes on peer:
-    root@acd1f96d8807:/opt/gopath/src/github.com/hyperledger/fabric/peer#
+    root@aaaaf5aa2798:/opt/gopath/src/github.com/hyperledger/fabric/peer# 
+
 
 **Step 8.3:** Install the marbles chaincode on Peer0 in Org0MSP. You are
 looking for a message near the end of the output similar to what is
 shown here:
 
-    root@acd1f96d8807:/opt/gopath/src/github.com/hyperledger/fabric/peer# peer chaincode install -n marbles -v 1.0 -p github.com/hyperledger/fabric/examples/chaincode/go/marbles 
-    2018-10-22 19:07:54.354 UTC [chaincodeCmd] checkChaincodeCmdParams -> INFO 001 Using default escc
-    2018-10-22 19:07:54.354 UTC [chaincodeCmd] checkChaincodeCmdParams -> INFO 002 Using default vscc
-    2018-10-22 19:07:54.564 UTC [chaincodeCmd] install -> INFO 003 Installed remotely response:<status:200 payload:"OK" >
-
+    root@aaaaf5aa2798:/opt/gopath/src/github.com/hyperledger/fabric/peer# peer chaincode install -n marbles -v 1.0 -p github.com/hyperledger/fabric/examples/chaincode/go/marbles 
+    2019-04-16 18:58:36.220 UTC [chaincodeCmd] checkChaincodeCmdParams -> INFO 001 Using default escc
+    2019-04-16 18:58:36.220 UTC [chaincodeCmd] checkChaincodeCmdParams -> INFO 002 Using default vscc
+    2019-04-16 18:58:36.446 UTC [chaincodeCmd] install -> INFO 003 Installed remotely response:<status:200 payload:"OK" > 
+ 
 **Step 8.4:** Repeat the command from *Step 8.2:* - Tip: you could
 probably use the up arrow key a couple of times to retrieve that command
 as an alternative to doing a copy-and-paste here, but I'll leave it up
 to you:
 
-    root@a20e5320179f:/opt/gopath/src/github.com/hyperledger/fabric/peer# peer chaincode list --installed
+    root@aaaaf5aa2798:/opt/gopath/src/github.com/hyperledger/fabric/peer# peer chaincode list --installed
     Get installed chaincodes on peer:
     Name: marbles, Version: 1.0, Path: github.com/hyperledger/fabric/examples/chaincode/go/marbles, Id: 19776f7d2a186d5188b748254a5767bd9689f3723672450c3fdd2daa62b4b746
-    root@a20e5320179f:/opt/gopath/src/github.com/hyperledger/fabric/peer#
+    root@aaaaf5aa2798:/opt/gopath/src/github.com/hyperledger/fabric/peer# 
 
 **Note:** I won't have you repeat the "before" and "after" *peer
 chaincode list \--installed* commands on any of the other peers on which
@@ -1071,25 +1057,17 @@ you insist on doing it.
 
 **Step 8.5:** Switch to *peer0* in *Org1MSP*:
 
-    root@acd1f96d8807::/opt/gopath/src/github.com/hyperledger/fabric/peer#  source scripts/setpeer 1 0
-    CORE_PEER_TLS_ROOTCERT_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/marblesinc.com/peers/peer0.marblesinc.com/tls/ca.crt
-    CORE_PEER_TLS_KEY_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/unitedmarbles.com/peers/peer0.unitedmarbles.com/tls/server.key
-    CORE_PEER_LOCALMSPID=Org1MSP
-    CORE_VM_ENDPOINT=unix:///host/var/run/docker.sock
-    CORE_PEER_TLS_CERT_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/unitedmarbles.com/peers/peer0.unitedmarbles.com/tls/server.crt
-    CORE_PEER_TLS_ENABLED=true
-    CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/marblesinc.com/users/Admin@marblesinc.com/msp
-    CORE_PEER_ID=cli
-    CORE_PEER_ADDRESS=peer0.marblesinc.com:7051
-
+    root@aaaaf5aa2798:/opt/gopath/src/github.com/hyperledger/fabric/peer#  source scripts/setpeer 1 0
+   
 **Step 8.6:** Install the marbles chaincode on Peer0 in Org1MSP. You are
 looking for a message near the end of the output similar to what is
 shown here:
 
-    root@acd1f96d8807:/opt/gopath/src/github.com/hyperledger/fabric/peer# peer chaincode install -n marbles -v 1.0 -p github.com/hyperledger/fabric/examples/chaincode/go/marbles 
-    2018-10-22 19:08:50.990 UTC [chaincodeCmd] checkChaincodeCmdParams -> INFO 001 Using default escc
-    2018-10-22 19:08:50.990 UTC [chaincodeCmd] checkChaincodeCmdParams -> INFO 002 Using default vscc
-    2018-10-22 19:08:51.195 UTC [chaincodeCmd] install -> INFO 003 Installed remotely response:<status:200 payload:"OK" > 
+    root@aaaaf5aa2798:/opt/gopath/src/github.com/hyperledger/fabric/peer# peer chaincode install -n marbles -v 1.0 -p github.com/hyperledger/fabric/examples/chaincode/go/marbles 
+    2019-04-16 18:59:57.467 UTC [chaincodeCmd] checkChaincodeCmdParams -> INFO 001 Using default escc
+    2019-04-16 18:59:57.468 UTC [chaincodeCmd] checkChaincodeCmdParams -> INFO 002 Using default vscc
+    2019-04-16 18:59:57.676 UTC [chaincodeCmd] install -> INFO 003 Installed remotely response:<status:200 payload:"OK" > 
+
 
 An interesting thing to note is that for the *peer chaincode install*
 command you did not need to specify the $FABRIC\_TLS environment
@@ -1140,11 +1118,11 @@ observe that all of your images begin with *hyperledger*:
 
     bcuser@ubuntu16045:~$ docker images
     REPOSITORY                   TAG                 IMAGE ID            CREATED             SIZE
-    hyperledger/fabric-tools     1.4.0               4032f6069cf9        2 months ago        1.52GB
-    hyperledger/fabric-orderer   1.4.0               a8875e4d43b3        2 months ago        147MB
-    hyperledger/fabric-peer      1.4.0               598805b785db        2 months ago        153MB
-    hyperledger/fabric-ca        1.4.0               c44392389f74        2 months ago        216MB
-    hyperledger/fabric-couchdb   s390x-0.4.14        7afa6ce179e6        5 months ago        1.55GB
+    hyperledger/fabric-ca        1.4.1               a836041637e8        5 days ago          220MB
+    hyperledger/fabric-tools     1.4.1               330902566372        5 days ago          1.52GB
+    hyperledger/fabric-orderer   1.4.1               1b709e319b2d        5 days ago          148MB
+    hyperledger/fabric-peer      1.4.1               719392658c28        5 days ago          154MB
+    hyperledger/fabric-couchdb   s390x-0.4.15        81ee917e0be2        4 weeks ago         1.55GB
 
 You should not have any images which begin with *dev-*, which is what
 your Docker chaincode images will start with, and at this point in the
@@ -1156,18 +1134,19 @@ processes and CouchDB, but no chaincode-related Docker containers:
 
     bcuser@ubuntu16045:~$ docker ps --all
     CONTAINER ID        IMAGE                        COMMAND                  CREATED             STATUS              PORTS                                                                       NAMES
-    f78c6f5f3c26        hyperledger/fabric-tools                  "bash"                   6 minutes ago       Up 6 minutes                                                                                    cli
-    f4cf393f4551        hyperledger/fabric-peer                   "peer node start"        6 minutes ago       Up 6 minutes        0.0.0.0:10051->7051/tcp, 0.0.0.0:10052->7052/tcp, 0.0.0.0:10053->7053/tcp   peer1.marblesinc.com
-    4a476224ddd1        hyperledger/fabric-peer                   "peer node start"        6 minutes ago       Up 6 minutes        0.0.0.0:8051->7051/tcp, 0.0.0.0:8052->7052/tcp, 0.0.0.0:8053->7053/tcp      peer1.unitedmarbles.com
-    37df79435787        hyperledger/fabric-peer                   "peer node start"        6 minutes ago       Up 6 minutes        0.0.0.0:7051-7053->7051-7053/tcp                                            peer0.unitedmarbles.com
-    502c9dd2fa11        hyperledger/fabric-peer                   "peer node start"        6 minutes ago       Up 6 minutes        0.0.0.0:9051->7051/tcp, 0.0.0.0:9052->7052/tcp, 0.0.0.0:9053->7053/tcp      peer0.marblesinc.com
-    6bb22da9c588        hyperledger/fabric-ca                     "sh -c 'fabric-ca-se…"   6 minutes ago       Up 6 minutes        0.0.0.0:7054->7054/tcp                                                      ca_Org0
-    e362dce38155        hyperledger/fabric-couchdb:s390x-0.4.13   "tini -- /docker-ent…"   6 minutes ago       Up 6 minutes        4369/tcp, 9100/tcp, 0.0.0.0:6984->5984/tcp                                  couchdb1
-    f15be8759be9        hyperledger/fabric-orderer                "orderer"                6 minutes ago       Up 6 minutes        0.0.0.0:7050->7050/tcp                                                      orderer.blockchain.com
-    7f06745d71f1        hyperledger/fabric-couchdb:s390x-0.4.13   "tini -- /docker-ent…"   6 minutes ago       Up 6 minutes        4369/tcp, 9100/tcp, 0.0.0.0:5984->5984/tcp                                  couchdb0
-    a1bc90cd0186        hyperledger/fabric-couchdb:s390x-0.4.13   "tini -- /docker-ent…"   6 minutes ago       Up 6 minutes        4369/tcp, 9100/tcp, 0.0.0.0:8984->5984/tcp                                  couchdb3
-    5c91c2280a86        hyperledger/fabric-ca                     "sh -c 'fabric-ca-se…"   6 minutes ago       Up 6 minutes        0.0.0.0:8054->7054/tcp                                                      ca_Org1
-    3a4944e8c58b        hyperledger/fabric-couchdb:s390x-0.4.13   "tini -- /docker-ent…"   6 minutes ago       Up 6 minutes        4369/tcp, 9100/tcp, 0.0.0.0:7984->5984/tcp                                  couchdb2
+    aaaaf5aa2798        hyperledger/fabric-tools:1.4.1            "bash"                   19 minutes ago      Up 19 minutes                                                                                   cli
+    74d437495abd        hyperledger/fabric-peer:1.4.1             "peer node start"        19 minutes ago      Up 19 minutes       0.0.0.0:7051-7053->7051-7053/tcp                                            peer0.unitedmarbles.com
+    15ea77ddb395        hyperledger/fabric-peer:1.4.1             "peer node start"        19 minutes ago      Up 19 minutes       0.0.0.0:8051->7051/tcp, 0.0.0.0:8052->7052/tcp, 0.0.0.0:8053->7053/tcp      peer1.unitedmarbles.com
+    2b8dfb70cf7c        hyperledger/fabric-peer:1.4.1             "peer node start"        19 minutes ago      Up 19 minutes       0.0.0.0:10051->7051/tcp, 0.0.0.0:10052->7052/tcp, 0.0.0.0:10053->7053/tcp   peer1.marblesinc.com
+    3706d107afca        hyperledger/fabric-peer:1.4.1             "peer node start"        19 minutes ago      Up 19 minutes       0.0.0.0:9051->7051/tcp, 0.0.0.0:9052->7052/tcp, 0.0.0.0:9053->7053/tcp      peer0.marblesinc.com
+    0333dc7b760c        hyperledger/fabric-ca:1.4.1               "sh -c 'fabric-ca-se…"   19 minutes ago      Up 19 minutes       0.0.0.0:7054->7054/tcp                                                      ca_Org0
+    7ff153c9a2ec        hyperledger/fabric-orderer:1.4.1          "orderer"                19 minutes ago      Up 19 minutes       0.0.0.0:7050->7050/tcp                                                      orderer.blockchain.com
+    a6543c36f5ba        hyperledger/fabric-couchdb:s390x-0.4.15   "tini -- /docker-ent…"   19 minutes ago      Up 19 minutes       4369/tcp, 9100/tcp, 0.0.0.0:5984->5984/tcp                                  couchdb0
+    778f48da3591        hyperledger/fabric-couchdb:s390x-0.4.15   "tini -- /docker-ent…"   19 minutes ago      Up 19 minutes       4369/tcp, 9100/tcp, 0.0.0.0:6984->5984/tcp                                  couchdb1
+    165d875c2887        hyperledger/fabric-couchdb:s390x-0.4.15   "tini -- /docker-ent…"   19 minutes ago      Up 19 minutes       4369/tcp, 9100/tcp, 0.0.0.0:8984->5984/tcp                                  couchdb3
+    86f691985650        hyperledger/fabric-ca:1.4.1               "sh -c 'fabric-ca-se…"   19 minutes ago      Up 19 minutes       0.0.0.0:8054->7054/tcp                                                      ca_Org1
+    14c370463c1c        hyperledger/fabric-couchdb:s390x-0.4.15   "tini -- /docker-ent…"   19 minutes ago      Up 19 minutes       4369/tcp, 9100/tcp, 0.0.0.0:7984->5984/tcp                                  couchdb2
+
 
 **Step 9.4:** Entering this will make this fact stand out more as you
 should only see column headers in your output. (The *\--invert-match*
@@ -1183,32 +1162,22 @@ images or containers present, try to instantiate the chaincode.
 **Step 9.5:** On Terminal Session 1, switch to Peer 0 of Org0MSP by
 entering:
 
-    root@acd1f96d8807:/opt/gopath/src/github.com/hyperledger/fabric/peer# source scripts/setpeer 0 0
-    CORE_PEER_TLS_ROOTCERT_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/unitedmarbles.com/peers/peer0.unitedmarbles.com/tls/ca.crt
-    CORE_PEER_TLS_KEY_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/unitedmarbles.com/peers/peer0.unitedmarbles.com/tls/server.key
-    CORE_PEER_LOCALMSPID=Org0MSP
-    CORE_VM_ENDPOINT=unix:///host/var/run/docker.sock
-    CORE_PEER_TLS_CERT_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/unitedmarbles.com/peers/peer0.unitedmarbles.com/tls/server.crt
-    CORE_PEER_TLS_ENABLED=true
-    CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/unitedmarbles.com/users/Admin@unitedmarbles.com/msp
-    CORE_PEER_ID=cli
-    CORE_LOGGING_LEVEL=DEBUG
-    CORE_PEER_ADDRESS=peer0.unitedmarbles.com:7051
-
+    root@aaaaf5aa2798:/opt/gopath/src/github.com/hyperledger/fabric/peer# source scripts/setpeer 0 0
+    
 **Step 9.6:** On Terminal Session 1, enter this command to list
 instantiated chaincodes on your channel. Spoiler alert- there aren't
 any, so you will get an empty list:
 
-    root@a20e5320179f:/opt/gopath/src/github.com/hyperledger/fabric/peer# peer chaincode list --instantiated --channelID ${CHANNEL_NAME}
+    root@aaaaf5aa2798:/opt/gopath/src/github.com/hyperledger/fabric/peer# peer chaincode list --instantiated --channelID ${CHANNEL_NAME}
     Get instantiated chaincodes on channel mychannel:
-    root@a20e5320179f:/opt/gopath/src/github.com/hyperledger/fabric/peer# 
+    root@aaaaf5aa2798:/opt/gopath/src/github.com/hyperledger/fabric/peer# 
 
 **Step 9.7:** On Terminal Session 1, issue the command to instantiate
 the chaincode on the channel:
 
-    root@acd1f96d8807:/opt/gopath/src/github.com/hyperledger/fabric/peer# peer chaincode instantiate -o orderer.blockchain.com:7050 -n marbles -v 1.0 -c '{"Args":["init","1"]}' -P "OR ('Org0MSP.member','Org1MSP.member')" $FABRIC_TLS -C $CHANNEL_NAME
-    2018-10-22 19:16:30.024 UTC [chaincodeCmd] checkChaincodeCmdParams -> INFO 001 Using default escc
-    2018-10-22 19:16:30.024 UTC [chaincodeCmd] checkChaincodeCmdParams -> INFO 002 Using default vscc
+    root@aaaaf5aa2798:/opt/gopath/src/github.com/hyperledger/fabric/peer# peer chaincode instantiate -o orderer.blockchain.com:7050 -n marbles -v 1.0 -c '{"Args":["init","1"]}' -P "OR ('Org0MSP.member','Org1MSP.member')" $FABRIC_TLS -C $CHANNEL_NAME
+    2019-04-16 19:03:23.297 UTC [chaincodeCmd] checkChaincodeCmdParams -> INFO 001 Using default escc
+    2019-04-16 19:03:23.297 UTC [chaincodeCmd] checkChaincodeCmdParams -> INFO 002 Using default vscc
 
 **Note:** In your prior commands, when specifying the channel name, you
 used lowercase 'c' as the argument, e.g., *-c $CHANNEL\_NAME*. In the
@@ -1236,10 +1205,10 @@ created from the new Docker image:
 
     bcuser@ubuntu16045:~$ docker ps | grep --invert-match hyperledger 
     CONTAINER ID        IMAGE                                                                                                      COMMAND                  CREATED             STATUS              PORTS                                                                       NAMES
-    054fe600d195        dev-peer0.unitedmarbles.com-marbles-1.0-7e92f069adb7469939a96dcba723fa2019745461f05a562e81cec38e46424aa1   "chaincode -peer.add…"   27 seconds ago      Up 26 seconds                                                                                   dev-peer0.unitedmarbles.com-marbles-1.0
+    dev-peer0.unitedmarbles.com-marbles-1.0-7e92f069adb7469939a96dcba723fa2019745461f05a562e81cec38e46424aa1   latest              7ad155caa6bd        22 seconds ago      137MB
     bcuser@ubuntu16045:~$ 
 
-The naming convention used by Hyperledger Fabric v1.4.0 for the Docker
+The naming convention used by Hyperledger Fabric v1.4.1 for the Docker
 images it creates for chaincode is
 *HyperledgerFabricNetworkName-PeerName-ChaincodeName-ChaincodeVersion-SHA256Hash*.
 In our case of *dev-peer0.unitedmarbles.com-marbles-1.0-*, the default
@@ -1259,10 +1228,10 @@ chaincode invoke* or *peer chaincode query* command on that peer.
 **Step 9.10:** In Terminal Session 1 repeat the command from *Step 9.6*
 to see that your instantiated chaincode on your channel is now listed:
 
-    root@a20e5320179f:/opt/gopath/src/github.com/hyperledger/fabric/peer# peer chaincode list --instantiated --channelID ${CHANNEL_NAME}
+    root@aaaaf5aa2798:/opt/gopath/src/github.com/hyperledger/fabric/peer# peer chaincode list --instantiated --channelID ${CHANNEL_NAME}
     Get instantiated chaincodes on channel mychannel:
     Name: marbles, Version: 1.0, Path: github.com/hyperledger/fabric/examples/chaincode/go/marbles, Escc: escc, Vscc: vscc
-    root@a20e5320179f:/opt/gopath/src/github.com/hyperledger/fabric/peer#
+    root@aaaaf5aa2798:/opt/gopath/src/github.com/hyperledger/fabric/peer# 
 
 **Step 9.11:** Remember when I said at the beginning of this section
 that I would try to prove it to you that you only need to do the
@@ -1270,25 +1239,17 @@ that I would try to prove it to you that you only need to do the
 Let's find out if I'm lying. You did the *instantiate* on peer "0
 0". Switch to another peer:
 
-    root@acd1f96d8807:/opt/gopath/src/github.com/hyperledger/fabric/peer# source scripts/setpeer 1 1
-    CORE_PEER_TLS_KEY_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/unitedmarbles.com/peers/peer0.unitedmarbles.com/tls/server.key
-    CORE_PEER_LOCALMSPID=Org1MSP
-    CORE_PEER_TLS_ENABLED=true
-    CORE_PEER_TLS_CERT_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/unitedmarbles.com/peers/peer0.unitedmarbles.com/tls/server.crt
-    CORE_PEER_ID=cli
-    CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/marblesinc.com/users/Admin@marblesinc.com/msp
-    CORE_PEER_TLS_ROOTCERT_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/marblesinc.com/peers/peer1.marblesinc.com/tls/ca.crt
-    CORE_PEER_ADDRESS=peer1.marblesinc.com:7051
-    CORE_VM_ENDPOINT=unix:///host/var/run/docker.sock
+    root@aaaaf5aa2798:/opt/gopath/src/github.com/hyperledger/fabric/peer# source scripts/setpeer 1 1
+   
 
 **Step 9.12:** Repeat the command from *Step 9.10* on this peer, and
 even though you did not run the *peer chaincode instantiate* on this
 peer, you will see that this peer is aware of the instantiation:
 
-    root@a20e5320179f:/opt/gopath/src/github.com/hyperledger/fabric/peer# peer chaincode list --instantiated --channelID ${CHANNEL_NAME}
+    root@aaaaf5aa2798:/opt/gopath/src/github.com/hyperledger/fabric/peer# peer chaincode list --instantiated --channelID ${CHANNEL_NAME}
     Get instantiated chaincodes on channel mychannel:
     Name: marbles, Version: 1.0, Escc: escc, Vscc: vscc
-    root@a20e5320179f:/opt/gopath/src/github.com/hyperledger/fabric/peer# 
+    root@aaaaf5aa2798:/opt/gopath/src/github.com/hyperledger/fabric/peer# 
 
 I would never lie to you.
 
@@ -1304,16 +1265,8 @@ commands* in Terminal session 1, while you will enter *docker ps* and
 
 **Step 10.1:** Switch to peer0 of Org0MSP:
 
-    root@acd1f96d8807:/opt/gopath/src/github.com/hyperledger/fabric/peer# source scripts/setpeer 0 0
-    CORE_PEER_TLS_ROOTCERT_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/unitedmarbles.com/peers/peer0.unitedmarbles.com/tls/ca.crt
-    CORE_PEER_TLS_KEY_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/unitedmarbles.com/peers/peer0.unitedmarbles.com/tls/server.key
-    CORE_PEER_LOCALMSPID=Org0MSP
-    CORE_VM_ENDPOINT=unix:///host/var/run/docker.sock
-    CORE_PEER_TLS_CERT_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/unitedmarbles.com/peers/peer0.unitedmarbles.com/tls/server.crt
-    CORE_PEER_TLS_ENABLED=true
-    CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/unitedmarbles.com/users/Admin@unitedmarbles.com/msp
-    CORE_PEER_ID=cli
-    CORE_PEER_ADDRESS=peer0.unitedmarbles.com:7051
+    root@aaaaf5aa2798:/opt/gopath/src/github.com/hyperledger/fabric/peer# source scripts/setpeer 0 0
+ 
 
 **Step 10.2:** You will use the marbles chaincode to create a new
 Marbles owner named John. If you would like to use a different name than
@@ -1326,9 +1279,9 @@ to be changed.
 
 Enter this command in Terminal session 1:
 
-    root@acd1f96d8807:/opt/gopath/src/github.com/hyperledger/fabric/peer# peer chaincode invoke -n marbles -c '{"Args":["init_owner", "o0000000000001","John","Marbles Inc"]}' $FABRIC_TLS -C $CHANNEL_NAME
-    2018-10-22 19:24:22.227 UTC [chaincodeCmd] InitCmdFactory -> INFO 001 Retrieved channel (mychannel) orderer endpoint: orderer.blockchain.com:7050
-    2018-10-22 19:24:22.240 UTC [chaincodeCmd] chaincodeInvokeOrQuery -> INFO 002 Chaincode invoke successful. result: status:200 
+    root@aaaaf5aa2798:/opt/gopath/src/github.com/hyperledger/fabric/peer# peer chaincode invoke -n marbles -c '{"Args":["init_owner", "o0000000000001","John","Marbles Inc"]}' $FABRIC_TLS -C $CHANNEL_NAME
+    2019-04-16 19:06:28.952 UTC [chaincodeCmd] InitCmdFactory -> INFO 001 Retrieved channel (mychannel) orderer endpoint: orderer.blockchain.com:7050
+    2019-04-16 19:06:28.960 UTC [chaincodeCmd] chaincodeInvokeOrQuery -> INFO 002 Chaincode invoke successful. result: status:200 
 
 **Step 10.3:** Let's deconstruct the arguments to the chaincode:
 
@@ -1361,7 +1314,7 @@ called, and it is passed three arguments, *o0000000000001*, *John*, and
 
 It is logic within the *init\_owner* function that cause updates to the
 channel's ledger- subject to the transaction flow in Hyperledger Fabric
-v1.4.0- that is, chaincode execution causes proposed updates to the
+v1.4.1- that is, chaincode execution causes proposed updates to the
 ledger, which are only committed at the end of the transaction flow if
 everything is validated properly. But it all starts with function calls
 inside the chaincode functions that ask for ledger state to be created
@@ -1373,14 +1326,15 @@ Docker container for peer0 of Org0MSP:
 
     bcuser@ubuntu16045:~$ docker images dev-*
     REPOSITORY                                                                                                 TAG                 IMAGE ID            CREATED             SIZE
-    dev-peer0.unitedmarbles.com-marbles-1.0-7e92f069adb7469939a96dcba723fa2019745461f05a562e81cec38e46424aa1   latest              9f1fc6820d01        About a minute ago   137MB
+    dev-peer0.unitedmarbles.com-marbles-1.0-7e92f069adb7469939a96dcba723fa2019745461f05a562e81cec38e46424aa1   latest              7ad155caa6bd        3 minutes ago       137MB
 
 **Step 10.5:** Enter this command to see information about the chaincode
 container. I introduce here the *\--no-trunc* option, which stands for
 *no truncation*, so you can see more information about the container:
 
     bcuser@ubuntu16045:~$ docker ps --no-trunc | grep dev-
-    054fe600d195101a4e735bd213f433b41b40d7c1496bf325425e81fa5f789955   dev-peer0.unitedmarbles.com-marbles-1.0-7e92f069adb7469939a96dcba723fa2019745461f05a562e81cec38e46424aa1   "chaincode -peer.address=peer0.unitedmarbles.com:7052"                                                                                                                                                                                                                About a minute ago   Up About a minute                                                                               dev-peer0.unitedmarbles.com-marbles-1.0
+    c3ed0868982084731a63701e5762690746719851cfacaa564750159c6024d792   dev-peer0.unitedmarbles.com-marbles-1.0-7e92f069adb7469939a96dcba723fa2019745461f05a562e81cec38e46424aa1   "chaincode -peer.address=peer0.unitedmarbles.com:7052"                                                                                                                                                                                                                3 minutes ago       Up 3 minutes                                                                                    dev-peer0.unitedmarbles.com-marbles-1.0
+
 
 The takeaway is that the chaincode execution has only run on peer0 of
 Org0MSP so far, and this is also the peer on which you instantiated the
@@ -1393,22 +1347,14 @@ Docker image and Docker container built the first time they are needed.
 create a marble belonging to this owner. Perform this from peer0 of
 Org1, so from Terminal session 1, switch to Peer0 of Org1MSP:
 
-    root@acd1f96d8807:/opt/gopath/src/github.com/hyperledger/fabric/peer# source scripts/setpeer 1 0
-    CORE_PEER_TLS_ROOTCERT_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/marblesinc.com/peers/peer0.marblesinc.com/tls/ca.crt
-    CORE_PEER_TLS_KEY_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/unitedmarbles.com/peers/peer0.unitedmarbles.com/tls/server.key
-    CORE_PEER_LOCALMSPID=Org1MSP
-    CORE_VM_ENDPOINT=unix:///host/var/run/docker.sock
-    CORE_PEER_TLS_CERT_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/unitedmarbles.com/peers/peer0.unitedmarbles.com/tls/server.crt
-    CORE_PEER_TLS_ENABLED=true
-    CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/marblesinc.com/users/Admin@marblesinc.com/msp
-    CORE_PEER_ID=cli
-    CORE_PEER_ADDRESS=peer0.marblesinc.com:7051
+    root@aaaaf5aa2798:/opt/gopath/src/github.com/hyperledger/fabric/peer# source scripts/setpeer 1 0
+    
 
 **Step 10.7:** Now enter the command to create a new marble for John:
 
-    root@acd1f96d8807:/opt/gopath/src/github.com/hyperledger/fabric/peer# peer chaincode invoke -n marbles -c '{"Args":["init_marble","m0000000000001","blue","35","o0000000000001","Marbles Inc"]}' $FABRIC_TLS -C $CHANNEL_NAME 
-    2018-10-22 19:28:54.043 UTC [chaincodeCmd] InitCmdFactory -> INFO 001 Retrieved channel (mychannel) orderer endpoint: orderer.blockchain.com:7050
-    2018-10-22 19:29:08.962 UTC [chaincodeCmd] chaincodeInvokeOrQuery -> INFO 002 Chaincode invoke successful. result: status:200
+    root@aaaaf5aa2798:/opt/gopath/src/github.com/hyperledger/fabric/peer# peer chaincode invoke -n marbles -c '{"Args":["init_marble","m0000000000001","blue","35","o0000000000001","Marbles Inc"]}' $FABRIC_TLS -C $CHANNEL_NAME 
+    2019-04-16 19:08:17.950 UTC [chaincodeCmd] InitCmdFactory -> INFO 001 Retrieved channel (mychannel) orderer endpoint: orderer.blockchain.com:7050
+    2019-04-16 19:08:33.634 UTC [chaincodeCmd] chaincodeInvokeOrQuery -> INFO 002 Chaincode invoke successful. result: status:200 
 
 This time you called the *init\_marble* function. Now you have created
 one owner, and one marble.
@@ -1425,36 +1371,28 @@ have two Docker chaincode images:
 
     bcuser@ubuntu16045:~$ docker images dev-*
     REPOSITORY                                                                                                 TAG                 IMAGE ID            CREATED             SIZE
-    dev-peer0.marblesinc.com-marbles-1.0-4077677f13838bacbfd8ff943e7348c00f3c4d6ca6e2838efd14204ca87ea12b      latest              10f11ae0735b        3 seconds ago       137MB
-    dev-peer0.unitedmarbles.com-marbles-1.0-7e92f069adb7469939a96dcba723fa2019745461f05a562e81cec38e46424aa1   latest              9f1fc6820d01        2 minutes ago       137MB
+    dev-peer0.marblesinc.com-marbles-1.0-4077677f13838bacbfd8ff943e7348c00f3c4d6ca6e2838efd14204ca87ea12b      latest              9001fd4c00b8        28 seconds ago      137MB
+    dev-peer0.unitedmarbles.com-marbles-1.0-7e92f069adb7469939a96dcba723fa2019745461f05a562e81cec38e46424aa1   latest              7ad155caa6bd        5 minutes ago       137MB
 
 **Step 10.9:** In Terminal session 2, issue the command to see that you
 have two Docker chaincode containers:
 
     bcuser@ubuntu16045:~$ docker ps --no-trunc | grep dev-*
-    22d63701f033c108296dd5170b67d5a1a00a8bb8b93197bc95e8303bcfc5657a   dev-peer0.marblesinc.com-marbles-1.0-4077677f13838bacbfd8ff943e7348c00f3c4d6ca6e2838efd14204ca87ea12b      "chaincode -peer.address=peer0.marblesinc.com:7052"                                                                                                                                                                                                                   28 seconds ago      Up 27 seconds                                                                                   dev-peer0.marblesinc.com-marbles-1.0
-    054fe600d195101a4e735bd213f433b41b40d7c1496bf325425e81fa5f789955   dev-peer0.unitedmarbles.com-marbles-1.0-7e92f069adb7469939a96dcba723fa2019745461f05a562e81cec38e46424aa1   "chaincode -peer.address=peer0.unitedmarbles.com:7052"                                                                                                                                                                                                                2 minutes ago       Up 2 minutes                                                                                    dev-peer0.unitedmarbles.com-marbles-1.0
+    4a6a7b913ed8481e190415a50c87a96a5c9db4e721fdd0b22839a3c1d86de538   dev-peer0.marblesinc.com-marbles-1.0-4077677f13838bacbfd8ff943e7348c00f3c4d6ca6e2838efd14204ca87ea12b      "chaincode -peer.address=peer0.marblesinc.com:7052"                                                                                                                                                                                                                   46 seconds ago      Up 44 seconds                                                                                   dev-peer0.marblesinc.com-marbles-1.0
+    c3ed0868982084731a63701e5762690746719851cfacaa564750159c6024d792   dev-peer0.unitedmarbles.com-marbles-1.0-7e92f069adb7469939a96dcba723fa2019745461f05a562e81cec38e46424aa1   "chaincode -peer.address=peer0.unitedmarbles.com:7052"                                                                                                                                                                                                                5 minutes ago       Up 5 minutes                                                                                    dev-peer0.unitedmarbles.com-marbles-1.0
     bcuser@ubuntu16045:~$ 
 
 **Step 10.10:** You will create a new owner now. From Terminal Session
 1, try it on Peer 1 of Org0MSP:
 
-    root@acd1f96d8807:/opt/gopath/src/github.com/hyperledger/fabric/peer# source scripts/setpeer 0 1
-    CORE_PEER_TLS_ROOTCERT_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/unitedmarbles.com/peers/peer1.unitedmarbles.com/tls/ca.crt
-    CORE_PEER_TLS_KEY_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/unitedmarbles.com/peers/peer0.unitedmarbles.com/tls/server.key
-    CORE_PEER_LOCALMSPID=Org0MSP
-    CORE_VM_ENDPOINT=unix:///host/var/run/docker.sock
-    CORE_PEER_TLS_CERT_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/unitedmarbles.com/peers/peer0.unitedmarbles.com/tls/server.crt
-    CORE_PEER_TLS_ENABLED=true
-    CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/unitedmarbles.com/users/Admin@unitedmarbles.com/msp
-    CORE_PEER_ID=cli
-    CORE_PEER_ADDRESS=peer1.unitedmarbles.com:7051
+    root@aaaaf5aa2798:/opt/gopath/src/github.com/hyperledger/fabric/peer# source scripts/setpeer 0 1
+    
 
 **Step 10.11:** Then run this command to try to create a new owner.
 **Note: This command is intended to fail. Go ahead and enter it and then
 read on for why it failed and how to correct the failure**:
 
-    root@acd1f96d8807:/opt/gopath/src/github.com/hyperledger/fabric/peer# peer chaincode invoke -n marbles -c '{"Args":["init_owner","o0000000000002","Barry","United Marbles"]}' $FABRIC_TLS -C $CHANNEL_NAME
+    root@aaaaf5aa2798:/opt/gopath/src/github.com/hyperledger/fabric/peer# peer chaincode invoke -n marbles -c '{"Args":["init_owner","o0000000000002","Barry","United Marbles"]}' $FABRIC_TLS -C $CHANNEL_NAME
 
 What do you expect to happen when you enter this command?
 
@@ -1462,8 +1400,9 @@ If you have followed these instructions exactly so far, the *invoke*
 will fail. It will fail because you have not yet installed the chaincode
 on Peer 1 of Org0. Here is the output which shows the error:
 
-    2018-10-22 19:43:00.238 UTC [chaincodeCmd] InitCmdFactory -> INFO 001 Retrieved channel (mychannel) orderer endpoint: orderer.blockchain.com:7050
+    2019-04-16 19:10:03.299 UTC [chaincodeCmd] InitCmdFactory -> INFO 001 Retrieved channel (mychannel) orderer endpoint: orderer.blockchain.com:7050
     Error: endorsement failure during invoke. response: status:500 message:"cannot retrieve package for chaincode marbles/1.0, error open /var/hyperledger/production/chaincodes/marbles.1.0: no such file or directory" 
+
 
 You must first *install* chaincode on a peer not only before you can do
 an *instantiate* from that peer, but also before you can do an *invoke*
@@ -1480,17 +1419,17 @@ chaincode has been installed on it.
 Org0. In Terminal session 1, enter this command, which should look
 familiar to you:
 
-    root@acd1f96d8807:/opt/gopath/src/github.com/hyperledger/fabric/peer# peer chaincode install -n marbles -v1.0 -p github.com/hyperledger/fabric/examples/chaincode/go/marbles
-    2018-10-22 19:44:30.855 UTC [chaincodeCmd] checkChaincodeCmdParams -> INFO 001 Using default escc
-    2018-10-22 19:44:30.855 UTC [chaincodeCmd] checkChaincodeCmdParams -> INFO 002 Using default vscc
-    2018-10-22 19:44:31.054 UTC [chaincodeCmd] install -> INFO 003 Installed remotely response:<status:200 payload:"OK" > 
+    root@aaaaf5aa2798:/opt/gopath/src/github.com/hyperledger/fabric/peer# peer chaincode install -n marbles -v1.0 -p github.com/hyperledger/fabric/examples/chaincode/go/marbles
+    2019-04-16 19:11:06.563 UTC [chaincodeCmd] checkChaincodeCmdParams -> INFO 001 Using default escc
+    2019-04-16 19:11:06.563 UTC [chaincodeCmd] checkChaincodeCmdParams -> INFO 002 Using default vscc
+    2019-04-16 19:11:06.770 UTC [chaincodeCmd] install -> INFO 003 Installed remotely response:<status:200 payload:"OK" > 
 
 **Step 10.13:** Now, in Terminal session 1, repeat the *peer chaincode
 invoke* command from *Step 10.9*. It should work this time:
 
-    root@acd1f96d8807:/opt/gopath/src/github.com/hyperledger/fabric/peer# peer chaincode invoke -n marbles -c '{"Args":["init_owner","o0000000000002","Barry","United Marbles"]}' $FABRIC_TLS -C $CHANNEL_NAME
-    2018-10-22 19:45:10.249 UTC [chaincodeCmd] InitCmdFactory -> INFO 001 Retrieved channel (mychannel) orderer endpoint: orderer.blockchain.com:7050
-    2018-10-22 19:45:25.582 UTC [chaincodeCmd] chaincodeInvokeOrQuery -> INFO 002 Chaincode invoke successful. result: status:200 
+    root@aaaaf5aa2798:/opt/gopath/src/github.com/hyperledger/fabric/peer# peer chaincode invoke -n marbles -c '{"Args":["init_owner","o0000000000002","Barry","United Marbles"]}' $FABRIC_TLS -C $CHANNEL_NAME
+    2019-04-16 19:11:32.071 UTC [chaincodeCmd] InitCmdFactory -> INFO 001 Retrieved channel (mychannel) orderer endpoint: orderer.blockchain.com:7050
+    2019-04-16 19:11:47.739 UTC [chaincodeCmd] chaincodeInvokeOrQuery -> INFO 002 Chaincode invoke successful. result: status:200 
 
 **Step 10.14:** Go back to Terminal session 2 and enter the Docker
 command that will show you that you now have your third
@@ -1498,18 +1437,18 @@ chaincode-related Docker image, the one just built for peer1 of Org0:
 
     bcuser@ubuntu16045:~$ docker images dev-*
     REPOSITORY                                                                                                 TAG                 IMAGE ID            CREATED             SIZE
-    dev-peer1.unitedmarbles.com-marbles-1.0-dea1aa08dc7c6f282a31dd498670173c21d3e75ef0ef1d170b95e1212fbacb77   latest              39d2292b2c9f        29 seconds ago      137MB
-    dev-peer0.marblesinc.com-marbles-1.0-4077677f13838bacbfd8ff943e7348c00f3c4d6ca6e2838efd14204ca87ea12b      latest              10f11ae0735b        16 minutes ago      137MB
-    dev-peer0.unitedmarbles.com-marbles-1.0-7e92f069adb7469939a96dcba723fa2019745461f05a562e81cec38e46424aa1   latest              9f1fc6820d01        19 minutes ago      137MB
+    dev-peer1.unitedmarbles.com-marbles-1.0-dea1aa08dc7c6f282a31dd498670173c21d3e75ef0ef1d170b95e1212fbacb77   latest              858d2dc052e9        27 seconds ago      137MB
+    dev-peer0.marblesinc.com-marbles-1.0-4077677f13838bacbfd8ff943e7348c00f3c4d6ca6e2838efd14204ca87ea12b      latest              9001fd4c00b8        3 minutes ago       137MB
+    dev-peer0.unitedmarbles.com-marbles-1.0-7e92f069adb7469939a96dcba723fa2019745461f05a562e81cec38e46424aa1   latest              7ad155caa6bd        8 minutes ago       137MB
 
 **Step 10.15:** Enter the Docker command that will show you that you now
 have your third chaincode-related Docker container, the one just built
 for peer1 of Org0:
 
     bcuser@ubuntu16045:~$ docker ps --no-trunc | grep dev-
-    9fb400ec36af291ab8e153b9fc61d75536ac29f43d2f3f28e37a119adc09de31   dev-peer1.unitedmarbles.com-marbles-1.0-dea1aa08dc7c6f282a31dd498670173c21d3e75ef0ef1d170b95e1212fbacb77   "chaincode -peer.address=peer1.unitedmarbles.com:7052"                                                                                                                                                                                                                59 seconds ago      Up 58 seconds                                                                                   dev-peer1.unitedmarbles.com-marbles-1.0
-    22d63701f033c108296dd5170b67d5a1a00a8bb8b93197bc95e8303bcfc5657a   dev-peer0.marblesinc.com-marbles-1.0-4077677f13838bacbfd8ff943e7348c00f3c4d6ca6e2838efd14204ca87ea12b      "chaincode -peer.address=peer0.marblesinc.com:7052"                                                                                                                                                                                                                   17 minutes ago      Up 17 minutes                                                                                   dev-peer0.marblesinc.com-marbles-1.0
-    054fe600d195101a4e735bd213f433b41b40d7c1496bf325425e81fa5f789955   dev-peer0.unitedmarbles.com-marbles-1.0-7e92f069adb7469939a96dcba723fa2019745461f05a562e81cec38e46424aa1   "chaincode -peer.address=peer0.unitedmarbles.com:7052"                                                                                                                                                                                                                19 minutes ago      Up 19 minutes                                                                                   dev-peer0.unitedmarbles.com-marbles-1.0
+    a1de729aa0b05e86721e9d1a3ca4c0991bce166b0f064035a76d8266fd76226c   dev-peer1.unitedmarbles.com-marbles-1.0-dea1aa08dc7c6f282a31dd498670173c21d3e75ef0ef1d170b95e1212fbacb77   "chaincode -peer.address=peer1.unitedmarbles.com:7052"                                                                                                                                                                                                                47 seconds ago      Up 46 seconds                                                                                   dev-peer1.unitedmarbles.com-marbles-1.0
+    4a6a7b913ed8481e190415a50c87a96a5c9db4e721fdd0b22839a3c1d86de538   dev-peer0.marblesinc.com-marbles-1.0-4077677f13838bacbfd8ff943e7348c00f3c4d6ca6e2838efd14204ca87ea12b      "chaincode -peer.address=peer0.marblesinc.com:7052"                                                                                                                                                                                                                   4 minutes ago       Up 4 minutes                                                                                    dev-peer0.marblesinc.com-marbles-1.0
+    c3ed0868982084731a63701e5762690746719851cfacaa564750159c6024d792   dev-peer0.unitedmarbles.com-marbles-1.0-7e92f069adb7469939a96dcba723fa2019745461f05a562e81cec38e46424aa1   "chaincode -peer.address=peer0.unitedmarbles.com:7052"                                                                                                                                                                                                                8 minutes ago       Up 8 minutes                                                                                    dev-peer0.unitedmarbles.com-marbles-1.0
     bcuser@ubuntu16045:~$ 
 
 **Step 10.16:** Try some additional chaincode invocations. You have had
@@ -1570,7 +1509,7 @@ based on the commands you have entered:
 Your command prompt should change to reflect that you are now back at
 your Linux on IBM Z host prompt and no longer in the Docker container:
 
-    root@acd1f96d8807:/opt/gopath/src/github.com/hyperledger/fabric/peer# exit
+    root@aaaaf5aa2798:/opt/gopath/src/github.com/hyperledger/fabric/peer# exit
     exit
     bcuser@ubuntu16045:~/zmarbles$ 
 
