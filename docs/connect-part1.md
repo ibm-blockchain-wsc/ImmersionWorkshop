@@ -34,7 +34,7 @@ Last login: Mon Jan 21 21:43:38 2019 from 192.168.22.64
 bcuser@ubuntu16045:~
 ```
 
-Then, add the cluster to your /etc/hosts and add the self-signed certificate to your ca-certificates (Note: Please run this command exactly as printed below keeping the 192.168.22.81 ip address which is the address to access our ICP Kubernetes cluster)
+Then, add the cluster to your /etc/hosts and add the self-signed certificate to your ca-certificates (Note: Please run this command exactly as printed below keeping the `192.168.22.81` ip address which is the address to access our ICP Kubernetes cluster)
 
 ```
 echo "192.168.22.81   wsc-ibp-icp-cluster.icp" | sudo tee --append /etc/hosts && sudo mkdir /usr/local/share/ca-certificates/wsc-ibp-icp-cluster.icp && sudo openssl s_client -showcerts -servername wsc-ibp-icp-cluster.icp -connect wsc-ibp-icp-cluster.icp:8443 </dev/null 2>/dev/null | sudo openssl x509 | sudo tee /usr/local/share/ca-certificates/wsc-ibp-icp-cluster.icp/ca.crt && sudo update-ca-certificates
