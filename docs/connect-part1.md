@@ -34,7 +34,7 @@ Last login: Mon Jan 21 21:43:38 2019 from 192.168.22.64
 bcuser@ubuntu16045:~
 ```
 
-Then, add the cluster to your /etc/hosts and add the self-signed certificate to your ca-certificates
+Then, add the cluster to your /etc/hosts and add the self-signed certificate to your ca-certificates (Note: Please run this command exactly as printed below keeping the 192.168.22.81 ip address which is the address to access our ICP Kubernetes cluster)
 
 ```
 echo "192.168.22.81   wsc-ibp-icp-cluster.icp" | sudo tee --append /etc/hosts && sudo mkdir /usr/local/share/ca-certificates/wsc-ibp-icp-cluster.icp && sudo openssl s_client -showcerts -servername wsc-ibp-icp-cluster.icp -connect wsc-ibp-icp-cluster.icp:8443 </dev/null 2>/dev/null | sudo openssl x509 | sudo tee /usr/local/share/ca-certificates/wsc-ibp-icp-cluster.icp/ca.crt && sudo update-ca-certificates
@@ -82,6 +82,11 @@ done.
 ```
 Take particular note that 1 certificate was added and 0 removed in your output like in the sample output above.
 
+Next, restart your docker service to pick up the newly added certificate:
+```
+sudo service docker restart
+```
+
 Next, login to the private docker repository:
 ```
 echo $credential | docker login wsc-ibp-icp-cluster.icp:8500 -u $TEAM --password-stdin
@@ -98,7 +103,7 @@ Now, start your unique image which will return a command prompt:
 docker run --rm -it -v /var/run/docker.sock:/var/run/docker.sock --name $TEAM -p 3000:3001 wsc-ibp-icp-cluster.icp:8500/lab-test/connectathon-s390x-$TEAM:1.0 bash
 ```
 
-This command is using Docker to run your team's container in an interactive bash shell and connect it to your machine's docker socket so you can create sibling containers from your container image. Additionally, you are giving it the name of your team and forwarding traffic on port 3000 of the host to port 3001 on your container to access your marbles application during the lab. This means marbles comes up on port 3000 in this part1 of the connectathon versus port 3001 in part2.
+This command is using Docker to run your team's container in an interactive bash shell and connect it to your machine's docker socket so you can create sibling containers from your container image. Additionally, you are giving it the name of your team and forwarding traffic on port 3000 of the host to port 3001 on your container to access your marbles application during the lab. This means marbles comes up on port 3000 in this part1 of the connectathon versus port 3001 in part2. This makes it so that no port conflicts occur during the lab.
 
 ## Login to our Kubernetes cluster 
 Run the following command to connect to the running IBM Cloud Private Kubernetes cluster.
@@ -284,7 +289,7 @@ Once the file has been saved, move back to the parent directory with `cd ..`
 
 Run `npm install -g gulp`
 
-This will install the gulp npm package necessary to run the marbles application.
+This will install the gulp npm package necessary to run the marbles application. Warnings are to be expected and are normal at this step and the following `npm install` step.
 
 Run `npm install`
 
