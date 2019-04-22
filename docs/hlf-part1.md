@@ -308,11 +308,6 @@ script:
     2019-04-16 14:38:15.008 EDT [common.tools.configtxgen] doOutputAnchorPeersUpdate -> INFO 006 Writing anchor peer update
 
 
-By the way, if you enter a command and end it with \#, everything after
-the \# is considered a comment and is ignored by the shell. So, if you
-see me place comments after any commands you do not have to enter them
-but if you do, it will not hurt anything.
-
 This script calls two Hyperledger Fabric utilites- *cryptogen*, which
 creates security material (certificates and keys) and *configtxgen*
 (Configuration Transaction Generator), which is called four times, to
