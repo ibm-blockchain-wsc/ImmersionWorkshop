@@ -798,12 +798,11 @@ assignments:
     session but then shows new log messages as they are created. Press
     **Ctrl-c** to get out of it.
 -   Look at the peer or orderer logs while you work with the Marbles UI
-
-\* Click the **Start Up Help** button in the upper left in the Marbles
-UI and then number *4* in the window that pops up. Edit the list of
-names at the bottom and click **Create**. Do your new users show up in
-both companies' sessions? What happens if you add a name that exists
-already? 
+-   Click the **Start Up Help** button in the upper left in the Marbles
+    UI and then number *4* in the window that pops up. Edit the list of
+    names at the bottom and click **Create**. Do your new users show up in
+    both companies' sessions? What happens if you add a name that exists
+    already? 
 
 Section 4: Lab cleanup
 ===========================================
