@@ -5,21 +5,24 @@ Welcome! This two-day workshop combines lectures and hands-on labs to teach you 
 
 ### Day 1
 * 9am - Introductions
-* 9:15am - [Blockchain Explained](files/BlockchainExplained.pdf "blockchain explained")
+* 9:15am - Blockchain Explained
 * 10am - [Vehicle Lifecycle Demo](files/Vehicle_Lifecycle_Demo.pdf "vehicle lifecycle demo")
-* 10:30am -[Blockchain Use Cases](files/Blockchain_Use_Cases_Dallas.pdf "blockchain use cases")
-* 11am - Hyperledger Fabric Lab
+* 10:30am -Blockchain Use Cases
+* 11am - Lab: Use Case Walkthrough
+* 11:30am - Building Your Blockchain Network
 * Noon - Lunch / Informal use case discussions
-* 1pm - [Blockchain Explored, Deep Dive Part 1](files/BlockchainExploredPart1.pdf "blockchain explored part 1")
-* 2pm - VSCode Lab
+* 1pm - Hyperledger Fabric Lab
+* 2pm - Blockchain Transaction Flow
+* 3:15pm - Lab: VSCode Part 1
+* 4pm - Next Steps on Your Blockchain Journey
 
 ### Day 2
-* 9am - [Blockchain Explored, Deep Dive Part 2](files/BlockchainExploredPart2.pdf "blockchain explored part 2")
-* 10am - [IBM Blockchain Platform, LinuxONE advantages](files/IBP_Explained.pdf "IBP Explained")
-* 11:30am - [Next Steps in creating your first project](files/BlockchainNextSteps_Dallas.pdf "blockchain next steps")
+* 9am - Blockchain Explored
+* 9:30am - IBM Blockchain Platform, LinuxONE advantages
+* 11:15am - Lab: VSCode Part 2
 * Noon - Lunch
-* 1pm - [Introduction to IBM Cloud Private and Kubernetes](files/Kubernetes_ICP.pdf "ICP and Kubernetes")
-* 2pm - IBM Blockchain Platform for IBM Cloud Private Connect-a-thon Lab
+* 1pm - Introduction to IBM Cloud Private and Kubernetes
+* 2pm - Lab: IBM Blockchain Platform for IBM Cloud Private Connect-a-thon
 
 ## Acknowledgements
 
