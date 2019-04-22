@@ -356,7 +356,7 @@ entire command below
     2019-02-22 17:50:34.673 UTC [chaincodeCmd] InitCmdFactory -> INFO 001 Retrieved channel (mychannel) orderer endpoint:   orderer.example.com:7050
     2019-02-22 17:50:34.675 UTC [chaincodeCmd] checkChaincodeCmdParams -> INFO 002 Using default escc
     2019-02-22 17:50:34.675 UTC [chaincodeCmd] checkChaincodeCmdParams -> INFO 003 Using default vscc
-    tecadmin@ubuntubase:~/Desktop/mycontract/fabric-samples/commercial-paper/organization/magnetocorp/configuration/cli/$
+    tecadmin@ubuntubase:~/Desktop/fabric-samples/commercial-paper/organization/magnetocorp/configuration/cli/$
 
 As you can see in the image below, we are instantiating a copy of the
 commercial paper smart contract on our MagnetoCorp peer. Similar to the
