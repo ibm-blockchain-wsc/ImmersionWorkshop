@@ -805,4 +805,206 @@ names at the bottom and click **Create**. Do your new users show up in
 both companies' sessions? What happens if you add a name that exists
 already? 
 
+Section 4: Lab cleanup
+===========================================
+
+**Step 4.1:** In both of your terminals sessions that were used to start
+each Web UI, press *Crtl-c* to end these terminals sessions.
+
+**Step 4.2:** Navigate to the *zmarbles* directory:
+    
+    bcuser@ubuntu16045:~/zmarbles/marblesUI$ cd ~/zmarbles
+
+**Step 4.3:** Enter this Docker command to show the running Docker containers
+that make up your Hyperledger Fabric network:
+
+    bcuser@ubuntu16045:~/zmarbles/marblesUI$ docker ps
+    CONTAINER ID        IMAGE                                                                                                      COMMAND                  CREATED              STATUS              PORTS                                                                       NAMES
+    6593f72279e0        dev-peer0.marblesinc.com-marbles-1.0-4077677f13838bacbfd8ff943e7348c00f3c4d6ca6e2838efd14204ca87ea12b      "chaincode -peer.add…"   About a minute ago   Up About a minute                                                                               dev-peer0.marblesinc.com-marbles-1.0
+    5a199bd7cd9c        dev-peer0.unitedmarbles.com-marbles-1.0-7e92f069adb7469939a96dcba723fa2019745461f05a562e81cec38e46424aa1   "chaincode -peer.add…"   About a minute ago   Up About a minute                                                                               dev-peer0.unitedmarbles.com-marbles-1.0
+    d6f0ebe75651        hyperledger/fabric-tools:1.4.1                                                                             "bash"                   3 minutes ago        Up 3 minutes                                                                                    cli
+    73bde88cd505        hyperledger/fabric-peer:1.4.1                                                                              "peer node start"        3 minutes ago        Up 3 minutes        0.0.0.0:8051->7051/tcp, 0.0.0.0:8052->7052/tcp, 0.0.0.0:8053->7053/tcp      peer1.unitedmarbles.com
+    078b9287e755        hyperledger/fabric-peer:1.4.1                                                                              "peer node start"        3 minutes ago        Up 3 minutes        0.0.0.0:7051-7053->7051-7053/tcp                                            peer0.unitedmarbles.com
+    aeaac49da716        hyperledger/fabric-peer:1.4.1                                                                              "peer node start"        3 minutes ago        Up 3 minutes        0.0.0.0:10051->7051/tcp, 0.0.0.0:10052->7052/tcp, 0.0.0.0:10053->7053/tcp   peer1.marblesinc.com
+    1cc9fbc7d18b        hyperledger/fabric-peer:1.4.1                                                                              "peer node start"        3 minutes ago        Up 3 minutes        0.0.0.0:9051->7051/tcp, 0.0.0.0:9052->7052/tcp, 0.0.0.0:9053->7053/tcp      peer0.marblesinc.com
+    8d8a11ca96f7        hyperledger/fabric-ca:1.4.1                                                                                "sh -c 'fabric-ca-se…"   3 minutes ago        Up 3 minutes        0.0.0.0:7054->7054/tcp                                                      ca_Org0
+    e347669dc96e        hyperledger/fabric-couchdb:s390x-0.4.15                                                                    "tini -- /docker-ent…"   3 minutes ago        Up 3 minutes        4369/tcp, 9100/tcp, 0.0.0.0:6984->5984/tcp                                  couchdb1
+    8552cb29edbc        hyperledger/fabric-orderer:1.4.1                                                                           "orderer"                3 minutes ago        Up 3 minutes        0.0.0.0:7050->7050/tcp                                                      orderer.blockchain.com
+    a8f398cfa35e        hyperledger/fabric-couchdb:s390x-0.4.15                                                                    "tini -- /docker-ent…"   3 minutes ago        Up 3 minutes        4369/tcp, 9100/tcp, 0.0.0.0:5984->5984/tcp                                  couchdb0
+    c28c3ac099b3        hyperledger/fabric-ca:1.4.1                                                                                "sh -c 'fabric-ca-se…"   3 minutes ago        Up 3 minutes        0.0.0.0:8054->7054/tcp                                                      ca_Org1
+    93de9b548c26        hyperledger/fabric-couchdb:s390x-0.4.15                                                                    "tini -- /docker-ent…"   3 minutes ago        Up 3 minutes        4369/tcp, 9100/tcp, 0.0.0.0:8984->5984/tcp                                  couchdb3
+    2689f981ae43        hyperledger/fabric-couchdb:s390x-0.4.15                                                                    "tini -- /docker-ent…"   3 minutes ago        Up 3 minutes        4369/tcp, 9100/tcp, 0.0.0.0:7984->5984/tcp                                  couchdb2
+    bcuser@ubuntu16045:~/zmarbles$ 
+
+**Step 4.4:** Enter this command to bring down your Hyperledger Fabric network:
+
+    bcuser@ubuntu16045:~/zmarbles$ docker-compose down
+    WARNING: The CHANNEL_NAME variable is not set. Defaulting to a blank string.
+    Stopping cli                     ... done
+    Stopping peer1.unitedmarbles.com ... done
+    Stopping peer0.unitedmarbles.com ... done
+    Stopping peer1.marblesinc.com    ... done
+    Stopping peer0.marblesinc.com    ... done
+    Stopping ca_Org0                 ... done
+    Stopping couchdb1                ... done
+    Stopping orderer.blockchain.com  ... done
+    Stopping couchdb0                ... done
+    Stopping ca_Org1                 ... done
+    Stopping couchdb3                ... done
+    Stopping couchdb2                ... done
+    Removing cli                     ... done
+    Removing peer1.unitedmarbles.com ... done
+    Removing peer0.unitedmarbles.com ... done
+    Removing peer1.marblesinc.com    ... done
+    Removing peer0.marblesinc.com    ... done
+    Removing ca_Org0                 ... done
+    Removing couchdb1                ... done
+    Removing orderer.blockchain.com  ... done
+    Removing couchdb0                ... done
+    Removing ca_Org1                 ... done
+    Removing couchdb3                ... done
+    Removing couchdb2                ... done
+    Removing network zmarbles_default
+
+
+**Step 4.5:** Enter this and you should not see any running Docker containers:
+
+    bcuser@ubuntu16045:~/zmarbles$ docker ps
+    CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
+    bcuser@ubuntu16045:~/zmarbles$ 
+
+**Step 4.6:** Add the *--all* argument to the prior command and you will see some
+*Exited* Docker containers:
+
+    bcuser@ubuntu16045:~/zmarbles$ docker ps --all
+    CONTAINER ID        IMAGE                                                                                                      COMMAND                  CREATED             STATUS                          PORTS               NAMES
+    6593f72279e0        dev-peer0.marblesinc.com-marbles-1.0-4077677f13838bacbfd8ff943e7348c00f3c4d6ca6e2838efd14204ca87ea12b      "chaincode -peer.add…"   4 minutes ago       Exited (0) About a minute ago                       dev-peer0.marblesinc.com-marbles-1.0
+    5a199bd7cd9c        dev-peer0.unitedmarbles.com-marbles-1.0-7e92f069adb7469939a96dcba723fa2019745461f05a562e81cec38e46424aa1   "chaincode -peer.add…"   5 minutes ago       Exited (0) About a minute ago                       dev-peer0.unitedmarbles.com-marbles-1.0
+    bcuser@ubuntu16045:~/zmarbles$ 
+
+**Step 4.7:** Enter this command to remove these containers:
+
+    bcuser@ubuntu16045:~/zmarbles$ docker rm $(docker ps --all --quiet)
+    6593f72279e0
+    5a199bd7cd9c
+    bcuser@ubuntu16045:~/zmarbles$ 
+
+**Step 4.8:** Repeat the command from *Step 4.6* and you should not see any containers:
+
+    bcuser@ubuntu16045:~/zmarbles$ docker ps --all
+    CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
+    bcuser@ubuntu16045:~/zmarbles$ 
+
+**Step 4.9:** List your Docker images:
+
+    bcuser@ubuntu16045:~/zmarbles$ docker images
+    REPOSITORY                                                                                                 TAG                 IMAGE ID            CREATED             SIZE
+    dev-peer0.marblesinc.com-marbles-1.0-4077677f13838bacbfd8ff943e7348c00f3c4d6ca6e2838efd14204ca87ea12b      latest              62ce64874a67        7 minutes ago       137MB
+    dev-peer0.unitedmarbles.com-marbles-1.0-7e92f069adb7469939a96dcba723fa2019745461f05a562e81cec38e46424aa1   latest              850eb4121bd8        8 minutes ago       137MB
+    hyperledger/fabric-ca                                                                                      1.4.1               a836041637e8        10 days ago         220MB
+    hyperledger/fabric-tools                                                                                   1.4.1               330902566372        10 days ago         1.52GB
+    hyperledger/fabric-ccenv                                                                                   latest              8583516cfc43        10 days ago         1.41GB
+    hyperledger/fabric-orderer                                                                                 1.4.1               1b709e319b2d        10 days ago         148MB
+    hyperledger/fabric-peer                                                                                    1.4.1               719392658c28        10 days ago         154MB
+    hyperledger/fabric-couchdb                                                                                 s390x-0.4.15        81ee917e0be2        4 weeks ago         1.55GB
+    hyperledger/fabric-baseos                                                                                  s390x-0.4.15        d4eb16b952d6        4 weeks ago         120MB
+
+**Step 4.10:** This command will format the output from *docker images*:
+
+    bcuser@ubuntu16045:~/zmarbles$ docker images --format '{{.Repository}}:{{.Tag}}'
+    dev-peer0.marblesinc.com-marbles-1.0-4077677f13838bacbfd8ff943e7348c00f3c4d6ca6e2838efd14204ca87ea12b:latest
+    dev-peer0.unitedmarbles.com-marbles-1.0-7e92f069adb7469939a96dcba723fa2019745461f05a562e81cec38e46424aa1:latest
+    hyperledger/fabric-ca:1.4.1
+    hyperledger/fabric-tools:1.4.1
+    hyperledger/fabric-ccenv:latest
+    hyperledger/fabric-orderer:1.4.1
+    hyperledger/fabric-peer:1.4.1
+    hyperledger/fabric-couchdb:s390x-0.4.15
+    hyperledger/fabric-baseos:s390x-0.4.15
+    bcuser@ubuntu16045:~/zmarbles$ 
+
+**Step 4.11:** The output from the prior step is in a format acceptable to the Docker command to remove images, so 
+this command will feed that output into the Docker *rmi* command, and remove these images:
+
+    bcuser@ubuntu16045:~/zmarbles$ docker rmi $(docker images --format '{{.Repository}}:{{.Tag}}')
+    Untagged: dev-peer0.marblesinc.com-marbles-1.0-4077677f13838bacbfd8ff943e7348c00f3c4d6ca6e2838efd14204ca87ea12b:latest
+    Deleted: sha256:62ce64874a6789b0312ea5a5414254f6b5e7c134e70a259ec399a08e8d0f18ec
+    Deleted: sha256:c14c73ba4c9183ec7ef2745aa9e051d1885fbd46ac7b658133ac09983823cb84
+    Deleted: sha256:9dc5dcb2418ca48a9d0bd48d479c4bdca8a874b169ac40d48ffb9cbe42423905
+    Deleted: sha256:c737be13ca8323b726c929e2e51df38fa1407cc302f1f7440cbc5f0847f39fb8
+    Untagged: dev-peer0.unitedmarbles.com-marbles-1.0-7e92f069adb7469939a96dcba723fa2019745461f05a562e81cec38e46424aa1:latest
+    Deleted: sha256:850eb4121bd810f6401a3233b4bae70dfff5deee1666818eb98c80b679a2365a
+    Deleted: sha256:75510db53917ae573b22cf3f4f33f15480a833fb8642bca30e0fe097190844d5
+    Deleted: sha256:1d77034d5a14dbde65af7df4287594b32a8e5cbc6197d40d58b0f4f3be0c5e5a
+    Deleted: sha256:c695706f6f813379bf5c98e97b04826e2e345aef4aaf83117529896a7454f3d5
+    Untagged: hyperledger/fabric-ca:1.4.1
+    Untagged: hyperledger/fabric-ca@sha256:f77aa0ff885c572b090d1ff7564780daafd50d9e839b6241c2ab12c37f47b94a
+    Deleted: sha256:a836041637e817846f71541e47e8749f6188676a1ac282f006ca03758290f4ff
+    Deleted: sha256:8fa3260318e50be92f0118657fa3aa395e264cfa2fbe0dbedb9419fff1547bfd
+    Deleted: sha256:f0c44e96c65ce80eaeb561f89fa23ae82c5af54b1b1b050ecadd827b45bebd23
+    Deleted: sha256:e2e8ca9c5a2fb8c69e32428be2f27d6bb0c1e1b7e58af5d4d5aa788ce8d9fd68
+    Deleted: sha256:a353d8ddb009e3c0dd6bd0558a1e3ed847951f42ae632a91ad49029bb69b9fc0
+    Deleted: sha256:f1079f0f139b61ea01f32de10d58de81e1fc393038d3fa774221a736f942023f
+    Deleted: sha256:165d46e0e538aacfcecf19a4088c2e7b490384e7b3cecb090a16b19cba8722d9
+    Deleted: sha256:85fb95169355a4e6fcd52672b1e60739f120ee9e541413732cb53d8e5c97beae
+    Untagged: hyperledger/fabric-tools:1.4.1
+    Untagged: hyperledger/fabric-tools@sha256:c458ddc3109d3519b209baaf9abff113641267ec2adb01dfdcf8f4c9e77a2fa0
+    Deleted: sha256:330902566372ecfc06a396c05d026a0d17fa40379dc1327894869ad370023637
+    Deleted: sha256:1021b7b3b232c0954f944c6d2baec3ef80dc9481bcabea5a12db4f7d276c86f7
+    Deleted: sha256:9427db3491c3adcb8cecfcf50bb3c8deeab27d3739538c2cd246ee6b856515a9
+    Deleted: sha256:dba040b6371fcdc2b78128d10e952cc716b75ba67f2dc330086c908fb830fa1d
+    Untagged: hyperledger/fabric-ccenv:latest
+    Untagged: hyperledger/fabric-ccenv@sha256:bb929eef560b50e0fbd730c6b195e49fece28dd4612ec30db0ce2cc096483463
+    Deleted: sha256:8583516cfc43491e2db2e393408121b85636f622d39d2a8e3c46ac278d3d3ce2
+    Deleted: sha256:3d53a661451588e08ea4f0b1e6fac40633b4dcef9fb895ad12f9309453d85dfa
+    Deleted: sha256:04e554cb54244558f5567c17ebcb7a02b64822036ece595fefb4f98d2ab31a7a
+    Deleted: sha256:a2ec3c9f4ab3e2a789239638d99aa4a760998c8424d29313d5461bcfd2929612
+    Untagged: hyperledger/fabric-orderer:1.4.1
+    Untagged: hyperledger/fabric-orderer@sha256:09f31ca4dabe1eb2af870ea062561ca6686fc59a296ecc3b4bd7e32102c48934
+    Deleted: sha256:1b709e319b2d2e7d137112ff5e24b7b6a0ddf0a5bf8843c47adfc9095b3f8778
+    Deleted: sha256:43747e128cff58f58f5642bce1b27613ecb3dec5aa8fc7caf0ce5e2397415371
+    Deleted: sha256:fb1a267f0371757e83dcf6221291269b29a7089a0f7a8545ff3f538509e19e0e
+    Untagged: hyperledger/fabric-peer:1.4.1
+    Untagged: hyperledger/fabric-peer@sha256:05315d05b2892d34b4ed48f6502d28fe15a71090c36a39c97022a44475a984ad
+    Deleted: sha256:719392658c28f69bb25ccc71a8da86050f646f4ffaf51a279cdcea079b5f993e
+    Deleted: sha256:04d6dbf6b6fcdaaedb6d55a021bd1dcb0695ecfbe9e2538fe2dd1365987eea0b
+    Deleted: sha256:4c58d7859aeaf30d72dada842ce28df9d542e2ffc1ab2213b81483f080adceef
+    Deleted: sha256:6299707a98af34860777b48b86df6ec7ae8cf45ae76cbf4cbedcb1dc55888061
+    Untagged: hyperledger/fabric-couchdb:s390x-0.4.15
+    Untagged: hyperledger/fabric-couchdb@sha256:e8701a2dd7400d200a6c3b1ffd42331e2d5255d30c1efb117fc5a10bbf9063b6
+    Deleted: sha256:81ee917e0be2fe0b5f46cf6ed34d32169118c8d995cee636ce47ffb96d3afd95
+    Deleted: sha256:e4cdccb03102bce02d4e9179cf1eed5808e97bb77fb7bf7596776900caf3f22a
+    Deleted: sha256:12e70245586bf85d0f2eabc4ba33c1df77d51e604c294551e43c9dec425f619c
+    Deleted: sha256:f7a35da6c7b30fa6fa11e2f6e44938ea4df158db403064832a73d1e9b11aa719
+    Deleted: sha256:1b774897931652fde3bb2609e0f46fa4c3a3f522db395359a2aeee1a218aab54
+    Deleted: sha256:1132017bbb8c969f03a11ec80e77eea71a3fc54dbae9e2b588b01fc5c0502972
+    Deleted: sha256:de23c4b00ab7d92310f73b45cacf5b861a8f40c5b069c0660eb1bc6d472c98e7
+    Deleted: sha256:62306dc38b9fc0fb7922d4d1358d135e1c7411b01e51bb631fc5269308387c42
+    Deleted: sha256:8bc0cb77c66908a5059433ca0b41f453721de3bc529ecc258ff91818ce19e87f
+    Deleted: sha256:8445d7f0d5111f5ee7fe4ada50d718df0977e9b071045e09b3d619effd16d7e0
+    Deleted: sha256:f593f65839abaaf5f0c18604b7f065b4cab58bfeafa867b7be75fc6ca52e187a
+    Deleted: sha256:18eaede2be21b8fdba162857cbf79ce9a04cb2671da8c40dc804280e791e9742
+    Deleted: sha256:ef88e98e5731409ad689aec3233fcca8d5f1b38e435558308d8289fb3d5a5383
+    Deleted: sha256:9941b43bff58fff3234b1f356d65f1d383265156c82ba90805a00ba758e5fa14
+    Deleted: sha256:31699b2e24542ffbc8cf9678644e62ab195263be033713327992314d59ddffbb
+    Untagged: hyperledger/fabric-baseos:s390x-0.4.15
+    Untagged: hyperledger/fabric-baseos@sha256:94fefcbeb2c0da7ac6371ad589b66b2bbe7cfb76bf28ba7aaf85790bed82c839
+    Deleted: sha256:d4eb16b952d6c8b742cbe47caf6522c71f9b1654a31abc582918905d64db07e7
+    Deleted: sha256:234cfc5f3368cd92d65d03e5da6bc0bd985ab94c4931e692faa758bd6d811c7b
+    Deleted: sha256:3e2d2d75f895801cefdecac9e2584d964caf0ed7fb1d8afeffeaea5e287ea9cb
+    Deleted: sha256:d8e11f36fc45b7073d3b0eb3636428dedebb40f392bea9fa5751ed92848ca875
+    bcuser@ubuntu16045:~/zmarbles$ 
+
+**Step 4.12:**  Now you should not see any images:
+
+    bcuser@ubuntu16045:~/zmarbles$ docker images
+    REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
+    bcuser@ubuntu16045:~/zmarbles$ 
+
+**Step 4.13:** You may type *exit* from your terminal session(s) to log out of the system
+
+    bcuser@ubuntu16045:~/zmarbles$ exit
+    logout
+    Connection to 192.168.22.1xx closed.
+
 **End of lab!**
