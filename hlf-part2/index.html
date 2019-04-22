@@ -122,6 +122,11 @@
     </ul>
 	    </li>
           
+            <li class="toctree-l1">
+		
+    <a class="" href="../references/">Additional Resources</a>
+	    </li>
+          
         </ul>
       </div>
       &nbsp;
@@ -379,20 +384,30 @@ used.</strong> Either use the <em>vi</em> editor if you are comfortable with tha
 you could use <em>sed</em>. For example, here is a <em>sed</em> command, to change the
 channel name from <em>mychannel</em> to <em>tim</em>, along with "before" and "after"
 <em>grep</em> commands to show the changes <strong>(These commands are examples and
-only needed if you did not use the default channel name of mychannel)</strong>:</p>
-<pre><code>bcuser@ubuntu16045:~/zmarbles/marblesUI/config$ grep mychannel connection_profile[12].json 
-blockchain_creds1.json:            "channel_id": "mychannel",
-blockchain_creds2.json:            "channel_id": "mychannel", 
-bcuser@ubuntu16045:~/zmarbles/marblesUI/config$ sed -i "s/mychannel/tim/" connection_profile[12].json 
-bcuser@ubuntu16045:~/zmarbles/marblesUI/config$ grep -1 channels connection_profile[12].json 
-connection_profile1.json-  },
-connection_profile1.json:  "channels": {
-connection_profile1.json-      "tim": {
---
-connection_profile2.json-  },
-connection_profile2.json:  "channels": {
-connection_profile2.json-      "tim": {
+only needed if you did not use the default channel name of mychannel)</strong></p>
+<div class="admonition warning">
+<p class="admonition-title">Warning<p>This step is necessary only if you did not use this lab's default channel name of <em>mychannel</em>
+earlier in Part 1 of this lab. And of course, this example shows the steps for changing the
+channel name to <em>tim</em>, so tailor the command shown here according to whatever <em>non-default</em> 
+channel name you may have chosen.</p>
+</p>
+</div>
+<pre><code>
+    bcuser@ubuntu16045:~/zmarbles/marblesUI/config$ grep mychannel connection_profile[12].json 
+    blockchain_creds1.json:            &quot;channel_id&quot;: &quot;mychannel&quot;,
+    blockchain_creds2.json:            &quot;channel_id&quot;: &quot;mychannel&quot;, 
+    bcuser@ubuntu16045:~/zmarbles/marblesUI/config$ sed -i &quot;s/mychannel/tim/&quot; connection_profile[12].json 
+    bcuser@ubuntu16045:~/zmarbles/marblesUI/config$ grep -1 channels connection_profile[12].json 
+    connection_profile1.json-  },
+    connection_profile1.json:  &quot;channels&quot;: {
+    connection_profile1.json-      &quot;tim&quot;: {
+    --
+    connection_profile2.json-  },
+    connection_profile2.json:  &quot;channels&quot;: {
+    connection_profile2.json-      &quot;tim&quot;: {
+
 </code></pre>
+
 <p><strong>Step 2.11:</strong> The considerations for <em>marbles2.json</em> and
 <em>connection_profile2.json</em> are the same as for <em>marbles1.json</em> and
 <em>connection_profile1.json</em> except that they apply to "Marbles Inc."

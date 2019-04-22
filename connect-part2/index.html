@@ -140,6 +140,11 @@
     </ul>
 	    </li>
           
+            <li class="toctree-l1">
+		
+    <a class="" href="../references/">Additional Resources</a>
+	    </li>
+          
         </ul>
       </div>
       &nbsp;
@@ -202,10 +207,10 @@
 <h2 id="only-if-you-stopped-in-between-the-lab-parts-1-and-2">Only if you stopped in between the lab parts 1 and 2</h2>
 <ol>
 <li>
-<p>make sure you still have an ssh connection to your bcuser instance. If not please rerun <code>IP_ADDRESS=givenip</code> for your given ip and <code>ssh bcuser@$IP_ADDRESS</code></p>
+<p>Make sure you still have an ssh connection to your bcuser instance. If not please rerun <code>IP_ADDRESS=givenip</code> for your given ip and <code>ssh bcuser@$IP_ADDRESS</code></p>
 </li>
 <li>
-<p>Check to make sure you are still in your docker image. If you got out of your docker image go back into the image by first setting your TEAM with <code>TEAM=teamxx</code> where xx is the number of your team. Then, check if your container is still running with <code>docker ps | grep team</code></p>
+<p>Check to make sure you are still inside your docker image. If you got out of your docker image, go back into the image by first setting your TEAM with <code>TEAM=teamxx</code> where xx is the number of your team. Then, check if your container is still running with <code>docker ps | grep team</code></p>
 <p>a) If you get sample output showing a container such as:</p>
 <pre><code>6e6ad92499b1        wsc-ibp-icp-cluster.icp:8500/lab-test/connectathon-s390x-team10:1.0   "bash"              12 minutes ago      Up 12 minutes       0.0.0.0:3000-&gt;3001/tcp   team10
 </code></pre>
@@ -305,7 +310,7 @@ RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 COPY package.json /usr/src/app/
 RUN apk add --no-cache --virtual .build-deps make gcc g++ python \
- &amp;&amp; npm install --silent \
+ &amp;&amp; npm install \
  &amp;&amp; npm install gulp -g ---unsafe-perm \
  &amp;&amp; apk del .build-deps .build-deps make gcc g++ python
 COPY . /usr/src/app/
@@ -313,7 +318,7 @@ EXPOSE 3001
 CMD [ &quot;gulp&quot;, &quot;marbles_tls&quot; ]
 </code></pre>
 
-<p>The above Dockerfile builds from an Alpine node image already out there in DockerHub. This is a bare bones Linux image of the Alpine distribution with node version 8 installed. Next, the <code>NPM_CONFIG_LOGLEVEL</code> for npm is globally set to warn so that npm will only print errors and warnings. <code>ENV</code> is used for this to persist this change as an environment variable in your finished container. Then, it uses <code>RUN</code> to run a command inside of the base <code>node:8-alpine</code> container to make a directory for the marbles application. <code>WORKDIR</code> makes this directory the current working directory. Moreover, <code>COPY</code> brings the <code>package.json</code> file (containing the names of the application's dependent node modules) into the containers <code>/usr/src/app</code> directory. The following <code>RUN</code> command uses <code>apk</code> (Alpine's package manager) to install a variety of pre-reqs to your <code>npm install</code> such as make, gcc and python, before running the actual <code>npm install</code> twice to install both the necessary node modules needed by the Marbles UI itself and gulp to start the marbles UI. Note that this is all done in one line with <code>&amp;&amp;</code> to make it occur in one layer. This way, at the end of the <code>RUN</code> you can use a delete command <code>apk del</code> and take the developer tools you no longer need out of your image. If you instead ran this as multiple commands, you would not be able to shrink your image size since previous layers can't be effectively deleted due to the layered file system. Finally, you copy the application itself and the connection profile materials into your working directory, document the port you will run marbles on (<code>3001</code>), and set a command for the container to run when it starts <code>gulp marbles_tls</code>. </p>
+<p>The above Dockerfile builds from an Alpine node image in DockerHub. This is a bare bones Linux image of the Alpine distribution with node version 8 installed. Next, the <code>NPM_CONFIG_LOGLEVEL</code> for npm is globally set to warn so that npm will only print errors and warnings. <code>ENV</code> is used for this to persist this change as an environment variable in your finished container. Then, it uses <code>RUN</code> to execute a command inside of the base <code>node:8-alpine</code> container to make a directory for the marbles application. <code>WORKDIR</code> makes this directory the current working directory. Moreover, <code>COPY</code> brings the <code>package.json</code> file (containing the names of the application's dependent node modules) into the containers <code>/usr/src/app</code> directory. The following <code>RUN</code> command uses <code>apk</code> (Alpine's package manager) to install a variety of pre-reqs to your <code>npm install</code> such as make, gcc and python, before running the actual <code>npm install</code> twice to install both the necessary node modules for both the Marbles UI itself and gulp to start the marbles UI. Note that this is all done in one line with <code>&amp;&amp;</code> to make it occur in one layer. This way, at the end of the <code>RUN</code> command you can use a delete command <code>apk del</code> and take the developer tools you no longer need out of your image. If you instead ran this as multiple commands, you would not be able to shrink your image size since previous layers can't be effectively deleted due to the layered file system used for docker images. Finally, you copy the application itself and the connection profile materials into your working directory, document the port you will run marbles on (<code>3001</code>), and set a command for the container to run when it starts <code>gulp marbles_tls</code>. </p>
 <ul>
 <li>Now let's run docker build in the <code>/home/marbles</code> directory:</li>
 </ul>
@@ -347,7 +352,10 @@ Successfully tagged marbles-team00:latest
 </ul>
 <p><code>docker images</code></p>
 <p>Sample Output:</p>
-<pre><code>
+<pre><code>REPOSITORY                                                        TAG                 IMAGE ID            CREATED             SIZE
+marbles-team00                                                    latest              5cc513286904        29 seconds ago      312MB
+wsc-ibp-icp-cluster.icp:8500/lab-test/connectathon-s390x-team00   1.0                 a2d1b20e0e1e        12 hours ago        1.16GB
+node                                                              8-alpine            030469210de8        2 weeks ago         69.5MB
 </code></pre>
 
 <h2 id="test-the-docker-image-locally">Test the docker image locally</h2>
@@ -518,6 +526,8 @@ spec:
       labels:
         app: marbles-team00
     spec:
+      nodeSelector:
+        beta.kubernetes.io/arch: s390x
       containers:
       - name: marbles-team00
         image: wsc-ibp-icp-cluster.icp:8500/lab-test/marbles-team00:1.0
@@ -526,7 +536,7 @@ spec:
         imagePullPolicy: Always
 </code></pre>
 
-<p>The important parts to point out in the yaml file are that it will create a Kubernetes service called <code>marbles-team00-svc</code> and that it is pointing to the <code>marbles-team00</code> container. The service will be of type <code>NodePort</code> which means this service will be reachable outside of the cluster. The yaml file will also create a Kubernetes deployment that has one pod with one container that will be based off of the <code>wsc-ibp-icp-cluster.icp:8500/lab-test/marbles-team00:1.0</code> image that you pushed to the private registry earlier.</p>
+<p>The important parts to point out in the yaml file are that it will create a Kubernetes service called <code>marbles-team00-svc</code> and that it is pointing to the <code>marbles-team00</code> container. The service will be of type <code>NodePort</code> which means this service will be reachable outside of the cluster. The yaml file will also create a Kubernetes deployment that has one pod with one container that will be based off of the <code>wsc-ibp-icp-cluster.icp:8500/lab-test/marbles-team00:1.0</code> image that you pushed to the private image registry earlier. Finally, since you built the marbles-teamxx image with the s390x (z) architecture and there are machines with multiple different architectures in our cluster (s390x and amd64) you need to specify for it to run on s390x with a nodeSelector of <code>beta.kubernetes.io/arch: s390x</code>. If you built it for a different architecture, you would instead use a nodeSelector for that architecture.</p>
 <h2 id="deploy-the-service-and-test-the-marbles-ui">Deploy the service and test the Marbles UI</h2>
 <ul>
 <li>Now you are ready to create the Kubernetes resources. Run the following command:</li>
@@ -575,6 +585,8 @@ deployment.extensions/marbles-team00-deploy created
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
+        <a href="../references/" class="btn btn-neutral float-right" title="Additional Resources">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
       
         <a href="../connect-part1/" class="btn btn-neutral" title="Part 1"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
@@ -606,6 +618,8 @@ deployment.extensions/marbles-team00-deploy created
       
         <span><a href="../connect-part1/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
+      
+        <span style="margin-left: 15px"><a href="../references/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

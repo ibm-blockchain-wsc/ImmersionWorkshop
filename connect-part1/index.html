@@ -137,6 +137,11 @@
     </ul>
 	    </li>
           
+            <li class="toctree-l1">
+		
+    <a class="" href="../references/">Additional Resources</a>
+	    </li>
+          
         </ul>
       </div>
       &nbsp;
@@ -188,7 +193,7 @@
 <h2 id="connect-to-your-peer">Connect to your peer</h2>
 <p>An IBM Blockchain Platform network has been set up with an organization for each member of the lab in our IBM Cloud Private Kubernetes Cluster. The necessary certificate material and environment variables to operate your peer as well as the marbles project have been packaged into a container for your use during the lab.</p>
 <p>This container is labeled based on your team.</p>
-<p>Please open a terminal window on your computer and set your given ip address and ssh into that z machine</p>
+<p>Please open a terminal window on your computer, set your given ip address and ssh into that z machine</p>
 <p><code>IP_ADDRESS=givenip</code></p>
 <p><code>ssh bcuser@$IP_ADDRESS</code></p>
 <p>Sample Output:</p>
@@ -201,7 +206,7 @@ Last login: Mon Jan 21 21:43:38 2019 from 192.168.22.64
 bcuser@ubuntu16045:~
 </code></pre>
 
-<p>Then, add the cluster to your /etc/hosts and add the self-signed certificate to your ca-certificates</p>
+<p>Then, add the cluster to your /etc/hosts and add the self-signed certificate to your ca-certificates (Note: Please run this command exactly as printed below keeping the <code>192.168.22.81</code> ip address which is the address to access our ICP Kubernetes cluster)</p>
 <pre><code>echo &quot;192.168.22.81   wsc-ibp-icp-cluster.icp&quot; | sudo tee --append /etc/hosts &amp;&amp; sudo mkdir /usr/local/share/ca-certificates/wsc-ibp-icp-cluster.icp &amp;&amp; sudo openssl s_client -showcerts -servername wsc-ibp-icp-cluster.icp -connect wsc-ibp-icp-cluster.icp:8443 &lt;/dev/null 2&gt;/dev/null | sudo openssl x509 | sudo tee /usr/local/share/ca-certificates/wsc-ibp-icp-cluster.icp/ca.crt &amp;&amp; sudo update-ca-certificates
 </code></pre>
 
@@ -246,9 +251,11 @@ done.
 </code></pre>
 
 <p>Take particular note that 1 certificate was added and 0 removed in your output like in the sample output above.</p>
-<p>Next, set your team name and login to the private docker repository</p>
-<p><code>TEAM=teamxx</code></p>
-<p><code>credential=p@ssw0rd</code></p>
+<p>Next, restart your docker service to pick up the newly added certificate:</p>
+<pre><code>sudo service docker restart
+</code></pre>
+
+<p>Next, login to the private docker repository:</p>
 <pre><code>echo $credential | docker login wsc-ibp-icp-cluster.icp:8500 -u $TEAM --password-stdin
 </code></pre>
 
@@ -260,7 +267,7 @@ done.
 <pre><code>docker run --rm -it -v /var/run/docker.sock:/var/run/docker.sock --name $TEAM -p 3000:3001 wsc-ibp-icp-cluster.icp:8500/lab-test/connectathon-s390x-$TEAM:1.0 bash
 </code></pre>
 
-<p>This command is using Docker to run your team's container in an interactive bash shell and connect it to your machine's docker socket so you can create sibling containers from your container image. Additionally, you are giving it the name of your team and forwarding traffic on port 3000 of the host to port 3001 on your container to access your marbles application during the lab.</p>
+<p>This command is using Docker to run your team's container in an interactive bash shell and connect it to your machine's docker socket so you can create sibling containers from your container image. Additionally, you are giving it the name of your team and forwarding traffic on port 3000 of the host to port 3001 on your container to access your marbles application during the lab. This means marbles comes up on port 3000 in this part1 of the connectathon versus port 3001 in part2. This makes it so that no port conflicts occur during the lab.</p>
 <h2 id="login-to-our-kubernetes-cluster">Login to our Kubernetes cluster</h2>
 <p>Run the following command to connect to the running IBM Cloud Private Kubernetes cluster.</p>
 <p><code>cloudctl login -a https://192.168.22.81:8443 -u $team -p $credential -n lab-test</code></p>
@@ -390,17 +397,17 @@ Name: marbles, Version: 1.0, Path: marbles, Escc: escc, Vscc: vscc
 <p>Once the file has been saved, move back to the parent directory with <code>cd ..</code></p>
 <h2 id="connect-the-marbles-application-to-your-peer">Connect the marbles application to your peer</h2>
 <p>Run <code>npm install -g gulp</code></p>
-<p>This will install the gulp npm package necessary to run the marbles application.</p>
+<p>This will install the gulp npm package necessary to run the marbles application. Warnings are to be expected and are normal at this step and the following <code>npm install</code> step.</p>
 <p>Run <code>npm install</code></p>
-<p>This will install the dependencies for the marbles application specified in the package.json file in the <code>/home/marbles</code> directory. This may take a few minutes. You will notice a bunch of <code>CXX(target)</code> in the output of this command because two of the packages (i.e., pkcs11js and grpc) needs to be compiled from source for s390x. This needs to happen since the binaries are not publicly available for this platform. When this command completes it will return your terminal to you.</p>
+<p>This will install the dependencies for the marbles application specified in the package.json file in the <code>/home/marbles</code> directory. This may take a few minutes. You will notice a bunch of <code>CXX(target)</code> in the output of this command because two of the packages (i.e., pkcs11js and grpc) need to be compiled from source for s390x. This needs to happen since the binaries are not publicly available for this platform. When this command completes it will return your terminal to you.</p>
 <p>Now you can start the marbles application with <code>gulp marbles_tls</code></p>
 <p>Open up a web browser on your pc and navigate to the ip given to you earlier at port 3000 in the form <code>xxx.xxx.xxx.xxx:3000</code> where <code>xxx.xxx.xxx.xxx</code> is your given ip address with each x being a possible digit (e.g., <code>192.168.22.150:3000</code>).</p>
 <p>First, choose Express to setup your marbles application</p>
 <p><img alt="Express Option" src="../images/ExpressOption.png" /></p>
-<p>Here you can see your org, the owners and marbles you created in the <code>marbles_tls.json</code> file and the marble and owner you created with the cli. You created a black marble with the cli and the application randomly selects a color for the marbles created from the marbles_tls.json file (in this case black, but your mileage with the random function may vary)</p>
+<p>Here you can see your org's owners and marbles. You created the owner with your name and a black marble to its name with the cli commands at the beginning of this part of the lab. You created the other three owners by specifying the parameters in the <code>marbles_tls.json</code> file. If you are wondering about marble colors you created a black marble with the cli and the application randomly selected a color for the marbles created from the marbles_tls.json file (in my case black, but your mileage with the random function may vary)</p>
 <p><img alt="Marbles UI Org Picture" src="../images/OrgUIPicture.png" /></p>
 <p>We can also see the other orgs and their marbles that are connected in this connectathon.</p>
-<p>Next turn on story mode to see the marble transaction process:</p>
+<p>Next, turn on story mode to see the marble transaction process:</p>
 <ol>
 <li>Click on settings
 <img alt="Settings picture" src="../images/Settings.png" /></li>
@@ -413,10 +420,10 @@ Name: marbles, Version: 1.0, Path: marbles, Escc: escc, Vscc: vscc
 <li>Click and drag a marble from a member in your org and move it to a member of a different org</li>
 <li>Click and drag a marble from a member of a different org and drag it to a member of your org</li>
 </ol>
-<p>Notice that you can give marbles to other orgs but can't take them and think about why this may be the case...</p>
-<p>Now close the application by returning to your terminal and typing <code>ctrl + c</code> to return your terminal prompt.</p>
+<p>Notice that you can give marbles to other orgs but can't take them. Please think about the logic for why this may be the case for this use case...</p>
+<p>Now close the application by returning to your terminal and typing <code>ctrl + c</code> to get back your terminal prompt.</p>
 <p>You have now setup the marbles application.</p>
-<p>Please move on to part 2 where you will deploy this into your cluster.</p>
+<p>Please move on to part 2 where you will deploy this into our Kubernetes cluster.</p>
               
             </div>
           </div>
