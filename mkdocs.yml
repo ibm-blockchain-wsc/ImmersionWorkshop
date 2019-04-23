@@ -7,6 +7,9 @@ nav:
         - Introduction: hlf-home.md
         - Part 1: hlf-part1.md
         - Part 2: hlf-part2.md
+    - Use Case Walkthrough:
+        - Introduction: immunichain-home.md
+        - Part 1: immunichain.md
     - VSCode Lab:
         - Introduction: vscode-home.md
         - Part 1: vscode-part1.md
