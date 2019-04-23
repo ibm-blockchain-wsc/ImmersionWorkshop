@@ -84,7 +84,7 @@ why I said to make the participants specific to you.
 
 ![image](images/immunichainimages/8.png)
 
-**4.**  Click on `Submit` once you have filled out your child\'s information
+**4.**  Click on `Submit` once you have filled out your child's information
 
 ![image](images/immunichainimages/9.png)
 
@@ -128,7 +128,7 @@ Section 3: Add Immunizations
 
 ![image](images/immunichainimages/13.png)
 
-**5.**  You will notice, that there are no immunization shots on Dennis\'s
+**5.**  You will notice, that there are no immunization shots on Dennis's
     record. Let's change that. We can do that by logging out of our
     Member and then logging into our Healthcare Provider
 
@@ -167,14 +167,14 @@ Section 3: Add Immunizations
     into their camp, for example.
 
 Now if you were a guardian and a summer camp already approved your
-child, we would want to revoke that member from seeing our child\'s
+child, we would want to revoke that member from seeing our child's
 immunization record. How do we do that? We will do exactly that in the
 next section.
 
 Section 4: Revoking Access
 ---------------------------
 
-**1.**  Navigate back to Immunchain's homepage and log into the Guardian\'s
+**1.**  Navigate back to Immunchain's homepage and log into the Guardian's
     profile
     
 **2.**  Click on `Continue` of the `Deauthorize Member` tile
