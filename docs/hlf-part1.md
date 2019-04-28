@@ -727,7 +727,7 @@ enter. In other words, you are entering a Bash shell within the *cli*
 Docker container. For most of the rest of the lab, you will be entering
 commands within this Bash shell.
 
-Instead of working as user *bcuser* on the ubuntu16045 server in the
+Instead of working as user *bcuser* on the ubuntu18042 server in the
 *~/zmarbles* directory, you are now inside the Docker container with ID
 *aaaaf5aa2798* (your ID will differ), working in the
 */opt/gopath/src/github.com/hyperledger/fabric/peer* directory. It is no
