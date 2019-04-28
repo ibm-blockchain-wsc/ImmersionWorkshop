@@ -18,8 +18,8 @@ Section 2: Marbles user interface setup
 
 **Step 2.1:** Switch to the *~/zmarbles/marblesUI* directory:
 
-    bcuser@ubuntu16045:~$ cd ~/zmarbles/marblesUI
-    bcuser@ubuntu16045:~/zmarbles/marblesUI$ 
+    bcuser@ubuntu18042:~/zmarbles$ cd ~/zmarbles/marblesUI
+    bcuser@ubuntu18042:~/zmarbles/marblesUI$ 
 
 **Step 2.2:** You will need to do an *npm install* to install the
 packages needed by the Marbles user interface. First you will verify
@@ -27,54 +27,58 @@ that the *node\_modules* directory does not exist. This directory will
 be created when you run an npm *install* in the next step, so right now
 it shouldn't exist:
 
-    bcuser@ubuntu16045:~/zmarbles/marblesUI$ ls -l node_modules
+    bcuser@ubuntu18042:~/zmarbles/marblesUI$ ls -l node_modules
     ls: cannot access 'node_modules': No such file or directory
+    bcuser@ubuntu18042:~/zmarbles/marblesUI$ 
 
 **Step 2.3:** Now run the *npm install*:
 
-    bcuser@ubuntu16045:~/zmarbles/marblesUI$ npm install
+    bcuser@ubuntu18042:~/zmarbles/marblesUI$ npm install
       .
       .  (output not shown here)
       .
-
+    
+    
 **Step 2.4:** When this command ends, list the *node\_modules* directory
 again. It is there now:
 
-    bcuser@ubuntu16045:~/zmarbles/marblesUI$ ls -l node_modules
+    bcuser@ubuntu18042:~/zmarbles/marblesUI$ ls -l node_modules
       .
       .  (output not shown here)
       .
-
+    bcuser@ubuntu18042:~/zmarbles/marblesUI$
+    
 **Step 2.5:** Change to the *config* directory:
 
-    bcuser@ubuntu16045:~/zmarbles/marblesUI$ cd config
-    bcuser@ubuntu16045;~/zmarbles/marblesUI/config$ 
+    bcuser@ubuntu18042:~/zmarbles/marblesUI$ cd config
+    bcuser@ubuntu18042:~/zmarbles/marblesUI/config$ 
 
 **Step 2.6:** There are four files in this directory:
 
-    bcuser@ubuntu16045:~/zmarbles/marblesUI/config$ ls
+    bcuser@ubuntu18042:~/zmarbles/marblesUI/config$ ls
     connection_profile1.json  connection_profile2.json  marbles1.json  marbles2.json
-    bcuser@ubuntu16045:~/zmarbles/marblesUI/config$ 
+    bcuser@ubuntu18042:~/zmarbles/marblesUI/config$ 
 
 **Step 2.7:** There are two files for the first fictitious company,
 *United Marbles*, and two files for the second fictitious company,
 *Marbles Inc.* Look at the *marbles1.json* file with the *cat* command:
 
-    bcuser@ubuntu16045:~/zmarbles/marblesUI/config$ cat marbles1.json 
+    bcuser@ubuntu18042:~/zmarbles/marblesUI/config$ cat marbles1.json 
     {
-       "cred_filename": "connection_profile1.json",
-       "use_events": false,
-       "keep_alive_secs": 120,
-       "company": "United Marbles",
-       "usernames": [
-           "amy",
-           "alice",
-           "ava"
-       ],
-       "port": 3001,
-       "last_startup_hash": ""
+        "cred_filename": "connection_profile1.json",
+        "use_events": false,
+        "keep_alive_secs": 120,
+        "company": "United Marbles",
+        "usernames": [
+            "amy",
+            "alice",
+            "ava"
+        ],
+        "port": 3001,
+        "last_startup_hash": ""
     }
-
+    bcuser@ubuntu18042:~/zmarbles/marblesUI/config$ 
+    
 **Step 2.8:** Notice that this file points to one of the other existing
 files, *connection\_profile1.json*, as the value of the *cred\_filename*
 name/value pair. You will look at that in a moment. Take a note of the
@@ -85,26 +89,27 @@ inline without entering *vi*. Here is an example of a command to change
 the name *alice* to *vincent*. **This step is optional- you do not have
 to do this is you prefer the name alice to vincent**:
 
-    bcuser@ubuntu16045:~/zmarbles/marblesUI/config$ sed -i "s/alice/vincent/" marbles1.json   # optional
-    bcuser@ubuntu16045:~/zmarbles/marblesUI/config$
+    bcuser@ubuntu18042:~/zmarbles/marblesUI/config$ sed -i "s/alice/vincent/" marbles1.json   # optional
+    bcuser@ubuntu18042:~/zmarbles/marblesUI/config$ 
 
 **Step 2.9:** Here is the file after I changed *alice* to *vincent* with
 the previous sed command:
 
-    bcuser@ubuntu16045:~/zmarbles/marblesUI/config$ cat marbles1.json 
+    bcuser@ubuntu18042:~/zmarbles/marblesUI/config$ cat marbles1.json 
     {
-       "cred_filename": "connection_profile1.json",
-       "use_events": false,
-       "keep_alive_secs": 120,
-       "company": "United Marbles",
-       "usernames": [
-           "amy",
-           "vincent",
-           "ava"
-       ],
-       "port": 3001,
-       "last_startup_hash": ""
+        "cred_filename": "connection_profile1.json",
+        "use_events": false,
+        "keep_alive_secs": 120,
+        "company": "United Marbles",
+        "usernames": [
+            "amy",
+            "vincent",
+            "ava"
+        ],
+        "port": 3001,
+        "last_startup_hash": ""
     }
+    bcuser@ubuntu18042:~/zmarbles/marblesUI/config$ 
 
 **NOTE:** Your file will look different if you choose to skip the
 optional *Step 2.9* or if you made changes other than the example change
@@ -128,7 +133,11 @@ specified in this file as well. This file is too large to fit in one
 screen, so I will teach you one more Linux command, named *more*. (Pun
 intended). Type this:
 
-    bcuser@ubuntu16045:~/zmarbles/marblesUI/config$ more connection_profile1.json
+    bcuser@ubuntu18042:~/zmarbles/marblesUI/config$ more connection_profile1.json
+      .
+      .  (output not shown)
+      .
+    bcuser@ubuntu18042:~/zmarbles/marblesUI/config$ 
 
 This command will print as much of the file as it can on your screen but
 will pause until you hit enter before displaying the rest of the file's
@@ -249,11 +258,11 @@ only needed if you did not use the default channel name of mychannel)**
         channel name you may have chosen.
 ```
 
-    bcuser@ubuntu16045:~/zmarbles/marblesUI/config$ grep mychannel connection_profile[12].json 
+    bcuser@ubuntu18042:~/zmarbles/marblesUI/config$ grep mychannel connection_profile[12].json 
     blockchain_creds1.json:            "channel_id": "mychannel",
     blockchain_creds2.json:            "channel_id": "mychannel", 
-    bcuser@ubuntu16045:~/zmarbles/marblesUI/config$ sed -i "s/mychannel/tim/" connection_profile[12].json 
-    bcuser@ubuntu16045:~/zmarbles/marblesUI/config$ grep -1 channels connection_profile[12].json 
+    bcuser@ubuntu18042:~/zmarbles/marblesUI/config$ sed -i "s/mychannel/tim/" connection_profile[12].json 
+    bcuser@ubuntu18042:~/zmarbles/marblesUI/config$ grep -1 channels connection_profile[12].json 
     connection_profile1.json-  },
     connection_profile1.json:  "channels": {
     connection_profile1.json-      "tim": {
@@ -261,6 +270,7 @@ only needed if you did not use the default channel name of mychannel)**
     connection_profile2.json-  },
     connection_profile2.json:  "channels": {
     connection_profile2.json-      "tim": {
+    bcuser@ubuntu18042:~/zmarbles/marblesUI/config$ 
 
 ```
 
@@ -276,69 +286,70 @@ start with '<' (added by the diff command output, not in the actual
 file), and the lines from the second file, *blockchain\_creds2.json*,
 start with '\>':
 
-    bcuser@ubuntu16045:~/zmarbles/marblesUI/config$ diff connection_profile1.json connection_profile2.json 
+    bcuser@ubuntu18042:~/zmarbles/marblesUI/config$ diff connection_profile1.json connection_profile2.json 
     8c8
-    <      "organization": "Org0MSP"
+    < 		"organization": "Org0MSP"
     ---
-    >      "organization": "Org1MSP"
+    > 		"organization": "Org1MSP"
     16c16
-    <                  "fabric-peer-org1" : {
+    <  				"fabric-peer-org1" : {
     ---
-    >                  "fabric-peer-org2" : {
+    >  				"fabric-peer-org2" : {
     27,28c27,28
-    <      "Org0MSP": {
-    <          "mspid": "Org0MSP",
+    < 		"Org0MSP": {
+    < 			"mspid": "Org0MSP",
     ---
-    >      "Org1MSP": {
-    >          "mspid": "Org1MSP",
+    > 		"Org1MSP": {
+    > 			"mspid": "Org1MSP",
     30c30
-    <              "fabric-peer-org1"
+    < 				"fabric-peer-org1"
     ---
-    >              "fabric-peer-org2"
+    > 				"fabric-peer-org2"
     33c33
-    <              "fabric-ca-org1"
+    < 				"fabric-ca-org1"
     ---
-    >              "fabric-ca-org2"
+    > 				"fabric-ca-org2"
     54,56c54,56
-    <      "fabric-peer-org1": {
-    <          "url": "grpcs://localhost:7051",
-    <          "eventUrl": "grpcs://localhost:7053",
+    < 		"fabric-peer-org1": {
+    < 			"url": "grpcs://localhost:7051",
+    < 			"eventUrl": "grpcs://localhost:7053",
     ---
-    >      "fabric-peer-org2": {
-    >          "url": "grpcs://localhost:9051",
-    >          "eventUrl": "grpcs://localhost:9053",
+    > 		"fabric-peer-org2": {
+    > 			"url": "grpcs://localhost:9051",
+    > 			"eventUrl": "grpcs://localhost:9053",
     58c58
-    <              "ssl-target-name-override": "peer0.unitedmarbles.com",
+    < 				"ssl-target-name-override": "peer0.unitedmarbles.com",
     ---
-    >              "ssl-target-name-override": "peer0.marblesinc.com",
+    > 				"ssl-target-name-override": "peer0.marblesinc.com",
     65c65
-    <              "path": "../../crypto-config/peerOrganizations/unitedmarbles.com/peers/peer0.unitedmarbles.com/tls/ca.crt"
+    < 				"path": "../../crypto-config/peerOrganizations/unitedmarbles.com/peers/peer0.unitedmarbles.com/tls/ca.crt"
     ---
-    >              "path": "../../crypto-config/peerOrganizations/marblesinc.com/peers/peer0.marblesinc.com/tls/ca.crt"
+    > 				"path": "../../crypto-config/peerOrganizations/marblesinc.com/peers/peer0.marblesinc.com/tls/ca.crt"
     70,71c70,71
-    <      "fabric-ca-org1": {
-    <          "url": "https://localhost:7054",
+    < 		"fabric-ca-org1": {
+    < 			"url": "https://localhost:7054",
     ---
-    >      "fabric-ca-org2": {
-    >          "url": "https://localhost:8054",
+    > 		"fabric-ca-org2": {
+    > 			"url": "https://localhost:8054",
     73c73
-    <              "ssl-target-name-override": "ca.unitedmarbles.com",
+    < 				"ssl-target-name-override": "ca.unitedmarbles.com",
     ---
-    >              "ssl-target-name-override": "ca.marblesinc.com",
+    > 				"ssl-target-name-override": "ca.marblesinc.com",
     77c77
-    <              "path": "../../crypto-config/peerOrganizations/unitedmarbles.com/ca/ca.unitedmarbles.com-cert.pem"
+    < 				"path": "../../crypto-config/peerOrganizations/unitedmarbles.com/ca/ca.unitedmarbles.com-cert.pem"
     ---
-    >              "path": "../../crypto-config/peerOrganizations/marblesinc.com/ca/ca.marblesinc.com-cert.pem"
+    > 				"path": "../../crypto-config/peerOrganizations/marblesinc.com/ca/ca.marblesinc.com-cert.pem"
     81,82c81,82
-    <                  "enrollId": "admin",
-    <                  "enrollSecret": "adminpw"
+    < 					"enrollId": "admin",
+    < 					"enrollSecret": "adminpw"
     ---
-    >                  "enrollId": "admin2",
-    >                  "enrollSecret": "adminpw2"
+    > 					"enrollId": "admin2",
+    > 					"enrollSecret": "adminpw2"
     85c85
-    <          "caName": "ca-org0"
+    < 			"caName": "ca-org0"
     ---
-    >          "caName": "ca-org1"
+    > 			"caName": "ca-org1"
+    bcuser@ubuntu18042:~/zmarbles/marblesUI/config$ 
 
 Section 3: Start the Marbles user interface
 ===========================================
@@ -358,23 +369,23 @@ topology is use-case dependent and beyond the scope of this lab.
 **Step 3.1:** You are now ready to start the server for UnitedMarbles.
 Back up to the *~/zmarbles/marblesUI* directory:
 
-    bcuser@ubuntu16045:~/zmarbles/marblesUI/config$ cd ..
-    bcuser@ubuntu16045:~/zmarbles/marblesUI$
+    bcuser@ubuntu18042:~/zmarbles/marblesUI/config$ cd ..
+    bcuser@ubuntu18042:~/zmarbles/marblesUI$ 
 
 **Step 3.2:** You will now use *gulp* to start up the server, with this
 command:
 
-    bcuser@ubuntu16045:~/zmarbles/marblesUI$ gulp marbles1
-    [12:58:04] Using gulpfile ~/zmarbles/marblesUI/gulpfile.js
-    [12:58:04] Starting 'env_tls'...
-    [12:58:04] Finished 'env_tls' after 52 μs
-    [12:58:04] Starting 'build-sass'...
-    [12:58:04] Finished 'build-sass' after 6.47 ms
-    [12:58:04] Starting 'watch-sass'...
-    [12:58:04] Finished 'watch-sass' after 6.58 ms
-    [12:58:04] Starting 'watch-server'...
-    [12:58:04] Finished 'watch-server' after 1.96 ms
-    [12:58:04] Starting 'server'...
+    bcuser@ubuntu18042:~/zmarbles/marblesUI$ gulp marbles1
+    [16:02:03] Using gulpfile ~/zmarbles/marblesUI/gulpfile.js
+    [16:02:03] Starting 'env_tls'...
+    [16:02:03] Finished 'env_tls' after 50 μs
+    [16:02:03] Starting 'build-sass'...
+    [16:02:03] Finished 'build-sass' after 6.07 ms
+    [16:02:03] Starting 'watch-sass'...
+    [16:02:03] Finished 'watch-sass' after 6.36 ms
+    [16:02:03] Starting 'watch-server'...
+    [16:02:03] Finished 'watch-server' after 1.98 ms
+    [16:02:03] Starting 'server'...
     info: Checking connection profile is done
     info: Loaded config file /home/bcuser/zmarbles/marblesUI/config/marbles1.json
     info: Loaded connection profile file /home/bcuser/zmarbles/marblesUI/config/connection_profile1.json
@@ -425,18 +436,18 @@ command:
 
 
     ----------------------------------- Server Up - localhost:3001 -----------------------------------
-    Welcome aboard:     United Marbles
-    Channel:    mychannel
-    Org:        Org0MSP
-    CA:         fabric-ca-org1
-    Orderer:    fabric-orderer
-    Peer:       fabric-peer-org1
-    Chaincode ID:   marbles
+    Welcome aboard:	 United Marbles
+    Channel:	 mychannel
+    Org:		 Org0MSP
+    CA:		 fabric-ca-org1
+    Orderer:	 fabric-orderer
+    Peer:		 fabric-peer-org1
+    Chaincode ID:	 marbles
     Chaincode Version:  v4
     ------------------------------------------ Websocket Up ------------------------------------------
 
 
-    debug: loading pem from a path: /home/bcuser/zmarbles/crypto-config/peerOrganizations/unitedmarbles.com /ca/ca.unitedmarbles.com-cert.pem
+    debug: loading pem from a path: /home/bcuser/zmarbles/crypto-config/peerOrganizations/unitedmarbles.com/ca/ca.unitedmarbles.com-cert.pem
     debug: loading pem from a path: /home/bcuser/zmarbles/crypto-config/ordererOrganizations/blockchain.com/orderers/orderer.blockchain.com/tls/ca.crt
     debug: loading pem from a path: /home/bcuser/zmarbles/crypto-config/peerOrganizations/unitedmarbles.com/peers/peer0.unitedmarbles.com/tls/ca.crt
     info: [fcw] Going to enroll peer_urls=[grpcs://localhost:7051], channel_id=mychannel, uuid=marblesDockerComposeNetworkmychannelOrg0MSPfabricpeerorg1, ca_url=https://localhost:7054, orderer_url=grpcs://localhost:7050, enroll_id=admin, enroll_secret=adminpw, msp_id=Org0MSP, kvs_path=/home/bcuser/.hfc-key-store/marblesDockerComposeNetworkmychannelOrg0MSPfabricpeerorg1
@@ -486,8 +497,8 @@ command:
 
 The first line of the output just listed reads:
 
-    [12:58:04] Using gulpfile ~/zmarbles/marblesUI/gulpfile.js
-
+    [16:02:03] Using gulpfile ~/zmarbles/marblesUI/gulpfile.js
+    
 I am not going to go into detail on the *gulp* tool here, but if you are
 curious, if you look into the *gulpfile.js* file (you would have to use
 another PuTTY or SSH session as this one is now tied up) you would find
@@ -601,11 +612,11 @@ other's marbles.
 
 But the user names specified in *config/marbles2.json* are not created
 until you start the server for *marbles2* and log in the first time.
-List the contents of *marbles2.json* file (switch to a free PuTTY
+List the contents of *marbles2.json* file (switch to a free terminal
 session or start a new one), e.g.:
 
-    bcuser@ubuntu16045:~$ cd ~/zmarbles/marblesUI
-    bcuser@ubuntu16045:~/zmarbles/marblesUI$ cat config/marbles2.json 
+    bcuser@ubuntu18042:~$ cd ~/zmarbles/marblesUI
+    bcuser@ubuntu18042:~/zmarbles/marblesUI$ cat config/marbles2.json 
     {
         "cred_filename": "connection_profile2.json",
         "use_events": false,
@@ -619,20 +630,21 @@ session or start a new one), e.g.:
         "port": 3002,
         "last_startup_hash": ""
     }
+    bcuser@ubuntu18042:~/zmarbles/marblesUI$ 
 
 **Step 3.12:** Start the second server, the one for Marbles Inc:
 
-    bcuser@ubuntu16045:~/zmarbles/marblesUI$ gulp marbles2
-    [13:12:59] Using gulpfile ~/zmarbles/marblesUI/gulpfile.js
-    [13:12:59] Starting 'env_tls2'...
-    [13:12:59] Finished 'env_tls2' after 54 μs
-    [13:12:59] Starting 'build-sass'...
-    [13:12:59] Finished 'build-sass' after 6.6 ms
-    [13:12:59] Starting 'watch-sass'...
-    [13:12:59] Finished 'watch-sass' after 7.13 ms
-    [13:12:59] Starting 'watch-server'...
-    [13:12:59] Finished 'watch-server' after 1.94 ms
-    [13:12:59] Starting 'server'...
+    bcuser@ubuntu18042:~/zmarbles/marblesUI$ gulp marbles2
+    [16:07:49] Using gulpfile ~/zmarbles/marblesUI/gulpfile.js
+    [16:07:49] Starting 'env_tls2'...
+    [16:07:49] Finished 'env_tls2' after 50 μs
+    [16:07:49] Starting 'build-sass'...
+    [16:07:49] Finished 'build-sass' after 7.9 ms
+    [16:07:49] Starting 'watch-sass'...
+    [16:07:49] Finished 'watch-sass' after 6.38 ms
+    [16:07:49] Starting 'watch-server'...
+    [16:07:49] Finished 'watch-server' after 1.9 ms
+    [16:07:49] Starting 'server'...
     info: Checking connection profile is done
     info: Loaded config file /home/bcuser/zmarbles/marblesUI/config/marbles2.json
     info: Loaded connection profile file /home/bcuser/zmarbles/marblesUI/config/connection_profile2.json
@@ -663,7 +675,7 @@ session or start a new one), e.g.:
       getPeerEventUrl()
       getPeerTlsCertOpts()
       getMarbleUsernamesConfig()
-      getCompanyNameFromFile() 
+      getCompanyNameFromFile()
       getMarblesPort()
       getEventsSetting()
       getKeepAliveMs()
@@ -683,13 +695,13 @@ session or start a new one), e.g.:
 
 
     ----------------------------------- Server Up - localhost:3002 -----------------------------------
-    Welcome aboard:     Marbles Inc
-    Channel:    mychannel
-    Org:        Org1MSP
-    CA:         fabric-ca-org2
-    Orderer:    fabric-orderer
-    Peer:       fabric-peer-org2
-    Chaincode ID:   marbles
+    Welcome aboard:	 Marbles Inc
+    Channel:	 mychannel
+    Org:		 Org1MSP
+    CA:		 fabric-ca-org2
+    Orderer:	 fabric-orderer
+    Peer:		 fabric-peer-org2
+    Chaincode ID:	 marbles
     Chaincode Version:  v4
     ------------------------------------------ Websocket Up ------------------------------------------
 
@@ -729,7 +741,7 @@ session or start a new one), e.g.:
     info: Fetching EVERYTHING...
     debug: [fcw] Querying Chaincode: read_everything()
     debug: [fcw] Sending query req: chaincodeId=marbles, fcn=read_everything, args=[], txId=null
-    debug: [fcw] Peer Query Response - len: 2282 type: object
+    debug: [fcw] Peer Query Response - len: 2291 type: object
     debug: [fcw] Successful query transaction.
     debug: This company has registered marble owners
     debug: Looking for marble owner: cliff
@@ -808,109 +820,117 @@ Section 4: Lab cleanup
 ===========================================
 
 **Step 4.1:** In both of your terminals sessions that were used to start
-each Web UI, press *Crtl-c* to end these terminals sessions.
+each Web UI, press *Crtl-c* to end the Web UI process. You can also close
+the tabs in your browser that were displaying the Web UI.
 
 **Step 4.2:** Navigate to the *zmarbles* directory:
     
-    bcuser@ubuntu16045:~/zmarbles/marblesUI$ cd ~/zmarbles
-
+    bcuser@ubuntu18042:~/zmarbles/marblesUI$ cd ~/zmarbles
+    bcuser@ubuntu18042:~/zmarbles$ 
+    
 **Step 4.3:** Enter this Docker command to show the running Docker containers
 that make up your Hyperledger Fabric network:
 
-    bcuser@ubuntu16045:~/zmarbles/marblesUI$ docker ps
-    CONTAINER ID        IMAGE                                                                                                      COMMAND                  CREATED              STATUS              PORTS                                                                       NAMES
-    6593f72279e0        dev-peer0.marblesinc.com-marbles-1.0-4077677f13838bacbfd8ff943e7348c00f3c4d6ca6e2838efd14204ca87ea12b      "chaincode -peer.add…"   About a minute ago   Up About a minute                                                                               dev-peer0.marblesinc.com-marbles-1.0
-    5a199bd7cd9c        dev-peer0.unitedmarbles.com-marbles-1.0-7e92f069adb7469939a96dcba723fa2019745461f05a562e81cec38e46424aa1   "chaincode -peer.add…"   About a minute ago   Up About a minute                                                                               dev-peer0.unitedmarbles.com-marbles-1.0
-    d6f0ebe75651        hyperledger/fabric-tools:1.4.1                                                                             "bash"                   3 minutes ago        Up 3 minutes                                                                                    cli
-    73bde88cd505        hyperledger/fabric-peer:1.4.1                                                                              "peer node start"        3 minutes ago        Up 3 minutes        0.0.0.0:8051->7051/tcp, 0.0.0.0:8052->7052/tcp, 0.0.0.0:8053->7053/tcp      peer1.unitedmarbles.com
-    078b9287e755        hyperledger/fabric-peer:1.4.1                                                                              "peer node start"        3 minutes ago        Up 3 minutes        0.0.0.0:7051-7053->7051-7053/tcp                                            peer0.unitedmarbles.com
-    aeaac49da716        hyperledger/fabric-peer:1.4.1                                                                              "peer node start"        3 minutes ago        Up 3 minutes        0.0.0.0:10051->7051/tcp, 0.0.0.0:10052->7052/tcp, 0.0.0.0:10053->7053/tcp   peer1.marblesinc.com
-    1cc9fbc7d18b        hyperledger/fabric-peer:1.4.1                                                                              "peer node start"        3 minutes ago        Up 3 minutes        0.0.0.0:9051->7051/tcp, 0.0.0.0:9052->7052/tcp, 0.0.0.0:9053->7053/tcp      peer0.marblesinc.com
-    8d8a11ca96f7        hyperledger/fabric-ca:1.4.1                                                                                "sh -c 'fabric-ca-se…"   3 minutes ago        Up 3 minutes        0.0.0.0:7054->7054/tcp                                                      ca_Org0
-    e347669dc96e        hyperledger/fabric-couchdb:s390x-0.4.15                                                                    "tini -- /docker-ent…"   3 minutes ago        Up 3 minutes        4369/tcp, 9100/tcp, 0.0.0.0:6984->5984/tcp                                  couchdb1
-    8552cb29edbc        hyperledger/fabric-orderer:1.4.1                                                                           "orderer"                3 minutes ago        Up 3 minutes        0.0.0.0:7050->7050/tcp                                                      orderer.blockchain.com
-    a8f398cfa35e        hyperledger/fabric-couchdb:s390x-0.4.15                                                                    "tini -- /docker-ent…"   3 minutes ago        Up 3 minutes        4369/tcp, 9100/tcp, 0.0.0.0:5984->5984/tcp                                  couchdb0
-    c28c3ac099b3        hyperledger/fabric-ca:1.4.1                                                                                "sh -c 'fabric-ca-se…"   3 minutes ago        Up 3 minutes        0.0.0.0:8054->7054/tcp                                                      ca_Org1
-    93de9b548c26        hyperledger/fabric-couchdb:s390x-0.4.15                                                                    "tini -- /docker-ent…"   3 minutes ago        Up 3 minutes        4369/tcp, 9100/tcp, 0.0.0.0:8984->5984/tcp                                  couchdb3
-    2689f981ae43        hyperledger/fabric-couchdb:s390x-0.4.15                                                                    "tini -- /docker-ent…"   3 minutes ago        Up 3 minutes        4369/tcp, 9100/tcp, 0.0.0.0:7984->5984/tcp                                  couchdb2
-    bcuser@ubuntu16045:~/zmarbles$ 
+    bcuser@ubuntu18042:~/zmarbles$ docker ps
+    CONTAINER ID        IMAGE                                                                                                      COMMAND                  CREATED             STATUS              PORTS                                                                       NAMES
+    1e5c05183d6f        dev-peer1.unitedmarbles.com-marbles-1.0-dea1aa08dc7c6f282a31dd498670173c21d3e75ef0ef1d170b95e1212fbacb77   "chaincode -peer.add…"   26 minutes ago      Up 26 minutes                                                                                   dev-peer1.unitedmarbles.com-marbles-1.0
+    a7d6b658a35a        dev-peer0.marblesinc.com-marbles-1.0-4077677f13838bacbfd8ff943e7348c00f3c4d6ca6e2838efd14204ca87ea12b      "chaincode -peer.add…"   31 minutes ago      Up 31 minutes                                                                                   dev-peer0.marblesinc.com-marbles-1.0
+    62a185d148d2        dev-peer0.unitedmarbles.com-marbles-1.0-7e92f069adb7469939a96dcba723fa2019745461f05a562e81cec38e46424aa1   "chaincode -peer.add…"   39 minutes ago      Up 39 minutes                                                                                   dev-peer0.unitedmarbles.com-marbles-1.0
+    84b6c0ee74aa        hyperledger/fabric-tools:1.4.1                                                                             "bash"                   About an hour ago   Up About an hour                                                                                cli
+    e6eabd9fd96d        hyperledger/fabric-peer:1.4.1                                                                              "peer node start"        About an hour ago   Up About an hour    0.0.0.0:9051->7051/tcp, 0.0.0.0:9052->7052/tcp, 0.0.0.0:9053->7053/tcp      peer0.marblesinc.com
+    8174f3021744        hyperledger/fabric-peer:1.4.1                                                                              "peer node start"        About an hour ago   Up About an hour    0.0.0.0:8051->7051/tcp, 0.0.0.0:8052->7052/tcp, 0.0.0.0:8053->7053/tcp      peer1.unitedmarbles.com
+    1a22b9eb5be5        hyperledger/fabric-peer:1.4.1                                                                              "peer node start"        About an hour ago   Up About an hour    0.0.0.0:10051->7051/tcp, 0.0.0.0:10052->7052/tcp, 0.0.0.0:10053->7053/tcp   peer1.marblesinc.com
+    11423ca89763        hyperledger/fabric-peer:1.4.1                                                                              "peer node start"        About an hour ago   Up About an hour    0.0.0.0:7051-7053->7051-7053/tcp                                            peer0.unitedmarbles.com
+    18b9e5efbfc9        hyperledger/fabric-couchdb:s390x-0.4.15                                                                    "tini -- /docker-ent…"   About an hour ago   Up About an hour    4369/tcp, 9100/tcp, 0.0.0.0:6984->5984/tcp                                  couchdb1
+    77288f8c0060        hyperledger/fabric-couchdb:s390x-0.4.15                                                                    "tini -- /docker-ent…"   About an hour ago   Up About an hour    4369/tcp, 9100/tcp, 0.0.0.0:7984->5984/tcp                                  couchdb2
+    43214da184da        hyperledger/fabric-ca:1.4.1                                                                                "sh -c 'fabric-ca-se…"   About an hour ago   Up About an hour    0.0.0.0:7054->7054/tcp                                                      ca_Org0
+    1ea639c77a3a        hyperledger/fabric-ca:1.4.1                                                                                "sh -c 'fabric-ca-se…"   About an hour ago   Up About an hour    0.0.0.0:8054->7054/tcp                                                      ca_Org1
+    07df27e35368        hyperledger/fabric-couchdb:s390x-0.4.15                                                                    "tini -- /docker-ent…"   About an hour ago   Up About an hour    4369/tcp, 9100/tcp, 0.0.0.0:8984->5984/tcp                                  couchdb3
+    93e0465394b6        hyperledger/fabric-orderer:1.4.1                                                                           "orderer"                About an hour ago   Up About an hour    0.0.0.0:7050->7050/tcp                                                      orderer.blockchain.com
+    4201915cc3b2        hyperledger/fabric-couchdb:s390x-0.4.15                                                                    "tini -- /docker-ent…"   About an hour ago   Up About an hour    4369/tcp, 9100/tcp, 0.0.0.0:5984->5984/tcp                                  couchdb0
+    bcuser@ubuntu18042:~/zmarbles$ 
 
 **Step 4.4:** Enter this command to bring down your Hyperledger Fabric network:
 
-    bcuser@ubuntu16045:~/zmarbles$ docker-compose down
+    bcuser@ubuntu18042:~/zmarbles$ docker-compose down
     WARNING: The CHANNEL_NAME variable is not set. Defaulting to a blank string.
     Stopping cli                     ... done
-    Stopping peer1.unitedmarbles.com ... done
-    Stopping peer0.unitedmarbles.com ... done
-    Stopping peer1.marblesinc.com    ... done
     Stopping peer0.marblesinc.com    ... done
-    Stopping ca_Org0                 ... done
+    Stopping peer1.unitedmarbles.com ... done
+    Stopping peer1.marblesinc.com    ... done
+    Stopping peer0.unitedmarbles.com ... done
     Stopping couchdb1                ... done
-    Stopping orderer.blockchain.com  ... done
-    Stopping couchdb0                ... done
+    Stopping couchdb2                ... done
+    Stopping ca_Org0                 ... done
     Stopping ca_Org1                 ... done
     Stopping couchdb3                ... done
-    Stopping couchdb2                ... done
+    Stopping orderer.blockchain.com  ... done
+    Stopping couchdb0                ... done
     Removing cli                     ... done
-    Removing peer1.unitedmarbles.com ... done
-    Removing peer0.unitedmarbles.com ... done
-    Removing peer1.marblesinc.com    ... done
     Removing peer0.marblesinc.com    ... done
-    Removing ca_Org0                 ... done
+    Removing peer1.unitedmarbles.com ... done
+    Removing peer1.marblesinc.com    ... done
+    Removing peer0.unitedmarbles.com ... done
     Removing couchdb1                ... done
-    Removing orderer.blockchain.com  ... done
-    Removing couchdb0                ... done
+    Removing couchdb2                ... done
+    Removing ca_Org0                 ... done
     Removing ca_Org1                 ... done
     Removing couchdb3                ... done
-    Removing couchdb2                ... done
+    Removing orderer.blockchain.com  ... done
+    Removing couchdb0                ... done
     Removing network zmarbles_default
-
+    bcuser@ubuntu18042:~/zmarbles$ 
 
 **Step 4.5:** Enter this and you should not see any running Docker containers:
 
-    bcuser@ubuntu16045:~/zmarbles$ docker ps
+    bcuser@ubuntu18042:~/zmarbles$ docker ps
     CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
-    bcuser@ubuntu16045:~/zmarbles$ 
+    bcuser@ubuntu18042:~/zmarbles$ 
 
 **Step 4.6:** Add the *--all* argument to the prior command and you will see some
 *Exited* Docker containers:
 
-    bcuser@ubuntu16045:~/zmarbles$ docker ps --all
+    bcuser@ubuntu18042:~/zmarbles$ docker ps --all
     CONTAINER ID        IMAGE                                                                                                      COMMAND                  CREATED             STATUS                          PORTS               NAMES
-    6593f72279e0        dev-peer0.marblesinc.com-marbles-1.0-4077677f13838bacbfd8ff943e7348c00f3c4d6ca6e2838efd14204ca87ea12b      "chaincode -peer.add…"   4 minutes ago       Exited (0) About a minute ago                       dev-peer0.marblesinc.com-marbles-1.0
-    5a199bd7cd9c        dev-peer0.unitedmarbles.com-marbles-1.0-7e92f069adb7469939a96dcba723fa2019745461f05a562e81cec38e46424aa1   "chaincode -peer.add…"   5 minutes ago       Exited (0) About a minute ago                       dev-peer0.unitedmarbles.com-marbles-1.0
-    bcuser@ubuntu16045:~/zmarbles$ 
+    1e5c05183d6f        dev-peer1.unitedmarbles.com-marbles-1.0-dea1aa08dc7c6f282a31dd498670173c21d3e75ef0ef1d170b95e1212fbacb77   "chaincode -peer.add…"   28 minutes ago      Exited (0) About a minute ago                       dev-peer1.unitedmarbles.com-marbles-1.0
+    a7d6b658a35a        dev-peer0.marblesinc.com-marbles-1.0-4077677f13838bacbfd8ff943e7348c00f3c4d6ca6e2838efd14204ca87ea12b      "chaincode -peer.add…"   33 minutes ago      Exited (0) About a minute ago                       dev-peer0.marblesinc.com-marbles-1.0
+    62a185d148d2        dev-peer0.unitedmarbles.com-marbles-1.0-7e92f069adb7469939a96dcba723fa2019745461f05a562e81cec38e46424aa1   "chaincode -peer.add…"   41 minutes ago      Exited (0) About a minute ago                       dev-peer0.unitedmarbles.com-marbles-1.0
+    bcuser@ubuntu18042:~/zmarbles$ 
 
 **Step 4.7:** Enter this command to remove these containers:
 
-    bcuser@ubuntu16045:~/zmarbles$ docker rm $(docker ps --all --quiet)
-    6593f72279e0
-    5a199bd7cd9c
-    bcuser@ubuntu16045:~/zmarbles$ 
+    bcuser@ubuntu18042:~/zmarbles$ docker rm $(docker ps --all --quiet)
+    1e5c05183d6f
+    a7d6b658a35a
+    62a185d148d2
+    bcuser@ubuntu18042:~/zmarbles$ 
 
 **Step 4.8:** Repeat the command from *Step 4.6* and you should not see any containers:
 
-    bcuser@ubuntu16045:~/zmarbles$ docker ps --all
+    bcuser@ubuntu18042:~/zmarbles$ docker ps --all
     CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
-    bcuser@ubuntu16045:~/zmarbles$ 
+    bcuser@ubuntu18042:~/zmarbles$  
 
 **Step 4.9:** List your Docker images:
 
-    bcuser@ubuntu16045:~/zmarbles$ docker images
+    bcuser@ubuntu18042:~/zmarbles$ docker images
     REPOSITORY                                                                                                 TAG                 IMAGE ID            CREATED             SIZE
-    dev-peer0.marblesinc.com-marbles-1.0-4077677f13838bacbfd8ff943e7348c00f3c4d6ca6e2838efd14204ca87ea12b      latest              62ce64874a67        7 minutes ago       137MB
-    dev-peer0.unitedmarbles.com-marbles-1.0-7e92f069adb7469939a96dcba723fa2019745461f05a562e81cec38e46424aa1   latest              850eb4121bd8        8 minutes ago       137MB
-    hyperledger/fabric-ca                                                                                      1.4.1               a836041637e8        10 days ago         220MB
-    hyperledger/fabric-tools                                                                                   1.4.1               330902566372        10 days ago         1.52GB
-    hyperledger/fabric-ccenv                                                                                   latest              8583516cfc43        10 days ago         1.41GB
-    hyperledger/fabric-orderer                                                                                 1.4.1               1b709e319b2d        10 days ago         148MB
-    hyperledger/fabric-peer                                                                                    1.4.1               719392658c28        10 days ago         154MB
-    hyperledger/fabric-couchdb                                                                                 s390x-0.4.15        81ee917e0be2        4 weeks ago         1.55GB
-    hyperledger/fabric-baseos                                                                                  s390x-0.4.15        d4eb16b952d6        4 weeks ago         120MB
+    dev-peer1.unitedmarbles.com-marbles-1.0-dea1aa08dc7c6f282a31dd498670173c21d3e75ef0ef1d170b95e1212fbacb77   latest              c0e41de218a2        30 minutes ago      137MB
+    dev-peer0.marblesinc.com-marbles-1.0-4077677f13838bacbfd8ff943e7348c00f3c4d6ca6e2838efd14204ca87ea12b      latest              ab7f5fa821ee        35 minutes ago      137MB
+    dev-peer0.unitedmarbles.com-marbles-1.0-7e92f069adb7469939a96dcba723fa2019745461f05a562e81cec38e46424aa1   latest              d41acea306aa        43 minutes ago      137MB
+    hyperledger/fabric-ca                                                                                      1.4.1               a836041637e8        2 weeks ago         220MB
+    hyperledger/fabric-tools                                                                                   1.4.1               330902566372        2 weeks ago         1.52GB
+    hyperledger/fabric-ccenv                                                                                   latest              8583516cfc43        2 weeks ago         1.41GB
+    hyperledger/fabric-orderer                                                                                 1.4.1               1b709e319b2d        2 weeks ago         148MB
+    hyperledger/fabric-peer                                                                                    1.4.1               719392658c28        2 weeks ago         154MB
+    hyperledger/fabric-couchdb                                                                                 s390x-0.4.15        81ee917e0be2        5 weeks ago         1.55GB
+    hyperledger/fabric-baseos                                                                                  s390x-0.4.15        d4eb16b952d6        5 weeks ago         120MB
+    bcuser@ubuntu18042:~/zmarbles$ 
 
 **Step 4.10:** This command will format the output from *docker images*:
 
-    bcuser@ubuntu16045:~/zmarbles$ docker images --format '{{.Repository}}:{{.Tag}}'
+    bcuser@ubuntu18042:~/zmarbles$ docker images --format '{{.Repository}}:{{.Tag}}'
+    dev-peer1.unitedmarbles.com-marbles-1.0-dea1aa08dc7c6f282a31dd498670173c21d3e75ef0ef1d170b95e1212fbacb77:latest
     dev-peer0.marblesinc.com-marbles-1.0-4077677f13838bacbfd8ff943e7348c00f3c4d6ca6e2838efd14204ca87ea12b:latest
     dev-peer0.unitedmarbles.com-marbles-1.0-7e92f069adb7469939a96dcba723fa2019745461f05a562e81cec38e46424aa1:latest
     hyperledger/fabric-ca:1.4.1
@@ -920,22 +940,27 @@ that make up your Hyperledger Fabric network:
     hyperledger/fabric-peer:1.4.1
     hyperledger/fabric-couchdb:s390x-0.4.15
     hyperledger/fabric-baseos:s390x-0.4.15
-    bcuser@ubuntu16045:~/zmarbles$ 
+    bcuser@ubuntu18042:~/zmarbles$ 
 
 **Step 4.11:** The output from the prior step is in a format acceptable to the Docker command to remove images, so 
 this command will feed that output into the Docker *rmi* command, and remove these images:
 
-    bcuser@ubuntu16045:~/zmarbles$ docker rmi $(docker images --format '{{.Repository}}:{{.Tag}}')
+    bcuser@ubuntu18042:~/zmarbles$ docker rmi $(docker images --format '{{.Repository}}:{{.Tag}}')
+    Untagged: dev-peer1.unitedmarbles.com-marbles-1.0-dea1aa08dc7c6f282a31dd498670173c21d3e75ef0ef1d170b95e1212fbacb77:latest
+    Deleted: sha256:c0e41de218a260a73053d538aa45ca0f925cd3ee7d8898151ea7df39dc1ac813
+    Deleted: sha256:40fc70560501ded0fbf1d7bc6a2e77de321041a62770822f692977cd363f16be
+    Deleted: sha256:4a8c59ccf0d503088d13b041260d4741509656336b431e6bb7e64b20a91b90fb
+    Deleted: sha256:8ce2cde820ef4ccfef99f8389315141614441b89219de487da33db3494874c8b
     Untagged: dev-peer0.marblesinc.com-marbles-1.0-4077677f13838bacbfd8ff943e7348c00f3c4d6ca6e2838efd14204ca87ea12b:latest
-    Deleted: sha256:62ce64874a6789b0312ea5a5414254f6b5e7c134e70a259ec399a08e8d0f18ec
-    Deleted: sha256:c14c73ba4c9183ec7ef2745aa9e051d1885fbd46ac7b658133ac09983823cb84
-    Deleted: sha256:9dc5dcb2418ca48a9d0bd48d479c4bdca8a874b169ac40d48ffb9cbe42423905
-    Deleted: sha256:c737be13ca8323b726c929e2e51df38fa1407cc302f1f7440cbc5f0847f39fb8
+    Deleted: sha256:ab7f5fa821ee42c139722b2360909c95c1b2586cb437686122af1e571bd34802
+    Deleted: sha256:f7a0e17801a42a44340f27cb7c7332314534d1ed2d4573cb5334f27289dc5ff0
+    Deleted: sha256:8085444130169915f706aecfac10aaeee4d3e641e63e4686258c513e6fe85830
+    Deleted: sha256:e0f59705093caa197dde37fba5d05aa4635465b5d42e8d48234b9a28d3423a48
     Untagged: dev-peer0.unitedmarbles.com-marbles-1.0-7e92f069adb7469939a96dcba723fa2019745461f05a562e81cec38e46424aa1:latest
-    Deleted: sha256:850eb4121bd810f6401a3233b4bae70dfff5deee1666818eb98c80b679a2365a
-    Deleted: sha256:75510db53917ae573b22cf3f4f33f15480a833fb8642bca30e0fe097190844d5
-    Deleted: sha256:1d77034d5a14dbde65af7df4287594b32a8e5cbc6197d40d58b0f4f3be0c5e5a
-    Deleted: sha256:c695706f6f813379bf5c98e97b04826e2e345aef4aaf83117529896a7454f3d5
+    Deleted: sha256:d41acea306aa6d858cca4f55bb92b20335da5a588550411d32fc77def25d3775
+    Deleted: sha256:493804d997703675b48104eed5e6868b1e6f14bf954fbb56ac5784a82838ccbf
+    Deleted: sha256:3504ecc13cf81ec4947132a9261600f1e9cdeee94672df62469f2061bd1a4b2a
+    Deleted: sha256:8267b35c52b6b78b7341b95c5c044a69feb53075c704b2eea87a4d4b6036be06
     Untagged: hyperledger/fabric-ca:1.4.1
     Untagged: hyperledger/fabric-ca@sha256:f77aa0ff885c572b090d1ff7564780daafd50d9e839b6241c2ab12c37f47b94a
     Deleted: sha256:a836041637e817846f71541e47e8749f6188676a1ac282f006ca03758290f4ff
@@ -992,18 +1017,19 @@ this command will feed that output into the Docker *rmi* command, and remove the
     Deleted: sha256:234cfc5f3368cd92d65d03e5da6bc0bd985ab94c4931e692faa758bd6d811c7b
     Deleted: sha256:3e2d2d75f895801cefdecac9e2584d964caf0ed7fb1d8afeffeaea5e287ea9cb
     Deleted: sha256:d8e11f36fc45b7073d3b0eb3636428dedebb40f392bea9fa5751ed92848ca875
-    bcuser@ubuntu16045:~/zmarbles$ 
+    bcuser@ubuntu18042:~/zmarbles$ 
 
 **Step 4.12:**  Now you should not see any images:
 
-    bcuser@ubuntu16045:~/zmarbles$ docker images
+    bcuser@ubuntu18042:~/zmarbles$ docker images
     REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
-    bcuser@ubuntu16045:~/zmarbles$ 
-
+    bcuser@ubuntu18042:~/zmarbles$          IMAGE ID            CREATED             SIZE
+   
 **Step 4.13:** You may type *exit* from your terminal session(s) to log out of the system
 
-    bcuser@ubuntu16045:~/zmarbles$ exit
+    bcuser@ubuntu18042:~/zmarbles$ exit
     logout
     Connection to 192.168.22.1xx closed.
+    Barrys-MacBook-Pro:ImmersionWorkshop silliman$ 
 
 **End of lab!**
