@@ -7,14 +7,14 @@ Welcome! This two-day workshop combines lectures and hands-on labs to teach you 
 * 9am - Introductions
 * 9:15am - [Blockchain Explained](files/BlockchainExplained.pdf "blockchain explained")
 * 10am - [Vehicle Lifecycle Demo](files/Vehicle_Lifecycle_Demo.pdf "vehicle lifecycle demo")
-* 10:30am -[Blockchain Use Cases](files/Blockchain_Use_Cases_Dallas.pdf "blockchain use cases")
+* 10:30am -[Blockchain Use Cases](files/Blockchain_Use_Cases_PR.pdf "blockchain use cases")
 * 11am - [Lab: Use Case Walkthrough](immunichain-home.md)
 * 11:30am - [Building Your Blockchain Network](files/BlockchainExploredPart1.pdf "blockchain explored part 1")
 * Noon - Lunch / Informal use case discussions
 * 1pm - [Hyperledger Fabric Lab](hlf-home.md)
 * 2pm - [Blockchain Transaction Flow](files/BlockchainExploredPart2.pdf "blockchain explored part 2")
 * 3:15pm - [Lab: VSCode Part 1](vscode-part1.md)
-* 4pm - [Next Steps on Your Blockchain Journey](files/BlockchainNextSteps_Dallas.pdf "blockchain next steps")
+* 4pm - [Next Steps on Your Blockchain Journey](files/BlockchainNextSteps_PR.pdf "blockchain next steps")
 
 ### Day 2
 * 9am - [Blockchain Explored](files/BlockchainExploredPart3.pdf "blockchain explored part 3")
