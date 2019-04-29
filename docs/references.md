@@ -1,5 +1,5 @@
 ##  Please take a few minutes to provide us feedback
-* [Workshop evaluation](https://tec-feedback.mybluemix.net/event/PCOY-B9BKBL "Workshop evaluation")
+* [Workshop evaluation](https://tec-feedback.mybluemix.net/event/WWAL-BAES7N "Workshop evaluation")
 
 ## Additional Resources
 * [What is blockchain?](https://www.ibm.com/blockchain/what-is-blockchain "what is blockchain")
@@ -18,8 +18,6 @@
 * [World Wire](https://www.ibm.com/blockchain/solutions/world-wire "world wire")
 * [Unbounded - Blockchain Network Finder](https://unbounded.network/ "unbounded network")
 
-## Additional Use Case Walk-throughs and VSCode Labs
-* [Vehicle Lifecycle Demo Lab](https://developer.ibm.com/courses/all/blockchain-essentials "VLD lab")
-* [IMMUNIChain Walk-through](https://github.com/austingrice/ImmunichainGuidedTour "IMMUNIChain walk-through")
+## Additional VSCode Labs
 * [IBM Blockchain Platform VSCode Extension Lab: Add Indices for Better Performing Queries](https://dwakeman.github.io/blockchain-stuff/files/Lab6-IBPVSCodeQueriesWithIndexes.pdf "indexes")
 * [IBM Blockchain Platform VSCode Extension: Add a Loopback API to your Smart Contract](https://dwakeman.github.io/blockchain-stuff/files/lab7-IBPVSCodeAddLoopbackRestfulAPIs.pdf "loopback")

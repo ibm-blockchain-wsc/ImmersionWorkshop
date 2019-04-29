@@ -11,18 +11,18 @@ Welcome! This two-day workshop combines lectures and hands-on labs to teach you 
 * 11am - [Lab: Use Case Walkthrough](immunichain-home.md)
 * 11:30am - [Building Your Blockchain Network](files/BlockchainExploredPart1.pdf "blockchain explored part 1")
 * Noon - Lunch / Informal use case discussions
-* 1pm - Hyperledger Fabric Lab
+* 1pm - [Hyperledger Fabric Lab](hlf-home.md)
 * 2pm - [Blockchain Transaction Flow](files/BlockchainExploredPart2.pdf "blockchain explored part 2")
-* 3:15pm - Lab: VSCode Part 1
+* 3:15pm - [Lab: VSCode Part 1](vscode-part1.md)
 * 4pm - [Next Steps on Your Blockchain Journey](files/BlockchainNextSteps_Dallas.pdf "blockchain next steps")
 
 ### Day 2
 * 9am - [Blockchain Explored](files/BlockchainExploredPart3.pdf "blockchain explored part 3")
 * 9:30am - [IBM Blockchain Platform, LinuxONE advantages](files/IBP_Explained.pdf "IBP Explained")
-* 11:15am - Lab: VSCode Part 2
+* 11:15am - [Lab: VSCode Part 2](vscode-part2.md)
 * Noon - Lunch
 * 1pm - [Introduction to IBM Cloud Private and Kubernetes](files/Kubernetes_ICP.pdf "kubernetes ICP")
-* 2pm - Lab: IBM Blockchain Platform for IBM Cloud Private Connect-a-thon
+* 2pm - [Lab: IBM Blockchain Platform for IBM Cloud Private Connect-a-thon](connect-home.md)
 
 ## Acknowledgements
 
