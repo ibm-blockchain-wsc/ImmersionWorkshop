@@ -74,6 +74,21 @@
           
             <li class="toctree-l1">
 		
+    <span class="caption-text">Use Case Walkthrough</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../immunichain-home/">Introduction</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../immunichain/">Part 1</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
     <span class="caption-text">VSCode Lab</span>
     <ul class="subnav">
                 <li class="">
@@ -298,10 +313,11 @@ use the terminal in VSCode. On the chance that we will use the terminal
 in VSCode, I will specify that.</p>
 <p><strong>1.</strong> Open your terminal and navigate to your Desktop directory and then clone
 the <code>fabric-samples</code> github repository</p>
-<pre><code>tecadmin@ubuntubase:~/Desktop/mycontract$ ls -l
+<pre><code>tecadmin@ubuntubase:~$ cd Desktop/
+tecadmin@ubuntubase:~/Desktop$ ls -l
 total 0
 drwxr-xr-x  16 tecadmin  tecadmin  512 Feb 22 12:34 mycontract
-tecadmin@ubuntubase:~/Desktop/mycontract$ git clone https://github.com/hyperledger/fabric-samples.git
+tecadmin@ubuntubase:~/Desktop$ git clone https://github.com/hyperledger/fabric-samples.git
 Cloning into 'fabric-samples'...
 remote: Enumerating objects: 85, done.
 remote: Counting objects: 100% (85/85), done.
@@ -309,7 +325,7 @@ remote: Compressing objects: 100% (71/71), done.
 remote: Total 2658 (delta 26), reused 71 (delta 13), pack-reused 2573
 Receiving objects: 100% (2658/2658), 927.08 KiB | 0 bytes/s, done.
 Resolving deltas: 100% (1293/1293), done.
-tecadmin@ubuntubase:~/Desktop/mycontract$ ls -l
+tecadmin@ubuntubase:~/Desktop$ ls -l
 total 0
 drwxr-xr-x  22 tecadmin  tecadmin  704 Feb 22 12:41 fabric-samples
 drwxr-xr-x  16 tecadmin  tecadmin  512 Feb 22 12:34 mycontract
@@ -318,7 +334,7 @@ drwxr-xr-x  16 tecadmin  tecadmin  512 Feb 22 12:34 mycontract
 that we can modify some scripts that will then create more Docker
 containers for us to use. Enter the command below to see all of our
 Docker networks</p>
-<pre><code>tecadmin@ubuntubase:~/Desktop/mycontract$ docker network list
+<pre><code>tecadmin@ubuntubase:~/Desktop$ docker network list
 NETWORK ID          NAME                            DRIVER              SCOPE
 ad2e1a3e2fc2        bridge                          bridge              local
 35837170ae5b        fabricvscodelocalfabric_basic   bridge              local
@@ -327,7 +343,7 @@ c5e0411b0d34        host                            host                local
 </code></pre>
 <p><strong>3.</strong> The network we are in is called <code>fabricvscodelocalfabric_basic</code>
 and we can verify that by doing the following command below </p>
-<pre><code>tecadmin@ubuntubase:~/Desktop/mycontract$ docker network inspect fabricvscodelocalfabric_basic
+<pre><code>tecadmin@ubuntubase:~/Desktop$ docker network inspect fabricvscodelocalfabric_basic
 </code></pre>
 <p>That command will show you all the containers running in this network.
 In a nutshell, docker networks are natural ways to isolate containers
@@ -351,8 +367,8 @@ pressing <code>control + s</code></p>
 again save by pressing <code>control + s</code></p>
 <p><strong>8.</strong> Now from the terminal navigate to the cli directory within
 MagnetoCorp. <strong>NOTE:</strong> scroll over to see the entire command below </p>
-<pre><code>tecadmin@ubuntubase:~/Desktop/mycontract$ cd fabric-samples/commercial-paper/organization/magnetocorp/configuration/cli/
-tecadmin@ubuntubase:~/Desktop/mycontract/fabric-samples/commercial-paper/organization/magnetocorp/configuration/cli/$ ls -l
+<pre><code>tecadmin@ubuntubase:~/Desktop$ cd fabric-samples/commercial-paper/organization/magnetocorp/configuration/cli/
+tecadmin@ubuntubase:~/Desktop/fabric-samples/commercial-paper/organization/magnetocorp/configuration/cli/$ ls -l
 total 16
 -rw-r--r--  1 tecadmin  tecadmin  1168 Feb 22 12:41 docker-compose.yml
 -rwxr-xr-x  1 tecadmin  tecadmin   751 Feb 22 12:44 monitordocker.sh
@@ -360,7 +376,7 @@ total 16
 <p><strong>9.</strong> Now that we have updated these files to specify the correct
 Docker network, go ahead run the monitordocker.sh script with the name of our
 Docker network. <strong>NOTE:</strong> scroll over to see the entire command below </p>
-<pre><code>tecadmin@ubuntubase:~/Desktop/mycontract/fabric-samples/commercial-paper/organization/magnetocorp/configuration/cli/$ ./monitordocker.sh fabricvscodelocalfabric_basic
+<pre><code>tecadmin@ubuntubase:~/Desktop/fabric-samples/commercial-paper/organization/magnetocorp/configuration/cli/$ ./monitordocker.sh fabricvscodelocalfabric_basic
 </code></pre>
 <p>This command will pull down another container that just monitors all of
 the docker log output from the <code>fabricvscodelocalfabric_basic</code> network.
@@ -374,7 +390,7 @@ same file path that you were in on the previous tab. Now that we have a
 command line ready, go ahead and enter the command below that will
 create a <code>cliMagnetoCorp</code> container for our docker network to use.
 <strong>NOTE:</strong> scroll over to see the entire command below </p>
-<pre><code>tecadmin@ubuntubase:~/Desktop/mycontract/fabric-samples/commercial-paper/organization/magnetocorp/configuration/cli/$ docker-compose -f docker-compose.yml up -d cliMagnetoCorp
+<pre><code>tecadmin@ubuntubase:~/Desktop/fabric-samples/commercial-paper/organization/magnetocorp/configuration/cli/$ docker-compose -f docker-compose.yml up -d cliMagnetoCorp
 .
 . # We'll see docker messages
 .
@@ -464,7 +480,7 @@ return paper.toBuffer();
 <p><strong>2.</strong> Now that we have an understanding of the smart contract, let's
 actually install it on our peer through our terminal. <strong>NOTE:</strong> scroll
 over to see the entire command below </p>
-<pre><code>tecadmin@ubuntubase:~/Desktop/mycontract/fabric-samples/commercial-paper/organization/magnetocorp/configuration/cli/$ docker exec cliMagnetoCorp peer chaincode install -n papercontract -v 0 -p /opt/gopath/src/github.com/contract -l node
+<pre><code>tecadmin@ubuntubase:~/Desktop/fabric-samples/commercial-paper/organization/magnetocorp/configuration/cli/$ docker exec cliMagnetoCorp peer chaincode install -n papercontract -v 0 -p /opt/gopath/src/github.com/contract -l node
 2019-02-22 17:48:23.721 UTC [chaincodeCmd] checkChaincodeCmdParams -&gt; INFO 001 Using default escc
 2019-02-22 17:48:23.721 UTC [chaincodeCmd] checkChaincodeCmdParams -&gt; INFO 002 Using default vscc
 2019-02-22 17:48:23.862 UTC [chaincodeCmd] install -&gt; INFO 003 Installed remotely response:&lt;status:200 payload:"OK" &gt;
@@ -489,11 +505,11 @@ the <code>Local Fabric Ops</code> panel</p>
 <p><strong>4.</strong> Since we have installed the smart contract, we should actually
 make it active by instantiating it. <strong>NOTE:</strong> scroll over to see the
 entire command below </p>
-<pre><code>tecadmin@ubuntubase:~/Desktop/mycontract/fabric-samples/commercial-paper/organization/magnetocorp/configuration/cli/$ docker exec cliMagnetoCorp peer chaincode instantiate -n papercontract -v 0 -l node -c '{"Args":["org.papernet.commercialpaper:instantiate"]}' -C mychannel -P ""
+<pre><code>tecadmin@ubuntubase:~/Desktop/fabric-samples/commercial-paper/organization/magnetocorp/configuration/cli/$ docker exec cliMagnetoCorp peer chaincode instantiate -n papercontract -v 0 -l node -c '{"Args":["org.papernet.commercialpaper:instantiate"]}' -C mychannel -P ""
 2019-02-22 17:50:34.673 UTC [chaincodeCmd] InitCmdFactory -&gt; INFO 001 Retrieved channel (mychannel) orderer endpoint:   orderer.example.com:7050
 2019-02-22 17:50:34.675 UTC [chaincodeCmd] checkChaincodeCmdParams -&gt; INFO 002 Using default escc
 2019-02-22 17:50:34.675 UTC [chaincodeCmd] checkChaincodeCmdParams -&gt; INFO 003 Using default vscc
-tecadmin@ubuntubase:~/Desktop/mycontract/fabric-samples/commercial-paper/organization/magnetocorp/configuration/cli/$
+tecadmin@ubuntubase:~/Desktop/fabric-samples/commercial-paper/organization/magnetocorp/configuration/cli/$
 </code></pre>
 <p>As you can see in the image below, we are instantiating a copy of the
 commercial paper smart contract on our MagnetoCorp peer. Similar to the
@@ -513,14 +529,14 @@ identities so that those identities can invoke and query transactions.</p>
 <p><strong>1.</strong> You should be within the <code>cli</code> folder of the MagnetoCorp folder.
 You can confirm this by issuing the command below. <strong>NOTE:</strong> scroll over
 to see the entire command below</p>
-<pre><code>tecadmin@ubuntubase:~/Desktop/mycontract/fabric-samples/commercial-paper/organization/magnetocorp/configuration/cli/$ pwd
+<pre><code>tecadmin@ubuntubase:~/Desktop/fabric-samples/commercial-paper/organization/magnetocorp/configuration/cli/$ pwd
 /Users/home/Desktop/fabric-samples/commercial-paper/organization/magnetocorp/configuration/cli
 </code></pre>
 <p>This is a good sign. Issue the following command below to get to the
 <code>application</code> folder within MagnetoCorp. <strong>NOTE:</strong> scroll over to see
 the entire command below</p>
-<pre><code>tecadmin@ubuntubase:~/Desktop/mycontract/fabric-samples/commercial-paper/organization/magnetocorp/configuration/cli/$ cd ../../application/
-tecadmin@ubuntubase:~/Desktop/mycontract/fabric-samples/commercial-paper/organization/magnetocorp/application$
+<pre><code>tecadmin@ubuntubase:~/Desktop/fabric-samples/commercial-paper/organization/magnetocorp/configuration/cli/$ cd ../../application/
+tecadmin@ubuntubase:~/Desktop/fabric-samples/commercial-paper/organization/magnetocorp/application$
 </code></pre>
 <p><strong>2.</strong> From the <code>Explorer</code> perspective within VSCode, navigate to the
 same folder. That is, the <code>application</code> folder within <code>MagnetoCorp</code>. You
@@ -585,14 +601,14 @@ represent our connection profile. We can do this by opening the
 our Orderer (line 91), Peer (line 105) and CA (117). You can find these
 ports by doing the following command from your terminal application.
 <strong>NOTE:</strong> scroll over to see the entire command below </p>
-<pre><code>tecadmin@ubuntubase:~/Desktop/mycontract/fabric-samples/commercial-paper/organization/magnetocorp/application$ docker ps -a
+<pre><code>tecadmin@ubuntubase:~/Desktop/fabric-samples/commercial-paper/organization/magnetocorp/application$ docker ps -a
 </code></pre>
 <p>Once you have modified the file, please <strong>save it (control + s)</strong>.</p>
 <p><img alt="image" src="../images/18.png" /></p>
 <p><strong>5.</strong> Enter the following command to install the needed packages
 from the <code>package.json</code> file. <strong>NOTE:</strong> scroll over to see the entire
 command below </p>
-<pre><code>tecadmin@ubuntubase:~/Desktop/mycontract/fabric-samples/commercial-paper/organization/magnetocorp/application$ npm install
+<pre><code>tecadmin@ubuntubase:~/Desktop/fabric-samples/commercial-paper/organization/magnetocorp/application$ npm install
 .
 . # A bunch of output, with some of the output repeating
 .
@@ -607,16 +623,16 @@ added 318 packages in 36.994s
 <p><strong>6.</strong> Since we are in our command line, let's issue the following
 command that will create Isabella. <strong>NOTE:</strong> scroll over to see the
 entire command below </p>
-<pre><code>tecadmin@ubuntubase:~/Desktop/mycontract/fabric-samples/commercial-paper/organization/magnetocorp/application$ node addToWallet.js 
+<pre><code>tecadmin@ubuntubase:~/Desktop/fabric-samples/commercial-paper/organization/magnetocorp/application$ node addToWallet.js 
 done
 </code></pre>
 <p><strong>7.</strong> We will know it worked if we can execute the following command
 successfully. <strong>NOTE:</strong> scroll over to see the entire command
 below </p>
-<pre><code>tecadmin@ubuntubase:~/Desktop/mycontract/fabric-samples/commercial-paper/organization/magnetocorp/application$ ls -l ../identity/user/isabella/wallet/
+<pre><code>tecadmin@ubuntubase:~/Desktop/fabric-samples/commercial-paper/organization/magnetocorp/application$ ls -l ../identity/user/isabella/wallet/
 total 0
 drwxr-xr-x  5 tecadmin  tecadmin  160 Feb 22 12:53 User1@org1.example.com
-tecadmin@ubuntubase:~/Desktop/mycontract/fabric-samples/commercial-paper/organization/magnetocorp/application$ ls -l ../identity/user/isabella/wallet/User1@org1.example.com/
+tecadmin@ubuntubase:~/Desktop/fabric-samples/commercial-paper/organization/magnetocorp/application$ ls -l ../identity/user/isabella/wallet/User1@org1.example.com/
 total 24
 -rw-r--r--  1 tecadmin  tecadmin  1037 Feb 22 12:53 User1@org1.example.com
 -rw-r--r--  1 tecadmin  tecadmin   246 Feb 22 12:53 c75bd6911aca808941c3557ee7c97e90f3952e379497dc55eb903f31b50abc83-priv
@@ -642,7 +658,7 @@ certificate used in this example</p>
 <p><strong>8.</strong> Now that we have Isabella from MagnetoCorp, let's perform 
 the issue transaction from our terminal. <strong>NOTE:</strong> scroll over to see
 the entire command below </p>
-<pre><code>tecadmin@ubuntubase:~/Desktop/mycontract/fabric-samples/commercial-paper/organization/magnetocorp/application$ node issue.js
+<pre><code>tecadmin@ubuntubase:~/Desktop/fabric-samples/commercial-paper/organization/magnetocorp/application$ node issue.js
 Connect to Fabric gateway.
 Use network channel: mychannel.
 Use org.papernet.commercialpaper smart contract.
@@ -673,8 +689,8 @@ third tab will act as DigiBank.</p>
 <p><strong>10.</strong> We now need to switch to a new directory, specifically the
 application folder of DigiBank. <strong>NOTE:</strong> scroll over to see the entire
 command below </p>
-<pre><code>tecadmin@ubuntubase:~/Desktop/mycontract/fabric-samples/commercial-paper/organization/magnetocorp/application$ cd ../../digibank/application/
-tecadmin@ubuntubase:~/Desktop/mycontract/fabric-samples/commercial-paper/organization/digibank/application$
+<pre><code>tecadmin@ubuntubase:~/Desktop/fabric-samples/commercial-paper/organization/magnetocorp/application$ cd ../../digibank/application/
+tecadmin@ubuntubase:~/Desktop/fabric-samples/commercial-paper/organization/digibank/application$
 </code></pre>
 <p><strong>11.</strong> Navigate to the application folder of DigiBank in the
 editior perspective in VSCode </p>
@@ -693,14 +709,14 @@ command from our terminal. If you are confused as to where to modify
 your port numbers, look at the picture on <code>step 4</code> to get a sense as to
 where we are grabbing our ports from. <strong>NOTE:</strong> scroll over to see the
 entire command below </p>
-<pre><code>tecadmin@ubuntubase:~/Desktop/mycontract/fabric-samples/commercial-paper/organization/digibank/application$ docker ps -a
+<pre><code>tecadmin@ubuntubase:~/Desktop/fabric-samples/commercial-paper/organization/digibank/application$ docker ps -a
 </code></pre>
 <p>Once we have modified the file, please <strong>save it (control + s).</strong>
 <strong>NOTE:</strong> If you don't do this step, the rest of the lab will not work.</p>
 <p><strong>14.</strong> Back in our terminal and using our <code>DigiBank</code> tab, we can run
 the next command to install some required packages. <strong>NOTE:</strong> You will
 have to scroll over to see the entire command below </p>
-<pre><code>tecadmin@ubuntubase:~/Desktop/mycontract/fabric-samples/commercial-paper/organization/digibank/application$ npm install
+<pre><code>tecadmin@ubuntubase:~/Desktop/fabric-samples/commercial-paper/organization/digibank/application$ npm install
 .
 .
 .
@@ -714,16 +730,16 @@ added 318 packages in 27.138s
 </code></pre>
 <p><strong>15.</strong> Now, let's add Balaji from <code>DigiBank</code>. <strong>NOTE:</strong> scroll over
 to see the entire command below </p>
-<pre><code>tecadmin@ubuntubase:~/Desktop/mycontract/fabric-samples/commercial-paper/organization/digibank/application$ node addToWallet.js 
+<pre><code>tecadmin@ubuntubase:~/Desktop/fabric-samples/commercial-paper/organization/digibank/application$ node addToWallet.js 
 done
 </code></pre>
 <p><strong>16.</strong> We can confirm that we actually created an identity by viewing
 its public/private key below. <strong>NOTE:</strong> scroll over to see the entire
 command </p>
-<pre><code>tecadmin@ubuntubase:~/Desktop/mycontract/fabric-samples/commercial-paper/organization/digibank/application$ ls -l ../identity/user/balaji/wallet/
+<pre><code>tecadmin@ubuntubase:~/Desktop/fabric-samples/commercial-paper/organization/digibank/application$ ls -l ../identity/user/balaji/wallet/
 total 0
 drwxr-xr-x  5 tecadmin  tecadmin  160 Feb 22 12:57 Admin@org1.example.com
-tecadmin@ubuntubase:~/Desktop/mycontract/fabric-samples/commercial-paper/organization/digibank/application$ ls -l ../identity/user/balaji/wallet/Admin@org1.example.com/
+tecadmin@ubuntubase:~/Desktop/fabric-samples/commercial-paper/organization/digibank/application$ ls -l ../identity/user/balaji/wallet/Admin@org1.example.com/
 total 24
 -rw-r--r--  1 tecadmin  tecadmin  1033 Feb 22 12:57 Admin@org1.example.com
 -rw-r--r--  1 tecadmin  tecadmin   246 Feb 22 12:57 cd96d5260ad4757551ed4a5a991e62130f8008a0bf996e4e4b84cd097a747fec-priv
@@ -763,8 +779,8 @@ async getPaper(ctx, issuer, paperNumber) {
 <p><strong>3.</strong> From the terminal in our <code>digibank tab</code>, add a file below that
 will execute the query that we just added to our smart contract. <strong>NOTE:</strong>
 there are multiple steps in this command and you will have to scroll over to see the entire series of commands below</p>
-<pre><code>tecadmin@ubuntubase:~/Desktop/mycontract/fabric-samples/commercial-paper/organization/digibank/application$ touch getPaper.js
-tecadmin@ubuntubase:~/Desktop/mycontract/fabric-samples/commercial-paper/organization/digibank/application$ vi getPaper.js
+<pre><code>tecadmin@ubuntubase:~/Desktop/fabric-samples/commercial-paper/organization/digibank/application$ touch getPaper.js
+tecadmin@ubuntubase:~/Desktop/fabric-samples/commercial-paper/organization/digibank/application$ vi getPaper.js
 
 ---
 
@@ -1078,7 +1094,7 @@ like price.</p>
 <p><strong>2.</strong> From the <code>digibank</code> perspective in your terminal (your 3rd
 terminal) enter this command. <strong>NOTE:</strong> scroll over to see the entire
 command below </p>
-<pre><code>tecadmin@ubuntubase:~/Desktop/mycontract/fabric-samples/commercial-paper/organization/digibank/application$ node getPaper.js
+<pre><code>tecadmin@ubuntubase:~/Desktop/fabric-samples/commercial-paper/organization/digibank/application$ node getPaper.js
 Connect to Fabric gateway.
 Use network channel: mychannel.
 Use org.papernet.commercialpaper smart contract.
@@ -1099,7 +1115,7 @@ getPaper program complete.
 </code></pre>
 <p><strong>3.</strong> Now that we know the status of our paper, let's actually buy the
 paper. <strong>NOTE:</strong> scroll over to see the entire command below </p>
-<pre><code>tecadmin@ubuntubase:~/Desktop/mycontract/fabric-samples/commercial-paper/organization/digibank/application$ node buy.js
+<pre><code>tecadmin@ubuntubase:~/Desktop/fabric-samples/commercial-paper/organization/digibank/application$ node buy.js
 Connect to Fabric gateway.
 Use network channel: mychannel.
 Use org.papernet.commercialpaper smart contract.
@@ -1113,7 +1129,7 @@ Buy program complete.
 </code></pre>
 <p><strong>4.</strong> Let's observe the current status of the paper. <strong>NOTE:</strong> scroll
 over to see the entire command below </p>
-<pre><code>tecadmin@ubuntubase:~/Desktop/mycontract/fabric-samples/commercial-paper/organization/digibank/application$ node getPaper.js
+<pre><code>tecadmin@ubuntubase:~/Desktop/fabric-samples/commercial-paper/organization/digibank/application$ node getPaper.js
 Connect to Fabric gateway.
 Use network channel: mychannel.
 Use org.papernet.commercialpaper smart contract.
@@ -1135,7 +1151,7 @@ getPaper program complete.
 <p><strong>5.</strong> Let's pretend the maturity date has been reached so that we can now
 redeem this paper. Let's do that now. <strong>NOTE:</strong> scroll over to see the
 entire command below </p>
-<pre><code>tecadmin@ubuntubase:~/Desktop/mycontract/fabric-samples/commercial-paper/organization/digibank/application$ node redeem.js 
+<pre><code>tecadmin@ubuntubase:~/Desktop/fabric-samples/commercial-paper/organization/digibank/application$ node redeem.js 
 Connect to Fabric gateway.
 Use network channel: mychannel.
 Use org.papernet.commercialpaper smart contract.
@@ -1149,7 +1165,7 @@ Redeem program complete.
 </code></pre>
 <p><strong>6.</strong> Once again, let's get the status of the paper. <strong>NOTE:</strong> scroll
 over to see the entire command below </p>
-<pre><code>tecadmin@ubuntubase:~/Desktop/mycontract/fabric-samples/commercial-paper/organization/digibank/application$ node getPaper.js
+<pre><code>tecadmin@ubuntubase:~/Desktop/fabric-samples/commercial-paper/organization/digibank/application$ node getPaper.js
 Connect to Fabric gateway.
 Use network channel: mychannel.
 Use org.papernet.commercialpaper smart contract.
@@ -1210,7 +1226,7 @@ s)</strong>.</p>
 new paper from our terminal. To do this, we have to be in our
 <code>MagnetoCorp</code> perspective (our 2nd terminal tab). Within that command
 line, enter this. <strong>NOTE:</strong> scroll over to see the entire command below</p>
-<pre><code>tecadmin@ubuntubase:~/Desktop/mycontract/fabric-samples/commercial-paper/organization/magnetocorp/application$ node issue.js 
+<pre><code>tecadmin@ubuntubase:~/Desktop/fabric-samples/commercial-paper/organization/magnetocorp/application$ node issue.js 
 Connect to Fabric gateway.
 Use network channel: mychannel.
 Use org.papernet.commercialpaper smart contract.
@@ -1225,7 +1241,7 @@ Issue program complete.
 <p><strong>11.</strong> Now, switch to <code>Digibank's</code> perspective in our terminal (our 3rd
 terminal tab) and do a <code>getPaper</code> query using <code>getPaper.js</code>. <strong>NOTE:</strong>
 scroll over to see the entire command below </p>
-<pre><code>tecadmin@ubuntubase:~/Desktop/mycontract/fabric-samples/commercial-paper/organization/digibank/application$ node getPaper.js
+<pre><code>tecadmin@ubuntubase:~/Desktop/fabric-samples/commercial-paper/organization/digibank/application$ node getPaper.js
 Connect to Fabric gateway.
 Use network channel: mychannel.
 Use org.papernet.commercialpaper smart contract.
@@ -1259,7 +1275,7 @@ enter this below </p>
 generated in VSCode. We can confirm that by doing a <code>getPaper.js</code> query
 again in our terminal (3rd terminal tab). <strong>NOTE:</strong> scroll over to see
 the entire command below </p>
-<pre><code>tecadmin@ubuntubase:~/Desktop/mycontract/fabric-samples/commercial-paper/organization/digibank/application$ node getPaper.js
+<pre><code>tecadmin@ubuntubase:~/Desktop/fabric-samples/commercial-paper/organization/digibank/application$ node getPaper.js
 Connect to Fabric gateway.
 Use network channel: mychannel.
 Use org.papernet.commercialpaper smart contract.
@@ -1291,7 +1307,7 @@ and untoggle to the transactions and query. Then, right click on
 <p><strong>15.</strong> What do you think the next action will be? If you're thinking
 the <code>getPaper</code> query, you were right. <strong>NOTE:</strong> scroll over to see the
 entire command below </p>
-<pre><code>tecadmin@ubuntubase:~/Desktop/mycontract/fabric-samples/commercial-paper/organization/digibank/application$ node getPaper.js
+<pre><code>tecadmin@ubuntubase:~/Desktop/fabric-samples/commercial-paper/organization/digibank/application$ node getPaper.js
 Connect to Fabric gateway.
 Use network channel: mychannel.
 Use org.papernet.commercialpaper smart contract.

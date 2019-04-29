@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Part 1 - Blockchain Immersion Workshop</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Part 1";
+    var mkdocs_page_input_path = "immunichain.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Blockchain Immersion Workshop</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Hyperledger Fabric Lab</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../hlf-home/">Introduction</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../hlf-part1/">Part 1</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../hlf-part2/">Part 2</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Use Case Walkthrough</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../immunichain-home/">Introduction</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">Part 1</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#part-1-immunichain-walk-through">Part 1: Immunichain Walk Through</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#section-1-create-your-participants-child">Section 1: Create your Participants &amp; Child</a></li>
+        
+            <li><a class="toctree-l4" href="#section-2-create-a-child-and-grant-access">Section 2: Create a Child and Grant Access</a></li>
+        
+            <li><a class="toctree-l4" href="#section-3-add-immunizations">Section 3: Add Immunizations</a></li>
+        
+            <li><a class="toctree-l4" href="#section-4-revoking-access">Section 4: Revoking Access</a></li>
+        
+        </ul>
+    
+
+    </ul>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">VSCode Lab</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../vscode-home/">Introduction</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../vscode-part1/">Part 1</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../vscode-part2/">Part 2</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">IBM Blockchain Platform Connect-a-thon Lab</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../connect-home/">Introduction</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../connect-part1/">Part 1</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../connect-part2/">Part 2</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../references/">Additional Resources</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Blockchain Immersion Workshop</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Use Case Walkthrough &raquo;</li>
+        
+      
+    
+    <li>Part 1</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="part-1-immunichain-walk-through">Part 1: Immunichain Walk Through</h1>
+<h2 id="section-1-create-your-participants-child">Section 1: Create your Participants &amp; Child</h2>
+<p><strong>1.</strong>  Begin by going to the Immunichain UI below:</p>
+<pre><code>https://immunichain.zcloud.marist.edu/login/
+</code></pre>
+<p><strong>2.</strong>  Click on <code>Create an account</code></p>
+<p><strong>3.</strong>  You will be prompted to fill out a profile for your participant. In
+    the <code>Role</code> field, select your participant (Guardian, Healthcare
+    Provider and Member Organization). Based on your role, fill out the
+    rest of the information.</p>
+<p><strong>NOTE:</strong> You will want to make your profile specific to you. As
+everyone is creating their participant, it is being inserted into one
+database. By the time you create your participants, there could be
+multiple medical providers and member organizations. If you make them
+specific to you, you will know which medical provider and member
+organiation to assign to your child.</p>
+<p>Here is my guardian:</p>
+<p><img alt="image" src="../images/immunichainimages/1.png" /></p>
+<p><strong>4.</strong>  Once you have successfully created a guardian, you will be welcomed
+    with the guardian's homepage</p>
+<p><img alt="image" src="../images/immunichainimages/2.png" /></p>
+<p><strong>5.</strong>  Once you have looked through the available options for our guardian,
+    you can click on <code>logout</code> in the top right</p>
+<p><strong>6.</strong>  Once you are on the Immunichain homepage, you can click on
+    <code>Create an account</code> once more. This time, make a healthcare provider</p>
+<p>Here is my healthcare provider:</p>
+<p><img alt="image" src="../images/immunichainimages/3.png" /></p>
+<p><strong>7.</strong>  Once you have made your healthcare provider, you will be graced with
+    its profile</p>
+<p><img alt="image" src="../images/immunichainimages/4.png" /></p>
+<p><strong>8.</strong>  Once you have looked through the available options for our
+    healthcare provider, you can click on <code>logout</code> in the top right</p>
+<p><strong>9.</strong>  Once you are on the Immunichain homepage, you can click on
+    <code>Create an account</code> once more. This time, make a member organization</p>
+<p>Here is my member organization:</p>
+<p><img alt="image" src="../images/immunichainimages/5.png" /></p>
+<p><strong>10.</strong> Once you have made you member organization, you will be greeted with
+    its profile</p>
+<p><img alt="image" src="../images/immunichainimages/6.png" /></p>
+<p><strong>11.</strong> Look through the available options for our member organization. Once
+    you are finished, you can click on <code>logout</code> in the top right</p>
+<h2 id="section-2-create-a-child-and-grant-access">Section 2: Create a Child and Grant Access</h2>
+<p><strong>1.</strong>  You should be on the Immunichain homepage. If you are log into your
+    <code>guardian</code></p>
+<p><img alt="image" src="../images/immunichainimages/7.png" /></p>
+<p><strong>2.</strong>  Once you get to your guardian's profile, scroll down and click on
+    <code>Continue</code> of <code>Add a Child</code></p>
+<p><strong>3.</strong>  Fill out the information for our hypothetical child and choose the
+    healthcare provider and member organization that you created</p>
+<p><strong>NOTE</strong> Remember how I said - at the beginning - that there would be
+multiple healthcare providers and members to choose from, you now know
+why I said to make the participants specific to you.</p>
+<p><img alt="image" src="../images/immunichainimages/8.png" /></p>
+<p><strong>4.</strong>  Click on <code>Submit</code> once you have filled out your child's information</p>
+<p><img alt="image" src="../images/immunichainimages/9.png" /></p>
+<p><strong>5.</strong>  Click on <code>return home</code> and that should take you back to the
+    guardian's profile. Now that you think you have create a child, you
+    can confirm by click on <code>Continue</code> of <code>View Record</code></p>
+<p><strong>6.</strong>  Select our new child and click on <code>Continue</code></p>
+<p><strong>7.</strong>  You should now see all the information you just filled in for our
+    child</p>
+<p><img alt="image" src="../images/immunichainimages/10.png" /></p>
+<p><strong>8.</strong>  You will notice that we have already granted access for our
+    healthcare provider, Suzie, and then our member organization,
+    KennysCamp.</p>
+<p>If you did not grant access for our other participants when creating the
+child, you will see blank information in the <code>Medical Providers</code> and
+<code>Member Organizations</code> section. You can change that by going to the
+guardian's profile and then click on <code>Authorize Member</code> or
+<code>Add Medical Provider</code></p>
+<h2 id="section-3-add-immunizations">Section 3: Add Immunizations</h2>
+<p><strong>1.</strong>  Navigate your way back to the Immunichain homepage. Once you are
+    there, log into our member organization</p>
+<p><img alt="image" src="../images/immunichainimages/11.png" /></p>
+<p><strong>2.</strong>  Click on <code>Continue</code> of the <code>View Record</code> tile</p>
+<p><strong>3.</strong>  You should only see the children in which we have access to - in
+    this case, it should only be <code>BabyDennis</code></p>
+<p><img alt="image" src="../images/immunichainimages/12.png" /></p>
+<p><strong>4.</strong>  Click on <code>Continue</code> and you should see all of Dennis's information</p>
+<p><img alt="image" src="../images/immunichainimages/13.png" /></p>
+<p><strong>5.</strong>  You will notice, that there are no immunization shots on Dennis's
+    record. Let's change that. We can do that by logging out of our
+    Member and then logging into our Healthcare Provider</p>
+<p><img alt="image" src="../images/immunichainimages/14.png" /></p>
+<p><strong>6.</strong>  Once you get to the medical providers homepage, click on <code>Continue</code>
+    of <code>Add Immunization</code>. Then select our child, <code>Dennis</code>.</p>
+<p><strong>7.</strong>  You should now be on the screen to add immunizations for Dennis. Go
+    ahead and give Dennis an immunization shot with today's date</p>
+<p><img alt="image" src="../images/immunichainimages/15.png" /></p>
+<p><strong>8.</strong>  Go ahead and click on <code>Submit</code> to add this immunization shot. Once
+    you have done that, you will should see a <code>Success</code> message</p>
+<p><img alt="image" src="../images/immunichainimages/16.png" /></p>
+<p><strong>9.</strong>  Now that we have successfully added an immunization shot, we can see
+    if our member can see it on their end. You can do that by logging
+    out of the healthcare provider and then logging into our member.</p>
+<p><strong>10.</strong> Once you are on the member's profile, you can click on <code>Continue</code>
+    of the <code>View Record</code> tile and selecting Dennis.</p>
+<p><strong>11.</strong> Now that we have selected Dennis, you can see see the updated
+    information of Dennis's immunization shot</p>
+<p><img alt="image" src="../images/immunichainimages/17.png" /></p>
+<p><strong>12.</strong> Imagine if you were a SummerCamp or another member participant that
+    needs childrens medical shot record. Doing this digital increases
+    the accuracy of the data due to the healthcare provider inputting
+    the data right when the shot was administered. Additionally, this
+    will allow them to increase their efficency of approving children
+    into their camp, for example.</p>
+<p>Now if you were a guardian and a summer camp already approved your
+child, we would want to revoke that member from seeing our child's
+immunization record. How do we do that? We will do exactly that in the
+next section.</p>
+<h2 id="section-4-revoking-access">Section 4: Revoking Access</h2>
+<p><strong>1.</strong>  Navigate back to Immunchain's homepage and log into the Guardian's
+    profile</p>
+<p><strong>2.</strong>  Click on <code>Continue</code> of the <code>Deauthorize Member</code> tile</p>
+<p><strong>3.</strong>  Select Dennis as our child and then select our Member, KennysCamp,
+    as the one we revoking access to</p>
+<p><img alt="image" src="../images/immunichainimages/18.png" /></p>
+<p><strong>4.</strong>  You should get a <code>Success</code> message once click on <code>Submit</code> of the
+    revoking our member</p>
+<p><img alt="image" src="../images/immunichainimages/19.png" /></p>
+<p><strong>5.</strong>  Now, log out of our guardian and log into our medical provider</p>
+<p><strong>6.</strong>  Once in the medical provider's profile, click on <code>Continue</code> of the
+    <code>Add Immunization</code> tile</p>
+<p><strong>7.</strong>  Select our child, Dennis, and then add another immunization to his
+    record</p>
+<p><img alt="image" src="../images/immunichainimages/20.png" /></p>
+<p><strong>8.</strong>  Once you get the <code>Success</code> message, click on <code>Back to Home</code>.</p>
+<p><strong>9.</strong>  You should still be in the guardian's profile. Since you are, click
+    on <code>Continue</code> of the <code>View Record</code> tile. Then select our child,
+    Dennis. You should then see Dennis's updated immunization record</p>
+<p><img alt="image" src="../images/immunichainimages/21.png" /></p>
+<p><strong>10.</strong> Log out of our medical provider and then log into our member,
+    KennysCamp.</p>
+<p><strong>11.</strong> Click on <code>Continue</code> of the <code>View Record</code> tile. You should see the
+    message of: <code>You do not have any children</code>. This means the
+    KennysCamp can't view Dennis's immunization record anymore.</p>
+<p><img alt="image" src="../images/immunichainimages/22.png" /></p>
+<p>Optional: If you want to grant KennysCamp as a member again, you can go
+back into the guardian's profile. Once there, you can click on
+<code>Continue</code> of the <code>Authorize Member</code> tile. Then you can grant KennysCamp
+as an authorized member for Dennis. Now if you go back to KennysCamp,
+click on <code>Continue</code> of the <code>View Record</code> tile and you should see the
+updated information for Dennis.</p>
+<p><img alt="image" src="../images/immunichainimages/23.png" /></p>
+<p><strong>End of Lab</strong></p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../vscode-home/" class="btn btn-neutral float-right" title="Introduction">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../immunichain-home/" class="btn btn-neutral" title="Introduction"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/ibm-blockchain-wsc/ImmersionWorkshop.git" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../immunichain-home/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../vscode-home/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+
+</body>
+</html>
