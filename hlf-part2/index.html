@@ -303,7 +303,7 @@ intended). Type this:</p>
 bcuser@ubuntu18042:~/zmarbles/marblesUI/config$
 </code></pre>
 <p>This command will print as much of the file as it can on your screen but
-will pause until you hit enter before displaying the rest of the file's
+will pause until you hit the space bar before displaying the rest of the file's
 contents. Here are the complete contents of this file:</p>
 <pre><code>{
    "name": "Docker Compose Network",
@@ -404,18 +404,19 @@ Fabric Node.js SDK documentation at
 <a href="https://fabric-sdk-node.github.io/tutorial-network-config.html">https://fabric-sdk-node.github.io/tutorial-network-config.html</a> which
 is a little more advanced, and it describes the profile in YAML form
 versus the JSON form that this Marbles demo app uses.</p>
-<p><strong>IMPORTANT: if you used a channel name other than the default of
-mychannel, you must change this value from mychannel to the value you
-used.</strong> Either use the <em>vi</em> editor if you are comfortable with that, or,
-you could use <em>sed</em>. For example, here is a <em>sed</em> command, to change the
-channel name from <em>mychannel</em> to <em>tim</em>, along with "before" and "after"
-<em>grep</em> commands to show the changes <strong>(These commands are examples and
-only needed if you did not use the default channel name of mychannel)</strong></p>
+<div class="admonition important">
+<p class="admonition-title">Important<p>If you used a channel name other than the default of mychannel, you must change this value from mychannel to the value you used.<strong> Either use the <em>vi</em> editor if you are comfortable with that, or, you could use <em>sed</em>. For example, below there is a <em>sed</em> command, to change the channel name from <em>mychannel</em> to <em>tim</em>, along with "before" and "after" <em>grep</em> commands to show the changes </strong>(These commands are examples and only needed if you did not use the default channel name of mychannel)** </p>
+</p>
+</div>
 <div class="admonition warning">
 <p class="admonition-title">Warning<p>This step is necessary only if you did not use this lab's default channel name of <em>mychannel</em>
 earlier in Part 1 of this lab. And of course, this example shows the steps for changing the
 channel name to <em>tim</em>, so tailor the command shown here according to whatever <em>non-default</em> 
 channel name you may have chosen.</p>
+</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning<p>Unlike most steps in this lab, there are three commands to enter in this step, two <em>greps</em> and a <em>sed</em> (hey, that sounds like a good name for a television show).  But, again, and I can't emphasize this enough, don't run the commands in this step if you kept your channel name as the default value of <em>mychannel</em>.</p>
 </p>
 </div>
 <pre><code>
