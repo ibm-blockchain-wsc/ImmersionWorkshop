@@ -140,7 +140,7 @@ intended). Type this:
     bcuser@ubuntu18042:~/zmarbles/marblesUI/config$ 
 
 This command will print as much of the file as it can on your screen but
-will pause until you hit enter before displaying the rest of the file's
+will pause until you hit the space bar before displaying the rest of the file's
 contents. Here are the complete contents of this file:
 
     {
@@ -243,19 +243,18 @@ Fabric Node.js SDK documentation at
 is a little more advanced, and it describes the profile in YAML form
 versus the JSON form that this Marbles demo app uses.
 
-**IMPORTANT: if you used a channel name other than the default of
-mychannel, you must change this value from mychannel to the value you
-used.** Either use the *vi* editor if you are comfortable with that, or,
-you could use *sed*. For example, here is a *sed* command, to change the
-channel name from *mychannel* to *tim*, along with "before" and "after"
-*grep* commands to show the changes **(These commands are examples and
-only needed if you did not use the default channel name of mychannel)**
+!!! important
+        If you used a channel name other than the default of mychannel, you must change this value from mychannel to the value you used.** Either use the *vi* editor if you are comfortable with that, or, you could use *sed*. For example, below there is a *sed* command, to change the channel name from *mychannel* to *tim*, along with "before" and "after" *grep* commands to show the changes **(These commands are examples and only needed if you did not use the default channel name of mychannel)** 
 
 !!! warning
         This step is necessary only if you did not use this lab's default channel name of *mychannel*
         earlier in Part 1 of this lab. And of course, this example shows the steps for changing the
         channel name to *tim*, so tailor the command shown here according to whatever *non-default* 
         channel name you may have chosen.
+
+!!! warning
+        Unlike most steps in this lab, there are three commands to enter in this step, two *greps* and a *sed* (hey, that sounds like a good name for a television show).  But, again, and I can't emphasize this enough, don't run the commands in this step if you kept your channel name as the default value of *mychannel*.
+        
 ```
 
     bcuser@ubuntu18042:~/zmarbles/marblesUI/config$ grep mychannel connection_profile[12].json 

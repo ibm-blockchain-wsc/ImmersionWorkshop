@@ -195,7 +195,7 @@ The *bin* directory contains two executable programs, *cryptogen* and
 The *channel-artifacts* directory is empty, but it must exist when the
 *generateArtifacts.sh* script, which you will run later, invokes the
 *configtxgen* utility. The *configtxgen* utility generates input to
-channel configuration transaction inputs, and it is expecting the
+channel configuration transactions, and it is expecting the
 *channel-artifacts* directory to exist.
 
 The *configtx.yaml* file is input to the *configtxgen* utility
@@ -221,8 +221,8 @@ and it also creates *docker-compose.yaml*, using
 
 The *hostScripts* directory is not used in this lab.
 
-The *marblesUI* directory is used in the next lab, in which you will be
-working with the brwoser-based user interface (UI) for Marbles.
+The *marblesUI* directory is used in Part 2 of this lab, in which you will be
+working with the browser-based user interface (UI) for Marbles.
 
 The *scripts* directory contains a script named *setpeer* that you will
 be using throughout this lab from within the *cli* Docker container.
@@ -246,9 +246,8 @@ name. E.g., if you wished to name your channel *tim*, then you would
 enter *./generateArtifacts.sh tim* instead of just
 *./generateArtifacts.sh* when directed below to enter the command.
 
-**Note: If you pick your own channel name, it must start with a
-lowercase character, and only contain lowercase characters, numbers, or
-the dash ('-') character, or the period ('.').**
+!!! warning
+        If you pick your own channel name, it must start with a lowercase character, and only contain lowercase characters, numbers, or the dash ('-') character, or the period ('.').
 
 So, enter the command below, optionally specifying a custom channel name
 (not shown here) as the lone argument to the *generateArtifacts.sh*
@@ -387,17 +386,8 @@ certificates, corresponding private keys, and public keys, for
 certificate authorities, organizations, administrative and general
 users. A thorough discussion of them is beyond the scope of this lab.
 
-**Note:** This utiltity created crypto material for both organizations,
-including private keys that each organization would keep secret and
-never share with the other organizations. You have created this for both
-organizations on a single server for purposes of this lab, but in a
-production implementation each organization would create their own
-material separately so that they could indeed keep their private keys to
-themselves. Their public certificates, which are meant to be shared, are
-baked into the channel definitions for channels in which they
-participate. This allows peer nodes from all organizations in a channel
-to verify digital signatures of transaction requests and transaction
-endorsements from other organizations that are members of the channel.
+!!! note
+        This utiltity created crypto material for both organizations, including private keys that each organization would keep secret and never share with the other organizations. You have created this for both organizations on a single server for purposes of this lab, but in a production implementation each organization would create their own material separately so that they could indeed keep their private keys to themselves. Their public certificates, which are meant to be shared, are baked into the channel definitions for channels in which they participate. This allows peer nodes from all organizations in a channel to verify digital signatures of transaction requests and transaction endorsements from other organizations that are members of the channel.
 
 **Step 4.5:** You are going to look inside the Docker Compose
 configuration file a little bit. Enter the following command:
@@ -464,7 +454,7 @@ container are stored within the container. So, multiple Docker
 containers can be based on the same Docker image, and each Docker
 container keeps track of its own changes. For example, the containers
 built for the **ca0** and **ca1** service will both be based on the
-*hyperledger/fabric-ca:1.4.0* Docker image because they both have this
+*hyperledger/fabric-ca:1.4.1* Docker image because they both have this
 statement in their definition:
 
     image: hyperledger/fabric-ca:1.4.1  
@@ -475,13 +465,16 @@ of environment variables. In general, you will see that the certificate
 authority environment variables start with *FABRIC\_CA*, the orderer's
 environment variables start with *ORDERER\_GENERAL*, and the peer node's
 environment variables start with *CORE*. These variables control
-behavior of the Hyperledger Fabric code, and in many cases, will
-override values that are specified in configuration files. Notice that
-all the peers and the orderer have an environment variable to specify
+behavior of the Hyperledger Fabric code, and, in many cases, will
+override values that are specified in configuration files. 
+All the peers and the orderer have an environment variable to specify
 that TLS is enabled- *CORE\_PEER\_TLS\_ENABLED=true* for the peers and
 *ORDERER\_GENERAL\_TLS\_ENABLED=true* for the orderer. You will notice
 there are other TLS-related variables to specify private keys,
 certificates and root certificates.
+
+!!! note
+        Most of the TLS-related environment variables for the peer and orderer are specified in separate files that are brought in via the *extends* statement. Specifically, *base/docker-compose.yaml* for the orderer and *base/peer-base.yaml* for the peers. We'll discuss the *extends* statement shortly.
 
 *ports* statements map ports on our Linux on IBM Z host to ports within
 the Docker container. The syntax is *&lt;host port&gt;:&lt;Docker container port&gt;*. 
@@ -522,7 +515,7 @@ statement from the **ca0** service:
 The security-related files that were created from the previous step
 where you ran *generateArtifacts.sh* were all within the *crypto-config*
 directory on your Linux on IBM Z host. The prior *volumes* statement is
-how this stuff is made accessible to the **ca1** service that will run
+how this stuff is made accessible to the **ca0** service that will run
 within the Docker container. Similar magic is done for the other
 services as well, except for the CouchDB services.
 
@@ -532,7 +525,7 @@ the peer nodes do not contain an images statement. How does Docker know
 what Docker image file to base the container on? That is defined in the
 file, *base/peer-base.yaml*, specified in the *extends* section of
 *base/docker-compose.yaml*, which is specified in the *extends* section
-of *docker-compose.yaml* for the peer nodes.
+of *docker-compose.yaml* for the peer nodes. 
 
 *command* statements define what command is run when the Docker
 container is started. This is how the actual Hyperledger Fabric
@@ -664,6 +657,22 @@ in the output below, you are ready to proceed to the next section:
     4201915cc3b2        hyperledger/fabric-couchdb:s390x-0.4.15   "tini -- /docker-ent…"   2 minutes ago       Up 2 minutes        4369/tcp, 9100/tcp, 0.0.0.0:5984->5984/tcp                                  couchdb0
     bcuser@ubuntu18042:~/zmarbles$ 
 
+**Step 4.8:** Try this variant of the *docker ps* command that uses the *--format** option to show only a subset of the information shown in the previous caommand:
+
+    bcuser@ubuntu18042:~/zmarbles$ docker ps --all --format '{{.Names}}\t\t {{.Status}}'
+    cli		 Up About a minute
+    peer1.unitedmarbles.com		 Up About a minute
+    peer0.marblesinc.com		 Up About a minute
+    peer0.unitedmarbles.com		 Up 2 minutes
+    peer1.marblesinc.com		 Up About a minute
+    couchdb1		 Up About a minute
+    couchdb2		 Up About a minute
+    ca_Org1		 Up 2 minutes
+    ca_Org0		 Up 2 minutes
+    orderer.blockchain.com		 Up 2 minutes
+    couchdb3		 Up 2 minutes
+    couchdb0		 Up 2 minutes
+
 Section 5 - Create a channel in the Hyperledger Fabric network
 ============================================================== 
 
@@ -688,22 +697,11 @@ but another channel with OrgA, OrgB and OrgC could require just two, or
 even just one, of the three organizations to endorse a transaction
 proposal.
 
-**Note:** A use case where only one organization would need to endorse a
-transaction proposal would be unusual, as the whole point of blockchain
-is for multiple organizations to agree on what is valid transaction, and
-allowing just one organization to consider a transaction valid sort of
-goes against the grain of that type of thinking, but I never say never
-(oops! I just said it twice) but it is technically possible. Most trust
-models would probably call for a majority, a super-majority (e.g.
-two-thirds), or even unanimous consent (100%) of the organizations in
-the channel to endorse a transaction proposal.
+!!! note
+        A use case where only one organization would need to endorse a transaction proposal would be unusual, as the whole point of blockchain is for multiple organizations to agree on what is valid transaction, and allowing just one organization to consider a transaction valid sort of goes against the grain of that type of thinking, but I never say never (oops! I just said it twice) but it is technically possible. Most trust models would probably call for a majority, a super-majority (e.g.  two-thirds), or even unanimous consent (100%) of the organizations in the channel to endorse a transaction proposal.
 
-**Note:** A policy of requiring unanimous consent implies that each
-member organization should build an available and resilient
-infrastructure since if even one organization's peers are unavailable,
-then additions to the blockchain for that channel would grind to a halt.
-Then again, who runs in production without an available and resilient
-infrastructure anyway?
+!!! note
+        A policy of requiring unanimous consent implies that each member organization should build an available and resilient infrastructure since if even one organization's peers are unavailable, then additions to the blockchain for that channel would grind to a halt.  Then again, who runs in production without an available and resilient infrastructure anyway?
 
 The decision on how many channels to create and what policies they have
 will usually be driven by the requirements of the particular business
@@ -734,7 +732,7 @@ Instead of working as user *bcuser* on the ubuntu18042 server in the
 coincidence that that directory is the value of the *working\_dir*
 statement for the *cli* service in your *docker-compose.yaml* file.
 
-**Step 5.2:** Read on to learn about a convenience script to point to a
+**Step 5.2:** There is no command to enter in this step, but read this explanation of convenience script that you will use repeatedly to point to a
 particular peer from the *cli* Docker container. Within the *cli*
 container, a convenience script named *setpeer* is provided in the
 *scripts* subdirectory of your current working directory. This script
@@ -805,7 +803,7 @@ and thank me later for setting this up for you:
     
 **Step 5.5:** Now enter this command:
 
-   root@84b6c0ee74aa:/opt/gopath/src/github.com/hyperledger/fabric/peer# peer channel create -o orderer.blockchain.com:7050  -f channel-artifacts/channel.tx  $FABRIC_TLS -c $CHANNEL_NAME
+    root@84b6c0ee74aa:/opt/gopath/src/github.com/hyperledger/fabric/peer# peer channel create -o orderer.blockchain.com:7050  -f channel-artifacts/channel.tx  $FABRIC_TLS -c $CHANNEL_NAME
     2019-04-28 19:12:13.144 UTC [channelCmd] InitCmdFactory -> INFO 001 Endorser and orderer connections initialized
     2019-04-28 19:12:13.180 UTC [cli.common] readBlock -> INFO 002 Received block: 0
     root@84b6c0ee74aa:/opt/gopath/src/github.com/hyperledger/fabric/peer# 
@@ -1283,15 +1281,8 @@ the chaincode on the channel:
     2019-04-28 19:32:27.208 UTC [chaincodeCmd] checkChaincodeCmdParams -> INFO 002 Using default vscc
     root@84b6c0ee74aa:/opt/gopath/src/github.com/hyperledger/fabric/peer# 
 
-**Note:** In your prior commands, when specifying the channel name, you
-used lowercase 'c' as the argument, e.g., *-c $CHANNEL\_NAME*. In the
-*peer chaincode instantiate* command however, you use an uppercase 'C'
-as the argument to specify the channel name, e.g., *-C mychannel*,
-because -c is used to specify the arguments given to the chaincode. Why
-*c* for arguments you may ask? Well, the '*c*' is short for '*ctor*',
-which itself is an abbreviation for *constructor*, which is a fancy word
-object-oriented programmers use to refer to the initial arguments given
-when creating an object.
+!!! note
+        In your prior commands, when specifying the channel name, you used lowercase 'c' as the argument, e.g., *-c $CHANNEL\_NAME*. In the *peer chaincode instantiate* command however, you use an uppercase 'C' as the argument to specify the channel name, e.g., *-C mychannel*, because -c is used to specify the arguments given to the chaincode. Why *c* for arguments you may ask? Well, the '*c*' is short for '*ctor*', which itself is an abbreviation for *constructor*, which is a fancy word object-oriented programmers use to refer to the initial arguments given when creating an object.
 
 **Step 9.8:** You may have noticed a longer than usual pause before you
 got your command prompt back while that last command was being run. The
@@ -1344,7 +1335,7 @@ that I would try to prove it to you that you only need to do the
 Let's find out if I'm lying. You did the *instantiate* on peer "0
 0". Switch to another peer:
 
-   root@84b6c0ee74aa:/opt/gopath/src/github.com/hyperledger/fabric/peer# source scripts/setpeer 1 1
+    root@84b6c0ee74aa:/opt/gopath/src/github.com/hyperledger/fabric/peer# source scripts/setpeer 1 1
     CORE_PEER_TLS_KEY_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/unitedmarbles.com/peers/peer0.unitedmarbles.com/tls/server.key
     CORE_PEER_LOCALMSPID=Org1MSP
     CORE_PEER_TLS_ENABLED=true
@@ -1417,10 +1408,8 @@ just with JavaScript. What is shown above is a single name/value pair.
 The name is *Args* and the value is an array of four arguments. (The
 square brackets "\[" and "\]" specify an array in JSON).
 
-**Note:** In the formal JSON definition the term '*name/value*' is used,
-but many programmers will also use the term '*key/value*' instead. You
-can consider these two terms as synonymous. (Many people use the phrase
-"the same" instead of the word "synonymous").
+!!! note
+        In the formal JSON definition the term '*name/value*' is used, but many programmers will also use the term '*key/value*' instead. You can consider these two terms as synonymous. (Many people use the phrase "the same" instead of the word "synonymous").
 
 The *Args* name specifies the arguments passed to the chaincode
 invocation. There is an interface layer, also called a "shim", that
@@ -1533,9 +1522,12 @@ have two Docker chaincode containers:
     CORE_VM_ENDPOINT=unix:///host/var/run/docker.sock
     root@84b6c0ee74aa:/opt/gopath/src/github.com/hyperledger/fabric/peer# 
 
-**Step 10.11:** Then run this command to try to create a new owner.
-**Note: This command is intended to fail. Go ahead and enter it and then
-read on for why it failed and how to correct the failure**:
+**Step 10.11:** 
+
+!!! note
+        **The command in this step is intended to fail. Go ahead and enter it and then read on for why it failed and how to correct the failure**
+
+Run this commnand to try to create a new owner:
 
     root@84b6c0ee74aa:/opt/gopath/src/github.com/hyperledger/fabric/peer# peer chaincode invoke -n marbles -c '{"Args":["init_owner","o0000000000002","Barry","United Marbles"]}' $FABRIC_TLS -C $CHANNEL_NAME
     2019-04-28 19:43:18.425 UTC [chaincodeCmd] InitCmdFactory -> INFO 001 Retrieved channel (mychannel) orderer endpoint: orderer.blockchain.com:7050
@@ -1570,7 +1562,7 @@ familiar to you:
     2019-04-28 19:44:56.984 UTC [chaincodeCmd] checkChaincodeCmdParams -> INFO 001 Using default escc
     2019-04-28 19:44:56.984 UTC [chaincodeCmd] checkChaincodeCmdParams -> INFO 002 Using default vscc
     2019-04-28 19:44:57.189 UTC [chaincodeCmd] install -> INFO 003 Installed remotely response:<status:200 payload:"OK" > 
-root@84b6c0ee74aa:/opt/gopath/src/github.com/hyperledger/fabric/peer# 
+    root@84b6c0ee74aa:/opt/gopath/src/github.com/hyperledger/fabric/peer# 
 
 **Step 10.13:** Now, in Terminal session 1, repeat the *peer chaincode
 invoke* command from *Step 10.9*. It should work this time:
@@ -1619,7 +1611,7 @@ built until you first invoke a function against the chaincode on that
 peer).
 
 If you are ambitious and want to install the chaincode on that fourth
-peer, try the useful Docker commands I have shown you from PuTTY session
+peer, try the useful Docker commands I have shown you from Terminal Session
 2 to see that the chaincode's Docker image and Docker container are
 created when you invoke a transaction on that fourth peer.
 
