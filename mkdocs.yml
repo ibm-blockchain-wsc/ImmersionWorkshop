@@ -18,6 +18,7 @@ nav:
         - Introduction: connect-home.md
         - Part 1: connect-part1.md
         - Part 2: connect-part2.md
+    - IBM Blockchain Platform console lab: ibpconsole.md
     - Additional Resources: references.md
 
 theme: readthedocs
