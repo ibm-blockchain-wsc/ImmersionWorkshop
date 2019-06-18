@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>IBM Blockchain Platform console lab - Blockchain Immersion Workshop</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "IBM Blockchain Platform console lab";
+    var mkdocs_page_input_path = "ibpconsole.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Blockchain Immersion Workshop</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Hyperledger Fabric Lab</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../hlf-home/">Introduction</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../hlf-part1/">Part 1</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../hlf-part2/">Part 2</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Use Case Walkthrough</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../immunichain-home/">Introduction</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../immunichain/">Part 1</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">VSCode Lab</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../vscode-home/">Introduction</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../vscode-part1/">Part 1</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../vscode-part2/">Part 2</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">IBM Blockchain Platform Connect-a-thon Lab</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../connect-home/">Introduction</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../connect-part1/">Part 1</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../connect-part2/">Part 2</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1 current">
+		
+    <a class="current" href="./">IBM Blockchain Platform console lab</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#section-1-ibm-blockchain-platform-console-lab-overview">Section 1: IBM Blockchain Platform console lab overview</a></li>
+    
+
+    <li class="toctree-l2"><a href="#section-2-log-in-to-the-ibm-blockchain-platform-console">Section 2: Log in to the IBM Blockchain Platform console</a></li>
+    
+
+    <li class="toctree-l2"><a href="#section-3-create-a-certificate-authority-for-your-first-organization">Section 3: Create a Certificate Authority for your first organization</a></li>
+    
+
+    <li class="toctree-l2"><a href="#section-4-add-new-users-using-your-org1-certificate-authority">Section 4: Add new users using your Org1 Certificate Authority</a></li>
+    
+
+    <li class="toctree-l2"><a href="#section-5-create-an-msp-for-your-organization">Section 5: Create an MSP for your organization</a></li>
+    
+
+    <li class="toctree-l2"><a href="#section-6-create-a-peer-node-for-your-organization">Section 6: Create a peer node for your organization</a></li>
+    
+
+    <li class="toctree-l2"><a href="#section-7-create-a-certificate-authority-for-an-ordering-service-organization">Section 7: Create a certificate authority for an Ordering Service organization</a></li>
+    
+
+    <li class="toctree-l2"><a href="#section-8-add-new-users-using-your-ordering-service-certificate-authority">Section 8: Add new users using your Ordering Service Certificate Authority</a></li>
+    
+
+    <li class="toctree-l2"><a href="#section-9-create-an-msp-for-your-ordering-service-organization">Section 9: Create an MSP for your Ordering Service organization</a></li>
+    
+
+    <li class="toctree-l2"><a href="#section-10-create-an-ordering-service-node-for-your-organization">Section 10: Create an ordering service node for your organization</a></li>
+    
+
+    <li class="toctree-l2"><a href="#section-11-add-your-peer-organization-to-a-consortium">Section 11: Add your peer organization to a consortium</a></li>
+    
+
+    <li class="toctree-l2"><a href="#section-12-create-a-channel">Section 12: Create a channel</a></li>
+    
+
+    <li class="toctree-l2"><a href="#section-13-add-a-peer-to-the-channel">Section 13: Add a peer to the channel</a></li>
+    
+
+    <li class="toctree-l2"><a href="#section-14-define-the-certificate-authority-for-a-second-peer-organization">Section 14: Define the certificate authority for a second peer organization</a></li>
+    
+
+    <li class="toctree-l2"><a href="#section-15-add-new-users-using-your-org2-certificate-authority">Section 15: Add new users using your Org2 Certificate Authority</a></li>
+    
+
+    <li class="toctree-l2"><a href="#section-16-create-an-msp-for-your-second-peer-organization">Section 16: Create an MSP for your second peer organization</a></li>
+    
+
+    <li class="toctree-l2"><a href="#section-17-create-a-peer-node-for-your-second-peer-organization">Section 17: Create a peer node for your second peer organization</a></li>
+    
+
+    <li class="toctree-l2"><a href="#section-18-add-your-new-peer-organization-to-the-consortium">Section 18: Add your new peer organization to the consortium</a></li>
+    
+
+    <li class="toctree-l2"><a href="#section-19-add-your-org2-organization-to-the-channel">Section 19: Add your Org2 organization to the channel</a></li>
+    
+
+    <li class="toctree-l2"><a href="#section-20-add-your-peer-for-org2-to-the-channel">Section 20: Add your peer for Org2 to the channel</a></li>
+    
+
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../references/">Additional Resources</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Blockchain Immersion Workshop</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>IBM Blockchain Platform console lab</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="section-1-ibm-blockchain-platform-console-lab-overview">Section 1: IBM Blockchain Platform console lab overview</h1>
+<p>You will use the IBM Blockchain Platform console in this lab to create a blockchain network.
+The network will consist of three organizations.
+Two of these organizations will represent organizations that want to participate in the blockchain network and submit transactions.
+They will be referred to as <em>peer</em> organizations throughout the lab
+The third organization is the organization that provides the ordering service.</p>
+<p>First you will create one peer organization.
+Then you will create an ordering service organization, create a channel and add your first peer organization to the channel.
+Then you will create a second peer organization, and add it to the channel</p>
+<p>Each high-level task is detailed in a separate section, with multiple steps per task.</p>
+<p>The sections in this lab are as follows:</p>
+<ul>
+<li>Section 1: This overview</li>
+<li>Section 2: Logging in to the IBM Blockchain Platform console</li>
+<li>Section 3: Creating a Certificate Authority for your first peer organization</li>
+<li>Section 4: Adding new users using your Org1 Certificate Authority</li>
+<li>Section 5: Creating an MSP for your peer organization</li>
+<li>Section 6: Creating a peer node for your peer organization</li>
+<li>Section 7: Creating a certificate authority for an Ordering Service organization</li>
+<li>Section 8: Adding new users using your Ordering Service Certificate Authority</li>
+<li>Section 9: Creating an MSP for your Ordering Service organization</li>
+<li>Section 10: Creating an ordering service node for your organization</li>
+<li>Section 11: Adding your peer organization to a consortium</li>
+<li>Section 12: Creating a channel</li>
+<li>Section 13: Adding a peer to the channel</li>
+<li>Section 14: Defining the certificate authority for your second peer organization</li>
+<li>Section 15: Adding new users using your Org2 Certificate Authority</li>
+<li>Section 16: Creating an MSP for your second peer organization</li>
+<li>Section 17: Creating a peer node for your second peer organization</li>
+<li>Section 18: Adding your new peer organization to the consortium</li>
+<li>Section 19: Adding your Org2 organization to the channel</li>
+<li>Section 20: Adding your peer for Org2 to the channel</li>
+</ul>
+<h1 id="section-2-log-in-to-the-ibm-blockchain-platform-console">Section 2: Log in to the IBM Blockchain Platform console</h1>
+<p><strong>Step 2.1:</strong> Open a Firefox browser window or new tab and enter the unique URL, which will have been provided to you by the instructor, for your team's IBM Blockchain Platform console.
+If you see a security warning after entering the URL, click the <strong>Advanced</strong> button, which is highlighted in the below screen snippet:</p>
+<p><img alt="image" src="../images/ibpconsole/0010_CertificateIssue.png" /></p>
+<p><strong>Step 2.2:</strong> The reason you are seeing these security messages is because of a self-signed certificate in our lab environment.
+Go ahead and click on the <strong>Proceed to 192.168.22.81 (unsafe)</strong> link that is shown below:</p>
+<p><img alt="image" src="../images/ibpconsole/0020_CertificateIssue.png" /></p>
+<p><strong>Step 2.3:</strong> Enter your team's userid and password, which will have been provided to you by the instructor, and click the <em>Login</em> button:</p>
+<p><img alt="image" src="../images/ibpconsole/0040_Login.png" /></p>
+<h1 id="section-3-create-a-certificate-authority-for-your-first-organization">Section 3: Create a Certificate Authority for your first organization</h1>
+<p><strong>Step 3.1:</strong> Click the blue <strong>Add Certificate Authority</strong> box:</p>
+<p><img alt="image" src="../images/ibpconsole/0050_NodesEmpty.png" /></p>
+<p><strong>Step 3.2:</strong> Click <strong>Create an IBM Cloud Private Certificate Authority</strong> and then click the blue <strong>Next</strong> button:</p>
+<p><img alt="image" src="../images/ibpconsole/0060_AddCertificateAuthority.png" /></p>
+<p><strong>Step 3.3:</strong> Type in <strong>Team<em>xx</em> Org1 CA</strong> where <em>xx</em> is your two-digit team id, and then click the blue <strong>Next</strong> button:</p>
+<p><img alt="image" src="../images/ibpconsole/0070_AddCertificateAuthoritySideBar2.png" /></p>
+<p><strong>Step 3.4:</strong> Type in <strong>admin</strong> for the <em>CA administrator enroll id</em> and <strong>adminpw</strong> for the <em>CA administrator enroll secret</em> and then click the blue <strong>Next</strong> button:</p>
+<p><img alt="image" src="../images/ibpconsole/0080_AddCertificateAuthoritySideBar3.png" /></p>
+<p><strong>Step 3.5:</strong> Leave the <em>Resource allocation</em> settings unchanged, and click the <strong>Next</strong> button:</p>
+<p><img alt="image" src="../images/ibpconsole/0090_AddCertificateAuthoritySideBar4.png" /></p>
+<p><strong>Step 3.6:</strong> Review your settings and click the <strong>Add Certificate Authority</strong> button:</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Throughout this lab, when passwords are entered, you can click the icon that looks like an eye, to see the password you have 
+   entered.  It is recommended that you do this for the lab to ensure you have entered the intended password. The screen shots shown
+   in this lab will show the passwords that you should enter.</p>
+</div>
+<p><img alt="image" src="../images/ibpconsole/0100_AddCertificateAuthoritySideBar5.png" /></p>
+<p><strong>Step 3.7:</strong> You will see a tile for your new certificate authority. Observe the box in the upper right corner of the tile.
+If it is gray, and you hover your mouse over it, you may see a message indicating that the status is pending. (The gray box, but not the status message,
+is shown in this screenshot)</p>
+<p><img alt="image" src="../images/ibpconsole/0110_Org1CertificateAuthority.png" /></p>
+<p><strong>Step 3.8:</strong> In about a minute, the box in the upper right should turn green, indicating that the certificate authority is running.
+If the box does not turn green in a minute, try reloading the page in your browser. Contact an instructor for help if it does not
+turn green and show the running status when you hover your mouse over the button.</p>
+<p>Once your certificate authority is running, click on its tile so that you can proceed to the next section where you will add users.</p>
+<p><img alt="image" src="../images/ibpconsole/0120_Org1CertificateAuthorityRunning.png" /></p>
+<h1 id="section-4-add-new-users-using-your-org1-certificate-authority">Section 4: Add new users using your Org1 Certificate Authority</h1>
+<p><strong>Step 4.1:</strong> Click the <strong>Register user</strong> button on the right side of the screen:</p>
+<p><img alt="image" src="../images/ibpconsole/0130_AddUsers.png" /></p>
+<p><strong>Step 4.2:</strong> Type in <strong>org1admin</strong> for the <em>Enroll id</em>,  <strong>org1adminpw</strong> for the <em>Enroll secret</em>, select <strong>client</strong> for the <em>Type</em> field, and then click the blue <strong>Next</strong> button:</p>
+<p><img alt="image" src="../images/ibpconsole/0140_AddUserOrg1Admin1.png" /></p>
+<p><strong>Step 4.3:</strong> We will not be using custom attributes in this lab, so all you have to do on this screen is click the <strong>Register user</strong> button:</p>
+<p><img alt="image" src="../images/ibpconsole/0150_AddUserOrg1Admin2.png" /></p>
+<p><strong>Step 4.4:</strong> You should now see the userid you just registered, <strong>org1admin</strong>, listed on the screen. You also need to create a userid that your peer node will operate as, so click the <strong>Register user</strong> button again:</p>
+<p><img alt="image" src="../images/ibpconsole/0160_AfterOrg1AdminAdded.png" /></p>
+<p><strong>Step 4.5:</strong> Type in <strong>peer1</strong> for the <em>Enroll id</em>,  <strong>peer1pw</strong> for the <em>Enroll secret</em>, select <strong>peer</strong> for the <em>Type</em> field, and then click the blue <strong>Next</strong> button:</p>
+<p><img alt="image" src="../images/ibpconsole/0170_AddUserPeer1_1.png" /></p>
+<p><strong>Step 4.6:</strong> Just click the <strong>Register user</strong> button at the bottom of the screen:</p>
+<p><img alt="image" src="../images/ibpconsole/0180_AddUserPeer1_2.png" /></p>
+<p><strong>Step 4.7:</strong> You should now see the <strong>peer1</strong> userid listed along with the others on this screen.
+Click the <strong>Organizations</strong> icon on the palette on the left of your screen and continue to the next section of the lab:</p>
+<p><img alt="image" src="../images/ibpconsole/0190_AfterPeer1Added.png" /></p>
+<h1 id="section-5-create-an-msp-for-your-organization">Section 5: Create an MSP for your organization</h1>
+<p><strong>Step 5.1:</strong> You should see a screen that looks like below, indicating that you have yet to create a <em>Membership Service Provider (MSP)</em> definition for your organization. Click the blue <strong>Create MSP definition</strong> tile:</p>
+<p><img alt="image" src="../images/ibpconsole/0200_CreateOrg1MSP.png" /></p>
+<p><strong>Step 5.2:</strong> Enter the following values as instructed here:</p>
+<ul>
+<li>Type <strong>Team<em>xx</em> Org1 MSP</strong>, where <em>xx</em> is your two-digit team id, in the <em>MSP display name</em> field</li>
+<li>Type <strong>team<em>xx</em>org1msp</strong>, where <em>xx</em> is your two-digit team id, in the <em>MSP ID</em> field</li>
+<li>For the <em>Root Certificate Authority</em> field, ensure that <strong>Team<em>xx</em> Org1 CA</strong> is selected</li>
+</ul>
+<p>The sidebar panel contains more information than will likely fit in your browser window, so review the values you have entered per the above list, and then scroll down within the sidebar panel:</p>
+<p><img alt="image" src="../images/ibpconsole/0210_CreateOrg1MSPSidebar1.png" /></p>
+<p><strong>Step 5.3:</strong>  In the <em>Generate organization admin certificate</em> section, enter the following values as instructed here:</p>
+<ul>
+<li>Select <strong>org1admin</strong> for the <em>Enroll ID</em> field</li>
+<li>Type <strong>org1adminpw</strong> in the <em>Enroll secret</em> field. Click the "eyeball" icon if necessary to show the password you've entered. </li>
+<li>Type <strong>Team<em>xx</em> Org1 Admin</strong>, where <em>xx</em> is your two-digit team id, in the <em>Identity name</em> field</li>
+</ul>
+<p>Review the values you have entered per the above list, and then click the blue <strong>Generate</strong> button:</p>
+<p><img alt="image" src="../images/ibpconsole/0220_CreateOrg1MSPSidebar1b.png" /></p>
+<p><strong>Step 5.4:</strong> The prior step generated a public certificate and a matching private key. This private key is stored by the IBM Blockchain Platform console in your local browser storage and nowhere else. In order to ensure that you can retrieve your private key later, you must now click the <strong>Export</strong> button which will prompt you to save your private key (along with the public certificate) in a JSON file on your hard drive.</p>
+<p><img alt="image" src="../images/ibpconsole/0230_CreateOrg1MSPSidebar1c.png" /></p>
+<p><strong>Step 5.5:</strong> Save the exported JSON file in a location that you can remember. This example shows it being saved to a folder named <em>json</em> that was created already. You can use the file save window to create a new folder to match this name if you would like, although it isn't strictly necessary for this lab.  </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You probably won't need this saved file for this lab if you use the same browser window for the duration of the lab, but the saved file may be necessary if, for whatever reason, you do have to use a new browser window or session, so go ahead and save it!</p>
+</div>
+<p><img alt="image" src="../images/ibpconsole/0240_CreateOrg1MSPSaveIdentity.png" /></p>
+<p><strong>Step 5.6:</strong> Click the blue <strong>Create MSP definition</strong> button in the lower right of your screen:</p>
+<p><img alt="image" src="../images/ibpconsole/0250_CreateOrg1MSP.png" /></p>
+<p><strong>Step 5.7:</strong> You should now see the definition for your new MSP listed on your screen. Scroll up and click the <strong>Nodes</strong> icon in the icon palette on your left- it is the topmost icon on this pallet, and you will be ready to proceed to the next section:</p>
+<p><img alt="image" src="../images/ibpconsole/0260_CreateOrg1MSPFinished.png" /></p>
+<h1 id="section-6-create-a-peer-node-for-your-organization">Section 6: Create a peer node for your organization</h1>
+<p><strong>Step 6.1:</strong> Click the <strong>Add peer</strong> tile:</p>
+<p><img alt="image" src="../images/ibpconsole/0270_AddOrg1Peer.png" /></p>
+<p><strong>Step 6.2:</strong> Click the <strong>Create an IBM Cloud Private peer</strong> button and then click the blue <strong>Next</strong> button:</p>
+<p><img alt="image" src="../images/ibpconsole/0280_AddOrg1PeerSidebar1.png" /></p>
+<p><strong>Step 6.3:</strong> Type <strong>Team<em>xx</em> Peer Org1</strong>, where <em>xx</em> is your two-digit team id, in the <em>Peer display name</em> field and then click the blue <strong>Next</strong> button:</p>
+<p><img alt="image" src="../images/ibpconsole/0290_AddOrg1PeerSidebar2.png" /></p>
+<p><strong>Step 6.4:</strong> Enter or select the following values on this panel:</p>
+<ul>
+<li>Select <strong>Team<em>xx</em> Org1 CA</strong>, where <em>xx</em> is your two-digit team id, for the <em>Certificate Authority</em> field</li>
+<li>Select <strong>peer1</strong> for the <em>Peer enroll ID</em> field</li>
+<li>Type <strong>peer1pw</strong> in the <em>Peer enroll secret</em> field</li>
+<li>Select <strong>Team<em>xx</em> Org1 MSP</strong>, where <em>xx</em> is your two-digit team id, for the <em>Organization MSP</em> field  </li>
+</ul>
+<p>Review the values you entered or select to ensure they match the above list, and then click the blue <strong>Next</strong> button:</p>
+<p><img alt="image" src="../images/ibpconsole/0300_AddOrg1PeerSidebar3.png" /></p>
+<p><strong>Step 6.5:</strong> Enter or select the following values on this panel:</p>
+<ul>
+<li>Select <strong>peer1</strong> for the <em>TLS CA enroll ID</em> field</li>
+<li>Type <strong>peer1pw</strong> in the <em>TLS CA enroll secret</em> field</li>
+<li>Leave the <em>TLS CSR hostname</em> field blank</li>
+</ul>
+<p>Review the values your entered for correctness and then click the blue <strong>Next</strong> button:</p>
+<p><img alt="image" src="../images/ibpconsole/0310_AddOrg1PeerSidebar4.png" /></p>
+<p><strong>Step 6.6:</strong> Leave the <em>Resource allocation</em> settings unchanged and click the <strong>Next</strong> button:</p>
+<p><img alt="image" src="../images/ibpconsole/0320_AddOrg1PeerSidebar5.png" /></p>
+<p><strong>Step 6.7:</strong> Select <strong>Team<em>xx</em> Org1 Admin</strong>, where <em>xx</em> is your two-digit team id, for the <em>Identity</em> field, and click <strong>Next</strong>:</p>
+<p><img alt="image" src="../images/ibpconsole/0330_AddOrg1PeerSidebar6.png" /></p>
+<p><strong>Step 6.8:</strong> The <em>Summary</em> panel provides a review of the values you entered or selected in the prior panels. Click the <strong>Add peer</strong> button to continue:</p>
+<p><img alt="image" src="../images/ibpconsole/0340_AddOrg1PeerSidebar7.png" /></p>
+<p><strong>Step 6.9:</strong> Similar to when you created the certificate authority earlier, you should see your new peer listed, along with a gray box in the upper right of its tile, showing that the status of this peer is "pending" if you hover your mouse over the gray box.</p>
+<p><img alt="image" src="../images/ibpconsole/0350_AddOrg1PeerPending.png" /></p>
+<p><strong>Step 6.10:</strong>  It can take a minute or two on our lab system for the peer to come up completely, and you may need to refresh your browser in order to see the box turn green. If your peer is still not ready after a couple of minutes and after you have tried refreshing your browser, ask an instructor for help.  The peer must be ready, as indicated by a green box in the upper right of the peer's tile, similar to what is shown below, before you can continue:</p>
+<p><img alt="image" src="../images/ibpconsole/0360_AddOrg1PeerRunning.png" /></p>
+<h1 id="section-7-create-a-certificate-authority-for-an-ordering-service-organization">Section 7: Create a certificate authority for an Ordering Service organization</h1>
+<p>In this lab you will create three organizations- two organizations will run peer nodes and run smart contracts. One of the organizations will provide the ordering service for the blockchain network.  In the real world each of the three organizations would likely use their own instance of the IBM Blockchain Platform v2 UI to create their necessary artifacts.  (You have already done much of this for the first peer organization, <strong>Team<em>xx</em> Org1</strong>, in the previous sections of this lab).</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You will carry out activities for all three organizations from your browser for purposes of this lab. This will somewhat simplify the steps you'll need to perform versus the real world scenario where this activity is being carried out separately by each organization. The procedure to perform the tasks in the "real world" case are outlined in the IBM Blockchain Platform documentation- basically, it involves exporting information about your organization into JSON files, and providing this information "out-of-band" to the other organizations. </p>
+<p>In an earlier step you exported your generated certificate and its private key. While it is a JSON file, this is not the file you would ever send to another organization, as it contains your private key which should never be shared with other organizations. The exported JSON files that are used for inter-organizational tasks contain only public information which is safe to share.</p>
+</div>
+<p><strong>Step 7.1:</strong> Click the blue <strong>Add Certificate Authority</strong> tile:</p>
+<p><img alt="image" src="../images/ibpconsole/0370_AddOrderingCABegin.png" /></p>
+<p><strong>Step 7.2:</strong> Click <strong>Create an IBM Cloud Private Certificate Authority</strong> and then click the blue <strong>Next</strong> button:</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The steps in this section are essentially the same as in <em>Section 3</em>, just with different values being entered as appropriate.</p>
+</div>
+<p><img alt="image" src="../images/ibpconsole/0380_AddOrderingCASidebar1.png" /></p>
+<p><strong>Step 7.3:</strong> Type in <strong>Team<em>xx</em> Ordering Service CA</strong> where <em>xx</em> is your two-digit team id, and then click the blue <strong>Next</strong> button:</p>
+<p><img alt="image" src="../images/ibpconsole/0390_AddOrderingCASidebar2.png" /></p>
+<p><strong>Step 7.4:</strong> Type in <strong>admin</strong> for the <em>CA administrator enroll id</em> and <strong>adminpw</strong> for the <em>CA administrator enroll secret</em> and then click the blue <strong>Next</strong> button:</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>May I kindly suggest that for real world implementations you use stronger, less predictable, passwords?</p>
+</div>
+<p><img alt="image" src="../images/ibpconsole/0400_AddOrderingCASidebar3.png" /></p>
+<p><strong>Step 7.5:</strong> Leave the <em>Resource allocation</em> settings unchanged, and click the <strong>Next</strong> button:</p>
+<p><img alt="image" src="../images/ibpconsole/0410_AddOrderingCASidebar4.png" /></p>
+<p><strong>Step 7.6:</strong> Review your settings and click the <strong>Add Certificate Authority</strong> button:</p>
+<p><img alt="image" src="../images/ibpconsole/0420_AddOrderingCASidebar5.png" /></p>
+<p><strong>Step 7.7:</strong> You will see a tile for your new certificate authority. Observe the box in the upper right corner of the tile.
+If it is gray, and you hover your mouse over it, you may see a message indicating that the status is pending. (The gray box, but not the status message, is shown in this screenshot):</p>
+<p><img alt="image" src="../images/ibpconsole/0430_AddOrderingCAPending.png" /></p>
+<p><strong>Step 7.8:</strong> In about a minute, the button in the upper right should turn green, indicating that the certificate authority is running.
+If your button does not turn green in a minute, try reloading the page in your browser. Contact an instructor for help if it does not
+turn green and show the running status when you hover your mouse over the button.</p>
+<p>Once your Ordering Service certificate authority is running, click on its tile so that you can proceed to the next section where you will add users.</p>
+<p><img alt="image" src="../images/ibpconsole/0440_AddOrderingCARunning.png" /></p>
+<h1 id="section-8-add-new-users-using-your-ordering-service-certificate-authority">Section 8: Add new users using your Ordering Service Certificate Authority</h1>
+<p><strong>Step 8.1:</strong> Click the <strong>Register user</strong> button on the right side of the screen:</p>
+<p><img alt="image" src="../images/ibpconsole/0450_AddUsers.png" /></p>
+<p><strong>Step 8.2:</strong> Type in <strong>osadmin</strong> for the <em>Enroll id</em>,  <strong>osadminpw</strong> for the <em>Enroll secret</em>, select <strong>client</strong> for the <em>Type</em> field, and then click the blue <strong>Next</strong> button:</p>
+<p><img alt="image" src="../images/ibpconsole/0460_AddUserOrderingAdmin1.png" /></p>
+<p><strong>Step 8.3:</strong> We will not be using custom attributes in this lab, so all you have to do on this screen is click the <strong>Register user</strong> button:</p>
+<p><img alt="image" src="../images/ibpconsole/0470_AddUserOrderingAdmin2.png" /></p>
+<p><strong>Step 8.4:</strong> You should now see the userid you just registered, <em>osadmin</em>, listed on the screen. You also need to create a userid that your ordering service node will operate as, so click the <strong>Register user</strong> button again:</p>
+<p><img alt="image" src="../images/ibpconsole/0480_AfterOrderingAdminAdded.png" /></p>
+<p><strong>Step 8.5:</strong> Type in <strong>os1</strong> for the <em>Enroll id</em>,  <strong>os1pw</strong> for the <em>Enroll secret</em>, select <strong>peer</strong> for the <em>Type</em> field, and then click the blue <strong>Next</strong> button:</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <em>peer</em> value on this panel is used for both peer nodes and ordering service nodes.</p>
+</div>
+<p><img alt="image" src="../images/ibpconsole/0490_AddUserOS1_1.png" /></p>
+<p><strong>Step 8.6:</strong> Just click the <strong>Register user</strong> button at the bottom of the screen:</p>
+<p><img alt="image" src="../images/ibpconsole/0500_AddUserOS1_2.png" /></p>
+<p><strong>Step 8.7:</strong> You should now see the <strong>os1</strong> userid listed along with the others on this screen.
+Click the <strong>Organizations</strong> icon on the palette on the left of your screen and continue to the next section of the lab:</p>
+<p><img alt="image" src="../images/ibpconsole/0510_AfterOS1Added.png" /></p>
+<h1 id="section-9-create-an-msp-for-your-ordering-service-organization">Section 9: Create an MSP for your Ordering Service organization</h1>
+<p><strong>Step 9.1:</strong> You should see a screen that looks like below. You now need to create an MSP definition for your Ordering Service organization, just as you did earlier for your peer (<strong>Team<em>xx</em> Org1 MSP</strong>) organization. Click the blue <strong>Create MSP definition</strong> tile to get started:</p>
+<p><img alt="image" src="../images/ibpconsole/0520_CreateOrderingMSP.png" /></p>
+<p><strong>Step 9.2:</strong> Enter the following values as instructed here:</p>
+<ul>
+<li>Type <strong>Team<em>xx</em> Ordering Service MSP</strong>, where <em>xx</em> is your two-digit team id, in the <em>MSP display name</em> field</li>
+<li>Type <strong>team<em>xx</em>osmsp</strong>, where <em>xx</em> is your two-digit team id, in the <em>MSP ID</em> field</li>
+<li>For the <em>Root Certificate Authority</em> field, ensure that <strong>Team<em>xx</em> Ordering Service CA</strong> is selected</li>
+</ul>
+<p>The sidebar panel contains more information than will likely fit in your browser window, so review the values you have entered per the above list, and then scroll down within the sidebar panel:</p>
+<p><img alt="image" src="../images/ibpconsole/0530_CreateOrderingMSPSidebar1.png" /></p>
+<p><strong>Step 9.3:</strong>  In the <em>Generate organization admin certificate</em> section, enter the following values as instructed here:</p>
+<ul>
+<li>Select <strong>osadmin</strong> for the <em>Enroll ID</em> field</li>
+<li>Type <strong>osadminpw</strong> in the <em>Enroll secret</em> field. Click the "eyeball" icon if necessary to show the password you've entered.</li>
+<li>Type <strong>Team<em>xx</em> Ordering Service Admin</strong>, where <em>xx</em> is your two-digit team id, in the <em>Identity name</em> field</li>
+</ul>
+<p>Review the values you have entered per the above list, and then click the blue <strong>Generate</strong> button:</p>
+<p><img alt="image" src="../images/ibpconsole/0540_CreateOrderingMSPSidebar1b.png" /></p>
+<p><strong>Step 9.4:</strong> The prior step generated a public certificate and a matching private key. This private key is stored by the IBM Blockchain Platform console in your local browser storage and nowhere else. In order to ensure that you can retrieve your private key later, you must now click the <strong>Export</strong> button which will prompt you to save your private key (along with the public certificate) in a JSON file on your hard drive.</p>
+<p><img alt="image" src="../images/ibpconsole/0550_CreateOrderingMSPSidebar1c.png" /></p>
+<p><strong>Step 9.5:</strong> Save the exported JSON file in a location that you can remember. This example shows it being saved to a folder named <em>json</em> that was created already. You can use the file save window to create a new folder to match this name if you would like, although it isn't strictly necessary for this lab.</p>
+<p><img alt="image" src="../images/ibpconsole/0560_CreateOrderingMSPSaveIdentity.png" /></p>
+<p><strong>Step 9.6:</strong> Click the <strong>Create MSP definition</strong> button in the lower right of your screen:</p>
+<p><img alt="image" src="../images/ibpconsole/0570_CreateOrderingMSP.png" /></p>
+<p><strong>Step 9.7:</strong> You should now see the definition for your new Ordering Service MSP listed on your screen alongside the MSP your created earlier for your peer organization. Scroll up and click the <em>Nodes</em> icon in the icon palette on your left- it is the topmost icon on this pallet, and you will be ready to proceed to the next section:</p>
+<p><img alt="image" src="../images/ibpconsole/0580_CreateOrderingMSPFinished.png" /></p>
+<h1 id="section-10-create-an-ordering-service-node-for-your-organization">Section 10: Create an ordering service node for your organization</h1>
+<p><strong>Step 10.1:</strong> Click the <strong>Add ordering service</strong> tile:</p>
+<p><img alt="image" src="../images/ibpconsole/0590_AddOrderingNode.png" /></p>
+<p><strong>Step 10.2:</strong> Click the <strong>Create an IBM Cloud Private Ordering service</strong> button and then click the blue <strong>Next</strong> button:</p>
+<p><img alt="image" src="../images/ibpconsole/0600_AddOrdererSidebar1.png" /></p>
+<p><strong>Step 10.3:</strong> Type <strong>Team<em>xx</em> Ordering Service</strong>, where <em>xx</em> is your two-digit team id, in the <em>Ordering service display name</em> field, leave the <em>Number of ordering nodes</em> field set to <strong>One ordering node</strong>, and then click the blue <strong>Next</strong> button:</p>
+<p><img alt="image" src="../images/ibpconsole/0610_AddOrdererSidebar2.png" /></p>
+<p><strong>Step 10.4:</strong> Enter or select the following values on this panel:</p>
+<ul>
+<li>Select <strong>Team<em>xx</em> Ordering Service CA</strong>, where <em>xx</em> is your two-digit team id, for the <em>Certificate Authority</em> field</li>
+<li>Select <strong>os1</strong> for the <em>Ordering service enroll ID</em> field</li>
+<li>Type <strong>os1pw</strong> in the <em>Ordering service enroll secret</em> field</li>
+<li>Select <strong>Team<em>xx</em> Ordering Service MSP</strong>, where <em>xx</em> is your two-digit team id, for the <em>Organization MSP</em> field</li>
+</ul>
+<p>Review the values you entered or select to ensure they match the above list, and then click the blue <strong>Next</strong> button:</p>
+<p><img alt="image" src="../images/ibpconsole/0620_AddOrdererSidebar3.png" /></p>
+<p><strong>Step 10.5:</strong> Enter or select the following values on this panel:</p>
+<ul>
+<li>Select <strong>os1</strong> for the <em>TLS CA enroll ID</em> field</li>
+<li>Type <strong>os1pw</strong> in the <em>TLS CA enroll secret</em> field</li>
+<li>Leave the <em>TLS CSR hostname</em> field blank</li>
+</ul>
+<p>Review the values your entered for correctness and then click the blue <strong>Next</strong> button:</p>
+<p><img alt="image" src="../images/ibpconsole/0630_AddOrdererSidebar4.png" /></p>
+<p><strong>Step 10.6:</strong> Leave the <em>Resource allocation</em> settings unchanged and click the <strong>Next</strong> button:</p>
+<p><img alt="image" src="../images/ibpconsole/0640_AddOrdererSidebar5.png" /></p>
+<p><strong>Step 10.7:</strong> Select <strong>Team<em>xx</em> Ordering Service Admin</strong>, where <em>xx</em> is your two-digit team id, for the <em>Identity</em> field, and click <strong>Next</strong>:</p>
+<p><img alt="image" src="../images/ibpconsole/0650_AddOrdererSidebar6.png" /></p>
+<p><strong>Step 10.8:</strong> The <em>Summary</em> panel provides a review of the values you entered or selected in the prior panels. Click the <strong>Add ordering service</strong> button to continue:</p>
+<p><img alt="image" src="../images/ibpconsole/0660_AddOrdererSidebar7.png" /></p>
+<p><strong>Step 10.9:</strong> Similar to when you created the certificate authority earlier, you should see your new ordering service listed, along with a gray box in the upper right of its tile, showing that the status of this ordering service is "pending" if you hover your mouse over the gray box.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The above instruction pertains to the tile listed in the <em>Ordering services</em> section, not to the similarly named tile in the <em>Certificate Authorities</em> section</p>
+</div>
+<p><img alt="image" src="../images/ibpconsole/0670_AddOrdererPending.png" /></p>
+<p><strong>Step 10.10:</strong>  It can take a minute or two on our lab system for the ordering service to come up completely, and you may need to refresh your browser in order to see the box turn green. If your ordering service is still not ready after a couple of minutes and after you have tried refreshing your browser, ask an instructor for help.  The ordering service must be ready, as indicated by a green box in the upper right of its tile, similar to what is shown below, before you can continue.</p>
+<p>Once it is ready, click on its tile and continue to the next section of the lab.</p>
+<p><img alt="image" src="../images/ibpconsole/0680_AddOrdererRunning.png" /></p>
+<h1 id="section-11-add-your-peer-organization-to-a-consortium">Section 11: Add your peer organization to a consortium</h1>
+<p><strong>Step 11.1:</strong> Click the blue <strong>Add organization</strong> tile in the <em>Consortium members</em> section:</p>
+<p><img alt="image" src="../images/ibpconsole/0690_UpdateConsortium1.png" /></p>
+<p><strong>Step 11.2:</strong> Click the <strong>Existing MSP ID</strong> button, select <strong>Team<em>xx</em> Org1 MSP</strong> where <em>xx</em> is your two-digit team id, and then click the <strong>Add organization</strong> button:</p>
+<p><img alt="image" src="../images/ibpconsole/0700_AddOrganizationToConsortium.png" /></p>
+<p><strong>Step 11.3:</strong> You should now see your peer organization, <strong>Team<em>xx</em> Org1 MSP</strong>, listed as a member of your consortium:</p>
+<p><img alt="image" src="../images/ibpconsole/0710_AddOrganizationToConsortiumFinished.png" /></p>
+<h1 id="section-12-create-a-channel">Section 12: Create a channel</h1>
+<p><strong>Step 12.1:</strong> Click the <strong>channel</strong> icon in the icon palette on the left. The screen shot below shows which icon to click:</p>
+<p><img alt="image" src="../images/ibpconsole/0720_ClickChannels.png" /></p>
+<p><strong>Step 12.2:</strong> Click the blue <strong>Create channel</strong> tile:</p>
+<p><img alt="image" src="../images/ibpconsole/0730_JoinChannel_1.png" /></p>
+<p><strong>Step 12.3:</strong> Enter <strong>team<em>xx</em>-channel1</strong> in the <em>Channel name</em> field, and select <strong>Team<em>xx</em> Ordering Service</strong> for the <em>Ordering service</em> field, where <em>xx</em> is your two-digit team id.  Scroll down in the sidebar panel to enter more values as described in the next step:</p>
+<p><img alt="image" src="../images/ibpconsole/0740_JoinChannelSidebar1a.png" /></p>
+<p><strong>Step 12.4:</strong> In the <em>Organizations</em> section, select <strong>Team<em>xx</em> Org1 MSP (team<em>xx</em>org1msp)</strong> for the <em>Select a channel member</em> field and click the <strong>Add</strong> button to the right of your selection:</p>
+<p><img alt="image" src="../images/ibpconsole/0750_JoinChannelSidebar1b.png" /></p>
+<p><strong>Step 12.5:</strong> You should now see <strong>team<em>xx</em>org1msp</strong> listed in the <em>Organizations</em> section. Select the checkbox to the left of the word <em>OPerator</em> in order to give your organization operator privileges on the channel. Select <strong>1 out of 1</strong> for the <em>Policy</em> field in the <em>Channel update policy</em> section:</p>
+<p><img alt="image" src="../images/ibpconsole/0760_JoinChannelSidebar1c.png" /></p>
+<p><strong>Step 12.6:</strong> Scroll down in the sidebar panel, and in the <em>Channel creator organization</em> section, select <strong>Team<em>xx</em> Org1 MSP (team<em>xx</em>org1msp)</strong> for the <em>Channel creator MSP</em> field, and select <strong>Team<em>xx</em> Org1 Admin</strong> for the <em>Identity</em> field. Then click the blue <strong>Create channel</strong> button in the lower right:</p>
+<p><img alt="image" src="../images/ibpconsole/0770_JoinChannelSidebar1d.png" /></p>
+<p><strong>Step 12.7:</strong> You should now see your channel listed. Click where it says <strong>Pending- add peer</strong> and continue to the next section:</p>
+<p><img alt="image" src="../images/ibpconsole/0780_ChannelPendingPeerAdd.png" /></p>
+<h1 id="section-13-add-a-peer-to-the-channel">Section 13: Add a peer to the channel</h1>
+<p><strong>Step 13.1:</strong> For the <em>Choose from available peers</em> field, select <strong>Team<em>xx</em> Peer Org1</strong>, where <em>xx</em> is your two-digit team id, and click the <strong>Join channel</strong> button in the lower right:</p>
+<p><img alt="image" src="../images/ibpconsole/0790_ChannelPendingPeerAddSidebar1.png" /></p>
+<p><strong>Step 13.2:</strong> You should now see that instead of the <strong>Pending- add peer</strong> message at the bottom of the tile for your channel, it now says <strong>1 Block</strong>. This indicates that the channel has been successfully created and you have joined a peer to it.</p>
+<p><img alt="image" src="../images/ibpconsole/0800_ChannelPeerAdded.png" /></p>
+<h1 id="section-14-define-the-certificate-authority-for-a-second-peer-organization">Section 14: Define the certificate authority for a second peer organization</h1>
+<p>You have now already defined two organizations- <strong>Team<em>xx</em> Org1</strong> and <strong>Team<em>xx</em> Ordering Service</strong>. The <em>Ordering Service</em> organization provides the ordering service and does not itself initiate blockchain transactions. Most, if not all, realistic blockchain networks will involve multiple organizations initiating blockchain transactions. So you will now a second "peer" organization to participate in the network. Your network will thus have three organizations- two "peer" organizations that are collaborating in the blockchain network, and the ordering service organization which is, essentially, a service provider.</p>
+<p>We will define the second peer organization now.  The pattern is identical to what you did earlier for the first organization.</p>
+<p><strong>Step 14.1:</strong> Click the <strong>Nodes</strong> icon on the icon palette on the left, and then click the blue <strong>Add Certificate Authority</strong> tile:</p>
+<p><img alt="image" src="../images/ibpconsole/0810_AddOrg2Begin.png" /></p>
+<p><strong>Step 14.2:</strong> Click <strong>Create an IBM Cloud Private Certificate Authority</strong> and then click the blue <strong>Next</strong> button:</p>
+<p><img alt="image" src="../images/ibpconsole/0820_AddOrg2CASidebar1.png" /></p>
+<p><strong>Step 14.3:</strong> Type in <strong>Team<em>xx</em> Org2 CA</strong> where <em>xx</em> is your two-digit team id, and then click the blue <strong>Next</strong> button:</p>
+<p><img alt="image" src="../images/ibpconsole/0830_AddOrg2CASidebar2.png" /></p>
+<p><strong>Step 14.4:</strong> Type in <strong>admin</strong> for the <em>CA administrator enroll id</em> and <strong>adminpw</strong> for the <em>CA administrator enroll secret</em> and then click the blue <strong>Next</strong> button:</p>
+<p><img alt="image" src="../images/ibpconsole/0840_AddOrg2CASidebar3.png" /></p>
+<p><strong>Step 14.5:</strong> Leave the <em>Resource allocation</em> settings unchanged, and click the <strong>Next</strong> button:</p>
+<p><img alt="image" src="../images/ibpconsole/0850_AddOrg2CASidebar4.png" /></p>
+<p><strong>Step 14.6:</strong> Review your settings and click the <strong>Add Certificate Authority</strong> button:</p>
+<p><img alt="image" src="../images/ibpconsole/0860_AddOrg2CASidebar5.png" /></p>
+<p><strong>Step 14.7:</strong> You will see a tile for your new certificate authority. Observe the box in the upper right corner of the tile.
+If it is gray, and you hover your mouse over it, you may see a message indicating that the status is pending. (The gray box, but not the status message,
+is shown in this screenshot)</p>
+<p><img alt="image" src="../images/ibpconsole/0870_AddOrg2CAPending.png" /></p>
+<p><strong>Step 14.8:</strong> In about a minute, the box in the upper right should turn green, indicating that the certificate authority is running.
+If the box does not turn green in a minute, try reloading the page in your browser. Contact an instructor for help if it does not
+turn green and show the running status when you hover your mouse over the button.</p>
+<p>Once your certificate authority is running, click on its tile so that you can proceed to the next section where you will add users.</p>
+<p><img alt="image" src="../images/ibpconsole/0880_AddOrg2CARunning.png" /></p>
+<h1 id="section-15-add-new-users-using-your-org2-certificate-authority">Section 15: Add new users using your Org2 Certificate Authority</h1>
+<p><strong>Step 15.1:</strong> Click the <strong>Register user</strong> button on the right side of the screen:</p>
+<p><img alt="image" src="../images/ibpconsole/0890_AddOrg2Users.png" /></p>
+<p><strong>Step 15.2:</strong> Type in <strong>org2admin</strong> for the <em>Enroll id</em>,  <strong>org2adminpw</strong> for the <em>Enroll secret</em>, select <strong>client</strong> for the <em>Type</em> field, and then click the blue <strong>Next</strong> button:</p>
+<p><img alt="image" src="../images/ibpconsole/0900_AddUserOrg2Admin1.png" /></p>
+<p><strong>Step 15.3:</strong> We will not be using custom attributes in this lab, so all you have to do on this screen is click the <strong>Register user</strong> button:</p>
+<p><img alt="image" src="../images/ibpconsole/0910_AddUserOrg2Admin2.png" /></p>
+<p><strong>Step 15.4:</strong> You should now see the userid you just registered, <strong>org2admin</strong>, listed on the screen. You also need to create a userid that your peer node will operate as, so click the <strong>Register user</strong> button again:</p>
+<p><img alt="image" src="../images/ibpconsole/0920_AfterOrg2AdminAdded.png" /></p>
+<p><strong>Step 15.5:</strong> Type in <strong>peer2</strong> for the <em>Enroll id</em>,  <strong>peer2pw</strong> for the <em>Enroll secret</em>, select <strong>peer</strong> for the <em>Type</em> field, and then click the blue <strong>Next</strong> button:</p>
+<p><img alt="image" src="../images/ibpconsole/0930_AddUserPeer2_1.png" /></p>
+<p><strong>Step 15.6:</strong> Just click the <strong>Register user</strong> button at the bottom of the screen:</p>
+<p><img alt="image" src="../images/ibpconsole/0940_AddUserPeer2_2.png" /></p>
+<p><strong>Step 15.7:</strong> You should now see the <strong>peer2</strong> userid listed along with the others on this screen.
+Click the <strong>Organizations</strong> icon on the palette on the left of your screen and continue to the next section of the lab:</p>
+<p><img alt="image" src="../images/ibpconsole/0950_AfterPeer2Added.png" /></p>
+<h1 id="section-16-create-an-msp-for-your-second-peer-organization">Section 16: Create an MSP for your second peer organization</h1>
+<p><strong>Step 16.1:</strong> You should see a screen that looks like below, showing the MSP definitions for your other two organizations. Click the blue <strong>Create MSP definition</strong> tile:</p>
+<p><img alt="image" src="../images/ibpconsole/0960_CreateOrg2MSP.png" /></p>
+<p><strong>Step 16.2:</strong> Enter the following values as instructed here:</p>
+<ul>
+<li>Type <strong>Team<em>xx</em> Org2 MSP</strong>, where <em>xx</em> is your two-digit team id, in the <em>MSP display name</em> field</li>
+<li>Type <strong>team<em>xx</em>org2msp</strong>, where <em>xx</em> is your two-digit team id, in the <em>MSP ID</em> field</li>
+<li>For the <em>Root Certificate Authority</em> field, ensure that <strong>Team<em>xx</em> Org2 CA</strong> is selected</li>
+</ul>
+<p>The sidebar panel contains more information than will likely fit in your browser window, so review the values you have entered per the above list, and then scroll down within the sidebar panel:</p>
+<p><img alt="image" src="../images/ibpconsole/0970_CreateOrg2MSPSidebar1.png" /></p>
+<p><strong>Step 16.3:</strong>  In the <em>Generate organization admin certificate</em> section, enter the following values as instructed here:</p>
+<ul>
+<li>Select <strong>org2admin</strong> for the <em>Enroll ID</em> field</li>
+<li>Type <strong>org2adminpw</strong> in the <em>Enroll secret</em> field. Click the "eyeball" icon if necessary to show the password you've entered.</li>
+<li>Type <strong>Team<em>xx</em> Org2 Admin</strong>, where <em>xx</em> is your two-digit team id, in the <em>Identity name</em> field</li>
+</ul>
+<p>Review the values you have entered per the above list, and then click the blue <strong>Generate</strong> button:</p>
+<p><img alt="image" src="../images/ibpconsole/0980_CreateOrg2MSPSidebar1b.png" /></p>
+<p><strong>Step 16.4:</strong> The prior step generated a public certificate and a matching private key. This private key is stored by the IBM Blockchain Platform console in your local browser storage and nowhere else. In order to ensure that you can retrieve your private key later, you must now click the <strong>Export</strong> button which will prompt you to save your private key (along with the public certificate) in a JSON file on your hard drive.</p>
+<p><img alt="image" src="../images/ibpconsole/0990_CreateOrg2MSPSidebar1c.png" /></p>
+<p><strong>Step 16.5:</strong> Save the exported JSON file in a location that you can remember. This example shows it being saved to a folder named <em>json</em> that was created already. You can use the file save window to create a new folder to match this name if you would like, although it isn't strictly necessary for this lab.</p>
+<p><img alt="image" src="../images/ibpconsole/1000_CreateOrg2MSPSaveIdentity.png" /></p>
+<p><strong>Step 16.6:</strong> Click the blue <strong>Create MSP definition</strong> button in the lower right of your screen:</p>
+<p><img alt="image" src="../images/ibpconsole/1010_CreateOrg2MSP.png" /></p>
+<p><strong>Step 16.7:</strong> You should now see the definition for your new MSP listed on your screen. Scroll up and click the <em>Nodes</em> icon in the icon palette on your left- it is the topmost icon on this pallet- and you will be ready to proceed to the next section:</p>
+<p><img alt="image" src="../images/ibpconsole/1020_CreateOrg2MSPFinished.png" /></p>
+<h1 id="section-17-create-a-peer-node-for-your-second-peer-organization">Section 17: Create a peer node for your second peer organization</h1>
+<p><strong>Step 17.1:</strong> Click the <strong>Add peer</strong> tile:</p>
+<p><img alt="image" src="../images/ibpconsole/1030_AddOrg2Peer.png" /></p>
+<p><strong>Step 17.2:</strong> Click the <strong>Create an IBM Cloud Private peer</strong> button and then click the blue <strong>Next</strong> button:</p>
+<p><img alt="image" src="../images/ibpconsole/1040_AddOrg2PeerSidebar1.png" /></p>
+<p><strong>Step 17.3:</strong> Type <strong>Team<em>xx</em> Peer Org1</strong>, where <em>xx</em> is your two-digit team id, in the <em>Peer display name</em> field and then click the blue <strong>Next</strong> button:</p>
+<p><img alt="image" src="../images/ibpconsole/1050_AddOrg2PeerSidebar2.png" /></p>
+<p><strong>Step 17.4:</strong> Enter or select the following values on this panel:</p>
+<ul>
+<li>Select <strong>Team<em>xx</em> Org2 CA</strong>, where <em>xx</em> is your two-digit team id, for the <em>Certificate Authority</em> field</li>
+<li>Select <strong>peer2</strong> for the <em>Peer enroll ID</em> field</li>
+<li>Type <strong>peer2pw</strong> in the <em>Peer enroll secret</em> field</li>
+<li>Select <strong>Team<em>xx</em> Org2 MSP</strong>, where <em>xx</em> is your two-digit team id, for the <em>Organization MSP</em> field</li>
+</ul>
+<p>Review the values you entered or select to ensure they match the above list, and then click the blue <strong>Next</strong> button:</p>
+<p><img alt="image" src="../images/ibpconsole/1060_AddOrg2PeerSidebar3.png" /></p>
+<p><strong>Step 17.5:</strong> Enter or select the following values on this panel:</p>
+<ul>
+<li>Select <strong>peer2</strong> for the <em>TLS CA enroll ID</em> field</li>
+<li>Type <strong>peer2pw</strong> in the <em>TLS CA enroll secret</em> field</li>
+<li>Leave the <em>TLS CSR hostname</em> field blank</li>
+</ul>
+<p>Review the values your entered for correctness and then click the blue <strong>Next</strong> button:</p>
+<p><img alt="image" src="../images/ibpconsole/1070_AddOrg2PeerSidebar4.png" /></p>
+<p><strong>Step 17.6:</strong> Leave the <em>Resource allocation</em> settings unchanged and click the <strong>Next</strong> button:</p>
+<p><img alt="image" src="../images/ibpconsole/1080_AddOrg2PeerSidebar5.png" /></p>
+<p><strong>Step 17.7:</strong> Select <strong>Team<em>xx</em> Org2 Admin</strong>, where <em>xx</em> is your two-digit team id, for the <em>Identity</em> field, and click <strong>Next</strong>:</p>
+<p><img alt="image" src="../images/ibpconsole/1090_AddOrg2PeerSidebar6.png" /></p>
+<p><strong>Step 17.8:</strong> The <em>Summary</em> panel provides a review of the values you entered or selected in the prior panels. Click the <strong>Add peer</strong> button to continue:</p>
+<p><img alt="image" src="../images/ibpconsole/1100_AddOrg2PeerSidebar7.png" /></p>
+<p><strong>Step 17.9:</strong> Similar to when you created your other peer earlier, you should see your new peer listed, along with a gray box in the upper right of its tile, showing that the status of this peer is "pending" if you hover your mouse over the gray box.</p>
+<p><img alt="image" src="../images/ibpconsole/1110_AddOrg2PeerPending.png" /></p>
+<p><strong>Step 17.10:</strong>  It can take a minute or two on our lab system for the peer to come up completely, and you may need to refresh your browser in order to see the box turn green. If your peer is still not ready after a couple of minutes and after you have tried refreshing your browser, ask an instructor for help.  The peer must be ready, as indicated by a green box in the upper right of the peer's tile, similar to what is shown below, before you can continue:</p>
+<p><img alt="image" src="../images/ibpconsole/1120_AddOrg2PeerRunning.png" /></p>
+<h1 id="section-18-add-your-new-peer-organization-to-the-consortium">Section 18: Add your new peer organization to the consortium</h1>
+<p><strong>Step 18.1:</strong> Click on your <strong>Team<em>xx</em> Orderin...</strong> tile (the full name is most likely truncated on your screen) under the <em>Ordering services</em> section:</p>
+<p><img alt="image" src="../images/ibpconsole/1130_AddOrg2ToConsortiumBegin.png" /></p>
+<p><strong>Step 18.2:</strong> Click the blue <strong>Add organization</strong> tile in the <em>Consortium members</em> section:</p>
+<p><img alt="image" src="../images/ibpconsole/1140_UpdateConsortium1.png" /></p>
+<p><strong>Step 18.3:</strong> Click the <strong>Existing MSP ID</strong> button, select <strong>Team<em>xx</em> Org2 MSP</strong> where <em>xx</em> is your two-digit team id, and then click the <strong>Add organization</strong> button:</p>
+<p><img alt="image" src="../images/ibpconsole/1150_AddOrg2ToConsortium.png" /></p>
+<p><strong>Step 18.4:</strong> You should now see your second peer organization, <strong>Team<em>xx</em> Org2 MSP</strong>, listed as a member of your consortium:</p>
+<p><img alt="image" src="../images/ibpconsole/1160_AddOrg2ToConsortiumFinished.png" /></p>
+<h1 id="section-19-add-your-org2-organization-to-the-channel">Section 19: Add your Org2 organization to the channel</h1>
+<p>When you created your <strong>team<em>xx</em>-channel1</strong> channel earlier in the lab, your new <strong>Team<em>xx</em> Org2</strong> organization did not exist yet. If it had existed at the time, you could have added it to the channel membership when you created the channel.</p>
+<p>You will add the organization to the channel membership now.  </p>
+<p><strong>Step 19.1:</strong> Click the <em>Channels</em> icon on the icon palette on the left:</p>
+<p><img alt="image" src="../images/ibpconsole/1170_ClickChannels.png" /></p>
+<p><strong>Step 19.2:</strong> Click the tile for your <strong>team<em>xx</em>-channel1</strong> channel:</p>
+<p><img alt="image" src="../images/ibpconsole/1180_JoinChannel_1.png" /></p>
+<p><strong>Step 19.3:</strong> Click the <strong>Settings</strong> icon (the one that looks like a gear) to the right of the channel name near the top of your screen:</p>
+<p><img alt="image" src="../images/ibpconsole/1190_SelectChannel1.png" /></p>
+<p><strong>Step 19.4:</strong> You will see the <em>Update channel</em> sidebar panel. Ensure that your channel name, <strong>team<em>xx</em>-channel1</strong>, is populated in the <em>Channel name</em> field, and scroll down further on the panel:</p>
+<p><img alt="image" src="../images/ibpconsole/1200_UpdateChannelSidebar1.png" /></p>
+<p><strong>Step 19.5:</strong> Select <strong>Team<em>xx</em> Org2 MSP (team<em>xx</em>org2msp)</strong>, where <em>xx</em> is your two-digit team id, for the <em>Select a channel member</em> field, and click the <strong>Add</strong> button to the right of the field:</p>
+<p><img alt="image" src="../images/ibpconsole/1210_UpdateChannelSidebar1b.png" /></p>
+<p><strong>Step 19.6:</strong> Your <strong>team<em>xx</em>org2msp</strong> organization will now be listed under the <em>Organizations</em> section.  Select the checkbox to the left of <em>Operator</em> in order to give this organization <em>Operator</em> authority on the channel.  Select <strong>1 out of 2</strong> for the <em>Policy</em> field in the <em>Channel update policy section</em>.  Then scroll down further in the sidebar panel:</p>
+<p><img alt="image" src="../images/ibpconsole/1220_UpdateChannelSidebar1c.png" /></p>
+<p><strong>Step 19.7:</strong> You are adding your <em>Org2</em> to the channel, but until it is added, your <em>Org1</em> is the only member of the channel. Therefore, you will select values pointing to <em>Org1</em> in the <em>Channel updater organization</em> section. Select <strong>Team<em>xx</em> Org1 MSP (team<em>xx</em>org1msp)</strong> for the <em>Channel updater MSP</em> field, select <strong>Team<em>xx</em> Org1 Admin</strong> for the <em>Identity</em> field, and click the <strong>Send proposal</strong> button:</p>
+<p><img alt="image" src="../images/ibpconsole/1230_UpdateChannelSidebar1d.png" /></p>
+<p><strong>Step 19.8:</strong> You will be returned to a page displaying your channel.  Notice that the block height is now two. The first block was the <em>genesis block</em> that was produced when the channel was created. The second block contains a transaction that contains the configuration update to the channel which added your <em>Org2</em> to the channel.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Hyperledger Fabric distinguishes configuration update transactions from typical application transactions. The IBM Blockchain Platform console does not show details of configuration update transactions nor include them in the count of transactions that it will display. That is, if you display a block that has a configuration update transaction, the IBM Blockchain Platform console will show <em>0 transactions</em> for that block.  (A block of application transactions can contain multiple transactions, but a configuration update transaction is the only transaction in its block. That is, a block does not contain a mix of application transactions and configuration update transactions).</p>
+</div>
+<p>Click the <strong>Channel details</strong> tab to the right of the <strong>Transaction overview</strong> tab:</p>
+<p><img alt="image" src="../images/ibpconsole/1240_UpdateChannelFinished.png" /></p>
+<p><strong>Step 19.9:</strong> In the <em>Channel members</em> section, you should now see both of your peer organizations listed as members. Once you have verified this, click the <strong>Channels</strong> icon on the icon palette on the left:</p>
+<p><img alt="image" src="../images/ibpconsole/1250_ViewChannelMembers.png" /></p>
+<h1 id="section-20-add-your-peer-for-org2-to-the-channel">Section 20: Add your peer for Org2 to the channel</h1>
+<p><strong>Step 20.1:</strong> Now that your <em>Org2</em> is a member of the channel, you can join your peer from <em>Org2</em> to the channel. Click the blue <strong>Join channel</strong> tile:</p>
+<p><img alt="image" src="../images/ibpconsole/1260_JoinOrg2PeerToChannelBegin.png" /></p>
+<p><strong>Step 20.2:</strong> Ensure that <strong>Team<em>xx</em> Ordering Service</strong>, where <em>xx</em> is your two-digit team id, is selected for the <em>Ordering service</em> field and click the blue <strong>Next</strong> button:</p>
+<p><img alt="image" src="../images/ibpconsole/1270_PeerAddSidebar1.png" /></p>
+<p><strong>Step 20.3:</strong> Type in <strong>team<em>xx</em>-channel1</strong>, where <em>xx</em> is your two-digit team id, in the <em>Channel</em> field and click the <strong>Next</strong> button:</p>
+<p><img alt="image" src="../images/ibpconsole/1280_PeerAddSidebar2.png" /></p>
+<p><strong>Step 20.4:</strong> In the <em>Choose from available peers</em> section, select <strong>Team<em>xx</em> Peer Org2</strong>, where <em>xx</em> is your two-digit team id, and then click the blue <strong>Join channel</strong> button:</p>
+<p><img alt="image" src="../images/ibpconsole/1290_PeerAddSidebar3.png" /></p>
+<p><strong>Step 20.5:</strong> You are returned to the <em>Channels</em> screen. Click the tile for your channel, <strong>team<em>xx</em>-channel1</strong>:</p>
+<p><img alt="image" src="../images/ibpconsole/1300_PeerAddFinished.png" /></p>
+<p><strong>Step 20.6:</strong> Click the <strong>Channel details</strong> tab to the right of the <strong>Transaction overview</strong> tab:</p>
+<p><img alt="image" src="../images/ibpconsole/1310_ViewChannel1.png" /></p>
+<p><strong>Step 20.7:</strong> Observe that your peer node for <em>Org2</em>, <strong>Team<em>xx</em> Peer Org2</strong>, is listed in the <em>Nodes</em> section, indicating that this peer has joined the channel:</p>
+<p><img alt="image" src="../images/ibpconsole/1320_ViewChannel2.png" /></p>
+<p><strong>End of lab!</strong></p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../references/" class="btn btn-neutral float-right" title="Additional Resources">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../connect-part2/" class="btn btn-neutral" title="Part 2"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/ibm-blockchain-wsc/ImmersionWorkshop.git" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../connect-part2/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../references/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+
+</body>
+</html>
