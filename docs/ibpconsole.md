@@ -174,7 +174,7 @@ Review the values you have entered per the above list, and then click the blue *
 
 ![image](images/ibpconsole/0250_CreateOrg1MSP.png)
 
-**Step 5.7:** You should now see the definition for your new MSP listed on your screen. Scroll up and click the **Nodes** icon in the icon palette on your left- it is the topmost icon on this pallet, and you will be ready to proceed to the next section:
+**Step 5.7:** You should now see the definition for your new MSP listed on your screen. Scroll up and click the **Nodes** icon in the icon palette on your left- it is the topmost icon on this palette, and you will be ready to proceed to the next section:
 
 ![image](images/ibpconsole/0260_CreateOrg1MSPFinished.png)
 
@@ -361,7 +361,7 @@ Review the values you have entered per the above list, and then click the blue *
 
 ![image](images/ibpconsole/0570_CreateOrderingMSP.png)
 
-**Step 9.7:** You should now see the definition for your new Ordering Service MSP listed on your screen alongside the MSP your created earlier for your peer organization. Scroll up and click the *Nodes* icon in the icon palette on your left- it is the topmost icon on this pallet, and you will be ready to proceed to the next section:
+**Step 9.7:** You should now see the definition for your new Ordering Service MSP listed on your screen alongside the MSP your created earlier for your peer organization. Scroll up and click the *Nodes* icon in the icon palette on your left- it is the topmost icon on this palette, and you will be ready to proceed to the next section:
 
 ![image](images/ibpconsole/0580_CreateOrderingMSPFinished.png)
 
@@ -599,7 +599,7 @@ Review the values you have entered per the above list, and then click the blue *
 
 ![image](images/ibpconsole/1010_CreateOrg2MSP.png)
 
-**Step 16.7:** You should now see the definition for your new MSP listed on your screen. Scroll up and click the *Nodes* icon in the icon palette on your left- it is the topmost icon on this pallet- and you will be ready to proceed to the next section:
+**Step 16.7:** You should now see the definition for your new MSP listed on your screen. Scroll up and click the *Nodes* icon in the icon palette on your left- it is the topmost icon on this palette- and you will be ready to proceed to the next section:
 
 ![image](images/ibpconsole/1020_CreateOrg2MSPFinished.png)
 
