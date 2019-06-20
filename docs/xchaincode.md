@@ -8,7 +8,7 @@ Part of the cross chaincode process is to understand how and where you want to c
 
 For this lab commercial-bond is already written and packaged up for you. You will clone and add the package to your VSCode IBM Blockchain Platform Extension. Then you will package, install and instantiate the contract to your locally running fabric environment. The instantiate process will also add a few sample bonds to the ledger and to commercial-bond's world state. This way your commercial-paper will have existing bonds to query and extract rates from. You can also experiment with commercial-bond's functions by issuing your own bonds.
 
-The bulk of the lab will be done against the existing commercial-paper. This is where you will add additional functions that interact with the commercial-bond contract. We will also use the VSCode IBM Blockchain Platform Debug Smart Contract function so you get an understanding of how to quickly iterate through changes to a smart contract and debug a smart contract.
+The bulk of the lab will be done against the existing commercial-paper. This is where you will add additional functions that interact with the commercial-bond contract. We will also use the VSCode IBM Blockchain Platform Debug Smart Contract function so you get an understanding of how to quickly iterate through changes to a smart contract in development mode and debug a smart contract.
 
 Finally we will deploy the bond-query-enabled commercial-paper to your local fabric, generate some functional tests, and run through them to make sure that the smart contract is functional.
 
@@ -229,5 +229,14 @@ Now you are ready to make updates to the smart contract and test them quickly by
 
 # Debug Smart Contract in Development Mode
 
+The first thing we will do is to `Toggle Development Mode` on our peer. Navigate to the IBM Blockchain Platform view in your VSCode:
 
+![VSCode-xchaincode6](images/xchaincode6.png)
 
+In the `Local Fabric Ops` panel, scroll down to find `Nodes` and expand that section. Select `peer0.org1.example.com`
+
+![VSCode-xchaincode32](images/xchaincode32.png)
+
+This will take a minute. Upon success you will see the following message in the lower right corner:
+
+![VSCode-xchaincode33](images/xchaincode33.png)
