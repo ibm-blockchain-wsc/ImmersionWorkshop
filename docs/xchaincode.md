@@ -203,7 +203,7 @@ Click on `Commercial Paper` in the Explore sample code section:
 
 ![VSCode-xchaincode25](images/xchaincode25.png)
 
-On the `Commercial Paper Sample` page, click on `Clone` (the picture below shows `Clone again` but if you are doing this the first time it should just say `Clone`):
+On the `Commercial Paper Sample` page, click on `Clone` (the picture below shows `Clone again` but if you are doing this for the first time it should just say `Clone`):
 
 ![VSCode-xchaincode27](images/xchaincode27.png)
 
@@ -213,7 +213,7 @@ When it is done cloning, you will see the location that you cloned to here:
 
 ![VSCode-xchaincode28](images/xchaincode28.png)
 
-Now, from the same `Commercial Paper Sample` page, go to the smart contract section and select `Open Locally` for `MagnetoCorp Contract`:
+Now, from the same `Commercial Paper Sample` page, go to the `Smart Contracts` section and select `Open Locally` for `MagnetoCorp Contract`:
 
 ![VSCode-xchaincode29](images/xchaincode29.png)
 
@@ -221,11 +221,11 @@ In the pop-up window, select `Add to workspace`:
 
 ![VSCode-xchaincode30](images/xchaincode30.png)
 
-In your VSCode Explorer Blockchain workspace panel, you will see the following folder with its contents added:
+In your VSCode Explorer Blockchain workspace panel, you will see the following `cp-magnetocorp-contract-javascript` folder with its contents added:
 
 ![VSCode-xchaincode31](images/xchaincode31.png)
 
-Now you are ready to make changes and test them quickly by working in Hyperledger Fabric development mode in conjunction with the VSCode Debugger.
+Now you are ready to make updates to the smart contract and test them quickly by working in Hyperledger Fabric development mode in conjunction with the VSCode Debugger.
 
 # Debug Smart Contract in Development Mode
 
