@@ -179,13 +179,13 @@ Now run the same evaluation but with the following arguments:
 
 `"MagnetoCorp","2020-04-30"`
 
-What do you get returned?  Is it expected?  Which bond does it belong to?
+What do you get returned?  Is it expected?  Which bond does the rate belong to?
 
 Lastly, run the same evaluation but with the following arguments:
 
 `"MagnetoCorp","2020-05-31"`
 
-Now that do you get returned?  Is it expected?
+Now what do you get returned?  Is it expected?
 
 
 
