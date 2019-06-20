@@ -13,6 +13,10 @@ Then you will create a second peer organization, and add it to the channel
 
 Each high-level task is detailed in a separate section, with multiple steps per task.
 
+The diagram below provides a view of what your blockchain network will look like upon completion of the lab:
+
+![image](images/ibpconsole/0005_LabGoal.png)
+
 The sections in this lab are as follows:
 
 - Section 1: This overview
@@ -56,6 +60,13 @@ Go ahead and click on the **Proceed to 192.168.22.81 (unsafe)** link that is sho
 
 Section 3: Create a Certificate Authority for your first organization
 =====================================================================
+
+In a Hyperledger Fabric network, each organization will typically have their own certificate authority. The certificate authority is used to issue identities- consisting of public certificates and matching private keys- for end users, client applications, administrators, and peer and ordering service nodes. In most uses cases each organization will want to have control over the identities they issue, so the typical practice is that each organization provides their own certificate authority. We will follow that practice in this lab. 
+
+You are starting with a blank slate, and our first component to add is the certificate authority for our first peer organization.
+In relation to the diagram in the overview section that showed our finished network upon successful lab completion, here is the component that will be added in this section:
+
+![image](images/ibpconsole/0045_DiagramOrg1CA.png) 
 
 **Step 3.1:** Click the blue **Add Certificate Authority** box:
 
@@ -135,6 +146,12 @@ Click the **Organizations** icon on the palette on the left of your screen and c
 Section 5: Create an MSP for your organization
 ==============================================
 
+The *Membership Service Provider* (MSP) component is integral to the private and permissioned Hyperledger Fabric as it provides the authentication- "who are you?"- and authorization - "ok, we believe you are whom you say you are, but can you do what you are asking to do?"- services.  The infrastructure that the MSP needs to do its job must be in place before you create your peer node. This step will create this for your "Org1".
+
+As we add components throughout the lab, the diagram that maps to our final goal will be shown, with the new component to be added in any given section annotated with a bright red star, as in the below diagram which shows that we will be adding your **Team*xx* Org1**'s MSP:
+
+![image](images/ibpconsole/0195_DiagramOrg1MSP.png)
+ 
 **Step 5.1:** You should see a screen that looks like below, indicating that you have yet to create a *Membership Service Provider (MSP)* definition for your organization. Click the blue **Create MSP definition** tile:
 
 ![image](images/ibpconsole/0200_CreateOrg1MSP.png)
@@ -144,7 +161,7 @@ Section 5: Create an MSP for your organization
 - Type **Team*xx* Org1 MSP**, where *xx* is your two-digit team id, in the *MSP display name* field
 - Type **team*xx*org1msp**, where *xx* is your two-digit team id, in the *MSP ID* field
 - For the *Root Certificate Authority* field, ensure that **Team*xx* Org1 CA** is selected
-
+ 
 The sidebar panel contains more information than will likely fit in your browser window, so review the values you have entered per the above list, and then scroll down within the sidebar panel:
 
 ![image](images/ibpconsole/0210_CreateOrg1MSPSidebar1.png)
@@ -181,6 +198,10 @@ Review the values you have entered per the above list, and then click the blue *
 Section 6: Create a peer node for your organization
 ===================================================
 
+A peer node is where smart contracts- in essence, your blockchain business transactions- run.  Peer nodes also store the ledgers. We will create a peer for your **Team*xx* Org1** in this section and our fledgling network will look then look like this: 
+
+![image](images/ibpconsole/0265_DiagramOrg1Peer.png)
+ 
 **Step 6.1:** Click the **Add peer** tile:
 
 ![image](images/ibpconsole/0270_AddOrg1Peer.png)
