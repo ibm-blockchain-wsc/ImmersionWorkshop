@@ -26,7 +26,7 @@ These are the general steps you will take:
 
 ## Section 1: Clone the commercial-bond smart contract package
 
-Open up your terminal and run the following commands from your home directory:
+1. pen up your terminal and run the following commands from your home directory:
 
 `
 $ git clone https://github.com/jinvanstee/commercial-bond.git
@@ -42,7 +42,7 @@ remote: Total 32 (delta 3), reused 31 (delta 2), pack-reused 0
 Unpacking objects: 100% (32/32), done.
 ```
 
-Return to your VSCode Explorer and add the commercial-bond smart contract folder to your workspace.
+2. Return to your VSCode Explorer and add the commercial-bond smart contract folder to your workspace.
 
 Right click anywhere in your workspace to get the drop down and select Add Folder to Workspace. Then browse to `<path to commercial-bond>/organization/magnetocorp/` and select contract and click Add.
 
@@ -55,7 +55,7 @@ You should see the contents of the contract folder in your workspace, like the f
 
 ## Section 2: Package commercial-bond, install and instantiate
 
-In VSCode, open up the Command Palette (either by click on the gear icon to the lower left and selecting Command Palette or pressing `Command + Shift + P` if you are on a Mac and `Ctl + Shift + P` if you are on Linux). 
+1. In VSCode, open up the Command Palette (either by click on the gear icon to the lower left and selecting Command Palette or pressing `Command + Shift + P` if you are on a Mac and `Ctl + Shift + P` if you are on Linux). 
 
 Select `IBM Blockchain Platform: Package a Smart Contract Project`:
 
@@ -193,7 +193,7 @@ If you already have commercial-paper in VSCode from the previous lab, you can sk
 
 Now you are ready to make updates to the smart contract and test them quickly by working with Hyperledger Fabric in development mode in conjunction with the VSCode Debugger.
 
-# Section 5: Debug Smart Contract in Development Mode
+# Section 5: Setup Debug Smart Contract in Development Mode
 
 The VSCode IBM Blockchain Platform Extension provides an integrated `Debug Smart Contract` experience with VSCode's build-in debugger. It is a powerful tool in digging deeper into your smart contract code stack, and can be extremely useful in your smart contract development work flow. Using the debug feature will allow you to efficiently test out updates to your smart contract against a local Hyperledger Fabric running in development mode, without having to re-package, re-install and upgrade your smart contract manually with every change. Now, let's get into setting up the debug environment.
 
@@ -293,11 +293,11 @@ Next you will see a familiar pop-up asking what function you'd like to call. Typ
 
 Then you will see another pop-up asking what arguments to pass to the function. You will just hit `Enter` here:
 
-![VSCode-xchaincode-instantiate](images/xchaincode-argument-pop-up.png)
+![VSCode-xchaincode-argument](images/xchaincode-argument-pop-up.png)
 
 Lastly, you will be asked if you want to provide a private collection configuration file. Again, just hit `Enter` here:
 
-![VSCode-xchaincode-instantiate](images/xchaincode-private-data-pop-up.png)
+![VSCode-xchaincode-private-data](images/xchaincode-private-data-pop-up.png)
 
 Finally, upon successful instantiation, you will see the following message in the lower right corner:
 
@@ -312,5 +312,60 @@ Return to the VSCode `Debug` view. Now you are setup for developing and debuggin
 ![VSCode-xchaincode35](images/xchaincode35.png)
 
 # Section 6: Make smart contract updates, test in debugging session
+
+It may seem like a lot of steps to setup the smart contract debugging environment in VSCode, but it is worth spending time up front to configure a debugging session. You will be a more effective smart contract developer with this tool in your toolkit.
+
+1. In the VSCode `Debug` view, if you look at the `DEBUG CONSOLE` output, you will see all the `console.log` messages for the functions that have been executed so far. So far we've only instantiated the smart contract, so you will only see the following message in the `DEBUG CONSOLE`:
+
+![VSCode-xchaincode51](images/xchaincode51.png)
+
+And if you look at the `papercontract.js` code at line 52 you will see the `console.log` instruction (note that where this code is located in your `papercontract.js` may be slightly different. If you see the `DEBUG CONSOLE` output it tells you which line this is from):
+
+![VSCode-xchaincode52](images/xchaincode52.png)
+
+2. Let's put in a breakpoint and walk through one of the functions. Let's place a breakpoint on the first instruction in the issue function. Your screen should look like the following (you can either click on the space to the left of the line number, or put your cursor on that line and hit the `F9` key):
+
+![VSCode-xchaincode53](images/xchaincode53.png)
+
+3. Now let's execute the `issue` transaction and walk through the debugging process on the current `papercontract.js`. To submit or evaluate a transaction in the debugging environment we will leverage the integrated IBM Blockchain Platform Extension debug functionality. In the debug toolbar, click on the IBM Blockchain Platform button:
+
+![VSCode-xchaincode47](images/xchaincode47.png)
+
+A familiar pop-up window will appear at the top, select `Submit Transaction`:
+
+![VSCode-xchaincode54](images/xchaincode54.png)
+
+Then another pop-up window will appear listing all the functions/transactions that are available in `papercontract.js` for you to test. Let's select `issue`:
+
+![VSCode-xchaincode55](images/xchaincode55.png)
+
+Then, in the pop-up that asks what arguments to pass to the transaction, enter the following inside the brackets:
+
+`"MagnetoCorp", "00005", "2020-05-31", "2020-11-30", "500000"`
+
+![VSCode-xchaincode56](images/xchaincode56.png)
+
+For the next pop-up you will be asked if you want to provide a private collection configuration file. Again, just hit `Enter` here:
+
+![VSCode-xchaincode-private-data](images/xchaincode-private-data-pop-up.png)
+
+4. Now the debugger will automatically stop at the breakpoint you set inside the `issue` function. And you should see the various debug panels on the left populated with information related to that line of code:
+
+![VSCode-xchaincode-debug-breakpoint1](images/xchaincode-debug-breakpoint-1.png)
+
+Here you can choose to `Step Over` that line of code onto the next line, or `Step Into` the function which will dive into that call stack. If you've used debuggers before these should be familiar to you. The debugger tool-bar at the top has the most commonly used debugging functions:
+
+![VSCode-xchaincode-debug-toolbar](images/xchaincode-debug-toolbar.png)
+
+Hover over each of the buttons to see what each one does. Let's select the `Step Over` function or you can press F10 to do the same thing.
+
+![VSCode-xchaincode-debug-stepover](images/xchaincode-debug-stepover.png)
+
+You will see the now you are at the next line of code, and the variables panel has been updated with the results of executing the previous line of code. Notice that the paper variable has now been updated with the arguments input to the transaction:
+
+![VSCode-xchaincode-debug-breakpoint2](images/xchaincode-debug-breakpoint-2.png)
+
+`Ctl + click` on the paper variable and select `Add to watch`:
+
 
 
