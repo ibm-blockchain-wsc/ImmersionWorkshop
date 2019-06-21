@@ -62,7 +62,7 @@ Select `IBM Blockchain Platform: Package a Smart Contract Project`:
 
 ![VSCode-xchaincode3](images/xchaincode3.png)
 
-Then select `commercial-bond`.
+2. Then select `commercial-bond`.
 
 ![VSCode-xchaincode4](images/xchaincode4.png)
 
@@ -70,11 +70,11 @@ Upon success, you will see in the lower right corner a message like this:
 
 ![VSCode-xchaincode5](images/xchaincode5.png)
 
-Now you will install this chaincode to your local-fabric. Navigate to the IBM Blockchain Platform view in VSCODE (the 6th button down from the left menu):
+3. Now you will install this chaincode to your local-fabric. Navigate to the IBM Blockchain Platform view in VSCODE (the 6th button down from the left menu):
 
 ![VSCode-xchaincode6](images/xchaincode6.png)
 
-Under the `Local Fabric Ops` panel, click on `+ Install`, then select `commercial-bond@0.0.1` from the list:
+4. Under the `Local Fabric Ops` panel, click on `+ Install`, then select `commercial-bond@0.0.1` from the list:
 
 ![VSCode-xchaincode7](images/xchaincode7.png)
 
@@ -86,7 +86,7 @@ You will also see the package listed under `Installed` in the `Local Fabric Ops`
 
 ![VSCode-xchaincode9](images/xchaincode9.png)
 
-Now you will instantiate the installed contract. In the `Local Fabric Ops` panel, select `+ Instantiate`. In the pop-up, similar to when you installed the smart contract, select `commercial-bond@0.0.1`.
+5. Now you will instantiate the installed contract. In the `Local Fabric Ops` panel, select `+ Instantiate`. In the pop-up, similar to when you installed the smart contract, select `commercial-bond@0.0.1`.
 
 Next, type `instantiate` when it asks you What function do you want to call. Press `Enter` to continue:
 
@@ -100,11 +100,50 @@ First time initialization of Node.js chaincode can take a while because it will 
 
 ![VSCode-xchaincode11](images/xchaincode11.png)
 
+6. For reference for later, these are the bonds that were added to the ledger in the initialization phase:
+
+```
+const bonds = [
+            {
+                issuer: 'MagnetoCorp',
+                bondNumber: '00001',
+                issueDateTime: '2019-04-17',
+                maturityDateTime: '2020-04-17',
+                faceValue: '10000',
+                interestRate: '0.05',
+            },
+            {
+                issuer: 'Digibank',
+                bondNumber: '00001',
+                issueDateTime: '2019-05-17',
+                maturityDateTime: '2020-05-17',
+                faceValue: '50000',
+                interestRate: '0.04',
+            },
+            {
+                issuer: 'MagnetoCorp',
+                bondNumber: '00002',
+                issueDateTime: '2019-06-17',
+                maturityDateTime: '2020-06-17',
+                faceValue: '10000',
+                interestRate: '0.05',
+            },
+            {
+                issuer: 'Digibank',
+                bondNumber: '00002',
+                issueDateTime: '2019-07-17',
+                maturityDateTime: '2020-07-17',
+                faceValue: '50000',
+                interestRate: '0.04',
+            },
+        ];
+```
+
 Now that you have instantiated commercial-bond on your locally running fabric, you can...
 
 ## Section 3: Run a few tests to get familiar with commercial-bond
 
-VSCode IBM Blockchain Platform extension makes it easy for you to test out functions of your smart contract directly inside VSCode. Let's run a few tests directly through the functions made visible in the `Fabric Gateways` panel of the IBM Blockchain Platform view. Click on all the twisties to reveal the functions of commercial-bond:
+1. VSCode IBM Blockchain Platform extension makes it easy for you to test out functions of your smart contract directly inside VSCode. Let's run a few tests directly through the functions made visible in the `Fabric Gateways` panel of the IBM Blockchain Platform view. Click on all the twisties to reveal the functions of commercial-bond:
 
 ![VSCode-xchaincode12](images/xchaincode12.png)
 
@@ -114,7 +153,7 @@ Scroll down to see all the functions of this smart contract:
 
 All of these functions represent transactions in this smart contract. Now, let's evaluate a few transactions.
 
-Let's start with `getAllBondsFromIssuer` which will return all the bonds from a specified issuer.
+2. Let's start with `getAllBondsFromIssuer` which will return all the bonds from a specified issuer.
 
 Select the function `getAllBondsFromIssuer`, and either `right-click` or `Ctl+click` and select `Evaluate Transaction`:
 
