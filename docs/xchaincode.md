@@ -234,7 +234,7 @@ An explanation of each of the panels:
 3. Call Stack - this panel will display the call stack of the current function you are stepping through
 4. Breakpoints - this panel will display all the breakpoints in the current program
 
-Now, let's configure a `launch.json` file for `papercontract.js`. According to VSCode's debugging documentation: For most debugging scenarios, creating a launch configuration file is beneficial because it allows you to configure and save debugging setup details. VS Code keeps debugging configuration information in a `launch.json` file located in a .vscode folder in your workspace (project root folder) or in your user settings or workspace settings.
+Now, let's configure a `launch.json` file for `papercontract.js`. According to VSCode's debugging documentation: For most debugging scenarios, creating a launch configuration file is beneficial because it allows you to configure and save debugging setup details. VS Code keeps debugging configuration information in a `launch.json` file located in a `.vscode` folder in your workspace (project root folder) or in your user settings or workspace settings.
 
 To do so, click on the little arrows next to the DEBUG toolbar at the top of the `Debug` view.
 
@@ -594,7 +594,12 @@ Save this file with `Command + S` if you are on Mac, or `Ctl + S` if you are on 
 
 Note: During the copy and paste process, the formatting of the code block might look off. You can highlight the code block, then enter `Ctl + click` and select `Format Selection` which should format the highlighted section nicely.
 
-The above `issue` function first queries the commercial-bond contract for the return rate on a bond with similar maturity date. It uses the `invokeChaincode()` API from the ChaincodeStub class of the fabirc-shim library. The `invokeChaincode()` API takes three arguments: `<async> invokeChaincode(chaincodeName, args, channel)` (see full spec here https://fabric-shim.github.io/master/fabric-shim.ChaincodeStub.html#toc1__anchor). In the example above the first argument passed is `commercial-bond` which is the name of the chaincode that you want to invoke. The 2nd parameter in our example is `["getClosestBondRate", issuer, maturityDateTime]` which is an array of strings. The first array element `"getClosestBondRate"` is the function within the `commercial-bond` contract you want to invoke, the 2nd and third elements are the arguments to pass to the `getClosestBondRate` function, in this case they are the name of the organization that issued the bonds you want to query and the maturity date that you want to compare bonds to.
+The above `issue` function first queries the commercial-bond contract for the return rate on a bond with similar maturity date. It uses the `invokeChaincode()` API from the ChaincodeStub class of the fabirc-shim library. The `invokeChaincode()` API takes three arguments: `<async> invokeChaincode(chaincodeName, args, channel)` (see full spec here https://fabric-shim.github.io/master/fabric-shim.ChaincodeStub.html#toc1__anchor). 
+
+In the invokeChaincode() example in the `issue` function above:
+    1. The first argument passed is `commercial-bond` which is the name of the chaincode that you want to invoke. 
+    2. The 2nd argument in our example is `["getClosestBondRate", issuer, maturityDateTime]` which is an array of strings. The first array element `"getClosestBondRate"` is the function within the `commercial-bond` contract you want to invoke, the 2nd and third elements are the arguments to pass to the `getClosestBondRate` function, in this case they are the name of the organization that issued the bonds you want to query and the maturity date that you want to compare bonds to.
+    3. The 3rd argument is `ctx.stub.getChannelID()` which returns the current channel that the calling chaincode is transacting on. In our example, this is because `papercontract` and `commercial-bond` reside in the same channel. If the chaincode you want to invoke resides in a different channel, you will specify the name of that channel directly here. Remember, you can only invoke query transactions for chaincodes that are on a different channel.
 
 The `if-else` code block in the above `issue` function will then test to see if the result of the invokeChaincode() function is an empty string. If the result is not an empty string, you want to create the paper asset with the bond rate (called `newPaperRate`). If the result is an empty string, you want to create the paper asset with the `paperRate` passed through the `issue` function.
 
@@ -606,7 +611,7 @@ Your `issue` function should look like the following:
 
 ![VSCode-xchaincode63](images/xchaincode63.png)
 
-6. You can evaluate the new `issue` function using the current debug session. You can iterate through many smart contract changes using the same debug session and test them by evaluating transactions. If for whatever reason, you have exited the debug session, you can always bring it back by clicking on the green arrow key in the `DEBUG` toolbar or by clicking on the blue bar at the bottom of VSCode that says `Launch Smart Contract`:
+6. You can evaluate the new `issue` function using the current debug session. You can iterate through many smart contract changes using the same debug session and test them by evaluating transactions. You would only need to package a new debug package and install and instantiate if you want to submit transactions on a running ledger. For now, we can use the same debug session. *If* for whatever reason, you have exited the debug session, you can always bring it back by clicking on the green arrow key in the `DEBUG` toolbar or by clicking on the blue bar at the bottom of VSCode that says `Launch Smart Contract`:
 
 ![VSCode-xchaincode64](images/xchaincode64.png)
 
