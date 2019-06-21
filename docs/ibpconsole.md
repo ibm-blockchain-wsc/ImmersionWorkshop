@@ -397,7 +397,7 @@ Review the values you have entered per the above list, and then click the blue *
 
 ![image](images/ibpconsole/0570_CreateOrderingMSP.png)
 
-**Step 9.7:** You should now see the definition for your new Ordering Service MSP listed on your screen alongside the MSP your created earlier for your peer organization. Scroll up and click the *Nodes* icon in the icon palette on your left- it is the topmost icon on this palette, and you will be ready to proceed to the next section:
+**Step 9.7:** You should now see the definition for your new Ordering Service MSP listed on your screen alongside the MSP your created earlier for your peer organization. Scroll up and click the **Nodes** icon in the icon palette on your left- it is the topmost icon on this palette, and you will be ready to proceed to the next section:
 
 ![image](images/ibpconsole/0580_CreateOrderingMSPFinished.png)
 
@@ -429,7 +429,7 @@ Our star is running out of leg room all cramped up by the circle in our drawing 
 - Type **os1pw** in the *Ordering service enroll secret* field
 - Select **Team*xx* Ordering Service MSP**, where *xx* is your two-digit team id, for the *Organization MSP* field
 
-Review the values you entered or select to ensure they match the above list, and then click the blue **Next** button:
+Review the values you entered or selected to ensure they match the above list, and then click the blue **Next** button:
 
 ![image](images/ibpconsole/0620_AddOrdererSidebar3.png)
 
@@ -455,7 +455,7 @@ Review the values your entered for correctness and then click the blue **Next** 
 
 ![image](images/ibpconsole/0660_AddOrdererSidebar7.png)
 
-**Step 10.9:** Similar to when you created the certificate authority earlier, you should see your new ordering service listed, along with a gray box in the upper right of its tile, showing that the status of this ordering service is "pending" if you hover your cursor over the gray box.
+**Step 10.9:** Similarly to when you created the certificate authority earlier, you should see your new ordering service listed, along with a gray box in the upper right of its tile, showing that the status of this ordering service is "pending" if you hover your cursor over the gray box.
 
 !!! note
        The above instruction pertains to the tile listed in the *Ordering services* section, not to the similarly named tile in the *Certificate Authorities* section
@@ -496,7 +496,7 @@ The line between the ordering service node and your first peer organization node
 
 ![image](images/ibpconsole/0715_DiagramChannelOrg1.png)
 
-**Step 12.1:** Click the **channel** icon in the icon palette on the left. The screenshot below shows which icon to click:
+**Step 12.1:** Click the **Channels** icon in the icon palette on the left. The screenshot below shows which icon to click:
 
 ![image](images/ibpconsole/0720_ClickChannels.png)
 
@@ -512,7 +512,7 @@ The line between the ordering service node and your first peer organization node
 
 ![image](images/ibpconsole/0750_JoinChannelSidebar1b.png)
 
-**Step 12.5:** You should now see **team*xx*org1msp** listed in the *Organizations* section. Select the checkbox to the left of the word *OPerator* in order to give your organization operator privileges on the channel. Select **1 out of 1** for the *Policy* field in the *Channel update policy* section:
+**Step 12.5:** You should now see **team*xx*org1msp** listed in the *Organizations* section. Select the checkbox to the left of the word *Operator* in order to give your organization operator privileges on the channel. Select **1 out of 1** for the *Policy* field in the *Channel update policy* section:
 
 ![image](images/ibpconsole/0760_JoinChannelSidebar1c.png)
 
@@ -544,9 +544,9 @@ Our evolving network diagram only gets a subtle change from this section-  the l
 Section 14: Define the certificate authority for a second peer organization
 ===========================================================================
 
-You have now already defined two organizations- **Team*xx* Org1** and **Team*xx* Ordering Service**. The *Ordering Service* organization provides the ordering service and does not itself initiate blockchain transactions. Most, if not all, realistic blockchain networks will involve multiple organizations initiating blockchain transactions. So you will now define a second "peer" organization to participate in the network. Your network will thus have three organizations- two "peer" organizations that are collaborating in the blockchain network, and the ordering service organization which is, essentially, a service provider.
+You have now already defined two organizations- **Team*xx* Org1** and **Team*xx* Ordering Service**. The *Ordering Service* organization provides the ordering service and does not itself initiate blockchain transactions. Most, if not all, realistic blockchain networks will involve multiple organizations initiating blockchain transactions. So you will now define a second peer organization to participate in the network. Your network will thus have three organizations- two peer organizations that are collaborating in the blockchain network, and the ordering service organization which is, essentially, a service provider.
 
-You are changing hats again, this time, from your **Team*xx* Ordering Service** administrator hat to your **Team*xx* Org2** administrator hat. Our network diagram is coming along quite nicely:
+You are changing hats again, this time from your **Team*xx* Ordering Service** administrator hat to your **Team*xx* Org2** administrator hat. Our network diagram is coming along quite nicely:
 
 ![image](images/ibpconsole/0805_DiagramOrg2CA.png)
 
@@ -578,7 +578,7 @@ We will define the second peer organization now.  The pattern is identical to wh
 
 **Step 14.7:** You will see a tile for your new certificate authority. Observe the box in the upper right corner of the tile.
 If it is gray, and you hover your cursor over it, you may see a message indicating that the status is pending. (The gray box, but not the status message,
-is shown in this screenshot)
+is shown in this screenshot):
 
 ![image](images/ibpconsole/0870_AddOrg2CAPending.png)
 
@@ -665,7 +665,7 @@ Review the values you have entered per the above list, and then click the blue *
 
 ![image](images/ibpconsole/1010_CreateOrg2MSP.png)
 
-**Step 16.7:** You should now see the definition for your new MSP listed on your screen. Scroll up and click the *Nodes* icon in the icon palette on your left- it is the topmost icon on this palette- and you will be ready to proceed to the next section:
+**Step 16.7:** You should now see the definition for your new MSP listed on your screen. Scroll up and click the **Nodes** icon in the icon palette on your left- it is the topmost icon on this palette- and you will be ready to proceed to the next section:
 
 ![image](images/ibpconsole/1020_CreateOrg2MSPFinished.png)
 
@@ -684,7 +684,7 @@ The most useful German phrase I know is *noch einmal Bier, bitte!*, which transl
 
 ![image](images/ibpconsole/1040_AddOrg2PeerSidebar1.png)
 
-**Step 17.3:** Type **Team*xx* Peer Org1**, where *xx* is your two-digit team id, in the *Peer display name* field and then click the blue **Next** button:
+**Step 17.3:** Type **Team*xx* Peer Org2**, where *xx* is your two-digit team id, in the *Peer display name* field and then click the blue **Next** button:
 
 ![image](images/ibpconsole/1050_AddOrg2PeerSidebar2.png)
 
@@ -695,7 +695,7 @@ The most useful German phrase I know is *noch einmal Bier, bitte!*, which transl
 - Type **peer2pw** in the *Peer enroll secret* field
 - Select **Team*xx* Org2 MSP**, where *xx* is your two-digit team id, for the *Organization MSP* field
 
-Review the values you entered or select to ensure they match the above list, and then click the blue **Next** button:
+Review the values you entered or selected to ensure they match the above list, and then click the blue **Next** button:
 
 ![image](images/ibpconsole/1060_AddOrg2PeerSidebar3.png)
 
@@ -721,7 +721,7 @@ Review the values your entered for correctness and then click the blue **Next** 
 
 ![image](images/ibpconsole/1100_AddOrg2PeerSidebar7.png)
 
-**Step 17.9:** Similar to when you created your other peer earlier, you should see your new peer listed, along with a gray box in the upper right of its tile, showing that the status of this peer is "pending" if you hover your cursor over the gray box.
+**Step 17.9:** Similarly to when you created your other peer earlier, you should see your new peer listed, along with a gray box in the upper right of its tile, showing that the status of this peer is "pending" if you hover your cursor over the gray box.
 
 ![image](images/ibpconsole/1110_AddOrg2PeerPending.png)
 
@@ -759,7 +759,7 @@ When you created your **team*xx*-channel1** channel earlier in the lab, your new
 
 You will add the organization to the channel membership now.  
 
-**Step 19.1:** Click the *Channels* icon on the icon palette on the left:
+**Step 19.1:** Click the **Channels** icon on the icon palette on the left:
 
 ![image](images/ibpconsole/1170_ClickChannels.png)
 
