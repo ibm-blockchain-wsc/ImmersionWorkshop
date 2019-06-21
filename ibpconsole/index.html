@@ -166,7 +166,7 @@
     <li class="toctree-l2"><a href="#section-12-create-a-channel">Section 12: Create a channel</a></li>
     
 
-    <li class="toctree-l2"><a href="#section-13-add-a-peer-to-the-channel">Section 13: Add a peer to the channel</a></li>
+    <li class="toctree-l2"><a href="#section-13-join-a-peer-to-the-channel">Section 13: Join a peer to the channel</a></li>
     
 
     <li class="toctree-l2"><a href="#section-14-define-the-certificate-authority-for-a-second-peer-organization">Section 14: Define the certificate authority for a second peer organization</a></li>
@@ -187,7 +187,7 @@
     <li class="toctree-l2"><a href="#section-19-add-your-org2-organization-to-the-channel">Section 19: Add your Org2 organization to the channel</a></li>
     
 
-    <li class="toctree-l2"><a href="#section-20-add-your-peer-for-org2-to-the-channel">Section 20: Add your peer for Org2 to the channel</a></li>
+    <li class="toctree-l2"><a href="#section-20-join-your-peer-for-org2-to-the-channel">Section 20: Join your peer for Org2 to the channel</a></li>
     
 
     </ul>
@@ -234,14 +234,18 @@
 <p>You will use the IBM Blockchain Platform console in this lab to create a blockchain network.
 The network will consist of three organizations.
 Two of these organizations will represent organizations that want to participate in the blockchain network and submit transactions.
-They will be referred to as <em>peer</em> organizations throughout the lab
+They will be referred to as <em>peer organizations</em> throughout the lab.
 The third organization is the organization that provides the ordering service.</p>
 <p>First you will create one peer organization.
 Then you will create an ordering service organization, create a channel and add your first peer organization to the channel.
-Then you will create a second peer organization, and add it to the channel</p>
+Then you will create a second peer organization, and add it to the channel.</p>
 <p>Each high-level task is detailed in a separate section, with multiple steps per task.</p>
 <p>The diagram below provides a view of what your blockchain network will look like upon completion of the lab:</p>
 <p><img alt="image" src="../images/ibpconsole/0005_LabGoal.png" /></p>
+<div class="admonition important">
+<p class="admonition-title">Important<p>You will be assigned a two-digit team id by your instructor, and everywhere in this lab where you see <strong>Team<em>xx</em> </strong> in the instructions, you must substitute <em>xx</em> with the two-digit id you have been assigned.</p>
+</p>
+</div>
 <p>The sections in this lab are as follows:</p>
 <ul>
 <li>Section 1: This overview</li>
@@ -256,14 +260,14 @@ Then you will create a second peer organization, and add it to the channel</p>
 <li>Section 10: Creating an ordering service node for your organization</li>
 <li>Section 11: Adding your peer organization to a consortium</li>
 <li>Section 12: Creating a channel</li>
-<li>Section 13: Adding a peer to the channel</li>
+<li>Section 13: Joining a peer to the channel</li>
 <li>Section 14: Defining the certificate authority for your second peer organization</li>
 <li>Section 15: Adding new users using your Org2 Certificate Authority</li>
 <li>Section 16: Creating an MSP for your second peer organization</li>
 <li>Section 17: Creating a peer node for your second peer organization</li>
 <li>Section 18: Adding your new peer organization to the consortium</li>
 <li>Section 19: Adding your Org2 organization to the channel</li>
-<li>Section 20: Adding your peer for Org2 to the channel</li>
+<li>Section 20: Joining your peer for Org2 to the channel</li>
 </ul>
 <h1 id="section-2-log-in-to-the-ibm-blockchain-platform-console">Section 2: Log in to the IBM Blockchain Platform console</h1>
 <p><strong>Step 2.1:</strong> Open a Firefox browser window or new tab and enter the unique URL, which will have been provided to you by the instructor, for your team's IBM Blockchain Platform console.
@@ -274,12 +278,14 @@ Go ahead and click on the <strong>Proceed to 192.168.22.81 (unsafe)</strong> lin
 <p><img alt="image" src="../images/ibpconsole/0020_CertificateIssue.png" /></p>
 <p><strong>Step 2.3:</strong> Enter your team's userid and password, which will have been provided to you by the instructor, and click the <em>Login</em> button:</p>
 <p><img alt="image" src="../images/ibpconsole/0040_Login.png" /></p>
+<p><strong>Step 2.4:</strong> You may be presented with a welcome screen with dazzling interactive graphics. Move your cursor around a bit to take in the wonder, and then click the <strong>Let's get started</strong> button in the lower right corner.</p>
+<p><img alt="image" src="../images/ibpconsole/0043_WelcomeGraphics.png" /></p>
 <h1 id="section-3-create-a-certificate-authority-for-your-first-organization">Section 3: Create a Certificate Authority for your first organization</h1>
-<p>In a Hyperledger Fabric network, each organization will typically have their own certificate authority. The certificate authority is used to issue identities- consisting of public certificates and matching private keys- for end users, client applications, administrators, and peer and ordering service nodes. In most uses cases each organization will want to have control over the identities they issue, so the typical practice is that each organization provides their own certificate authority. We will follow that practice in this lab. </p>
+<p>In a Hyperledger Fabric network, each organization will typically have their own certificate authority. The certificate authority is used to issue identities- consisting of X.509 public certificates and matching private keys- for end users, client applications, administrators, and peer and ordering service nodes. In most uses cases each organization will want to have control over the identities they issue, so the typical practice is that each organization provides their own certificate authority. We will follow that practice in this lab. </p>
 <p>You are starting with a blank slate, and our first component to add is the certificate authority for our first peer organization.
 In relation to the diagram in the overview section that showed our finished network upon successful lab completion, here is the component that will be added in this section:</p>
 <p><img alt="image" src="../images/ibpconsole/0045_DiagramOrg1CA.png" /> </p>
-<p><strong>Step 3.1:</strong> Click the blue <strong>Add Certificate Authority</strong> box:</p>
+<p><strong>Step 3.1:</strong> Click the blue <strong>Add Certificate Authority</strong> tile:</p>
 <p><img alt="image" src="../images/ibpconsole/0050_NodesEmpty.png" /></p>
 <p><strong>Step 3.2:</strong> Click <strong>Create an IBM Cloud Private Certificate Authority</strong> and then click the blue <strong>Next</strong> button:</p>
 <p><img alt="image" src="../images/ibpconsole/0060_AddCertificateAuthority.png" /></p>
@@ -292,18 +298,18 @@ In relation to the diagram in the overview section that showed our finished netw
 <p><strong>Step 3.6:</strong> Review your settings and click the <strong>Add Certificate Authority</strong> button:</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Throughout this lab, when passwords are entered, you can click the icon that looks like an eye, to see the password you have 
-   entered.  It is recommended that you do this for the lab to ensure you have entered the intended password. The screen shots shown
+<p>Throughout this lab, when passwords are entered, you can click the icon that looks like an eye to see the password you have 
+   entered.  It is recommended that you do this for the lab to ensure you have entered the intended password. The screenshots shown
    in this lab will show the passwords that you should enter.</p>
 </div>
 <p><img alt="image" src="../images/ibpconsole/0100_AddCertificateAuthoritySideBar5.png" /></p>
 <p><strong>Step 3.7:</strong> You will see a tile for your new certificate authority. Observe the box in the upper right corner of the tile.
-If it is gray, and you hover your mouse over it, you may see a message indicating that the status is pending. (The gray box, but not the status message,
-is shown in this screenshot)</p>
+If it is gray, and you hover your cursor over it, you may see a message indicating that the status is pending. (The gray box, but not the status message,
+is shown in this screenshot).</p>
 <p><img alt="image" src="../images/ibpconsole/0110_Org1CertificateAuthority.png" /></p>
 <p><strong>Step 3.8:</strong> In about a minute, the box in the upper right should turn green, indicating that the certificate authority is running.
 If the box does not turn green in a minute, try reloading the page in your browser. Contact an instructor for help if it does not
-turn green and show the running status when you hover your mouse over the button.</p>
+turn green and show the running status when you hover your cursor over the button.</p>
 <p>Once your certificate authority is running, click on its tile so that you can proceed to the next section where you will add users.</p>
 <p><img alt="image" src="../images/ibpconsole/0120_Org1CertificateAuthorityRunning.png" /></p>
 <h1 id="section-4-add-new-users-using-your-org1-certificate-authority">Section 4: Add new users using your Org1 Certificate Authority</h1>
@@ -323,7 +329,7 @@ turn green and show the running status when you hover your mouse over the button
 Click the <strong>Organizations</strong> icon on the palette on the left of your screen and continue to the next section of the lab:</p>
 <p><img alt="image" src="../images/ibpconsole/0190_AfterPeer1Added.png" /></p>
 <h1 id="section-5-create-an-msp-for-your-organization">Section 5: Create an MSP for your organization</h1>
-<p>The <em>Membership Service Provider</em> (MSP) component is integral to the private and permissioned Hyperledger Fabric as it provides the authentication- "who are you?"- and authorization - "ok, we believe you are whom you say you are, but can you do what you are asking to do?"- services.  The infrastructure that the MSP needs to do its job must be in place before you create your peer node. This step will create this for your "Org1".</p>
+<p>The <em>Membership Service Provider</em> (MSP) component is integral to the private and permissioned Hyperledger Fabric as it provides the authentication- "who are you?"- and authorization - "ok, we believe you are whom you say you are, but are you permitted to do what you are asking to do?"- services.  The infrastructure that the MSP needs to do its job must be in place before you create your peer node. This step will create this for your "Org1".</p>
 <p>As we add components throughout the lab, the diagram that maps to our final goal will be shown, with the new component to be added in any given section annotated with a bright red star, as in the below diagram which shows that we will be adding your <strong>Team<em>xx</em> Org1</strong>'s MSP:</p>
 <p><img alt="image" src="../images/ibpconsole/0195_DiagramOrg1MSP.png" /></p>
 <p><strong>Step 5.1:</strong> You should see a screen that looks like below, indicating that you have yet to create a <em>Membership Service Provider (MSP)</em> definition for your organization. Click the blue <strong>Create MSP definition</strong> tile:</p>
@@ -332,7 +338,7 @@ Click the <strong>Organizations</strong> icon on the palette on the left of your
 <ul>
 <li>Type <strong>Team<em>xx</em> Org1 MSP</strong>, where <em>xx</em> is your two-digit team id, in the <em>MSP display name</em> field</li>
 <li>Type <strong>team<em>xx</em>org1msp</strong>, where <em>xx</em> is your two-digit team id, in the <em>MSP ID</em> field</li>
-<li>For the <em>Root Certificate Authority</em> field, ensure that <strong>Team<em>xx</em> Org1 CA</strong> is selected</li>
+<li>For the <em>Root Certificate Authority</em> field, select <strong>Team<em>xx</em> Org1 CA</strong> </li>
 </ul>
 <p>The sidebar panel contains more information than will likely fit in your browser window, so review the values you have entered per the above list, and then scroll down within the sidebar panel:</p>
 <p><img alt="image" src="../images/ibpconsole/0210_CreateOrg1MSPSidebar1.png" /></p>
@@ -346,7 +352,7 @@ Click the <strong>Organizations</strong> icon on the palette on the left of your
 <p><img alt="image" src="../images/ibpconsole/0220_CreateOrg1MSPSidebar1b.png" /></p>
 <p><strong>Step 5.4:</strong> The prior step generated a public certificate and a matching private key. This private key is stored by the IBM Blockchain Platform console in your local browser storage and nowhere else. In order to ensure that you can retrieve your private key later, you must now click the <strong>Export</strong> button which will prompt you to save your private key (along with the public certificate) in a JSON file on your hard drive.</p>
 <p><img alt="image" src="../images/ibpconsole/0230_CreateOrg1MSPSidebar1c.png" /></p>
-<p><strong>Step 5.5:</strong> Save the exported JSON file in a location that you can remember. This example shows it being saved to a folder named <em>json</em> that was created already. You can use the file save window to create a new folder to match this name if you would like, although it isn't strictly necessary for this lab.  </p>
+<p><strong>Step 5.5:</strong> Save the exported JSON file in a location that you can remember. The sample screenshot below shows it being saved to a folder named <em>json</em> that was created already. You can use the file save window to create a new folder to match this name if you would like, although it isn't strictly necessary for this lab.  </p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>You probably won't need this saved file for this lab if you use the same browser window for the duration of the lab, but the saved file may be necessary if, for whatever reason, you do have to use a new browser window or session, so go ahead and save it!</p>
@@ -372,7 +378,7 @@ Click the <strong>Organizations</strong> icon on the palette on the left of your
 <li>Type <strong>peer1pw</strong> in the <em>Peer enroll secret</em> field</li>
 <li>Select <strong>Team<em>xx</em> Org1 MSP</strong>, where <em>xx</em> is your two-digit team id, for the <em>Organization MSP</em> field  </li>
 </ul>
-<p>Review the values you entered or select to ensure they match the above list, and then click the blue <strong>Next</strong> button:</p>
+<p>Review the values you entered or selected to ensure they match the above list, and then click the blue <strong>Next</strong> button:</p>
 <p><img alt="image" src="../images/ibpconsole/0300_AddOrg1PeerSidebar3.png" /></p>
 <p><strong>Step 6.5:</strong> Enter or select the following values on this panel:</p>
 <ul>
@@ -388,7 +394,7 @@ Click the <strong>Organizations</strong> icon on the palette on the left of your
 <p><img alt="image" src="../images/ibpconsole/0330_AddOrg1PeerSidebar6.png" /></p>
 <p><strong>Step 6.8:</strong> The <em>Summary</em> panel provides a review of the values you entered or selected in the prior panels. Click the <strong>Add peer</strong> button to continue:</p>
 <p><img alt="image" src="../images/ibpconsole/0340_AddOrg1PeerSidebar7.png" /></p>
-<p><strong>Step 6.9:</strong> Similar to when you created the certificate authority earlier, you should see your new peer listed, along with a gray box in the upper right of its tile, showing that the status of this peer is "pending" if you hover your mouse over the gray box.</p>
+<p><strong>Step 6.9:</strong> Similarly to when you created the certificate authority earlier, you should see your new peer listed, along with a gray box in the upper right of its tile, showing that the status of this peer is "pending" if you hover your cursor over the gray box.</p>
 <p><img alt="image" src="../images/ibpconsole/0350_AddOrg1PeerPending.png" /></p>
 <p><strong>Step 6.10:</strong>  It can take a minute or two on our lab system for the peer to come up completely, and you may need to refresh your browser in order to see the box turn green. If your peer is still not ready after a couple of minutes and after you have tried refreshing your browser, ask an instructor for help.  The peer must be ready, as indicated by a green box in the upper right of the peer's tile, similar to what is shown below, before you can continue:</p>
 <p><img alt="image" src="../images/ibpconsole/0360_AddOrg1PeerRunning.png" /></p>
@@ -422,11 +428,11 @@ Click the <strong>Organizations</strong> icon on the palette on the left of your
 <p><strong>Step 7.6:</strong> Review your settings and click the <strong>Add Certificate Authority</strong> button:</p>
 <p><img alt="image" src="../images/ibpconsole/0420_AddOrderingCASidebar5.png" /></p>
 <p><strong>Step 7.7:</strong> You will see a tile for your new certificate authority. Observe the box in the upper right corner of the tile.
-If it is gray, and you hover your mouse over it, you may see a message indicating that the status is pending. (The gray box, but not the status message, is shown in this screenshot):</p>
+If it is gray, and you hover your cursor over it, you may see a message indicating that the status is pending. (The gray box, but not the status message, is shown in this screenshot):</p>
 <p><img alt="image" src="../images/ibpconsole/0430_AddOrderingCAPending.png" /></p>
 <p><strong>Step 7.8:</strong> In about a minute, the button in the upper right should turn green, indicating that the certificate authority is running.
 If your button does not turn green in a minute, try reloading the page in your browser. Contact an instructor for help if it does not
-turn green and show the running status when you hover your mouse over the button.</p>
+turn green and show the running status when you hover your cursor over the button.</p>
 <p>Once your Ordering Service certificate authority is running, click on its tile so that you can proceed to the next section where you will add users.</p>
 <p><img alt="image" src="../images/ibpconsole/0440_AddOrderingCARunning.png" /></p>
 <h1 id="section-8-add-new-users-using-your-ordering-service-certificate-authority">Section 8: Add new users using your Ordering Service Certificate Authority</h1>
@@ -436,7 +442,7 @@ turn green and show the running status when you hover your mouse over the button
 <p><img alt="image" src="../images/ibpconsole/0460_AddUserOrderingAdmin1.png" /></p>
 <p><strong>Step 8.3:</strong> We will not be using custom attributes in this lab, so all you have to do on this screen is click the <strong>Register user</strong> button:</p>
 <p><img alt="image" src="../images/ibpconsole/0470_AddUserOrderingAdmin2.png" /></p>
-<p><strong>Step 8.4:</strong> You should now see the userid you just registered, <em>osadmin</em>, listed on the screen. You also need to create a userid that your ordering service node will operate as, so click the <strong>Register user</strong> button again:</p>
+<p><strong>Step 8.4:</strong> You should now see the userid you just registered, <strong>osadmin</strong>, listed on the screen. You also need to create a userid that your ordering service node will operate as, so click the <strong>Register user</strong> button again:</p>
 <p><img alt="image" src="../images/ibpconsole/0480_AfterOrderingAdminAdded.png" /></p>
 <p><strong>Step 8.5:</strong> Type in <strong>os1</strong> for the <em>Enroll id</em>,  <strong>os1pw</strong> for the <em>Enroll secret</em>, select <strong>peer</strong> for the <em>Type</em> field, and then click the blue <strong>Next</strong> button:</p>
 <div class="admonition note">
@@ -511,7 +517,7 @@ Click the <strong>Organizations</strong> icon on the palette on the left of your
 <p><img alt="image" src="../images/ibpconsole/0650_AddOrdererSidebar6.png" /></p>
 <p><strong>Step 10.8:</strong> The <em>Summary</em> panel provides a review of the values you entered or selected in the prior panels. Click the <strong>Add ordering service</strong> button to continue:</p>
 <p><img alt="image" src="../images/ibpconsole/0660_AddOrdererSidebar7.png" /></p>
-<p><strong>Step 10.9:</strong> Similar to when you created the certificate authority earlier, you should see your new ordering service listed, along with a gray box in the upper right of its tile, showing that the status of this ordering service is "pending" if you hover your mouse over the gray box.</p>
+<p><strong>Step 10.9:</strong> Similar to when you created the certificate authority earlier, you should see your new ordering service listed, along with a gray box in the upper right of its tile, showing that the status of this ordering service is "pending" if you hover your cursor over the gray box.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The above instruction pertains to the tile listed in the <em>Ordering services</em> section, not to the similarly named tile in the <em>Certificate Authorities</em> section</p>
@@ -533,7 +539,7 @@ Click the <strong>Organizations</strong> icon on the palette on the left of your
 <p>You will define a channel in this section and in its definition you will make your <strong>Team<em>xx</em> Org1</strong> peer organization a member of the channel. The actual definition of the channel is verified at the ordering service node and it keeps track of all channels.  (You can define multiple channels in a Hyperledger Fabric network but for simplicity this lab will only have you define one).</p>
 <p>The line between the ordering service node and your first peer organization node represents that our ordering service knows about our new channel and that our peer organization is a member of the new channel:</p>
 <p><img alt="image" src="../images/ibpconsole/0715_DiagramChannelOrg1.png" /></p>
-<p><strong>Step 12.1:</strong> Click the <strong>channel</strong> icon in the icon palette on the left. The screen shot below shows which icon to click:</p>
+<p><strong>Step 12.1:</strong> Click the <strong>channel</strong> icon in the icon palette on the left. The screenshot below shows which icon to click:</p>
 <p><img alt="image" src="../images/ibpconsole/0720_ClickChannels.png" /></p>
 <p><strong>Step 12.2:</strong> Click the blue <strong>Create channel</strong> tile:</p>
 <p><img alt="image" src="../images/ibpconsole/0730_JoinChannel_1.png" /></p>
@@ -547,7 +553,7 @@ Click the <strong>Organizations</strong> icon on the palette on the left of your
 <p><img alt="image" src="../images/ibpconsole/0770_JoinChannelSidebar1d.png" /></p>
 <p><strong>Step 12.7:</strong> You should now see your channel listed. Click where it says <strong>Pending- add peer</strong> and continue to the next section:</p>
 <p><img alt="image" src="../images/ibpconsole/0780_ChannelPendingPeerAdd.png" /></p>
-<h1 id="section-13-add-a-peer-to-the-channel">Section 13: Add a peer to the channel</h1>
+<h1 id="section-13-join-a-peer-to-the-channel">Section 13: Join a peer to the channel</h1>
 <p>In the previous section you defined a channel, <strong>team<em>xx</em>channel1</strong>, and made your <strong>Team<em>xx</em> Org1</strong> organization a member of the channel. However, in order for a particular peer within that organization to participate in the channel, that peer has to join the channel. Our simple lab network only has one peer in the organization, but in most production implementations an organization will have multiple peers. When the peer joins a channel, it will receive all of the blocks in the channel that were created prior to the time the peer joined the channel, until it catches up.</p>
 <p>Our evolving network diagram only gets a subtle change from this section-  the line from the ordering service node to the circle reprepresenting our organization, indicating that our organization is a member of the channel, has been extended with a line segment from the circle to our peer, indicating that our peer has now joined the channel:</p>
 <p><img alt="image" src="../images/ibpconsole/0785_DiagramPeer1JoinChannel.png" /></p>
@@ -573,12 +579,12 @@ Click the <strong>Organizations</strong> icon on the palette on the left of your
 <p><strong>Step 14.6:</strong> Review your settings and click the <strong>Add Certificate Authority</strong> button:</p>
 <p><img alt="image" src="../images/ibpconsole/0860_AddOrg2CASidebar5.png" /></p>
 <p><strong>Step 14.7:</strong> You will see a tile for your new certificate authority. Observe the box in the upper right corner of the tile.
-If it is gray, and you hover your mouse over it, you may see a message indicating that the status is pending. (The gray box, but not the status message,
+If it is gray, and you hover your cursor over it, you may see a message indicating that the status is pending. (The gray box, but not the status message,
 is shown in this screenshot)</p>
 <p><img alt="image" src="../images/ibpconsole/0870_AddOrg2CAPending.png" /></p>
 <p><strong>Step 14.8:</strong> In about a minute, the box in the upper right should turn green, indicating that the certificate authority is running.
 If the box does not turn green in a minute, try reloading the page in your browser. Contact an instructor for help if it does not
-turn green and show the running status when you hover your mouse over the button.</p>
+turn green and show the running status when you hover your cursor over the button.</p>
 <p>Once your certificate authority is running, click on its tile so that you can proceed to the next section where you will add users.</p>
 <p><img alt="image" src="../images/ibpconsole/0880_AddOrg2CARunning.png" /></p>
 <h1 id="section-15-add-new-users-using-your-org2-certificate-authority">Section 15: Add new users using your Org2 Certificate Authority</h1>
@@ -658,7 +664,7 @@ Click the <strong>Organizations</strong> icon on the palette on the left of your
 <p><img alt="image" src="../images/ibpconsole/1090_AddOrg2PeerSidebar6.png" /></p>
 <p><strong>Step 17.8:</strong> The <em>Summary</em> panel provides a review of the values you entered or selected in the prior panels. Click the <strong>Add peer</strong> button to continue:</p>
 <p><img alt="image" src="../images/ibpconsole/1100_AddOrg2PeerSidebar7.png" /></p>
-<p><strong>Step 17.9:</strong> Similar to when you created your other peer earlier, you should see your new peer listed, along with a gray box in the upper right of its tile, showing that the status of this peer is "pending" if you hover your mouse over the gray box.</p>
+<p><strong>Step 17.9:</strong> Similar to when you created your other peer earlier, you should see your new peer listed, along with a gray box in the upper right of its tile, showing that the status of this peer is "pending" if you hover your cursor over the gray box.</p>
 <p><img alt="image" src="../images/ibpconsole/1110_AddOrg2PeerPending.png" /></p>
 <p><strong>Step 17.10:</strong>  It can take a minute or two on our lab system for the peer to come up completely, and you may need to refresh your browser in order to see the box turn green. If your peer is still not ready after a couple of minutes and after you have tried refreshing your browser, ask an instructor for help.  The peer must be ready, as indicated by a green box in the upper right of the peer's tile, similar to what is shown below, before you can continue:</p>
 <p><img alt="image" src="../images/ibpconsole/1120_AddOrg2PeerRunning.png" /></p>
@@ -699,7 +705,7 @@ Click the <strong>Organizations</strong> icon on the palette on the left of your
 <p><img alt="image" src="../images/ibpconsole/1240_UpdateChannelFinished.png" /></p>
 <p><strong>Step 19.9:</strong> In the <em>Channel members</em> section, you should now see both of your peer organizations listed as members. Once you have verified this, click the <strong>Channels</strong> icon on the icon palette on the left:</p>
 <p><img alt="image" src="../images/ibpconsole/1250_ViewChannelMembers.png" /></p>
-<h1 id="section-20-add-your-peer-for-org2-to-the-channel">Section 20: Add your peer for Org2 to the channel</h1>
+<h1 id="section-20-join-your-peer-for-org2-to-the-channel">Section 20: Join your peer for Org2 to the channel</h1>
 <p>And now, for the <em>coup de grâce</em>, the finishing stroke of this lab, you will join <em>Org2's</em> peer to the channel:</p>
 <p><img alt="image" src="../images/ibpconsole/1255_DiagramPeer2JoinChannel.png" /></p>
 <div class="admonition note">
