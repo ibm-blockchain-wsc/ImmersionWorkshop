@@ -159,11 +159,11 @@ Select the function `getAllBondsFromIssuer`, and either `right-click` or `Ctl+cl
 
 ![VSCode-xchaincode14](images/xchaincode14.png)
 
-Next, you will see a familar pop-up at the top of VSCode that asks you what are the arguments to the transaction. This transaction only takes one argument, and that is the name of the issuer. Let's type in "MagentoCorp" as follows (important to leave the double quotes):
+3. Next, you will see a familar pop-up at the top of VSCode that asks you what are the arguments to the transaction. This transaction only takes one argument, and that is the name of the issuer. Let's type in "MagentoCorp" as follows (important to leave the double quotes):
 
 ![VSCode-xchaincode15](images/xchaincode15.png)
 
-Next, it will ask you what transient data to pass for the transaction. In this case we have none, so just press `Enter` to move forward.
+4. Next, it will ask you what transient data to pass for the transaction. In this case we have none, so just press `Enter` to move forward.
 
 Now, in the `OUTPUT` view, you will see the results of evaluating this transaction. And you will see that there are two bonds issued by MagnetoCorp:
 
@@ -171,15 +171,15 @@ Now, in the `OUTPUT` view, you will see the results of evaluating this transacti
 
 Study the output and you will see other key/value pairs for each bond such as `maturityDateTime`, `issuer`, and `interestRate`.
 
-A quick exercise, what is the `interestRate` for bondNumber 00002?
+5. A quick exercise, what is the `interestRate` for bondNumber 00002?
 
-Now, let's issue a bond. This time we will submit the transaction so it actually gets committed to the ledger. 
+6. Now, let's issue a bond. This time we will submit the transaction so it gets committed to the ledger. 
 
 In the `Fabric Gateways` panel, select the `issue` transaction. Either `right-click` or `Ctl+click` and select `Submit Transaction`.
 
 ![VSCode-xchaincode17](images/xchaincode17.png)
 
-Next, copy and paste the following inside the brackets when the pop-up asks you what are the arguments to the transaction:
+7. Next, copy and paste the following inside the brackets when the pop-up asks you what are the arguments to the transaction:
 
 `"MagnetoCorp", "00003", "2019-02-28", "2020-02-28", "50000","0.01"`
 
@@ -191,17 +191,17 @@ Then the transaction will get submitted. Upon success, you will see in the `OUTP
 
 ![VSCode-xchaincode19](images/xchaincode19.png)
 
-The actual output to the issue command isn't very helpful as it is just a buffer of numbers that represent the bond. Let's re-run the `getAllBondsFromIssuer` and see if this bond shows up. Use the steps from above to re-run this transaction. Upon success, you will see the following output, and notice that the bond we just added shows up now:
+8. The output to the issue command isn't very helpful as it is just a buffer of numbers that represent the bond. Let's re-run the `getAllBondsFromIssuer` and see if this bond shows up. Use steps 2-4 above to re-run this transaction. Upon success, you will see the following output, and notice that the bond we just added shows up now:
 
 ![VSCode-xchaincode20](images/xchaincode20.png)
 
-Now, the last transaction for you to test, is the `getClosestBondRate` transaction. This is the transaction that we will update commcercial-paper to call. This transaction takes two arguments: 1) bondIssuer and 2) compareMaturityDate. And what this transaction will do is iterate through all the bonds issued by the specified bondIssuer until it finds a bond that has a similar maturity date as the one passed through compareMaturityDate, and it will return that bond's interest rate. If it cannot find a bond with a similar maturity date it will return an empty string.
+9. Now, the last transaction for you to test, is the `getClosestBondRate` transaction. This is the transaction that we will update `commercial-paper` to call. This transaction takes two arguments: 1) `bondIssuer` and 2) `compareMaturityDate`. This transaction will iterate through all the bonds issued by the specified `bondIssuer` until it finds a bond that has a similar maturity date as the one passed through `compareMaturityDate`, and it will return that bond's interest rate. If it cannot find a bond with a similar maturity date it will return an empty string.
 
 Select `getClosestBondRate` from the `Fabric Gateways` panel, and either `right-click` or `Ctl+click` and select `Evaluate Transaction`.
 
 ![VSCode-xchaincode21](images/xchaincode21.png)
 
-Next you will be asked what arguments to pass. Copy and paste the following inside the brackets:
+10. Next you will be asked what arguments to pass. Copy and paste the following inside the brackets:
 
 `"MagnetoCorp","2020-02-15"`
 
@@ -213,15 +213,15 @@ Upon success, you will see the following output in the `OUTPUT` panel:
 
 ![VSCode-xchaincode23](images/xchaincode23.png)
 
-Notice that the interest rate returned is 0.01, which if you recall is the interest rate associated with MagnetoCorp's bondNumber 00003, which has a maturity date of 2020-02-28 which is the same month as the 2nd argument you passed for `getClosestBondRate`.
+11. Notice that the interest rate returned is 0.01, which if you recall is the interest rate associated with MagnetoCorp's bondNumber 00003, which has a maturity date of 2020-02-28 which is the same month as the 2nd argument you passed for `getClosestBondRate`.
 
-Now run the same evaluation but with the following arguments:
+12. Now re-evaluate the transaction `getClosestBondRate` (steps 9 - 11) with the following arguments:
 
 `"MagnetoCorp","2020-04-30"`
 
 What do you get returned?  Is it expected?  Which bond does the rate belong to?
 
-Lastly, run the same evaluation but with the following arguments:
+13. Lastly, run the same evaluation but with the following arguments:
 
 `"MagnetoCorp","2020-05-31"`
 
@@ -229,9 +229,9 @@ Now what do you get returned?  Is it expected?
 
 # Section 4: Get commercial-paper if you don't already have it
 
-If you already have commercial-paper in VSCode from the previous lab, you can skip this section. If not, then follow the steps outlined in the VSCode Part 2 lab, section 2 to clone the fabric-samples repo.
+If you already have commercial-paper in VSCode from the previous lab, you can skip this section. If not, then follow the steps outlined in the VSCode Part 2 lab, section 2 to clone the `fabric-samples-cp` repo.
 
-Now you are ready to make updates to the smart contract and test them quickly by working with Hyperledger Fabric in development mode in conjunction with the VSCode Debugger.
+Now you are ready to setup the Hyperledger Fabric runtime in development mode and setup the smart contract debugging session.
 
 # Section 5: Setup Debug Smart Contract in Development Mode
 
