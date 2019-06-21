@@ -19,7 +19,7 @@ These are the general steps you will take:
 4. Grab commercial-paper if you don't already have it
 5. Setup Debug Smart Contract in Development Mode
 6. Go through existing papercontract function in debugger
-7. Make smart contract updates, test in debugging session
+7. Make smart contract update to include cross chaincode call, test in debugging session
 8. Make final updates. Package commercial-paper, install and instantiate
 9. Generate function tests, and run through function tests
 10. The end!
@@ -382,11 +382,218 @@ You will see the output from this transaction below in the `OUTPUT` box.
 
 ![VSCode-xchaincode60](images/xchaincode60.png)
 
-# Section 7: Make smart contract updates, test in debugging session
+# Section 7: Make smart contract updates to include cross chaincode call, test in debugging session
 
-1. OK, now that you have played with the debugger, let's add additional code to `papercontract.js`. We will first amend the `issue` function to include an interest rate. Then we will add the following three functions: getPaper, getPaperRate, getBondContractRate. Finally we will add code to the `issue` function to query the `commercial-bond` contract for the interest rate of a bond that has similar maturity rate as the paper and align the paper rate to the bond rate.
+1. OK, now that you have played with the debugger, let's add additional code to `papercontract.js`. We will first amend the `issue` function to take in interest rate as another parameter. The new `issue` function will also include code to query the `commercial-bond` contract for the interest rate of a bond that has similar maturity rate as the paper and align the paper rate to the bond rate. Then we will add the following two helper functions: `getPaperRate`, `getBondContractRate`.
 
-Please replace your `issue.js` 
+2. Before we edit `papercontract.js` we need to update `paper.js` to add these functions `getRate` and `setRate`. In addition, we need to update the `createInstance` function to include the `paperRate` parameter. Keep in mind `papercontract.js` uses `paper.js` to represent a paper.
+
+Go to your VSCode Explorer and open up `paper.js`:
+
+![VSCode-xchaincode-paperjs](images/xchaincode-paperjs.png)
+
+Replace *the entire* `paper.js` with the following code block:
+
+```
+/*
+SPDX-License-Identifier: Apache-2.0
+*/
+
+'use strict';
+
+// Utility class for ledger state
+const State = require('./../ledger-api/state.js');
+
+// Enumerate commercial paper state values
+const cpState = {
+    ISSUED: 1,
+    TRADING: 2,
+    REDEEMED: 3
+};
+
+/**
+ * CommercialPaper class extends State class
+ * Class will be used by application and smart contract to define a paper
+ */
+class CommercialPaper extends State {
+
+    constructor(obj) {
+        super(CommercialPaper.getClass(), [obj.issuer, obj.paperNumber]);
+        Object.assign(this, obj);
+    }
+
+    /**
+     * Basic getters and setters
+    */
+    getIssuer() {
+        return this.issuer;
+    }
+
+    setIssuer(newIssuer) {
+        this.issuer = newIssuer;
+    }
+
+    getOwner() {
+        return this.owner;
+    }
+
+    setOwner(newOwner) {
+        this.owner = newOwner;
+    }
+
+    getRate() {
+        return this.paperRate;
+    }
+
+    setRate(newRate) {
+        this.paperRate = newRate;
+    }
+
+    /**
+     * Useful methods to encapsulate commercial paper states
+     */
+    setIssued() {
+        this.currentState = cpState.ISSUED;
+    }
+
+    setTrading() {
+        this.currentState = cpState.TRADING;
+    }
+
+    setRedeemed() {
+        this.currentState = cpState.REDEEMED;
+    }
+
+    isIssued() {
+        return this.currentState === cpState.ISSUED;
+    }
+
+    isTrading() {
+        return this.currentState === cpState.TRADING;
+    }
+
+    isRedeemed() {
+        return this.currentState === cpState.REDEEMED;
+    }
+
+    static fromBuffer(buffer) {
+        return CommercialPaper.deserialize(Buffer.from(JSON.parse(buffer)));
+    }
+
+    toBuffer() {
+        return Buffer.from(JSON.stringify(this));
+    }
+
+    /**
+     * Deserialize a state data to commercial paper
+     * @param {Buffer} data to form back into the object
+     */
+    static deserialize(data) {
+        return State.deserializeClass(data, CommercialPaper);
+    }
+
+    /**
+     * Factory method to create a commercial paper object
+     */
+    static createInstance(issuer, paperNumber, issueDateTime, maturityDateTime, faceValue, paperRate) {
+        return new CommercialPaper({ issuer, paperNumber, issueDateTime, maturityDateTime, faceValue, paperRate });
+    }
+
+    static getClass() {
+        return 'org.papernet.commercialpaper';
+    }
+}
+
+module.exports = CommercialPaper;
+```
+
+Save this file before moving on to the next step.
+
+3. Return to the VSCode `Debug` view, and return to `papercontract.js`:
+
+![VSCode-xchaincode61](images/xchaincode61.png)
+
+4. Replace the following `issue` function in existing `papercontract.js`:
+
+```
+    /**
+     * Issue commercial paper
+     *
+     * @param {Context} ctx the transaction context
+     * @param {String} issuer commercial paper issuer
+     * @param {Integer} paperNumber paper number for this issuer
+     * @param {String} issueDateTime paper issue date
+     * @param {String} maturityDateTime paper maturity date
+     * @param {Integer} faceValue face value of paper
+    */
+    async issue(ctx, issuer, paperNumber, issueDateTime, maturityDateTime, faceValue) {
+
+        // create an instance of the paper
+        let paper = CommercialPaper.createInstance(issuer, paperNumber, issueDateTime, maturityDateTime, faceValue);
+
+        // Smart contract, rather than paper, moves paper into ISSUED state
+        paper.setIssued();
+
+        // Newly issued paper is owned by the issuer
+        paper.setOwner(issuer);
+
+        // Add the paper to the list of all similar commercial papers in the ledger world state
+        await ctx.paperList.addPaper(paper);
+
+        // Must return a serialized paper to caller of smart contract
+        return paper.toBuffer();
+    }
+```
+
+With this:
+
+```
+    /**
+     * Issue commercial paper
+     *
+     * @param {Context} ctx the transaction context
+     * @param {String} issuer commercial paper issuer
+     * @param {Integer} paperNumber paper number for this issuer
+     * @param {String} issueDateTime paper issue date
+     * @param {String} maturityDateTime paper maturity date
+     * @param {Integer} faceValue face value of paper
+     * @param {Float} paperRate rate to price the paper
+    */
+    async issue(ctx, issuer, paperNumber, issueDateTime, maturityDateTime, faceValue, paperRate) {
+
+        // query commercial-bond contract for return rate on bond with similar maturity date
+        let assignPaperRate = await ctx.stub.invokeChaincode("commercial-bond", ["getClosestBondRate", issuer, maturityDateTime], ctx.stub.getChannelID());
+        let newPaperRate = JSON.parse(assignPaperRate.payload.toString('utf8'));
+        console.log("bond rate received back is: " + newPaperRate);
+
+        // create an instance of the paper, if there is a bond with similar maturity rate, set paper rate to be same as bond rate, otherwise use paper rate from input.
+        var paper;
+        if (newPaperRate != "") {
+            console.log("set paper with bond rate");
+            paper = CommercialPaper.createInstance(issuer, paperNumber, issueDateTime, maturityDateTime, faceValue, newPaperRate);
+        } else {
+            console.log("set paper with original rate");
+            paper = CommercialPaper.createInstance(issuer, paperNumber, issueDateTime, maturityDateTime, faceValue, paperRate);
+        }
+
+        // Smart contract, rather than paper, moves paper into ISSUED state
+        paper.setIssued();
+
+        // Newly issued paper is owned by the issuer
+        paper.setOwner(issuer);
+
+        // Add the paper to the list of all similar commercial papers in the ledger world state
+        await ctx.paperList.addPaper(paper);
+
+        // Must return a serialized paper to caller of smart contract
+        return paper.toBuffer();
+    }
+```
+
+The above `issue` function first queries the commercial-bond contract for the return rate on a bond with similar maturity date. It uses the `invokeChaincode()` API from the ChaincodeStub class of the fabirc-shim library. The `invokeChaincode()` API takes three arguments: `<async> invokeChaincode(chaincodeName, args, channel)` (see full spec here https://fabric-shim.github.io/master/fabric-shim.ChaincodeStub.html#toc1__anchor). In the example above the first argument passed is `commercial-bond` which is the name of the chaincode that you experimented with in Section 3 of this lab. The 2nd parameter in our example is `["getClosestBondRate", issuer, maturityDateTime]` which is an array of strings: the first array element `"getClosestBondRate"` indicates the function within the `commercial-bond` contract you want to invoke, the 2nd and third elements denote the arguments to pass to the `getClosestBondRate` function, in this case they are the name of the organization that issued the bonds you want to query and the maturity date that you want to compare bonds to.
+
+The `if-else` code block in the above `issue` function will then test to see if the result of the invokeChaincode() function is an empty string. If the result is not an empty string, you want to create the paper asset with the bond rate (called `newPaperRate`). If the result is an empty string, you want to create the paper asset with the `paperRate` passed through the `issue` function.
+
 
 
 
