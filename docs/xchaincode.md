@@ -18,10 +18,11 @@ These are the general steps you will take:
 3. Run a few tests to get familiar with commercial-bond
 4. Grab commercial-paper if you don't already have it
 5. Setup Debug Smart Contract in Development Mode
-6. Make smart contract updates, test in debugging session
-7. Make final updates. Package commercial-paper, install and instantiate
-8. Generate function tests, and run through function tests
-9. The end!
+6. Go through existing papercontract function in debugger
+7. Make smart contract updates, test in debugging session
+8. Make final updates. Package commercial-paper, install and instantiate
+9. Generate function tests, and run through function tests
+10. The end!
 
 
 ## Section 1: Clone the commercial-bond smart contract package
@@ -311,7 +312,7 @@ Return to the VSCode `Debug` view. Now you are setup for developing and debuggin
 
 ![VSCode-xchaincode35](images/xchaincode35.png)
 
-# Section 6: Make smart contract updates, test in debugging session
+# Section 6: Go through existing papercontract function in debugger
 
 It may seem like a lot of steps to setup the smart contract debugging environment in VSCode, but it is worth spending time up front to configure a debugging session. You will be a more effective smart contract developer with this tool in your toolkit.
 
@@ -365,7 +366,27 @@ You will see the now you are at the next line of code, and the variables panel h
 
 ![VSCode-xchaincode-debug-breakpoint2](images/xchaincode-debug-breakpoint-2.png)
 
-`Ctl + click` on the paper variable and select `Add to watch`:
+`Ctl + click` on the `paper` variable in the `Variables` panel and select `Add to watch`:
+
+![VSCode-xchaincode57](images/xchaincode57.png)
+
+You can now easily track this variable in the `Watch panel` as you progress with your debugging session:
+
+![VSCode-xchaincode58](images/xchaincode58.png)
+
+Continue to `Step Over` or `Step into` the rest of the issue transaction until you are satisfied with this flow. If you just want to get through to the end of the transaction hit the `Continue` button which will complete the transaction.
+
+![VSCode-xchaincode59](images/xchaincode59.png)
+
+You will see the output from this transaction below in the `OUTPUT` box.
+
+![VSCode-xchaincode60](images/xchaincode60.png)
+
+# Section 7: Make smart contract updates, test in debugging session
+
+1. OK, now that you have played with the debugger, let's add additional code to `papercontract.js`. We will first amend the `issue` function to include an interest rate. Then we will add the following three functions: getPaper, getPaperRate, getBondContractRate. Finally we will add code to the `issue` function to query the `commercial-bond` contract for the interest rate of a bond that has similar maturity rate as the paper and align the paper rate to the bond rate.
+
+Please replace your `issue.js` 
 
 
 
