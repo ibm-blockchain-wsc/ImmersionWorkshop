@@ -482,7 +482,7 @@ Click the <strong>Organizations</strong> icon on the palette on the left of your
 <p><img alt="image" src="../images/ibpconsole/0560_CreateOrderingMSPSaveIdentity.png" /></p>
 <p><strong>Step 9.6:</strong> Click the <strong>Create MSP definition</strong> button in the lower right of your screen:</p>
 <p><img alt="image" src="../images/ibpconsole/0570_CreateOrderingMSP.png" /></p>
-<p><strong>Step 9.7:</strong> You should now see the definition for your new Ordering Service MSP listed on your screen alongside the MSP your created earlier for your peer organization. Scroll up and click the <em>Nodes</em> icon in the icon palette on your left- it is the topmost icon on this palette, and you will be ready to proceed to the next section:</p>
+<p><strong>Step 9.7:</strong> You should now see the definition for your new Ordering Service MSP listed on your screen alongside the MSP your created earlier for your peer organization. Scroll up and click the <strong>Nodes</strong> icon in the icon palette on your left- it is the topmost icon on this palette, and you will be ready to proceed to the next section:</p>
 <p><img alt="image" src="../images/ibpconsole/0580_CreateOrderingMSPFinished.png" /></p>
 <h1 id="section-10-create-an-ordering-service-node-for-your-organization">Section 10: Create an ordering service node for your organization</h1>
 <p>Having created the MSP, you may now create the ordering service node. Ordering service nodes receive proposed transactions from peer nodes, package them into blocks, and then deliver these blocks to peer nodes to commit to the ledger. Ordering service nodes are pretty important, in other words.</p>
@@ -501,7 +501,7 @@ Click the <strong>Organizations</strong> icon on the palette on the left of your
 <li>Type <strong>os1pw</strong> in the <em>Ordering service enroll secret</em> field</li>
 <li>Select <strong>Team<em>xx</em> Ordering Service MSP</strong>, where <em>xx</em> is your two-digit team id, for the <em>Organization MSP</em> field</li>
 </ul>
-<p>Review the values you entered or select to ensure they match the above list, and then click the blue <strong>Next</strong> button:</p>
+<p>Review the values you entered or selected to ensure they match the above list, and then click the blue <strong>Next</strong> button:</p>
 <p><img alt="image" src="../images/ibpconsole/0620_AddOrdererSidebar3.png" /></p>
 <p><strong>Step 10.5:</strong> Enter or select the following values on this panel:</p>
 <ul>
@@ -517,7 +517,7 @@ Click the <strong>Organizations</strong> icon on the palette on the left of your
 <p><img alt="image" src="../images/ibpconsole/0650_AddOrdererSidebar6.png" /></p>
 <p><strong>Step 10.8:</strong> The <em>Summary</em> panel provides a review of the values you entered or selected in the prior panels. Click the <strong>Add ordering service</strong> button to continue:</p>
 <p><img alt="image" src="../images/ibpconsole/0660_AddOrdererSidebar7.png" /></p>
-<p><strong>Step 10.9:</strong> Similar to when you created the certificate authority earlier, you should see your new ordering service listed, along with a gray box in the upper right of its tile, showing that the status of this ordering service is "pending" if you hover your cursor over the gray box.</p>
+<p><strong>Step 10.9:</strong> Similarly to when you created the certificate authority earlier, you should see your new ordering service listed, along with a gray box in the upper right of its tile, showing that the status of this ordering service is "pending" if you hover your cursor over the gray box.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The above instruction pertains to the tile listed in the <em>Ordering services</em> section, not to the similarly named tile in the <em>Certificate Authorities</em> section</p>
@@ -539,7 +539,7 @@ Click the <strong>Organizations</strong> icon on the palette on the left of your
 <p>You will define a channel in this section and in its definition you will make your <strong>Team<em>xx</em> Org1</strong> peer organization a member of the channel. The actual definition of the channel is verified at the ordering service node and it keeps track of all channels.  (You can define multiple channels in a Hyperledger Fabric network but for simplicity this lab will only have you define one).</p>
 <p>The line between the ordering service node and your first peer organization node represents that our ordering service knows about our new channel and that our peer organization is a member of the new channel:</p>
 <p><img alt="image" src="../images/ibpconsole/0715_DiagramChannelOrg1.png" /></p>
-<p><strong>Step 12.1:</strong> Click the <strong>channel</strong> icon in the icon palette on the left. The screenshot below shows which icon to click:</p>
+<p><strong>Step 12.1:</strong> Click the <strong>Channels</strong> icon in the icon palette on the left. The screenshot below shows which icon to click:</p>
 <p><img alt="image" src="../images/ibpconsole/0720_ClickChannels.png" /></p>
 <p><strong>Step 12.2:</strong> Click the blue <strong>Create channel</strong> tile:</p>
 <p><img alt="image" src="../images/ibpconsole/0730_JoinChannel_1.png" /></p>
@@ -547,7 +547,7 @@ Click the <strong>Organizations</strong> icon on the palette on the left of your
 <p><img alt="image" src="../images/ibpconsole/0740_JoinChannelSidebar1a.png" /></p>
 <p><strong>Step 12.4:</strong> In the <em>Organizations</em> section, select <strong>Team<em>xx</em> Org1 MSP (team<em>xx</em>org1msp)</strong> for the <em>Select a channel member</em> field and click the <strong>Add</strong> button to the right of your selection:</p>
 <p><img alt="image" src="../images/ibpconsole/0750_JoinChannelSidebar1b.png" /></p>
-<p><strong>Step 12.5:</strong> You should now see <strong>team<em>xx</em>org1msp</strong> listed in the <em>Organizations</em> section. Select the checkbox to the left of the word <em>OPerator</em> in order to give your organization operator privileges on the channel. Select <strong>1 out of 1</strong> for the <em>Policy</em> field in the <em>Channel update policy</em> section:</p>
+<p><strong>Step 12.5:</strong> You should now see <strong>team<em>xx</em>org1msp</strong> listed in the <em>Organizations</em> section. Select the checkbox to the left of the word <em>Operator</em> in order to give your organization operator privileges on the channel. Select <strong>1 out of 1</strong> for the <em>Policy</em> field in the <em>Channel update policy</em> section:</p>
 <p><img alt="image" src="../images/ibpconsole/0760_JoinChannelSidebar1c.png" /></p>
 <p><strong>Step 12.6:</strong> Scroll down in the sidebar panel, and in the <em>Channel creator organization</em> section, select <strong>Team<em>xx</em> Org1 MSP (team<em>xx</em>org1msp)</strong> for the <em>Channel creator MSP</em> field, and select <strong>Team<em>xx</em> Org1 Admin</strong> for the <em>Identity</em> field. Then click the blue <strong>Create channel</strong> button in the lower right:</p>
 <p><img alt="image" src="../images/ibpconsole/0770_JoinChannelSidebar1d.png" /></p>
@@ -562,8 +562,8 @@ Click the <strong>Organizations</strong> icon on the palette on the left of your
 <p><strong>Step 13.2:</strong> You should now see that instead of the <strong>Pending- add peer</strong> message at the bottom of the tile for your channel, it now says <strong>1 Block</strong>. This indicates that the channel has been successfully created and you have joined a peer to it.</p>
 <p><img alt="image" src="../images/ibpconsole/0800_ChannelPeerAdded.png" /></p>
 <h1 id="section-14-define-the-certificate-authority-for-a-second-peer-organization">Section 14: Define the certificate authority for a second peer organization</h1>
-<p>You have now already defined two organizations- <strong>Team<em>xx</em> Org1</strong> and <strong>Team<em>xx</em> Ordering Service</strong>. The <em>Ordering Service</em> organization provides the ordering service and does not itself initiate blockchain transactions. Most, if not all, realistic blockchain networks will involve multiple organizations initiating blockchain transactions. So you will now define a second "peer" organization to participate in the network. Your network will thus have three organizations- two "peer" organizations that are collaborating in the blockchain network, and the ordering service organization which is, essentially, a service provider.</p>
-<p>You are changing hats again, this time, from your <strong>Team<em>xx</em> Ordering Service</strong> administrator hat to your <strong>Team<em>xx</em> Org2</strong> administrator hat. Our network diagram is coming along quite nicely:</p>
+<p>You have now already defined two organizations- <strong>Team<em>xx</em> Org1</strong> and <strong>Team<em>xx</em> Ordering Service</strong>. The <em>Ordering Service</em> organization provides the ordering service and does not itself initiate blockchain transactions. Most, if not all, realistic blockchain networks will involve multiple organizations initiating blockchain transactions. So you will now define a second peer organization to participate in the network. Your network will thus have three organizations- two peer organizations that are collaborating in the blockchain network, and the ordering service organization which is, essentially, a service provider.</p>
+<p>You are changing hats again, this time from your <strong>Team<em>xx</em> Ordering Service</strong> administrator hat to your <strong>Team<em>xx</em> Org2</strong> administrator hat. Our network diagram is coming along quite nicely:</p>
 <p><img alt="image" src="../images/ibpconsole/0805_DiagramOrg2CA.png" /></p>
 <p>We will define the second peer organization now.  The pattern is identical to what you did earlier for the first organization.</p>
 <p><strong>Step 14.1:</strong> Click the <strong>Nodes</strong> icon on the icon palette on the left, and then click the blue <strong>Add Certificate Authority</strong> tile:</p>
@@ -580,7 +580,7 @@ Click the <strong>Organizations</strong> icon on the palette on the left of your
 <p><img alt="image" src="../images/ibpconsole/0860_AddOrg2CASidebar5.png" /></p>
 <p><strong>Step 14.7:</strong> You will see a tile for your new certificate authority. Observe the box in the upper right corner of the tile.
 If it is gray, and you hover your cursor over it, you may see a message indicating that the status is pending. (The gray box, but not the status message,
-is shown in this screenshot)</p>
+is shown in this screenshot):</p>
 <p><img alt="image" src="../images/ibpconsole/0870_AddOrg2CAPending.png" /></p>
 <p><strong>Step 14.8:</strong> In about a minute, the box in the upper right should turn green, indicating that the certificate authority is running.
 If the box does not turn green in a minute, try reloading the page in your browser. Contact an instructor for help if it does not
@@ -630,7 +630,7 @@ Click the <strong>Organizations</strong> icon on the palette on the left of your
 <p><img alt="image" src="../images/ibpconsole/1000_CreateOrg2MSPSaveIdentity.png" /></p>
 <p><strong>Step 16.6:</strong> Click the blue <strong>Create MSP definition</strong> button in the lower right of your screen:</p>
 <p><img alt="image" src="../images/ibpconsole/1010_CreateOrg2MSP.png" /></p>
-<p><strong>Step 16.7:</strong> You should now see the definition for your new MSP listed on your screen. Scroll up and click the <em>Nodes</em> icon in the icon palette on your left- it is the topmost icon on this palette- and you will be ready to proceed to the next section:</p>
+<p><strong>Step 16.7:</strong> You should now see the definition for your new MSP listed on your screen. Scroll up and click the <strong>Nodes</strong> icon in the icon palette on your left- it is the topmost icon on this palette- and you will be ready to proceed to the next section:</p>
 <p><img alt="image" src="../images/ibpconsole/1020_CreateOrg2MSPFinished.png" /></p>
 <h1 id="section-17-create-a-peer-node-for-your-second-peer-organization">Section 17: Create a peer node for your second peer organization</h1>
 <p>The most useful German phrase I know is <em>noch einmal Bier, bitte!</em>, which translates to <em>another beer, please!</em> So I am asking you kindly, <em>noch einmal peer, bitte!</em>, that is, please define a peer for your second organization:</p>
@@ -639,7 +639,7 @@ Click the <strong>Organizations</strong> icon on the palette on the left of your
 <p><img alt="image" src="../images/ibpconsole/1030_AddOrg2Peer.png" /></p>
 <p><strong>Step 17.2:</strong> Click the <strong>Create an IBM Cloud Private peer</strong> button and then click the blue <strong>Next</strong> button:</p>
 <p><img alt="image" src="../images/ibpconsole/1040_AddOrg2PeerSidebar1.png" /></p>
-<p><strong>Step 17.3:</strong> Type <strong>Team<em>xx</em> Peer Org1</strong>, where <em>xx</em> is your two-digit team id, in the <em>Peer display name</em> field and then click the blue <strong>Next</strong> button:</p>
+<p><strong>Step 17.3:</strong> Type <strong>Team<em>xx</em> Peer Org2</strong>, where <em>xx</em> is your two-digit team id, in the <em>Peer display name</em> field and then click the blue <strong>Next</strong> button:</p>
 <p><img alt="image" src="../images/ibpconsole/1050_AddOrg2PeerSidebar2.png" /></p>
 <p><strong>Step 17.4:</strong> Enter or select the following values on this panel:</p>
 <ul>
@@ -648,7 +648,7 @@ Click the <strong>Organizations</strong> icon on the palette on the left of your
 <li>Type <strong>peer2pw</strong> in the <em>Peer enroll secret</em> field</li>
 <li>Select <strong>Team<em>xx</em> Org2 MSP</strong>, where <em>xx</em> is your two-digit team id, for the <em>Organization MSP</em> field</li>
 </ul>
-<p>Review the values you entered or select to ensure they match the above list, and then click the blue <strong>Next</strong> button:</p>
+<p>Review the values you entered or selected to ensure they match the above list, and then click the blue <strong>Next</strong> button:</p>
 <p><img alt="image" src="../images/ibpconsole/1060_AddOrg2PeerSidebar3.png" /></p>
 <p><strong>Step 17.5:</strong> Enter or select the following values on this panel:</p>
 <ul>
@@ -664,7 +664,7 @@ Click the <strong>Organizations</strong> icon on the palette on the left of your
 <p><img alt="image" src="../images/ibpconsole/1090_AddOrg2PeerSidebar6.png" /></p>
 <p><strong>Step 17.8:</strong> The <em>Summary</em> panel provides a review of the values you entered or selected in the prior panels. Click the <strong>Add peer</strong> button to continue:</p>
 <p><img alt="image" src="../images/ibpconsole/1100_AddOrg2PeerSidebar7.png" /></p>
-<p><strong>Step 17.9:</strong> Similar to when you created your other peer earlier, you should see your new peer listed, along with a gray box in the upper right of its tile, showing that the status of this peer is "pending" if you hover your cursor over the gray box.</p>
+<p><strong>Step 17.9:</strong> Similarly to when you created your other peer earlier, you should see your new peer listed, along with a gray box in the upper right of its tile, showing that the status of this peer is "pending" if you hover your cursor over the gray box.</p>
 <p><img alt="image" src="../images/ibpconsole/1110_AddOrg2PeerPending.png" /></p>
 <p><strong>Step 17.10:</strong>  It can take a minute or two on our lab system for the peer to come up completely, and you may need to refresh your browser in order to see the box turn green. If your peer is still not ready after a couple of minutes and after you have tried refreshing your browser, ask an instructor for help.  The peer must be ready, as indicated by a green box in the upper right of the peer's tile, similar to what is shown below, before you can continue:</p>
 <p><img alt="image" src="../images/ibpconsole/1120_AddOrg2PeerRunning.png" /></p>
@@ -682,7 +682,7 @@ Click the <strong>Organizations</strong> icon on the palette on the left of your
 <p><img alt="image" src="../images/ibpconsole/1165_DiagramChannelOrg2.png" /></p>
 <p>When you created your <strong>team<em>xx</em>-channel1</strong> channel earlier in the lab, your new <strong>Team<em>xx</em> Org2</strong> organization did not exist yet. If it had existed at the time, you could have added it to the channel membership when you created the channel.</p>
 <p>You will add the organization to the channel membership now.  </p>
-<p><strong>Step 19.1:</strong> Click the <em>Channels</em> icon on the icon palette on the left:</p>
+<p><strong>Step 19.1:</strong> Click the <strong>Channels</strong> icon on the icon palette on the left:</p>
 <p><img alt="image" src="../images/ibpconsole/1170_ClickChannels.png" /></p>
 <p><strong>Step 19.2:</strong> Click the tile for your <strong>team<em>xx</em>-channel1</strong> channel:</p>
 <p><img alt="image" src="../images/ibpconsole/1180_JoinChannel_1.png" /></p>

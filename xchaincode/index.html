@@ -187,7 +187,7 @@
 10. The end!</p>
 <h2 id="section-1-clone-the-commercial-bond-smart-contract-package">Section 1: Clone the commercial-bond smart contract package</h2>
 <ol>
-<li>pen up your terminal and run the following commands from your home directory:</li>
+<li>Open up your terminal and run the following command from your home directory:</li>
 </ol>
 <p><code>$ git clone https://github.com/jinvanstee/commercial-bond.git</code></p>
 <p>Sample output:</p>
@@ -213,33 +213,84 @@ Unpacking objects: 100% (32/32), done.
 </ol>
 <p>Select <code>IBM Blockchain Platform: Package a Smart Contract Project</code>:</p>
 <p><img alt="VSCode-xchaincode3" src="../images/xchaincode3.png" /></p>
-<p>Then select <code>commercial-bond</code>.</p>
+<ol>
+<li>Then select <code>commercial-bond</code>.</li>
+</ol>
 <p><img alt="VSCode-xchaincode4" src="../images/xchaincode4.png" /></p>
 <p>Upon success, you will see in the lower right corner a message like this:</p>
 <p><img alt="VSCode-xchaincode5" src="../images/xchaincode5.png" /></p>
-<p>Now you will install this chaincode to your local-fabric. Navigate to the IBM Blockchain Platform view in VSCODE (the 6th button down from the left menu):</p>
+<ol>
+<li>Now you will install this chaincode to your local-fabric. Navigate to the IBM Blockchain Platform view in VSCODE (the 6th button down from the left menu):</li>
+</ol>
 <p><img alt="VSCode-xchaincode6" src="../images/xchaincode6.png" /></p>
-<p>Under the <code>Local Fabric Ops</code> panel, click on <code>+ Install</code>, then select <code>commercial-bond@0.0.1</code> from the list:</p>
+<ol>
+<li>Under the <code>Local Fabric Ops</code> panel, click on <code>+ Install</code>, then select <code>commercial-bond@0.0.1</code> from the list:</li>
+</ol>
 <p><img alt="VSCode-xchaincode7" src="../images/xchaincode7.png" /></p>
 <p>Upon success, you will see a message similar to the following in the lower right corner of VSCode:</p>
 <p><img alt="VSCode-xchaincode8" src="../images/xchaincode8.png" /></p>
 <p>You will also see the package listed under <code>Installed</code> in the <code>Local Fabric Ops</code> panel:</p>
 <p><img alt="VSCode-xchaincode9" src="../images/xchaincode9.png" /></p>
-<p>Now you will instantiate the installed contract. In the <code>Local Fabric Ops</code> panel, select <code>+ Instantiate</code>. In the pop-up, similar to when you installed the smart contract, select <code>commercial-bond@0.0.1</code>.</p>
+<ol>
+<li>Now you will instantiate the installed contract. In the <code>Local Fabric Ops</code> panel, select <code>+ Instantiate</code>. In the pop-up, similar to when you installed the smart contract, select <code>commercial-bond@0.0.1</code>.</li>
+</ol>
 <p>Next, type <code>instantiate</code> when it asks you What function do you want to call. Press <code>Enter</code> to continue:</p>
 <p><img alt="VSCode-xchaincode10" src="../images/xchaincode10.png" /></p>
 <p>Next, it will ask you what arguments to pass to the function. Just hit <code>Enter</code> here because there aren't arguments here.</p>
 <p>Finally, it will ask you to provide a private data collection configuration file. Again, just hit <code>Enter</code> here because private data collection doesn't apply in this case.</p>
 <p>First time initialization of Node.js chaincode can take a while because it will need to pull down all the Node dependencies from the npm registry. After a few minutes, upon success, you will see a success message in the lower right corner of VSCode:</p>
 <p><img alt="VSCode-xchaincode11" src="../images/xchaincode11.png" /></p>
+<ol>
+<li>For reference for later, these are the bonds that were added to the ledger in the initialization phase:</li>
+</ol>
+<pre><code>const bonds = [
+            {
+                issuer: 'MagnetoCorp',
+                bondNumber: '00001',
+                issueDateTime: '2019-04-17',
+                maturityDateTime: '2020-04-17',
+                faceValue: '10000',
+                interestRate: '0.05',
+            },
+            {
+                issuer: 'Digibank',
+                bondNumber: '00001',
+                issueDateTime: '2019-05-17',
+                maturityDateTime: '2020-05-17',
+                faceValue: '50000',
+                interestRate: '0.04',
+            },
+            {
+                issuer: 'MagnetoCorp',
+                bondNumber: '00002',
+                issueDateTime: '2019-06-17',
+                maturityDateTime: '2020-06-17',
+                faceValue: '10000',
+                interestRate: '0.05',
+            },
+            {
+                issuer: 'Digibank',
+                bondNumber: '00002',
+                issueDateTime: '2019-07-17',
+                maturityDateTime: '2020-07-17',
+                faceValue: '50000',
+                interestRate: '0.04',
+            },
+        ];
+</code></pre>
+
 <p>Now that you have instantiated commercial-bond on your locally running fabric, you can...</p>
 <h2 id="section-3-run-a-few-tests-to-get-familiar-with-commercial-bond">Section 3: Run a few tests to get familiar with commercial-bond</h2>
-<p>VSCode IBM Blockchain Platform extension makes it easy for you to test out functions of your smart contract directly inside VSCode. Let's run a few tests directly through the functions made visible in the <code>Fabric Gateways</code> panel of the IBM Blockchain Platform view. Click on all the twisties to reveal the functions of commercial-bond:</p>
+<ol>
+<li>VSCode IBM Blockchain Platform extension makes it easy for you to test out functions of your smart contract directly inside VSCode. Let's run a few tests directly through the functions made visible in the <code>Fabric Gateways</code> panel of the IBM Blockchain Platform view. Click on all the twisties to reveal the functions of commercial-bond:</li>
+</ol>
 <p><img alt="VSCode-xchaincode12" src="../images/xchaincode12.png" /></p>
 <p>Scroll down to see all the functions of this smart contract:</p>
 <p><img alt="VSCode-xchaincode13" src="../images/xchaincode13.png" /></p>
 <p>All of these functions represent transactions in this smart contract. Now, let's evaluate a few transactions.</p>
-<p>Let's start with <code>getAllBondsFromIssuer</code> which will return all the bonds from a specified issuer.</p>
+<ol>
+<li>Let's start with <code>getAllBondsFromIssuer</code> which will return all the bonds from a specified issuer.</li>
+</ol>
 <p>Select the function <code>getAllBondsFromIssuer</code>, and either <code>right-click</code> or <code>Ctl+click</code> and select <code>Evaluate Transaction</code>:</p>
 <p><img alt="VSCode-xchaincode14" src="../images/xchaincode14.png" /></p>
 <p>Next, you will see a familar pop-up at the top of VSCode that asks you what are the arguments to the transaction. This transaction only takes one argument, and that is the name of the issuer. Let's type in "MagentoCorp" as follows (important to leave the double quotes):</p>
