@@ -650,7 +650,7 @@ Give it a couple of seconds, and you should see the debug toolbar at the top and
 
 # Section 8: Package commercial-paper, install and instantiate
 
-# Generate functional tests
+# Section 9: Generate functional tests
 
 
 
