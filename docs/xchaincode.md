@@ -27,7 +27,7 @@ These are the general steps you will take:
 
 ## Section 1: Clone the commercial-bond smart contract package
 
-1. pen up your terminal and run the following commands from your home directory:
+1. Open up your terminal and run the following command from your home directory:
 
 `
 $ git clone https://github.com/jinvanstee/commercial-bond.git
