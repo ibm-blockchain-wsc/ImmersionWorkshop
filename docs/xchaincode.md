@@ -602,7 +602,7 @@ Your `issue` function should look like the following:
 
 ![VSCode-xchaincode62](images/xchaincode62.png)
 
-5. Notice the breakpoint is still there in `papercontract.js`, let's remove it by clicking on the red dot or placing your cursor on that line and hitting F9. Let's place a new breakpoint in the line immediately following:
+5. Notice the breakpoint is still there in `papercontract.js`. Let's remove it by clicking on the red dot or placing your cursor on that line and hitting F9. Let's place a new breakpoint in the following line:
 
 ![VSCode-xchaincode63](images/xchaincode63.png)
 
@@ -642,7 +642,7 @@ Give it a couple of seconds, and you should see the debug toolbar at the top and
 
 15. You should see the following in the `OUTPUT` below.
 
-16. Click on the `DEBUG CONSOLE` and also see the `console.log` messages from evaluating the new `issue` transaction.
+16. Click on the `DEBUG CONSOLE` view at the bottom of VSCode and see the `console.log` messages from evaluating the new `issue` transaction.
 
 17. Evaluate another `issue` transaction, this time passing a maturity date that you know does not have a match in `commercial-bond`. You can always go back to `commercial-bond` to submit the `getAllBondsFromIssuer` command to see what all the maturity dates are. Then evaluate `issue` with a maturity date not on the existing list. Step through the debugger, and see if the logic behaves the way you expect.
 
