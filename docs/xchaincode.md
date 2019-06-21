@@ -1,4 +1,4 @@
-# VSCode Lab Part 3 - Cross Chaincode calls
+# VSCode Lab Part 3 - Cross Chaincode calls and Debugging Smart Contract
 
 You can use a chaincode to invoke other chaincodes. This allows a chaincode to query and write to data outside of its namespace. A chaincode can both read and update data outside of its namepace by using chaincode that is instantiated on the same channel. However, a chaincode can only query data by using chaincode on different channels.
 
@@ -19,8 +19,8 @@ These are the general steps you will take:
 4. Grab commercial-paper if you don't already have it
 5. Setup Debug Smart Contract in Development Mode
 6. Go through existing papercontract function in debugger
-7. Make smart contract update to include cross chaincode call, test in debugging session
-8. Make final updates. Package commercial-paper, install and instantiate
+7. Make smart contract update to include cross chaincode call, test in debug session
+8. Package commercial-paper, install and instantiate
 9. Generate function tests, and run through function tests
 10. The end!
 
@@ -507,7 +507,7 @@ class CommercialPaper extends State {
 module.exports = CommercialPaper;
 ```
 
-Save this file before moving on to the next step.
+Save this file before moving on to the next step. Save the file with `Command + S` if you are on Mac, or `Ctl + S` if you are on Linux or Windows.
 
 3. Return to the VSCode `Debug` view, and return to `papercontract.js`:
 
@@ -569,10 +569,10 @@ With this:
         // create an instance of the paper, if there is a bond with similar maturity rate, set paper rate to be same as bond rate, otherwise use paper rate from input.
         var paper;
         if (newPaperRate != "") {
-            console.log("set paper with bond rate");
+            console.log("set paper with bond rate " + newPaperRate);
             paper = CommercialPaper.createInstance(issuer, paperNumber, issueDateTime, maturityDateTime, faceValue, newPaperRate);
         } else {
-            console.log("set paper with original rate");
+            console.log("set paper with original rate " + paperRate);
             paper = CommercialPaper.createInstance(issuer, paperNumber, issueDateTime, maturityDateTime, faceValue, paperRate);
         }
 
@@ -590,10 +590,67 @@ With this:
     }
 ```
 
-The above `issue` function first queries the commercial-bond contract for the return rate on a bond with similar maturity date. It uses the `invokeChaincode()` API from the ChaincodeStub class of the fabirc-shim library. The `invokeChaincode()` API takes three arguments: `<async> invokeChaincode(chaincodeName, args, channel)` (see full spec here https://fabric-shim.github.io/master/fabric-shim.ChaincodeStub.html#toc1__anchor). In the example above the first argument passed is `commercial-bond` which is the name of the chaincode that you experimented with in Section 3 of this lab. The 2nd parameter in our example is `["getClosestBondRate", issuer, maturityDateTime]` which is an array of strings: the first array element `"getClosestBondRate"` indicates the function within the `commercial-bond` contract you want to invoke, the 2nd and third elements denote the arguments to pass to the `getClosestBondRate` function, in this case they are the name of the organization that issued the bonds you want to query and the maturity date that you want to compare bonds to.
+Save this file with `Command + S` if you are on Mac, or `Ctl + S` if you are on Linux or Windows.
+
+Note: During the copy and paste process, the formatting of the code block might look off. You can highlight the code block, then enter `Ctl + click` and select `Format Selection` which should format the highlighted section nicely.
+
+The above `issue` function first queries the commercial-bond contract for the return rate on a bond with similar maturity date. It uses the `invokeChaincode()` API from the ChaincodeStub class of the fabirc-shim library. The `invokeChaincode()` API takes three arguments: `<async> invokeChaincode(chaincodeName, args, channel)` (see full spec here https://fabric-shim.github.io/master/fabric-shim.ChaincodeStub.html#toc1__anchor). In the example above the first argument passed is `commercial-bond` which is the name of the chaincode that you want to invoke. The 2nd parameter in our example is `["getClosestBondRate", issuer, maturityDateTime]` which is an array of strings. The first array element `"getClosestBondRate"` is the function within the `commercial-bond` contract you want to invoke, the 2nd and third elements are the arguments to pass to the `getClosestBondRate` function, in this case they are the name of the organization that issued the bonds you want to query and the maturity date that you want to compare bonds to.
 
 The `if-else` code block in the above `issue` function will then test to see if the result of the invokeChaincode() function is an empty string. If the result is not an empty string, you want to create the paper asset with the bond rate (called `newPaperRate`). If the result is an empty string, you want to create the paper asset with the `paperRate` passed through the `issue` function.
 
+Your `issue` function should look like the following:
+
+![VSCode-xchaincode62](images/xchaincode62.png)
+
+5. Notice the breakpoint is still there in `papercontract.js`, let's remove it by clicking on the red dot or placing your cursor on that line and hitting F9. Let's place a new breakpoint in the line immediately following:
+
+![VSCode-xchaincode63](images/xchaincode63.png)
+
+6. You can evaluate the new `issue` function using the current debug session. You can iterate through many smart contract changes using the same debug session and test them by evaluating transactions. If for whatever reason, you have exited the debug session, you can always bring it back by clicking on the green arrow key in the `DEBUG` toolbar or by clicking on the blue bar at the bottom of VSCode that says `Launch Smart Contract`:
+
+![VSCode-xchaincode64](images/xchaincode64.png)
+
+Then select `Launch Smart Contract (cp-magnetocorp-contract-javasciprt)`. Your project may be named differently.
+
+![VSCode-xchaincode65](images/xchaincode65.png)
+
+In the `Start a new debug session?` pop-up window, select `No Resume from a previous debug session`:
+
+![VSCode-xchaincode66](images/xchaincode66.png)
+
+Give it a couple of seconds, and you should see the debug toolbar at the top and the bottom bar turn orange:
+
+![VSCode-xchaincode67](images/xchaincode67.png)
+
+7. Now let's click on the IBM Blockchain Platform button in the debug toolbar:
+
+8. Select `Evaluate Transaction` in the pop-up window:
+
+9. Select `issue` transaction in the pop-up window:
+
+10. For the arguments pop-up, pass the following arguments inside the brackets:
+
+`"MagnetoCorp", "00004", "2020-01-31", "2020-04-30", "1000000","0.03"`
+
+11. Hit `Enter` when it asks you for private collection configuration file.
+
+12. And the debugger should stop at the breakpoint.
+
+13. Add the variables `newPaperRate` and `paper` to the `Watch` list.
+
+14. `Step over` each line of code until you reach `paper.setIssued()` then you can hit `Continue` in the debug toolbar to complete the transaction.
+
+15. You should see the following in the `OUTPUT` below.
+
+16. Click on the `DEBUG CONSOLE` and also see the `console.log` messages from evaluating the new `issue` transaction.
+
+17. Evaluate another `issue` transaction, this time passing a maturity date that you know does not have a match in `commercial-bond`. You can always go back to `commercial-bond` to submit the `getAllBondsFromIssuer` command to see what all the maturity dates are. Then evaluate `issue` with a maturity date not on the existing list. Step through the debugger, and see if the logic behaves the way you expect.
+
+18. At this point you have successfully tweaked the `papercontract.js` to include a cross chaincode call to another contract residing in the same channel.
+
+# Section 8: Package commercial-paper, install and instantiate
+
+# Generate functional tests
 
 
 
