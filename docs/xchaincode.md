@@ -417,7 +417,7 @@ You will see the output from this transaction below in the `OUTPUT` box.
 
 # Section 7: Make smart contract updates to include cross chaincode call, test in debugging session (**These instructions have been modified for IBM Blockchain Platform Extension v1.0.3**)
 
-1. OK, now that you have played with the debugger, let's add additional code to `papercontract.js`. We will first amend the `issue` function to take in interest rate as another parameter. The new `issue` function will also include code to query the `commercial-bond` contract for the interest rate of a bond that has similar maturity rate as the paper and align the paper rate to the bond rate. Then we will add the following two helper functions: `getPaperRate`, `getBondContractRate`.
+1. OK, now that you have played with the debugger, let's add additional code to `papercontract.js`. We will first amend the `issue` function to take in interest rate as another parameter. The new `issue` function will also include code to query the `commercial-bond` contract for the interest rate of a bond that has similar maturity rate as the paper and align the paper rate to the bond rate. Then we will add the following the helper function: `getPaperRate`.
 
 2. Before we edit `papercontract.js` we need to update `paper.js` to add these functions `getRate` and `setRate`. In addition, we need to update the `createInstance` function to include the `paperRate` parameter. Keep in mind `papercontract.js` uses `paper.js` to represent a paper.
 
@@ -796,12 +796,10 @@ Your `papercontract.js` should look like the following:
 
 23. At this point you have successfully tweaked the `papercontract.js` to include a cross chaincode call to another contract residing in the same channel.
 
-24. Go to the VSCode IBM Blockchain Platform view, you should see three papercontract@vscode-
-
-
-
+24. Go to the VSCode IBM Blockchain Platform view, under the `Local Fabric Ops` panel, you should see three `papercontract@vscode-debug-<datetime>` packages under `Installed` and one `papercontract@vscode-debug-<datetime>` under `Instantiated`. The instantiated package should have the same datetime and the latest installed one. The first `papercontract@vscode-debug` package was done against the original paper contract, the 2nd package was done against the paper contract with the modified `issue` transaction, and the third and last package was build upon the 2nd with a new `getPaperRate` function. We hope that with this flow, you get to experience one way you can develop and build upon your smart contract.
 
 # Section 9: Package commercial-paper, install and instantiate
+
 
 # Section 10: Generate functional tests
 
