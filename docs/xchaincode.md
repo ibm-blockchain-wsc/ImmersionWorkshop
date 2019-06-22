@@ -49,8 +49,8 @@ Right click anywhere in your workspace to get the drop down and select Add Folde
 
 ![VSCode-xchaincode1](images/xchaincode1.png)
 
-You should see the contents of the contract folder in your workspace, like the following picture:
-(Please note that your other folders may look different than the screen shot below, but the contents within the contract folder should be the same)
+You should see the contents of the folder in your workspace, like the following picture:
+(Please note that your other folders may look different than the screen shot below, but the contents within the commercial-bond folder should be the same)
 
 ![VSCode-xchaincode2](images/xchaincode2.png)
 
