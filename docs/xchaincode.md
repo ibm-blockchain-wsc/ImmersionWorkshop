@@ -45,7 +45,7 @@ Unpacking objects: 100% (32/32), done.
 
 2. Return to your VSCode Explorer and add the commercial-bond smart contract folder to your workspace.
 
-Right click anywhere in your workspace to get the drop down and select Add Folder to Workspace. Then browse to `<path to commercial-bond>/organization/magnetocorp/` and select contract and click Add.
+Right click anywhere in your workspace to get the drop down and select Add Folder to Workspace. Then browse to `<path to commercial-bond>/organization/magnetocorp/` and select commercial-bond and click Add.
 
 ![VSCode-xchaincode1](images/xchaincode1.png)
 
