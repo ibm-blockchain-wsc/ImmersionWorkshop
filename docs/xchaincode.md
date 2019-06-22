@@ -1,4 +1,4 @@
-# VSCode Lab Part 3 - Cross Chaincode calls and Debugging A Smart Contract
+# VSCode Lab Part 3 - Cross Chaincode Calls and Debugging a Smart Contract
 
 You can use a chaincode to invoke other chaincodes. This allows a chaincode to query and write to data outside of its namespace. A chaincode can both read and update data outside of its namespace by using chaincode that is instantiated on the same channel. However, a chaincode can only query data by using chaincode on different channels.
 
