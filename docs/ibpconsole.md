@@ -42,6 +42,7 @@ The sections in this lab are as follows:
 - Section 18: Adding your new peer organization to the consortium
 - Section 19: Adding your Org2 organization to the channel
 - Section 20: Joining your peer for Org2 to the channel
+- Section 21: Defining an anchor peer for each of your two peer organizations
 
 Section 2: Log in to the IBM Blockchain Platform console
 ========================================================
@@ -803,16 +804,9 @@ Click the **Channel details** tab to the right of the **Transaction overview** t
 Section 20: Join your peer for Org2 to the channel
 =================================================
 
-And now, for the *coup de grâce*, the finishing stroke of this lab, you will join *Org2's* peer to the channel:
+You will now join *Org2's* peer to the channel:
 
 ![image](images/ibpconsole/1255_DiagramPeer2JoinChannel.png)
-
-!!! note "An aside..."
-        When writing up this lab, I looked up the meaning of *coup de grâce* on dictionary.com.
-        My intended usage of the phrase is to match the second definition given there.
-        Hopefully it is more apt than the first definition given, but I'll let you decide!
-
-        [https://www.dictionary.com/browse/coup-de-grace](https://www.dictionary.com/browse/coup-de-grace)
 
 **Step 20.1:** Now that your *Org2* is a member of the channel, you can join your peer from *Org2* to the channel. Click the blue **Join channel** tile:
 
@@ -841,6 +835,46 @@ And now, for the *coup de grâce*, the finishing stroke of this lab, you will jo
 **Step 20.7:** Observe that your peer node for *Org2*, **Team*xx* Peer Org2**, is listed in the *Nodes* section, indicating that this peer has joined the channel:
 
 ![image](images/ibpconsole/1320_ViewChannel2.png)
+
+Section 21: Define an anchor peer for each of your two peer organizations
+=========================================================================
+
+And now, for the *coup de grâce*, the finishing stroke of this lab, you will define an anchor peer for each of your two peer organizations.
+
+!!! note "An aside..."
+        When writing up this lab, I looked up the meaning of *coup de grâce* on dictionary.com.
+        My intended usage of the phrase is to match the second definition given there.
+        Hopefully it is more apt than the first definition given, but I'll let you decide!
+
+        [https://www.dictionary.com/browse/coup-de-grace](https://www.dictionary.com/browse/coup-de-grace)
+
+An anchor peer is a peer whose external endpoint address is published in the channel configuration. This way other organizations can reach this peer. An organization must provide at least one anchor peer for service discovery or private data collections to work.Upcoming labs will use service discovery so our last task in this lab is to define the anchor peers.
+
+**Step 21.1:** Scroll down until you reach the *Anchor peers* section. You will observe that there are currently no anchor peers defined. Click the **Add anchor peer** button:
+
+![image](images/ibpconsole/1330_AddAnchorPeers.png)
+
+**Step 21.2:** Select both peers and click the **Add anchor peer** button:
+
+![image](images/ibpconsole/1340_SelectAnchorPeers.png)
+
+!!! note
+        We are taking a shortcut here in our lab by selecting both organizations' peers here. In the "real world" each organization would perform this action separately on their own instance of the IBM Blockchain Platform console.
+
+**Step 21.3:** Observe now that your two anchor peers are listed in the table of anchor peers. The information you see is now part of the channel configuration. Click the **Channels** icon on the icon palette on the left so that you can get a refreshed view of the block count for the channel in a moment:
+
+![image](images/ibpconsole/1350_AnchorPeersDefined.png)
+
+**Step 21.4:** You should see that the channel tile now shows a block count of 4. Click on the tile for your channel if it shows a block count of 4, otherwise read the note below:
+
+!!! note
+        If your block count is still at 2, wait a moment and refresh your browser.
+
+![image](images/ibpconsole/1360_BlockCountUpdated.png)
+
+**Step 21.5:** You should see further confirmation that your block height is 4, and you can see that the last two blocks were added about a second or two apart. We used the console to add both anchor peers with one click, but each anchor peer update is packaged as a separate channel configuration update transaction, each in its own block. Hyperledger Fabric can have many application transactions in a block, but it only allows one configuration update in a block by itself- that is, it cannot be mixed in a block with application transactions.
+
+![image](images/ibpconsole/1370_BlockHeight4.png)
 
 !!! important "Congratulations!!"
         You have made it to the end of this lab! Job well done!  But after all that work you haven't run any smart contracts on your new network yet! Don't worry, that occurs in the next lab.  You will not have toiled in vain.
