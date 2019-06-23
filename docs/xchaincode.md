@@ -47,12 +47,12 @@ Unpacking objects: 100% (32/32), done.
 
 Right click in a blank area in your workspace to get the drop down and select Add Folder to Workspace. Then browse to `<path to commercial-bond>/organization/magnetocorp/` and select commercial-bond and click Add.
 
-![VSCode-xchaincode1](images/xchaincode1.png)
+![VSCode-xchaincode1](images/xchaincode/xchaincode1.png)
 
 You should see the contents of the folder in your workspace, like the following picture:
 (Please note that your other folders may look different than the screen shot below, but the contents within the commercial-bond folder should be the same)
 
-![VSCode-xchaincode2](images/xchaincode2.png)
+![VSCode-xchaincode2](images/xchaincode/xchaincode2.png)
 
 ## Section 2: Package commercial-bond, install and instantiate
 
@@ -60,49 +60,49 @@ You should see the contents of the folder in your workspace, like the following 
 
 Select `IBM Blockchain Platform: Package a Smart Contract Project`:
 
-![VSCode-xchaincode3](images/xchaincode3.png)
+![VSCode-xchaincode3](images/xchaincode/xchaincode3.png)
 
 **2.** Then select `commercial-bond`.
 
-![VSCode-xchaincode4](images/xchaincode4.png)
+![VSCode-xchaincode4](images/xchaincode/xchaincode4.png)
 
 Upon success, you will see in the lower right corner a message like this:
 
-![VSCode-xchaincode5](images/xchaincode5.png)
+![VSCode-xchaincode5](images/xchaincode/xchaincode5.png)
 
 **3.** Now you will install this chaincode to your local-fabric. Navigate to the IBM Blockchain Platform view in VSCode (the 6th button down from the left menu):
 
-![VSCode-xchaincode6](images/xchaincode6.png)
+![VSCode-xchaincode6](images/xchaincode/xchaincode6.png)
 
 **4.** Under the `Local Fabric Ops` panel, click on `+ Install`, then select `commercial-bond@0.0.1` from the list:
 
-![VSCode-xchaincode7](images/xchaincode7.png)
+![VSCode-xchaincode7](images/xchaincode/xchaincode7.png)
 
 Upon success, you will see a message similar to the following in the lower right corner of VSCode:
 
-![VSCode-xchaincode8](images/xchaincode8.png)
+![VSCode-xchaincode8](images/xchaincode/xchaincode8.png)
 
 You will also see the package listed under `Installed` in the `Local Fabric Ops` panel:
 
-![VSCode-xchaincode9](images/xchaincode9.png)
+![VSCode-xchaincode9](images/xchaincode/xchaincode9.png)
 
 **5.** Now you will instantiate the installed contract. In the `Local Fabric Ops` panel, select `+ Instantiate`. In the pop-up, similar to when you installed the smart contract, select `commercial-bond@0.0.1`.
 
 Next, type `instantiate` when it asks you What function do you want to call. Press `Enter` to continue:
 
-![VSCode-xchaincode10](images/xchaincode10.png)
+![VSCode-xchaincode10](images/xchaincode/xchaincode10.png)
 
 Then you will see another pop-up asking what arguments to pass to the function. You will just hit `Enter` here:
 
-![VSCode-xchaincode-argument](images/xchaincode-argument-pop-up.png)
+![VSCode-xchaincode-argument](images/xchaincode/xchaincode-argument-pop-up.png)
 
 Lastly, you will be asked if you want to provide a private collection configuration file. Again, just hit `Enter` here because private data collection doesn't apply in this case.:
 
-![VSCode-xchaincode-private-data](images/xchaincode-private-data-pop-up.png)
+![VSCode-xchaincode-private-data](images/xchaincode/xchaincode-private-data-pop-up.png)
 
 First time initialization of Node.js chaincode can take a while because it will need to pull down all the Node dependencies from the npm registry. After a few minutes, upon success, you will see a success message in the lower right corner of VSCode:
 
-![VSCode-xchaincode11](images/xchaincode11.png)
+![VSCode-xchaincode11](images/xchaincode/xchaincode11.png)
 
 **6.** For reference for later, these are the bonds that were added to the ledger in the initialization phase:
 
@@ -149,11 +149,11 @@ Now that you have instantiated commercial-bond on your locally running fabric, y
 
 **1.** VSCode IBM Blockchain Platform extension makes it easy for you to test out functions of your smart contract directly inside VSCode. Let's run a few tests directly through the functions made visible in the `Fabric Gateways` panel of the IBM Blockchain Platform view. Refresh the Fabric Gateways panel, and click on all the twisties to reveal the functions of commercial-bond:
 
-![VSCode-xchaincode12](images/xchaincode12.png)
+![VSCode-xchaincode12](images/xchaincode/xchaincode12.png)
 
 Scroll down to see all the functions of this smart contract:
 
-![VSCode-xchaincode13](images/xchaincode13.png)
+![VSCode-xchaincode13](images/xchaincode/xchaincode13.png)
 
 All of these functions represent transactions in this smart contract. Now, let's evaluate a few transactions.
 
@@ -161,19 +161,19 @@ All of these functions represent transactions in this smart contract. Now, let's
 
 Select the function `getAllBondsFromIssuer`, and either `right-click` or `Ctl+click` and select `Evaluate Transaction`:
 
-![VSCode-xchaincode14](images/xchaincode14.png)
+![VSCode-xchaincode14](images/xchaincode/xchaincode14.png)
 
 **3.** Next, you will see a familiar pop-up at the top of VSCode that asks you what are the arguments to the transaction. This transaction only takes one argument, and that is the name of the issuer. Let's type in "MagnetoCorp" as follows (important to include the double quotes):
 
-![VSCode-xchaincode15](images/xchaincode15.png)
+![VSCode-xchaincode15](images/xchaincode/xchaincode15.png)
 
 **4.** Next, it will ask you what transient data to pass for the transaction. In this case we have none, so just press `Enter` to move forward.
 
-![VSCode-xchaincode70](images/xchaincode70.png)
+![VSCode-xchaincode70](images/xchaincode/xchaincode70.png)
 
 Now, in the `OUTPUT` view, you will see the results of evaluating this transaction. And you will see that there are two bonds issued by MagnetoCorp:
 
-![VSCode-xchaincode16](images/xchaincode16.png)
+![VSCode-xchaincode16](images/xchaincode/xchaincode16.png)
 
 Study the output and you will see other key/value pairs for each bond such as `maturityDateTime`, `issuer`, and `interestRate`.
 
@@ -183,45 +183,45 @@ Study the output and you will see other key/value pairs for each bond such as `m
 
 In the `Fabric Gateways` panel, select the `issue` transaction. Either `right-click` or `Ctl+click` and select `Submit Transaction`.
 
-![VSCode-xchaincode17](images/xchaincode17.png)
+![VSCode-xchaincode17](images/xchaincode/xchaincode17.png)
 
 **7.** Next, copy and paste the following inside the brackets when the pop-up asks you what are the arguments to the transaction:
 
 `"MagnetoCorp", "00003", "2019-02-28", "2020-02-28", "50000","0.01"`
 
-![VSCode-xchaincode18](images/xchaincode18.png)
+![VSCode-xchaincode18](images/xchaincode/xchaincode18.png)
 
 Hit `Enter` and next you will see the screen that asks you for transient data. Hit `Enter` here because we don't have any transient data in this case.
 
-![VSCode-xchaincode70](images/xchaincode70.png)
+![VSCode-xchaincode70](images/xchaincode/xchaincode70.png)
 
 Then the transaction will get submitted. Upon success, you will see the following `OUTPUT` panel. Notice the `[SUCCESS]` message which means the transaction was successfully submitted.
 
-![VSCode-xchaincode19](images/xchaincode19.png)
+![VSCode-xchaincode19](images/xchaincode/xchaincode19.png)
 
 **8.** The output to the issue command represents the bond, but it isn’t very helpful as it is printed as the ASCII value of each character in decimal notation. Let's re-evaluate the `getAllBondsFromIssuer` transaction and see if this bond shows up. Use steps 2-4 above to re-run this transaction. Upon success, you will see the following output, and notice that the bond we just added shows up now:
 
-![VSCode-xchaincode20](images/xchaincode20.png)
+![VSCode-xchaincode20](images/xchaincode/xchaincode20.png)
 
 **9.** Now, the last transaction for you to test is the `getClosestBondRate` transaction. This is the transaction that we will update `commercial-paper` to call. This transaction takes two arguments: 1) `bondIssuer` and 2) `compareMaturityDate`. This transaction will iterate through all the bonds issued by the specified `bondIssuer` until it finds a bond that has a similar maturity date as the one passed through `compareMaturityDate`, and it will return that bond's interest rate. If it cannot find a bond with a similar maturity date it will return an empty string.
 
 Select `getClosestBondRate` from the `Fabric Gateways` panel, and either `right-click` or `Ctl+click` and select `Evaluate Transaction`.
 
-![VSCode-xchaincode21](images/xchaincode21.png)
+![VSCode-xchaincode21](images/xchaincode/xchaincode21.png)
 
 **10.** Next you will be asked what arguments to pass. Copy and paste the following inside the brackets:
 
 `"MagnetoCorp","2020-02-15"`
 
-![VSCode-xchaincode22](images/xchaincode22.png)
+![VSCode-xchaincode22](images/xchaincode/xchaincode22.png)
 
 Hit `Enter`. Again, you will be asked for transient data and again you will just hit `Enter` to progress forward to evaluating the transaction.
 
-![VSCode-xchaincode70](images/xchaincode70.png)
+![VSCode-xchaincode70](images/xchaincode/xchaincode70.png)
 
 Upon success, you will see the following output in the `OUTPUT` panel:
 
-![VSCode-xchaincode23](images/xchaincode23.png)
+![VSCode-xchaincode23](images/xchaincode/xchaincode23.png)
 
 **11.** Notice that the interest rate returned is 0.01, which if you recall is the interest rate associated with MagnetoCorp's bondNumber 00003, which has a maturity date of 2020-02-28 which is the same month as the 2nd argument you passed for `getClosestBondRate`.
 
@@ -241,37 +241,37 @@ Now what do you get returned?  Is it expected?
 
 For this lab, we will start with a fresh commercial paper smart contract. Let's use the IBM Blockchain Platform Extension sample home page to get the commercial-paper package. Click on the IBM Blockchain Platform Extension icon in the upper right corner of VSCode:
 
-![VSCode-xchaincode24](images/xchaincode24.png)
+![VSCode-xchaincode24](images/xchaincode/xchaincode24.png)
 
 This will bring up the following page in VSCode:
 
-![VSCode-xchaincode26](images/xchaincode26.png)
+![VSCode-xchaincode26](images/xchaincode/xchaincode26.png)
 
 Click on `Commercial Paper` in the Explore sample code section:
 
-![VSCode-xchaincode25](images/xchaincode25.png)
+![VSCode-xchaincode25](images/xchaincode/xchaincode25.png)
 
 On the `Commercial Paper Sample` page, click on `Clone` (the picture below shows `Clone again` but if you are doing this the first time it should just say `Clone`):
 
-![VSCode-xchaincode27](images/xchaincode27.png)
+![VSCode-xchaincode27](images/xchaincode/xchaincode27.png)
 
 Now it will ask you where you want to clone the repository, pick a location on your workstation, and click `Clone Repository`.
 
 When it is done cloning, you will see the location that you cloned to here:
 
-![VSCode-xchaincode28](images/xchaincode28.png)
+![VSCode-xchaincode28](images/xchaincode/xchaincode28.png)
 
 Now, from the same `Commercial Paper Sample` page, go to the smart contract section and select `Open Locally` for `MagnetoCorp Contract`:
 
-![VSCode-xchaincode29](images/xchaincode29.png)
+![VSCode-xchaincode29](images/xchaincode/xchaincode29.png)
 
 In the pop-up window, select `Add to workspace`:
 
-![VSCode-xchaincode30](images/xchaincode30.png)
+![VSCode-xchaincode30](images/xchaincode/xchaincode30.png)
 
 In your VSCode Explorer Blockchain workspace panel, you will see the following folder with its contents added:
 
-![VSCode-xchaincode31](images/xchaincode31.png)
+![VSCode-xchaincode31](images/xchaincode/xchaincode31.png)
 
 Now you are ready to make changes and test them quickly by working in Hyperledger Fabric development mode in conjunction with the VSCode Debugger.
 
@@ -281,33 +281,33 @@ The VSCode IBM Blockchain Platform Extension provides an integrated `Debug Smart
 
 **1.** The first thing you will do is to `Toggle Development Mode` on your peer. Navigate to the IBM Blockchain Platform view in your VSCode:
 
-![VSCode-xchaincode6](images/xchaincode6.png)
+![VSCode-xchaincode6](images/xchaincode/xchaincode6.png)
 
 In the `Local Fabric Ops` panel, scroll down to find `Nodes` and expand that section. `Ctl` + select `peer0.org1.example.com` and select "Toggle Development Mode":
 
-![VSCode-xchaincode32](images/xchaincode32.png)
+![VSCode-xchaincode32](images/xchaincode/xchaincode32.png)
 
 This will take a minute. Upon success you will see the following message in the lower right corner:
 
-![VSCode-xchaincode33](images/xchaincode33.png)
+![VSCode-xchaincode33](images/xchaincode/xchaincode33.png)
 
 You will also see in the `Local Fabric Ops` panel, under `Nodes`, a little infinity symbol next to the peer:
 
-![VSCode-xchaincode34](images/xchaincode34.png)
+![VSCode-xchaincode34](images/xchaincode/xchaincode34.png)
 
 **2.** Let's return to the VSCode Explorer perspective, and click on `papercontract.js` to open it. 
 
-![VSCode-xchaincode36](images/xchaincode36.png)
+![VSCode-xchaincode36](images/xchaincode/xchaincode36.png)
 
 If you are unfamiliar with commercial-paper, please review what `papercontract.js` does in VSCode Lab 2 section 1 and section 3.
 
 **3.** Next, navigate to the `Debug` view in VSCode:
 
-![VSCode-xchaincode35](images/xchaincode35.png)
+![VSCode-xchaincode35](images/xchaincode/xchaincode35.png)
 
 In this view you will see the following panels:
 
-![VSCode-xchaincode37](images/xchaincode37.png)
+![VSCode-xchaincode37](images/xchaincode/xchaincode37.png)
 
 An explanation of each of the panels:
 
@@ -320,19 +320,19 @@ An explanation of each of the panels:
 
 To do so, click on the little arrows next to the DEBUG toolbar at the top of the `Debug` view.
 
-![VSCode-xchaincode38](images/xchaincode38.png)
+![VSCode-xchaincode38](images/xchaincode/xchaincode38.png)
 
 Now select the name of your paper-contract project folder from the drop down. In the sample picture below the name of the project folder is `cp-magnetocorp-contract-javascript`:
 
-![VSCode-xchaincode41](images/xchaincode41.png)
+![VSCode-xchaincode41](images/xchaincode/xchaincode41.png)
 
 Next a pop-up window will ask you to select an environment. Because we are dealing with Node.js chaincode, select the option `Fabric Smart Contract (Node.js)`:
 
-![VSCode-xchaincode42](images/xchaincode42.png)
+![VSCode-xchaincode42](images/xchaincode/xchaincode42.png)
 
 This will open a `launch.json`. It should look like the following:
 
-![VSCode-xchaincode39](images/xchaincode39.png)
+![VSCode-xchaincode39](images/xchaincode/xchaincode39.png)
 
 Make sure your `launch.json` file looks like the above (if there are extra entries delete them). Save the file with `Ctl+S` and close it.
 
@@ -340,47 +340,47 @@ Make sure your `launch.json` file looks like the above (if there are extra entri
 
 Click on the little arrows again next to the DEBUG toolbar at the top of the `Debug` view:
 
-![VSCode-xchaincode38](images/xchaincode38.png)
+![VSCode-xchaincode38](images/xchaincode/xchaincode38.png)
 
 This time select `Launch Smart Contract (cp-magnetocorp-contract-javascript)`. Please note your project folder name may be slightly different. You will see your project folder name appear in parenthesis.
 
-![VSCode-xchaincode43](images/xchaincode43.png)
+![VSCode-xchaincode43](images/xchaincode/xchaincode43.png)
 
 Now, click on the green arrow in the `DEBUG` toolbar to launch a debug session against the smart contract:
 
-![VSCode-xchaincode44](images/xchaincode44.png)
+![VSCode-xchaincode44](images/xchaincode/xchaincode44.png)
 
 You should now see a little debugging toolbar appear at the top of VSCode, like the following picture. You can see the blue IBM Blockchain Platform logo at the right of this toolbar. Click on that button:
 
-![VSCode-xchaincode47](images/xchaincode47.png)
+![VSCode-xchaincode47](images/xchaincode/xchaincode47.png)
 
 **6.** Clicking on the IBM Blockchain Platform button will bring up another pop-up menu, select Instantiate Smart Contract from this menu as follows:
 
-![VSCode-xchaincode45](images/xchaincode45.png)
+![VSCode-xchaincode45](images/xchaincode/xchaincode45.png)
 
 **7.** Now the IBM Blockchain Platform Extension will package your smart contract and install it to your local peer running in development mode. Next you will be presented with a familiar pop-up asking what function you'd like to call. Type in instantiate as follows:
 
-![VSCode-xchaincode-instantiate](images/xchaincode-instantiate-pop-up.png)
+![VSCode-xchaincode-instantiate](images/xchaincode/xchaincode-instantiate-pop-up.png)
 
 Then you will see another pop-up asking what arguments to pass to the function. You will just hit `Enter` here:
 
-![VSCode-xchaincode-argument](images/xchaincode-argument-pop-up.png)
+![VSCode-xchaincode-argument](images/xchaincode/xchaincode-argument-pop-up.png)
 
 Lastly, you will be asked if you want to provide a private collection configuration file. Again, just hit `Enter` here:
 
-![VSCode-xchaincode-private-data](images/xchaincode-private-data-pop-up.png)
+![VSCode-xchaincode-private-data](images/xchaincode/xchaincode-private-data-pop-up.png)
 
 Finally, upon successful instantiation, you will see the following message in the lower right corner:
 
-![VSCode-xchaincode-instantiate](images/xchaincode-success-instantiate.png)
+![VSCode-xchaincode-instantiate](images/xchaincode/xchaincode-success-instantiate.png)
 
 **8.** To double check that the debug package was instantiated onto the local Hyperledger Fabric peer, navigate to the IBM Blockchain Platform view in VSCode, and look for the debug smart contract package in the `Local Fabric Ops` panel (Note: you may have to refresh that panel to see the new package):
 
-![VSCode-xchaincode50](images/xchaincode50.png)
+![VSCode-xchaincode50](images/xchaincode/xchaincode50.png)
 
 **9.** Return to the VSCode `Debug` view. Now you are setup for developing and debugging the commercial-paper smart contract!
 
-![VSCode-xchaincode35](images/xchaincode35.png)
+![VSCode-xchaincode35](images/xchaincode/xchaincode35.png)
 
 # Section 6: Go through existing papercontract function in debugger (**These instructions have been modified for IBM Blockchain Platform Extension v1.0.3**)
 
@@ -388,69 +388,69 @@ It may seem like a lot of steps to setup the smart contract debugging environmen
 
 **1.** In the VSCode `Debug` view, if you look at the `DEBUG CONSOLE` output, you will see all the `console.log` messages for the functions that have been executed so far. So far we've only instantiated the smart contract, so you will only see the following message in the `DEBUG CONSOLE`:
 
-![VSCode-xchaincode51](images/xchaincode51.png)
+![VSCode-xchaincode51](images/xchaincode/xchaincode51.png)
 
 And if you look at the `papercontract.js` code at line 52 you will see the `console.log` instruction (note that where this code is located in your `papercontract.js` may be slightly different. If you see the `DEBUG CONSOLE` output it tells you which line this is from):
 
-![VSCode-xchaincode52](images/xchaincode52.png)
+![VSCode-xchaincode52](images/xchaincode/xchaincode52.png)
 
 **2.** Let's put in a breakpoint and walk through one of the functions. Let's place a breakpoint on the first instruction in the issue function. Your screen should look like the following (you can either click on the space to the left of the line number, or put your cursor on that line and hit the `F9` key):
 
-![VSCode-xchaincode53](images/xchaincode53.png)
+![VSCode-xchaincode53](images/xchaincode/xchaincode53.png)
 
 **3.** Now let's execute the `issue` transaction and walk through the debugging process on the current `papercontract.js`. To submit or evaluate a transaction in the debugging environment we will leverage the integrated IBM Blockchain Platform Extension debug functionality. In the debug toolbar, click on the IBM Blockchain Platform button:
 
-![VSCode-xchaincode47](images/xchaincode47.png)
+![VSCode-xchaincode47](images/xchaincode/xchaincode47.png)
 
 A familiar pop-up window will appear at the top, select `Submit Transaction`:
 
-![VSCode-xchaincode54](images/xchaincode54.png)
+![VSCode-xchaincode54](images/xchaincode/xchaincode54.png)
 
 Then another pop-up window will appear listing all the functions/transactions that are available in `papercontract.js` for you to test. Let's select `issue`:
 
-![VSCode-xchaincode55](images/xchaincode55.png)
+![VSCode-xchaincode55](images/xchaincode/xchaincode55.png)
 
 Then, in the pop-up that asks what arguments to pass to the transaction, enter the following inside the brackets:
 
 `"MagnetoCorp", "00005", "2020-05-31", "2020-11-30", "500000"`
 
-![VSCode-xchaincode56](images/xchaincode56.png)
+![VSCode-xchaincode56](images/xchaincode/xchaincode56.png)
 
 For the next pop-up you will be asked for transient data for this transaction. Just hit `Enter` here:
 
-![VSCode-xchaincode70](images/xchaincode70.png)
+![VSCode-xchaincode70](images/xchaincode/xchaincode70.png)
 
 **4.** Now the debugger will automatically stop at the breakpoint you set inside the `issue` function. And you should see the various debug panels on the left populated with information related to that line of code:
 
-![VSCode-xchaincode-debug-breakpoint1](images/xchaincode-debug-breakpoint-1.png)
+![VSCode-xchaincode-debug-breakpoint1](images/xchaincode/xchaincode-debug-breakpoint-1.png)
 
 Here you can choose to `Step Over` that line of code onto the next line, or `Step Into` the function which will dive into that call stack. If you've used debuggers before these should be familiar to you. The debugger toolbar at the top has the most commonly used debugging functions:
 
-![VSCode-xchaincode-debug-toolbar](images/xchaincode-debug-toolbar.png)
+![VSCode-xchaincode-debug-toolbar](images/xchaincode/xchaincode-debug-toolbar.png)
 
 Hover over each of the buttons to see what each one does. Let's select the `Step Over` function or you can press F10 to do the same thing.
 
-![VSCode-xchaincode-debug-stepover](images/xchaincode-debug-stepover.png)
+![VSCode-xchaincode-debug-stepover](images/xchaincode/xchaincode-debug-stepover.png)
 
 You will see that you are at the next line of code, and the variables panel has been updated with the results of executing the previous line of code. Notice that the paper variable has now been updated with the arguments input to the transaction:
 
-![VSCode-xchaincode-debug-breakpoint2](images/xchaincode-debug-breakpoint-2.png)
+![VSCode-xchaincode-debug-breakpoint2](images/xchaincode/xchaincode-debug-breakpoint-2.png)
 
 `Ctl + click` on the `paper` variable in the `Variables` panel and select `Add to watch`:
 
-![VSCode-xchaincode57](images/xchaincode57.png)
+![VSCode-xchaincode57](images/xchaincode/xchaincode57.png)
 
 You can now easily track this variable in the `Watch panel` as you progress with your debugging session:
 
-![VSCode-xchaincode58](images/xchaincode58.png)
+![VSCode-xchaincode58](images/xchaincode/xchaincode58.png)
 
 Continue to `Step Over` or `Step into` the rest of the issue transaction until you are satisfied with this flow. If you just want to get through to the end of the transaction hit the `Continue` button which will complete the transaction.
 
-![VSCode-xchaincode59](images/xchaincode59.png)
+![VSCode-xchaincode59](images/xchaincode/xchaincode59.png)
 
 You will see the output from this transaction below in the `OUTPUT` box.
 
-![VSCode-xchaincode60](images/xchaincode60.png)
+![VSCode-xchaincode60](images/xchaincode/xchaincode60.png)
 
 # Section 7: Make smart contract updates to include cross-chaincode call, test in debugging session (**These instructions have been modified for IBM Blockchain Platform Extension v1.0.3**)
 
@@ -460,7 +460,7 @@ You will see the output from this transaction below in the `OUTPUT` box.
 
 Go to your VSCode Explorer and open up `paper.js`:
 
-![VSCode-xchaincode-paperjs](images/xchaincode-paperjs.png)
+![VSCode-xchaincode-paperjs](images/xchaincode/xchaincode-paperjs.png)
 
 Replace *the entire* `paper.js` with the following code block:
 
@@ -581,7 +581,7 @@ Save this file before moving on to the next step. Save the file with `Command + 
 
 **3.** Return to the VSCode `Debug` view, and return to `papercontract.js`:
 
-![VSCode-xchaincode61](images/xchaincode61.png)
+![VSCode-xchaincode61](images/xchaincode/xchaincode61.png)
 
 **4.** Replace the following `issue` function in existing `papercontract.js`:
 
@@ -676,45 +676,45 @@ The `if-else` code block in the above `issue` function will then test to see if 
 
 Your `issue` function should look like the following:
 
-![VSCode-xchaincode62](images/xchaincode62.png)
+![VSCode-xchaincode62](images/xchaincode/xchaincode62.png)
 
 **5.** Notice the breakpoint is still there in `papercontract.js` from section 6. Let's remove it by clicking on the red dot or placing your cursor on that line and hitting F9. After this step you should not see any breakpoints.
 
 Note: *If* for whatever reason, you have exited the debug session, you can always bring it back by clicking on the green arrow button in the `DEBUG` toolbar or by clicking on the blue bar at the bottom of VSCode that says `Launch Smart Contract`:
 
-![VSCode-xchaincode-launch-debug](images/xchaincode-launch-debug.png)
+![VSCode-xchaincode-launch-debug](images/xchaincode/xchaincode-launch-debug.png)
 
 **6.** Becase we made updates to the smart contract we will need to upgrade the smart contract in order for the modifications to take affect against the local Fabric network. With the integrated IBM Blockchain Platform Debugger you can do everything from one screen and without exiting the current debug session. Click the blue IBM Blockchain Platform button in the debug toolbar to reveal the debug command list.
 
-![VSCode-xchaincode47](images/xchaincode47.png)
+![VSCode-xchaincode47](images/xchaincode/xchaincode47.png)
 
 **7.** Select `Upgrade Smart Contract` from the list of options:
 
-![VSCode-xchaincode-debug-upgrade](images/xchaincode-debug-upgrade.png)
+![VSCode-xchaincode-debug-upgrade](images/xchaincode/xchaincode-debug-upgrade.png)
 
 **8.** You will be asked what function you want to invoke, type in `instantiate`:
 
-![VSCode-xchaincode-instantiate](images/xchaincode-instantiate-pop-up.png)
+![VSCode-xchaincode-instantiate](images/xchaincode/xchaincode-instantiate-pop-up.png)
 
 **9.** Then you will see another pop-up asking what arguments to pass to the function. You will just hit `Enter` here:
 
-![VSCode-xchaincode-argument](images/xchaincode-argument-pop-up.png)
+![VSCode-xchaincode-argument](images/xchaincode/xchaincode-argument-pop-up.png)
 
 **10.** Lastly, you will be asked if you want to provide a private collection configuration file. Again, just hit `Enter` here:
 
-![VSCode-xchaincode-private-data](images/xchaincode-private-data-pop-up.png)
+![VSCode-xchaincode-private-data](images/xchaincode/xchaincode-private-data-pop-up.png)
 
 **11.** Finally, upon successful instantiation, you will see the following message in the lower right corner:
 
-![VSCode-xchaincode-instantiate](images/xchaincode-success-instantiate.png)
+![VSCode-xchaincode-instantiate](images/xchaincode/xchaincode-success-instantiate.png)
 
 **12.** Re-start your debug session to pick up the update. Hit `Stop` in the debug toolbar:
 
-![VSCode-xchaincode-debugbar-stop](images/xchaincode-debugbar-stop.png)
+![VSCode-xchaincode-debugbar-stop](images/xchaincode/xchaincode-debugbar-stop.png)
 
 **13.** Now, click on either the green arrow button in the `DEBUG` toolbar or by clicking on the blue bar at the bottom of VSCode that says `Launch Smart Contract (cp-magnetocorp-contract-javascript)`:
 
-![VSCode-xchaincode-launch-debug](images/xchaincode-launch-debug.png)
+![VSCode-xchaincode-launch-debug](images/xchaincode/xchaincode-launch-debug.png)
 
 And you will see the debug tool bar with the blue IBM Blockchain Platform logo launched at the top. The bar at the bottom turns orange to indicate that you are currently in a debug session.
 
@@ -722,57 +722,57 @@ And you will see the debug tool bar with the blue IBM Blockchain Platform logo l
 
 `let assignPaperRate = await ctx.stub.invokeChaincode("commercial-bond", ["getClosestBondRate", issuer, maturityDateTime], ctx.stub.getChannelID());`
 
-![VSCode-xchaincode63](images/xchaincode63.png)
+![VSCode-xchaincode63](images/xchaincode/xchaincode63.png)
 
 **15.** Let's click on the IBM Blockchain Platform button in the debug toolbar:
 
-![VSCode-xchaincode47](images/xchaincode47.png)
+![VSCode-xchaincode47](images/xchaincode/xchaincode47.png)
 
 **16.** Select `Submit Transaction` in the pop-up window:
 
-![VSCode-xchaincode54](images/xchaincode54.png)
+![VSCode-xchaincode54](images/xchaincode/xchaincode54.png)
 
 **17.** Select the `issue` transaction in the pop-up window:
 
-![VSCode-xchaincode55](images/xchaincode55.png)
+![VSCode-xchaincode55](images/xchaincode/xchaincode55.png)
 
 **18.** For the arguments pop-up, pass the following arguments inside the brackets:
 
 `"MagnetoCorp", "00004", "2020-01-31", "2020-04-30", "1000000","0.03"`
 
-![VSCode-xchaincode69](images/xchaincode69.png)
+![VSCode-xchaincode69](images/xchaincode/xchaincode69.png)
 
 **19.** In the transient data pop-up, hit `Enter` to skip this step and move forward:
 
-![VSCode-xchaincode70](images/xchaincode70.png)
+![VSCode-xchaincode70](images/xchaincode/xchaincode70.png)
 
 **20.** And the debugger should stop at the breakpoint.
 
-![VSCode-xchaincode71](images/xchaincode71.png)
+![VSCode-xchaincode71](images/xchaincode/xchaincode71.png)
 
 **21.** Add the variable `newPaperRate` to the `Watch` list. In the `Variables` panel, scroll down until you see the `newPaperRate` variable. `Ctl + Click` on `newPaperRate` and select `Add to Watch`, then press `Enter` for the variable to get added to the `Watch` panel:
 
-![VSCode-xchaincode72](images/xchaincode72.png)
+![VSCode-xchaincode72](images/xchaincode/xchaincode72.png)
 
 **22.** Now find the variable `paper` in the `Variables` panel, and add that to the `Watch` panel as well:
 
-![VSCode-xchaincode74](images/xchaincode74.png)
+![VSCode-xchaincode74](images/xchaincode/xchaincode74.png)
 
 **23.** Use the debug toolbar to `Step over` (or press F10) each line of code until you reach `paper.setIssued()`. Notice how the `newPaperRate` variable got set to the bond rate of bondNumber 00001 which is 0.05 (see Section 2 step 6). And the paper variable in the `Watch` panel has an `interestRate` of 0.05 (vs the 0.03 that was passed through the `issue` transaction):
 
-![VSCode-xchaincode75](images/xchaincode75.png)
+![VSCode-xchaincode75](images/xchaincode/xchaincode75.png)
 
 **24.** Then you can hit `Continue` in the debug toolbar to complete the transaction.
 
-![VSCode-xchaincode59](images/xchaincode59.png)
+![VSCode-xchaincode59](images/xchaincode/xchaincode59.png)
 
 **25.** You should see the following in the `OUTPUT` below upon a successful submission.
 
-![VSCode-xchaincode73](images/xchaincode73.png)
+![VSCode-xchaincode73](images/xchaincode/xchaincode73.png)
 
 **26.** Click on the `DEBUG CONSOLE` view at the bottom of VSCode and see the `console.log` messages from submitting the new `issue` transaction.
 
-![VSCode-xchaincode-debug-bondrate](images/xchaincode-debug-bondrate.png)
+![VSCode-xchaincode-debug-bondrate](images/xchaincode/xchaincode-debug-bondrate.png)
 
 **27.** Take a closer look at the `OUTPUT` from step 20, and you will see a line that says `[INFO] submitting transaction issue with args MagnetoCorp,00004,2020-01-31,2020-04-30,1000000,0.03`. To double check that the paper we just submitted, `MagnetoCorp:00004` indeed has been set with a rate of 0.05, instead of the 0.03 passed through the `issue` transaction, let's add a helper function called `getPaperRate` in section 8.
 
@@ -805,35 +805,35 @@ And you will see the debug tool bar with the blue IBM Blockchain Platform logo l
 
 Your `papercontract.js` should look like the following:
 
-![VSCode-xchaincode76](images/xchaincode76.png)
+![VSCode-xchaincode76](images/xchaincode/xchaincode76.png)
 
 **2.** Now that you have updated the smart contract again, you will need to deploy this new one to the local running peer. Follow the steps in **section 7: steps 6 - 13.**
 
 **3.** Let's evaluate a `getPaperRate` transaction. Let's click on the IBM Blockchain Platform button in the debug toolbar:
 
-![VSCode-xchaincode47](images/xchaincode47.png)
+![VSCode-xchaincode47](images/xchaincode/xchaincode47.png)
 
 **4.** Now select `Evaluate Transaction` from the list:
 
-![VSCode-xchaincode-evaluate](images/xchaincode-evaluate.png)
+![VSCode-xchaincode-evaluate](images/xchaincode/xchaincode-evaluate.png)
 
 **5.** In the next pop-up window, you will see the new transaction `getPaperRate` that you just added. Select it:
 
-![VSCode-xchaincode-getpaperrate](images/xchaincode-getpaperrate.png)
+![VSCode-xchaincode-getpaperrate](images/xchaincode/xchaincode-getpaperrate.png)
 
 **6.** In the next pop-up, enter the following as arguments inside the brackets:
 
 `"MagnetoCorp","00004"`
 
-![VSCode-xchaincode77](images/xchaincode77.png)
+![VSCode-xchaincode77](images/xchaincode/xchaincode77.png)
 
 **7.** For the next pop-up you will be asked for transient data for this transaction. Just hit `Enter` here:
 
-![VSCode-xchaincode70](images/xchaincode70.png)
+![VSCode-xchaincode70](images/xchaincode/xchaincode70.png)
 
 **8.** Upon success you will see the following output, which confirms that the paper submitted in section 7 did indeed take the bond rate of 0.05:
 
-![VSCode-xchaincode78](images/xchaincode78.png)
+![VSCode-xchaincode78](images/xchaincode/xchaincode78.png)
 
 **9.** If you have time, evaluate another `issue` transaction. This time passing a maturity date that you know does not have a match in `commercial-bond`. You can always go back to section 2.6 to see which bonds are in the commercial-bond world state, and pick a maturity date for your paper that is not in the same month as the bonds. Step through the debugger with variables added to the `Watch` panel, and see if the logic behaves the way you expect.
 
@@ -899,31 +899,31 @@ In the `while` loop in the above function, we iterate through the assets and cap
 
 **3.** Within a few seconds, you should see the debug toolbar appear at the top. Click on the blue IBM Blockchain Platform button:
 
-![VSCode-xchaincode47](images/xchaincode47.png)
+![VSCode-xchaincode47](images/xchaincode/xchaincode47.png)
 
 **4.** Let's evaluate a transaction with the newly added `getAllPapersFromIssuer` transaction. First, select `Evaluate Transaction`:
 
-![VSCode-xchaincode-evaluate](images/xchaincode-evaluate.png)
+![VSCode-xchaincode-evaluate](images/xchaincode/xchaincode-evaluate.png)
 
 **5.** Select the new transanction `getAllPapersFromIssuer` from the list:
 
-![VSCode-xchaincode79](images/xchaincode79.png)
+![VSCode-xchaincode79](images/xchaincode/xchaincode79.png)
 
 **6.** Type in `"MagnetoCorp"` inside the brackets for the arguments window:
 
-![VSCode-xchaincode80](images/xchaincode80.png)
+![VSCode-xchaincode80](images/xchaincode/xchaincode80.png)
 
 **7.** Next, it will ask you what transient data to pass for the transaction. Press `Enter` to move forward.
 
-![VSCode-xchaincode70](images/xchaincode70.png)
+![VSCode-xchaincode70](images/xchaincode/xchaincode70.png)
 
 **8.** Upon successful evaluation, you will see the following message in the lower right corner:
 
-![VSCode-xchaincode82](images/xchaincode82.png)
+![VSCode-xchaincode82](images/xchaincode/xchaincode82.png)
 
 **9.** You will also see all the papers issued by `MagnetoCorp` in the `OUTPUT` panel (In the following screen shot you will see three papers. But in your output you should only have two: `MagnetoCorp:00004` and `MagnetoCorp:00005`):
 
-![VSCode-xchaincode81](images/xchaincode81.png)
+![VSCode-xchaincode81](images/xchaincode/xchaincode81.png)
 
 **10.** Go to the VSCode IBM Blockchain Platform view, under the `Local Fabric Ops` panel, you should see four `papercontract@vscode-debug-<datetime>` packages under `Installed` and one `papercontract@vscode-debug-<datetime>` under `Instantiated`. The instantiated package should have the same datetime and the latest installed one. The first `papercontract@vscode-debug` package was done against the original paper contract, the 2nd package was done against the paper contract with the modified `issue` transaction, and the third package was build upon the 2nd with a new `getPaperRate` function. Finally, in this section, we added the `getAllPapersFromIssuer` transaction and this represents the fourth and final package. We hope that with this flow, you get to experience one way you can develop and build upon your smart contract.
 
@@ -933,25 +933,25 @@ Now that you are done updating the commercial-paper smart contract, you can exit
 
 **1.** Exit debug session by pressing `Stop` (or `Ctl + F5`) in the debug toolbar:
 
-![VSCode-xchaincode-debugbar-stop](images/xchaincode-debugbar-stop.png)
+![VSCode-xchaincode-debugbar-stop](images/xchaincode/xchaincode-debugbar-stop.png)
 
 **2.** Now to go the IBM Blockchain Platform Extension view in VSCode, and toggle development mode off on `peer0.org1.example.com`:
 
-![VSCode-xchaincode-toggle-mode](images/xchaincode-toggle-mode.png)
+![VSCode-xchaincode-toggle-mode](images/xchaincode/xchaincode-toggle-mode.png)
 
 **3.** Upon success, you will no longer see the infinity sympbol next to `peer0.org1.example.com` and you will see the following message appear in the lower right corner:
 
-![VSCode-xchaincode83](images/xchaincode83.png)
+![VSCode-xchaincode83](images/xchaincode/xchaincode83.png)
 
-![VSCode-xchaincode84](images/xchaincode84.png)
+![VSCode-xchaincode84](images/xchaincode/xchaincode84.png)
 
 **4.** Now we will manually package up `commercial-paper`. Go back to the VSCode Explorer perspective. In the workspace panel, select `package.json` in the `cp-magnetocorp-contract-javascript` folder to open it in the editor:
 
-![VSCode-xchaincode85](images/xchaincode85.png)
+![VSCode-xchaincode85](images/xchaincode/xchaincode85.png)
 
 **5.** Change the package version to `0.0.2` as follows:
 
-![VSCode-xchaincode86](images/xchaincode86.png)
+![VSCode-xchaincode86](images/xchaincode/xchaincode86.png)
 
 Save the file with `Command + S` if you are on Mac, or `Ctl + S` if you are on Linux or Windows.
 
@@ -959,99 +959,99 @@ Save the file with `Command + S` if you are on Mac, or `Ctl + S` if you are on L
 
 Select `IBM Blockchain Platform: Package a Smart Contract Project`:
 
-![VSCode-xchaincode3](images/xchaincode3.png)
+![VSCode-xchaincode3](images/xchaincode/xchaincode3.png)
 
 **7.** Then select `cp-magnetocorp-contract-javascript` and press `Enter`:
 
-![VSCode-xchaincode86](images/xchaincode86.png)
+![VSCode-xchaincode86](images/xchaincode/xchaincode86.png)
 
 **8.** Upon success, you will see the following message in the lower right corner:
 
-![VSCode-xchaincode5](images/xchaincode5.png)
+![VSCode-xchaincode5](images/xchaincode/xchaincode5.png)
 
 **9.** Now you will install this chaincode to your local-fabric. Navigate to the IBM Blockchain Platform view in VSCode (the 6th button down from the left menu):
 
-![VSCode-xchaincode6](images/xchaincode6.png)
+![VSCode-xchaincode6](images/xchaincode/xchaincode6.png)
 
 **10.** Under the `Local Fabric Ops` panel, click on `+ Install`, then select `papercontract@0.0.2` from the list:
 
-![VSCode-xchaincode88](images/xchaincode88.png)
+![VSCode-xchaincode88](images/xchaincode/xchaincode88.png)
 
 Upon success, you will see a message similar to the following in the lower right corner of VSCode:
 
-![VSCode-xchaincode8](images/xchaincode8.png)
+![VSCode-xchaincode8](images/xchaincode/xchaincode8.png)
 
 You will also see the package listed under `Installed` in the `Local Fabric Ops` panel:
 
-![VSCode-xchaincode89](images/xchaincode89.png)
+![VSCode-xchaincode89](images/xchaincode/xchaincode89.png)
 
 **11.**  Now you can upgrade the debug package to the `papercontract@0.0.2` package. Select the existing debug `papercontract` package and `Ctl + Click` or right click and select `Upgrade Smart Contract`:
 
-![VSCode-xchaincode90](images/xchaincode90.png)
+![VSCode-xchaincode90](images/xchaincode/xchaincode90.png)
 
 **12.** Select `papercontract@0.0.2` from the list:
 
-![VSCode-xchaincode91](images/xchaincode91.png)
+![VSCode-xchaincode91](images/xchaincode/xchaincode91.png)
 
 **13.** In the function box, enter `instantiate` as follows:
 
-![VSCode-xchaincode10](images/xchaincode10.png)
+![VSCode-xchaincode10](images/xchaincode/xchaincode10.png)
 
 Then you will see another pop-up asking what arguments to pass to the function. You will just hit `Enter` here:
 
-![VSCode-xchaincode-argument](images/xchaincode-argument-pop-up.png)
+![VSCode-xchaincode-argument](images/xchaincode/xchaincode-argument-pop-up.png)
 
 Lastly, you will be asked if you want to provide a private collection configuration file. Again, just hit `Enter` here:
 
-![VSCode-xchaincode-private-data](images/xchaincode-private-data-pop-up.png)
+![VSCode-xchaincode-private-data](images/xchaincode/xchaincode-private-data-pop-up.png)
 
 **14.** Upon successful upgrade you will see the following message in the lower right corner:
 
-![VSCode-xchaincode-upgrade-success](images/xchaincode-upgrade-success.png)
+![VSCode-xchaincode-upgrade-success](images/xchaincode/xchaincode-upgrade-success.png)
 
 You will aso see in the `Local Fabric Ops` panel, that `papercontract@0.0.2` is listed under the `Instantiated` section:
 
-![VSCode-xchaincode92](images/xchaincode92.png)
+![VSCode-xchaincode92](images/xchaincode/xchaincode92.png)
 
 **15.** Let's run a couple of quick tests to make sure the package looks good. In the `Fabric Gateways` panel, expand on the `mychannel` twistie to reveal the two chaincodes. Drill into the `papercontract` chaincode to reveal all the transactions.
 
-![VSCode-xchaincode93](images/xchaincode93.png)
+![VSCode-xchaincode93](images/xchaincode/xchaincode93.png)
 
 **16.** Let's first submit an `issue` transaction. This time let's issue a paper as `Digibank`. Right click on `issue` and select `Submit Transaction`.
 
-![VSCode-xchaincode94](images/xchaincode94.png)
+![VSCode-xchaincode94](images/xchaincode/xchaincode94.png)
 
 **17.** Then enter the following arguments inside the brackets to pass to `issue`:
 
 `"Digibank","00001","2020-01-31","2020-05-31","90000","0.02"`
 
-![VSCode-xchaincode95](images/xchaincode95.png)
+![VSCode-xchaincode95](images/xchaincode/xchaincode95.png)
 
 For transient data, just press `Enter`:
 
-![VSCode-xchaincode70](images/xchaincode70.png)
+![VSCode-xchaincode70](images/xchaincode/xchaincode70.png)
 
 **18.** Upon success, you will see the following in the `OUTPUT` panel:
 
-![VSCode-xchaincode96](images/xchaincode96.png)
+![VSCode-xchaincode96](images/xchaincode/xchaincode96.png)
 
 **19.** Now we want to check that this paper actually has been issued with the rate of 0.04, which is the bond rate from bond `Digibank:00001` (see section 2 step 6). Again, if you recall, this is because paper `Digibank:00001` has a maturity date in the same month as bond `Digibank:00001`. Let's do this by submitting a `getPaperRate` transaction. From the `Fabric Gateways` panel, right click on `getPaperRate` and select `Submit Transaction`:
 
-![VSCode-xchaincode97](images/xchaincode97.png)
+![VSCode-xchaincode97](images/xchaincode/xchaincode97.png)
 
 **20.** Then enter the following arguments inside the brackets to pass to `getPaperRate`:
 
 `"Digibank","00001"`
 
-![VSCode-xchaincode98](images/xchaincode98.png)
+![VSCode-xchaincode98](images/xchaincode/xchaincode98.png)
 
 For transient data, just press `Enter`:
 
-![VSCode-xchaincode70](images/xchaincode70.png)
+![VSCode-xchaincode70](images/xchaincode/xchaincode70.png)
 
 **21.** Upon success, you will see the following in the `OUTPUT` panel. And you will see that indeed, paper `Digibank:00001` has been set with a paper rate of 0.04:
 
-![VSCode-xchaincode99](images/xchaincode99.png)
+![VSCode-xchaincode99](images/xchaincode/xchaincode99.png)
 
 **22.** The last transaction we want to test is the `getAllPapersFromIssuer`. I will leave it to you to complete this test given the knowledge you now possess.
 
