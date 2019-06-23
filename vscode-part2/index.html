@@ -535,7 +535,7 @@ looks like this now. <strong>NOTE:</strong> scroll over to see the entire key fi
 Digibank folder here in a second.</p>
 <p><strong>8.</strong> Go ahead and save this file by either doing <code>File -&gt; Save</code> or
 <code>Control + s</code>.</p>
-<p><strong>9.</strong> Back in your terminal applciation, you can enter the command
+<p><strong>9.</strong> Back in your terminal application, you can enter the command
 below to install some dependencies. <strong>NOTE:</strong> scroll over to see the
 entire command below :</p>
 <pre><code>tecadmin@ubuntubase:~/Desktop/fabric-samples-cp/commercial-paper/organization/magnetocorp/application$ npm install 
@@ -568,8 +568,8 @@ total 24
 -rw-r--r--  1 tecadmin  tecadmin   182 Jun 11 12:53 e7a117b799890646fe1d6e688d9c979845a411830400b673e2fe7dc01f91f9b8-pub
 </code></pre>
 <p>Keys are vital to understanding how transactions and identity work
-within a blockchain network. Below is a break down of the keys and
-certificate used in this example</p>
+within a blockchain network. Below is a breakdown of the keys and
+certificate used in this example:</p>
 <ul>
 <li>a <strong>private key</strong> <code>e7a117b799...-priv</code> used to sign transactions on
     Isabella's behalf, but not distributed outside of her immediate
@@ -593,58 +593,58 @@ local file system, the application uses FileSystemWallet :</p>
 <pre><code>// Bring key classes into scope, most importantly Fabric SDK network class 
 const { FileSystemWallet, Gateway } = require('fabric-network');
 </code></pre>
-<p>Below, this line is very important. Because we are connection to our
+<p>Below, this line is very important. Because we are connecting to our
 local_fabric we started at the beginning of Part 1, the crypto material
 is stored under the .fabric-vscode/runtime folder. This is important for
-grabbing our unique private key. :</p>
+grabbing our unique private key:</p>
 <pre><code>const fixtures = path.resolve(__dirname, '/home/tecadmin/.fabric-vscode/runtime');
 </code></pre>
 <p>Below, this statement identifies that the application will use
 Isabella's wallet when it connects to the blockchain network channel.
 The application will select a particular identity within Isabella's
 wallet. (The wallet must have been loaded with Isabella's X.509
-certificate -- that's what addToWallet.js does.) :</p>
+certificate -- that's what addToWallet.js does):</p>
 <pre><code>// A wallet stores a collection of identities for use 
 const wallet = new FileSystemWallet('../identity/user/isabella/wallet');
 </code></pre>
 <p>This line of code, below, connects to the network using the gateway
 identified by connectionProfile, using the identity referred to in
-ConnectionOptions. See how <code>../gateway/networkConnection.yaml</code> and
-<code>User1@org1.example.com</code> are used for these values respectively :</p>
+connectionOptions. See how <code>../gateway/networkConnection.yaml</code> and
+<code>User1@org1.example.com</code> are used for these values respectively:</p>
 <pre><code>// Connect to gateway using application specified parameters 
 await gateway.connect(connectionProfile, connectionOptions);
 </code></pre>
 <p>Below in the couple lines of code, the application connects to the
 network channel <code>mychannel</code>, where the papercontract was previously
 instantiated. If you had a different channel name, you would have to
-modify this line of code :</p>
+modify this line of code:</p>
 <pre><code>// Access commercial paper network 
 const network = await gateway.getNetwork('mychannel');
 </code></pre>
 <p>Below, this statement gives the application addressability to the smart
 contract defined by the namespace <code>org.papernet.commercialpaper</code> within
 <code>papercontract</code>. Once an application has issued <code>getContract</code>, it can
-submit any transaction implemented within it :</p>
+submit any transaction implemented within it:</p>
 <pre><code>// Get addressability to commercial paper contract 
 const contract = await network.getContract('papercontract', 'org.papernet.comm...');
 </code></pre>
 <p>Below, these lines of code submit a transaction to the network using the
 issue transaction defined within the smart contract.
 <code>MagnetoCorp, 00001</code> are the values to be used by the issue transaction
-to create a new commercial paper :</p>
+to create a new commercial paper:</p>
 <pre><code>// issue commercial paper 
 const issueResponse = await contract.submitTransaction('issue','MagnetoCorp', '00001', '2020-05-31', '2020-11-30','5000000');
 </code></pre>
 <p>This statement, below, processes the response from the issue
 transaction. The response needs to be deserialized from a buffer into
 paper, a CommercialPaper object which can be interpreted correctly by
-the application :</p>
+the application:</p>
 <pre><code>// process response let paper =
 CommercialPaper.fromBuffer(issueResponse);
 </code></pre>
 <p><strong>13.</strong> Now that we have Isabella from MagnetoCorp, let's perform the
 issue transaction from our terminal. <strong>NOTE:</strong> scroll over to see the
-entire command below :</p>
+entire command below:</p>
 <pre><code>tecadmin@ubuntubase:~/Desktop/fabric-samples-cp/commercial-paper/organization/magnetocorp/application$ node issue.js
 Connect to Fabric gateway.
 Use network channel: mychannel.
@@ -676,31 +676,31 @@ exact folder directory we were in from our second command line tab. This
 third tab will act as DigiBank.</p>
 <p><strong>15.</strong> We now need to switch to a new directory, specifically the
 application folder of DigiBank. <strong>NOTE:</strong> scroll over to see the entire
-command below :</p>
+command below:</p>
 <pre><code>tecadmin@ubuntubase:~/Desktop/fabric-samples-cp/commercial-paper/organization/magnetocorp/application$ cd ../../digibank/application/
 tecadmin@ubuntubase:~/Desktop/fabric-samples-cp/commercial-paper/organization/digibank/application$
 </code></pre>
 <p><strong>16.</strong> Within VSCode, navigate to the application folder of DigiBank :</p>
-<pre><code>fabric-samples-cp -&gt; commercial paper -&gt; organization -&gt; digibank -&gt; application
+<pre><code>fabric-samples-cp -&gt; commercial-paper -&gt; organization -&gt; digibank -&gt; application
 </code></pre>
 <p><strong>17.</strong> Similarly, you will see <code>&lt;PUT_PRIVATE_KEY_HERE&gt;</code> in the
 <code>addtoWallet.js</code> file within the <code>application</code> folder. On line 25, you
 should see what is below :</p>
 <pre><code>const key = fs.readFileSync(path.join(credPath, '/msp/keystore/&lt;PUT_PRIVATE_KEY_HERE&gt;')).toString();
 </code></pre>
-<p><strong>18.</strong> To put in an actual private key, you can enter the command below
-in your terminal application to find the key name. <strong>NOTE:</strong> scroll over
-to see the entire key below :</p>
+<p><strong>18.</strong> To put in an actual private keys's file name, you can enter the command below
+in your terminal application to find the key's file name. <strong>NOTE:</strong> scroll over
+to see the entire key below:</p>
 <pre><code>tecadmin@ubuntubase:~/Desktop/fabric-samples-cp/commercial-paper/organization/digibank/application$ ls -l /home/tecadmin/.fabric-vscode/runtime/crypto-config/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/keystore/
 -rw-------@ 1 tecadmin  tecadmin  241 Jun 11 08:57 4fd5a19cad827af71cf356d629f95c41f77e27db09d268a3c72aabdaead43737_sk
 </code></pre>
-<p><strong>19.</strong> Now, copy your private key,
-<code>4fd5a19cad827af71cf356d629f95c41f77e27db09d268a3c72aabdaead43737_sk</code>
+<p><strong>19.</strong> Now, copy your private key's file name,
+<code>4fd5a19cad827af71cf356d629f95c41f77e27db09d268a3c72aabdaead43737_sk</code> in our example- yours will differ- 
 and paste in the field asking for your private key. For example, line 25
-looks like this now. <strong>NOTE:</strong> scroll over to see the entire key below :</p>
+looks like this now. <strong>NOTE:</strong> scroll over to see the entire file name below:</p>
 <pre><code>const key = fs.readFileSync(path.join(credPath, '/msp/keystore/4fd5a19cad827af71cf356d629f95c41f77e27db09d268a3c72aabdaead43737_sk')).toString();
 </code></pre>
-<p><strong>NOTE</strong> It is the upmost of importance that you are doing this from the
+<p><strong>NOTE:</strong> It is of the upmost importance that you are doing this from the
 <code>digibank/application</code> folder and you save this file.</p>
 <p><strong>20.</strong> Now we can install some dependencies that are required to create
 our identity. To do this, enter the command that is below. <strong>NOTE:</strong>
@@ -718,8 +718,8 @@ npm WARN nodejs@1.0.0 No repository field.
 added 318 packages in 36.994s
 </code></pre>
 <p><strong>21.</strong> Since we are in our command line, let's issue the following
-command that will create Isabella. <strong>NOTE:</strong> scroll over to see the
-entire command below :</p>
+command that will create Balaji. <strong>NOTE:</strong> scroll over to see the
+entire command below:</p>
 <pre><code>tecadmin@ubuntubase:~/Desktop/fabric-samples-cp/commercial-paper/organization/digibank/application$ node addToWallet.js 
 done
 </code></pre>
@@ -742,7 +742,7 @@ blockchain network through their application.</p>
 <p><strong>23.</strong> Since we have issued a paper from Isabella, let's go ahead and
 submit a couple of transactions from Balaji and DigiBank. Go ahead and
 get the latest status of our paper by entering the command below.
-<strong>NOTE:</strong> scroll over to see the entire command below :</p>
+<strong>NOTE:</strong> scroll over to see the entire command below:</p>
 <pre><code>tecadmin@ubuntubase:~/Desktop/fabric-samples-cp/commercial-paper/organization/digibank/application$ node getPaper.js
 Connect to Fabric gateway.
 Use network channel: mychannel.
@@ -762,7 +762,7 @@ Transaction complete.
 Disconnect from Fabric gateway.
 getPaper program complete.
 </code></pre>
-<p><strong>24.</strong> Now that we know what the current status of our <code>00001</code> paper,
+<p><strong>24.</strong> Now that we know the current status of our <code>00001</code> paper,
 let's go ahead and buy and redeem the paper by entering the command
 below. <strong>NOTE:</strong> scroll over to see the entire command below :</p>
 <pre><code>tecadmin@ubuntubase:~/Desktop/fabric-samples-cp/commercial-paper/organization/digibank/application$ node buy.js
@@ -816,7 +816,7 @@ getPaper program complete
 </code></pre>
 <p>Now, we have run through the full lifecycle of 1 paper through the
 command line interface (CLI). In the following sections we will use a
-mixture of the CLI, VSCode user interface a loopback API service
+mixture of the CLI, the VSCode user interface, and a loopback API service
 application.</p>
 <h1 id="section-5-create-fabric-gateways-and-submit-transactions">Section 5: Create Fabric Gateways and Submit Transactions</h1>
 <p>In the previous section, we created two identities -
