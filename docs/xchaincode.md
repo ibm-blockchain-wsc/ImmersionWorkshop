@@ -6,7 +6,7 @@ Chaincode to chaincode interactions can be very useful if you are looking to int
 
 Part of the cross-chaincode process is to understand how and where you want to code the chaincode to chaincode interaction. In this lab, we add a new smart contract called commercial-bond that we want commercial-paper to query. We want to simulate the situation that when a commercial-paper is issued, the commercial-paper smart contract queries the commercial-bond contract for current returns on bonds with a similar maturity date, and sets the paper price accordingly. For more details on this particular use case, see the scenario described here: https://hyperledger-fabric.readthedocs.io/en/release-1.4/developapps/chaincodenamespace.html#cross-chaincode-access.
 
-For this lab commercial-bond is already written and packaged up for you. You will clone and add the package to your VSCode IBM Blockchain Platform Extension. Then you will package, install and instantiate the contract to your locally running fabric environment. The instantiate process will also add a few sample bonds to the ledger and to commercial-bond's world state. This way your commercial-paper will have existing bonds to query and extract rates from. You can also experiment with commercial-bond's functions by issuing your own bonds.
+For this lab commercial-bond is already written and packaged up for you. You will clone and add the package to your VSCode IBM Blockchain Platform Extension. Then you will package, install and instantiate the contract to your locally-running fabric environment. The instantiate process will also add a few sample bonds to the ledger and to commercial-bond's world state. This way your commercial-paper will have existing bonds to query and extract rates from. You can also experiment with commercial-bond's functions by issuing your own bonds.
 
 The bulk of the lab will be done against the existing commercial-paper. This is where you will add additional functions that interact with the commercial-bond contract. We will also use the VSCode IBM Blockchain Platform Debug Smart Contract function so you get an understanding of how to quickly iterate through changes to a smart contract in development mode and debug a smart contract.
 
@@ -96,7 +96,7 @@ Then you will see another pop-up asking what arguments to pass to the function. 
 
 ![VSCode-xchaincode-argument](images/xchaincode/xchaincode-argument-pop-up.png)
 
-Lastly, you will be asked if you want to provide a private collection configuration file. Again, just hit `Enter` here because private data collection doesn't apply in this case.:
+Lastly, you will be asked if you want to provide a private data collection configuration file. Again, just hit `Enter` here because private data collection doesn't apply in this case.:
 
 ![VSCode-xchaincode-private-data](images/xchaincode/xchaincode-private-data-pop-up.png)
 
@@ -143,11 +143,11 @@ const bonds = [
         ];
 ```
 
-Now that you have instantiated commercial-bond on your locally running fabric, you can...
+Now that you have instantiated commercial-bond on your locally-running fabric, you can...
 
 ## Section 3: Run a few tests to get familiar with commercial-bond
 
-**1.** VSCode IBM Blockchain Platform extension makes it easy for you to test out functions of your smart contract directly inside VSCode. Let's run a few tests directly through the functions made visible in the `Fabric Gateways` panel of the IBM Blockchain Platform view. Refresh the Fabric Gateways panel, and click on all the twisties to reveal the functions of commercial-bond:
+**1.** VSCode IBM Blockchain Platform Extension makes it easy for you to test out functions of your smart contract directly inside VSCode. Let's run a few tests directly through the functions made visible in the `Fabric Gateways` panel of the IBM Blockchain Platform view. Refresh the Fabric Gateways panel, and click on all the twisties to reveal the functions of commercial-bond:
 
 ![VSCode-xchaincode12](images/xchaincode/xchaincode12.png)
 
@@ -177,7 +177,7 @@ Now, in the `OUTPUT` view, you will see the results of evaluating this transacti
 
 Study the output and you will see other key/value pairs for each bond such as `maturityDateTime`, `issuer`, and `interestRate`.
 
-**5.** A quick exercise, what is the `interestRate` for bondNumber 00002?
+**5.** A quick exercise- what is the `interestRate` for bondNumber 00002?
 
 **6.** Now, let's issue a bond. This time we will submit the transaction so it gets committed to the ledger. 
 
@@ -255,7 +255,7 @@ On the `Commercial Paper Sample` page, click on `Clone` (the picture below shows
 
 ![VSCode-xchaincode27](images/xchaincode/xchaincode27.png)
 
-Now it will ask you where you want to clone the repository, pick a location on your workstation, and click `Clone Repository`.
+Now it will ask you where you want to clone the repository. Pick a location on your workstation, and click `Clone Repository`.
 
 When it is done cloning, you will see the location that you cloned to here:
 
@@ -277,7 +277,7 @@ Now you are ready to make changes and test them quickly by working in Hyperledge
 
 # Section 5: Setup Debug Smart Contract in Development Mode (**These instructions have been modified for IBM Blockchain Platform Extension v1.0.3**)
 
-The VSCode IBM Blockchain Platform Extension provides an integrated `Debug Smart Contract` experience with VSCode's built-in debugger. It is a powerful tool in digging deeper into your smart contract code stack, and can be extremely useful in your smart contract development work flow. Using the debug feature will allow you to efficiently test out updates to your smart contract against a local Hyperledger Fabric running in development mode, without having to re-package, re-install and upgrade your smart contract manually with every change. Now, let's get into setting up the debug environment.
+The VSCode IBM Blockchain Platform Extension provides an integrated `Debug Smart Contract` experience with VSCode's built-in debugger. It is a powerful tool for digging deeper into your smart contract code stack, and can be extremely useful in your smart contract development workflow. Using the debug feature will allow you to efficiently test out updates to your smart contract against a local Hyperledger Fabric running in development mode, without having to re-package, re-install and upgrade your smart contract manually with every change. Now, let's get into setting up the debug environment.
 
 **1.** The first thing you will do is to `Toggle Development Mode` on your peer. Navigate to the IBM Blockchain Platform view in your VSCode:
 
@@ -299,7 +299,7 @@ You will also see in the `Local Fabric Ops` panel, under `Nodes`, a little infin
 
 ![VSCode-xchaincode36](images/xchaincode/xchaincode36.png)
 
-If you are unfamiliar with commercial-paper, please review what `papercontract.js` does in VSCode Lab 2 section 1 and section 3.
+If you are unfamiliar with commercial-paper, please review what `papercontract.js` does in VSCode Lab Part 2 Section 1 and Section 3.
 
 **3.** Next, navigate to the `Debug` view in VSCode:
 
@@ -366,7 +366,7 @@ Then you will see another pop-up asking what arguments to pass to the function. 
 
 ![VSCode-xchaincode-argument](images/xchaincode/xchaincode-argument-pop-up.png)
 
-Lastly, you will be asked if you want to provide a private collection configuration file. Again, just hit `Enter` here:
+Lastly, you will be asked if you want to provide a private data collection configuration file. Again, just hit `Enter` here:
 
 ![VSCode-xchaincode-private-data](images/xchaincode/xchaincode-private-data-pop-up.png)
 
@@ -700,7 +700,7 @@ Note: *If* for whatever reason, you have exited the debug session, you can alway
 
 ![VSCode-xchaincode-argument](images/xchaincode/xchaincode-argument-pop-up.png)
 
-**10.** Lastly, you will be asked if you want to provide a private collection configuration file. Again, just hit `Enter` here:
+**10.** Lastly, you will be asked if you want to provide a private data collection configuration file. Again, just hit `Enter` here:
 
 ![VSCode-xchaincode-private-data](images/xchaincode/xchaincode-private-data-pop-up.png)
 
@@ -1001,7 +1001,7 @@ Then you will see another pop-up asking what arguments to pass to the function. 
 
 ![VSCode-xchaincode-argument](images/xchaincode/xchaincode-argument-pop-up.png)
 
-Lastly, you will be asked if you want to provide a private collection configuration file. Again, just hit `Enter` here:
+Lastly, you will be asked if you want to provide a private data collection configuration file. Again, just hit `Enter` here:
 
 ![VSCode-xchaincode-private-data](images/xchaincode/xchaincode-private-data-pop-up.png)
 
