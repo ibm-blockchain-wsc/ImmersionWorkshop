@@ -981,4 +981,46 @@ You will aso see in the `Local Fabric Ops` panel, that `papercontract@0.0.2` is 
 
 ![VSCode-xchaincode92](images/xchaincode92.png)
 
-**15.** Let's run a couple of quick tests to make sure the package looks good.
+**15.** Let's run a couple of quick tests to make sure the package looks good. In the `Fabric Gateways` panel, expand on the `mychannel` twistie to reveal the two chaincodes. Drill into the `papercontract` chaincode to reveal all the transactions.
+
+![VSCode-xchaincode93](images/xchaincode93.png)
+
+**16.** Let's first submit an `issue` transaction. This time let's issue a paper as `Digibank`. Right click on `issue` and select `Submit Transaction`.
+
+![VSCode-xchaincode94](images/xchaincode94.png)
+
+**17.** Then enter the following arguments inside the brackets to pass to `issue`:
+
+`"Digibank","00001","2020-01-31","2020-05-31","90000","0.02"`
+
+![VSCode-xchaincode95](images/xchaincode95.png)
+
+For transient data, just press `Enter`:
+
+![VSCode-xchaincode70](images/xchaincode70.png)
+
+**18.** Upon success, you will see the following in the `OUTPUT` panel:
+
+![VSCode-xchaincode96](images/xchaincode96.png)
+
+**19.** Now we want to check that this paper actually has been issued with the rate of 0.04, which is the bond rate from bond `Digibank:00001` (see section 2 step 6). Again, if you recall, this is because paper `Digibank:00001` has a maturity date in the same month as bond `Digibank:00001`. Let's do this by submitting a `getPaperRate` transaction. From the `Fabric Gateways` panel, right click on `getPaperRate` and select `Submit Transaction`:
+
+![VSCode-xchaincode97](images/xchaincode97.png)
+
+**20.** Then enter the following arguments inside the brackets to pass to `getPaperRate`:
+
+`"Digibank","00001"`
+
+![VSCode-xchaincode98](images/xchaincode98.png)
+
+For transient data, just press `Enter`:
+
+![VSCode-xchaincode70](images/xchaincode70.png)
+
+**21.** Upon success, you will see the following in the `OUTPUT` panel. And you will see that indeed, paper `Digibank:00001` has been set with a paper rate of 0.04:
+
+![VSCode-xchaincode99](images/xchaincode99.png)
+
+**22.** The last transaction we want to test is the `getAllPapersFromIssuer`. I will leave it to you to complete this test given the knowledge you now possess.
+
+**23.** Leave the environment running for now. Congratulations! You are done with this part of the lab!
