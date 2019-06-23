@@ -13,9 +13,9 @@ Blockchain Platform for IBM Cloud Private. We might incorporate the ability to c
 
 In this lab we will be using the following versions:
 
--   Visual Studio Code: 1.31.1
--   IBM Blockchain Platform Extension: 0.3.2
--   Hyperledger Fabric: v1.4
+-   Visual Studio Code: 1.35.1
+-   IBM Blockchain Platform Extension: 1.0.3
+-   Hyperledger Fabric: v1.4.1
 
 The Benefits of VSCode IBM Blockchain Platform Extension
 ===========================================================
