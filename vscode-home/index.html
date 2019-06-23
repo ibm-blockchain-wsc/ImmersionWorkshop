@@ -188,28 +188,24 @@
               
                 <h1 id="welcome-to-the-visual-studio-code-lab">Welcome to the Visual Studio Code Lab</h1>
 <p>Welcome to the Visual Studio Code (VSCode) Overview Lab. Visual Studio Code, or VSCode for short, is a popular source code editor developed by Microsoft for Windows, Linux and macOS. It is freely available and it includes support for debugging, embedded Git control, syntax highlighting, intelligent code completion, snippets, and code refactoring. VSCode allows for extensions that add support for popular languages, themes, debuggers, and more. IBM has developed a VSCode extension called the IBM Blockchain Platform Extension to help users develop their smart contracts. </p>
-<p>Throughout this lab you will experience using VSCode and the IBM Blockchain Platform Extension for the creation of a smart contract (chaincode). The first part of this lab is very basic and is meant to walk you through the foundamentals of the IBM Blockchain Platform extension. Part 2 follows a tutorial called Commercial Paper which will utilize the new application programming model in Hyperledger Fabric version 1.4 - which is the first long term
+<p>Throughout this lab you will experience using VSCode and the IBM Blockchain Platform Extension for the creation of a smart contract (chaincode). The first part of this lab is very basic and is meant to walk you through the fundamentals of the IBM Blockchain Platform Extension. Part 2 follows a tutorial called Commercial Paper which will utilize the new application programming model in Hyperledger Fabric version 1.4 - which is the first long term
 support release of Hyperledger Fabric.</p>
-<p>Speaking of Hyperledger Fabric, we will be using a locally deployed Fabric runtime whose components will run as Docker containers on your lab
-workstation. If you want to deploy your smart contract to a remote environment, you can connect your IBM Blockchain Platform VSCode
-Extension to the IBM Blockchain Platform in the public IBM Cloud. In the future you will be able to connect this to IBM Blockchain Platform runtimes in multiple clouds, including IBM
-Blockchain Platform for IBM Cloud Private. We might incorporate the ability to connect to a remote IBM Blockchain Platform network into the Blockchain Immersion Workshop later this year. To keep abreast of all the updates to the workshop, check the workshop's GitHub page for updates (click on the GitHub icon in the lower left corner of this page).</p>
+<p>Speaking of Hyperledger Fabric, in this lab we will be using a locally deployed Fabric runtime whose components will run as Docker containers on your lab workstation. 
+You can also configure your IBM Blockchain Platform VSCode Extension to connect to multiple remote IBM Blockchain Platform environments (e.g., dev/test, staging, production). When you are ready to test your smart contract against a remote environment, 
+you can connect your IBM Blockchain Platform VSCode
+Extension to the IBM Blockchain Platform running in the public IBM Cloud or on your own premises. You will get to deploy onto your own premises (well, premises provided to you in our lab environment!) in tomorrow's lab. </p>
 <p>In this lab we will be using the following versions:</p>
 <ul>
-<li>Visual Studio Code: 1.31.1</li>
-<li>IBM Blockchain Platform Extension: 0.3.2</li>
-<li>Hyperledger Fabric: v1.4</li>
+<li>Visual Studio Code: 1.35.1</li>
+<li>IBM Blockchain Platform Extension: 1.0.3</li>
+<li>Hyperledger Fabric: v1.4.1</li>
 </ul>
 <h1 id="the-benefits-of-vscode-ibm-blockchain-platform-extension">The Benefits of VSCode IBM Blockchain Platform Extension</h1>
-<p>One of the hurdles in getting started with blockchain is the difficulty around the creation and testing of smart contracts across various DevOps environments. The VSCode IBM Blockchain Platform extension has been created to assist users in developing, testing, and deploying smart contracts, enabling users to connect to a local Hyperledger Fabric development environment (what the lab today covers) to test smart contracts before deploying them into various remote runtimes (IBM Blockchain Platform
-running in the cloud or within your own premises with IBM Blockchain Platform on IBM Cloud Private).</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>The VSCode IBM Blockchain Platform extension is available as of March 25, 2018, for early experimentation. There are many features and improvements to come before the v1.0 release. Please bear this in mind, and if you find something you'd like to see added, please contact the developers <a href="https://marketplace.visualstudio.com/items?itemName=IBMBlockchain.ibm-blockchain-platform" title="VSCode IBP Extension">here</a>.</p>
-</div>
+<p>One of the hurdles in getting started with blockchain is the difficulty around the creation and testing of smart contracts across various DevOps environments. The VSCode IBM Blockchain Platform Extension has been created to assist users in developing, testing, and deploying smart contracts, enabling users to connect to a local Hyperledger Fabric development environment (what the lab today covers) to test smart contracts before deploying them into various remote runtimes such as IBM Cloud (with IBM Blockchain Platform
+for IBM Cloud) or on your own premises or other vendor cloud offerings (with IBM Blockchain Platform for Multicloud).</p>
 <p>Within VSCode, you can employ a series of commands to gain the maximum
 benefit of your blockchain network. Over the course of this lab, we will
-use many of these commands. Below is a series of commands:</p>
+use many of these commands. Below is a list of commands:</p>
 <table>
 <thead>
 <tr>
@@ -336,10 +332,9 @@ use many of these commands. Below is a series of commands:</p>
 </tr>
 </tbody>
 </table>
-<p>As you can see, these commands can do a lot. With the IBM Blockchain
-Platform extension only being at version 0.3.2 (as of 3/12/2019), you
-can expect the list of commands and features to evolve. If you think
-there is a feature or enhancement that should be created, you can create
+<p>As you can see, these commands can do a lot. The IBM Blockchain
+Platform Extension development team works hard to add to the list of available commands and features.
+If you think there is a feature or enhancement that should be created, you can create
 an issue here:</p>
 <p><a href="https://github.com/IBM-Blockchain/blockchain-vscode-extension/issues">https://github.com/IBM-Blockchain/blockchain-vscode-extension/issues</a></p>
 <p>Equally, if you want to stay on top of all the releases of the extension
