@@ -12,7 +12,7 @@ IBM Blockchain Platform network running in the IBM Cloud or your IBM
 Blockchain Platform on IBM Cloud Private network on-premises. Below is a
 breakdown of Part 1 of our lab:
 
--   Start up a Blockchain Network:
+-   Start up a Blockchain Network
     :   -   We must make sure that all levels of software (docker, node,
             npm, docker-compose and yo) are at the correct level before
             we start building our smart contract. Then, we will install
@@ -24,7 +24,7 @@ breakdown of Part 1 of our lab:
             database), ccenv (chaincode environment), and most
             importantly our peer.
 
--   Create our Smart Contract:
+-   Create our Smart Contract
     :   -   Now that we have a running Hyperledger Fabric blockchain
             network, we will create our smart contract. The smart
             contract will be very basic in nature, but we will explain
@@ -32,7 +32,7 @@ breakdown of Part 1 of our lab:
             through some of the unique features that the extension can
             do for us and our smart contract.
 
--   Package, Install and Instantiate our Smart Contract:
+-   Package, Install and Instantiate our Smart Contract
     :   -   Since we have an understanding of how our smart contract
             works, we will need to install (peer level command) it on
             our peer and then instantiate (channel level command) the
@@ -40,14 +40,14 @@ breakdown of Part 1 of our lab:
             instantiated the smart contract, we will be able to submit
             transactions.
 
--   Submit Transactions:
+-   Submit Transactions
     :   -   What fun is it to have a working smart contract and have it
             instantiated across the channel, if we can't submit
             transactions? In this section, we will actually submit
             transactions from the UI of VSCode. We will see data get
             committed to the ledger.
 
--   Tests:
+-   Tests
     :   -   Once we have an instantiated smart contract on our channel,
             we will then test out the code to make sure that the
             contract will actually work when we submit transactions.
