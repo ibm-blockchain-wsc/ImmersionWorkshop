@@ -43,7 +43,7 @@ then eventually redeem it.
 Below is the full breakdown of Part 2 of this lab:
 
 -   Setting the Stage
-    :   -   Based off of Part 1, we have started a blockchain network,
+    :      Based off of Part 1, we have started a blockchain network,
             created a smart contract, created and run tests and then
             submitted transactions. For Part 2, we need to create a
             couple more docker containers that will set us up for
@@ -56,14 +56,14 @@ Below is the full breakdown of Part 2 of this lab:
             this container.
 
 -   Install and Instantiate Smart Contract
-    :   -   Now that we have those new docker containers up and running,
+    :      Now that we have those new docker containers up and running,
             we will enter our cliMagnetoCorp container and install and
             instantiate our smart contract. Since we are connected to
             the same running local Hyperledger Fabric network, we will
             see the smart contract show up in VSCode.
 
 -   Issue Identities and Submit Transactions
-    :   -   In this section, we will issue two identites. One is an
+    :      In this section, we will issue two identites. One is an
             end-user named Isabella with MagnetoCorp. She will invoke a
             transaction that will issue a paper. Then we will issue an
             identity for DigiBank named Balaji. Balaji will act as the
@@ -73,7 +73,7 @@ Below is the full breakdown of Part 2 of this lab:
             perspective of the network.
 
 -   Create Fabric Gateways and Submit Transactions
-    :   -   This section we will create gateways that allows VSCode to
+    :      This section we will create gateways that allows VSCode to
             connect to a running Hyperledger Fabric or IBM Blockchain
             Platform instance through a connection profile. In this lab,
             we will connect to our `local_fabric` network, which is also
@@ -83,7 +83,7 @@ Below is the full breakdown of Part 2 of this lab:
             they should.
 
 -   Loopback APIs
-    :   -   We have proven that we can submit transactions through the
+    :      We have proven that we can submit transactions through the
             command line interface (CLI) and the VSCode user interface.
             In this section, we will deploy two loopback API
             applications (for each of our organizations) and submit
