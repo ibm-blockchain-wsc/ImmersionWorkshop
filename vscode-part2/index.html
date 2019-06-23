@@ -202,8 +202,8 @@ term, another company or bank will purchase them at a discount to the
 face value and when the term is up, they will be redeemed for their face
 value.</p>
 <p>As an example, if a paper was issued at a face value of 10M USD for a
-6-month term at 2% interest then it could be bought for 9.8M USD (10M --
-2%) by another company or bank who are happy to bear the risk that the
+6-month term at 2% interest then it could be bought for 9.8M USD (10M less
+2%) by another company or bank who is willing to bear the risk that the
 issuer will not default. Once the term is up, then the paper could be
 redeemed or sold back to the issuer for its full face value of 10M USD.
 Between buying and redemption, the paper can be bought or sold between
@@ -223,7 +223,7 @@ Fabric network.</p>
 Isabella who is with MagnetoCorp. Additionally, we will create Balaji
 who is with DigiBank. Isabella will issue a paper for the network. The
 paper will have an ID number, when it was issued, the maturity date, and
-the face value (\$). Balaji, from DigiBank, will then buy the paper and
+the face value in USD. Balaji, from DigiBank, will then buy the paper and
 then eventually redeem it.</p>
 <p><img alt="image" src="../vscode-images/papernet_overview.png" /></p>
 <p>Below is the full breakdown of Part 2 of this lab:</p>
@@ -252,7 +252,7 @@ then eventually redeem it.</p>
 </li>
 <li>
 <p>Issue Identities and Submit Transactions
-    :      In this section, we will issue two identites. One is an
+    :      In this section, we will issue two identities. One is an
             end-user named Isabella with MagnetoCorp. She will invoke a
             transaction that will issue a paper. Then we will issue an
             identity for DigiBank named Balaji. Balaji will act as the
@@ -263,7 +263,7 @@ then eventually redeem it.</p>
 </li>
 <li>
 <p>Create Fabric Gateways and Submit Transactions
-    :      This section we will create gateways that allows VSCode to
+    :      In this section we will create gateways that allows VSCode to
             connect to a running Hyperledger Fabric or IBM Blockchain
             Platform instance through a connection profile. In this lab,
             we will connect to our <code>local_fabric</code> network, which is also
@@ -278,12 +278,12 @@ then eventually redeem it.</p>
             command line interface (CLI) and the VSCode user interface.
             In this section, we will deploy two loopback API
             applications (for each of our organizations) and submit
-            transactions through loopback. We will, also, include some
+            transactions through loopback. We will also include some
             transactions through the CLI and VSCode.</p>
 </li>
 </ul>
 <h1 id="section-2-setting-the-stage">Section 2: Setting the Stage</h1>
-<p><strong>1.</strong> Naviagte to your Desktop and then do a git clone of a repository
+<p><strong>1.</strong> Navigate to your Desktop and then do a git clone of a repository
 to gather all the things you need to run through this tutorial :</p>
 <pre><code>tecadmin@ubuntubase:~$ cd Desktop/
 tecadmin@ubuntubase:~/Desktop$ ls -l
@@ -302,7 +302,7 @@ total 0
 drwxr-xr-x  22 tecadmin  tecadmin  704 Jun 11 12:41 fabric-samples-cp
 drwxr-xr-x  16 tecadmin  tecadmin  512 Jun 11 12:34 Kale
 </code></pre>
-<p><strong>2.</strong> Then, do a <code>Docker Network List</code> to see all the running Docker
+<p><strong>2.</strong> Then, do a <code>docker network list</code> to see all the running Docker
 networks :</p>
 <pre><code>tecadmin@ubuntubase:~/Desktop$ docker network list
 NETWORK ID          NAME                            DRIVER              SCOPE
@@ -326,7 +326,7 @@ network.</p>
 work from an Untitled Workplace, but have the <code>fabric-samples-cp</code> folder
 in there.</p>
 <p><strong>5.</strong> Within VSCode, navigate to the folder below within MagnetoCorp :</p>
-<pre><code>fabric-samples-cp -&gt; commercial paper -&gt; organizations -&gt; magenetocorp -&gt; configuration -&gt; cli
+<pre><code>fabric-samples-cp -&gt; commercial-paper -&gt; organizations -&gt; magnetocorp -&gt; configuration -&gt; cli
 </code></pre>
 <p>You will see two files in there. One file is <code>monitordocker.sh</code> that
 will produce log messages across the network that you specify it to look
@@ -335,7 +335,7 @@ called to look at the <code>fabricvscodelocalfabric_basic</code> Docker network.
 The other file is <code>docker-compose.yml</code>, which pulls down a
 <code>fabric-tools</code> container that is connected to our local network. When we
 spun up our <code>local_fabric</code> network, back in Part 1, it placed all the
-crypto-graphic material in our
+cryptographic material in our
 <code>/home/tecadmin/.fabric-vscode/crypto-config/</code> directory. It is then
 taking all the crypto material and placing it in our fabric-tools
 container. This will make more sense once we install and instantiate the
@@ -352,6 +352,7 @@ total 16
 entering the command below. <strong>NOTE:</strong> scroll over to see the entire
 command below :</p>
 <pre><code>tecadmin@ubuntubase:~/Desktop/fabric-samples-cp/commercial-paper/organization/magnetocorp/configuration/cli/$ ./monitordocker.sh fabricvscodelocalfabric_basic
+#
 </code></pre>
 <p><strong>8.</strong> Since this terminal is occupied with log messages, let's open
 another terminal tab. We can open a new tab by clicking on <code>File</code> and
@@ -380,7 +381,7 @@ containers. We should see two new containers - <code>cliMagnetoCorp</code> and
 <code>docker network inspect fabricvscodelocalfabric_basic</code> to see all of our
 containers together in one network - and no, not in a blockchain
 network. They are, however, the components that make up our local
-blockchain network :)</p>
+blockchain network :-)</p>
 <h1 id="section-3-install-and-instantiate-commercial-paper-smart-contract">Section 3: Install and Instantiate Commercial Paper Smart Contract</h1>
 <p>Before we actually install the commercial paper smart contract, let's
 actually open the file to see what the smart contract is trying to do.</p>
@@ -400,7 +401,7 @@ classes that will be used extensively by the smart contract --
 <pre><code>// Fabric smart contract classes
 const { Contract, Context } = require('fabric-contract-api');
 </code></pre>
-<p>Below, we define the smart contract <code>class CommercialPaperContract</code>
+<p>Below, we define the smart contract class <code>CommercialPaperContract</code>
 based on the built-in Fabric Contract class. The methods which implement
 the key transactions to issue, buy and redeem commercial paper are
 defined within this class :</p>
@@ -459,7 +460,7 @@ actually install it on our peer through our terminal application.
 <p>If you notice, we are not in the contract folder of our command line
 interface. Instead, we are entering the <code>cliMagnetoCorp</code> docker
 container with <code>docker exec cliMagnetoCorp</code> and navigating to the
-<code>/opt/gopath/src/github.com/contract file</code> path within our container to
+<code>/opt/gopath/src/github.com/contract</code> file path within our container to
 grab the files we need to install the smart contract. The
 <code>-n papercontract</code> flag names our smart contract papercontract. The
 <code>-v 0</code> gives our smart contract a version of 0. Finally, the <code>-l node</code>
@@ -501,6 +502,7 @@ You can confirm this by issuing the command below. <strong>NOTE:</strong> scroll
 to see the entire command below :</p>
 <pre><code>tecadmin@ubuntubase:~/Desktop/fabric-samples-cp/commercial-paper/organization/magnetocorp/configuration/cli/$ pwd
 /home/tecadmin/Desktop/fabric-samples-cp/commercial-paper/organization/magnetocorp/configuration/cli
+tecadmin@ubuntubase:~/Desktop/fabric-samples-cp/commercial-paper/organization/magnetocorp/configuration/cli/$
 </code></pre>
 <p><strong>2.</strong> This is a good sign. Issue the following command below to get to
 the application folder within MagnetoCorp. <strong>NOTE:</strong> scroll over to see
@@ -508,28 +510,28 @@ the entire command below :</p>
 <pre><code>tecadmin@ubuntubase:~/Desktop/fabric-samples-cp/commercial-paper/organization/magnetocorp/configuration/cli/$ cd ../../application/
 tecadmin@ubuntubase:~/Desktop/fabric-samples/commercial-paper/organization/magnetocorp/application$
 </code></pre>
-<p><strong>3.</strong> Within VSCode, naviagte to the same folder :</p>
-<pre><code>fabric-samples-cp -&gt; commercial paper -&gt; organization -&gt; magnetocorp -&gt; appplication
+<p><strong>3.</strong> Within VSCode, navigate to the same folder :</p>
+<pre><code>fabric-samples-cp -&gt; commercial-paper -&gt; organization -&gt; magnetocorp -&gt; appplication
 </code></pre>
-<p><strong>4.</strong> In that folder, you should see an a file called <code>addtoWallet.js</code>.
+<p><strong>4.</strong> In that folder, you should see a file called <code>addtoWallet.js</code>.
 Go ahead and click on it to open it up.</p>
 <p><strong>5.</strong> On line 25, you should see what is below :</p>
 <pre><code>const key = fs.readFileSync(path.join(credPath, '/msp/keystore/&lt;PUT_PRIVATE_KEY_HERE&gt;')).toString();
 </code></pre>
-<p><strong>6.</strong> To put in an actual private key, you can enter the command below
-in your terminal application to find the key name. <strong>NOTE:</strong> scroll over
-to see the entire key below :</p>
+<p><strong>6.</strong> To put in the file name of your actual private key, you can enter the command below
+in your terminal application to find the key's file name. <strong>NOTE:</strong> scroll over
+to see the entire command below :</p>
 <pre><code>tecadmin@ubuntubase:~/Desktop/fabric-samples-cp/commercial-paper/organization/magnetocorp/application$ ls -l /home/tecadmin/.fabric-vscode/runtime/crypto-config/peerOrganizations/org1.example.com/users/User1@org1.example.com/msp/keystore/
 -rw-------@ 1 tecadmin  tecadmin  241 Jun 11 08:57 e7a117b799890646fe1d6e688d9c979845a411830400b673e2fe7dc01f91f9b8_sk
 </code></pre>
-<p><strong>7.</strong> Now, copy your private key,
-<code>e7a117b799890646fe1d6e688d9c979845a411830400b673e2fe7dc01f91f9b8_sk</code>
-and paste in the field asking for your private key. For example, line 25
-looks like this now. <strong>NOTE:</strong> scroll over to see the entire key below :</p>
+<p><strong>7.</strong> Now, copy your private key's file name,
+<code>e7a117b799890646fe1d6e688d9c979845a411830400b673e2fe7dc01f91f9b8_sk</code> in this example- but your name will differ- 
+and paste it in the field asking for your private key. For example, line 25
+looks like this now. <strong>NOTE:</strong> scroll over to see the entire key file name below:</p>
 <pre><code>const key = fs.readFileSync(path.join(credPath, '/msp/keystore/e7a117b799890646fe1d6e688d9c979845a411830400b673e2fe7dc01f91f9b8_sk')).toString();
 </code></pre>
-<p><strong>NOTE</strong> It is the upmost of importance that you are doing this from the
-<code>mangentocorp/application</code> folder and you save this file. We will do the
+<p><strong>NOTE:</strong> It is of the upmost importance that you are doing this from the
+<code>magnetocorp/application</code> folder and you save this file. We will do the
 Digibank folder here in a second.</p>
 <p><strong>8.</strong> Go ahead and save this file by either doing <code>File -&gt; Save</code> or
 <code>Control + s</code>.</p>
