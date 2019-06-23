@@ -1,10 +1,10 @@
-# VSCode Lab Part 3 - Cross Chaincode Calls and Debugging a Smart Contract
+# VSCode Lab Part 3 - Cross-Chaincode Calls and Debugging a Smart Contract
 
-You can use a chaincode to invoke other chaincodes. This allows a chaincode to query and write to data outside of its namespace. A chaincode can both read and update data outside of its namespace by using chaincode that is instantiated on the same channel. However, a chaincode can only query data by using chaincode on different channels.
+You can use a chaincode to invoke other chaincodes. This allows a chaincode to query and write to data outside of its namespace. A chaincode can both read and update data outside of its namespace when calling chaincode that is instantiated on the same channel. However, a chaincode can only query data when calling chaincode on different channels.
 
-Chaincode to chaincode interactions can be very useful if you are looking to integrate business logic at the chaincode level or for migration purposes. The goal of this lab is to show you how to code cross chaincode calls in a smart contract. The API that is used for doing this is the invokeChaincode() API from the fabric-shim library’s ChaincodeStub class. The invokeChaincode() API is a lower-level Fabric API that can be invoked through the higher-level Fabric API that you have been using in the previous labs.
+Chaincode to chaincode interactions can be very useful if you are looking to integrate business logic at the chaincode level or for migration purposes. The goal of this lab is to show you how to code cross-chaincode calls in a smart contract. The API that is used for doing this is the invokeChaincode() API from the fabric-shim library’s ChaincodeStub class. The invokeChaincode() API is a lower-level Fabric API that can be invoked through the higher-level Fabric API that you have been using in the previous labs.
 
-Part of the cross chaincode process is to understand how and where you want to code the chaincode to chaincode interaction. In this lab, we add a new smart contract commercial-bond that we want commercial-paper to query. We want to simulate the situation when a commercial-paper is issued, the commercial-paper smart contract queries the commercial-bond contract for current returns on bonds with a similar maturity date, and sets the paper price accordingly. For more details on this particular use case, see the scenario described here: https://hyperledger-fabric.readthedocs.io/en/release-1.4/developapps/chaincodenamespace.html#cross-chaincode-access.
+Part of the cross-chaincode process is to understand how and where you want to code the chaincode to chaincode interaction. In this lab, we add a new smart contract called commercial-bond that we want commercial-paper to query. We want to simulate the situation that when a commercial-paper is issued, the commercial-paper smart contract queries the commercial-bond contract for current returns on bonds with a similar maturity date, and sets the paper price accordingly. For more details on this particular use case, see the scenario described here: https://hyperledger-fabric.readthedocs.io/en/release-1.4/developapps/chaincodenamespace.html#cross-chaincode-access.
 
 For this lab commercial-bond is already written and packaged up for you. You will clone and add the package to your VSCode IBM Blockchain Platform Extension. Then you will package, install and instantiate the contract to your locally running fabric environment. The instantiate process will also add a few sample bonds to the ledger and to commercial-bond's world state. This way your commercial-paper will have existing bonds to query and extract rates from. You can also experiment with commercial-bond's functions by issuing your own bonds.
 
@@ -13,13 +13,14 @@ The bulk of the lab will be done against the existing commercial-paper. This is 
 Finally we will deploy the bond-query-enabled commercial-paper to your local fabric, generate some functional tests, and run through them to make sure that the smart contract is functional.
 
 These are the general steps you will take:
+
 1. Clone the commercial-bond smart contract package and add package to VSCode workspace
 2. Package commercial-bond, install and instantiate
 3. Run a few tests to get familiar with commercial-bond
 4. Grab commercial-paper if you don't already have it
 5. Setup Debug Smart Contract in Development Mode
 6. Go through existing papercontract function in debugger
-7. Make smart contract update to include cross chaincode call, test in debug session
+7. Make smart contract update to include cross-chaincode call, test in debug session
 8. Package commercial-paper, install and instantiate
 9. Generate function tests, and run through function tests
 10. The end!
@@ -159,7 +160,7 @@ Select the function `getAllBondsFromIssuer`, and either `right-click` or `Ctl+cl
 
 ![VSCode-xchaincode14](images/xchaincode14.png)
 
-3. Next, you will see a familiar pop-up at the top of VSCode that asks you what are the arguments to the transaction. This transaction only takes one argument, and that is the name of the issuer. Let's type in "MagnetoCorp" as follows (important to leave the double quotes):
+3. Next, you will see a familiar pop-up at the top of VSCode that asks you what are the arguments to the transaction. This transaction only takes one argument, and that is the name of the issuer. Let's type in "MagnetoCorp" as follows (important to include the double quotes):
 
 ![VSCode-xchaincode15](images/xchaincode15.png)
 
@@ -199,7 +200,7 @@ Then the transaction will get submitted. Upon success, you will see the followin
 
 ![VSCode-xchaincode20](images/xchaincode20.png)
 
-9. Now, the last transaction for you to test, is the `getClosestBondRate` transaction. This is the transaction that we will update `commercial-paper` to call. This transaction takes two arguments: 1) `bondIssuer` and 2) `compareMaturityDate`. This transaction will iterate through all the bonds issued by the specified `bondIssuer` until it finds a bond that has a similar maturity date as the one passed through `compareMaturityDate`, and it will return that bond's interest rate. If it cannot find a bond with a similar maturity date it will return an empty string.
+9. Now, the last transaction for you to test is the `getClosestBondRate` transaction. This is the transaction that we will update `commercial-paper` to call. This transaction takes two arguments: 1) `bondIssuer` and 2) `compareMaturityDate`. This transaction will iterate through all the bonds issued by the specified `bondIssuer` until it finds a bond that has a similar maturity date as the one passed through `compareMaturityDate`, and it will return that bond's interest rate. If it cannot find a bond with a similar maturity date it will return an empty string.
 
 Select `getClosestBondRate` from the `Fabric Gateways` panel, and either `right-click` or `Ctl+click` and select `Evaluate Transaction`.
 
@@ -241,7 +242,7 @@ Now you are ready to setup the Hyperledger Fabric runtime in development mode an
 
 # Section 5: Setup Debug Smart Contract in Development Mode (**These instructions have been modified for IBM Blockchain Platform Extension v1.0.3**)
 
-The VSCode IBM Blockchain Platform Extension provides an integrated `Debug Smart Contract` experience with VSCode's build-in debugger. It is a powerful tool in digging deeper into your smart contract code stack, and can be extremely useful in your smart contract development work flow. Using the debug feature will allow you to efficiently test out updates to your smart contract against a local Hyperledger Fabric running in development mode, without having to re-package, re-install and upgrade your smart contract manually with every change. Now, let's get into setting up the debug environment.
+The VSCode IBM Blockchain Platform Extension provides an integrated `Debug Smart Contract` experience with VSCode's built-in debugger. It is a powerful tool in digging deeper into your smart contract code stack, and can be extremely useful in your smart contract development work flow. Using the debug feature will allow you to efficiently test out updates to your smart contract against a local Hyperledger Fabric running in development mode, without having to re-package, re-install and upgrade your smart contract manually with every change. Now, let's get into setting up the debug environment.
 
 1. The first thing you will do is to `Toggle Development Mode` on your peer. Navigate to the IBM Blockchain Platform view in your VSCode:
 
@@ -415,7 +416,7 @@ You will see the output from this transaction below in the `OUTPUT` box.
 
 ![VSCode-xchaincode60](images/xchaincode60.png)
 
-# Section 7: Make smart contract updates to include cross chaincode call, test in debugging session (**These instructions have been modified for IBM Blockchain Platform Extension v1.0.3**)
+# Section 7: Make smart contract updates to include cross-chaincode call, test in debugging session (**These instructions have been modified for IBM Blockchain Platform Extension v1.0.3**)
 
 1. OK, now that you have played with the debugger, let's add additional code to `papercontract.js`. We will first amend the `issue` function to take in interest rate as another parameter. The new `issue` function will also include code to query the `commercial-bond` contract for the interest rate of a bond that has similar maturity rate as the paper and align the paper rate to the bond rate. Then we will add the following the helper function: `getPaperRate`.
 
@@ -794,7 +795,7 @@ Your `papercontract.js` should look like the following:
 
 10. If you have time, evaluate another `issue` transaction. This time passing a maturity date that you know does not have a match in `commercial-bond`. You can always go back to section 2.6 to see which bonds are in the commercial-bond world state, and pick a maturity date for your paper that is not the same month as the bonds. Step through the debugger, and see if the logic behaves the way you expect.
 
-23. At this point you have successfully tweaked the `papercontract.js` to include a cross chaincode call to another contract residing in the same channel.
+23. At this point you have successfully tweaked the `papercontract.js` to include a cross-chaincode call to another contract residing in the same channel.
 
 24. Go to the VSCode IBM Blockchain Platform view, under the `Local Fabric Ops` panel, you should see three `papercontract@vscode-debug-<datetime>` packages under `Installed` and one `papercontract@vscode-debug-<datetime>` under `Instantiated`. The instantiated package should have the same datetime and the latest installed one. The first `papercontract@vscode-debug` package was done against the original paper contract, the 2nd package was done against the paper contract with the modified `issue` transaction, and the third and last package was build upon the 2nd with a new `getPaperRate` function. We hope that with this flow, you get to experience one way you can develop and build upon your smart contract.
 
