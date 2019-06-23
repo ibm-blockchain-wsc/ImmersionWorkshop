@@ -42,7 +42,7 @@ then eventually redeem it.
 
 Below is the full breakdown of Part 2 of this lab:
 
--   Setting the Stage:
+-   Setting the Stage
     :   -   Based off of Part 1, we have started a blockchain network,
             created a smart contract, created and run tests and then
             submitted transactions. For Part 2, we need to create a
@@ -55,14 +55,14 @@ Below is the full breakdown of Part 2 of this lab:
             the Hyperledger Fabric command line interface (cli) within
             this container.
 
--   Install and Instantiate Smart Contract:
+-   Install and Instantiate Smart Contract
     :   -   Now that we have those new docker containers up and running,
             we will enter our cliMagnetoCorp container and install and
             instantiate our smart contract. Since we are connected to
             the same running local Hyperledger Fabric network, we will
             see the smart contract show up in VSCode.
 
--   Issue Identities and Submit Transactions:
+-   Issue Identities and Submit Transactions
     :   -   In this section, we will issue two identites. One is an
             end-user named Isabella with MagnetoCorp. She will invoke a
             transaction that will issue a paper. Then we will issue an
@@ -72,7 +72,7 @@ Below is the full breakdown of Part 2 of this lab:
             will add a Fabric Gateway connection to connect to his
             perspective of the network.
 
--   Create Fabric Gateways and Submit Transactions:
+-   Create Fabric Gateways and Submit Transactions
     :   -   This section we will create gateways that allows VSCode to
             connect to a running Hyperledger Fabric or IBM Blockchain
             Platform instance through a connection profile. In this lab,
@@ -82,7 +82,7 @@ Below is the full breakdown of Part 2 of this lab:
             ensure the appropiate people are making the transactions
             they should.
 
--   Loopback APIs:
+-   Loopback APIs
     :   -   We have proven that we can submit transactions through the
             command line interface (CLI) and the VSCode user interface.
             In this section, we will deploy two loopback API
