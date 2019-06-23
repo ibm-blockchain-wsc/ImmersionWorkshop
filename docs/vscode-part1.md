@@ -69,7 +69,7 @@ application. You can enter them from the terminal application, but the
 instructions below will all be within the VSCode terminal. In Part 2 of
 this lab, you will use the terminal application.
 
-**1.** Open up your teminal and type in the following commands below :
+**1.** Open up your terminal and type in the following commands below :
 
     tecadmin@ubuntubase:~$ node -v # We want Node to be v8.x or higher
     v8.11.3
