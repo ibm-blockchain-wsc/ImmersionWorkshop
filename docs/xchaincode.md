@@ -239,9 +239,41 @@ Now what do you get returned?  Is it expected?
 
 # Section 4: Get commercial-paper if you don't already have it
 
-If you already have `commercial-paper` in VSCode from the previous lab, you can skip this section. If not, then follow the steps outlined in the VSCode Part 2 lab, section 2 to clone the `fabric-samples-cp` repo and add the `commercial-paper` package to your VSCode Workspace.
+For this lab, we will start with a fresh commercial paper smart contract. Let's use the IBM Blockchain Platform Extension sample home page to get the commercial-paper package. Click on the IBM Blockchain Platform Extension icon in the upper right corner of VSCode:
 
-Now you are ready to setup the Hyperledger Fabric runtime in development mode and setup the smart contract debugging session.
+![VSCode-xchaincode24](images/xchaincode24.png)
+
+This will bring up the following page in VSCode:
+
+![VSCode-xchaincode26](images/xchaincode26.png)
+
+Click on `Commercial Paper` in the Explore sample code section:
+
+![VSCode-xchaincode25](images/xchaincode25.png)
+
+On the `Commercial Paper Sample` page, click on `Clone` (the picture below shows `Clone again` but if you are doing this the first time it should just say `Clone`):
+
+![VSCode-xchaincode27](images/xchaincode27.png)
+
+Now it will ask you where you want to clone the repository, pick a location on your workstation, and click `Clone Repository`.
+
+When it is done cloning, you will see the location that you cloned to here:
+
+![VSCode-xchaincode28](images/xchaincode28.png)
+
+Now, from the same `Commercial Paper Sample` page, go to the smart contract section and select `Open Locally` for `MagnetoCorp Contract`:
+
+![VSCode-xchaincode29](images/xchaincode29.png)
+
+In the pop-up window, select `Add to workspace`:
+
+![VSCode-xchaincode30](images/xchaincode30.png)
+
+In your VSCode Explorer Blockchain workspace panel, you will see the following folder with its contents added:
+
+![VSCode-xchaincode31](images/xchaincode31.png)
+
+Now you are ready to make changes and test them quickly by working in Hyperledger Fabric development mode in conjunction with the VSCode Debugger.
 
 # Section 5: Setup Debug Smart Contract in Development Mode (**These instructions have been modified for IBM Blockchain Platform Extension v1.0.3**)
 
