@@ -275,12 +275,13 @@ In this view you will see the following panels:
 ![VSCode-xchaincode37](images/xchaincode37.png)
 
 An explanation of each of the panels:
+
 1. Variables - this panel will display all the variables in the current function
 2. Watch -  you can pick specific variables to watch here, and track them as you step through your code
 3. Call Stack - this panel will display the call stack of the current function you are stepping through
 4. Breakpoints - this panel will display all the breakpoints in the current program
 
-**4.** Let's configure a `launch.json` file for `papercontract.js`. According to VSCode's debugging documentation: For most debugging scenarios, creating a launch configuration file is beneficial because it allows you to configure and save debugging setup details. VS Code keeps debugging configuration information in a `launch.json` file located in a `.vscode` folder in your workspace (project root folder) or in your user settings or workspace settings.
+**4.** Let's configure a `launch.json` file for `papercontract.js`. According to VSCode's debugging documentation: For most debugging scenarios, creating a launch configuration file is beneficial because it allows you to configure and save debugging setup details. VSCode keeps debugging configuration information in a `launch.json` file located in a `.vscode` folder in your workspace (project root folder) or in your user settings or workspace settings.
 
 To do so, click on the little arrows next to the DEBUG toolbar at the top of the `Debug` view.
 
@@ -298,7 +299,7 @@ This will open a `launch.json`. It should look like the following:
 
 ![VSCode-xchaincode39](images/xchaincode39.png)
 
-We will not modify the `launch.json` file in this case. Save the file with `Ctl+S` and close it.
+Make sure your `launch.json` file looks like the above (if there are extra entries delete them). Save the file with `Ctl+S` and close it.
 
 **5.** We are ready to launch a debug session for `papercontract.js`.
 
@@ -418,7 +419,7 @@ You will see the output from this transaction below in the `OUTPUT` box.
 
 # Section 7: Make smart contract updates to include cross-chaincode call, test in debugging session (**These instructions have been modified for IBM Blockchain Platform Extension v1.0.3**)
 
-**1.** OK, now that you have played with the debugger, let's add additional code to `papercontract.js`. We will first amend the `issue` function to take in interest rate as another parameter. The new `issue` function will also include code to query the `commercial-bond` contract for the interest rate of a bond that has similar maturity rate as the paper and align the paper rate to the bond rate. Then we will add the following the helper function: `getPaperRate`.
+**1.** OK, now that you have played with the debugger, let's add additional code to `papercontract.js`. We will first amend the `issue` function to take in interest rate as another parameter. The new `issue` function will also include code to query the `commercial-bond` contract for the interest rate of a bond that has similar maturity date as the paper and align the paper rate to the bond rate. Then we will add the following the helper function: `getPaperRate`.
 
 **2.** Before we edit `papercontract.js` we need to update `paper.js` to add these functions `getRate` and `setRate`. In addition, we need to update the `createInstance` function to include the `paperRate` parameter. Keep in mind `papercontract.js` uses `paper.js` to represent a paper.
 
@@ -648,7 +649,7 @@ Note: *If* for whatever reason, you have exited the debug session, you can alway
 
 ![VSCode-xchaincode-launch-debug](images/xchaincode-launch-debug.png)
 
-**6.** Becase we made updates to the smart contract we will need to upgrade the smart contract. With the integrated IBM Blockchain Platform Debugger you can do everything from one screen and without exiting the current debug session. Click the blue IBM Blockchain Platform button in the debug toolbar to reveal the debug command list.
+**6.** Becase we made updates to the smart contract we will need to upgrade the smart contract in order for the modifications to take affect against the local Fabric network. With the integrated IBM Blockchain Platform Debugger you can do everything from one screen and without exiting the current debug session. Click the blue IBM Blockchain Platform button in the debug toolbar to reveal the debug command list.
 
 ![VSCode-xchaincode47](images/xchaincode47.png)
 
@@ -672,7 +673,9 @@ Note: *If* for whatever reason, you have exited the debug session, you can alway
 
 ![VSCode-xchaincode-instantiate](images/xchaincode-success-instantiate.png)
 
-**12.** Return to `papercontract.js`, and place a new breakpoint in the following line:
+**12.** Return to `papercontract.js`, and place a new breakpoint on the following line:
+
+`let assignPaperRate = await ctx.stub.invokeChaincode("commercial-bond", ["getClosestBondRate", issuer, maturityDateTime], ctx.stub.getChannelID());`
 
 ![VSCode-xchaincode63](images/xchaincode63.png)
 
@@ -710,7 +713,7 @@ Note: *If* for whatever reason, you have exited the debug session, you can alway
 
 ![VSCode-xchaincode74](images/xchaincode74.png)
 
-**21.** Use the debug toolbar to `Step over` (or press F10) each line of code until you reach `paper.setIssued()`. Notice how the `newPaperRate` variable got set to the bond rate of bondNumber 00001 which is 0.03 (see Section 2 step 6). And the paper variable in the `Watch` panel has an `interestRate` of 0.05 (vs the 0.03 that was passed through the `issue` transaction):
+**21.** Use the debug toolbar to `Step over` (or press F10) each line of code until you reach `paper.setIssued()`. Notice how the `newPaperRate` variable got set to the bond rate of bondNumber 00001 which is 0.05 (see Section 2 step 6). And the paper variable in the `Watch` panel has an `interestRate` of 0.05 (vs the 0.03 that was passed through the `issue` transaction):
 
 ![VSCode-xchaincode75](images/xchaincode75.png)
 
@@ -794,9 +797,65 @@ Your `papercontract.js` should look like the following:
 
 ![VSCode-xchaincode78](images/xchaincode78.png)
 
-**10.** If you have time, evaluate another `issue` transaction. This time passing a maturity date that you know does not have a match in `commercial-bond`. You can always go back to section 2.6 to see which bonds are in the commercial-bond world state, and pick a maturity date for your paper that is not the same month as the bonds. Step through the debugger, and see if the logic behaves the way you expect.
+**10.** If you have time, evaluate another `issue` transaction. This time passing a maturity date that you know does not have a match in `commercial-bond`. You can always go back to section 2.6 to see which bonds are in the commercial-bond world state, and pick a maturity date for your paper that is not in the same month as the bonds. Step through the debugger with variables added to the `Watch` panel, and see if the logic behaves the way you expect.
 
-**11.** At this point you have successfully tweaked the `papercontract.js` to include a cross-chaincode call to another contract residing in the same channel.
+**11.** At this point you have successfully tweaked the `papercontract.js` to include a cross-chaincode call to another contract residing in the same channel. You have also added a helper function to get a paper rate on an existing paper on the ledger. One last useful transaction to have is one that queries and returns all papers by the same issuer. Let's make this update in the next section.
+
+# Section 9: Add getAllPapers transaction to contract in debugging session
+
+**1.** Return to your `papercontract.js` and paste in the following code block right after the `getPaperRate()` function:
+
+```
+    /**
+    * Get all the commercial papers from issuer
+    * @param {Context} ctx the transaction context
+    * @param {String} paperIssuer the organization that issued the paper
+    */
+    async getAllPapersFromIssuer(ctx, paperIssuer) {
+
+        //following is required to setup the key in the proper format that getStateByPartialCompositeKey expects
+        var paperKey = CommercialPaper.makeKey([paperIssuer]);
+        var org = CommercialPaper.splitKey(paperKey);
+        var iterator = await ctx.stub.getStateByPartialCompositeKey("org.papernet.commercialpaper", org);
+
+        const allResults = [];
+        while (true) {
+            const res = await iterator.next();
+
+            if (res.value && res.value.value.toString()) {
+                console.log(res.value.value.toString('utf8'));
+                
+                const Key = res.value.key;
+                let Record;
+                try {
+                    Record = JSON.parse(res.value.value.toString('utf8'));
+                } catch (err) {
+                    console.log(err);
+                    Record = res.value.value.toString('utf8');
+                }
+                allResults.push({ Key, Record });
+            }
+            if (res.done) {
+                console.log('end of data');
+                await iterator.close();
+                console.info(allResults);
+                return JSON.stringify(allResults);
+            }
+        }
+    }
+```
+
+This function takes one argument, the name of the paper issuer you want to query. In our example so far, we have only used `MagnetoCorp`, so that is the string that would be passed as an argument to this transaction at this point. You should have noticed by now that this lab uses function and transaction interchangeably. They really mean the same thing in this lab, where one Node.js function represents one smart contract transaction.
+
+You may also have noticed that in every `papercontract.js` function, the first argument is `ctx`. However, when we actually submit or evaluate that transaction, we don't pass anything to represent the `ctx` argument. In the new Fabric programming model, `ctx` represents the current transaction context. It gets passed automatically when the transaction is invoked.
+
+In the above function, the first thing we do is construct a partial composite key in the format that the API `getStateByPartialCompositeKey()` requires. A composite key is a key that is made up of two or more parts. In a smart contract you need to define assets with keys that distinguish them. You can have simple keys, meaning one unique key represents one asset. You can also have composite keys, meaning the asset is represented by the combination of multiple unique values. In the case of our `commercial-paper` and `commercial-bond`, their composite key is `issuer`:`unique number`. This means `MagnetoCorp` can have a paper with the number 00001, and `Digibank` can also have a paper with number 00001, and on the ledger they would be viewed as two separate assets.
+
+So in essence what we are constructing is a partial composite key that represents part of the whole key. What this allows us to do is use the `getStateByPartialCompositeKey()` API to get all the assets that match that partial composite key. `getStateByPartialCompositeKey()` returns an iterator object that you can then use to iterate through all the assets that match the partial composite key. For the complete spec on `getStateByPartialCompositeKey()` see here: https://fabric-shim.github.io/master/fabric-shim.ChaincodeStub.html
+
+In the `while` loop in the above function, we iterate through the assets and capture the attributes of each paper and add them to an array. And then the papers are returned in JSON format.
+
+**2.** 
 
 **12.** Go to the VSCode IBM Blockchain Platform view, under the `Local Fabric Ops` panel, you should see three `papercontract@vscode-debug-<datetime>` packages under `Installed` and one `papercontract@vscode-debug-<datetime>` under `Instantiated`. The instantiated package should have the same datetime and the latest installed one. The first `papercontract@vscode-debug` package was done against the original paper contract, the 2nd package was done against the paper contract with the modified `issue` transaction, and the third and last package was build upon the 2nd with a new `getPaperRate` function. We hope that with this flow, you get to experience one way you can develop and build upon your smart contract.
 
