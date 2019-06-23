@@ -7,16 +7,16 @@ testing that smart contract to verify that it works. Before all of that,
 we will have you start up the local Hyperledger Fabric network so that
 we can build our smart contract on top of it. In this lab, we have you
 deploy to a local network that is running on your laptop, but you can
-also connect the IBM Blockchain Platform VSCode extension to either your
+also connect the IBM Blockchain Platform VSCode Extension to either your
 IBM Blockchain Platform network running in the IBM Cloud or your IBM
-Blockchain Platform on IBM Cloud Private network on-premises. Below is a
+Blockchain Platform network running on your own premises. Below is a
 breakdown of Part 1 of our lab:
 
 -   Start up a Blockchain Network
     :      We must make sure that all levels of software (docker, node,
             npm, docker-compose and yo) are at the correct level before
             we start building our smart contract. Then, we will install
-            the IBM Blockchain Platform extension that will allow us to
+            the IBM Blockchain Platform Extension that will allow us to
             create and develop our smart contract. Once we have done
             that, we will then start up the Hyperledger Fabric network,
             which will consist of a certificate authority (CA), Solo
@@ -54,7 +54,7 @@ breakdown of Part 1 of our lab:
             This checks all the files within our smart contract and
             simulates all of our transactions. We will know we are
             cooking with gas when our test comes back successful. We
-            will, then, generate a test file that will test our smart
+            will then generate a test file that will test our smart
             contract, while submitting transactions to the ledger. We
             will view the docker logs of our running smart contract and
             see the transactions being added to the logs as well as the
@@ -81,6 +81,7 @@ this lab, you will use the terminal application.
     Docker version 17.06.2-ce, build cec0b72
     tecadmin@ubuntubase:~$ docker-compose --version # We want Docker Compose to be v1.14.0 or higher
     docker-compose version 1.14.0, build c7bdf9e
+    tecadmin@ubuntubase:~$ 
 
 If you get a version that doesn't support our qualifications, raise your
 hand and tell the instructor.
@@ -91,7 +92,7 @@ the toolbar on the left.
 
 **3.** Once you are in the Visual Studio Code application, you should
 see an outline of a block just below the extensions button
-(approximately, the 6th button in VSCode). Go ahead and click on that
+(approximately the 6th button in VSCode). Go ahead and click on that
 button. Once you do, you'll see a similar screen as the image below
 
 ![image](vscode-images/1.png)
@@ -128,7 +129,7 @@ panel. We will want to see a message that resembles the one below :
     [2/20/2019 7:26:55 PM] [INFO] 2019-02-21 00:26:35.458 UTC [channelCmd] executeJoin -> INFO 002 Successfully submitted proposal to join channel
 
 **6.** We can verify that everything is up and working by entering the
-following docker ps -a command that will print out all of our
+`docker ps -a` command that will print out all of our
 containers.
 
 Section 3: Create our Smart Contract
@@ -190,20 +191,19 @@ you'll see the Kale folder in there with a lot more files
 ![image](vscode-images/1-2-8.png)
 
 **9.** Go ahead and untoggle the `Kale` folder and then untoggle the
-`lib` folder, which you'll find the `kale-contract.js` file. Go ahead
+`lib` folder, in which you'll find the `kale-contract.js` file. Go ahead
 and click on that to open it up. Below is a breakdown of this simple
 smart contract:
 
-These 2 lines of code, below, will bring into scope a key Hyperledger
+The line of code below will bring into scope a key Hyperledger
 Fabric class that will be used extensively by the smart contract --
 Contract :
 
-    // Fabric smart contract classes
     const { Contract } = require('fabric-contract-api');
 
 Below, we define the smart contract class KaleContract based on the
 built-in Fabric Contract class. The methods which implement the key
-transactions that are defined within this class :
+transactions are defined within this class :
 
     class KaleContract extends Contract {
 
@@ -212,7 +212,7 @@ value, both of which are strings. When this transaction is submitted, a
 new asset will be created, with key kaleId and value value. For example
 if we were to create "001", "A bunch of kale", then when we later read
 the value of key 001, we'll learn the value of that particular state is
-A bunch of kale. :
+"A bunch of kale" :
 
     async createKale(ctx, kaleId, value) {
         const exists = await this.kaleExists(ctx, kaleId);
@@ -226,7 +226,7 @@ A bunch of kale. :
 
 You'll often hear such transactions, like below, referred to as
 "queries". As you can see, this function only takes kaleId, and will
-return the value of the whatever state that key points to. :
+return the value of whatever state that key points to. :
 
     async readKale(ctx, kaleId) {
         const exists = await this.kaleExists(ctx, kaleId);
@@ -267,7 +267,7 @@ select `Kale@0.0.1`. Then it will go ahead and install it for you on
 your peer.
 
 **5.** Now that we have an installed smart contract, we need to
-instantiate it. You can do that by, you might of guessed, clicking on
+instantiate it. You can do that by, you might have guessed, clicking on
 the `+Instantiate` button. Then it will ask you
 `Choose a Smart Contract and Version to instanitate` and you can select
 `Kale@0.0.1`. It will pop up another prompt asking you which function
@@ -280,11 +280,11 @@ channel, called `mychannel`.
 Section 5: Submit Transactions
 ==============================
 
-**1.** From the IBM Blockchain Platform extension, you can click on the
+**1.** From the IBM Blockchain Platform Extension, you can click on the
 `local_fabric` gateway. It will then use the `admin` ID. It will display
-all of you channels that this gateway can see, in this case it is only
+all of your channels that this gateway can see, in this case it is only
 `mychannel`. If you untoggle `mychannel` you will see `Kale@0.0.1` as an
-instantiate smart contract on the channel. If you had multiple smart
+instantiated smart contract on the channel. If you had multiple smart
 contracts on here, you would see those as well. Now, if you untoggle
 `Kale@0.0.1` you will see the various transactions you can execute.
 
@@ -292,16 +292,16 @@ contracts on here, you would see those as well. Now, if you untoggle
 then click on `Submit Transaction`. Then it will prompt you for the
 argurments you want to pass in. You can enter the text below. It will
 give you another prompt for transient data, but you can hit enter to
-bypass this prompt and it will then execute the transaction. **NOTE**
-Put your arguments between the brackets. :
+bypass this prompt and it will then execute the transaction. **NOTE:**
+Put your arguments between the brackets:
 
     "001", "a bunch of kale"
 
 See what I did there? Anyways..
 
-**3.** Now, we can confirm that the transaction actually occured. There
+**3.** Now we can confirm that the transaction actually occured. There
 are a couple of ways we could do this. The first way we can test this
-out is by entering the following text below in our VSCode terminal :
+out is by entering the following text below in our VSCode terminal:
 
     docker logs fabricvscodelocalfabric_peer0.org1.example.com | grep block
     *
@@ -316,8 +316,8 @@ transaction in the `Fabric Gateway` section. Once you right click on
 get recorded as a transaction, but rather as a query. If you select
 `Submit Transaction`, that would be recorded as a transaction. Once it
 gives you a prompt, enter the text below. Then hit `enter` and then
-`enter` again to bypass the transient data prompt and execute the query.
-:
+`enter` again to bypass the transient data prompt and execute the query:
+
 
     "001"
 
@@ -329,13 +329,13 @@ gives you a prompt, enter the text below. Then hit `enter` and then
 transaction and selecting `Submit Transaction`. You can enter the text
 below to update our existing kale. Again, hit `enter` to go to the next
 prompt and then `enter` again to bypass the transient data prompt and
-execut our transaction. :
+execute our transaction:
 
     "001", "a bunch of organic kale"
 
 **6.** Now, we can repeat step 4 and execute the `readKale` transaction.
 This time, select `Submit Transaction` instead of
-`Evaluate Transaction`. Here is what to enter in the prompt. :
+`Evaluate Transaction`. Here is what to enter in the prompt:
 
     "001"
 
@@ -345,10 +345,10 @@ This time, select `Submit Transaction` instead of
     [6/11/2019 2:43:01 PM] [SUCCESS] Returned value from readKale: {"value":"a bunch of organic kale"}
 
 **7.** Because Barry is on a major health kick and is hungry for some
-organic Kale, we can execute the `deleteKale` transaction. To do this,
+organic Kale, we can execute the `deleteKale` transaction after Barry transforms the Kale into its base nutrients fighting for attention along with everything else in his bloodstream. To do this,
 right click on the `deleteKale` transaction and enter this between the
 brackets. Hit `enter` to go to the next prompt and then `enter` once
-more to actually execute the transaction. :
+more to actually execute the transaction:
 
     "001"
 
@@ -362,7 +362,7 @@ Section 6: Tests
 ================
 
 **1.** VSCode gives us a couple ways to test our smart contract. We will
-test them both, but lets focus on unit testing first.
+test them both, but let's focus on unit testing first.
 
 **2.** If you go to the `Editior` perspective, untoggle the `test`
 folder. Then right click on the `kale-contract.js` file and select
@@ -371,7 +371,7 @@ folder. Then right click on the `kale-contract.js` file and select
 ![image](vscode-images/1-5-2.png)
 
 **3.** Once you get your terminal prompt, enter the text below to test
-our smart contract out. :
+our smart contract out:
 
     tecadmin@ubuntubase:~/Documents/Kale/tests$ npm test
 
@@ -407,7 +407,7 @@ sign that transactions should work as they are. Very nice!
 
 **4.** Another way we can test is by generating a smart contract test
 client. To do that, jump back down to the IBM Blockchain Platform
-extension by clicking on the outline of a block. Once you are there,
+Extension by clicking on the outline of a block. Once you are there,
 `right click` on your smart contract that is in your `Fabric Gateway`
 section. Then select your only option,
 `Generate Tests for Smart Contract`. Then select `JavaScript` once it
@@ -419,14 +419,14 @@ prompts you for which test language you prefer.
 some messaging in the bottom right. Once that is done, scroll down to
 `line 72` in the file that was generated.
 
-**6.** On `line 74`, enter the following within the brackets. :
+**6.** On `line 74`, enter the following within the brackets:
 
     "001", "a new bunch of kale"
 
 **7.** Then save this file by either doing `Control + s` or by doing
 `File -> Save`. Once you have done that, there should be a button that
 says `Run Test` in between lines 71 and 72. You can click on `Run Test`
-to actually run the test. :
+to actually run the test:
 
     Output Logs:
     KaleContract-Kale@0.0.1
