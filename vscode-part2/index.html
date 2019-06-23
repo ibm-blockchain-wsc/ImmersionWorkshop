@@ -470,7 +470,7 @@ copy of the commercial paper smart contract on our peer.</p>
 <p><img alt="image" src="../vscode-images/papernet_magnetoinstall.png" /></p>
 <p><strong>3.</strong> Since our network is connected to our VSCode instance, you can
 refresh the <code>Local Fabric Ops panel</code> in VSCode under the
-<code>IBM Blockchain extension</code>. The refresh button (<code>unclosed circle icon</code>)
+<code>IBM Blockchain Extension</code>. The refresh button (<code>unclosed circle icon</code>)
 is revealed when you hover your mouse over the Local Fabric Ops panel</p>
 <p><img alt="image" src="../vscode-images/2-2-3.png" /></p>
 <p><strong>4.</strong> Since we have installed the smart contract, we should actually
@@ -814,16 +814,16 @@ Transaction complete.
 Disconnect from Fabric gateway.
 getPaper program complete
 </code></pre>
-<p>Now, we have run through the full lifecycle of 1 paper through the
+<p>Now, we have run through the full lifecycle of one paper through the
 command line interface (CLI). In the following sections we will use a
 mixture of the CLI, the VSCode user interface, and a loopback API service
 application.</p>
 <h1 id="section-5-create-fabric-gateways-and-submit-transactions">Section 5: Create Fabric Gateways and Submit Transactions</h1>
 <p>In the previous section, we created two identities -
-<code>Isabella and Balaji</code> - and then completed a full lifecycle of 1 paper.
+<code>Isabella and Balaji</code> - and then completed a full lifecycle of one paper.
 Let's create a fabric gateway for Isabella and Balaji and then submit
 some more transactions.</p>
-<p><strong>1.</strong> Within VSCode, go to the IBM Blockchain Platform extension. One
+<p><strong>1.</strong> Within VSCode, go to the IBM Blockchain Platform Extension. One
 of the sections you'll see is called <code>Fabric Gateways</code>. If you click on
 the gear icon in the bottom left, select <code>Command Pallette..</code>. You'll be
 given a prompt and you can enter this command below :</p>
@@ -838,10 +838,11 @@ below :</p>
 Click on browse and it will open a file window. Navigate to the path
 below and select <code>networkConnection.yaml</code>. <strong>NOTE:</strong> scroll over to see
 the entire file path below :</p>
-<pre><code>Desktop -&gt; fabric-samples-cp -&gt; commercial paper -&gt; organization -&gt; magnetocorp -&gt; gateway -&gt; networkConnection.yaml
+<pre><code>Desktop -&gt; fabric-samples-cp -&gt; commercial-paper -&gt; organization -&gt; magnetocorp -&gt; gateway -&gt; networkConnection.yaml
+.
 </code></pre>
 <p><strong>4.</strong> Then it will place that new gateway in the <code>Fabric Gateway</code>
-section within the IBM Blockchain Platform extension. Now that we have a
+section within the IBM Blockchain Platform Extension. Now that we have a
 gateway, we need to create an identity to use this gateway. To do this,
 hover your cursor over the <code>Fabric Wallets</code> section of the extension.
 There you'll see a <code>+</code> icon. Click on that <code>+</code> icon to add a wallet.</p>
@@ -852,18 +853,19 @@ she has a wallet folder.</p>
 <p><strong>6.</strong> Then it will prompt you: <code>Enter file path to a wallet directory</code>
 and then select <code>Browse</code>. It will then pop-up a file window. From there,
 you can navigate to the following path below. <strong>NOTE:</strong> scroll over to
-see the entire file path below :</p>
+see the entire file path below:</p>
 <pre><code>Desktop -&gt; fabric-samples-cp -&gt; commercial-paper -&gt; organization -&gt; magnetocorp -&gt; identity -&gt; user -&gt; isabella -&gt; wallet
+.
 </code></pre>
 <p>Once you have selected <code>wallet</code>, click on <code>select</code> to choose this
-option. Then it will add a wallet, called <code>wallet</code> to our
+option. Then it will add a wallet, called <code>wallet</code>, to our
 <code>Fabric Wallets</code> section of the extension.</p>
 <p><strong>7.</strong> Once you see the wallet called <code>wallet</code> in the <code>Fabric Wallet</code>
 section, go ahead and right click on <code>wallet</code>. How many times can you
 say <code>wallet</code> in a sentence. From there, select <code>Edit Wallet</code> and it will
 open a <code>settings.json</code> file with your wallet name and wallet path
 highlighted. Go ahead and <strong>only</strong> change the <code>wallet name</code> to
-<code>MagnetoCorpWallet</code>. Look below to see the example :</p>
+<code>MagnetoCorpWallet</code>. Look below to see the example:</p>
 <pre><code>"name": "wallet",
 "walletPath": "/home/tecadmin/Desktop/fabric-samples-cp/commercial-paper/organization/magnetocorp/identity/user/isabella/wallet"
 
@@ -879,22 +881,23 @@ wallet.</p>
 <p><strong>9.</strong> Speaking of Digibank, we now need to do the same process for
 them. So click on the gear icon in the bottom left, select
 <code>Command Pallette..</code>. You'll be given a prompt and you can enter this
-command below :</p>
+command below:</p>
 <pre><code>&gt;IBM Blockchain Platform: Add Gateway
 </code></pre>
 <p><strong>10.</strong> For our second Gateway, let's create DigiBank. So when it
 prompts you for: <code>Enter a name for the gateway</code> enter the following
-below :</p>
+below:</p>
 <pre><code>DigiBank
 </code></pre>
 <p><strong>11.</strong> Then it will prompt you for a path to the connection profile.
 Click on browse and it will open a file window. Navigate to the path
 below and select <code>networkConnection.yaml</code>. <strong>NOTE:</strong> scroll over to see
-the entire file path below :</p>
-<pre><code>Desktop -&gt; fabric-samples-cp -&gt; commercial paper -&gt; organization -&gt; digibank -&gt; gateway -&gt; networkConnection.yaml
+the entire file path below:</p>
+<pre><code>Desktop -&gt; fabric-samples-cp -&gt; commercial-paper -&gt; organization -&gt; digibank -&gt; gateway -&gt; networkConnection.yaml
+.
 </code></pre>
 <p><strong>12.</strong> Then it will place that new gateway in the <code>Fabric Gateway</code>
-section within the IBM Blockchain Platform extension. Now that we have a
+section within the IBM Blockchain Platform Extension. Now that we have a
 gateway, we need to create an identity to use this gateway. To do this,
 hover your cursor over the <code>Fabric Wallets</code> section of the extension.
 There you'll see a <code>+</code> icon. Click on that <code>+</code> icon to add a wallet.</p>
@@ -905,17 +908,18 @@ she has a wallet folder.</p>
 <p><strong>14.</strong> Then it will prompt you: <code>Enter file path to a wallet directory</code>
 and then select <code>Browse</code>. It will then pop-up a file window. From there,
 you can navigate to the following path below. <strong>NOTE:</strong> scroll over to
-see the entire file path below :</p>
+see the entire file path below:</p>
 <pre><code>Desktop -&gt; fabric-samples-cp -&gt; commercial-paper -&gt; organization -&gt; digibank -&gt; identity -&gt; user -&gt; balaji -&gt; wallet
+.
 </code></pre>
 <p>Once you have selected <code>wallet</code>, click on <code>select</code> to choose this
-option. Then it will add a wallet, called <code>wallet</code> to our
+option. Then it will add a wallet, called <code>wallet</code>, to our
 <code>Fabric Wallets</code> section of the extension.</p>
 <p><strong>15.</strong> Once you see the wallet called <code>wallet</code> in the <code>Fabric Wallet</code>
 section, go ahead and right click on <code>wallet</code>. From there, select
 <code>Edit Wallet</code> and it will open a <code>settings.json</code> file with your wallet
 name and wallet path highlighted. Go ahead and <strong>only</strong> change the
-<code>wallet name</code> to <code>MagnetoCorpWallet</code>. Look below to see the example :</p>
+<code>wallet name</code> to <code>DigiBankWallet</code>. Look below to see the example:</p>
 <pre><code>"name": "wallet",
 "walletPath": "/home/tecadmin/Desktop/fabric-samples-cp/commercial-paper/organization/digibank/identity/user/balaji/wallet"
 
@@ -928,7 +932,7 @@ name and wallet path highlighted. Go ahead and <strong>only</strong> change the
 doing a <code>File -&gt; Save</code> or <code>Control + S</code>. Now within your
 <code>Fabric Wallets</code> section, you should have <code>MagnetCorpWallet</code> and
 <code>DigiBankWallet</code> as our two custom wallets.</p>
-<p><strong>17.</strong> Now that we have two wallets, we can associate our wallets for
+<p><strong>17.</strong> Now that we have two wallets, we can associate our wallets to
 our two gateways. To do this <code>right click</code> on <code>MagnetoCorp</code> within the
 <code>Fabric Gateways</code> section. Then select <code>Associate A Wallet</code>. Then it
 will prompt you for which wallet to associate with this gateway. You
@@ -953,25 +957,25 @@ lifecycle of a commercial paper. To do this, we need to do an <code>issue</code>
 transaction. First click on the <code>MagnetoCorp</code> gateway and untoggle till
 you see the transactions within the <code>papercontract@0</code>. From there,
 <code>right click</code> on the <code>issue</code> transaction and select
-<code>Submit Transaction</code>. Within the brackets, place the text below :</p>
+<code>Submit Transaction</code>. Within the brackets, place the text below:</p>
 <pre><code>"MagnetoCorp", "00002", "2020-05-31", "2020-11-30", "5000000"
 </code></pre>
 <p>You can hit enter again to bypass the next prompt asking for transient
-data. That will execute the transaction and issue paper <code>#00002</code></p>
+data. That will execute the transaction and issue paper <code>00002</code></p>
 <p><strong>21.</strong> To make sure we are all operating on the same paper number, we
 need to change a few files. I have broken down the files we need to
 change below within VSCode in the Editior perspective.</p>
-<p>From <code>`digibank/application</code> folder, within the <code>getPaper.js</code> file
-on line <code>68</code> :</p>
+<p>From <code>digibank/application</code> folder, within the <code>getPaper.js</code> file
+on line <code>68</code>:</p>
 <pre><code>const getPaperResponse = await contract.evaluateTransaction('getPaper', 'MagnetoCorp', '00001');
 
----- CHNAGE TO ----
+---- CHANGE TO ----
 
 const getPaperResponse = await contract.evaluateTransaction('getPaper', 'MagnetoCorp', '00002');
 </code></pre>
 <p><strong>Make sure you save this file.</strong></p>
 <p>From <code>`digibank/application</code> folder, within the <code>redeem.js</code> file on
-line <code>67</code> :</p>
+line <code>67</code>:</p>
 <pre><code>const redeemResponse = await contract.submitTransaction('redeem', 'MagnetoCorp', '00001', 'DigiBank', '2020-11-30');
 
 ---- CHANGE TO ----
@@ -979,9 +983,9 @@ line <code>67</code> :</p>
 const redeemResponse = await contract.submitTransaction('redeem', 'MagnetoCorp', '00002', 'DigiBank', '2020-11-30');
 </code></pre>
 <p><strong>Make sure you save this file.</strong></p>
-<p><strong>22.</strong> Now we can execute so more transactions. First, jump back to the
-CLI and do an <code>getPaper.js</code> transaction. Below you will see what the
-transaction. <strong>NOTE:</strong> scroll over to see the entire command below :</p>
+<p><strong>22.</strong> Now we can execute more transactions. First, jump back to the
+CLI and do a <code>getPaper.js</code> transaction. Below you will see what the
+command is to execute the transaction. <strong>NOTE:</strong> scroll over to see the entire command below:</p>
 <pre><code>tecadmin@ubuntubase:~/Desktop/fabric-samples-cp/commercial-paper/organization/digibank/application$ node getPaper.js
 Connect to Fabric gateway.
 Use network channel: mychannel.
@@ -1002,12 +1006,12 @@ Disconnect from Fabric gateway.
 getPaper program complete.
 </code></pre>
 <p><strong>23.</strong> Within VSCode and the IBM Blockchain Platform, we can buy the
-same paper. To do this, leave the <code>MagnetoCorp</code> gateway, click on the
+same paper. To do this, leave the <code>MagnetoCorp</code> gateway, and then click on the
 <code>DigiBank</code> gateway.</p>
 <p><strong>24.</strong> Now, untoggle till you see the <code>buy</code> transaction within the
 <code>papercontract@0</code> smart contract. From there, <code>right click</code> on the <code>buy</code>
 transaction and select <code>Submit Transaction</code>. Once it gives you a prompt,
-enter the text below between the brackets :</p>
+enter the text below between the brackets:</p>
 <pre><code>"MagnetoCorp","00002","MagnetoCorp","DigiBank","4900000","2019-07-31"
 </code></pre>
 <p>Then hit <code>enter</code> to go to the next prompt. Hit <code>enter</code> once again to
@@ -1015,7 +1019,7 @@ bypass the transient data prompt. Then that will execute the <code>buy</code>
 transaction.</p>
 <p><strong>25.</strong> To confirm that the transaction worked (other than the log
 messages in the output window), we can do a <code>getPaper</code> transaction from
-the CLI again. <strong>NOTE:</strong> scroll over to see the entire command below :</p>
+the CLI again. <strong>NOTE:</strong> scroll over to see the entire command below:</p>
 <pre><code>tecadmin@ubuntubase:~/Desktop/fabric-samples-cp/commercial-paper/organization/digibank/application$ node getPaper.js
 Connect to Fabric gateway.
 Use network channel: mychannel.
@@ -1035,7 +1039,7 @@ Transaction complete.
 Disconnect from Fabric gateway.
 getPaper program complete.
 </code></pre>
-<p><strong>26.</strong> From the same CLI, we can do a <code>redeem.js</code> transaction. <strong>NOTE:</strong> scroll over to see the entire command below :</p>
+<p><strong>26.</strong> From the same CLI, we can do a <code>redeem.js</code> transaction. <strong>NOTE:</strong> scroll over to see the entire command below:</p>
 <pre><code>tecadmin@ubuntubase:~/Desktop/fabric-samples/commercial-paper/organization/digibank/application$ node redeem.js 
 Connect to Fabric gateway.
 Use network channel: mychannel.
@@ -1050,7 +1054,7 @@ Redeem program complete.
 </code></pre>
 <p><strong>27.</strong> Again, we can confirm that this was recorded by doing another
 <code>getPaper.js</code> transaction. <strong>NOTE:</strong> scroll over to see the entire
-command below :</p>
+command below:</p>
 <pre><code>tecadmin@ubuntubase:~/Desktop/fabric-samples-cp/commercial-paper/organization/digibank/application$ node getPaper.js
 Connect to Fabric gateway.
 Use network channel: mychannel.
@@ -2314,7 +2318,7 @@ Transaction complete.
 Disconnect from Fabric gateway.
 getPaper program complete.
 </code></pre>
-<p><strong>48.</strong> From the IBM Blockchain Platform extension in VSCode, connect to
+<p><strong>48.</strong> From the IBM Blockchain Platform Extension in VSCode, connect to
 the <code>DigiBank</code> Fabric Gateway. Then untoggle till you see the <code>buy</code>
 transaction under our <code>papercontract@0</code> smart contract. Enter the code
 below - between the brackets - to submit this transaction :</p>
