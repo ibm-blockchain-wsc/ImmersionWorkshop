@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>IBM Blockchain Platform console lab - Blockchain Immersion Workshop</title>
+  <title>Part 1 - Create a Blockchain Network - Blockchain Immersion Workshop</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
@@ -17,7 +17,7 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "IBM Blockchain Platform console lab";
+    var mkdocs_page_name = "Part 1 - Create a Blockchain Network";
     var mkdocs_page_input_path = "ibpconsole.md";
     var mkdocs_page_url = null;
   </script>
@@ -55,25 +55,6 @@
           
             <li class="toctree-l1">
 		
-    <span class="caption-text">Hyperledger Fabric Lab</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../hlf-home/">Introduction</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../hlf-part1/">Part 1</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../hlf-part2/">Part 2</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
     <span class="caption-text">Use Case Walkthrough</span>
     <ul class="subnav">
                 <li class="">
@@ -97,11 +78,15 @@
                 </li>
                 <li class="">
                     
-    <a class="" href="../vscode-part1/">Part 1</a>
+    <a class="" href="../vscode-part1/">Part 1 - Create Smart Contract</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../vscode-part2/">Part 2</a>
+    <a class="" href="../vscode-part2/">Part 2 - Commercial Paper</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../xchaincode/">Part 3 - Cross Chaincode and Debug</a>
                 </li>
     </ul>
 	    </li>
@@ -125,74 +110,88 @@
     </ul>
 	    </li>
           
-            <li class="toctree-l1 current">
+            <li class="toctree-l1">
 		
-    <a class="current" href="./">IBM Blockchain Platform console lab</a>
+    <span class="caption-text">IBM Blockchain Platform for Multi-Cloud on Linux on Z Lab</span>
+    <ul class="subnav">
+                <li class=" current">
+                    
+    <a class="current" href="./">Part 1 - Create a Blockchain Network</a>
     <ul class="subnav">
             
-    <li class="toctree-l2"><a href="#section-1-ibm-blockchain-platform-console-lab-overview">Section 1: IBM Blockchain Platform console lab overview</a></li>
+    <li class="toctree-l3"><a href="#section-1-ibm-blockchain-platform-console-lab-overview">Section 1: IBM Blockchain Platform console lab overview</a></li>
     
 
-    <li class="toctree-l2"><a href="#section-2-log-in-to-the-ibm-blockchain-platform-console">Section 2: Log in to the IBM Blockchain Platform console</a></li>
+    <li class="toctree-l3"><a href="#section-2-log-in-to-the-ibm-blockchain-platform-console">Section 2: Log in to the IBM Blockchain Platform console</a></li>
     
 
-    <li class="toctree-l2"><a href="#section-3-create-a-certificate-authority-for-your-first-organization">Section 3: Create a Certificate Authority for your first organization</a></li>
+    <li class="toctree-l3"><a href="#section-3-create-a-certificate-authority-for-your-first-organization">Section 3: Create a Certificate Authority for your first organization</a></li>
     
 
-    <li class="toctree-l2"><a href="#section-4-add-new-users-using-your-org1-certificate-authority">Section 4: Add new users using your Org1 Certificate Authority</a></li>
+    <li class="toctree-l3"><a href="#section-4-add-new-users-using-your-org1-certificate-authority">Section 4: Add new users using your Org1 Certificate Authority</a></li>
     
 
-    <li class="toctree-l2"><a href="#section-5-create-an-msp-for-your-organization">Section 5: Create an MSP for your organization</a></li>
+    <li class="toctree-l3"><a href="#section-5-create-an-msp-for-your-organization">Section 5: Create an MSP for your organization</a></li>
     
 
-    <li class="toctree-l2"><a href="#section-6-create-a-peer-node-for-your-organization">Section 6: Create a peer node for your organization</a></li>
+    <li class="toctree-l3"><a href="#section-6-create-a-peer-node-for-your-organization">Section 6: Create a peer node for your organization</a></li>
     
 
-    <li class="toctree-l2"><a href="#section-7-create-a-certificate-authority-for-an-ordering-service-organization">Section 7: Create a certificate authority for an Ordering Service organization</a></li>
+    <li class="toctree-l3"><a href="#section-7-create-a-certificate-authority-for-an-ordering-service-organization">Section 7: Create a certificate authority for an Ordering Service organization</a></li>
     
 
-    <li class="toctree-l2"><a href="#section-8-add-new-users-using-your-ordering-service-certificate-authority">Section 8: Add new users using your Ordering Service Certificate Authority</a></li>
+    <li class="toctree-l3"><a href="#section-8-add-new-users-using-your-ordering-service-certificate-authority">Section 8: Add new users using your Ordering Service Certificate Authority</a></li>
     
 
-    <li class="toctree-l2"><a href="#section-9-create-an-msp-for-your-ordering-service-organization">Section 9: Create an MSP for your Ordering Service organization</a></li>
+    <li class="toctree-l3"><a href="#section-9-create-an-msp-for-your-ordering-service-organization">Section 9: Create an MSP for your Ordering Service organization</a></li>
     
 
-    <li class="toctree-l2"><a href="#section-10-create-an-ordering-service-node-for-your-organization">Section 10: Create an ordering service node for your organization</a></li>
+    <li class="toctree-l3"><a href="#section-10-create-an-ordering-service-node-for-your-organization">Section 10: Create an ordering service node for your organization</a></li>
     
 
-    <li class="toctree-l2"><a href="#section-11-add-your-peer-organization-to-a-consortium">Section 11: Add your peer organization to a consortium</a></li>
+    <li class="toctree-l3"><a href="#section-11-add-your-peer-organization-to-a-consortium">Section 11: Add your peer organization to a consortium</a></li>
     
 
-    <li class="toctree-l2"><a href="#section-12-create-a-channel">Section 12: Create a channel</a></li>
+    <li class="toctree-l3"><a href="#section-12-create-a-channel">Section 12: Create a channel</a></li>
     
 
-    <li class="toctree-l2"><a href="#section-13-join-a-peer-to-the-channel">Section 13: Join a peer to the channel</a></li>
+    <li class="toctree-l3"><a href="#section-13-join-a-peer-to-the-channel">Section 13: Join a peer to the channel</a></li>
     
 
-    <li class="toctree-l2"><a href="#section-14-define-the-certificate-authority-for-a-second-peer-organization">Section 14: Define the certificate authority for a second peer organization</a></li>
+    <li class="toctree-l3"><a href="#section-14-define-the-certificate-authority-for-a-second-peer-organization">Section 14: Define the certificate authority for a second peer organization</a></li>
     
 
-    <li class="toctree-l2"><a href="#section-15-add-new-users-using-your-org2-certificate-authority">Section 15: Add new users using your Org2 Certificate Authority</a></li>
+    <li class="toctree-l3"><a href="#section-15-add-new-users-using-your-org2-certificate-authority">Section 15: Add new users using your Org2 Certificate Authority</a></li>
     
 
-    <li class="toctree-l2"><a href="#section-16-create-an-msp-for-your-second-peer-organization">Section 16: Create an MSP for your second peer organization</a></li>
+    <li class="toctree-l3"><a href="#section-16-create-an-msp-for-your-second-peer-organization">Section 16: Create an MSP for your second peer organization</a></li>
     
 
-    <li class="toctree-l2"><a href="#section-17-create-a-peer-node-for-your-second-peer-organization">Section 17: Create a peer node for your second peer organization</a></li>
+    <li class="toctree-l3"><a href="#section-17-create-a-peer-node-for-your-second-peer-organization">Section 17: Create a peer node for your second peer organization</a></li>
     
 
-    <li class="toctree-l2"><a href="#section-18-add-your-new-peer-organization-to-the-consortium">Section 18: Add your new peer organization to the consortium</a></li>
+    <li class="toctree-l3"><a href="#section-18-add-your-new-peer-organization-to-the-consortium">Section 18: Add your new peer organization to the consortium</a></li>
     
 
-    <li class="toctree-l2"><a href="#section-19-add-your-org2-organization-to-the-channel">Section 19: Add your Org2 organization to the channel</a></li>
+    <li class="toctree-l3"><a href="#section-19-add-your-org2-organization-to-the-channel">Section 19: Add your Org2 organization to the channel</a></li>
     
 
-    <li class="toctree-l2"><a href="#section-20-join-your-peer-for-org2-to-the-channel">Section 20: Join your peer for Org2 to the channel</a></li>
+    <li class="toctree-l3"><a href="#section-20-join-your-peer-for-org2-to-the-channel">Section 20: Join your peer for Org2 to the channel</a></li>
     
 
-    <li class="toctree-l2"><a href="#section-21-define-an-anchor-peer-for-each-of-your-two-peer-organizations">Section 21: Define an anchor peer for each of your two peer organizations</a></li>
+    <li class="toctree-l3"><a href="#section-21-define-an-anchor-peer-for-each-of-your-two-peer-organizations">Section 21: Define an anchor peer for each of your two peer organizations</a></li>
     
 
+    </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../ibpdeploy.md">Part 2 - Deploy Smart Contract</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../cicd.md">Part 3 - CICD</a>
+                </li>
     </ul>
 	    </li>
           
@@ -222,8 +221,12 @@
     <li><a href="..">Docs</a> &raquo;</li>
     
       
+        
+          <li>IBM Blockchain Platform for Multi-Cloud on Linux on Z Lab &raquo;</li>
+        
+      
     
-    <li>IBM Blockchain Platform console lab</li>
+    <li>Part 1 - Create a Blockchain Network</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
