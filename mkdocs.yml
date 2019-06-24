@@ -14,6 +14,7 @@ nav:
         - Introduction: vscode-home.md
         - Part 1: vscode-part1.md
         - Part 2: vscode-part2.md
+	- Part 3: xchaincode.md
     - IBM Blockchain Platform Connect-a-thon Lab:
         - Introduction: connect-home.md
         - Part 1: connect-part1.md
