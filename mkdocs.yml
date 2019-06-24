@@ -3,23 +3,22 @@ repo_url: https://github.com/ibm-blockchain-wsc/ImmersionWorkshop.git
 edit_uri: ''
 nav:
     - Home: index.md
-    - Hyperledger Fabric Lab:
-        - Introduction: hlf-home.md
-        - Part 1: hlf-part1.md
-        - Part 2: hlf-part2.md
     - Use Case Walkthrough:
         - Introduction: immunichain-home.md
         - Part 1: immunichain.md
     - VSCode Lab:
         - Introduction: vscode-home.md
-        - Part 1: vscode-part1.md
-        - Part 2: vscode-part2.md
-	    - Part 3: xchaincode.md
+        - Part 1 - Create Smart Contract: vscode-part1.md
+        - Part 2 - Commercial Paper: vscode-part2.md
+        - Part 3 - Cross Chaincode and Debug: xchaincode.md
     - IBM Blockchain Platform Connect-a-thon Lab:
         - Introduction: connect-home.md
         - Part 1: connect-part1.md
         - Part 2: connect-part2.md
-    - IBM Blockchain Platform console lab: ibpconsole.md
+    - IBM Blockchain Platform for Multi-Cloud Lab: 
+        - Part 1 - Create a Blockchain Network: ibpconsole.md
+        - Part 2 - Deploy Smart Contract: ibpdeploy.md
+        - Part 3 - CICD: cicd.md
     - Additional Resources: references.md
 
 theme: readthedocs
