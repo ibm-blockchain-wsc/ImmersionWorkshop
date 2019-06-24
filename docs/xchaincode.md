@@ -50,7 +50,7 @@ Right click in a blank area in your workspace to get the drop down and select Ad
 ![VSCode-xchaincode1](images/xchaincode/xchaincode1.png)
 
 You should see the contents of the folder in your workspace, like the following picture:
-(Please note that your other folders may look different than the screen shot below, but the contents within the commercial-bond folder should be the same)
+(Please note that your other folders may look different than the screenshot below, but the contents within the commercial-bond folder should be the same)
 
 ![VSCode-xchaincode2](images/xchaincode/xchaincode2.png)
 
@@ -223,7 +223,7 @@ Upon success, you will see the following output in the `OUTPUT` panel:
 
 ![VSCode-xchaincode23](images/xchaincode/xchaincode23.png)
 
-**11.** Notice that the interest rate returned is 0.01, which if you recall is the interest rate associated with MagnetoCorp's bondNumber 00003, which has a maturity date of 2020-02-28 which is the same month as the 2nd argument you passed for `getClosestBondRate`.
+**11.** Notice that the interest rate returned is 0.01, which if you recall is the interest rate associated with MagnetoCorp's bondNumber 00003, which has a maturity date of 2020-02-28 which is the same month as the second argument you passed for `getClosestBondRate`.
 
 **12.** Now re-evaluate the transaction `getClosestBondRate` (steps 9 - 11) with the following arguments:
 
@@ -454,7 +454,7 @@ You will see the output from this transaction below in the `OUTPUT` box.
 
 # Section 7: Make smart contract updates to include cross-chaincode call, test in debugging session (**These instructions have been modified for IBM Blockchain Platform Extension v1.0.3**)
 
-**1.** OK, now that you have played with the debugger, let's add additional code to `papercontract.js`. We will first amend the `issue` function to take in interest rate as another parameter. The new `issue` function will also include code to query the `commercial-bond` contract for the interest rate of a bond that has similar maturity date as the paper and align the paper rate to the bond rate. Then we will add the following the helper function: `getPaperRate`.
+**1.** OK, now that you have played with the debugger, let's add additional code to `papercontract.js`. We will first amend the `issue` function to take in interest rate as another parameter. The new `issue` function will also include code to query the `commercial-bond` contract for the interest rate of a bond that has a similar maturity date as the paper and align the paper rate to the bond rate. Then we will add the following the helper function: `getPaperRate`.
 
 **2.** Before we edit `papercontract.js` we need to update `paper.js` to add these functions `getRate` and `setRate`. In addition, we need to update the `createInstance` function to include the `paperRate` parameter. Keep in mind `papercontract.js` uses `paper.js` to represent a paper.
 
@@ -664,13 +664,13 @@ With this:
 
 Note: During the copy and paste process, the formatting of the code block might look off. You can highlight the code block, then `Ctl + click` and select `Format Selection` which should format the highlighted section nicely.
 
-The above `issue` function first queries the commercial-bond contract for the return rate on a bond with similar maturity date. It uses the `invokeChaincode()` API from the ChaincodeStub class of the fabirc-shim library. The `invokeChaincode()` API takes three arguments: `<async> invokeChaincode(chaincodeName, args, channel)` (see full spec here https://fabric-shim.github.io/master/fabric-shim.ChaincodeStub.html#toc1__anchor). 
+The above `issue` function first queries the commercial-bond contract for the return rate on a bond with a similar maturity date. It uses the `invokeChaincode()` API from the ChaincodeStub class of the fabirc-shim library. The `invokeChaincode()` API takes three arguments: `<async> invokeChaincode(chaincodeName, args, channel)` (see full spec here https://fabric-shim.github.io/master/fabric-shim.ChaincodeStub.html#toc1__anchor). 
 
 In the invokeChaincode() example in the `issue` function above:
 
-    1. The first argument passed is `commercial-bond` which is the name of the chaincode that you want to invoke.
-    2. The 2nd argument in our example is `["getClosestBondRate", issuer, maturityDateTime]` which is an array of strings. The first array element `"getClosestBondRate"` is the function within the `commercial-bond` contract you want to invoke, the 2nd and third elements are the arguments to pass to the `getClosestBondRate` function, in this case they are the name of the organization that issued the bonds you want to query and the maturity date that you want to compare bonds to.
-    3. The 3rd argument is `ctx.stub.getChannelID()` which returns the current channel that the calling chaincode is transacting on. In our example, this is because `papercontract` and `commercial-bond` reside in the same channel. If the chaincode you want to invoke resides in a different channel, you will specify the name of that channel directly here. Remember, you can only invoke query transactions for chaincodes that are on a different channel.
+1. The first argument passed is `commercial-bond` which is the name of the chaincode that you want to invoke.
+2. The second argument in our example is `["getClosestBondRate", issuer, maturityDateTime]` which is an array of strings. The first array element `"getClosestBondRate"` is the function within the `commercial-bond` contract you want to invoke, the second and third elements are the arguments to pass to the `getClosestBondRate` function- in this case they are the name of the organization that issued the bonds you want to query and the maturity date that you want to compare bonds to.
+3. The third argument is `ctx.stub.getChannelID()` which returns the current channel that the calling chaincode is transacting on. In our example, this is because `papercontract` and `commercial-bond` reside in the same channel. If the chaincode you want to invoke resides in a different channel, you will specify the name of that channel directly here. Remember, you can only invoke query transactions for chaincodes that are on a different channel.
 
 The `if-else` code block in the above `issue` function will then test to see if the result of the invokeChaincode() function is an empty string. If the result is not an empty string, you want to create the paper asset with the bond rate (called `newPaperRate`). If the result is an empty string, you want to create the paper asset with the `paperRate` passed through the `issue` function.
 
@@ -678,13 +678,13 @@ Your `issue` function should look like the following:
 
 ![VSCode-xchaincode62](images/xchaincode/xchaincode62.png)
 
-**5.** Notice the breakpoint is still there in `papercontract.js` from section 6. Let's remove it by clicking on the red dot or placing your cursor on that line and hitting F9. After this step you should not see any breakpoints.
+**5.** Notice the breakpoint is still there in `papercontract.js` from Section 6. Let's remove it by clicking on the red dot or placing your cursor on that line and hitting F9. After this step you should not see any breakpoints.
 
 Note: *If* for whatever reason, you have exited the debug session, you can always bring it back by clicking on the green arrow button in the `DEBUG` toolbar or by clicking on the blue bar at the bottom of VSCode that says `Launch Smart Contract`:
 
 ![VSCode-xchaincode-launch-debug](images/xchaincode/xchaincode-launch-debug.png)
 
-**6.** Becase we made updates to the smart contract we will need to upgrade the smart contract in order for the modifications to take affect against the local Fabric network. With the integrated IBM Blockchain Platform Debugger you can do everything from one screen and without exiting the current debug session. Click the blue IBM Blockchain Platform button in the debug toolbar to reveal the debug command list.
+**6.** Because we made updates to the smart contract we will need to upgrade the smart contract in order for the modifications to take effect against the local Fabric network. With the integrated IBM Blockchain Platform Debugger you can do everything from one screen and without exiting the current debug session. Click the blue IBM Blockchain Platform button in the debug toolbar to reveal the debug command list.
 
 ![VSCode-xchaincode47](images/xchaincode/xchaincode47.png)
 
@@ -718,7 +718,7 @@ Note: *If* for whatever reason, you have exited the debug session, you can alway
 
 And you will see the debug tool bar with the blue IBM Blockchain Platform logo launched at the top. The bar at the bottom turns orange to indicate that you are currently in a debug session.
 
-**14.** Return to `papercontract.js`, and place a new breakpoint on the following line:
+**14.** Return to `papercontract.js`, and place a new breakpoint on the following line, which is the first uncommented line in the `issue` function:
 
 `let assignPaperRate = await ctx.stub.invokeChaincode("commercial-bond", ["getClosestBondRate", issuer, maturityDateTime], ctx.stub.getChannelID());`
 
@@ -807,7 +807,7 @@ Your `papercontract.js` should look like the following:
 
 ![VSCode-xchaincode76](images/xchaincode/xchaincode76.png)
 
-**2.** Now that you have updated the smart contract again, you will need to deploy this new one to the local running peer. Follow the steps in **section 7: steps 6 - 13.**
+**2.** Now that you have updated the smart contract again, you will need to deploy this new one to the local running peer. Follow the steps in **Section 7: steps 6 - 13.**
 
 **3.** Let's evaluate a `getPaperRate` transaction. Let's click on the IBM Blockchain Platform button in the debug toolbar:
 
@@ -831,15 +831,15 @@ Your `papercontract.js` should look like the following:
 
 ![VSCode-xchaincode70](images/xchaincode/xchaincode70.png)
 
-**8.** Upon success you will see the following output, which confirms that the paper submitted in section 7 did indeed take the bond rate of 0.05:
+**8.** Upon success you will see the following output, which confirms that the paper submitted in Section 7 did indeed take the bond rate of 0.05:
 
 ![VSCode-xchaincode78](images/xchaincode/xchaincode78.png)
 
-**9.** If you have time, evaluate another `issue` transaction. This time passing a maturity date that you know does not have a match in `commercial-bond`. You can always go back to section 2.6 to see which bonds are in the commercial-bond world state, and pick a maturity date for your paper that is not in the same month as the bonds. Step through the debugger with variables added to the `Watch` panel, and see if the logic behaves the way you expect.
+**9.** If you have time, evaluate another `issue` transaction. This time pass a maturity date that you know does not have a match in `commercial-bond`. You can always go back to Section 2 step 6 to see which bonds are in the commercial-bond world state, and pick a maturity date for your paper that is not in the same month as the bonds. Step through the debugger with variables added to the `Watch` panel, and see if the logic behaves the way you expect.
 
 **10.** At this point you have successfully tweaked the `papercontract.js` to include a cross-chaincode call to another contract residing in the same channel. You have also added a helper function to get a paper rate on an existing paper on the ledger. One last useful transaction to have is one that queries and returns all papers by the same issuer. Let's make this update in the next section.
 
-**11.** Go to the VSCode IBM Blockchain Platform view, under the `Local Fabric Ops` panel, you should see three `papercontract@vscode-debug-<datetime>` packages under `Installed` and one `papercontract@vscode-debug-<datetime>` under `Instantiated`. The instantiated package should have the same datetime and the latest installed one. The first `papercontract@vscode-debug` package was done against the original paper contract, the 2nd package was done against the paper contract with the modified `issue` transaction, and the third package was build upon the 2nd with a new `getPaperRate` function. We hope that with this flow, you get to experience one way you can develop and build upon your smart contract.
+**11.** Go to the VSCode IBM Blockchain Platform view. Under the `Local Fabric Ops` panel, you should see three `papercontract@vscode-debug-<datetime>` packages under `Installed` and one `papercontract@vscode-debug-<datetime>` under `Instantiated`. The instantiated package should have the same datetime as the latest installed one. The first `papercontract@vscode-debug` package was done against the original paper contract, the second package was done against the paper contract with the modified `issue` transaction, and the third package was built upon the second with a new `getPaperRate` function. We hope that with this flow, you get to experience one way you can develop and build upon your smart contract.
 
 # Section 9: Add getAllPapers transaction to contract in debugging session
 
@@ -885,7 +885,7 @@ Your `papercontract.js` should look like the following:
     }
 ```
 
-This `getAllPapersFromIssuer()` function takes one argument, the name of the paper issuer you want to query. In our example so far, we have only used `MagnetoCorp`, so that is the string that would be passed as an argument to this transaction at this point. You should have noticed by now that this lab uses function and transaction interchangeably. They really mean the same thing in this lab, where one Node.js function represents one smart contract transaction.
+This `getAllPapersFromIssuer()` function takes one argument, the name of the paper issuer you want to query. In our example so far, we have only used `MagnetoCorp`, so that is the string that would be passed as an argument to this transaction at this point. You should have noticed by now that this lab uses function and transaction interchangeably. They really mean the same thing in this lab, where one Node.js function invokes one smart contract transaction.
 
 You may also have noticed that in every `papercontract.js` function, the first argument is `ctx`. However, when we actually submit or evaluate that transaction, we don't pass anything to represent the `ctx` argument. In the new Fabric programming model, `ctx` represents the current transaction context. It gets passed automatically when the transaction is invoked.
 
@@ -921,13 +921,13 @@ In the `while` loop in the above function, we iterate through the assets and cap
 
 ![VSCode-xchaincode82](images/xchaincode/xchaincode82.png)
 
-**9.** You will also see all the papers issued by `MagnetoCorp` in the `OUTPUT` panel (In the following screen shot you will see three papers. But in your output you should only have two: `MagnetoCorp:00004` and `MagnetoCorp:00005`):
+**9.** You will also see all the papers issued by `MagnetoCorp` in the `OUTPUT` panel (In the following screenshot you will see three papers. But in your output you should only have two: `MagnetoCorp:00004` and `MagnetoCorp:00005`):
 
 ![VSCode-xchaincode81](images/xchaincode/xchaincode81.png)
 
-**10.** Go to the VSCode IBM Blockchain Platform view, under the `Local Fabric Ops` panel, you should see four `papercontract@vscode-debug-<datetime>` packages under `Installed` and one `papercontract@vscode-debug-<datetime>` under `Instantiated`. The instantiated package should have the same datetime and the latest installed one. The first `papercontract@vscode-debug` package was done against the original paper contract, the 2nd package was done against the paper contract with the modified `issue` transaction, and the third package was build upon the 2nd with a new `getPaperRate` function. Finally, in this section, we added the `getAllPapersFromIssuer` transaction and this represents the fourth and final package. We hope that with this flow, you get to experience one way you can develop and build upon your smart contract.
+**10.** Go to the VSCode IBM Blockchain Platform view, under the `Local Fabric Ops` panel, you should see four `papercontract@vscode-debug-<datetime>` packages under `Installed` and one `papercontract@vscode-debug-<datetime>` under `Instantiated`. The instantiated package should have the same datetime and the latest installed one. The first `papercontract@vscode-debug` package was done against the original paper contract, the second package was done against the paper contract with the modified `issue` transaction, and the third package was build upon the second with a new `getPaperRate` function. Finally, in this section, we added the `getAllPapersFromIssuer` transaction and this represents the fourth and final package. We hope that with this flow, you get to experience one way you can develop and build upon your smart contract.
 
-# Section 9: Package commercial-paper, install and instantiate
+# Section 10: Package commercial-paper, install and instantiate
 
 Now that you are done updating the commercial-paper smart contract, you can exit out of the debug session, toggle off development mode on your peer, and package, install and upgrade to the completed smart contract.
 
@@ -939,7 +939,7 @@ Now that you are done updating the commercial-paper smart contract, you can exit
 
 ![VSCode-xchaincode-toggle-mode](images/xchaincode/xchaincode-toggle-mode.png)
 
-**3.** Upon success, you will no longer see the infinity sympbol next to `peer0.org1.example.com` and you will see the following message appear in the lower right corner:
+**3.** Upon success, you will no longer see the infinity symbol next to `peer0.org1.example.com` and you will see the following message appear in the lower right corner:
 
 ![VSCode-xchaincode83](images/xchaincode/xchaincode83.png)
 
@@ -1035,7 +1035,7 @@ For transient data, just press `Enter`:
 
 ![VSCode-xchaincode96](images/xchaincode/xchaincode96.png)
 
-**19.** Now we want to check that this paper actually has been issued with the rate of 0.04, which is the bond rate from bond `Digibank:00001` (see section 2 step 6). Again, if you recall, this is because paper `Digibank:00001` has a maturity date in the same month as bond `Digibank:00001`. Let's do this by submitting a `getPaperRate` transaction. From the `Fabric Gateways` panel, right click on `getPaperRate` and select `Submit Transaction`:
+**19.** Now we want to check that this paper actually has been issued with the rate of 0.04, which is the bond rate from bond `Digibank:00001` (see Section 2 step 6). Again, if you recall, this is because paper `Digibank:00001` has a maturity date in the same month as bond `Digibank:00001`. Let's do this by submitting a `getPaperRate` transaction. From the `Fabric Gateways` panel, right click on `getPaperRate` and select `Submit Transaction`:
 
 ![VSCode-xchaincode97](images/xchaincode/xchaincode97.png)
 
