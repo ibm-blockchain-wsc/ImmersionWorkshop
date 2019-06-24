@@ -1,11 +1,10 @@
 ##  Please take a few minutes to provide us feedback
-* [Workshop evaluation](https://tec-feedback.mybluemix.net/event/WWAL-BAES7N "Workshop evaluation")
+* [Workshop evaluation](https://tec-feedback.mybluemix.net/event/PCOY-BCPSBP "Workshop evaluation")
 
 ## Additional Resources
 * [What is blockchain?](https://www.ibm.com/blockchain/what-is-blockchain "what is blockchain")
 * [IBM and Hyperledger](https://www.ibm.com/blockchain/hyperledger "IBM and HLF")
 * [Hyperledger Fabric: A Distributed Operating System for Permissioned Blockchains](https://arxiv.org/abs/1801.10228v1 "HLF paper")
-* [IBM Blockchain Platfrom Free V2.0 Beta](https://www.ibm.com/blockchain/platform#1635596 "Beta")
 * [Hyperledger Fabric documentation](https://hyperledger-fabric.readthedocs.io/en/latest/index.html "Official HLF readthedocs")
 * [IBM Blockchain Founder's Handbook](https://www.ibm.com/account/reg/us-en/signup?formid=urx-31528 "founder's handbook")
 * [Blockchain Essentials Badge](https://developer.ibm.com/courses/all/blockchain-essentials "blockchain essentials")
@@ -20,4 +19,4 @@
 
 ## Additional VSCode Labs
 * [IBM Blockchain Platform VSCode Extension Lab: Add Indices for Better Performing Queries](https://dwakeman.github.io/blockchain-stuff/files/Lab6-IBPVSCodeQueriesWithIndexes.pdf "indexes")
-* [IBM Blockchain Platform VSCode Extension: Add a Loopback API to your Smart Contract](https://dwakeman.github.io/blockchain-stuff/files/lab7-IBPVSCodeAddLoopbackRestfulAPIs.pdf "loopback")
+
