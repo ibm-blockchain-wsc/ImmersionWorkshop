@@ -797,9 +797,12 @@ Click the **Channel details** tab to the right of the **Transaction overview** t
 
 ![image](images/ibpconsole/1240_UpdateChannelFinished.png)
 
-**Step 19.9:** In the *Channel members* section, you should now see both of your peer organizations listed as members. Once you have verified this, click the **Channels** icon on the icon palette on the left:
+**Step 19.9:** In the *Channel members* section at the bottom of the panel, you should now see both of your peer organizations listed as members. Once you have verified this, click the **Channels** icon on the icon palette on the left:
 
 ![image](images/ibpconsole/1250_ViewChannelMembers.png)
+
+!!! note
+        Although *Org2* is listed as a channel member, you don't see it listed in the section above that in the *Nodes* section. That is because you have not joined a peer from *Org2* to the channel yet.  You will do that next.
 
 Section 20: Join your peer for Org2 to the channel
 =================================================
@@ -850,7 +853,7 @@ And now, for the *coup de grâce*, the finishing stroke of this lab, you will de
 
 An anchor peer is a peer whose external endpoint address is published in the channel configuration. This way other organizations can reach this peer. An organization must provide at least one anchor peer for service discovery or private data collections to work.Upcoming labs will use service discovery so our last task in this lab is to define the anchor peers.
 
-**Step 21.1:** Scroll down until you reach the *Anchor peers* section. You will observe that there are currently no anchor peers defined. Click the **Add anchor peer** button:
+**Step 21.1:** Remain on the channel details tab and scroll down until you reach the *Anchor peers* section. You will observe that there are currently no anchor peers defined. Click the **Add anchor peer** button:
 
 ![image](images/ibpconsole/1330_AddAnchorPeers.png)
 
