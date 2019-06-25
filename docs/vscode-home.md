@@ -3,8 +3,11 @@
 
 Welcome to the Visual Studio Code (VSCode) Overview Lab. Visual Studio Code, or VSCode for short, is a popular source code editor developed by Microsoft for Windows, Linux and macOS. It is freely available and it includes support for debugging, embedded Git control, syntax highlighting, intelligent code completion, snippets, and code refactoring. VSCode allows for extensions that add support for popular languages, themes, debuggers, and more. IBM has developed a VSCode extension called the IBM Blockchain Platform Extension to help users develop their smart contracts. 
 
-Throughout this lab you will experience using VSCode and the IBM Blockchain Platform Extension for the creation of a smart contract (chaincode). The first part of this lab is very basic and is meant to walk you through the fundamentals of the IBM Blockchain Platform Extension. Part 2 follows a tutorial called Commercial Paper which will utilize the new application programming model in Hyperledger Fabric version 1.4 - which is the first long term
-support release of Hyperledger Fabric.
+Throughout this lab you will experience using VSCode and the IBM Blockchain Platform Extension for the creation of a smart contract (chaincode). The first part of this lab is very basic and is meant to walk you through the fundamentals of the IBM Blockchain Platform Extension. Part two follows a tutorial called Commercial Paper which will utilize the new application programming model in Hyperledger Fabric version 1.4 - which is the first long term support release of Hyperledger Fabric.
+
+In part three, you will learn how to code a cross chaincode call in a smart contract as well as learn to use the integrated debugger to iterate through smart contract updates.
+
+In part four, you will create a loopback API against your commercial paper smart contract that exposes REST APIs for application front ends to call.
 
 Speaking of Hyperledger Fabric, in this lab we will be using a locally deployed Fabric runtime whose components will run as Docker containers on your lab workstation. 
 You can also configure your IBM Blockchain Platform VSCode Extension to connect to multiple remote IBM Blockchain Platform environments (e.g., dev/test, staging, production). When you are ready to test your smart contract against a remote environment, 
@@ -80,9 +83,9 @@ Special thanks to the following contributors to this lab:
 * Matthew Golby-Kirk
 * Matt Lucas
 * Dennis Miller
-* Jin VanStee
 * Barry Silliman
 * Garrett Woodworth
 
-# Author
+# Authors
 * Austin Grice
+* Jin VanStee
