@@ -22,9 +22,9 @@ Welcome! This two-day workshop combines lectures and hands-on labs to teach you 
 * 11:30am - Lecture: Blockchain on Z - Why and Roadmap
 * Noon - Lunch
 * 1pm - [Lab: IBM Blockchain Platform Part 1 - Deploy Network](ibpconsole.md)
-* 2pm - Lecture: Kubernetes Explained
-* 3pm - Lab: IBM Blockchain Platform Part 2 - Deploy Smart Contract
-* 4pm - Lab: IBM Blockchain Platform Part 3 - CICD
+* 2pm - [Lab: IBM Blockchain Platform Part 2 - Deploy Smart Contract](ibpdeploy.md)
+* 3pm - Lecture: Kubernetes Explained
+* 4pm - [Lab: IBM Blockchain Platform Part 3 - CICD](ibpcicd.md)
 * 5pm - Day 2 Wrap Up
 
 ## Acknowledgements
