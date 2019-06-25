@@ -1514,7 +1514,7 @@ Don't be alarm by the the ``faceValue`` and ``paperRate`` not appearing in our r
     
 You should see a success message below in the bottom right
 
-**IMAGE**
+![image](vscode-images/2-6-52.png)
     
 **53.** From same Fabric Gateway, right click on ``getAllPapersFromIssuer`` and select ``Evaluate Transaction``. Enter the code below - between the brackets - to submit the query
 ::
@@ -1523,11 +1523,9 @@ You should see a success message below in the bottom right
     
 You should see all of the MagnetoCorp issued papers
 
-**IMAGE**
+![image](vscode-images/2-6-53.png)
     
 **54.** Now, let's go to our ``DigiBank`` loopback application (port: ``3001``) and do a ``redeem`` transaction. To do this, untoggle the ``Redeem`` controller and click on ``Try it out``
-
-![image](vscode-images/2-6-50.png)
 
 **55.** Then paste in what is below in the white space
 ::
