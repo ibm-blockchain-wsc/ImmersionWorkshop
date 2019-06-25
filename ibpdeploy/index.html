@@ -135,16 +135,19 @@
         
             <li><a class="toctree-l4" href="#section-2-install-commercial-bond-to-your-blockchain-network">Section 2: Install Commercial Bond to your Blockchain Network</a></li>
         
+            <li><a class="toctree-l4" href="#section-3-install-commercial-paper-to-your-blockchain-network">Section 3: Install Commercial Paper to your Blockchain Network</a></li>
+        
+            <li><a class="toctree-l4" href="#section-4-instantiate-commercial-bond">Section 4: Instantiate Commercial Bond</a></li>
+        
+            <li><a class="toctree-l4" href="#section-5-instantiate-commercial-paper">Section 5: Instantiate Commercial paper</a></li>
+        
+            <li><a class="toctree-l4" href="#section-6-register-application-user-for-teamxx-org1">Section 6: Register application user for TeamXX Org1</a></li>
+        
+            <li><a class="toctree-l4" href="#section-7-register-application-user-for-teamxx-org2">Section 7: Register application user for TeamXX Org2</a></li>
+        
+            <li><a class="toctree-l4" href="#section-8">Section 8:</a></li>
+        
         </ul>
-    
-
-    <li class="toctree-l3"><a href="#section-3-install-commercial-paper-to-your-blockchain-network">Section 3: Install Commercial Paper to your Blockchain Network</a></li>
-    
-
-    <li class="toctree-l3"><a href="#section-4-instantiate-commercial-bond">Section 4: Instantiate Commercial Bond</a></li>
-    
-
-    <li class="toctree-l3"><a href="#section-5">Section 5:</a></li>
     
 
     </ul>
@@ -214,15 +217,39 @@
 <p><strong>4.</strong> Select the location <code>/home/tecadmin/</code>, and click <code>Enter</code>. Upon successful exporting, you will see a message like below:</p>
 <p><img alt="image" src="../images/ibpdeploy/ibpdeploy4.png" /></p>
 <h2 id="section-2-install-commercial-bond-to-your-blockchain-network">Section 2: Install Commercial Bond to your Blockchain Network</h2>
-<p><strong>1.</strong> Go back to your IBM Blockchain Platform Console at your assigned URL. Go to the <code>Smart Contracts</code> panel, and select <code>Install Smart Contract</code>.</p>
+<p><strong>1.</strong> Go back to your IBM Blockchain Platform Console at your assigned URL. Go to the <code>Smart Contracts</code> panel, and select <code>Install Smart Contract</code>:</p>
+<p><img alt="image" src="../images/ibpdeploy/ibpdeploy5.png" /></p>
 <p><strong>2.</strong> In the <code>Install Smart Contract</code> side panel, upload the <code>commercial-bond@0.0.1.cds</code> package, and click <code>Next</code>.</p>
-<p><strong>3.</strong> Now select both peers to install to and press <code>Install Smart Contract</code>. Note this is cheating a little bit b/c we are installing to peers on two separate organizations. In reality, the smart contract would be shared on a private Github repo with members in the blockchain network and each organization would install the smart contract to their peers through their console.</p>
+<p><img alt="image" src="../images/ibpdeploy/ibpdeploy6.png" /></p>
+<p><strong>3.</strong> Now select both peers to install to and press <code>Install Smart Contract</code>. Note this is not very realistic situation because we are installing to peers from two separate organizations. In reality, the smart contract would be shared on a private Github repo with members on the blockchain network and each organization would install the smart contract to their peers through their console.</p>
+<p><img alt="image" src="../images/ibpdeploy/ibpdeploy7.png" /></p>
 <p><strong>4.</strong> You should see the following in the <code>Installed Smart Contracts</code> panel:</p>
-<h1 id="section-3-install-commercial-paper-to-your-blockchain-network">Section 3: Install Commercial Paper to your Blockchain Network</h1>
+<p><img alt="image" src="../images/ibpdeploy/ibpdeploy8.png" /></p>
+<h2 id="section-3-install-commercial-paper-to-your-blockchain-network">Section 3: Install Commercial Paper to your Blockchain Network</h2>
 <p><strong>1.</strong> From the <code>Installed Smart Contracts</code> panel, select <code>Install Smart Contract</code> again. Then upload the <code>papercontract@0.0.2.cds</code> file and select both peers to install to. At the end of this flow, you will see the following in the <code>Installed Smart Contracts</code> panel:</p>
-<h1 id="section-4-instantiate-commercial-bond">Section 4: Instantiate Commercial Bond</h1>
-<p><strong>1.</strong> </p>
-<h1 id="section-5">Section 5:</h1>
+<p><img alt="image" src="../images/ibpdeploy/ibpdeploy9.png" /></p>
+<h2 id="section-4-instantiate-commercial-bond">Section 4: Instantiate Commercial Bond</h2>
+<p><strong>1.</strong> From the <code>Smart Contracts - Installed Smart Contracts</code> panel, select the three dots to the right of <code>commercial-bond</code> and select <code>Instantiate</code>:</p>
+<p><img alt="image" src="../images/ibpdeploy/ibpdeploy10.png" /></p>
+<p><strong>2.</strong> In the <code>Instantiate smart contract</code> side panel, select <code>teamXX-channel1</code> as the channel to instantiate to:</p>
+<p><img alt="image" src="../images/ibpdeploy/ibpdeploy11.png" /></p>
+<p><strong>3.</strong> In the next side panel, select both members to endorse transactions. And then select 1 out of 2 members need to endorse transactions.</p>
+<p><img alt="image" src="../images/ibpdeploy/ibpdeploy12.png" /></p>
+<p><strong>4.</strong> In the next side panel, select <code>TeamXX Peer Org1</code> as the peer to approve proposals for instantiating the smart contract.</p>
+<p><img alt="image" src="../images/ibpdeploy/ibpdeploy13.png" /></p>
+<p><strong>5.</strong> In the next side panel, skip adding a private data collection and just hit <code>Next</code>.</p>
+<p><img alt="image" src="../images/ibpdeploy/ibpdeploy14.png" /></p>
+<p><strong>6.</strong> In the next panel, type in <code>instantiate</code> as the function name. And leave the arguments box blank.</p>
+<p><img alt="image" src="../images/ibpdeploy/ibpdeploy15.png" /></p>
+<h2 id="section-5-instantiate-commercial-paper">Section 5: Instantiate Commercial paper</h2>
+<p><strong>1.</strong> From the <code>Smart Contracts - Installed Smart Contracts</code> panel, select the three dots to the right of <code>papercontract</code> and select <code>Instantiate</code>:</p>
+<p><img alt="image" src="../images/ibpdeploy/ibpdeploy16.png" /></p>
+<p><strong>2.</strong> Follow the same instructions as Section 4, steps 2 - 6, to instantiate <code>papercontract</code>. At the end of the flow, if you scroll down on the <code>Smart Contracts</code> panel, you will see the list of <code>Instantiated Smart Contracts</code> include <code>commercial-bond</code> and <code>papercontract</code>:</p>
+<p><img alt="image" src="../images/ibpdeploy/ibpdeploy17.png" /></p>
+<p>Now that you have both smart contracts instantiated on the channel, we are ready to connect to the smart contract from VSCode.</p>
+<h2 id="section-6-register-application-user-for-teamxx-org1">Section 6: Register application user for TeamXX Org1</h2>
+<h2 id="section-7-register-application-user-for-teamxx-org2">Section 7: Register application user for TeamXX Org2</h2>
+<h2 id="section-8">Section 8:</h2>
               
             </div>
           </div>
