@@ -17,7 +17,7 @@ These are the general steps you will take:
 1. Clone the commercial-bond smart contract package and add package to VSCode workspace
 2. Package commercial-bond, install and instantiate
 3. Run a few tests to get familiar with commercial-bond
-4. Grab commercial-paper if you don't already have it
+4. Clone fresh commercial-paper
 5. Setup Debug Smart Contract in Development Mode
 6. Go through existing papercontract function in debugger
 7. Make smart contract update to include cross-chaincode call, test in debug session
@@ -239,7 +239,7 @@ What do you get returned?  Is it expected?  Which bond does the rate belong to?
 
 Now what do you get returned?  Is it expected?
 
-# Section 4: Get commercial-paper if you don't already have it
+# Section 4: Clone commercial-paper
 
 For this lab, we will start with a fresh commercial paper smart contract. Let's use the IBM Blockchain Platform Extension sample home page to get the commercial-paper package. Click on the IBM Blockchain Platform Extension icon in the upper right corner of VSCode:
 
@@ -263,7 +263,7 @@ When it is done cloning, you will see the location that you cloned to here:
 
 ![VSCode-xchaincode28](images/xchaincode/xchaincode28.png)
 
-Now, from the same `Commercial Paper Sample` page, go to the smart contract section and select `Open Locally` for `MagnetoCorp Contract`:
+Now, from the same `Commercial Paper Sample` page, go to the `Smart Contracts` section and select `Open Locally` for `MagnetoCorp Contract`:
 
 ![VSCode-xchaincode29](images/xchaincode/xchaincode29.png)
 
@@ -271,13 +271,13 @@ In the pop-up window, select `Add to workspace`:
 
 ![VSCode-xchaincode30](images/xchaincode/xchaincode30.png)
 
-In your VSCode Explorer Blockchain workspace panel, you will see the following folder with its contents added:
+In your VSCode Explorer workspace panel, you will see the following folder with its contents added:
 
 ![VSCode-xchaincode31](images/xchaincode/xchaincode31.png)
 
 Now you are ready to make changes and test them quickly by working in Hyperledger Fabric development mode in conjunction with the VSCode Debugger.
 
-# Section 5: Setup Debug Smart Contract in Development Mode (**These instructions have been modified for IBM Blockchain Platform Extension v1.0.3**)
+# Section 5: Setup Debug Smart Contract in Development Mode
 
 The VSCode IBM Blockchain Platform Extension provides an integrated `Debug Smart Contract` experience with VSCode's built-in debugger. It is a powerful tool for digging deeper into your smart contract code stack, and can be extremely useful in your smart contract development workflow. Using the debug feature will allow you to efficiently test out updates to your smart contract against a local Hyperledger Fabric running in development mode, without having to re-package, re-install and upgrade your smart contract manually with every change. Now, let's get into setting up the debug environment.
 
@@ -320,7 +320,7 @@ An explanation of each of the panels:
 
 **4.** Let's configure a `launch.json` file for `papercontract.js`. According to VSCode's debugging documentation: For most debugging scenarios, creating a launch configuration file is beneficial because it allows you to configure and save debugging setup details. VSCode keeps debugging configuration information in a `launch.json` file located in a `.vscode` folder in your workspace (project root folder) or in your user settings or workspace settings.
 
-To do so, click on the little arrows next to the DEBUG toolbar at the top of the `Debug` view.
+To get started, click on the little arrows next to the DEBUG toolbar at the top of the `Debug` view.
 
 ![VSCode-xchaincode38](images/xchaincode/xchaincode38.png)
 
@@ -384,7 +384,7 @@ Finally, upon successful instantiation, you will see the following message in th
 
 ![VSCode-xchaincode35](images/xchaincode/xchaincode35.png)
 
-# Section 6: Go through existing papercontract function in debugger (**These instructions have been modified for IBM Blockchain Platform Extension v1.0.3**)
+# Section 6: Go through existing papercontract function in debugger
 
 It may seem like a lot of steps to setup the smart contract debugging environment in VSCode, but it is worth spending time up front to configure a debugging session. You will be a more effective smart contract developer with this tool in your toolkit.
 
@@ -454,11 +454,11 @@ You will see the output from this transaction below in the `OUTPUT` box.
 
 ![VSCode-xchaincode60](images/xchaincode/xchaincode60.png)
 
-# Section 7: Make smart contract updates to include cross-chaincode call, test in debugging session (**These instructions have been modified for IBM Blockchain Platform Extension v1.0.3**)
+# Section 7: Make smart contract updates to include cross-chaincode call, test in debugging session
 
 **1.** OK, now that you have played with the debugger, let's add additional code to `papercontract.js`. We will first amend the `issue` function to take in interest rate as another parameter. The new `issue` function will also include code to query the `commercial-bond` contract for the interest rate of a bond that has a similar maturity date as the paper and align the paper rate to the bond rate. Then we will add the following the helper function: `getPaperRate`.
 
-**2.** Before we edit `papercontract.js` we need to update `paper.js` to add these functions `getRate` and `setRate`. In addition, we need to update the `createInstance` function to include the `paperRate` parameter. Keep in mind `papercontract.js` uses `paper.js` to represent a paper.
+**2.** Before we edit `papercontract.js`, we need to update the `createInstance` function to include the `paperRate` parameter. Keep in mind `papercontract.js` uses `paper.js` to represent a paper.
 
 Go to your VSCode Explorer and open up `paper.js`:
 
@@ -511,14 +511,6 @@ class CommercialPaper extends State {
 
     setOwner(newOwner) {
         this.owner = newOwner;
-    }
-
-    getRate() {
-        return this.paperRate;
-    }
-
-    setRate(newRate) {
-        this.paperRate = newRate;
     }
 
     /**
@@ -712,7 +704,7 @@ Note: *If* for whatever reason, you have exited the debug session, you can alway
 
 ![VSCode-xchaincode-debugbar-stop](images/xchaincode/xchaincode-debugbar-stop.png)
 
-**13.** Now, click on either the green arrow button in the `DEBUG` toolbar or by clicking on the blue bar at the bottom of VSCode that says `Launch Smart Contract (cp-magnetocorp-contract-javascript)`:
+**13.** Now, click on either the green arrow button in the `DEBUG` toolbar or click on the blue bar at the bottom of VSCode that says `Launch Smart Contract (cp-magnetocorp-contract-javascript)`:
 
 ![VSCode-xchaincode-launch-debug](images/xchaincode/xchaincode-launch-debug.png)
 
@@ -777,7 +769,7 @@ And you will see the debug tool bar with the blue IBM Blockchain Platform logo l
 **27.** Take a closer look at the `OUTPUT` from step 20, and you will see a line that says `[INFO] submitting transaction issue with args MagnetoCorp,00004,2020-01-31,2020-04-30,1000000,0.03`. To double check that the paper we just submitted, `MagnetoCorp:00004` indeed has been set with a rate of 0.05, instead of the 0.03 passed through the `issue` transaction, let's add a helper function called `getPaperRate` in section 8.
 
 
-# Section 8: Add a helper function to the paper contract, test in debugging session (*These instructions have been modified for IBM Blockchain Platform Extension v1.0.3*)
+# Section 8: Add a helper function to the paper contract, test in debugging session
 
 **1.** Go back to `papercontract.js`. Add the following code block right after the `instantiate` function:
 
@@ -925,7 +917,7 @@ In the `while` loop in the above function, we iterate through the assets and cap
 
 ![VSCode-xchaincode81](images/xchaincode/xchaincode81.png)
 
-**10.** Go to the VSCode IBM Blockchain Platform view, under the `Local Fabric Ops` panel, you should see four `papercontract@vscode-debug-<datetime>` packages under `Installed` and one `papercontract@vscode-debug-<datetime>` under `Instantiated`. The instantiated package should have the same datetime and the latest installed one. The latest instantiated package is from this section when we added the `getAllPapersFromIssuer` transaction. We hope that with this flow, you get to experience one way you can develop and build upon your smart contract.
+**10.** Go to the VSCode IBM Blockchain Platform view, under the `Local Fabric Ops` panel, you should see four `papercontract@vscode-debug-<datetime>` packages under `Installed` and one `papercontract@vscode-debug-<datetime>` under `Instantiated`. The instantiated package should have the same datetime as the latest installed one. The latest instantiated package is from this section when we added the `getAllPapersFromIssuer` transaction. We hope that with this flow, you get to experience one way you can develop and build upon your smart contract.
 
 # Section 10: Package commercial-paper, install and instantiate
 
@@ -961,9 +953,7 @@ Select `IBM Blockchain Platform: Package a Smart Contract Project`:
 
 ![VSCode-xchaincode3](images/xchaincode/xchaincode3.png)
 
-**7.** Then select `cp-magnetocorp-contract-javascript` and press `Enter`:
-
-![VSCode-xchaincode86](images/xchaincode/xchaincode86.png)
+**7.** Then select `cp-magnetocorp-contract-javascript` and press `Enter`.
 
 **8.** Upon success, you will see the following message in the lower right corner:
 
