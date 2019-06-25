@@ -81,6 +81,9 @@ Below is the full breakdown of Part 2 of this lab:
             associate our identies to these gateways. That way we can
             ensure the appropiate people are making the transactions
             they should.
+            
+-   Lab Cleanup
+    :      This is the most bittersweet part of the entire lab. It means that this lab portion is over and we have to clean up. If you have kids (I don't), I'd imagine their faces are sad and full of despair when you (the guardian) tell them to clean up their mess. I'd also like to imagine your face is making a similar expression when we get to this lab. It's okay, more fun is going to be had soon - very soon!      
 
 -   Loopback APIs
     :      We have proven that we can submit transactions through the
@@ -1010,7 +1013,30 @@ command below:
     Disconnect from Fabric gateway.
     getPaper program complete.
 
-Section 6: Loopback APIs
+
+Section 6: Lab Clean-Up
+=========================================================
+
+
+This lab has run it's course, but now it is time to clean up. Don't worry, this is a very short section! 
+
+**1.** Entering the following commands to stop and remove our docker containers. Then we can remove the images as well. Look at the following commands below
+::
+
+    tecadmin@ubuntubase:~/Desktop/fabric-samples-cp/commercial-paper/organization/digibank/application$ docker stop $(docker ps -a -q)
+    *
+    *
+    * Docker container IDs
+    *
+    *
+    tecadmin@ubuntubase:~/Desktop/fabric-samples-cp/commercial-paper/organization/digibank/application$ docker rm $(docker ps -a -q)
+    *
+    *
+    * Docker container IDs
+    
+That's it!
+
+Section 7: Loopback APIs
 ========================
 
 In this section, we are going to create a loopback API application for
@@ -2417,4 +2443,4 @@ Feel free to submit transactions some more through the CLI application,
 VSCode, or loopback applications. Once you are done, go ahead and clean
 up the lab station so we can have more fun the labs coming up.
 
-**Lab Complete**
+**LAB COMPLETE**
