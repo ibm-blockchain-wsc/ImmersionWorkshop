@@ -1540,7 +1540,5 @@ You should see all of the MagnetoCorp issued papers
     }
     
 **56.** Once you have that in place, go ahead and click on the blue ``Execute`` button. 
-
-![image](vscode-images/2-6-52.png)
     
 Feel free to submit transactions some more through the loopback applications and VSCode. Once you are done, go ahead and clean up the lab station so we can have more fun the labs coming up.
