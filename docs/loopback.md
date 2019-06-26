@@ -465,7 +465,7 @@ You should see 6 files in there: ``README.md``, ``issue.controller.ts``, ``get-p
         let networkObj = await blockchainClient.connectToNetwork();
         if (!networkObj) {
          let errString = 'Error connecting to network';
-          let issue = new Issue({ issuer: errString, paperNumber: errString, issueDateTime: errString, maturityDateTime: errString, paperRate: errString });
+          let issue = new Issue({ issuer: errString, paperNumber: errString, issueDateTime: errString, maturityDateTime: errString, faceValue: errString, paperRate: errString });
           return issue;
         }
         console.log('newtork obj: ')
@@ -489,7 +489,7 @@ You should see 6 files in there: ``README.md``, ``issue.controller.ts``, ``get-p
         let result = JSON.parse(Buffer.from(JSON.parse(resultAsBuffer)).toString())
         let issue = new Issue({
           issuer: result.issuer, paperNumber: result.paperNumber, issueDateTime: result.issueDateTime,
-          maturityDateTime: result.maturityDateTime, paperRate: result.paperRate
+          maturityDateTime: result.maturityDateTime, faceValue: result.faceValue, paperRate: result.paperRate
         });
         return issue;
       }
@@ -522,7 +522,7 @@ Below, we are actually submitting a transaction, a `issue` transaction. This tra
         let networkObj = await blockchainClient.connectToNetwork();
         if (!networkObj) {
          let errString = 'Error connecting to network';
-          let issue = new Issue({ issuer: errString, paperNumber: errString, issueDateTime: errString, maturityDateTime: errString, paperRate: errString });
+          let issue = new Issue({ issuer: errString, paperNumber: errString, issueDateTime: errString, maturityDateTime: errString, faceValue: errString, paperRate: errString });
           return issue;
         }
     
