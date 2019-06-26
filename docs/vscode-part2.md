@@ -155,7 +155,7 @@ The other file is `docker-compose.yml`, which pulls down a
 `fabric-tools` container that is connected to our local network. When we
 spun up our `local_fabric` network, back in Part 1, it placed all the
 cryptographic material in our
-`/home/tecadmin/.fabric-vscode/crypto-config/` directory. It is then
+`/home/tecadmin/.fabric-vscode/runtime/crypto-config/` directory. It is then
 taking all the crypto material and placing it in our fabric-tools
 container. This will make more sense once we install and instantiate the
 smart contract from this container instead of VSCode.
