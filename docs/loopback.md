@@ -1519,7 +1519,7 @@ You should see a success message below in the bottom right
 
     "MagnetoCorp"
     
-You should see all of the MagnetoCorp issued papers
+You should see all of the MagnetoCorp issued papers. Notice, how our paper #00005 has a new owner, ``DigiBank``. 
 
 ![image](vscode-images/2-6-53.png)
     
