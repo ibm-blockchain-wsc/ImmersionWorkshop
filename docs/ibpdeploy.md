@@ -35,7 +35,7 @@ Remember from the VSCode labs, you have already packaged up the commercial paper
 
 ![image](images/ibpdeploy/ibpdeploy6.png)
 
-**3.** Now select both peers to install to and press `Install Smart Contract`. Note this is not very realistic situation because we are installing to peers from two separate organizations. In reality, the smart contract would be shared on a private Github repo with members on the blockchain network and each organization would install the smart contract to their peers through their console.
+**3.** Now select both peers to install to and press `Install Smart Contract`. Note this is not a very realistic situation because we are installing to peers from two separate organizations. In reality, the smart contract would be shared on a private Github repo with members of the blockchain network and each organization would install the smart contract to their peers through their console.
 
 ![image](images/ibpdeploy/ibpdeploy7.png)
 
@@ -81,7 +81,7 @@ Remember from the VSCode labs, you have already packaged up the commercial paper
 
 ![image](images/ibpdeploy/ibpdeploy16.png)
 
-**2.** Follow the same instructions as Section 4, steps 2 - 6, to instantiate `papercontract`. At the end of the flow, if you scroll down on the `Smart Contracts` panel, you will see the list of `Instantiated Smart Contracts` include `commercial-bond` and `papercontract`:
+**2.** Follow the same instructions as Section 4, steps 2 - 6, to instantiate `papercontract`. At the end of the flow, if you scroll down on the `Smart Contracts` panel, you will see the list of `Instantiated Smart Contracts` includes `commercial-bond` and `papercontract`:
 
 ![image](images/ibpdeploy/ibpdeploy17.png)
 
