@@ -269,12 +269,12 @@ your peer.
 **5.** Now that we have an installed smart contract, we need to
 instantiate it. You can do that by, you might have guessed, clicking on
 the `+Instantiate` button. Then it will ask you
-`Choose a Smart Contract and Version to instanitate` and you can select
+`Choose a Smart Contract and Version to instantiate` and you can select
 `Kale@0.0.1`. It will pop up another prompt asking you which function
 you want to call. You can just hit the `Enter` key and bypass this
 prompt. Then it will ask if you want to
 `Provide a Private Data collection configuration file` and you can
-select `No`. Then it will instaniate our `Kale` smart contract to our
+select `No`. Then it will instantiate our `Kale` smart contract to our
 channel, called `mychannel`.
 
 Section 5: Submit Transactions
@@ -290,7 +290,7 @@ contracts on here, you would see those as well. Now, if you untoggle
 
 **2.** From this perspective, you can right click on `createKale` and
 then click on `Submit Transaction`. Then it will prompt you for the
-argurments you want to pass in. You can enter the text below. It will
+arguments you want to pass in. You can enter the text below. It will
 give you another prompt for transient data, but you can hit enter to
 bypass this prompt and it will then execute the transaction. **NOTE:**
 Put your arguments between the brackets:
@@ -364,7 +364,7 @@ Section 6: Tests
 **1.** VSCode gives us a couple ways to test our smart contract. We will
 test them both, but let's focus on unit testing first.
 
-**2.** If you go to the `Editior` perspective, untoggle the `test`
+**2.** If you go to the `Editor` perspective, toggle the `test`
 folder. Then right click on the `kale-contract.js` file and select
 `Open in terminal`.
 
