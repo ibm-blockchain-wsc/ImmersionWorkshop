@@ -346,7 +346,7 @@ This time, select `Submit Transaction` instead of
 
 **7.** Because Barry is on a major health kick and is hungry for some
 organic Kale, we can execute the `deleteKale` transaction after Barry transforms the Kale into its base nutrients fighting for attention along with everything else in his bloodstream. To do this,
-right click on the `deleteKale` transaction and enter this between the
+right click on the `deleteKale` transaction and select ``submit transaction`` and enter this between the
 brackets. Hit `enter` to go to the next prompt and then `enter` once
 more to actually execute the transaction:
 
