@@ -1507,27 +1507,23 @@ So now our ``dependecies`` look like this
 
 Don't be alarm by the the ``faceValue`` and ``paperRate`` not appearing in our response. We will confirm that it actually went through here in a second.
     
-**52.** From the IBM Blockchain Platform extension in VSCode, connect to the ``local_fabric`` Fabric Gateway and select ``balaji`` as your identity to connect with. Then untoggle till you see the ``buy`` transaction under our ``papercontract@0.0.2`` smart contract. Enter the code below - between the brackets - to submit this transaction
+**52.** From the IBM Blockchain Platform extension in VSCode, connect to the ``local_fabric`` Fabric Gateway and select ``balaji`` as your identity to connect with (it will pop up in the top middle). Then untoggle till you see the ``buy`` transaction under our ``papercontract@0.0.2`` smart contract. Enter the code below - between the brackets - to submit this transaction
 ::
 
     "MagnetoCorp", "00005", "MagnetoCorp", "DigiBank", "4900000", "2019-07-31"
     
 You should see a success message below in the bottom right
-
-**IMAGE**
     
 **53.** From same Fabric Gateway, right click on ``getAllPapersFromIssuer`` and select ``Evaluate Transaction``. Enter the code below - between the brackets - to submit the query
 ::
 
     "MagnetoCorp"
     
-You should see all of the MagnetoCorp issued papers
+You should see all of the MagnetoCorp issued papers. Notice, how our paper #00005 has a new owner, ``DigiBank``. 
 
-**IMAGE**
+![image](vscode-images/2-6-53.png)
     
 **54.** Now, let's go to our ``DigiBank`` loopback application (port: ``3001``) and do a ``redeem`` transaction. To do this, untoggle the ``Redeem`` controller and click on ``Try it out``
-
-![image](vscode-images/2-6-50.png)
 
 **55.** Then paste in what is below in the white space
 ::
