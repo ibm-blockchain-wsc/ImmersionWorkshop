@@ -462,13 +462,6 @@ local file system, the application uses FileSystemWallet :
     // Bring key classes into scope, most importantly Fabric SDK network class 
     const { FileSystemWallet, Gateway } = require('fabric-network');
 
-Below, this line is very important. Because we are connecting to our
-local\_fabric we started at the beginning of Part 1, the crypto material
-is stored under the .fabric-vscode/runtime folder. This is important for
-grabbing our unique private key:
-
-    const fixtures = path.resolve(__dirname, '/home/tecadmin/.fabric-vscode/runtime');
-
 Below, this statement identifies that the application will use
 Isabella's wallet when it connects to the blockchain network channel.
 The application will select a particular identity within Isabella's
