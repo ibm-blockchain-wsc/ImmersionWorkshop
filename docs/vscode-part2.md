@@ -1034,10 +1034,6 @@ This lab has run its course, but now it is time to clean up. Don't worry, this i
     * Docker container IDs
     *
     *
-    tecadmin@ubuntubase:~/Desktop/fabric-samples-cp/commercial-paper/organization/digibank/application$ docker rmi $(docker images -q)
-    *
-    * Docker Images
-    *
 
 **2.** From within the IBM Blockchain Platform Extension in VSCode, find the ``Local Fabric Ops`` section and hover your cursor in that section. Within that section, click on the three dots (``...``) in the top right. Then select ``Teardown Fabric Runtime``. This will clear the local Fabric cleanly.
 
