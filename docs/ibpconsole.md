@@ -47,22 +47,44 @@ The sections in this lab are as follows:
 Section 2: Log in to the IBM Blockchain Platform console
 ========================================================
 
-**Step 2.1:** Open a Firefox browser window or new tab and enter the unique URL, which will have been provided to you by the instructor, for your team's IBM Blockchain Platform console.
+!!! important
+        The lab environment is using self-signed SSL certificates and your browser will not trust them without explicit action on your part so part of this initial section on logging in involves establishing this trust. You will first need to go to the URL address specified for your infrastructure.  The IP address in the URL will be the same for each team, but each team will have a different port. 
+
+**Step 2.1:** Open a Firefox browser window or new tab and enter **https://192.168.22.81:*xxxxx* ** where *xxxxx* is the specific port for your team. This port will be provided to you by your instructor. The screenshots in the next few steps are for port 30039 but your port will likely be different:
+
+![image](images/ibpconsole/0006_ProxyIPBefore.png)
+
+**Step 2.2:** You will see a security warning that looks like below. Click the **Advanced** button:
+
+![image](images/ibpconsole/0007_ProxyIPBefore2.png)
+
+**Step 2.3:** You will see another security warning. Click the **Accept the Risk and Continue** button (what's the worse that could happen?):
+
+![image](images/ibpconsole/0008_ProxyIPBefore3.png)
+
+**Step 2.4:** You should see the quite verbose message in your browser window, **Up** (why mince words?):
+
+![image](images/ibpconsole/0009_ProxyIPUp.png)
+
+**Step 2.5:** Open a new tab or overwrite the URL from the previous step and enter the unique URL, which will have been provided to you by the instructor, for your team's IBM Blockchain Platform console.
 If you see a security warning after entering the URL, click the **Advanced** button, which is highlighted in the below screen snippet:
+
+!!! note
+        In most cases this URL will be the same as the URL from *Step 2.1*, only with the port number one less than the port number from that step.  But double-check this with the addresses provided to you by your instructor
 
 ![image](images/ibpconsole/0010_CertificateIssue.png)
 
-**Step 2.2:** The reason you are seeing these security messages is because of a self-signed certificate in our lab environment.
+**Step 2.6:** The reason you are seeing these security messages is because of a self-signed certificate in our lab environment.
 Go ahead and click on the **Proceed to 192.168.22.81 (unsafe)** link that is shown below:
 
 ![image](images/ibpconsole/0020_CertificateIssue.png)
 
-**Step 2.3:** Enter your team's userid and password, which will have been provided to you by the instructor, and click the *Login* button:
+**Step 2.7:** Enter your team's userid and password, which will have been provided to you by the instructor, and click the *Login* button:
 
 [//]: # (![image](images/ibpconsole/0030_Login.png)
 ![image](images/ibpconsole/0040_Login.png)
 
-**Step 2.4:** You may be presented with a welcome screen with dazzling interactive graphics. Move your cursor around a bit to take in the wonder, and then click the **Let's get started** button in the lower right corner.
+**Step 2.8:** You may be presented with a welcome screen with dazzling interactive graphics. Move your cursor around a bit to take in the wonder, and then click the **Let's get started** button in the lower right corner.
 
 ![image](images/ibpconsole/0043_WelcomeGraphics.png)
 
@@ -92,7 +114,13 @@ In relation to the diagram in the overview section that showed our finished netw
 
 ![image](images/ibpconsole/0080_AddCertificateAuthoritySideBar3.png)
 
-**Step 3.5:** Leave the *Resource allocation* settings unchanged, and click the **Next** button:
+**Step 3.5:** In the *Resource allocation* settings section, change the *Memory* setting from *200* to *100*, and click the **Next** button:
+
+!!! note
+       You may need to scroll down in the *Resource allocation* section to see the *Memory* field.
+
+!!! important
+       It is very important to change the *Resource allocation* settings throughout the lab to the values provided in these instructions, in order to ensure that each team has enough resources.
 
 ![image](images/ibpconsole/0090_AddCertificateAuthoritySideBar4.png)
 
@@ -243,7 +271,12 @@ Review the values your entered for correctness and then click the blue **Next** 
 
 ![image](images/ibpconsole/0310_AddOrg1PeerSidebar4.png)
 
-**Step 6.6:** Leave the *Resource allocation* settings unchanged and click the **Next** button:
+**Step 6.6:** In the *Resource allocation* settings section, make the following changes, and click the **Next** button:
+
+- In the *Peer container* section, change *CPU* to **0.1**
+- In the *Peer container* section, change *Memory* to **800**
+- In the *CouchDB container* section, change *CPU* to **0.1**
+- In the *CouchDB container* section, change *Memory* to **200**
 
 ![image](images/ibpconsole/0320_AddOrg1PeerSidebar5.png)
 
@@ -299,7 +332,7 @@ Our network will look like this at the completion of this section:
 
 ![image](images/ibpconsole/0400_AddOrderingCASidebar3.png)
 
-**Step 7.5:** Leave the *Resource allocation* settings unchanged, and click the **Next** button:
+**Step 7.5:** In the *Resource allocation* settings section, change the *Memory* setting from *200* to *100*, and click the **Next** button:
 
 ![image](images/ibpconsole/0410_AddOrderingCASidebar4.png)
 
@@ -444,7 +477,7 @@ Review the values your entered for correctness and then click the blue **Next** 
 
 ![image](images/ibpconsole/0630_AddOrdererSidebar4.png)
 
-**Step 10.6:** Leave the *Resource allocation* settings unchanged and click the **Next** button:
+**Step 10.6:** In the *Resource allocation* section, change *CPU* to **0.1** and change *Memory* to **200** and click the **Next** button:
 
 ![image](images/ibpconsole/0640_AddOrdererSidebar5.png)
 
@@ -569,7 +602,7 @@ We will define the second peer organization now.  The pattern is identical to wh
 
 ![image](images/ibpconsole/0840_AddOrg2CASidebar3.png)
 
-**Step 14.5:** Leave the *Resource allocation* settings unchanged, and click the **Next** button:
+**Step 14.5:** In the *Resource allocation* settings section, change the *Memory* setting from *200* to *100*, and click the **Next** button:
 
 ![image](images/ibpconsole/0850_AddOrg2CASidebar4.png)
 
@@ -710,7 +743,12 @@ Review the values your entered for correctness and then click the blue **Next** 
 
 ![image](images/ibpconsole/1070_AddOrg2PeerSidebar4.png)
 
-**Step 17.6:** Leave the *Resource allocation* settings unchanged and click the **Next** button:
+**Step 17.6:** In the *Resource allocation* settings section, make the following changes, and click the **Next** button:
+
+- In the *Peer container* section, change *CPU* to **0.1**
+- In the *Peer container* section, change *Memory* to **800**
+- In the *CouchDB container* section, change *CPU* to **0.1**
+- In the *CouchDB container* section, change *Memory* to **200**
 
 ![image](images/ibpconsole/1080_AddOrg2PeerSidebar5.png)
 
