@@ -1502,18 +1502,18 @@ found 3 vulnerabilities (1 low, 2 moderate)
 &gt; magnetocorp-commercialpaper@1.0.0 build /home/tecadmin/Desktop/digibank
 &gt; lb-tsc es2017 --outDir dist
 </code></pre>
-<p><strong>43.</strong> Now, we can start both loopback applications. Let's first go start DigiBank's. To do this, go to your terminal application - where you generate the <code>digibank</code> folder. Then run the command below:</p>
-<pre><code>tecadmin@ubuntubase:~/Desktop/digibank$ npm start
+<p><strong>43.</strong> Now, we can start both loopback applications. Let's first go start MagnetoCorp's. To do this, go to your terminal application - where you generated the <code>magnetocorp</code> folder. Then run the command below:</p>
+<pre><code>tecadmin@ubuntubase:~/Desktop/magnetocorp$ npm start
 
-&gt; digibank@1.0.0 prestart /home/tecadmin/Desktop/magnetocorp
+&gt; magnetocorp@1.0.0 prestart /home/tecadmin/Desktop/magnetocorp
 &gt; npm run build
 
 
-&gt; digibank@1.0.0 build /home/tecadmin/Desktop/magnetocorp
+&gt; magnetocorp@1.0.0 build /home/tecadmin/Desktop/magnetocorp
 &gt; lb-tsc es2017 --outDir dist
 
 
-&gt; digibank@1.0.0 start /home/tecadmin/Desktop/magnetocorp
+&gt; magnetocorp@1.0.0 start /home/tecadmin/Desktop/magnetocorp
 &gt; node .
 
 Server is running at http://[::1]:3000
@@ -1522,21 +1522,21 @@ Try http://[::1]:3000/ping
 <p><strong>44.</strong> Then go to your <code>digibank</code> terminal application and do the same command:</p>
 <pre><code>tecadmin@ubuntubase:~/Desktop/digibank$ npm start
 
-&gt; magnetocorp-commercialpaper@1.0.0 prestart /home/tecadmin/Desktop/digibank
+&gt; digibank@1.0.0 prestart /home/tecadmin/Desktop/digibank
 &gt; npm run build
 
 
-&gt; magnetocorp-commercialpaper@1.0.0 build /home/tecadmin/Desktop/digibank
+&gt; digibank@1.0.0 build /home/tecadmin/Desktop/digibank
 &gt; lb-tsc es2017 --outDir dist
 
 
-&gt; magnetocorp-commercialpaper@1.0.0 start /home/tecadmin/Desktop/digibank
+&gt; digibank@1.0.0 start /home/tecadmin/Desktop/digibank
 &gt; node .
 
 Server is running at http://[::1]:3001
 Try http://[::1]:3001/ping
 </code></pre>
-<p><strong>45.</strong> Proceed to go to <code>MagnetoCorp's</code> loopback application by going to <code>http://[::1]:3000</code></p>
+<p><strong>45.</strong> Go to <code>MagnetoCorp's</code> loopback application by going to <code>http://[::1]:3000</code></p>
 <p><img alt="image" src="../vscode-images/2-6-39.png" /></p>
 <p><strong>46.</strong> Do the same, but this time for DigiBank. You can go to <code>http://[::1]:3001</code>. It should look the same as MagnetoCorp, but says <code>DigiBank's</code> instead. </p>
 <p><strong>47.</strong> You can move forward <strong>with both loopback applications</strong> by clicking on the <code>/explorer</code> link toward the bottom</p>
