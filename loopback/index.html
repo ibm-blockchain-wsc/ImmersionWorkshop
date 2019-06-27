@@ -1473,7 +1473,7 @@ port: +process.env.PORT || 3001,
 <p><strong>39.</strong> We need to modify our <code>package.json</code> file to include the <code>fabric-network</code> module. Within our <code>digibank</code> folder, find the <code>package.json</code> file and add in the following text below on <code>line 58</code>:</p>
 <pre><code>"fabric-network": "~1.4.1"
 </code></pre>
-<p>So now our <code>dependecies</code> look like this:</p>
+<p>So now our <code>dependencies</code> look like this:</p>
 <pre><code>  "dependencies": {
     "@loopback/boot": "^1.4.0",
     "@loopback/context": "^1.19.0",
@@ -1485,9 +1485,9 @@ port: +process.env.PORT || 3001,
     "@loopback/service-proxy": "^1.2.1",
     "fabric-network": "~1.4.1"
 </code></pre>
-<p><strong>Do not forget to add a comma (,) after the "@loopback/service-proxy": "^1.2.1" dependency</strong></p>
+<p><strong>Do not forget to add a comma after the "@loopback/service-proxy": "^1.2.1" dependency</strong></p>
 <p><strong>Go ahead and save this file!</strong></p>
-<p><strong>40.</strong> Now we can delete the <code>node_modules</code> and <code>package-lock.json</code> file so that it will pick up the <code>fabric-network</code> package on we install again. To do this, within VSCode, right click on <code>node_modules</code> and select <code>Delete</code>. Do the same for <code>node_modules</code>. If it asks you to confirm this, select <code>Move to Trash</code>.</p>
+<p><strong>40.</strong> Now we can delete the <code>node_modules</code> and <code>package-lock.json</code> file so that it will pick up the <code>fabric-network</code> package when we do an npm install again. To do this, within VSCode, right click on <code>node_modules</code> and select <code>Delete</code>. Do the same for <code>node_modules</code>. If it asks you to confirm this, select <code>Move to Trash</code>.</p>
 <p><strong>41.</strong> Back in our terminal application, do an <code>npm install</code> within the <code>digibank</code> folder:</p>
 <pre><code>tecadmin@ubuntubase:~/Desktop/digibank$ npm install
 *
