@@ -1349,6 +1349,7 @@ You should see 7 files in there: ``README.md``, ``buy.controller.ts``, ``redeem.
 **36.** Now, we need to copy our ``networkConnection.yaml`` file over from ``digibank`` in our ``fabric-samples-cp`` folder and place it into our ``digibank`` folder. You can execute the command below, from our terminal application, as to how to copy:
 
     tecadmin@ubuntubase:~/Desktop/digibank$ cp /home/tecadmin/Desktop/fabric-samples-cp/commercial-paper/organization/digibank/gateway/networkConnection.yaml .
+    #
     
 **37.** From VSCode, go to the IBM Blockchain Platform Extension and right click on ``local_fabric_wallet`` and select ``Add Identity to Wallet``. From there follow the prompt as it follows below:
 
