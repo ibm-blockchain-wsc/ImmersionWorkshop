@@ -650,7 +650,7 @@ Below, we are actually submitting our `issue` transaction. There is a very simil
 
        }
 
-**14.** Now, we need to copy our ``networkConnection.yaml`` file over from ``magnetocorp`` in our ``fabric-samples-cp`` folder and place it into our ``magnetocorp`` folder. You can execute the command below, from our CLI application, as to how to copy:
+**14.** Now, we need to copy our ``networkConnection.yaml`` file over from ``magnetocorp`` in our ``fabric-samples-cp`` folder and place it into our ``magnetocorp`` folder. You can execute the command below, from our terminal application, as to how to copy:
 
     tecadmin@ubuntubase:~/Desktop/magnetocorp$ cp /home/tecadmin/Desktop/fabric-samples-cp/commercial-paper/organization/magnetocorp/gateway/networkConnection.yaml .
     #
@@ -672,7 +672,10 @@ Below, we are actually submitting our `issue` transaction. There is a very simil
 
     "fabric-network": "~1.4.1"
     
-So now our ``dependecies`` look like this:
+!!! note
+        Your line number may differ- the important thing is that this line is added to the end of the *dependencies* section, and not in the *dev-dependencies* section.
+
+So now our ``dependencies`` look like this:
 
     "dependencies": {
         "@loopback/boot": "^1.4.0",
@@ -685,13 +688,13 @@ So now our ``dependecies`` look like this:
         "@loopback/service-proxy": "^1.2.1",
         "fabric-network": "~1.4.1"
     
-**Do not forget to add a comma (,) after the "@loopback/service-proxy": "^1.2.1" dependency**
+**Do not forget to add a comma after the "@loopback/service-proxy": "^1.2.1" dependency above the line you just added.**
 
 **Go ahead and save this file!**
 
-**17.** Now we can delete the ``node_modules`` and ``package-lock.json`` file so that it will pick up the ``fabric-network`` package on we install again. To do this, within VSCode, right click on ``node_modules`` and select ``Delete``. Do the same for ``node_modules``. If it asks you to confirm this, select ``Move to Trash``.
+**17.** Now we can delete the ``node_modules`` and ``package-lock.json`` file so that it will pick up the ``fabric-network`` package when we do an npm install again. To do this, within VSCode, right click on ``node_modules`` and select ``Delete``. Do the same for ``package-lock.json``. If it asks you to confirm this, select ``Move to Trash``.
 
-**18.** Back in our CLI application, do an ``npm install`` within the ``digibank`` folder:
+**18.** Back in our terminal application, do an ``npm install`` within the ``magnetocorp`` folder:
 
     tecadmin@ubuntubase:~/Desktop/magnetocorp$ npm install
     *
@@ -709,9 +712,9 @@ So now our ``dependecies`` look like this:
     
 **20.** We will hold off on starting the server until we have built the DigiBank loopback application as well. 
 
-**21.** Speaking of DigiBank, let's build their loopback API application. It will be very similar to how we built DigiBank's. 
+**21.** Speaking of DigiBank, let's build their loopback API application. It will be very similar to how we built MagnetoCorp's. 
 
-**22.** Go ahead and follow the series of commands and prompts below to create MagnetoCorp's loopback application. I'll explain these after we have completed this:
+**22.** Go ahead and follow the series of commands and prompts below to create Digibank's loopback application. I'll explain these after we have completed this:
 
     ----- Create Our App -----
     
@@ -864,7 +867,7 @@ So now our ``dependecies`` look like this:
     Let's add another property to Redeem
     Enter an empty property name when done
 
-    ? Enter the property name: redeemingOwner
+    ? Enter the property name: redeemDateTime
     ? Property type: string
     ? Is redeemingOwner the ID property? No
     ? Is it required?: Yes
@@ -1342,7 +1345,7 @@ You should see 7 files in there: ``README.md``, ``buy.controller.ts``, ``redeem.
     
 **Go ahead and save this file!**
 
-**36.** Now, we need to copy our ``networkConnection.yaml`` file over from ``digibank`` in our ``fabric-samples-cp`` folder and place it into our ``digibank`` folder. You can execute the command below, from our CLI application, as to how to copy:
+**36.** Now, we need to copy our ``networkConnection.yaml`` file over from ``digibank`` in our ``fabric-samples-cp`` folder and place it into our ``digibank`` folder. You can execute the command below, from our terminal application, as to how to copy:
 
     tecadmin@ubuntubase:~/Desktop/digibank$ cp /home/tecadmin/Desktop/fabric-samples-cp/commercial-paper/organization/digibank/gateway/networkConnection.yaml .
     
@@ -1390,7 +1393,7 @@ So now our ``dependecies`` look like this:
 
 **40.** Now we can delete the ``node_modules`` and ``package-lock.json`` file so that it will pick up the ``fabric-network`` package on we install again. To do this, within VSCode, right click on ``node_modules`` and select ``Delete``. Do the same for ``node_modules``. If it asks you to confirm this, select ``Move to Trash``.
 
-**41.** Back in our CLI application, do an ``npm install`` within the ``digibank`` folder:
+**41.** Back in our terminal application, do an ``npm install`` within the ``digibank`` folder:
 
     tecadmin@ubuntubase:~/Desktop/digibank$ npm install
     *
@@ -1406,7 +1409,7 @@ So now our ``dependecies`` look like this:
     > magnetocorp-commercialpaper@1.0.0 build /home/tecadmin/Desktop/digibank
     > lb-tsc es2017 --outDir dist
     
-**43.** Now, we can start both loopback applications. Let's first go start DigiBank's. To do this, find go to your CLI application - where you generate the ``digibank`` folder. Then run the command below:
+**43.** Now, we can start both loopback applications. Let's first go start DigiBank's. To do this, go to your terminal application - where you generate the ``digibank`` folder. Then run the command below:
 
     tecadmin@ubuntubase:~/Desktop/digibank$ npm start
 
@@ -1424,7 +1427,7 @@ So now our ``dependecies`` look like this:
     Server is running at http://[::1]:3000
     Try http://[::1]:3000/ping
     
-**44.** Then go to your ``digibank`` CLI application and do the same command:
+**44.** Then go to your ``digibank`` terminal application and do the same command:
 
     tecadmin@ubuntubase:~/Desktop/digibank$ npm start
 

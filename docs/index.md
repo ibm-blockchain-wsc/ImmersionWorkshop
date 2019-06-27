@@ -29,7 +29,7 @@ Welcome! This two-day workshop combines lectures and hands-on labs to teach you 
 
 ## Acknowledgements
 
-* Thanks to the following people who helped us test out the labs: Elvin, Kevin Breitenother, Victoria Coates
+* Thanks to the following people who helped us test out the labs: Elvin Galarza, Kevin Breitenother, Victoria Coates
 
 ## Authors
 * [Austin Grice](mailto:austin.grice@ibm.com)
