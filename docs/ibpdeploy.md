@@ -107,7 +107,7 @@ We need to register a client user to use to enroll application identities for Or
 
 ![image](images/ibpdeploy/ibpdeploy21.png)
 
-**5.** Now you should see the new user you added show up under `Registered users`:
+**5.** Now you should see the `app-admin` user you added show up under `Registered users`:
 
 ![image](images/ibpdeploy/ibpdeploy22.png)
 
@@ -278,5 +278,3 @@ Now we are ready to submit a test transaction.
 **9.** OPTIONAL: you can submit additional transactions through VSCode, and watch the block height increase and look at the transaction in the IBM Blockchain Platform Console.
 
 Congraulations!! You've now successfully enrolled an application identity and used it to invoke transactions against a smart contract deployed to IBM Blockchain Platform.
-
-

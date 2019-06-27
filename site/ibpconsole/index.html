@@ -281,15 +281,31 @@ Then you will create a second peer organization, and add it to the channel.</p>
 <li>Section 21: Defining an anchor peer for each of your two peer organizations</li>
 </ul>
 <h1 id="section-2-log-in-to-the-ibm-blockchain-platform-console">Section 2: Log in to the IBM Blockchain Platform console</h1>
-<p><strong>Step 2.1:</strong> Open a Firefox browser window or new tab and enter the unique URL, which will have been provided to you by the instructor, for your team's IBM Blockchain Platform console.
+<div class="admonition important">
+<p class="admonition-title">Important<p>The lab environment is using self-signed SSL certificates and your browser will not trust them without explicit action on your part so part of this initial section on logging in involves establishing this trust. You will first need to go to the URL address specified for your infrastructure.  The IP address in the URL will be the same for each team, but each team will have a different port. </p>
+</p>
+</div>
+<p><strong>Step 2.1:</strong> Open a Firefox browser window or new tab and enter <strong>https://192.168.22.81:<em>xxxxx</em> </strong> where <em>xxxxx</em> is the specific port for your team. This port will be provided to you by your instructor. The screenshots in the next few steps are for port 30039 but your port will likely be different:</p>
+<p><img alt="image" src="../images/ibpconsole/0006_ProxyIPBefore.png" /></p>
+<p><strong>Step 2.2:</strong> You will see a security warning that looks like below. Click the <strong>Advanced</strong> button:</p>
+<p><img alt="image" src="../images/ibpconsole/0007_ProxyIPBefore2.png" /></p>
+<p><strong>Step 2.3:</strong> You will see another security warning. Click the <strong>Accept the Risk and Continue</strong> button (what's the worse that could happen?):</p>
+<p><img alt="image" src="../images/ibpconsole/0008_ProxyIPBefore3.png" /></p>
+<p><strong>Step 2.4:</strong> You should see the quite verbose message in your browser window, <strong>Up</strong> (why mince words?):</p>
+<p><img alt="image" src="../images/ibpconsole/0009_ProxyIPUp.png" /></p>
+<p><strong>Step 2.5:</strong> Open a new tab or overwrite the URL from the previous step and enter the unique URL, which will have been provided to you by the instructor, for your team's IBM Blockchain Platform console.
 If you see a security warning after entering the URL, click the <strong>Advanced</strong> button, which is highlighted in the below screen snippet:</p>
+<div class="admonition note">
+<p class="admonition-title">Note<p>In most cases this URL will be the same as the URL from <em>Step 2.1</em>, only with the port number one less than the port number from that step.  But double-check this with the addresses provided to you by your instructor</p>
+</p>
+</div>
 <p><img alt="image" src="../images/ibpconsole/0010_CertificateIssue.png" /></p>
-<p><strong>Step 2.2:</strong> The reason you are seeing these security messages is because of a self-signed certificate in our lab environment.
+<p><strong>Step 2.6:</strong> The reason you are seeing these security messages is because of a self-signed certificate in our lab environment.
 Go ahead and click on the <strong>Proceed to 192.168.22.81 (unsafe)</strong> link that is shown below:</p>
 <p><img alt="image" src="../images/ibpconsole/0020_CertificateIssue.png" /></p>
-<p><strong>Step 2.3:</strong> Enter your team's userid and password, which will have been provided to you by the instructor, and click the <em>Login</em> button:</p>
+<p><strong>Step 2.7:</strong> Enter your team's userid and password, which will have been provided to you by the instructor, and click the <em>Login</em> button:</p>
 <p><img alt="image" src="../images/ibpconsole/0040_Login.png" /></p>
-<p><strong>Step 2.4:</strong> You may be presented with a welcome screen with dazzling interactive graphics. Move your cursor around a bit to take in the wonder, and then click the <strong>Let's get started</strong> button in the lower right corner.</p>
+<p><strong>Step 2.8:</strong> You may be presented with a welcome screen with dazzling interactive graphics. Move your cursor around a bit to take in the wonder, and then click the <strong>Let's get started</strong> button in the lower right corner.</p>
 <p><img alt="image" src="../images/ibpconsole/0043_WelcomeGraphics.png" /></p>
 <h1 id="section-3-create-a-certificate-authority-for-your-first-organization">Section 3: Create a Certificate Authority for your first organization</h1>
 <p>In a Hyperledger Fabric network, each organization will typically have their own certificate authority. The certificate authority is used to issue identities- consisting of X.509 public certificates and matching private keys- for end users, client applications, administrators, and peer and ordering service nodes. In most uses cases each organization will want to have control over the identities they issue, so the typical practice is that each organization provides their own certificate authority. We will follow that practice in this lab. </p>
@@ -304,7 +320,15 @@ In relation to the diagram in the overview section that showed our finished netw
 <p><img alt="image" src="../images/ibpconsole/0070_AddCertificateAuthoritySideBar2.png" /></p>
 <p><strong>Step 3.4:</strong> Type in <strong>admin</strong> for the <em>CA administrator enroll id</em> and <strong>adminpw</strong> for the <em>CA administrator enroll secret</em> and then click the blue <strong>Next</strong> button:</p>
 <p><img alt="image" src="../images/ibpconsole/0080_AddCertificateAuthoritySideBar3.png" /></p>
-<p><strong>Step 3.5:</strong> Leave the <em>Resource allocation</em> settings unchanged, and click the <strong>Next</strong> button:</p>
+<p><strong>Step 3.5:</strong> In the <em>Resource allocation</em> settings section, change the <em>Memory</em> setting from <em>200</em> to <em>100</em>, and click the <strong>Next</strong> button:</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You may need to scroll down in the <em>Resource allocation</em> section to see the <em>Memory</em> field.</p>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>It is very important to change the <em>Resource allocation</em> settings throughout the lab to the values provided in these instructions, in order to ensure that each team has enough resources.</p>
+</div>
 <p><img alt="image" src="../images/ibpconsole/0090_AddCertificateAuthoritySideBar4.png" /></p>
 <p><strong>Step 3.6:</strong> Review your settings and click the <strong>Add Certificate Authority</strong> button:</p>
 <div class="admonition note">
@@ -399,7 +423,13 @@ Click the <strong>Organizations</strong> icon on the palette on the left of your
 </ul>
 <p>Review the values your entered for correctness and then click the blue <strong>Next</strong> button:</p>
 <p><img alt="image" src="../images/ibpconsole/0310_AddOrg1PeerSidebar4.png" /></p>
-<p><strong>Step 6.6:</strong> Leave the <em>Resource allocation</em> settings unchanged and click the <strong>Next</strong> button:</p>
+<p><strong>Step 6.6:</strong> In the <em>Resource allocation</em> settings section, make the following changes, and click the <strong>Next</strong> button:</p>
+<ul>
+<li>In the <em>Peer container</em> section, change <em>CPU</em> to <strong>0.1</strong></li>
+<li>In the <em>Peer container</em> section, change <em>Memory</em> to <strong>800</strong></li>
+<li>In the <em>CouchDB container</em> section, change <em>CPU</em> to <strong>0.1</strong></li>
+<li>In the <em>CouchDB container</em> section, change <em>Memory</em> to <strong>200</strong></li>
+</ul>
 <p><img alt="image" src="../images/ibpconsole/0320_AddOrg1PeerSidebar5.png" /></p>
 <p><strong>Step 6.7:</strong> Select <strong>Team<em>xx</em> Org1 Admin</strong>, where <em>xx</em> is your two-digit team id, for the <em>Identity</em> field, and click <strong>Next</strong>:</p>
 <p><img alt="image" src="../images/ibpconsole/0330_AddOrg1PeerSidebar6.png" /></p>
@@ -434,7 +464,7 @@ Click the <strong>Organizations</strong> icon on the palette on the left of your
 <p>May I kindly suggest that for real world implementations you use stronger, less predictable, passwords?</p>
 </div>
 <p><img alt="image" src="../images/ibpconsole/0400_AddOrderingCASidebar3.png" /></p>
-<p><strong>Step 7.5:</strong> Leave the <em>Resource allocation</em> settings unchanged, and click the <strong>Next</strong> button:</p>
+<p><strong>Step 7.5:</strong> In the <em>Resource allocation</em> settings section, change the <em>Memory</em> setting from <em>200</em> to <em>100</em>, and click the <strong>Next</strong> button:</p>
 <p><img alt="image" src="../images/ibpconsole/0410_AddOrderingCASidebar4.png" /></p>
 <p><strong>Step 7.6:</strong> Review your settings and click the <strong>Add Certificate Authority</strong> button:</p>
 <p><img alt="image" src="../images/ibpconsole/0420_AddOrderingCASidebar5.png" /></p>
@@ -522,7 +552,7 @@ Click the <strong>Organizations</strong> icon on the palette on the left of your
 </ul>
 <p>Review the values your entered for correctness and then click the blue <strong>Next</strong> button:</p>
 <p><img alt="image" src="../images/ibpconsole/0630_AddOrdererSidebar4.png" /></p>
-<p><strong>Step 10.6:</strong> Leave the <em>Resource allocation</em> settings unchanged and click the <strong>Next</strong> button:</p>
+<p><strong>Step 10.6:</strong> In the <em>Resource allocation</em> section, change <em>CPU</em> to <strong>0.1</strong> and change <em>Memory</em> to <strong>200</strong> and click the <strong>Next</strong> button:</p>
 <p><img alt="image" src="../images/ibpconsole/0640_AddOrdererSidebar5.png" /></p>
 <p><strong>Step 10.7:</strong> Select <strong>Team<em>xx</em> Ordering Service Admin</strong>, where <em>xx</em> is your two-digit team id, for the <em>Identity</em> field, and click <strong>Next</strong>:</p>
 <p><img alt="image" src="../images/ibpconsole/0650_AddOrdererSidebar6.png" /></p>
@@ -585,7 +615,7 @@ Click the <strong>Organizations</strong> icon on the palette on the left of your
 <p><img alt="image" src="../images/ibpconsole/0830_AddOrg2CASidebar2.png" /></p>
 <p><strong>Step 14.4:</strong> Type in <strong>admin</strong> for the <em>CA administrator enroll id</em> and <strong>adminpw</strong> for the <em>CA administrator enroll secret</em> and then click the blue <strong>Next</strong> button:</p>
 <p><img alt="image" src="../images/ibpconsole/0840_AddOrg2CASidebar3.png" /></p>
-<p><strong>Step 14.5:</strong> Leave the <em>Resource allocation</em> settings unchanged, and click the <strong>Next</strong> button:</p>
+<p><strong>Step 14.5:</strong> In the <em>Resource allocation</em> settings section, change the <em>Memory</em> setting from <em>200</em> to <em>100</em>, and click the <strong>Next</strong> button:</p>
 <p><img alt="image" src="../images/ibpconsole/0850_AddOrg2CASidebar4.png" /></p>
 <p><strong>Step 14.6:</strong> Review your settings and click the <strong>Add Certificate Authority</strong> button:</p>
 <p><img alt="image" src="../images/ibpconsole/0860_AddOrg2CASidebar5.png" /></p>
@@ -669,7 +699,13 @@ Click the <strong>Organizations</strong> icon on the palette on the left of your
 </ul>
 <p>Review the values your entered for correctness and then click the blue <strong>Next</strong> button:</p>
 <p><img alt="image" src="../images/ibpconsole/1070_AddOrg2PeerSidebar4.png" /></p>
-<p><strong>Step 17.6:</strong> Leave the <em>Resource allocation</em> settings unchanged and click the <strong>Next</strong> button:</p>
+<p><strong>Step 17.6:</strong> In the <em>Resource allocation</em> settings section, make the following changes, and click the <strong>Next</strong> button:</p>
+<ul>
+<li>In the <em>Peer container</em> section, change <em>CPU</em> to <strong>0.1</strong></li>
+<li>In the <em>Peer container</em> section, change <em>Memory</em> to <strong>800</strong></li>
+<li>In the <em>CouchDB container</em> section, change <em>CPU</em> to <strong>0.1</strong></li>
+<li>In the <em>CouchDB container</em> section, change <em>Memory</em> to <strong>200</strong></li>
+</ul>
 <p><img alt="image" src="../images/ibpconsole/1080_AddOrg2PeerSidebar5.png" /></p>
 <p><strong>Step 17.7:</strong> Select <strong>Team<em>xx</em> Org2 Admin</strong>, where <em>xx</em> is your two-digit team id, for the <em>Identity</em> field, and click <strong>Next</strong>:</p>
 <p><img alt="image" src="../images/ibpconsole/1090_AddOrg2PeerSidebar6.png" /></p>
