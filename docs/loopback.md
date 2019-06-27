@@ -179,7 +179,7 @@ In this section, we are going to create a loopback API application for MagnetoCo
 
         ----- Create a Datasource -----
         
-    tecadmin@ubuntubase:~/Desktop/digibank$ lb4 datasource
+    tecadmin@ubuntubase:~/Desktop/magnetocorp$ lb4 datasource
     ? Datasource name: db
     ? Select the connector for db: In-memory db (supported by StrongLoop)
     ? window.localStorage key to use for persistence (browser only): 
@@ -705,9 +705,9 @@ So now our ``dependencies`` look like this:
     
 **19.** Then you can do an ``npm build`` as well from the same folder:
 
-    tecadmin@ubuntubase:~/Desktop/digibank$ npm run build
+    tecadmin@ubuntubase:~/Desktop/magnetocorp$ npm run build
 
-    > digibank@1.0.0 build /home/tecadmin/Desktop/magnetocorp
+    > magnetocorp@1.0.0 build /home/tecadmin/Desktop/magnetocorp
     > lb-tsc es2017 --outDir dist
     
 **20.** We will hold off on starting the server until we have built the DigiBank loopback application as well. 
