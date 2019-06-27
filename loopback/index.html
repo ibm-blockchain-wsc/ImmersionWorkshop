@@ -754,8 +754,8 @@ export module BlockChainModule {
   }
 }
 </code></pre>
-<p><strong>Go ahead and save this file!</strong> Below is a breakdown of our <code>blockchainClient.ts</code> file</p>
-<p>Below, you'll see that we are specifing where our user's credientials are located to validate that our user can actually submit a transaction:</p>
+<p><strong>Go ahead and save this file!</strong> Below is a breakdown of our <code>blockchainClient.ts</code> file:</p>
+<p>Below, you'll see that we are specifying where our user's credientials are located to validate that our user can actually submit a transaction:</p>
 <pre><code>// A wallet stores a collection of identities for use
 const wallet = new FileSystemWallet('/home/tecadmin/Desktop/magnetocorp/local_fabric_wallet');
 </code></pre>
@@ -763,7 +763,7 @@ const wallet = new FileSystemWallet('/home/tecadmin/Desktop/magnetocorp/local_fa
 <pre><code>const identityLabel = 'isabella';
 let connectionProfile = yaml.safeLoad(fs.readFileSync('/home/tecadmin/Desktop/magnetocorp/networkConnection.yaml', 'utf8'));
 </code></pre>
-<p>Below, we are connection to our channel, called <code>mychannel</code>, and also using our smart contract, called <code>papercontract</code>:</p>
+<p>Below, we are connecting to our channel, called <code>mychannel</code>, and also using our smart contract, called <code>papercontract</code>:</p>
 <pre><code>// Connect to our local fabric
 const network = await gateway.getNetwork('mychannel');
 
@@ -772,8 +772,7 @@ console.log('Connected to mychannel. ');
 // Get the contract we have installed on the peer
 const contract = await network.getContract('papercontract');
 </code></pre>
-<p>Below, we are actually submitting our <code>issue</code> transaction. There is a very similar transaction. This will use our <code>issue</code> controller as a basis for our actual arguments (args). 
-::</p>
+<p>Below, we are actually submitting our <code>issue</code> transaction. There is a very similar transaction. This will use our <code>issue</code> controller as a basis for our actual arguments (args): </p>
 <pre><code>   async issue(args: any) {
 
      console.log('args for issue: ')
@@ -790,8 +789,9 @@ const contract = await network.getContract('papercontract');
 </code></pre>
 <p><strong>14.</strong> Now, we need to copy our <code>networkConnection.yaml</code> file over from <code>magnetocorp</code> in our <code>fabric-samples-cp</code> folder and place it into our <code>magnetocorp</code> folder. You can execute the command below, from our CLI application, as to how to copy:</p>
 <pre><code>tecadmin@ubuntubase:~/Desktop/magnetocorp$ cp /home/tecadmin/Desktop/fabric-samples-cp/commercial-paper/organization/magnetocorp/gateway/networkConnection.yaml .
+#
 </code></pre>
-<p><strong>15.</strong> From VSCode, go to the IBM Blockchain Platform extension and right click on <code>local_fabric_wallet</code> and select <code>Add Identity to Wallet</code>. From there follow the prompt as it follows below:</p>
+<p><strong>15.</strong> From VSCode, go to the IBM Blockchain Platform Extension and right click on <code>local_fabric_wallet</code> and select <code>Add Identity to Wallet</code>. From there follow the prompt as it follows below:</p>
 <pre><code>Provide a Name for the Identity:
     isabella
 Enter MSPID:
@@ -1445,7 +1445,7 @@ export module BlockChainModule {
 <p><strong>36.</strong> Now, we need to copy our <code>networkConnection.yaml</code> file over from <code>digibank</code> in our <code>fabric-samples-cp</code> folder and place it into our <code>digibank</code> folder. You can execute the command below, from our CLI application, as to how to copy:</p>
 <pre><code>tecadmin@ubuntubase:~/Desktop/digibank$ cp /home/tecadmin/Desktop/fabric-samples-cp/commercial-paper/organization/digibank/gateway/networkConnection.yaml .
 </code></pre>
-<p><strong>37.</strong> From VSCode, go to the IBM Blockchain Platform extension and right click on <code>local_fabric_wallet</code> and select <code>Add Identity to Wallet</code>. From there follow the prompt as it follows below:</p>
+<p><strong>37.</strong> From VSCode, go to the IBM Blockchain Platform Extension and right click on <code>local_fabric_wallet</code> and select <code>Add Identity to Wallet</code>. From there follow the prompt as it follows below:</p>
 <pre><code>Provide a Name for the Identity:
     balaji
 Enter MSPID:
@@ -1550,7 +1550,7 @@ Try http://[::1]:3001/ping
 <p><strong>51.</strong> Then you will see the output of our <code>issue</code> transaction</p>
 <p><img alt="image" src="../vscode-images/2-6-45.png" /></p>
 <p>Don't be alarm by the the <code>faceValue</code> and <code>paperRate</code> not appearing in our response. We will confirm that it actually went through here in a second.</p>
-<p><strong>52.</strong> From the IBM Blockchain Platform extension in VSCode, connect to the <code>local_fabric</code> Fabric Gateway and select <code>balaji</code> as your identity to connect with (it will pop up in the top middle). Then untoggle till you see the <code>buy</code> transaction under our <code>papercontract@0.0.2</code> smart contract. Enter the code below - between the brackets - to submit this transaction:</p>
+<p><strong>52.</strong> From the IBM Blockchain Platform Extension in VSCode, connect to the <code>local_fabric</code> Fabric Gateway and select <code>balaji</code> as your identity to connect with (it will pop up in the top middle). Then untoggle till you see the <code>buy</code> transaction under our <code>papercontract@0.0.2</code> smart contract. Enter the code below - between the brackets - to submit this transaction:</p>
 <pre><code>"MagnetoCorp", "00005", "MagnetoCorp", "DigiBank", "4900000", "2019-07-31"
 </code></pre>
 <p>You should see a success message below in the bottom right</p>
