@@ -343,7 +343,7 @@ The other file is <code>docker-compose.yml</code>, which pulls down a
 <code>fabric-tools</code> container that is connected to our local network. When we
 spun up our <code>local_fabric</code> network, back in Part 1, it placed all the
 cryptographic material in our
-<code>/home/tecadmin/.fabric-vscode/crypto-config/</code> directory. It is then
+<code>/home/tecadmin/.fabric-vscode/runtime/crypto-config/</code> directory. It is then
 taking all the crypto material and placing it in our fabric-tools
 container. This will make more sense once we install and instantiate the
 smart contract from this container instead of VSCode.</p>
@@ -599,12 +599,6 @@ You can find the code by clicking on <code>issue.js</code> within the
 local file system, the application uses FileSystemWallet :</p>
 <pre><code>// Bring key classes into scope, most importantly Fabric SDK network class 
 const { FileSystemWallet, Gateway } = require('fabric-network');
-</code></pre>
-<p>Below, this line is very important. Because we are connecting to our
-local_fabric we started at the beginning of Part 1, the crypto material
-is stored under the .fabric-vscode/runtime folder. This is important for
-grabbing our unique private key:</p>
-<pre><code>const fixtures = path.resolve(__dirname, '/home/tecadmin/.fabric-vscode/runtime');
 </code></pre>
 <p>Below, this statement identifies that the application will use
 Isabella's wallet when it connects to the blockchain network channel.
