@@ -612,9 +612,9 @@ Below, we are actually submitting a transaction, an `issue` transaction. This tr
     }
 
     
-**Go ahead and save this file!** Below is a breakdown of our `blockchainClient.ts` file
+**Go ahead and save this file!** Below is a breakdown of our `blockchainClient.ts` file:
 
-Below, you'll see that we are specifing where our user's credientials are located to validate that our user can actually submit a transaction:
+Below, you'll see that we are specifying where our user's credientials are located to validate that our user can actually submit a transaction:
 
     // A wallet stores a collection of identities for use
     const wallet = new FileSystemWallet('/home/tecadmin/Desktop/magnetocorp/local_fabric_wallet');
@@ -624,7 +624,7 @@ Below, we are saying that within the `.fabric-vscode/local_fabric_wallet` folder
     const identityLabel = 'isabella';
     let connectionProfile = yaml.safeLoad(fs.readFileSync('/home/tecadmin/Desktop/magnetocorp/networkConnection.yaml', 'utf8'));
     
-Below, we are connection to our channel, called `mychannel`, and also using our smart contract, called `papercontract`:
+Below, we are connecting to our channel, called `mychannel`, and also using our smart contract, called `papercontract`:
 
     // Connect to our local fabric
     const network = await gateway.getNetwork('mychannel');
@@ -634,8 +634,7 @@ Below, we are connection to our channel, called `mychannel`, and also using our 
     // Get the contract we have installed on the peer
     const contract = await network.getContract('papercontract');
     
-Below, we are actually submitting our `issue` transaction. There is a very similar transaction. This will use our `issue` controller as a basis for our actual arguments (args). 
-::
+Below, we are actually submitting our `issue` transaction. There is a very similar transaction. This will use our `issue` controller as a basis for our actual arguments (args): 
 
        async issue(args: any) {
 
@@ -654,8 +653,9 @@ Below, we are actually submitting our `issue` transaction. There is a very simil
 **14.** Now, we need to copy our ``networkConnection.yaml`` file over from ``magnetocorp`` in our ``fabric-samples-cp`` folder and place it into our ``magnetocorp`` folder. You can execute the command below, from our CLI application, as to how to copy:
 
     tecadmin@ubuntubase:~/Desktop/magnetocorp$ cp /home/tecadmin/Desktop/fabric-samples-cp/commercial-paper/organization/magnetocorp/gateway/networkConnection.yaml .
+    #
     
-**15.** From VSCode, go to the IBM Blockchain Platform extension and right click on ``local_fabric_wallet`` and select ``Add Identity to Wallet``. From there follow the prompt as it follows below:
+**15.** From VSCode, go to the IBM Blockchain Platform Extension and right click on ``local_fabric_wallet`` and select ``Add Identity to Wallet``. From there follow the prompt as it follows below:
 
     Provide a Name for the Identity:
         isabella
@@ -1346,7 +1346,7 @@ You should see 7 files in there: ``README.md``, ``buy.controller.ts``, ``redeem.
 
     tecadmin@ubuntubase:~/Desktop/digibank$ cp /home/tecadmin/Desktop/fabric-samples-cp/commercial-paper/organization/digibank/gateway/networkConnection.yaml .
     
-**37.** From VSCode, go to the IBM Blockchain Platform extension and right click on ``local_fabric_wallet`` and select ``Add Identity to Wallet``. From there follow the prompt as it follows below:
+**37.** From VSCode, go to the IBM Blockchain Platform Extension and right click on ``local_fabric_wallet`` and select ``Add Identity to Wallet``. From there follow the prompt as it follows below:
 
     Provide a Name for the Identity:
         balaji
@@ -1473,7 +1473,7 @@ So now our ``dependecies`` look like this:
 
 Don't be alarm by the the ``faceValue`` and ``paperRate`` not appearing in our response. We will confirm that it actually went through here in a second.
     
-**52.** From the IBM Blockchain Platform extension in VSCode, connect to the ``local_fabric`` Fabric Gateway and select ``balaji`` as your identity to connect with (it will pop up in the top middle). Then untoggle till you see the ``buy`` transaction under our ``papercontract@0.0.2`` smart contract. Enter the code below - between the brackets - to submit this transaction:
+**52.** From the IBM Blockchain Platform Extension in VSCode, connect to the ``local_fabric`` Fabric Gateway and select ``balaji`` as your identity to connect with (it will pop up in the top middle). Then untoggle till you see the ``buy`` transaction under our ``papercontract@0.0.2`` smart contract. Enter the code below - between the brackets - to submit this transaction:
 
     "MagnetoCorp", "00005", "MagnetoCorp", "DigiBank", "4900000", "2019-07-31"
     
