@@ -1376,7 +1376,7 @@ You should see 7 files in there: ``README.md``, ``buy.controller.ts``, ``redeem.
 
     "fabric-network": "~1.4.1"
     
-So now our ``dependecies`` look like this:
+So now our ``dependencies`` look like this:
 
       "dependencies": {
         "@loopback/boot": "^1.4.0",
@@ -1389,11 +1389,11 @@ So now our ``dependecies`` look like this:
         "@loopback/service-proxy": "^1.2.1",
         "fabric-network": "~1.4.1"
     
-**Do not forget to add a comma (,) after the "@loopback/service-proxy": "^1.2.1" dependency**
+**Do not forget to add a comma after the "@loopback/service-proxy": "^1.2.1" dependency**
 
 **Go ahead and save this file!**
 
-**40.** Now we can delete the ``node_modules`` and ``package-lock.json`` file so that it will pick up the ``fabric-network`` package on we install again. To do this, within VSCode, right click on ``node_modules`` and select ``Delete``. Do the same for ``node_modules``. If it asks you to confirm this, select ``Move to Trash``.
+**40.** Now we can delete the ``node_modules`` and ``package-lock.json`` file so that it will pick up the ``fabric-network`` package when we do an npm install again. To do this, within VSCode, right click on ``node_modules`` and select ``Delete``. Do the same for ``node_modules``. If it asks you to confirm this, select ``Move to Trash``.
 
 **41.** Back in our terminal application, do an ``npm install`` within the ``digibank`` folder:
 
