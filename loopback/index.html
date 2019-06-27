@@ -787,7 +787,7 @@ const contract = await network.getContract('papercontract');
 
    }
 </code></pre>
-<p><strong>14.</strong> Now, we need to copy our <code>networkConnection.yaml</code> file over from <code>magnetocorp</code> in our <code>fabric-samples-cp</code> folder and place it into our <code>magnetocorp</code> folder. You can execute the command below, from our CLI application, as to how to copy:</p>
+<p><strong>14.</strong> Now, we need to copy our <code>networkConnection.yaml</code> file over from <code>magnetocorp</code> in our <code>fabric-samples-cp</code> folder and place it into our <code>magnetocorp</code> folder. You can execute the command below, from our terminal application, as to how to copy:</p>
 <pre><code>tecadmin@ubuntubase:~/Desktop/magnetocorp$ cp /home/tecadmin/Desktop/fabric-samples-cp/commercial-paper/organization/magnetocorp/gateway/networkConnection.yaml .
 #
 </code></pre>
@@ -806,7 +806,11 @@ Enter Enrollment secret:
 <p><strong>16.</strong> We need to modify our <code>package.json</code> file to include the <code>fabric-network</code> module. Within our <code>magnetocorp</code> folder, find the <code>package.json</code> file and add in the following text below on <code>line 58</code>:</p>
 <pre><code>"fabric-network": "~1.4.1"
 </code></pre>
-<p>So now our <code>dependecies</code> look like this:</p>
+<div class="admonition note">
+<p class="admonition-title">Note<p>Your line number may differ- the important thing is that this line is added to the end of the <em>dependencies</em> section, and not in the <em>dev-dependencies</em> section.</p>
+</p>
+</div>
+<p>So now our <code>dependencies</code> look like this:</p>
 <pre><code>"dependencies": {
     "@loopback/boot": "^1.4.0",
     "@loopback/context": "^1.19.0",
@@ -818,10 +822,10 @@ Enter Enrollment secret:
     "@loopback/service-proxy": "^1.2.1",
     "fabric-network": "~1.4.1"
 </code></pre>
-<p><strong>Do not forget to add a comma (,) after the "@loopback/service-proxy": "^1.2.1" dependency</strong></p>
+<p><strong>Do not forget to add a comma after the "@loopback/service-proxy": "^1.2.1" dependency above the line you just added.</strong></p>
 <p><strong>Go ahead and save this file!</strong></p>
-<p><strong>17.</strong> Now we can delete the <code>node_modules</code> and <code>package-lock.json</code> file so that it will pick up the <code>fabric-network</code> package on we install again. To do this, within VSCode, right click on <code>node_modules</code> and select <code>Delete</code>. Do the same for <code>node_modules</code>. If it asks you to confirm this, select <code>Move to Trash</code>.</p>
-<p><strong>18.</strong> Back in our CLI application, do an <code>npm install</code> within the <code>digibank</code> folder:</p>
+<p><strong>17.</strong> Now we can delete the <code>node_modules</code> and <code>package-lock.json</code> file so that it will pick up the <code>fabric-network</code> package when we do an npm install again. To do this, within VSCode, right click on <code>node_modules</code> and select <code>Delete</code>. Do the same for <code>package-lock.json</code>. If it asks you to confirm this, select <code>Move to Trash</code>.</p>
+<p><strong>18.</strong> Back in our terminal application, do an <code>npm install</code> within the <code>magnetocorp</code> folder:</p>
 <pre><code>tecadmin@ubuntubase:~/Desktop/magnetocorp$ npm install
 *
 *
@@ -836,8 +840,8 @@ found 3 vulnerabilities (1 low, 2 moderate)
 &gt; lb-tsc es2017 --outDir dist
 </code></pre>
 <p><strong>20.</strong> We will hold off on starting the server until we have built the DigiBank loopback application as well. </p>
-<p><strong>21.</strong> Speaking of DigiBank, let's build their loopback API application. It will be very similar to how we built DigiBank's. </p>
-<p><strong>22.</strong> Go ahead and follow the series of commands and prompts below to create MagnetoCorp's loopback application. I'll explain these after we have completed this:</p>
+<p><strong>21.</strong> Speaking of DigiBank, let's build their loopback API application. It will be very similar to how we built MagnetoCorp's. </p>
+<p><strong>22.</strong> Go ahead and follow the series of commands and prompts below to create Digibank's loopback application. I'll explain these after we have completed this:</p>
 <pre><code>----- Create Our App -----
 
 tecadmin@ubuntubase:~/Desktop$ lb4 app
@@ -989,7 +993,7 @@ Enter an empty property name when done
 Let's add another property to Redeem
 Enter an empty property name when done
 
-? Enter the property name: redeemingOwner
+? Enter the property name: redeemDateTime
 ? Property type: string
 ? Is redeemingOwner the ID property? No
 ? Is it required?: Yes
@@ -1442,7 +1446,7 @@ export module BlockChainModule {
 }
 </code></pre>
 <p><strong>Go ahead and save this file!</strong></p>
-<p><strong>36.</strong> Now, we need to copy our <code>networkConnection.yaml</code> file over from <code>digibank</code> in our <code>fabric-samples-cp</code> folder and place it into our <code>digibank</code> folder. You can execute the command below, from our CLI application, as to how to copy:</p>
+<p><strong>36.</strong> Now, we need to copy our <code>networkConnection.yaml</code> file over from <code>digibank</code> in our <code>fabric-samples-cp</code> folder and place it into our <code>digibank</code> folder. You can execute the command below, from our terminal application, as to how to copy:</p>
 <pre><code>tecadmin@ubuntubase:~/Desktop/digibank$ cp /home/tecadmin/Desktop/fabric-samples-cp/commercial-paper/organization/digibank/gateway/networkConnection.yaml .
 </code></pre>
 <p><strong>37.</strong> From VSCode, go to the IBM Blockchain Platform Extension and right click on <code>local_fabric_wallet</code> and select <code>Add Identity to Wallet</code>. From there follow the prompt as it follows below:</p>
@@ -1482,7 +1486,7 @@ port: +process.env.PORT || 3001,
 <p><strong>Do not forget to add a comma (,) after the "@loopback/service-proxy": "^1.2.1" dependency</strong></p>
 <p><strong>Go ahead and save this file!</strong></p>
 <p><strong>40.</strong> Now we can delete the <code>node_modules</code> and <code>package-lock.json</code> file so that it will pick up the <code>fabric-network</code> package on we install again. To do this, within VSCode, right click on <code>node_modules</code> and select <code>Delete</code>. Do the same for <code>node_modules</code>. If it asks you to confirm this, select <code>Move to Trash</code>.</p>
-<p><strong>41.</strong> Back in our CLI application, do an <code>npm install</code> within the <code>digibank</code> folder:</p>
+<p><strong>41.</strong> Back in our terminal application, do an <code>npm install</code> within the <code>digibank</code> folder:</p>
 <pre><code>tecadmin@ubuntubase:~/Desktop/digibank$ npm install
 *
 *
@@ -1496,7 +1500,7 @@ found 3 vulnerabilities (1 low, 2 moderate)
 &gt; magnetocorp-commercialpaper@1.0.0 build /home/tecadmin/Desktop/digibank
 &gt; lb-tsc es2017 --outDir dist
 </code></pre>
-<p><strong>43.</strong> Now, we can start both loopback applications. Let's first go start DigiBank's. To do this, find go to your CLI application - where you generate the <code>digibank</code> folder. Then run the command below:</p>
+<p><strong>43.</strong> Now, we can start both loopback applications. Let's first go start DigiBank's. To do this, go to your terminal application - where you generate the <code>digibank</code> folder. Then run the command below:</p>
 <pre><code>tecadmin@ubuntubase:~/Desktop/digibank$ npm start
 
 &gt; digibank@1.0.0 prestart /home/tecadmin/Desktop/magnetocorp
@@ -1513,7 +1517,7 @@ found 3 vulnerabilities (1 low, 2 moderate)
 Server is running at http://[::1]:3000
 Try http://[::1]:3000/ping
 </code></pre>
-<p><strong>44.</strong> Then go to your <code>digibank</code> CLI application and do the same command:</p>
+<p><strong>44.</strong> Then go to your <code>digibank</code> terminal application and do the same command:</p>
 <pre><code>tecadmin@ubuntubase:~/Desktop/digibank$ npm start
 
 &gt; magnetocorp-commercialpaper@1.0.0 prestart /home/tecadmin/Desktop/digibank
