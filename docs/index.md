@@ -5,15 +5,15 @@ Welcome! This two-day workshop combines lectures and hands-on labs to teach you 
 
 ### Day 1
 * 8:45am -  Introductions
-* 9am -     Lecture: Hyperledger Fabric Technology Deep Dive Part 1
+* 9am -     [Lecture: Hyperledger Fabric Technology Deep Dive Part 1](files/BlockchainExploredPart1.pdf)
 * 10am -    [Lab: Developer Journey with VSCode and the IBM Blockchain Platform Extension](vscode-home.md)
 * 10:15am - [Lab: Developer Journey Part 1 - Create Smart Contract Package](vscode-part1.md)
 * 11am  -   [Lab: Developer Journey Part 2 - Commercial Paper](vscode-part2.md)
 * Noon -    Lunch
-* 1pm -     Lecture: Hyperledger Fabric Technology Deep Dive Part 2
+* 1pm -     [Lecture: Hyperledger Fabric Technology Deep Dive Part 2](files/BlockchainExploredPart2.pdf)
 * 2pm -     [Lab: Developer Journey Part 3 - Cross Chaincode Calls and Debug](xchaincode.md)
 * 3pm -     [Lab: Developer Journey Part 4 - Create a Loopback API service](loopback.md)
-* 4pm -     Lecture: What's New with Hyperledger Fabric?
+* 4pm -     [Lecture: Hyperledger Fabric Technology Deep Dive Part 3](files/BlockchainExploredPart3.pdf)
 * 5pm -     Day 1 Wrap up
 
 ### Day 2
