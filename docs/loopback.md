@@ -1023,9 +1023,9 @@ So now our ``dependencies`` look like this:
 
     Controller GetAllPapersFromIssuer was created in src/controllers/
     
-You had to do the same thing for DigiBank, as you did for MagnetoCorp, and their loopback API application. 
+You just did the same thing for DigiBank, as you earlier did for MagnetoCorp and their loopback API application. 
 
-**23.** Within VSCode, go to the ``Edititor Perspective`` and do ``File -> Add Folder to Workplace`` and navigate to the ``digibank`` folder that we just created within the ``Desktop`` folder. Go ahead and open that folder in VSCode.
+**23.** Within VSCode, go to the ``Explorer Perspective`` and do ``File -> Add Folder to Workplace`` and navigate to the ``digibank`` folder that we just created within the ``Desktop`` folder. Go ahead and open that folder in VSCode.
 
 **24.** Now within VSCode, right click on ``digibank`` - the folder you just opened in VSCode. Once you right click, select ``New Folder`` and name it ``data``. Really mysterious right? 
 
@@ -1042,6 +1042,7 @@ You had to do the same thing for DigiBank, as you did for MagnetoCorp, and their
           "3": "{\"title\":\"terrorize senate\",\"desc\":\"Tell them they're getting a budget cut.\",\"id\":3}",
           "4": "{\"title\":\"crush rebel scum\",\"desc\":\"Every.Last.One.\",\"id\":4}"
         }
+      }
     }
 
 **Go ahead and save this file!** This file, db.json, contains an example database.
@@ -1050,9 +1051,9 @@ You had to do the same thing for DigiBank, as you did for MagnetoCorp, and their
 
     digibank -> src -> repositories
     
-You should see 6 files in there: ``README.md``, ``buy.respistory.ts``, ``redeem.respistory.ts``, ``get-paper-rate.respistory.ts``, ``get-all-papers-from-issuer.respistory.ts`` and ``index.ts``
+You should see 6 files in there: ``README.md``, ``buy.repository.ts``, ``redeem.repository.ts``, ``get-paper-rate.repository.ts``, ``get-all-papers-from-issuer.repository.ts`` and ``index.ts``
 
-**27.** Within the ``buy.respitory.ts`` file, add ``//`` on line 8. Look below as to what to do:
+**27.** Within the ``buy.repository.ts`` file, add ``//`` on line 8. Look below as to what to do:
 
     typeof Buy.prototype.id
     
@@ -1062,7 +1063,7 @@ You should see 6 files in there: ``README.md``, ``buy.respistory.ts``, ``redeem.
 
 **Go ahead and save this file!**
 
-**28.** Within the ``Redeem.respitory.ts`` file, add ``//`` on line 8. Look below as to what to do:
+**28.** Within the ``Redeem.repository.ts`` file, add ``//`` on line 8. Look below as to what to do:
 
     typeof Redeem.prototype.id
     
@@ -1072,7 +1073,7 @@ You should see 6 files in there: ``README.md``, ``buy.respistory.ts``, ``redeem.
 
 **Go ahead and save this file!**
 
-**29.** Within the ``get-paper-rate.respistory.ts`` file, add ``//`` on line 8. Look below as to what to do:
+**29.** Within the ``get-paper-rate.repository.ts`` file, add ``//`` on line 8. Look below as to what to do:
 
     typeof GetPaperRate.prototype.id
     
@@ -1082,7 +1083,7 @@ You should see 6 files in there: ``README.md``, ``buy.respistory.ts``, ``redeem.
 
 **Go ahead and save this file!**
 
-**30.** Within the ``get-all-papers-from-issuer.respistory.ts`` file, add ``//`` on line 8. Look below as to what to do:
+**30.** Within the ``get-all-papers-from-issuer.repository.ts`` file, add ``//`` on line 8. Look below as to what to do:
 
     typeof GetAllPapersFromIssuer.prototype.id
     
