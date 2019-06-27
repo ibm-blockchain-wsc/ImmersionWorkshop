@@ -1411,19 +1411,19 @@ So now our ``dependencies`` look like this:
     > magnetocorp-commercialpaper@1.0.0 build /home/tecadmin/Desktop/digibank
     > lb-tsc es2017 --outDir dist
     
-**43.** Now, we can start both loopback applications. Let's first go start DigiBank's. To do this, go to your terminal application - where you generate the ``digibank`` folder. Then run the command below:
+**43.** Now, we can start both loopback applications. Let's first go start MagnetoCorp's. To do this, go to your terminal application - where you generated the ``magnetocorp`` folder. Then run the command below:
 
-    tecadmin@ubuntubase:~/Desktop/digibank$ npm start
+    tecadmin@ubuntubase:~/Desktop/magnetocorp$ npm start
 
-    > digibank@1.0.0 prestart /home/tecadmin/Desktop/magnetocorp
+    > magnetocorp@1.0.0 prestart /home/tecadmin/Desktop/magnetocorp
     > npm run build
 
 
-    > digibank@1.0.0 build /home/tecadmin/Desktop/magnetocorp
+    > magnetocorp@1.0.0 build /home/tecadmin/Desktop/magnetocorp
     > lb-tsc es2017 --outDir dist
 
 
-    > digibank@1.0.0 start /home/tecadmin/Desktop/magnetocorp
+    > magnetocorp@1.0.0 start /home/tecadmin/Desktop/magnetocorp
     > node .
 
     Server is running at http://[::1]:3000
@@ -1433,21 +1433,21 @@ So now our ``dependencies`` look like this:
 
     tecadmin@ubuntubase:~/Desktop/digibank$ npm start
 
-    > magnetocorp-commercialpaper@1.0.0 prestart /home/tecadmin/Desktop/digibank
+    > digibank@1.0.0 prestart /home/tecadmin/Desktop/digibank
     > npm run build
 
 
-    > magnetocorp-commercialpaper@1.0.0 build /home/tecadmin/Desktop/digibank
+    > digibank@1.0.0 build /home/tecadmin/Desktop/digibank
     > lb-tsc es2017 --outDir dist
 
 
-    > magnetocorp-commercialpaper@1.0.0 start /home/tecadmin/Desktop/digibank
+    > digibank@1.0.0 start /home/tecadmin/Desktop/digibank
     > node .
 
     Server is running at http://[::1]:3001
     Try http://[::1]:3001/ping
     
-**45.** Proceed to go to ``MagnetoCorp's`` loopback application by going to ``http://[::1]:3000``
+**45.** Go to ``MagnetoCorp's`` loopback application by going to ``http://[::1]:3000``
 
 ![image](vscode-images/2-6-39.png)
 
