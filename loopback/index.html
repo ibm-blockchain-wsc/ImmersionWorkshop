@@ -1149,8 +1149,8 @@ tecadmin@ubuntubase:~/Desktop/digibank$ lb4 controller
 
 Controller GetAllPapersFromIssuer was created in src/controllers/
 </code></pre>
-<p>You had to do the same thing for DigiBank, as you did for MagnetoCorp, and their loopback API application. </p>
-<p><strong>23.</strong> Within VSCode, go to the <code>Edititor Perspective</code> and do <code>File -&gt; Add Folder to Workplace</code> and navigate to the <code>digibank</code> folder that we just created within the <code>Desktop</code> folder. Go ahead and open that folder in VSCode.</p>
+<p>You just did the same thing for DigiBank, as you earlier did for MagnetoCorp and their loopback API application. </p>
+<p><strong>23.</strong> Within VSCode, go to the <code>Explorer Perspective</code> and do <code>File -&gt; Add Folder to Workplace</code> and navigate to the <code>digibank</code> folder that we just created within the <code>Desktop</code> folder. Go ahead and open that folder in VSCode.</p>
 <p><strong>24.</strong> Now within VSCode, right click on <code>digibank</code> - the folder you just opened in VSCode. Once you right click, select <code>New Folder</code> and name it <code>data</code>. Really mysterious right? </p>
 <p><strong>25.</strong> On the newly created folder, <code>data</code>, right click on that folder and select <code>New File</code> and name that file <code>db.json</code>. Within that new file, add in this text below:</p>
 <pre><code>{
@@ -1164,14 +1164,15 @@ Controller GetAllPapersFromIssuer was created in src/controllers/
       "3": "{\"title\":\"terrorize senate\",\"desc\":\"Tell them they're getting a budget cut.\",\"id\":3}",
       "4": "{\"title\":\"crush rebel scum\",\"desc\":\"Every.Last.One.\",\"id\":4}"
     }
+  }
 }
 </code></pre>
 <p><strong>Go ahead and save this file!</strong> This file, db.json, contains an example database.</p>
 <p><strong>26.</strong> Within the <code>digibank</code> folder in VSCode, navigate to the following folder:</p>
 <pre><code>digibank -&gt; src -&gt; repositories
 </code></pre>
-<p>You should see 6 files in there: <code>README.md</code>, <code>buy.respistory.ts</code>, <code>redeem.respistory.ts</code>, <code>get-paper-rate.respistory.ts</code>, <code>get-all-papers-from-issuer.respistory.ts</code> and <code>index.ts</code></p>
-<p><strong>27.</strong> Within the <code>buy.respitory.ts</code> file, add <code>//</code> on line 8. Look below as to what to do:</p>
+<p>You should see 6 files in there: <code>README.md</code>, <code>buy.repository.ts</code>, <code>redeem.repository.ts</code>, <code>get-paper-rate.repository.ts</code>, <code>get-all-papers-from-issuer.repository.ts</code> and <code>index.ts</code></p>
+<p><strong>27.</strong> Within the <code>buy.repository.ts</code> file, add <code>//</code> on line 8. Look below as to what to do:</p>
 <pre><code>typeof Buy.prototype.id
 
 --- CHANGE TO ---
@@ -1179,7 +1180,7 @@ Controller GetAllPapersFromIssuer was created in src/controllers/
 // typeof Buy.prototype.id
 </code></pre>
 <p><strong>Go ahead and save this file!</strong></p>
-<p><strong>28.</strong> Within the <code>Redeem.respitory.ts</code> file, add <code>//</code> on line 8. Look below as to what to do:</p>
+<p><strong>28.</strong> Within the <code>Redeem.repository.ts</code> file, add <code>//</code> on line 8. Look below as to what to do:</p>
 <pre><code>typeof Redeem.prototype.id
 
 --- CHANGE TO ---
@@ -1187,7 +1188,7 @@ Controller GetAllPapersFromIssuer was created in src/controllers/
 // typeof Redeem.prototype.id
 </code></pre>
 <p><strong>Go ahead and save this file!</strong></p>
-<p><strong>29.</strong> Within the <code>get-paper-rate.respistory.ts</code> file, add <code>//</code> on line 8. Look below as to what to do:</p>
+<p><strong>29.</strong> Within the <code>get-paper-rate.repository.ts</code> file, add <code>//</code> on line 8. Look below as to what to do:</p>
 <pre><code>typeof GetPaperRate.prototype.id
 
 --- CHANGE TO ---
@@ -1195,7 +1196,7 @@ Controller GetAllPapersFromIssuer was created in src/controllers/
 // typeof GetPaperRate.prototype.id
 </code></pre>
 <p><strong>Go ahead and save this file!</strong></p>
-<p><strong>30.</strong> Within the <code>get-all-papers-from-issuer.respistory.ts</code> file, add <code>//</code> on line 8. Look below as to what to do:</p>
+<p><strong>30.</strong> Within the <code>get-all-papers-from-issuer.repository.ts</code> file, add <code>//</code> on line 8. Look below as to what to do:</p>
 <pre><code>typeof GetAllPapersFromIssuer.prototype.id
 
 --- CHANGE TO ---
