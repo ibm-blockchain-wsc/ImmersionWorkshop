@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Part 1 - Blockchain Immersion Workshop</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Part 1";
+    var mkdocs_page_input_path = "connect-part1.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Blockchain Immersion Workshop</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Use Case Walkthrough</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../immunichain-home/">Introduction</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../immunichain/">Part 1</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">VSCode Lab</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../vscode-home/">Introduction</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../vscode-part1/">Part 1 - Create Smart Contract</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../vscode-part2/">Part 2 - Commercial Paper</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../xchaincode/">Part 3 - Cross Chaincode and Debug</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../loopback/">Part 4 - Create Loopback API</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">IBM Blockchain Platform Connect-a-thon Lab</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../connect-home/">Introduction</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">Part 1</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#overview">Overview</a></li>
+    
+
+    <li class="toctree-l3"><a href="#connect-to-your-peer">Connect to your peer</a></li>
+    
+
+    <li class="toctree-l3"><a href="#login-to-our-kubernetes-cluster">Login to our Kubernetes cluster</a></li>
+    
+
+    <li class="toctree-l3"><a href="#take-a-look-at-your-peer-setup-environment-variables">Take a look at your peer setup environment variables</a></li>
+    
+
+    <li class="toctree-l3"><a href="#check-the-chaincode-on-the-peer-and-the-channel">Check the chaincode on the peer and the channel</a></li>
+    
+
+    <li class="toctree-l3"><a href="#submit-transactions-with-the-peer-to-create-yourself-as-a-marbles-owner-with-a-marble-of-your-own">Submit transactions with the peer to create yourself as a marbles owner with a marble of your own</a></li>
+    
+
+    <li class="toctree-l3"><a href="#configure-the-marbles-application-to-connect-to-your-peer">Configure the marbles application to connect to your peer</a></li>
+    
+
+    <li class="toctree-l3"><a href="#connect-the-marbles-application-to-your-peer">Connect the marbles application to your peer</a></li>
+    
+
+    </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../connect-part2/">Part 2</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">IBM Blockchain Platform for Multicloud on Linux on Z Lab</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../ibpconsole/">Part 1 - Create a Blockchain Network</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../ibpdeploy/">Part 2 - Deploy Smart Contract</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../cicd.md">Part 3 - CICD</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../references/">Additional Resources</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Blockchain Immersion Workshop</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>IBM Blockchain Platform Connect-a-thon Lab &raquo;</li>
+        
+      
+    
+    <li>Part 1</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h2 id="overview">Overview</h2>
+<p>The goal of this part of the lab is to go through the process of using your peer with the fabric command line interface (cli) tools and connecting it with marbles. </p>
+<p>In this part of the lab, you will:</p>
+<ol>
+<li>Connect to your peer</li>
+<li>Log in to our Kubernetes cluster</li>
+<li>Take a look at your peer setup environment variables</li>
+<li>Check the chaincode on the peer and the channel</li>
+<li>Submit transactions with your peer to create yourself as a marbles owner with a marble</li>
+<li>Configure the marbles application to connect to your peer</li>
+<li>Connect the marbles application to your peer</li>
+</ol>
+<h2 id="connect-to-your-peer">Connect to your peer</h2>
+<p>An IBM Blockchain Platform network has been set up with an organization for each member of the lab in our IBM Cloud Private Kubernetes Cluster. The necessary certificate material and environment variables to operate your peer as well as the marbles project have been packaged into a container for your use during the lab.</p>
+<p>This container is labeled based on your team.</p>
+<p>Please open a terminal window on your computer, set your given ip address and ssh into that z machine</p>
+<p><code>IP_ADDRESS=givenip</code></p>
+<p><code>ssh bcuser@$IP_ADDRESS</code></p>
+<p>Sample Output:</p>
+<pre><code>Welcome to Ubuntu 16.04.5 LTS (GNU/Linux 4.4.0-139-generic s390x)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+Last login: Mon Jan 21 21:43:38 2019 from 192.168.22.64
+bcuser@ubuntu16045:~
+</code></pre>
+
+<p>Then, add the cluster to your /etc/hosts and add the self-signed certificate to your ca-certificates (Note: Please run this command exactly as printed below keeping the <code>192.168.22.81</code> ip address which is the address to access our ICP Kubernetes cluster)</p>
+<pre><code>echo &quot;192.168.22.81   wsc-ibp-icp-cluster.icp&quot; | sudo tee --append /etc/hosts &amp;&amp; sudo mkdir /usr/local/share/ca-certificates/wsc-ibp-icp-cluster.icp &amp;&amp; sudo openssl s_client -showcerts -servername wsc-ibp-icp-cluster.icp -connect wsc-ibp-icp-cluster.icp:8443 &lt;/dev/null 2&gt;/dev/null | sudo openssl x509 | sudo tee /usr/local/share/ca-certificates/wsc-ibp-icp-cluster.icp/ca.crt &amp;&amp; sudo update-ca-certificates
+</code></pre>
+
+<p>Sample Output:</p>
+<pre><code>192.168.22.81   wsc-ibp-icp-cluster.icp
+-----BEGIN CERTIFICATE-----
+MIIFfjCCA2agAwIBAgIQbJlENedx5PvDbGD7XLDnITANBgkqhkiG9w0BAQsFADBj
+MQswCQYDVQQGEwJVUzERMA8GA1UECAwITmV3IFlvcmsxDzANBgNVBAcMBkFybW9u
+azEaMBgGA1UECgwRSUJNIENsb3VkIFByaXZhdGUxFDASBgNVBAMMC3d3dy5pYm0u
+Y29tMCAXDTE4MTIxMjE5NTQ1MVoYDzIxMTgxMTE4MTk1NDUxWjBgMQswCQYDVQQG
+EwJDTjEQMA4GA1UECAwHU2hhYW54aTEOMAwGA1UEBwwFWGknYW4xGjAYBgNVBAoM
+EUlCTSBDbG91ZCBQcml2YXRlMRMwEQYDVQQDDAppY3Atcm91dGVyMIIBIjANBgkq
+hkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEArsBisMJEyMGHZ+93mcFsXX0AQc+QXSVW
+o53f3JEd2Kn+tZLx57vOzRWmMop7B1pSe06c1GwFKofOWSTgHCHv8DO8+h9TIm3x
++9IUaLx65mxrTMToUjIxjNyt2JjElHJskxrbpwJsofG59gxhGal8ed89SveXYIL/
+PkXvkm5jsoPaRFjgQq0KJoy9UO26aD/FMJu9HzV+7P6Tu8Q+OJHgWSvIgKfX9vOg
+qyMxv8vGYEGh4jLgQFRMMfXdH01y2diZ259771wHjsTdMRUnxRC36RTDgIXp+0CR
+143p1+dmucYD5G45rOwzPuDi67VNho8mtXs5ohTQfovj4FdcDVtFgQIDAQABo4IB
+LTCCASkwCQYDVR0TBAIwADAdBgNVHQ4EFgQUIMoa55D0BPmJ5FYOEiIa6mw+qtYw
+gZUGA1UdIwSBjTCBioAUZ9zE9CrhJ2Lm/tLiDLDK5H3asjqhZ6RlMGMxCzAJBgNV
+BAYTAlVTMREwDwYDVQQIDAhOZXcgWW9yazEPMA0GA1UEBwwGQXJtb25rMRowGAYD
+VQQKDBFJQk0gQ2xvdWQgUHJpdmF0ZTEUMBIGA1UEAwwLd3d3LmlibS5jb22CCQCV
+Y/GaGOxNzTAdBgNVHSUEFjAUBggrBgEFBQcDAQYIKwYBBQUHAwIwCwYDVR0PBAQD
+AgWgMDkGA1UdEQQyMDCHBH8AAAGCCWxvY2FsaG9zdIcEwKgWUYIXd3NjLWlicC1p
+Y3AtY2x1c3Rlci5pY3AwDQYJKoZIhvcNAQELBQADggIBABCkUfS8TTO2sPJlJjAn
+ZiatcrliKZ2KJqdNNouF68E+xHfthfXxhl93TP5oUEw7lFN8yRb+z0o16wZksliw
+h8FpunHZAuQ+M2qI3afIiRU2H58drGHkBmbZwoMYAQaFrU+A9VEzgibtjBHCkL4p
+g+3kzQySCJq+A9lmVq/gwrd3cqfPxsFckqq1eGvP8BfcwxvkUIPnOp/Vh9f2jgK7
+UNfmPd4hZSzTr2jOfdBAGaltc4C+MAougCAppz7cVQXvb9A2b7ffF3JmYbr626Bk
+Pp7c0rZAzLRsoZy8ngT9zS+9CucY8MolpPDQmBL48asaMYCRgTx6wAgD6bDzJnpt
+F0c+FFf7k4782vJELs4gwXkkWRVmaHBlHn4yfYObsiS23snhu2Fvuu2bBWmFMXEr
+PCK9d1JO1czb672fd18aOj6pmNLZMiIfwIxOxkDpASa4urOhA4sV/61cTpxCSuGs
+MFhrLN9rKvPlQCh+z/gLPvcf/DVuKoRO+JIVLKl7oSp4GQY7HjdpzggUvCxayp3J
+EUe4eqOnN50oogTFw8FA4/mNrMzt4wXfk/1yPgWS9ey0EBuFg8fTi2GjLuR00Xsb
+pjbmU0n0RUpzWdZBHZwb2SpvA6D5M7Ii+aFM0eH5YK5gCU9U9x3hI1MjAtVsINsF
+cTiYtc/9hu704vR7CQ3uFvOk
+-----END CERTIFICATE-----
+Updating certificates in /etc/ssl/certs...
+1 added, 0 removed; done.
+Running hooks in /etc/ca-certificates/update.d...
+done.
+</code></pre>
+
+<p>Take particular note that 1 certificate was added and 0 removed in your output like in the sample output above.</p>
+<p>Next, restart your docker service to pick up the newly added certificate:</p>
+<pre><code>sudo service docker restart
+</code></pre>
+
+<p>Next, login to the private docker repository:</p>
+<pre><code>echo $credential | docker login wsc-ibp-icp-cluster.icp:8500 -u $TEAM --password-stdin
+</code></pre>
+
+<p>Sample Output:</p>
+<pre><code>Login Succeeded
+</code></pre>
+
+<p>Now, start your unique image which will return a command prompt:</p>
+<pre><code>docker run --rm -it -v /var/run/docker.sock:/var/run/docker.sock --name $TEAM -p 3000:3001 wsc-ibp-icp-cluster.icp:8500/lab-test/connectathon-s390x-$TEAM:1.0 bash
+</code></pre>
+
+<p>This command is using Docker to run your team's container in an interactive bash shell and connect it to your machine's docker socket so you can create sibling containers from your container image. Additionally, you are giving it the name of your team and forwarding traffic on port 3000 of the host to port 3001 on your container to access your marbles application during the lab. This means marbles comes up on port 3000 in this part1 of the connectathon versus port 3001 in part2. This makes it so that no port conflicts occur during the lab.</p>
+<h2 id="login-to-our-kubernetes-cluster">Login to our Kubernetes cluster</h2>
+<p>Run the following command to connect to the running IBM Cloud Private Kubernetes cluster.</p>
+<p><code>cloudctl login -a https://192.168.22.81:8443 -u $team -p $credential -n lab-test</code></p>
+<p>Sample Output:</p>
+<pre><code>Targeted account wsc-ibp-icp-cluster Account (id-wsc-ibp-icp-cluster-account)
+
+Targeted namespace lab-test
+
+Configuring kubectl ...
+Property &quot;clusters.wsc-ibp-icp-cluster&quot; unset.
+Property &quot;users.wsc-ibp-icp-cluster-user&quot; unset.
+Property &quot;contexts.wsc-ibp-icp-cluster-context&quot; unset.
+Cluster &quot;wsc-ibp-icp-cluster&quot; set.
+User &quot;wsc-ibp-icp-cluster-user&quot; set.
+Context &quot;wsc-ibp-icp-cluster-context&quot; created.
+Switched to context &quot;wsc-ibp-icp-cluster-context&quot;.
+OK
+
+Configuring helm: /root/.helm
+OK
+</code></pre>
+
+<h2 id="take-a-look-at-your-peer-setup-environment-variables">Take a look at your peer setup environment variables</h2>
+<p>In order to operate your peer a number of environment variables need to be set. Let's take a look at some of the environment variables set for the Hyperledger Fabric cli to work with your peer:</p>
+<p><code>env | grep "CORE\|FABRIC"</code></p>
+<p>Sample Output:</p>
+<pre><code>CORE_PEER_LOCALMSPID=org0
+FABRIC_CFG_PATH=/home/fabric-ca-client/fabric-binaries/config
+CORE_PEER_TLS_ENABLED=true
+CORE_PEER_MSPCONFIGPATH=/home/org0/admin
+CORE_PEER_TLS_ROOTCERT_FILE=/home/org0/peertls.pem
+CORE_PEER_ADDRESS=192.168.22.81:30787
+</code></pre>
+
+<p><code>CORE_PEER_LOCALMSPID</code> defines the local MSP or Membership Services Provider of the peer which contains the identifying information (i.e., certs and keys) for the peer as well as the certificates of trusted Certificate Authorities which are authorized to issue identities on behalf of the organization. (In the sample output above <code>org0</code> is the MSPID, yours will correspond with your team)</p>
+<p><code>FABRIC_CFG_PATH=/home/fabric-ca-client/fabric-binaries/config</code> defines the config path that holds config files such as core.yaml required for some fabric binary tools such as the peer command used in <code>peer chaincode list --installed</code> below.</p>
+<p><code>CORE_PEER_TLS_ENABLED=true</code> is used to enable transport layer security (TLS) communication.</p>
+<p><code>CORE_PEER_MSPCONFIGPATH</code> points to the MSP material you are using to operate the peer</p>
+<p><code>CORE_PEER_TLS_ROOTCERT_FILE</code> is the path to the root TLS certificate for the peer which your system needs to trust to have a TLS connection with the peer. </p>
+<p><code>CORE_PEER_ADDRESS</code> is the peer's IP address used to connect with the peer. </p>
+<p>Additionally, a few more variables are set for ease of use in later commands. You can see the values of these variables with the command below:</p>
+<p><code>env | grep "CHANNEL\|CC_NAME\|ORDERER_CA\|ORDERER_1\|team\|credential" | grep -v "DOCKER"</code></p>
+<p>Sample Output:</p>
+<pre><code>ORDERER_1=192.168.22.81:30634
+CC_NAME=marbles
+CHANNEL=mychannel
+team=team00
+ORDERER_CA=/home/org0/ordererca.pem
+credential=p@ssw0rd
+</code></pre>
+
+<p><code>ORDERER_1</code> is the orderer's IP address used to connect to the orderer.</p>
+<p><code>CC_NAME</code> is the name of the chaincode that we are targeting on the channel.</p>
+<p><code>CHANNEL</code> is the name of the channel we are targeting. Remember a channel in Hyperledger Fabric is it's own subnetwork of communication with its own ledger. </p>
+<p><code>team</code> is the name of the team that you are a part of for this lab which is used to differentiate between different lab members.</p>
+<p><code>ORDERER_CA</code> is the path to the root TLS certificate for the orderer which your system needs to trust to have a TLS connection with the orderer.</p>
+<p><code>credential</code> is the password you will use to authenticate to the cluster for both the private docker registry as well as the Kubernetes API server. </p>
+<h2 id="check-the-chaincode-on-the-peer-and-the-channel">Check the chaincode on the peer and the channel</h2>
+<p>In order to check which chaincode is installed on your peer run:</p>
+<p><code>peer chaincode list --installed</code></p>
+<p>Sample Output:</p>
+<pre><code>Get installed chaincodes on peer:
+Name: marbles, Version: 1.0, Path: marbles, Id: 4421fd51a7949b08620ab8db7407d1269c38e4ef2edd143b1a78d56ae82eaa2d
+</code></pre>
+
+<p>You will notice the marbles chaincode has been installed on your peer.</p>
+<p>Next, let's check which chaincode is instantiated on the channel:</p>
+<p><code>peer chaincode list --instantiated -C $CHANNEL</code></p>
+<p>Sample Output:</p>
+<pre><code>Get instantiated chaincodes on channel mychannel:
+Name: marbles, Version: 1.0, Path: marbles, Escc: escc, Vscc: vscc
+</code></pre>
+
+<p>Here, you see the marbles chaincode has also been instantiated on the channel and is ready to be used to submit transactions.</p>
+<h2 id="submit-transactions-with-the-peer-to-create-yourself-as-a-marbles-owner-with-a-marble-of-your-own">Submit transactions with the peer to create yourself as a marbles owner with a marble of your own</h2>
+<p>Now it's time for one of your team members to add yourself as a marbles owner to the channel.</p>
+<p>First set your name as the marbles owner</p>
+<p><code>owner=Garrett</code></p>
+<p>Then create the owner with the following command:</p>
+<pre><code>peer chaincode invoke -C ${CHANNEL} -n ${CC_NAME} -c '{&quot;Args&quot;:[&quot;init_owner&quot;,&quot;o0'$team'&quot;, &quot;'$owner'&quot;, &quot;'$CORE_PEER_LOCALMSPID'&quot;]}' --tls --cafile $ORDERER_CA -o ${ORDERER_1}
+</code></pre>
+
+<p>Sample Output:</p>
+<pre><code>2019-03-08 03:47:55.093 UTC [chaincodeCmd] chaincodeInvokeOrQuery -&gt; INFO 001 Chaincode invoke successful. result: status:200
+</code></pre>
+
+<p>Next, give your owner a black marble:</p>
+<pre><code>peer chaincode invoke -C ${CHANNEL} -n ${CC_NAME} -c '{&quot;Args&quot;:[&quot;init_marble&quot;,&quot;m0'$team'&quot;,&quot;black&quot;,&quot;200&quot;,&quot;o0'$team'&quot;,&quot;'$CORE_PEER_LOCALMSPID'&quot;]}' --tls --cafile $ORDERER_CA -o ${ORDERER_1}
+</code></pre>
+
+<p>Sample Output</p>
+<pre><code>2019-03-08 03:48:02.027 UTC [chaincodeCmd] chaincodeInvokeOrQuery -&gt; INFO 001 Chaincode invoke successful. result: status:200
+</code></pre>
+
+<p>Finally, run a query against the ledger to see your owner and marble as well as everyone else's so far:</p>
+<pre><code>peer chaincode invoke -C ${CHANNEL} -n ${CC_NAME} -c '{&quot;Args&quot;:[&quot;read_everything&quot;]}' --tls --cafile $ORDERER_CA -o ${ORDERER_1}
+</code></pre>
+
+<p>Sample Output:</p>
+<pre><code>2019-03-15 08:47:04.730 UTC [chaincodeCmd] chaincodeInvokeOrQuery -&gt; INFO 001 Chaincode invoke successful. result: status:200 payload:&quot;{\&quot;owners\&quot;:[{\&quot;docType\&quot;:\&quot;marble_owner\&quot;,\&quot;id\&quot;:\&quot;o015525575491703BpSw\&quot;,\&quot;username\&quot;:\&quot;rick\&quot;,\&quot;company\&quot;:\&quot;org0\&quot;,\&quot;enabled\&quot;:true}
+</code></pre>
+
+<p>Note: This will grow as more marbles and owners get added to the ledger by your org and other orgs.</p>
+<h2 id="configure-the-marbles-application-to-connect-to-your-peer">Configure the marbles application to connect to your peer</h2>
+<p>Go into the marbles directory: <code>cd marbles/config</code></p>
+<p>The marbles application will connect to your fabric network using the Hyperledger Fabric Node.js Software Development Kit (SDK) Application Programming Interface (API) by consuming information in the file <code>connection_profile_tls.json</code></p>
+<p>Take a look at this file with <code>cat connection_profile_tls.json</code></p>
+<p>Take note that this file has connection information and TLS certificates for your, peers, certificate authority (CA), and the orderer for your network.</p>
+<p>Next, you will be able to specify which users you want to enroll in your application. </p>
+<p>Edit the file <code>marbles_tls.json</code> to do this:</p>
+<p><code>vim marbles_tls.json</code></p>
+<p>Edit the names to what you want in the usernames section such as:</p>
+<pre><code>{
+    &quot;cred_filename&quot;: &quot;connection_profile_tls.json&quot;,
+    &quot;use_events&quot;: true,
+    &quot;keep_alive_secs&quot;: 120,
+    &quot;usernames&quot;: [
+        &quot;Beth&quot;,
+        &quot;Rick&quot;,
+        &quot;Jerry&quot;
+    ],
+    &quot;port&quot;: 3001
+}
+</code></pre>
+
+<p>In vim you edit by typing i and then making your changes using the arrow keys to navigate. Once you are finished making changes hit the escape key. Then save your changes with a save command such as <code>:x</code>, holding down shift and typing <code>ZZ</code> (<code>shift + ZZ</code>), <code>shift + ZQ</code> or using the worst option <code>:wq</code>.</p>
+<p>Once the file has been saved, move back to the parent directory with <code>cd ..</code></p>
+<h2 id="connect-the-marbles-application-to-your-peer">Connect the marbles application to your peer</h2>
+<p>Run <code>npm install -g gulp</code></p>
+<p>This will install the gulp npm package necessary to run the marbles application. Warnings are to be expected and are normal at this step and the following <code>npm install</code> step.</p>
+<p>Run <code>npm install</code></p>
+<p>This will install the dependencies for the marbles application specified in the package.json file in the <code>/home/marbles</code> directory. This may take a few minutes. You will notice a bunch of <code>CXX(target)</code> in the output of this command because two of the packages (i.e., pkcs11js and grpc) need to be compiled from source for s390x. This needs to happen since the binaries are not publicly available for this platform. When this command completes it will return your terminal to you.</p>
+<p>Now you can start the marbles application with <code>gulp marbles_tls</code></p>
+<p>Open up a web browser on your pc and navigate to the ip given to you earlier at port 3000 in the form <code>xxx.xxx.xxx.xxx:3000</code> where <code>xxx.xxx.xxx.xxx</code> is your given ip address with each x being a possible digit (e.g., <code>192.168.22.150:3000</code>).</p>
+<p>First, choose Express to setup your marbles application</p>
+<p><img alt="Express Option" src="../images/ExpressOption.png" /></p>
+<p>Here you can see your org's owners and marbles. You created the owner with your name and a black marble to its name with the cli commands at the beginning of this part of the lab. You created the other three owners by specifying the parameters in the <code>marbles_tls.json</code> file. If you are wondering about marble colors you created a black marble with the cli and the application randomly selected a color for the marbles created from the marbles_tls.json file (in my case black, but your mileage with the random function may vary)</p>
+<p><img alt="Marbles UI Org Picture" src="../images/OrgUIPicture.png" /></p>
+<p>We can also see the other orgs and their marbles that are connected in this connectathon.</p>
+<p>Next, turn on story mode to see the marble transaction process:</p>
+<ol>
+<li>Click on settings
+<img alt="Settings picture" src="../images/Settings.png" /></li>
+<li>Enable Story Mode
+<img alt="Enable Story Mode pictures" src="../images/StoryMode.png" /></li>
+</ol>
+<p>Finally, trade some marbles to other users. </p>
+<ol>
+<li>Click on a marble from a user in your org and drag it to another user in your org</li>
+<li>Click and drag a marble from a member in your org and move it to a member of a different org</li>
+<li>Click and drag a marble from a member of a different org and drag it to a member of your org</li>
+</ol>
+<p>Notice that you can give marbles to other orgs but can't take them. Please think about the logic for why this may be the case for this use case...</p>
+<p>Now close the application by returning to your terminal and typing <code>ctrl + c</code> to get back your terminal prompt.</p>
+<p>You have now setup the marbles application.</p>
+<p>Please move on to part 2 where you will deploy this into our Kubernetes cluster.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../connect-part2/" class="btn btn-neutral float-right" title="Part 2">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../connect-home/" class="btn btn-neutral" title="Introduction"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/ibm-blockchain-wsc/ImmersionWorkshop.git" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../connect-home/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../connect-part2/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+
+</body>
+</html>

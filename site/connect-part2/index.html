@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Part 2 - Blockchain Immersion Workshop</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Part 2";
+    var mkdocs_page_input_path = "connect-part2.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Blockchain Immersion Workshop</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Use Case Walkthrough</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../immunichain-home/">Introduction</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../immunichain/">Part 1</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">VSCode Lab</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../vscode-home/">Introduction</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../vscode-part1/">Part 1 - Create Smart Contract</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../vscode-part2/">Part 2 - Commercial Paper</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../xchaincode/">Part 3 - Cross Chaincode and Debug</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../loopback/">Part 4 - Create Loopback API</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">IBM Blockchain Platform Connect-a-thon Lab</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../connect-home/">Introduction</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../connect-part1/">Part 1</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">Part 2</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#overview">Overview</a></li>
+    
+
+    <li class="toctree-l3"><a href="#only-if-you-stopped-in-between-the-lab-parts-1-and-2">Only if you stopped in between the lab parts 1 and 2</a></li>
+    
+
+    <li class="toctree-l3"><a href="#before-you-start-make-sure-you-are-still-logged-in-to-the-cluster">Before you start, make sure you are still logged in to the cluster.</a></li>
+    
+
+    <li class="toctree-l3"><a href="#build-a-docker-image">Build a docker image</a></li>
+    
+
+    <li class="toctree-l3"><a href="#test-the-docker-image-locally">Test the docker image locally</a></li>
+    
+
+    <li class="toctree-l3"><a href="#push-image-to-the-icp-clusters-private-repo">Push image to the ICP Cluster's private repo</a></li>
+    
+
+    <li class="toctree-l3"><a href="#create-a-kubernetes-deployment-and-service">Create a Kubernetes deployment and service</a></li>
+    
+
+    <li class="toctree-l3"><a href="#deploy-the-service-and-test-the-marbles-ui">Deploy the service and test the Marbles UI</a></li>
+    
+
+    <li class="toctree-l3"><a href="#launch-the-marbles-service-and-test-the-marbles-ui">Launch the Marbles service and test the Marbles UI</a></li>
+    
+
+    </ul>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">IBM Blockchain Platform for Multicloud on Linux on Z Lab</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../ibpconsole/">Part 1 - Create a Blockchain Network</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../ibpdeploy/">Part 2 - Deploy Smart Contract</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../cicd.md">Part 3 - CICD</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../references/">Additional Resources</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Blockchain Immersion Workshop</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>IBM Blockchain Platform Connect-a-thon Lab &raquo;</li>
+        
+      
+    
+    <li>Part 2</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h2 id="overview">Overview</h2>
+<p>The goal of this part of the lab is to guide you through the process of packaging up a blockchain front end application to run inside a Kubernetes cluster. In the lab environment, this happens to be the same cluster that is hosting your blockchain components. In the real world, this may not always be the case.</p>
+<p>In this part of the lab, you will:</p>
+<ol>
+<li>
+<p>Build a docker image with the Marbles UI</p>
+</li>
+<li>
+<p>Test the container locally on your Linux image</p>
+</li>
+<li>
+<p>Push the image to the ICP cluster's private docker registry</p>
+</li>
+<li>
+<p>Create a Kubernetes deployment and service for the Marbles UI</p>
+</li>
+<li>
+<p>Deploy the Kubernetes deployment</p>
+</li>
+<li>
+<p>Test the marbles UI</p>
+</li>
+</ol>
+<h2 id="only-if-you-stopped-in-between-the-lab-parts-1-and-2">Only if you stopped in between the lab parts 1 and 2</h2>
+<ol>
+<li>
+<p>Make sure you still have an ssh connection to your bcuser instance. If not please rerun <code>IP_ADDRESS=givenip</code> for your given ip and <code>ssh bcuser@$IP_ADDRESS</code></p>
+</li>
+<li>
+<p>Check to make sure you are still inside your docker image. If you got out of your docker image, go back into the image by first setting your TEAM with <code>TEAM=teamxx</code> where xx is the number of your team. Then, check if your container is still running with <code>docker ps | grep team</code></p>
+<p>a) If you get sample output showing a container such as:</p>
+<pre><code>6e6ad92499b1        wsc-ibp-icp-cluster.icp:8500/lab-test/connectathon-s390x-team10:1.0   "bash"              12 minutes ago      Up 12 minutes       0.0.0.0:3000-&gt;3001/tcp   team10
+</code></pre>
+<p><strong>follow Option a) of step 3 below</strong></p>
+<p>b) If you get sample output not showing anything such as:</p>
+<p><code></code></p>
+<p><strong>follow Option b) of step 3 below</strong></p>
+</li>
+<li>
+<p>Do only 1 of the options below based on step 2 above!</p>
+<p>a) exec back into your running container with </p>
+<pre><code>docker exec -it $TEAM sh
+</code></pre>
+<p><strong>OR</strong></p>
+<p>b) restart your container with </p>
+<pre><code>docker run --rm -it -v /var/run/docker.sock:/var/run/docker.sock --name $TEAM -p 3000:3001 wsc-ibp-icp-cluster.icp:8500/lab-test/connectathon-s390x-$TEAM:1.0 bash
+</code></pre>
+</li>
+</ol>
+<h2 id="before-you-start-make-sure-you-are-still-logged-in-to-the-cluster">Before you start, make sure you are still logged in to the cluster.</h2>
+<p>Run the following commands to display the pods that are currently deployed to our cluster. First, type <code>kubectl get pods</code></p>
+<p>Sample Output:</p>
+<pre><code>NAME                                                              READY     STATUS    RESTARTS   AGE
+connectathon-orderer-orderer-85bb44f87c-qk662                     1/1       Running   0          1d
+connectathon-ordererorg-ca-fabric-ca-deployment-7f6b9b6577whxgr   1/1       Running   0          1d
+connectathon-org0-ca-fabric-ca-deployment-67cf7486dd-9wtg7        1/1       Running   0          1d
+connectathon-org0peer1-55fc894b9-5qncl                            2/2       Running   0          1d
+connectathon-org1-ca-fabric-ca-deployment-59f9457fc5-9jmfp        1/1       Running   0          1d
+connectathon-org10-ca-fabric-ca-deployment-76794dcbbf-jdkcr       1/1       Running   0          1d
+connectathon-org10peer1-86dc5fcdf7-6c5qm                          2/2       Running   0          39m
+connectathon-org11-ca-fabric-ca-deployment-5bc55cc776-5cjbz       1/1       Running   0          1d
+connectathon-org11peer1-69f67d965-svwjh                           2/2       Running   0          1d
+connectathon-org1peer1-7665b7c6d7-x8spx                           2/2       Running   0          1d
+connectathon-org2-ca-fabric-ca-deployment-787cbdf766-qwdjw        1/1       Running   0          1d
+connectathon-org2peer1-7d4bbfc7bf-gs9qv                           2/2       Running   0          1d
+connectathon-org3-ca-fabric-ca-deployment-54cfc78777-m782f        1/1       Running   0          1d
+</code></pre>
+
+<p>If you are able to see the output of the <code>kubectl</code> command such as above you are still logged in. If not, run:</p>
+<p><code>cloudctl login -a https://192.168.22.81:8443 -u $team -p $credential -n lab-test</code></p>
+<p>Sample Output:</p>
+<pre><code>Targeted account wsc-ibp-icp-cluster Account (id-wsc-ibp-icp-cluster-account)
+
+Targeted namespace lab-test
+
+Configuring kubectl ...
+Property &quot;clusters.wsc-ibp-icp-cluster&quot; unset.
+Property &quot;users.wsc-ibp-icp-cluster-user&quot; unset.
+Property &quot;contexts.wsc-ibp-icp-cluster-context&quot; unset.
+Cluster &quot;wsc-ibp-icp-cluster&quot; set.
+User &quot;wsc-ibp-icp-cluster-user&quot; set.
+Context &quot;wsc-ibp-icp-cluster-context&quot; created.
+Switched to context &quot;wsc-ibp-icp-cluster-context&quot;.
+OK
+
+Configuring helm: /root/.helm
+OK
+</code></pre>
+
+<p>Now, run <code>kubectl get pods | grep $CORE_PEER_LOCALMSPID</code></p>
+<p>Sample Output:</p>
+<pre><code>NAME                                                              READY     STATUS    RESTARTS   AGE
+connectathon-org0-ca-fabric-ca-deployment-67cf7486dd-9wtg7        1/1       Running   0          7h
+connectathon-org0peer1-55fc894b9-5qncl                            2/2       Running   0          7h
+</code></pre>
+
+<p>You should see one peer pod, and one CA pod. Both should be in Running status. Your organization only has one peer in this scenario.</p>
+<h2 id="build-a-docker-image">Build a docker image</h2>
+<p>Now that you have tested the Marbles front end User Interface (Marbles UI, for short), let's save it as a docker image using the supplied Dockerfile.</p>
+<p>A Dockerfile is a text document that contains all the commands a user could call on the command line to assemble an image. Think of it as a specific way to package up a set of files and instructions that together make up a microservice.</p>
+<ul>
+<li>Go to your marbles directory:</li>
+</ul>
+<pre><code>cd /home/marbles
+</code></pre>
+
+<ul>
+<li>Here you should see a Dockerfile:</li>
+</ul>
+<pre><code>ls -ltr Dockerfile
+</code></pre>
+
+<p>Sample Output:</p>
+<pre><code>-rw-rw-r-- 1 1000 1000 394 Feb 28 22:12 Dockerfile
+</code></pre>
+
+<ul>
+<li>If you are curious, cat the file to look at its contents:</li>
+</ul>
+<pre><code>cat Dockerfile
+</code></pre>
+
+<p>Sample Output:</p>
+<pre><code>FROM node:8-alpine
+ENV NPM_CONFIG_LOGLEVEL warn
+RUN mkdir -p /usr/src/app
+WORKDIR /usr/src/app
+COPY package.json /usr/src/app/
+RUN apk add --no-cache --virtual .build-deps make gcc g++ python \
+ &amp;&amp; npm install \
+ &amp;&amp; npm install gulp -g ---unsafe-perm \
+ &amp;&amp; apk del .build-deps .build-deps make gcc g++ python
+COPY . /usr/src/app/
+EXPOSE 3001
+CMD [ &quot;gulp&quot;, &quot;marbles_tls&quot; ]
+</code></pre>
+
+<p>The above Dockerfile builds from an Alpine node image in DockerHub. This is a bare bones Linux image of the Alpine distribution with node version 8 installed. Next, the <code>NPM_CONFIG_LOGLEVEL</code> for npm is globally set to warn so that npm will only print errors and warnings. <code>ENV</code> is used for this to persist this change as an environment variable in your finished container. Then, it uses <code>RUN</code> to execute a command inside of the base <code>node:8-alpine</code> container to make a directory for the marbles application. <code>WORKDIR</code> makes this directory the current working directory. Moreover, <code>COPY</code> brings the <code>package.json</code> file (containing the names of the application's dependent node modules) into the containers <code>/usr/src/app</code> directory. The following <code>RUN</code> command uses <code>apk</code> (Alpine's package manager) to install a variety of pre-reqs to your <code>npm install</code> such as make, gcc and python, before running the actual <code>npm install</code> twice to install both the necessary node modules for both the Marbles UI itself and gulp to start the marbles UI. Note that this is all done in one line with <code>&amp;&amp;</code> to make it occur in one layer. This way, at the end of the <code>RUN</code> command you can use a delete command <code>apk del</code> and take the developer tools you no longer need out of your image. If you instead ran this as multiple commands, you would not be able to shrink your image size since previous layers can't be effectively deleted due to the layered file system used for docker images. Finally, you copy the application itself and the connection profile materials into your working directory, document the port you will run marbles on (<code>3001</code>), and set a command for the container to run when it starts <code>gulp marbles_tls</code>. </p>
+<ul>
+<li>Now let's run docker build in the <code>/home/marbles</code> directory:</li>
+</ul>
+<pre><code>docker build -t marbles-$team .
+</code></pre>
+
+<p><strong>NOTE: Please remember to not forget that pesky <code>.</code> Otherwise you will get an error saying</strong> <code>"docker build" requires exactly 1 argument</code></p>
+<p>Sample Output:</p>
+<pre><code>Sending build context to Docker daemon  261.9MB
+Step 1/9 : FROM node:8-alpine
+ ---&gt; 66f08ecb7600
+Step 2/9 : ENV NPM_CONFIG_LOGLEVEL warn
+ ---&gt; Using cache
+ ---&gt; 180c28267c41
+Step 3/9 : RUN mkdir -p /usr/src/app
+ ---&gt; Using cache
+ ---&gt; f9615b4a1813
+Step 4/9 : WORKDIR /usr/src/app
+ ---&gt; Using cache
+ ---&gt; e53d507c2bf9
+ ....
+ ....
+ lots more messages
+ ....
+ Successfully built 9b57c7c3e480
+Successfully tagged marbles-team00:latest
+</code></pre>
+
+<ul>
+<li>Now you should see this new image that you just built:</li>
+</ul>
+<p><code>docker images</code></p>
+<p>Sample Output:</p>
+<pre><code>REPOSITORY                                                        TAG                 IMAGE ID            CREATED             SIZE
+marbles-team00                                                    latest              5cc513286904        29 seconds ago      312MB
+wsc-ibp-icp-cluster.icp:8500/lab-test/connectathon-s390x-team00   1.0                 a2d1b20e0e1e        12 hours ago        1.16GB
+node                                                              8-alpine            030469210de8        2 weeks ago         69.5MB
+</code></pre>
+
+<h2 id="test-the-docker-image-locally">Test the docker image locally</h2>
+<ul>
+<li>Let's test the image that was just built, by running it locally:</li>
+</ul>
+<pre><code>docker run -it --init -p 3001:3001/tcp --name marbles-$team marbles-$team
+</code></pre>
+
+<p>Sample Output</p>
+<pre><code>[20:57:50] Using gulpfile /usr/src/app/gulpfile.js
+[20:57:50] Starting 'env_tls'...
+[20:57:50] Finished 'env_tls' after 73 μs
+[20:57:50] Starting 'build-sass'...
+[20:57:50] Finished 'build-sass' after 7.48 ms
+[20:57:50] Starting 'watch-sass'...
+[20:57:50] Finished 'watch-sass' after 7.47 ms
+[20:57:50] Starting 'watch-server'...
+[20:57:50] Finished 'watch-server' after 2.55 ms
+[20:57:50] Starting 'server'...
+info: Checking connection profile is done
+info: Loaded config file /usr/src/app/config/marbles_tls.json
+info: Loaded connection profile file /usr/src/app/config/connection_profile_tls.json
+...
+lots of output
+...
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+debug: Detected that we have launched successfully before
+debug: Welcome back - Marbles is ready
+debug: Open your browser to http://localhost:3001 and login as &quot;admin&quot;
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+</code></pre>
+
+<ul>
+<li>
+<p>After you see the "Open your browser to https://localhost:3001" message, point your browser to the IP address of your Linux image, e.g., <code>http://192.168.22.107:3001</code> and you will see the Marbles UI.</p>
+</li>
+<li>
+<p>Once you verify that the image works locally, it's time to stop the running container. Type <code>Ctrl + C</code> to exit out of the running container in the current terminal.</p>
+</li>
+</ul>
+<h2 id="push-image-to-the-icp-clusters-private-repo">Push image to the ICP Cluster's private repo</h2>
+<ul>
+<li>You will now tag the image you created with the private repo's host name and port number, followed by the namespace you are using, as follows.</li>
+</ul>
+<pre><code>docker tag marbles-$team:latest wsc-ibp-icp-cluster.icp:8500/lab-test/marbles-$team:1.0
+</code></pre>
+
+<ul>
+<li>Log into the docker private registry using your teamNN id and credential, as follows:</li>
+</ul>
+<pre><code>echo $credential | docker login wsc-ibp-icp-cluster.icp:8500 -u $team --password-stdin
+</code></pre>
+
+<p>Sample Output:</p>
+<pre><code>WARNING! Your password will be stored unencrypted in /root/.docker/config.json.
+Configure a credential helper to remove this warning. See
+https://docs.docker.com/engine/reference/commandline/login/#credentials-store
+
+Login Succeeded
+</code></pre>
+
+<ul>
+<li>Now push up the image using the tag you just created (again be mindful that the name pushed in the output will reflect your team name):</li>
+</ul>
+<pre><code>docker push wsc-ibp-icp-cluster.icp:8500/lab-test/marbles-$team:1.0
+</code></pre>
+
+<p>Sample Output:</p>
+<pre><code>The push refers to repository [wsc-ibp-icp-cluster.icp:8500/lab-test/marbles-team00]
+c8490573a0d8: Pushed
+8e63f87572fb: Pushed
+a6a08bb664f7: Pushed
+3a30ca7a2471: Pushed
+ccc0f617b78a: Pushed
+1801fc515e2a: Pushed
+1.0: digest: sha256:6a796e973817f714b64e767b3c35affd93a6dc5df7ef12ca872aca64d20a5155 size: 1997
+</code></pre>
+
+<ul>
+<li>Let's log in to the ICP Console for the first time and verify that your image got pushed up to the cluster's private docker registry. Point your browser to <code>https://192.168.22.81:8443</code>. Accept that it's using a self-signed certificate. This should lead you to the sign in page. Log in with your team's credentials given to you at the beginning of the lab: you can find this by echoing the team and credential variables in your terminal: <code>echo $team &amp;&amp; echo $credential</code>. Your team is your username and your credential is your password.</li>
+</ul>
+<p><img alt="ICP Login" src="../images/icp_login.png" /></p>
+<ul>
+<li>You can verify your image got pushed up by going to the hamburger menu on the top left corner and selecting <code>Container Images</code> and look for lab-test/marbles-teamNN. Note: you will have to go to the last page to see images under the namespace lab-test.</li>
+</ul>
+<p><img alt="ICP Containers" src="../images/icp_container_images.png" /></p>
+<p><img alt="ICP Marbles" src="../images/icp_marbles_image.png" /></p>
+<h2 id="create-a-kubernetes-deployment-and-service">Create a Kubernetes deployment and service</h2>
+<ul>
+<li>Log in to the ICP cluster with your team's ID and password:</li>
+</ul>
+<p><code>cloudctl login -a https://192.168.22.81:8443 -u $team -p $credential -n lab-test</code></p>
+<p>Sample Output:</p>
+<pre><code>Targeted account wsc-ibp-icp-cluster Account (id-wsc-ibp-icp-cluster-account)
+
+Targeted namespace lab-test
+
+Configuring kubectl ...
+Property &quot;clusters.wsc-ibp-icp-cluster&quot; unset.
+Property &quot;users.wsc-ibp-icp-cluster-user&quot; unset.
+Property &quot;contexts.wsc-ibp-icp-cluster-context&quot; unset.
+Cluster &quot;wsc-ibp-icp-cluster&quot; set.
+User &quot;wsc-ibp-icp-cluster-user&quot; set.
+Context &quot;wsc-ibp-icp-cluster-context&quot; created.
+Switched to context &quot;wsc-ibp-icp-cluster-context&quot;.
+OK
+
+Configuring helm: /root/.helm
+OK
+</code></pre>
+
+<ul>
+<li>Verify that your organization's Fabric pods are running. Note that you have a Fabric CA pod and one Fabric peer pod running. The environment variable $CORE_PEER_LOCALMSPID was set for you and it was set to your peer's MSPID. In this lab environment, your MSPID corresponds to your team number. i.e. team01 will be org1, team02 will be org2, etc.</li>
+</ul>
+<pre><code>kubectl get pods | grep connectathon-$CORE_PEER_LOCALMSPID
+</code></pre>
+
+<p>Sample Output:</p>
+<pre><code>connectathon-org0-ca-fabric-ca-deployment-67cf7486dd-xgqkb        1/1       Running   0          7h
+connectathon-org0peer1-55fc894b9-fhz2f                            2/2       Running   0          7h
+</code></pre>
+
+<ul>
+<li>
+<p>You should have a Kubernetes deployment yaml file in your <code>/home/marbles</code> directory called <code>marbles-teamNN.yaml</code>. Kubernetes objects are defined in yaml files and then created on or applied to a running cluster. You can create a Kubernetes resource from the ICP Console as well. But here you will do this via the command line tool <code>kubectl</code> which interacts with the Kubernetes API Server on the cluster.</p>
+</li>
+<li>
+<p>Now run the following command to create a marbles deployment yaml file that matches your team name.</p>
+</li>
+</ul>
+<pre><code>cat marbles-teamNN.yaml | sed -r 's/teamNN/'$team'/' &gt; marbles-$team.yaml
+</code></pre>
+
+<ul>
+<li>You can cat the yaml file to see its contents:</li>
+</ul>
+<pre><code>cat marbles-$team.yaml
+</code></pre>
+
+<p>Sample Output:</p>
+<pre><code>apiVersion: v1
+kind: Service
+metadata:
+  name: marbles-team00-svc
+spec:
+  selector:
+    app: marbles-team00
+  ports:
+  - protocol: TCP
+    port: 3001
+    targetPort: 3001
+  type: NodePort
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: marbles-team00-deploy
+  labels:
+    app: marbles-team00
+spec:
+  selector:
+    matchLabels:
+      app: marbles-team00
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: marbles-team00
+    spec:
+      nodeSelector:
+        beta.kubernetes.io/arch: s390x
+      containers:
+      - name: marbles-team00
+        image: wsc-ibp-icp-cluster.icp:8500/lab-test/marbles-team00:1.0
+        ports:
+          - containerPort: 3001
+        imagePullPolicy: Always
+</code></pre>
+
+<p>The important parts to point out in the yaml file are that it will create a Kubernetes service called <code>marbles-team00-svc</code> and that it is pointing to the <code>marbles-team00</code> container. The service will be of type <code>NodePort</code> which means this service will be reachable outside of the cluster. The yaml file will also create a Kubernetes deployment that has one pod with one container that will be based off of the <code>wsc-ibp-icp-cluster.icp:8500/lab-test/marbles-team00:1.0</code> image that you pushed to the private image registry earlier. Finally, since you built the marbles-teamxx image with the s390x (z) architecture and there are machines with multiple different architectures in our cluster (s390x and amd64) you need to specify for it to run on s390x with a nodeSelector of <code>beta.kubernetes.io/arch: s390x</code>. If you built it for a different architecture, you would instead use a nodeSelector for that architecture.</p>
+<h2 id="deploy-the-service-and-test-the-marbles-ui">Deploy the service and test the Marbles UI</h2>
+<ul>
+<li>Now you are ready to create the Kubernetes resources. Run the following command:</li>
+</ul>
+<p><code>kubectl apply -f marbles-$team.yaml</code></p>
+<pre><code>service/marbles-team00-svc created
+deployment.extensions/marbles-team00-deploy created
+</code></pre>
+
+<ul>
+<li>The deployment will create one pod that has one container. A service is also created. Check that your pod is READY <code>1/1</code> and in <code>Running</code> status:</li>
+</ul>
+<p><code>kubectl get pods | grep marbles-$team</code></p>
+<pre><code>marbles-team00-deploy-55649dbc5b-xf787                            1/1       Running   0          35s
+</code></pre>
+
+<h2 id="launch-the-marbles-service-and-test-the-marbles-ui">Launch the Marbles service and test the Marbles UI</h2>
+<ul>
+<li>
+<p>Now, let's navigate through the ICP Console to your deployment. Point your browser to <code>https://192.168.22.81:8443</code>. Accept that it's using a self signed certificate. This should lead you to the sign in page. Log in with your team's credentials given to you at the beginning of the lab.</p>
+</li>
+<li>
+<p>Go to the hamburger menu on the upper left corner, and select <code>Workloads -&gt; Deployments</code>.</p>
+</li>
+<li>
+<p>Find your team's deployment, it should be similar to <code>marbles-team00-deploy</code> but with your team name.</p>
+</li>
+</ul>
+<p><img alt="ICP Deploy" src="../images/icp_marbles_deploy_1.png" /></p>
+<ul>
+<li>Click on your deployment. You will be taken to the details page of your deployment. Upon further exploration you will see the deployment has one ReplicaSet, and one Pod. You can choose to click into either the ReplicaSet or Pod to get details about those two objects.</li>
+</ul>
+<p><img alt="ICP Deploy2" src="../images/icp_marbles_deploy_2.png" /></p>
+<ul>
+<li>Now click on the <code>Launch</code> button for your deployment. This will bring up the Marbles UI.</li>
+</ul>
+<p><img alt="ICP Launch" src="../images/icp_marbles_launch.png" /></p>
+<ul>
+<li>At this point, depending on where the other classroom students are, you will see two or more organizations in the Marbles UI. Test out the application by transacting some marbles with your neighboring students. Enabling <code>Story Mode</code> in <code>Settings</code> will provide a step by step guided experience during each transaction.</li>
+</ul>
+<p>Congratulations! You've successfully created a container for the Marbles front end application, created a Kubernetes deployment for it, and deployed it in a IBM Cloud Private Kubernetes cluster.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../ibpconsole/" class="btn btn-neutral float-right" title="Part 1 - Create a Blockchain Network">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../connect-part1/" class="btn btn-neutral" title="Part 1"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/ibm-blockchain-wsc/ImmersionWorkshop.git" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../connect-part1/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../ibpconsole/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+
+</body>
+</html>

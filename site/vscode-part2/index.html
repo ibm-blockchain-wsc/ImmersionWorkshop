@@ -1,0 +1,1148 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Part 2 - Commercial Paper - Blockchain Immersion Workshop</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Part 2 - Commercial Paper";
+    var mkdocs_page_input_path = "vscode-part2.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Blockchain Immersion Workshop</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Use Case Walkthrough</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../immunichain-home/">Introduction</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../immunichain/">Part 1</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">VSCode Lab</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../vscode-home/">Introduction</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../vscode-part1/">Part 1 - Create Smart Contract</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">Part 2 - Commercial Paper</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#section-1-commercial-paper-overview">Section 1: Commercial Paper Overview</a></li>
+    
+
+    <li class="toctree-l3"><a href="#section-2-setting-the-stage">Section 2: Setting the Stage</a></li>
+    
+
+    <li class="toctree-l3"><a href="#section-3-install-and-instantiate-commercial-paper-smart-contract">Section 3: Install and Instantiate Commercial Paper Smart Contract</a></li>
+    
+
+    <li class="toctree-l3"><a href="#section-4-create-identities-and-submit-transactions">Section 4: Create Identities and Submit Transactions</a></li>
+    
+
+    <li class="toctree-l3"><a href="#section-5-create-fabric-gateways-and-submit-transactions">Section 5: Create Fabric Gateways and Submit Transactions</a></li>
+    
+
+    <li class="toctree-l3"><a href="#section-6-lab-clean-up">Section 6: Lab Clean-Up</a></li>
+    
+
+    </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../xchaincode/">Part 3 - Cross Chaincode and Debug</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../loopback/">Part 4 - Create Loopback API</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">IBM Blockchain Platform Connect-a-thon Lab</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../connect-home/">Introduction</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../connect-part1/">Part 1</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../connect-part2/">Part 2</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">IBM Blockchain Platform for Multicloud on Linux on Z Lab</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../ibpconsole/">Part 1 - Create a Blockchain Network</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../ibpdeploy/">Part 2 - Deploy Smart Contract</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../cicd.md">Part 3 - CICD</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../references/">Additional Resources</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Blockchain Immersion Workshop</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>VSCode Lab &raquo;</li>
+        
+      
+    
+    <li>Part 2 - Commercial Paper</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="section-1-commercial-paper-overview">Section 1: Commercial Paper Overview</h1>
+<p>This tutorial works with a sample commercial paper trading network
+called <code>PaperNet</code>. Commercial paper is a type of unsecured lending in
+the form of a "promissory note". The papers are normally issued by large
+corporations to raise funds to meet short-term financial obligations at
+a fixed rate of interest. Once issued at a fixed price, for a fixed
+term, another company or bank will purchase them at a discount to the
+face value and when the term is up, they will be redeemed for their face
+value.</p>
+<p>As an example, if a paper was issued at a face value of 10M USD for a
+6-month term at 2% interest then it could be bought for 9.8M USD (10M less
+2%) by another company or bank who is willing to bear the risk that the
+issuer will not default. Once the term is up, then the paper could be
+redeemed or sold back to the issuer for its full face value of 10M USD.
+Between buying and redemption, the paper can be bought or sold between
+different parties on a commercial paper market.</p>
+<p>These three key steps of issue, buy and redeem are the main transactions
+in a simplified commercial paper marketplace, which we will mirror in
+our lab. We will see a commercial paper issued by a company called
+MagnetoCorp and, once issued on the commercial paper blockchain network,
+another company called DigiBank will first buy the paper and then redeem
+it.</p>
+<p>You'll act as a developer, end user, and administrator, within different
+organizations, performing various steps designed to help you understand
+what it's like to collaborate as two different organizations working
+independently, but according to mutually agreed rules in a Hyperledger
+Fabric network.</p>
+<p>Below is an image of our PaperNet network. For our lab, we will create
+Isabella who is with MagnetoCorp. Additionally, we will create Balaji
+who is with DigiBank. Isabella will issue a paper for the network. The
+paper will have an ID number, when it was issued, the maturity date, and
+the face value in USD. Balaji, from DigiBank, will then buy the paper and
+then eventually redeem it.</p>
+<p><img alt="image" src="../vscode-images/papernet_overview.png" /></p>
+<p>Below is the full breakdown of Part 2 of this lab:</p>
+<ul>
+<li>
+<p>Setting the Stage
+    :      Based off of Part 1, we have started a blockchain network,
+            created a smart contract, created and run tests and then
+            submitted transactions. For Part 2, we need to create a
+            couple more docker containers that will set us up for
+            success for the rest of the lab. One of these containers
+            will just monitor the docker network we are operating in. If
+            you have no idea what a docker network is, I will explain
+            later on. The other container contains Hyperledger Fabric
+            tools and is named cliMagnetoCorp, as MagnetoCorp will use
+            the Hyperledger Fabric command line interface (cli) within
+            this container.</p>
+</li>
+<li>
+<p>Install and Instantiate Smart Contract
+    :      Now that we have those new docker containers up and running,
+            we will enter our cliMagnetoCorp container and install and
+            instantiate our smart contract. Since we are connected to
+            the same running local Hyperledger Fabric network, we will
+            see the smart contract show up in VSCode.</p>
+</li>
+<li>
+<p>Issue Identities and Submit Transactions
+    :      In this section, we will issue two identities. One is an
+            end-user named Isabella with MagnetoCorp. She will invoke a
+            transaction that will issue a paper. Then we will issue an
+            identity for DigiBank named Balaji. Balaji will act as the
+            adminstrator for DigiBank and will buy and redeem the paper
+            that Isabella issued. Balaji is important in this lab, as we
+            will add a Fabric Gateway connection to connect to his
+            perspective of the network.</p>
+</li>
+<li>
+<p>Create Fabric Gateways and Submit Transactions
+    :      In this section we will create gateways that allows VSCode to
+            connect to a running Hyperledger Fabric or IBM Blockchain
+            Platform instance through a connection profile. In this lab,
+            we will connect to our <code>local_fabric</code> network, which is also
+            the Papernet network. We will create two gateways and
+            associate our identities to these gateways. That way we can
+            ensure the appropriate people are making the transactions
+            they should.</p>
+</li>
+<li>
+<p>Lab Cleanup
+    :      This is the most bittersweet part of the entire lab. It means that this lab portion is over and we have to clean up. If you have kids (I don't), I'd imagine their faces are sad and full of despair when you (the guardian) tell them to clean up their mess. I'd also like to imagine your face is making a similar expression when we get to this lab. It's okay, more fun is going to be had soon - very soon!      </p>
+</li>
+<li>
+<p>Loopback APIs
+    :      We have proven that we can submit transactions through the
+            command line interface (CLI) and the VSCode user interface.
+            In this section, we will deploy two loopback API
+            applications (for each of our organizations) and submit
+            transactions through loopback. We will also include some
+            transactions through the CLI and VSCode.</p>
+</li>
+</ul>
+<h1 id="section-2-setting-the-stage">Section 2: Setting the Stage</h1>
+<p><strong>1.</strong> Navigate to your Desktop and then do a git clone of a repository
+to gather all the things you need to run through this tutorial :</p>
+<pre><code>tecadmin@ubuntubase:~$ cd Desktop/
+tecadmin@ubuntubase:~/Desktop$ ls -l
+total 0
+drwxr-xr-x  16 tecadmin  tecadmin  512 Jun 11 12:34 Kale
+tecadmin@ubuntubase:~/Desktop$ git clone https://github.com/austingrice/fabric-samples-cp.git
+Cloning into 'fabric-samples-cp'...
+remote: Enumerating objects: 85, done.
+remote: Counting objects: 100% (85/85), done.
+remote: Compressing objects: 100% (71/71), done.
+remote: Total 2658 (delta 26), reused 71 (delta 13), pack-reused 2573
+Receiving objects: 100% (2658/2658), 927.08 KiB | 0 bytes/s, done.
+Resolving deltas: 100% (1293/1293), done.
+tecadmin@ubuntubase:~/Desktop$ ls -l
+total 0
+drwxr-xr-x  22 tecadmin  tecadmin  704 Jun 11 12:41 fabric-samples-cp
+drwxr-xr-x  16 tecadmin  tecadmin  512 Jun 11 12:34 Kale
+</code></pre>
+<p><strong>2.</strong> Then, do a <code>docker network list</code> to see all the running Docker
+networks :</p>
+<pre><code>tecadmin@ubuntubase:~/Desktop$ docker network list
+NETWORK ID          NAME                            DRIVER              SCOPE
+ad2e1a3e2fc2        bridge                          bridge              local
+35837170ae5b        fabricvscodelocalfabric_basic   bridge              local
+c5e0411b0d34        host                            host                local
+42ffa501f2f9        none                            null                local
+</code></pre>
+<p><strong>3.</strong> The network we are operating out of is the
+<code>fabricvscodelocalfabric_basic</code> network. You can see that by entering
+the following command below :</p>
+<pre><code>tecadmin@ubuntubase:~/Desktop$ docker network inspect fabricvscodelocalfabric_basic
+</code></pre>
+<p>That command will show you all the containers running in this network.
+In a nutshell, docker networks are natural ways to isolate containers
+from other containers or other networks. Having containers within a
+network allows them to communicate with other containers in the same
+network.</p>
+<p><strong>4.</strong> Within VSCode, go to the <code>Explorer</code> perspective and click on
+<code>File</code> and select <code>Add Folder to Workplace..</code>. This will allow us to
+work from an Untitled Workplace, but have the <code>fabric-samples-cp</code> folder
+in there.</p>
+<p><strong>5.</strong> Within VSCode, navigate to the folder below within MagnetoCorp :</p>
+<pre><code>fabric-samples-cp -&gt; commercial-paper -&gt; organizations -&gt; magnetocorp -&gt; configuration -&gt; cli
+</code></pre>
+<p>You will see two files in there. One file is <code>monitordocker.sh</code> that
+will produce log messages across the network that you specify it to look
+at. If you click on this file to open it up, you'll see the file is
+called to look at the <code>fabricvscodelocalfabric_basic</code> Docker network.
+The other file is <code>docker-compose.yml</code>, which pulls down a
+<code>fabric-tools</code> container that is connected to our local network. When we
+spun up our <code>local_fabric</code> network, back in Part 1, it placed all the
+cryptographic material in our
+<code>/home/tecadmin/.fabric-vscode/runtime/crypto-config/</code> directory. It is then
+taking all the crypto material and placing it in our fabric-tools
+container. This will make more sense once we install and instantiate the
+smart contract from this container instead of VSCode.</p>
+<p><strong>6.</strong> Now from the terminal navigate to the cli directory within
+MagnetoCorp. <strong>NOTE:</strong> scroll over to see the entire command below :</p>
+<pre><code>tecadmin@ubuntubase:~/Desktop$ cd fabric-samples-cp/commercial-paper/organization/magnetocorp/configuration/cli/
+tecadmin@ubuntubase:~/Desktop/fabric-samples-cp/commercial-paper/organization/magnetocorp/configuration/cli/$ ls -l
+total 16
+-rw-r--r--  1 tecadmin  tecadmin  1168 Jun 11 12:41 docker-compose.yml
+-rwxr-xr-x  1 tecadmin  tecadmin   751 Jun 11 12:44 monitordocker.sh
+</code></pre>
+<p><strong>7.</strong> From here, we can actually start the <code>monitordocker.sh</code> script by
+entering the command below. <strong>NOTE:</strong> scroll over to see the entire
+command below :</p>
+<pre><code>tecadmin@ubuntubase:~/Desktop/fabric-samples-cp/commercial-paper/organization/magnetocorp/configuration/cli/$ ./monitordocker.sh fabricvscodelocalfabric_basic
+#
+</code></pre>
+<p><strong>8.</strong> Since this terminal is occupied with log messages, let's open
+another terminal tab. We can open a new tab by clicking on <code>File</code> and
+then selecting <code>New Tab</code></p>
+<p><strong>9.</strong> When you opened a new tab, you should have been taken to the same
+file path that you were in on the previous tab. Now that we have a
+command line ready, go ahead and enter the command below that will
+create a <code>cliMagnetoCorp</code> container for our docker network to use.
+<strong>NOTE:</strong> scroll over to see the entire command below :</p>
+<pre><code>tecadmin@ubuntubase:~/Desktop/fabric-samples-cp/commercial-paper/organization/magnetocorp/configuration/cli/$ docker-compose -f docker-compose.yml up -d cliMagnetoCorp
+.
+. # We'll see docker messages
+.
+Status: Downloaded newer image for hyperledger/fabric-tools:latest
+Creating cliMagnetoCorp ... 
+Creating cliMagnetoCorp ... done
+</code></pre>
+<p><img alt="image" src="../vscode-images/papernet_magnetocorp.png" /></p>
+<p>When we first install the smart contract, we will go through the
+cliMagnetoCorp container, which is our Administrator Console. This will
+allow us to use Fabric peer commands.</p>
+<p><strong>10.</strong> We can also do a <code>docker ps -a</code> command to see all of our docker
+containers. We should see two new containers - <code>cliMagnetoCorp</code> and
+<code>logspout</code> from steps 9 and 10.</p>
+<p><strong>11.</strong> Equally, we could do
+<code>docker network inspect fabricvscodelocalfabric_basic</code> to see all of our
+containers together in one network - and no, not in a blockchain
+network. They are, however, the components that make up our local
+blockchain network :-)</p>
+<h1 id="section-3-install-and-instantiate-commercial-paper-smart-contract">Section 3: Install and Instantiate Commercial Paper Smart Contract</h1>
+<p>Before we actually install the commercial paper smart contract, let's
+actually open the file to see what the smart contract is trying to do.</p>
+<p><strong>1.</strong> From your explorer perspective within VSCode, navigate from the
+<code>fabric-samples-cp</code> folder to the contract folder of MagnetoCorp :</p>
+<pre><code>fabric-samples-cp -&gt; commercial-paper -&gt; organization -&gt; magnetocorp -&gt; contract
+</code></pre>
+<p>Within the lib folder, you'll see 3 javascript (.js) files in there.
+Click on the papercontract.js file, which will open it within VSCode</p>
+<p><img alt="image" src="../vscode-images/2-2-1.png" /></p>
+<p>Let's dissect our papercontract.js file as it is our smart contract. We
+will only go over the issue transaction, but the other transactions
+follow pretty closely to this one</p>
+<p>Below, these 2 lines of code bring into scope two key Hyperledger Fabric
+classes that will be used extensively by the smart contract --
+<code>Contract and Context</code> :</p>
+<pre><code>// Fabric smart contract classes
+const { Contract, Context } = require('fabric-contract-api');
+</code></pre>
+<p>Below, we define the smart contract class <code>CommercialPaperContract</code>
+based on the built-in Fabric Contract class. The methods which implement
+the key transactions to issue, buy and redeem commercial paper are
+defined within this class :</p>
+<pre><code>/**
+* Define commercial paper smart contract by extending Fabric Contract class
+*
+*/
+class CommercialPaperContract extends Contract {
+</code></pre>
+<p>Below, this method defines the commercial paper <code>issue</code> transaction for
+the commercial paper blockchain network. The parameters that are passed
+to this method will be used to create the new commercial paper. Locate
+and examine the buy and redeem transactions within the smart contract :</p>
+<pre><code>/**
+* Issue commercial paper
+*
+* @param {Context} ctx the transaction context
+* @param {String} issuer commercial paper issuer
+* @param {Integer} paperNumber paper number for this issuer
+* @param {String} issueDateTime paper issue date
+* @param {String} maturityDateTime paper maturity date
+* @param {Integer} faceValue face value of paper
+*/
+async issue(ctx, issuer, paperNumber, issueDateTime, maturityDateTime, faceValue) {
+</code></pre>
+<p>Within the <code>issue</code> transaction, this statement creates a new commercial
+paper in memory using the CommercialPaper class with the supplied
+transaction inputs. Examine the buy, get paper and redeem transactions
+to see how they similarly use this class :</p>
+<pre><code>// create an instance of the paper
+let paper = CommercialPaper.createInstance(issuer, paperNumber, issueDateTime, maturityDateTime, faceValue);
+</code></pre>
+<p>Below, this statement adds the new commercial paper to the ledger using
+<code>ctx.paperList</code>, an instance of a PaperList class that was created when
+the smart contract context CommercialPaperContext was initialized.
+Again, examine the buy and redeem methods to see how they use this class
+:</p>
+<pre><code>// Add the paper to the list of all similar commercial papers in the ledger world state
+await ctx.paperList.addPaper(paper);
+</code></pre>
+<p>Below you will find that this statement returns a binary buffer as
+response from the issue transaction for processing by the caller of the
+smart contract :</p>
+<pre><code>// Must return a serialized paper to caller of smart contract
+return paper.toBuffer();
+</code></pre>
+<p><strong>2.</strong> Now that we have an understanding of the smart contract, let's
+actually install it on our peer through our terminal application.
+<strong>NOTE:</strong> scroll over to see the entire command below :</p>
+<pre><code>tecadmin@ubuntubase:~/Desktop/fabric-samples-cp/commercial-paper/organization/magnetocorp/configuration/cli/$ docker exec cliMagnetoCorp peer chaincode install -n papercontract -v 0 -p /opt/gopath/src/github.com/contract -l node
+2019-06-11 17:48:23.721 UTC [chaincodeCmd] checkChaincodeCmdParams -&gt; INFO 001 Using default escc
+2019-06-11 17:48:23.721 UTC [chaincodeCmd] checkChaincodeCmdParams -&gt; INFO 002 Using default vscc
+2019-06-11 17:48:23.862 UTC [chaincodeCmd] install -&gt; INFO 003 Installed remotely response:&lt;status:200 payload:"OK" &gt;
+</code></pre>
+<p>A message saying 200 is a great sign to see.</p>
+<p>If you notice, we are not in the contract folder of our command line
+interface. Instead, we are entering the <code>cliMagnetoCorp</code> docker
+container with <code>docker exec cliMagnetoCorp</code> and navigating to the
+<code>/opt/gopath/src/github.com/contract</code> file path within our container to
+grab the files we need to install the smart contract. The
+<code>-n papercontract</code> flag names our smart contract papercontract. The
+<code>-v 0</code> gives our smart contract a version of 0. Finally, the <code>-l node</code>
+tells us that the language of our smart contract is nodejs. The picture
+below goes into detail, visually, as to how we are actually installing a
+copy of the commercial paper smart contract on our peer.</p>
+<p><img alt="image" src="../vscode-images/papernet_magnetoinstall.png" /></p>
+<p><strong>3.</strong> Since our network is connected to our VSCode instance, you can
+refresh the <code>Local Fabric Ops panel</code> in VSCode under the
+<code>IBM Blockchain Extension</code>. The refresh button (<code>unclosed circle icon</code>)
+is revealed when you hover your mouse over the Local Fabric Ops panel</p>
+<p><img alt="image" src="../vscode-images/2-2-3.png" /></p>
+<p><strong>4.</strong> Since we have installed the smart contract, we should actually
+make it active by instantiating it. <strong>NOTE:</strong> scroll over to see the
+entire command below :</p>
+<pre><code>tecadmin@ubuntubase:~/Desktop/fabric-samples-cp/commercial-paper/organization/magnetocorp/configuration/cli/$ docker exec cliMagnetoCorp peer chaincode instantiate -n papercontract -v 0 -l node -c '{"Args":["org.papernet.commercialpaper:instantiate"]}' -C mychannel -P ""
+2019-06-11 17:50:34.673 UTC [chaincodeCmd] InitCmdFactory -&gt; INFO 001 Retrieved channel (mychannel) orderer endpoint:   orderer.example.com:17050
+2019-06-11 17:50:34.675 UTC [chaincodeCmd] checkChaincodeCmdParams -&gt; INFO 002 Using default escc
+2019-06-11 17:50:34.675 UTC [chaincodeCmd] checkChaincodeCmdParams -&gt; INFO 003 Using default vscc
+tecadmin@ubuntubase:~/Desktop/fabric-samples-cp/commercial-paper/organization/magnetocorp/configuration/cli/$
+</code></pre>
+<p>As you can see in the image below, we are instantiating a copy of the
+commercial paper smart contract on our MagnetoCorp peer. Similar to the
+installation of the smart contract, the instantiation goes into the
+<code>cliMagnetoCorp</code> container. After successfully instantiating the smart
+contract, there will be a commercial paper smart contract docker image
+and container.</p>
+<p><img alt="image" src="../vscode-images/papernet_magnetoinstant.png" /></p>
+<p><strong>5.</strong> You will know our instantiate command worked when we get our
+command prompt back without any error messages. You can really verify it
+worked by going back to the VSCode and refreshing the Local Fabric Ops
+panel and you should see it under the instantiate section.</p>
+<p><img alt="image" src="../vscode-images/2-2-5.png" /></p>
+<h1 id="section-4-create-identities-and-submit-transactions">Section 4: Create Identities and Submit Transactions</h1>
+<p>Now that we have a ready-to-use smart contract, let's issue some
+identities so that those identities can invoke and query transactions.</p>
+<p><strong>1.</strong> You should be within the cli folder of the MagnetoCorp folder.
+You can confirm this by issuing the command below. <strong>NOTE:</strong> scroll over
+to see the entire command below :</p>
+<pre><code>tecadmin@ubuntubase:~/Desktop/fabric-samples-cp/commercial-paper/organization/magnetocorp/configuration/cli/$ pwd
+/home/tecadmin/Desktop/fabric-samples-cp/commercial-paper/organization/magnetocorp/configuration/cli
+tecadmin@ubuntubase:~/Desktop/fabric-samples-cp/commercial-paper/organization/magnetocorp/configuration/cli/$
+</code></pre>
+<p><strong>2.</strong> This is a good sign. Issue the following command below to get to
+the application folder within MagnetoCorp. <strong>NOTE:</strong> scroll over to see
+the entire command below :</p>
+<pre><code>tecadmin@ubuntubase:~/Desktop/fabric-samples-cp/commercial-paper/organization/magnetocorp/configuration/cli/$ cd ../../application/
+tecadmin@ubuntubase:~/Desktop/fabric-samples/commercial-paper/organization/magnetocorp/application$
+</code></pre>
+<p><strong>3.</strong> Within VSCode, navigate to the same folder :</p>
+<pre><code>fabric-samples-cp -&gt; commercial-paper -&gt; organization -&gt; magnetocorp -&gt; appplication
+</code></pre>
+<p><strong>4.</strong> In that folder, you should see a file called <code>addtoWallet.js</code>.
+Go ahead and click on it to open it up.</p>
+<p><strong>5.</strong> On line 25, you should see what is below :</p>
+<pre><code>const key = fs.readFileSync(path.join(credPath, '/msp/keystore/&lt;PUT_PRIVATE_KEY_HERE&gt;')).toString();
+</code></pre>
+<p><strong>6.</strong> To put in the file name of your actual private key, you can enter the command below
+in your terminal application to find the key's file name. <strong>NOTE:</strong> scroll over
+to see the entire command below :</p>
+<pre><code>tecadmin@ubuntubase:~/Desktop/fabric-samples-cp/commercial-paper/organization/magnetocorp/application$ ls -l /home/tecadmin/.fabric-vscode/runtime/crypto-config/peerOrganizations/org1.example.com/users/User1@org1.example.com/msp/keystore/
+-rw-------@ 1 tecadmin  tecadmin  241 Jun 11 08:57 e7a117b799890646fe1d6e688d9c979845a411830400b673e2fe7dc01f91f9b8_sk
+</code></pre>
+<p><strong>7.</strong> Now, copy your private key's file name,
+<code>e7a117b799890646fe1d6e688d9c979845a411830400b673e2fe7dc01f91f9b8_sk</code> in this example- but your name will differ- 
+and paste it in the field asking for your private key. For example, line 25
+looks like this now. <strong>NOTE:</strong> scroll over to see the entire key file name below:</p>
+<pre><code>const key = fs.readFileSync(path.join(credPath, '/msp/keystore/e7a117b799890646fe1d6e688d9c979845a411830400b673e2fe7dc01f91f9b8_sk')).toString();
+</code></pre>
+<p><strong>NOTE:</strong> It is of the upmost importance that you are doing this from the
+<code>magnetocorp/application</code> folder and you save this file. We will do the
+DigiBank folder here in a second.</p>
+<p><strong>8.</strong> Go ahead and save this file by either doing <code>File -&gt; Save</code> or
+<code>Control + s</code>.</p>
+<p><strong>9.</strong> Back in your terminal application, you can enter the command
+below to install some dependencies. <strong>NOTE:</strong> scroll over to see the
+entire command below :</p>
+<pre><code>tecadmin@ubuntubase:~/Desktop/fabric-samples-cp/commercial-paper/organization/magnetocorp/application$ npm install 
+.
+. # A bunch of output, with some of the output repeating
+.
+node-pre-gyp WARN Using request for node-pre-gyp https download 
+[grpc] Success: "/home/tecadmin/Desktop/fabric-samples/commercial-paper/organization/magnetocorp/application/node_modules/grpc/src/node/extension_binary/node-v57-darwin-x64-unknown/grpc_node.node" is installed via remote
+npm notice created a lockfile as package-lock.json. You should commit this file.
+npm WARN nodejs@1.0.0 No description
+npm WARN nodejs@1.0.0 No repository field.
+
+added 318 packages in 36.994s
+</code></pre>
+<p><strong>10.</strong> Since we are in our command line, let's issue the following
+command that will create Isabella. <strong>NOTE:</strong> scroll over to see the
+entire command below :</p>
+<pre><code>tecadmin@ubuntubase:~/Desktop/fabric-samples-cp/commercial-paper/organization/magnetocorp/application$ node addToWallet.js 
+done
+</code></pre>
+<p><strong>11.</strong> We will know it worked if we can execute the following command
+successfully. <strong>NOTE:</strong> scroll over to see the entire command below :</p>
+<pre><code>tecadmin@ubuntubase:~/Desktop/fabric-samples-cp/commercial-paper/organization/magnetocorp/application$ ls -l ../identity/user/isabella/wallet/
+total 0
+drwxr-xr-x  5 tecadmin  tecadmin  160 Jun 11 12:53 User1@org1.example.com
+tecadmin@ubuntubase:~/Desktop/fabric-samples-cp/commercial-paper/organization/magnetocorp/application$ ls -l ../identity/user/isabella/wallet/User1@org1.example.com/
+total 24
+-rw-r--r--  1 tecadmin  tecadmin  1037 Jun 11 12:53 User1@org1.example.com
+-rw-r--r--  1 tecadmin  tecadmin   246 Jun 11 12:53 e7a117b799890646fe1d6e688d9c979845a411830400b673e2fe7dc01f91f9b8-priv
+-rw-r--r--  1 tecadmin  tecadmin   182 Jun 11 12:53 e7a117b799890646fe1d6e688d9c979845a411830400b673e2fe7dc01f91f9b8-pub
+</code></pre>
+<p>Keys are vital to understanding how transactions and identity work
+within a blockchain network. Below is a breakdown of the keys and
+certificate used in this example:</p>
+<ul>
+<li>a <strong>private key</strong> <code>e7a117b799...-priv</code> used to sign transactions on
+    Isabella's behalf, but not distributed outside of her immediate
+    control</li>
+<li>a <strong>public key</strong> <code>e7a117b799...-pub</code> which is cryptographically
+    linked to Isabella's private key. This public key is contained
+    within Isabella's X.509 certificate</li>
+<li>a <strong>certificate</strong> <code>User1@org.example.com</code> which contains Isabella's
+    public key and other X.509 attributes added by the Certificate
+    Authority at certificate creation. This certificate is distributed
+    to the network so that different actors at different times can
+    cryptographically verify information signed by Isabella's private
+    key</li>
+</ul>
+<p><strong>12.</strong> Before we submit our first transaction, let's go over it below.
+You can find the code by clicking on <code>issue.js</code> within the
+<code>magnetocorp/application</code> folder in VSCode.</p>
+<p>Below we bring two key Hyperledger Fabric SDK classes into scope --
+<code>Wallet and Gateway</code>. Because Isabella's X.509 certificate is in the
+local file system, the application uses FileSystemWallet :</p>
+<pre><code>// Bring key classes into scope, most importantly Fabric SDK network class 
+const { FileSystemWallet, Gateway } = require('fabric-network');
+</code></pre>
+<p>Below, this statement identifies that the application will use
+Isabella's wallet when it connects to the blockchain network channel.
+The application will select a particular identity within Isabella's
+wallet. (The wallet must have been loaded with Isabella's X.509
+certificate -- that's what addToWallet.js does):</p>
+<pre><code>// A wallet stores a collection of identities for use 
+const wallet = new FileSystemWallet('../identity/user/isabella/wallet');
+</code></pre>
+<p>This line of code, below, connects to the network using the gateway
+identified by connectionProfile, using the identity referred to in
+connectionOptions. See how <code>../gateway/networkConnection.yaml</code> and
+<code>User1@org1.example.com</code> are used for these values respectively:</p>
+<pre><code>// Connect to gateway using application specified parameters 
+await gateway.connect(connectionProfile, connectionOptions);
+</code></pre>
+<p>Below in the couple lines of code, the application connects to the
+network channel <code>mychannel</code>, where the papercontract was previously
+instantiated. If you had a different channel name, you would have to
+modify this line of code:</p>
+<pre><code>// Access commercial paper network 
+const network = await gateway.getNetwork('mychannel');
+</code></pre>
+<p>Below, this statement gives the application addressability to the smart
+contract defined by the namespace <code>org.papernet.commercialpaper</code> within
+<code>papercontract</code>. Once an application has issued <code>getContract</code>, it can
+submit any transaction implemented within it:</p>
+<pre><code>// Get addressability to commercial paper contract 
+const contract = await network.getContract('papercontract', 'org.papernet.comm...');
+</code></pre>
+<p>Below, these lines of code submit a transaction to the network using the
+issue transaction defined within the smart contract.
+<code>MagnetoCorp, 00001</code> are the values to be used by the issue transaction
+to create a new commercial paper:</p>
+<pre><code>// issue commercial paper 
+const issueResponse = await contract.submitTransaction('issue','MagnetoCorp', '00001', '2020-05-31', '2020-11-30','5000000');
+</code></pre>
+<p>This statement, below, processes the response from the issue
+transaction. The response needs to be deserialized from a buffer into
+paper, a CommercialPaper object which can be interpreted correctly by
+the application:</p>
+<pre><code>// process response let paper =
+CommercialPaper.fromBuffer(issueResponse);
+</code></pre>
+<p><strong>13.</strong> Now that we have Isabella from MagnetoCorp, let's perform the
+issue transaction from our terminal. <strong>NOTE:</strong> scroll over to see the
+entire command below:</p>
+<pre><code>tecadmin@ubuntubase:~/Desktop/fabric-samples-cp/commercial-paper/organization/magnetocorp/application$ node issue.js
+Connect to Fabric gateway.
+Use network channel: mychannel.
+Use org.papernet.commercialpaper smart contract.
+Submit commercial paper issue transaction.
+2019-02-22T17:55:20.631Z - info: [TransactionEventHandler]: _strategySuccess: strategy success for transaction "f8e124886d6cb84434cb6a996f4889145c0541199c88bab7d4d85ae41266e51e"
+Process issue transaction response.
+MagnetoCorp commercial paper : 00001 successfully issued for value 5000000
+Transaction complete.
+Disconnect from Fabric gateway.
+Issue program complete.
+</code></pre>
+<p>This successfully committed a transaction to the ledger. See how it
+outputted a transaction hash for us. You can look at our
+<code>monitoring docker</code> terminal tab as well.</p>
+<p>As you can see in the image below, we are using the certificate
+belonging to Isabella to submit our paper issue transaction. Once we
+verify that Isabella can submit a transaction (via her certificate), the
+gateway allows the application to focus on transaction generation,
+submission and response. It coordinates the transaction proposal,
+ordering and notification processing between the different network
+components.</p>
+<p><img alt="image" src="../vscode-images/papernet_magnetoissue.png" /></p>
+<p><strong>14.</strong> Since we have created an identity for MagnetoCorp, let's also
+create Balaji from DigiBank. To do so, we will need a third command line
+tab. We can add another command line tab by clicking on
+<code>File -&gt; New Tab.</code> This will create a new tab in the terminal from the
+exact folder directory we were in from our second command line tab. This
+third tab will act as DigiBank.</p>
+<p><strong>15.</strong> We now need to switch to a new directory, specifically the
+application folder of DigiBank. <strong>NOTE:</strong> scroll over to see the entire
+command below:</p>
+<pre><code>tecadmin@ubuntubase:~/Desktop/fabric-samples-cp/commercial-paper/organization/magnetocorp/application$ cd ../../digibank/application/
+tecadmin@ubuntubase:~/Desktop/fabric-samples-cp/commercial-paper/organization/digibank/application$
+</code></pre>
+<p><strong>16.</strong> Within VSCode, navigate to the application folder of DigiBank :</p>
+<pre><code>fabric-samples-cp -&gt; commercial-paper -&gt; organization -&gt; digibank -&gt; application
+</code></pre>
+<p><strong>17.</strong> Similarly, you will see <code>&lt;PUT_PRIVATE_KEY_HERE&gt;</code> in the
+<code>addtoWallet.js</code> file within the <code>application</code> folder. On line 25, you
+should see what is below :</p>
+<pre><code>const key = fs.readFileSync(path.join(credPath, '/msp/keystore/&lt;PUT_PRIVATE_KEY_HERE&gt;')).toString();
+</code></pre>
+<p><strong>18.</strong> To put in an actual private keys's file name, you can enter the command below
+in your terminal application to find the key's file name. <strong>NOTE:</strong> scroll over
+to see the entire key below:</p>
+<pre><code>tecadmin@ubuntubase:~/Desktop/fabric-samples-cp/commercial-paper/organization/digibank/application$ ls -l /home/tecadmin/.fabric-vscode/runtime/crypto-config/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/keystore/
+-rw-------@ 1 tecadmin  tecadmin  241 Jun 11 08:57 4fd5a19cad827af71cf356d629f95c41f77e27db09d268a3c72aabdaead43737_sk
+</code></pre>
+<p><strong>19.</strong> Now, copy your private key's file name,
+<code>4fd5a19cad827af71cf356d629f95c41f77e27db09d268a3c72aabdaead43737_sk</code> in our example- yours will differ- 
+and paste in the field asking for your private key. For example, line 25
+looks like this now. <strong>NOTE:</strong> scroll over to see the entire file name below:</p>
+<pre><code>const key = fs.readFileSync(path.join(credPath, '/msp/keystore/4fd5a19cad827af71cf356d629f95c41f77e27db09d268a3c72aabdaead43737_sk')).toString();
+</code></pre>
+<p><strong>NOTE:</strong> It is of the upmost importance that you are doing this from the
+<code>digibank/application</code> folder and you save this file.</p>
+<p><strong>20.</strong> Now we can install some dependencies that are required to create
+our identity. To do this, enter the command that is below. <strong>NOTE:</strong>
+scroll over to see the entire command below :</p>
+<pre><code>tecadmin@ubuntubase:~/Desktop/fabric-samples-cp/commercial-paper/organization/digibank/application$ npm install 
+.
+. # A bunch of output, with some of the output repeating
+.
+node-pre-gyp WARN Using request for node-pre-gyp https download 
+[grpc] Success: "/home/tecadmin/Desktop/fabric-samples/commercial-paper/organization/magnetocorp/application/node_modules/grpc/src/node/extension_binary/node-v57-darwin-x64-unknown/grpc_node.node" is installed via remote
+npm notice created a lockfile as package-lock.json. You should commit this file.
+npm WARN nodejs@1.0.0 No description
+npm WARN nodejs@1.0.0 No repository field.
+
+added 318 packages in 36.994s
+</code></pre>
+<p><strong>21.</strong> Since we are in our command line, let's issue the following
+command that will create Balaji. <strong>NOTE:</strong> scroll over to see the
+entire command below:</p>
+<pre><code>tecadmin@ubuntubase:~/Desktop/fabric-samples-cp/commercial-paper/organization/digibank/application$ node addToWallet.js 
+done
+</code></pre>
+<p><strong>22.</strong> We will know it worked if we can execute the following command
+successfully. <strong>NOTE:</strong> scroll over to see the entire command below :</p>
+<pre><code>tecadmin@ubuntubase:~/Desktop/fabric-samples-cp/commercial-paper/organization/digibank/application$ ls -l ../identity/user/balaji/wallet/
+total 0
+drwxr-xr-x  5 tecadmin  tecadmin  160 Jun 11 12:53 Admin@org1.example.com
+tecadmin@ubuntubase:~/Desktop/fabric-samples-cp/commercial-paper/organization/digibank/application$ ls -l ../identity/user/balaji/wallet/Admin@org1.example.com/
+total 24
+-rw-r--r--  1 tecadmin  tecadmin  1037 Jun 11 12:53 User1@org1.example.com
+-rw-r--r--  1 tecadmin  tecadmin   246 Jun 11 12:53 4fd5a19cad827af71cf356d629f95c41f77e27db09d268a3c72aabdaead43737-priv
+-rw-r--r--  1 tecadmin  tecadmin   182 Jun 11 12:53 4fd5a19cad827af71cf356d629f95c41f77e27db09d268a3c72aabdaead43737-pub
+</code></pre>
+<p>Based on the picture below, we now have 2 participants in this network.
+Obviously, this is MagnetoCorp (Isabella) and DigiBank (Balaji). Both
+participants are allowed to interact with the commercial paper
+blockchain network through their application.</p>
+<p><img alt="image" src="../vscode-images/papernet_magnetodigi.png" /></p>
+<p><strong>23.</strong> Since we have issued a paper from Isabella, let's go ahead and
+submit a couple of transactions from Balaji and DigiBank. Go ahead and
+get the latest status of our paper by entering the command below.
+<strong>NOTE:</strong> scroll over to see the entire command below:</p>
+<pre><code>tecadmin@ubuntubase:~/Desktop/fabric-samples-cp/commercial-paper/organization/digibank/application$ node getPaper.js
+Connect to Fabric gateway.
+Use network channel: mychannel.
+Use org.papernet.commercialpaper smart contract.
+Submit commercial paper getPaper transaction.
+Process getPaper transaction response.
+ +--------- Paper Retrieved ---------+ 
+ | Paper number: "00001"
+ | Paper is owned by: "MagnetoCorp"
+ | Paper is currently: "ISSUED"
+ | Paper face value: "5000000"
+ | Paper is issued by: "MagnetoCorp"
+ | Paper issue on: "2020-05-31"
+ | Paper matures on: "2020-11-30"
+ +-----------------------------------+ 
+Transaction complete.
+Disconnect from Fabric gateway.
+getPaper program complete.
+</code></pre>
+<p><strong>24.</strong> Now that we know the current status of our <code>00001</code> paper,
+let's go ahead and buy and redeem the paper by entering the command
+below. <strong>NOTE:</strong> scroll over to see the entire command below :</p>
+<pre><code>tecadmin@ubuntubase:~/Desktop/fabric-samples-cp/commercial-paper/organization/digibank/application$ node buy.js
+Connect to Fabric gateway.
+Use network channel: mychannel.
+Use org.papernet.commercialpaper smart contract.
+Submit commercial paper buy transaction.
+2019-02-28T19:52:17.372Z - info: [TransactionEventHandler]: _strategySuccess: strategy success for transaction "871e7743c58e406575d4e553330faae3711c0a65a2f677b6e6d398650069d81a"
+Process buy transaction response.
+MagnetoCorp commercial paper : 00001 successfully purchased by DigiBank
+Transaction complete.
+Disconnect from Fabric gateway.
+Buy program complete.
+</code></pre>
+<p><strong>25.</strong> We can finish the cycle of paper <code>00001</code> by doing a redeem
+transaction. The command is below. <strong>NOTE:</strong> scroll over to see the
+entire command below :</p>
+<pre><code>tecadmin@ubuntubase:~/Desktop/fabric-samples-cp/commercial-paper/organization/digibank/application$ node redeem.js 
+Connect to Fabric gateway.
+Use network channel: mychannel.
+Use org.papernet.commercialpaper smart contract.
+Submit commercial paper redeem transaction.
+2019-02-28T19:52:46.452Z - info: [TransactionEventHandler]: _strategySuccess: strategy success for transaction "c26ecbf1077d99a5ea025c339ffabd88eb22cf4e6ac5ff8d9b570cd6c38eb531"
+Process redeem transaction response.
+MagnetoCorp commercial paper : 00001 successfully redeemed with MagnetoCorp
+Transaction complete.
+Disconnect from Fabric gateway.
+Redeem program complete
+</code></pre>
+<p><strong>26.</strong> To confirm that we actually redeemed the paper, you can do a
+<code>getPaper</code> transaction to see that it was, indeed, redeemed. <strong>NOTE:</strong>
+scroll over to see the entire command below :</p>
+<pre><code>tecadmin@ubuntubase:~/Desktop/fabric-samples-cp/commercial-paper/organization/digibank/application$ node getPaper.js
+Connect to Fabric gateway.
+Use network channel: mychannel.
+Use org.papernet.commercialpaper smart contract.
+Submit commercial paper getPaper transaction.
+Process getPaper transaction response.
++--------- Paper Retrieved ---------+ 
+| Paper number: "00001"
+| Paper is owned by: "MagnetoCorp"
+| Paper is currently: "REDEEMED"
+| Paper face value: "5000000"
+| Paper is issued by: "MagnetoCorp"
+| Paper issue on: "2020-05-31"
+| Paper matures on: "2020-11-30"
++-----------------------------------+ 
+Transaction complete.
+Disconnect from Fabric gateway.
+getPaper program complete
+</code></pre>
+<p>Now, we have run through the full lifecycle of one paper through the
+command line interface (CLI). In the following sections we will use a
+mixture of the CLI, the VSCode user interface, and a loopback API service
+application.</p>
+<h1 id="section-5-create-fabric-gateways-and-submit-transactions">Section 5: Create Fabric Gateways and Submit Transactions</h1>
+<p>In the previous section, we created two identities -
+<code>Isabella and Balaji</code> - and then completed a full lifecycle of one paper.
+Let's create a fabric gateway for Isabella and Balaji and then submit
+some more transactions.</p>
+<p><strong>1.</strong> Within VSCode, go to the IBM Blockchain Platform Extension. One
+of the sections you'll see is called <code>Fabric Gateways</code>. If you click on
+the gear icon in the bottom left, select <code>Command Palette..</code>. You'll be
+given a prompt and you can enter this command below :</p>
+<pre><code>&gt;IBM Blockchain Platform: Add Gateway
+</code></pre>
+<p><strong>2.</strong> For our first Gateway, let's create MagnetoCorp. So when it
+prompts you for: <code>Enter a name for the gateway</code> enter the following
+below :</p>
+<pre><code>MagnetoCorp
+</code></pre>
+<p><strong>3.</strong> Then it will prompt you for a path to the connection profile.
+Click on browse and it will open a file window. Navigate to the path
+below and select <code>networkConnection.yaml</code>. <strong>NOTE:</strong> scroll over to see
+the entire file path below :</p>
+<pre><code>Desktop -&gt; fabric-samples-cp -&gt; commercial-paper -&gt; organization -&gt; magnetocorp -&gt; gateway -&gt; networkConnection.yaml
+.
+</code></pre>
+<p><strong>4.</strong> Then it will place that new gateway in the <code>Fabric Gateway</code>
+section within the IBM Blockchain Platform Extension. Now that we have a
+gateway, we need to create an identity to use this gateway. To do this,
+hover your cursor over the <code>Fabric Wallets</code> section of the extension.
+There you'll see a <code>+</code> icon. Click on that <code>+</code> icon to add a wallet.</p>
+<p><strong>5.</strong> Then it will prompt you: <code>Choose a method to add a wallet</code> and
+for that select <code>Specify an existing file system wallet</code>. We are
+selecting this because we already have added Isabella as an identity and
+she has a wallet folder.</p>
+<p><strong>6.</strong> Then it will prompt you: <code>Enter file path to a wallet directory</code>
+and then select <code>Browse</code>. It will then pop-up a file window. From there,
+you can navigate to the following path below. <strong>NOTE:</strong> scroll over to
+see the entire file path below:</p>
+<pre><code>Desktop -&gt; fabric-samples-cp -&gt; commercial-paper -&gt; organization -&gt; magnetocorp -&gt; identity -&gt; user -&gt; isabella -&gt; wallet
+.
+</code></pre>
+<p>Once you have selected <code>wallet</code>, click on <code>select</code> to choose this
+option. Then it will add a wallet, called <code>wallet</code>, to our
+<code>Fabric Wallets</code> section of the extension.</p>
+<p><strong>7.</strong> Once you see the wallet called <code>wallet</code> in the <code>Fabric Wallet</code>
+section, go ahead and right click on <code>wallet</code>. How many times can you
+say <code>wallet</code> in a sentence. From there, select <code>Edit Wallet</code> and it will
+open a <code>settings.json</code> file with your wallet name and wallet path
+highlighted. Go ahead and <strong>only</strong> change the <code>wallet name</code> to
+<code>MagnetoCorpWallet</code>. Look below to see the example:</p>
+<pre><code>"name": "wallet",
+"walletPath": "/home/tecadmin/Desktop/fabric-samples-cp/commercial-paper/organization/magnetocorp/identity/user/isabella/wallet"
+
+---- CHANGE TO -----
+
+"name": "MagnetoCorpWallet",
+"walletPath": "/home/tecadmin/Desktop/fabric-samples-cp/commercial-paper/organization/magnetocorp/identity/user/isabella/wallet"
+</code></pre>
+<p><strong>8.</strong> Once you have made that change, go ahead and save this file by
+doing a <code>File -&gt; Save</code> or <code>Control + S</code>. Also - leave this file open as
+we will want to change the name for DigiBank once we create their
+wallet.</p>
+<p><strong>9.</strong> Speaking of DigiBank, we now need to do the same process for
+them. So click on the gear icon in the bottom left, select
+<code>Command Palette..</code>. You'll be given a prompt and you can enter this
+command below:</p>
+<pre><code>&gt;IBM Blockchain Platform: Add Gateway
+</code></pre>
+<p><strong>10.</strong> For our second Gateway, let's create DigiBank. So when it
+prompts you for: <code>Enter a name for the gateway</code> enter the following
+below:</p>
+<pre><code>DigiBank
+</code></pre>
+<p><strong>11.</strong> Then it will prompt you for a path to the connection profile.
+Click on browse and it will open a file window. Navigate to the path
+below and select <code>networkConnection.yaml</code>. <strong>NOTE:</strong> scroll over to see
+the entire file path below:</p>
+<pre><code>Desktop -&gt; fabric-samples-cp -&gt; commercial-paper -&gt; organization -&gt; digibank -&gt; gateway -&gt; networkConnection.yaml
+.
+</code></pre>
+<p><strong>12.</strong> Then it will place that new gateway in the <code>Fabric Gateway</code>
+section within the IBM Blockchain Platform Extension. Now that we have a
+gateway, we need to create an identity to use this gateway. To do this,
+hover your cursor over the <code>Fabric Wallets</code> section of the extension.
+There you'll see a <code>+</code> icon. Click on that <code>+</code> icon to add a wallet.</p>
+<p><strong>13.</strong> Then it will prompt you: <code>Choose a method to add a wallet</code> and
+for that select <code>Specify an existing file system wallet</code>. We are
+selecting this because we already have added Isabella as an identity and
+she has a wallet folder.</p>
+<p><strong>14.</strong> Then it will prompt you: <code>Enter file path to a wallet directory</code>
+and then select <code>Browse</code>. It will then pop-up a file window. From there,
+you can navigate to the following path below. <strong>NOTE:</strong> scroll over to
+see the entire file path below:</p>
+<pre><code>Desktop -&gt; fabric-samples-cp -&gt; commercial-paper -&gt; organization -&gt; digibank -&gt; identity -&gt; user -&gt; balaji -&gt; wallet
+.
+</code></pre>
+<p>Once you have selected <code>wallet</code>, click on <code>select</code> to choose this
+option. Then it will add a wallet, called <code>wallet</code>, to our
+<code>Fabric Wallets</code> section of the extension.</p>
+<p><strong>15.</strong> Once you see the wallet called <code>wallet</code> in the <code>Fabric Wallet</code>
+section, go ahead and right click on <code>wallet</code>. From there, select
+<code>Edit Wallet</code> and it will open a <code>settings.json</code> file with your wallet
+name and wallet path highlighted. Go ahead and <strong>only</strong> change the
+<code>wallet name</code> to <code>DigiBankWallet</code>. Look below to see the example:</p>
+<pre><code>"name": "wallet",
+"walletPath": "/home/tecadmin/Desktop/fabric-samples-cp/commercial-paper/organization/digibank/identity/user/balaji/wallet"
+
+---- CHANGE TO -----
+
+"name": "DigiBankWallet",
+"walletPath": "/home/tecadmin/Desktop/fabric-samples-cp/commercial-paper/organization/digibank/identity/user/balaji/wallet"
+</code></pre>
+<p><strong>16.</strong> Once you have made that change, go ahead and save this file by
+doing a <code>File -&gt; Save</code> or <code>Control + S</code>. Now within your
+<code>Fabric Wallets</code> section, you should have <code>MagnetCorpWallet</code> and
+<code>DigiBankWallet</code> as our two custom wallets.</p>
+<p><strong>17.</strong> Now that we have two wallets, we can associate our wallets to
+our two gateways. To do this <code>right click</code> on <code>MagnetoCorp</code> within the
+<code>Fabric Gateways</code> section. Then select <code>Associate A Wallet</code>. Then it
+will prompt you for which wallet to associate with this gateway. You
+will want to select <code>MagnetoCorpWallet</code>.</p>
+<p>What this does is when you connect with a specific gateway, it will
+automatically use that wallet you associated it with. For example,
+whenever you click on MagnetoCorp within the <code>Fabric Gateway</code> section,
+it will automatically use the <code>MagnetoCorpWallet</code> wallet without
+prompting you.</p>
+<p><strong>18.</strong> Do the same thing for DigiBank. <code>Right click</code> on <code>DigiBank</code>
+within the <code>Fabric Gateways</code> section. Then select <code>Associate A Wallet</code>.
+Then it will prompt you for which wallet to associate with this gateway.
+You will want to select <code>DigiBankWallet</code>.</p>
+<p><strong>19.</strong> To confirm that we have done this successfully, you can click on
+both gateways. You'll see the identities it is using once you connect to
+a specific gateway. To disconnect from a gateway, there is a <code>door</code> in
+the <code>Fabric Gateways</code> section in which you can click on to leave.</p>
+<p><img alt="image" src="../vscode-images/2-4-19.1.png" /></p>
+<p><img alt="image" src="../vscode-images/2-4-19.2.png" /></p>
+<p><strong>20.</strong> Now that we have our gateways figured out, let's do another
+lifecycle of a commercial paper. To do this, we need to do an <code>issue</code>
+transaction. First click on the <code>MagnetoCorp</code> gateway and untoggle till
+you see the transactions within the <code>papercontract@0</code>. From there,
+<code>right click</code> on the <code>issue</code> transaction and select
+<code>Submit Transaction</code>. Within the brackets, place the text below:</p>
+<pre><code>"MagnetoCorp", "00002", "2020-05-31", "2020-11-30", "5000000"
+</code></pre>
+<p>You can hit enter again to bypass the next prompt asking for transient
+data. That will execute the transaction and issue paper <code>00002</code></p>
+<p><strong>21.</strong> To make sure we are all operating on the same paper number, we
+need to change a few files. I have broken down the files we need to
+change below within VSCode in the Editor perspective.</p>
+<p>From <code>digibank/application</code> folder, within the <code>getPaper.js</code> file
+on line <code>68</code>:</p>
+<pre><code>const getPaperResponse = await contract.evaluateTransaction('getPaper', 'MagnetoCorp', '00001');
+
+---- CHANGE TO ----
+
+const getPaperResponse = await contract.evaluateTransaction('getPaper', 'MagnetoCorp', '00002');
+</code></pre>
+<p><strong>Make sure you save this file.</strong></p>
+<p>From <code>`digibank/application</code> folder, within the <code>redeem.js</code> file on
+line <code>67</code>:</p>
+<pre><code>const redeemResponse = await contract.submitTransaction('redeem', 'MagnetoCorp', '00001', 'DigiBank', '2020-11-30');
+
+---- CHANGE TO ----
+
+const redeemResponse = await contract.submitTransaction('redeem', 'MagnetoCorp', '00002', 'DigiBank', '2020-11-30');
+</code></pre>
+<p><strong>Make sure you save this file.</strong></p>
+<p><strong>22.</strong> Now we can execute more transactions. First, jump back to the
+CLI and do a <code>getPaper.js</code> transaction. Below you will see what the
+command is to execute the transaction. <strong>NOTE:</strong> scroll over to see the entire command below:</p>
+<pre><code>tecadmin@ubuntubase:~/Desktop/fabric-samples-cp/commercial-paper/organization/digibank/application$ node getPaper.js
+Connect to Fabric gateway.
+Use network channel: mychannel.
+Use org.papernet.commercialpaper smart contract.
+Submit commercial paper getPaper transaction.
+Process getPaper transaction response.
+ +--------- Paper Retrieved ---------+ 
+ | Paper number: "00002"
+ | Paper is owned by: "MagnetoCorp"
+ | Paper is currently: "ISSUED"
+ | Paper face value: "5000000"
+ | Paper is issued by: "MagnetoCorp"
+ | Paper issue on: "2020-05-31"
+ | Paper matures on: "2020-11-30"
+ +-----------------------------------+ 
+Transaction complete.
+Disconnect from Fabric gateway.
+getPaper program complete.
+</code></pre>
+<p><strong>23.</strong> Within VSCode and the IBM Blockchain Platform, we can buy the
+same paper. To do this, leave the <code>MagnetoCorp</code> gateway, and then click on the
+<code>DigiBank</code> gateway.</p>
+<p><strong>24.</strong> Now, untoggle till you see the <code>buy</code> transaction within the
+<code>papercontract@0</code> smart contract. From there, <code>right click</code> on the <code>buy</code>
+transaction and select <code>Submit Transaction</code>. Once it gives you a prompt,
+enter the text below between the brackets:</p>
+<pre><code>"MagnetoCorp","00002","MagnetoCorp","DigiBank","4900000","2019-07-31"
+</code></pre>
+<p>Then hit <code>enter</code> to go to the next prompt. Hit <code>enter</code> once again to
+bypass the transient data prompt. Then that will execute the <code>buy</code>
+transaction.</p>
+<p><strong>25.</strong> To confirm that the transaction worked (other than the log
+messages in the output window), we can do a <code>getPaper</code> transaction from
+the CLI again. <strong>NOTE:</strong> scroll over to see the entire command below:</p>
+<pre><code>tecadmin@ubuntubase:~/Desktop/fabric-samples-cp/commercial-paper/organization/digibank/application$ node getPaper.js
+Connect to Fabric gateway.
+Use network channel: mychannel.
+Use org.papernet.commercialpaper smart contract.
+Submit commercial paper getPaper transaction.
+Process getPaper transaction response.
++--------- Paper Retrieved ---------+ 
+ | Paper number: "00002"
+ | Paper is owned by: "DigiBank"
+ | Paper is currently: "TRADING"
+ | Paper face value: "5000000"
+ | Paper is issued by: "MagnetoCorp"
+ | Paper issue on: "2020-05-31"
+ | Paper matures on: "2020-11-30"
+ +-----------------------------------+ 
+Transaction complete.
+Disconnect from Fabric gateway.
+getPaper program complete.
+</code></pre>
+<p><strong>26.</strong> From the same CLI, we can do a <code>redeem.js</code> transaction. <strong>NOTE:</strong> scroll over to see the entire command below:</p>
+<pre><code>tecadmin@ubuntubase:~/Desktop/fabric-samples/commercial-paper/organization/digibank/application$ node redeem.js 
+Connect to Fabric gateway.
+Use network channel: mychannel.
+Use org.papernet.commercialpaper smart contract.
+Submit commercial paper redeem transaction.
+2019-02-28T19:52:46.452Z - info: [TransactionEventHandler]: _strategySuccess: strategy success for transaction "c26ecbf1077d99a5ea025c339ffabd88eb22cf4e6ac5ff8d9b570cd6c38eb531"
+Process redeem transaction response.
+MagnetoCorp commercial paper : 00002 successfully redeemed with MagnetoCorp
+Transaction complete.
+Disconnect from Fabric gateway.
+Redeem program complete.
+</code></pre>
+<p><strong>27.</strong> Again, we can confirm that this was recorded by doing another
+<code>getPaper.js</code> transaction. <strong>NOTE:</strong> scroll over to see the entire
+command below:</p>
+<pre><code>tecadmin@ubuntubase:~/Desktop/fabric-samples-cp/commercial-paper/organization/digibank/application$ node getPaper.js
+Connect to Fabric gateway.
+Use network channel: mychannel.
+Use org.papernet.commercialpaper smart contract.
+Submit commercial paper getPaper transaction.
+Process getPaper transaction response.
+ +--------- Paper Retrieved ---------+ 
+ | Paper number: "00002"
+ | Paper is owned by: "MagnetoCorp"
+ | Paper is currently: "REDEEMED"
+ | Paper face value: "5000000"
+ | Paper is issued by: "MagnetoCorp"
+ | Paper issue on: "2020-05-31"
+ | Paper matures on: "2020-11-30"
+ +-----------------------------------+ 
+Transaction complete.
+Disconnect from Fabric gateway.
+getPaper program complete.
+</code></pre>
+<h1 id="section-6-lab-clean-up">Section 6: Lab Clean-Up</h1>
+<p>This lab has run its course, but now it is time to clean up. Don't worry, this is a very short section! </p>
+<p><strong>1.</strong> Entering the following commands to stop and remove our docker containers. Then we can remove the images as well. Look at the following commands below
+::</p>
+<pre><code>tecadmin@ubuntubase:~/Desktop/fabric-samples-cp/commercial-paper/organization/digibank/application$ docker stop $(docker ps -a -q)
+*
+*
+* Docker container IDs
+*
+*
+tecadmin@ubuntubase:~/Desktop/fabric-samples-cp/commercial-paper/organization/digibank/application$ docker rm $(docker ps -a -q)
+*
+*
+* Docker container IDs
+*
+*
+</code></pre>
+<p><strong>2.</strong> From within the IBM Blockchain Platform Extension in VSCode, find the <code>Local Fabric Ops</code> section and hover your cursor in that section. Within that section, click on the three dots (<code>...</code>) in the top right. Then select <code>Teardown Fabric Runtime</code>. This will clear the local Fabric cleanly.</p>
+<p><strong>3.</strong> Once that has ran its course, click on the three dots (<code>...</code>) and select <code>Start Fabric Runtime</code>. This will start up a new local Fabric that we will use in the next part of the lab. </p>
+<p>That's it!</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../xchaincode/" class="btn btn-neutral float-right" title="Part 3 - Cross Chaincode and Debug">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../vscode-part1/" class="btn btn-neutral" title="Part 1 - Create Smart Contract"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/ibm-blockchain-wsc/ImmersionWorkshop.git" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../vscode-part1/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../xchaincode/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+
+</body>
+</html>
