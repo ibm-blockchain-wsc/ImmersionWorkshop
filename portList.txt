@@ -1,5 +1,3 @@
-```
-
 List of ports for each team for quick reference
 
 ****************   TEAM0  ****************
@@ -111,8 +109,8 @@ team17 USERNAME: team17@ibm.com
 team17 PASSWORD: team17pw
 
 ****************   TEAM18  ****************
-team18 optools URL: https://192.168.22.81:30033
-team18 proxy URL: https://192.168.22.81:30034
+team18 optools URL: https://192.168.22.81:30038
+team18 proxy URL: https://192.168.22.81:30039
 team18 USERNAME: team18@ibm.com
 team18 PASSWORD: team18pw
 
@@ -122,5 +120,14 @@ team19 proxy URL: https://192.168.22.81:30041
 team19 USERNAME: team19@ibm.com
 team19 PASSWORD: team19pw
 
+Full Cleanup Command: TEAM_NUMBER=20 PREFIX=workshop ./cleanupNamespaces.sh
 
-```
+****************   TEAM18  ****************
+team18 optools URL: https://192.168.22.81:30033
+team18 proxy URL: https://192.168.22.81:30034
+team18 USERNAME: team18@ibm.com
+team18 PASSWORD: team18pw
+
+Cleanup Command for This Run: TEAM_NUMBER=19 START_NUMBER=18 PREFIX=workshop ./cleanupNamespaces.sh
+Full Cleanup Command: TEAM_NUMBER=19 PREFIX=workshop ./cleanupNamespaces.sh
+
