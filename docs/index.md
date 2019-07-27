@@ -17,13 +17,13 @@ Welcome! This two-day workshop combines lectures and hands-on labs to teach you 
 * 5pm -     Day 1 Wrap up
 
 ### Day 2
-* 9am - Lecture: IBM Cloud Private on Linux on Z and Secure Service Containers
-* 10:45am - Lecture: The Next Generation IBM Blockchain Platform
-* 11:30am - Lecture: Blockchain on Z - Why and Roadmap
+* 9am - [Lecture: IBM Cloud Private on Linux on Z and Secure Service Containers](files/ICP_and_SSC.pdf)
+* 10:45am - [Lecture: The Next Generation IBM Blockchain Platform](files/BlockchainPlatform.pdf)
+* 11:30am - [Lecture: Blockchain on Z - Why and Roadmap](files/BlockchainPlatform.pdf)
 * Noon - Lunch
 * 1pm - [Lab: IBM Blockchain Platform Part 1 - Deploy Network](ibpconsole.md)
 * 2pm - [Lab: IBM Blockchain Platform Part 2 - Deploy Smart Contract](ibpdeploy.md)
-* 3pm - Lecture: Kubernetes Explained
+* 3pm - [Lecture: Kubernetes Explained](files/Kubernetes_Explained_Woodworth.pdf)
 * 4pm - [Lab: IBM Blockchain Platform Part 3 - CICD](ibpcicd.md)
 * 5pm - Day 2 Wrap Up
 
