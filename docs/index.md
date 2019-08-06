@@ -24,7 +24,7 @@ Welcome! This two-day workshop combines lectures and hands-on labs to teach you 
 * 1pm - [Lab: IBM Blockchain Platform Part 1 - Deploy Network](ibpconsole.md)
 * 2pm - [Lab: IBM Blockchain Platform Part 2 - Deploy Smart Contract](ibpdeploy.md)
 * 3pm - [Lecture: Kubernetes Explained](files/Kubernetes_Explained_Woodworth.pdf)
-* 4pm - [Lab: IBM Blockchain Platform Part 3 - CICD](ibpcicd.md)
+* 4pm - [Lab: IBM Blockchain Platform Part 3 - CICD](cicd.md)
 * 5pm - Day 2 Wrap Up
 
 ## Acknowledgements
