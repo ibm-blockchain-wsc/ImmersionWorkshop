@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Part 3 - CICD - Blockchain Immersion Workshop</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Part 3 - CICD";
+    var mkdocs_page_input_path = "cicd.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Blockchain Immersion Workshop</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Use Case Walkthrough</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../immunichain-home/">Introduction</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../immunichain/">Part 1</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">VSCode Lab</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../vscode-home/">Introduction</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../vscode-part1/">Part 1 - Create Smart Contract</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../vscode-part2/">Part 2 - Commercial Paper</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../xchaincode/">Part 3 - Cross Chaincode and Debug</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../loopback/">Part 4 - Create Loopback API</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">IBM Blockchain Platform for Multicloud on Linux on Z Lab</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../ibpconsole/">Part 1 - Create a Blockchain Network</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../ibpdeploy/">Part 2 - Deploy Smart Contract</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">Part 3 - CICD</a>
+    <ul class="subnav">
+            
+    </ul>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../references/">Additional Resources</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Blockchain Immersion Workshop</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>IBM Blockchain Platform for Multicloud on Linux on Z Lab &raquo;</li>
+        
+      
+    
+    <li>Part 3 - CICD</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <p><strong>1.</strong> Go to <code>https://github.com/austingrice/digibank</code> within Firefox</p>
+<p><strong>2.</strong> Then click on <code>Fork</code> button in the top right. Then log into your
+GitHub or create a Github account to then fork this repository</p>
+<p><strong>3.</strong> Once you have the forked repository in your GitHub account, then
+you can do a <code>Git Clone</code>. To do this find the <code>Clone or download</code> button
+on the right and then click on the copy button to the right of the URL</p>
+<p><img alt="image" src="../cicdimages/forkgithub.png" /></p>
+<p><strong>4.</strong> Then go to your terminal and navigate to your <code>Desktop</code> folder.
+Once you are there, enter the command below :</p>
+<pre><code>tecadmin@ubuntubase:~/Desktop$ cd ~
+tecadmin@ubuntubase:~/Desktop$ git clone https://github.com/austingrice/digibank.git
+Cloning into 'digibank'...
+remote: Enumerating objects: 56, done.
+remote: Counting objects: 100% (56/56), done.
+remote: Compressing objects: 100% (43/43), done.
+remote: Total 56 (delta 6), reused 53 (delta 6), pack-reused 0
+Unpacking objects: 100% (56/56), done.
+</code></pre>
+<p><strong>5.</strong> While you are in the terminal, navigate to the folder where you
+downloaded your <code>connection profile</code> from Part 2, Section 8 and step 2.
+:</p>
+<pre><code>For example:
+
+tecadmin@ubuntubase:~/Desktop$ cd ../Downloads
+tecadmin@ubuntubase:~/Downloads$ ls -l 
+*
+drwxr-xr-x  5 tecadmin  tecadmin  160 Jun 11 12:53 &lt;Your_Connection_Profile&gt;
+*
+</code></pre>
+<p><strong>6.</strong> When you are there, enter this command to copy our connection
+profile to our new digibank folder :</p>
+<pre><code>tecadmin@ubuntubase:~/Downloads$ cp connectionprofile.json /home/tecadmin/Desktop/digibank/
+</code></pre>
+<p><strong>7.</strong> From here, go into VSCode and add the <code>digibank</code> folder to the
+workplace. To do this, go to the Editor perspective and then right
+click on the empty black space and select <code>Add Folder to Workspace</code>.
+From there, go to your <code>digibank</code> folder and click on <code>select</code> to open
+up the file.</p>
+<p><strong>8.</strong> Once you have the <code>digibank</code> folder open, right click on your
+connection profile file and select <code>Rename</code>. Then rename your connection
+profile to <code>networkConnection.json</code>.</p>
+<p><strong>9.</strong> Then toggle on the <code>Identity</code> folder within the <code>digibank</code>
+folder. Within there, you will see 3 files: <code>config.json</code>, <code>enroll.js</code>
+and then <code>package.json</code>. Within the <code>config.json</code> file, we have a few
+places wanting some information. The <strong>only</strong> things we have to change
+is our CA port number as well as our MSP name. Other than that, keep
+everything the same! You can find your CA port by opening your
+<code>networkConnection.json</code> file and looking for the IP address under the
+<code>certificateAuthorities</code> section. It should have a <code>192.168.22.81:3xxx</code>
+IP address. :</p>
+<pre><code>{
+  "connection_file": "/home/tecadmin/Desktop/digibank/networkConnection.json",
+  "appAdmin": "app-admin",
+  "appAdminSecret": "app-adminpw",
+  "orgMSPID": "teamXXorg1msp",
+  "caName": "https://192.168.22.81:&lt;Put_Your_CA_Port_Here&gt;",
+  "userName": "app-admin",
+  "gatewayDiscovery": {
+    "enabled": true,
+    "asLocalhost": false
+  }
+}
+
+--- CHANGES TO ---
+
+{
+  "connection_file": "/home/tecadmin/Desktop/digibank/networkConnection.json",
+  "appAdmin": "app-admin",
+  "appAdminSecret": "app-adminpw",
+  "orgMSPID": "team19org1msp",
+  "caName": "https://192.168.22.81:31142",
+  "userName": "app-admin",
+  "gatewayDiscovery": {
+    "enabled": true,
+    "asLocalhost": false
+  }
+}
+</code></pre>
+<p><strong>Save this File!</strong></p>
+<p><strong>10.</strong> Within the <code>digibank</code> folder there is a <code>src</code> folder. Within the
+<code>src</code> there will be a <code>blockchainClient.ts</code> file. You can click on the
+file to open it up and then navigate to <code>line 38</code>. Go ahead and rename
+the channel to match the channel name in your IBM Blockchain for
+Multicloud console. :</p>
+<pre><code>const network = await gateway.getNetwork('teamXX-channel1');
+
+--- CHANGES TO ---
+
+const network = await gateway.getNetwork('team19-channel1');
+</code></pre>
+<p><strong>Save this File!</strong></p>
+<p><strong>11.</strong> From the CLI application, navigate to the <code>digibank/Identity</code>
+folder and then run the command below :</p>
+<pre><code>tecadmin@ubuntubase:~/Downloads$ cd /home/tecadmin/Desktop/digibank/Identity
+tecadmin@ubuntubase:~/Desktop/digibank/Identity$ npm install
+*
+*
+</code></pre>
+<p><strong>12.</strong> Once npm has completed some installations, run the command below
+to enroll our user :</p>
+<pre><code>tecadmin@ubuntubase:~/Desktop/digibank/Identity$ node enroll.js
+Wallet path: /home/tecadmin/Desktop/digibank/IBP
+msg: Successfully enrolled admin user app-admin and imported it into the wallet
+</code></pre>
+<p><strong>13.</strong> The previous step created a certificate and public/private key
+pair for us. We can check that by entering the command below :</p>
+<pre><code>tecadmin@ubuntubase:~/Desktop/digibank/Identity$ ls -l ../IBP
+total 4
+drwxr-xr-x 2 tecadmin tecadmin 4096 Jun 27 00:39 app-admin
+tecadmin@ubuntubase:~/Desktop/digibank/Identity$ ls -l ../IBP/app-admin
+total 12
+-rw-r--r-- 1 tecadmin tecadmin  246 Jun 27 00:39 5b17e99aa4da28c2dad4d834409e01c543f19965840b3ba4482049111893897e-priv
+-rw-r--r-- 1 tecadmin tecadmin  182 Jun 27 00:39 5b17e99aa4da28c2dad4d834409e01c543f19965840b3ba4482049111893897e-pub
+-rw-r--r-- 1 tecadmin tecadmin 1104 Jun 27 00:39 app-admin
+</code></pre>
+<p><strong>14.</strong> Then change the Jenkinsfile to match your team :</p>
+<p><img alt="image" src="../jenkinsimages/add_your_team_jenkinsfile.png" /></p>
+<p><strong>15.</strong> Once npm has completed some installations, enter the next
+command below to push our changes to our GitHub account :</p>
+<pre><code>tecadmin@ubuntubase:~/Desktop/digibank$ git add *
+tecadmin@ubuntubase:~/Desktop/digibank$ git commit -m 'blockchain is awesome' 
+*
+* Your file changes and other output messages
+*
+tecadmin@ubuntubase:~/Desktop/digibank$ git push
+Counting objects: 53, done.
+Delta compression using up to 8 threads.
+Compressing objects: 100% (48/48), done.
+Writing objects: 100% (53/53), 13.95 KiB | 0 bytes/s, done.
+Total 53 (delta 6), reused 0 (delta 0)
+remote: Resolving deltas: 100% (6/6), done.
+To github.com:austingrice/digibank.git
+   140abdf..0666159  master -&gt; master
+</code></pre>
+<p><strong>16.</strong> Go back to your GitHub repository of <code>digibank</code> and then hit the
+<code>refresh</code> button to confirm your changes took.</p>
+<p><strong>JENKINS THEN GOES TO WORK FOR K8S LOOPBACKAPI</strong></p>
+<p>Jenkins will enable us to automatically build a docker image from our code and deploy it into a IBM Cloud Private via Kubernetes. We are using the Kubernetes plugin for Jenkins to enable this functionality. Jenkins has functionality added through plugins to add new capabilities and features from a variety of different contributors. </p>
+<p>One of these plugins enables us to connect to Jenkins via a Github webhook so that when new code is pushed it will automatically trigger your Jenkins jobs (in our case we will be using a pipeline).</p>
+<p><strong>i</strong>. Go to the github fork where you just pushed new code. Then, go to the <code>settings</code> for the repository
+<img alt="image" src="../jenkinsimages/choose_settings.png" /></p>
+<p><strong>ii</strong> Choose the <code>Webhooks</code> section
+<img alt="image" src="../jenkinsimages/Choose_Webhook.png" /></p>
+<p><strong>iii</strong> Click to add your webhook.
+<img alt="image" src="../jenkinsimages/add_webhook.png" /></p>
+<p><strong>iv</strong> Configure your webhook.
+<img alt="image" src="../jenkinsimages/Webhook_settings.png" /></p>
+<pre><code>1. smee url: The smee url will be provided to you for the lab as it is auto-generated for each lab.
+2. `application/json` content type
+3. Leave the rest as defaults as shown and click `Add Webhook`
+</code></pre>
+<p>You may be wondering why we are providing a smee url here and not a jenkins url. Our Jenkins service is not accessible from the public internet. Thus, we can use smee, which is a service that serves as a proxy for webhooks. It acts as a local sidecar container to the Jenkins master (running in the same Kubernetes pod) on it's network. While the services such as GitHub on the public internet can't initaite connections with it, it can initiate connections with them. Using this method, smee forwards Jenkins webhooks when it hears of them via a connection to a public smee service (addressable from the internet) which is in turn listening for github webhooks from your github repositories. </p>
+<p><strong>v</strong> See successful Webhook creation message.
+<img alt="image" src="../jenkinsimages/success_message.png" /></p>
+<p><strong>vi</strong> Time to go to Jenkins. Navigate to <code>https://192.168.22.81:8443/jenkins</code> in your browser.</p>
+<p><strong>vii</strong> Upon seeing the welcome page please enter you team and password for the lab which will be given to you. In this case I am <code>team19</code>. 
+<img alt="image" src="../jenkinsimages/jenkins_login.png" /></p>
+<p><strong>viii</strong> After successfully logging in click on <code>My View</code> to see just the folder you have access to.
+<img alt="image" src="../jenkinsimages/Jenkins_View.png" /></p>
+<p><strong>ix</strong> Click on your folder (the only one listed) to enter it. 
+<img alt="image" src="../jenkinsimages/select_workshop_name.png" /> </p>
+<p><strong>x</strong> Create a new job. You could also have created a <code>New item</code> instead  which is why that is circled as well.
+<img alt="image" src="../jenkinsimages/create_new_job.png" /></p>
+<p><strong>xi</strong> Make a pipeline for your digibank project using the options shown below 
+<img alt="image" src="../jenkinsimages/create_pipeline.png" /></p>
+<p><strong>xii</strong> Get your repo url from your github fork.
+<img alt="image" src="../jenkinsimages/get_repo_url.png" /></p>
+<p><strong>xiii</strong> Use the url you got from the previous step for the github repository in the configuration below in both places it appears. The other values keep the same as mine. Click save when you are done entering these.
+<img alt="image" src="../jenkinsimages/configure_pipeline.png" /></p>
+<p><strong>xiv</strong> Set up authorization for your project in your personal folder by clicking on authorization.
+<img alt="image" src="../jenkinsimages/authorization.png" /></p>
+<p><strong>xv</strong>  Choose <code>Run as specific user</code> and put in your team name for the user. This will enable your github to run with your blessing.
+<img alt="image" src="../jenkinsimages/use_teams_creds.png" /></p>
+<p><strong>xvi</strong> Click the arrow next to your team name in the upper right hand corner to the left of log out and then select <code>Credentials</code>
+<img alt="image" src="../jenkinsimages/add_creds.png" /></p>
+<p><strong>xvii</strong> Click either the <code>Add Credentials</code> or <code>Adding some credentials?</code> link. 
+<img alt="image" src="../jenkinsimages/make_user_creds.png" /></p>
+<p><strong>xviii</strong> Make a credential id in Jenkins to securely access your icp creds by making an entry with your team name and password and an id of <code>teamname-icp</code> and click ok.
+<img alt="image" src="../jenkinsimages/fillin_creds.png" /></p>
+<p><strong>xix</strong> Go to <code>My View</code> by clicking the arrow to the left of Jenkins in the upper left hand corner and selecting <code>My View</code>.
+<img alt="image" src="../jenkinsimages/MyView.png" /></p>
+<p><strong>xx</strong> Go on the time clock to build your project now to the right of your pipeline. This will run the Jenkinsfile in your cloned version of the github you adjusted to use your team with the one line change. 
+<img alt="images" src="../jenkinsimages/click_on_project.png" /></p>
+<p><strong>xxi</strong> View the output of your job in the console by clicking the arrow to the right of <code>Build View</code> and Selecting the console output.
+<img alt="image" src="../jenkinsimages/view_console.png" /></p>
+<p><strong>xxii</strong> The job should complete successfully and give you a url you can right click to visit in a new tab.
+<img alt="image" src="../jenkinsimages/success_and_url.png" /></p>
+<p>Proceed with Step 17.</p>
+<p><strong>17.</strong> Once we have our loopback application deployed in our IBM Cloud
+Private cluster, go ahead and open it. Once you get to the homepage for
+loopback, click on the <code>Explorer</code> link to view our controllers (which
+will submit transactions for us).</p>
+<p><img alt="image" src="../cicdimages/explorer.png" /></p>
+<p><strong>18.</strong> Go ahead and toggle on the <code>IssueController</code> and then click on
+<code>Try it Out</code> in the top right. Go ahead and enter the text below to
+issue a new paper :</p>
+<pre><code>{
+  "issuer": "Digibank",
+  "paperNumber": "0032",
+  "issueDateTime": "2020-05-31",
+  "maturityDateTime": "2020-11-30",
+  "faceValue": "500",
+  "paperRate": "0.02"
+}
+</code></pre>
+<p><strong>19.</strong> Then click on the <code>Execute</code> button below. Then, let it spin
+around for a moment, but it should come back with some type of response
+in the response body. Sometimes, it might continuously spin. It will
+eventually time out, but actually submit the paper and have it be
+recorded in the IBM Blockchain Platform. You can confirm this by going
+to your console and clicking on your channel and viewing the block
+height and transactions. For the loopback, you can just let it time out
+and then try to issue the same paper with a new <code>paperNumber</code> and it
+should come back.</p>
+<p><img alt="image" src="../cicdimages/issue.png" /></p>
+<p><strong>20.</strong> Do a similar transaction for <code>Buy</code> once you click on
+<code>Try it Out</code> in the top right :</p>
+<pre><code>{
+  "issuer": "Digibank",
+  "paperNumber": "0032",
+  "currentOwner": "Digibank",
+  "newOwner": "MagnetoCorp",
+  "price": "400",
+  "purchaseDateTime": "2020-06-10"
+}
+</code></pre>
+<p><img alt="image" src="../cicdimages/buy.png" /></p>
+<p><strong>21.</strong> Do the same for the <code>Redeem</code> transaction once you click on
+<code>Try it Out</code> in the top right :</p>
+<pre><code>{
+  "issuer": "Digibank",
+  "paperNumber": "0032",
+  "redeemingOwner": "MagnetoCorp",
+  "redeemDateTime": "2020-11-30"
+}
+</code></pre>
+<p><strong>22.</strong> All of these transactions are being recorded on the IBM
+Blockchain Platform by going to your channel list and then viewing the
+block height and list of transactions.</p>
+<p><strong>UPDATE OUR GITHUB TO ADD GETPAPER AND LET JENKINS GO BACK TO WORK</strong></p>
+<p><strong>xxiii</strong>  See the successful job in Jenkins is github triggered. To get back to the project you can click <code>Back to project</code>. When the build is finished you can also reload the same page you were on before and see that is was updated as a new docker image was created and deployed to Kubernetes.
+![jenkinsimages/successful_build_github_triggered.png]</p>
+<p><strong>1.</strong> Let's take advantage of our CI/CD pipeline, by adding our
+<code>getAllPapersFromIssuer</code> query. <strong>Important:</strong> For this section, the
+<code>getAllPapersFromIssuer</code> transaction is going to be referred as
+<code>getPapers</code>. It's the same logic, but we had to rename it due to some
+loopback issues.</p>
+<p><strong>2.</strong> To add our <code>getPaper</code> transaction we need to add a model,
+repository and controller. Make sure your are in the
+<strong>Desktop/digibank</strong> folder. Also, it is very important that what you
+see below is what you enter. Make sure you don't see dashes (<code>-</code>) in any
+of the prompts. :</p>
+<pre><code>--- Make the Getpapers Model ---
+
+tecadmin@ubuntubase:~/Desktop/digibank$ cd /home/tecadmin/Desktop/digibank/ 
+*
+* I realize, that I'm cd-ing into a folder I'm already in, but it is to make sure everyone in the lab is in the right folder!
+*
+tecadmin@ubuntubase:~/Desktop/digibank$ lb4 model
+? Model class name: Getpapers
+? Please select the model base class Entity (A persisted model with an ID)
+? Allow additional (free-form) properties? No
+Model Getpapers will be created in src/models/getpapers.model.ts
+
+Let's add a property to Getpapers
+Enter an empty property name when done
+
+? Enter the property name: issuer
+? Property type: string
+? Is issuer the ID property? Yes
+? Is it required?: No
+? Default value [leave blank for none]:
+
+Let's add another property to Getpapers
+Enter an empty property name when done
+
+? Enter the property name:
+   create src/models/getpapers.model.ts
+   update src/models/index.ts
+
+Model Getpapers was created in src/models/
+
+-- Create the Getpapers Repository ---
+
+tecadmin@ubuntubase:~/Desktop/digibank$ lb4 repository
+? Please select the datasource DbDatasource
+? Select the model(s) you want to generate a repository Getpapers
+? Please select the repository base class DefaultCrudRepository (Legacy juggler bridge)
+   create src/repositories/getpapers.repository.ts
+   update src/repositories/index.ts
+
+Repository GetpapersRepository was created in src/repositories/
+
+--- Create the Getpapers Controller ---
+
+tecadmin@ubuntubase:~/Desktop/digibank$ lb4 controller
+? Controller class name: Getpapers
+Controller Getpapers will be created in src/controllers/getpapers.controller.ts
+
+? What kind of controller would you like to generate? REST Controller with CRUD functions
+? What is the name of the model to use with this CRUD repository? Getpapers
+? What is the name of your CRUD repository? GetpapersRepository
+? What is the type of your ID? string
+? What is the base HTTP path name of the CRUD operations? /getpapers
+   create src/controllers/getpapers.controller.ts
+   update src/controllers/index.ts
+
+Controller Getpapers was created in src/controllers/
+</code></pre>
+<p><strong>3.</strong> Within VSCode, navigate to the <code>digibank/src/repository</code> folder.
+You will see 6 files, with 4 of them being our repositories. Open the
+<code>getpaper.repository.ts</code> file and make a change that I lay out below on
+line 8 :</p>
+<pre><code>typeof Getpapers.prototype.,
+
+--- Change To ---
+
+// typeof Getpapers.prototype.,
+</code></pre>
+<p>Save this file!</p>
+<p><strong>4.</strong> Within our <code>digibank/src/controllers</code> folder, open the
+<code>getpapers.controller.ts</code> file and delete all of the code within that
+controller. Next, paste in the code below :</p>
+<pre><code>// Copyright IBM Corp. 2017,2018. All Rights Reserved.
+// Node module: @loopback/example-todo
+// This file is licensed under the MIT License.
+// License text available at https://opensource.org/licenses/MIT
+
+import {
+  del,
+  get,
+  getFilterSchemaFor,
+  param,
+  patch,
+  post,
+  put,
+  requestBody,
+} from '@loopback/rest';
+import { Getpapers } from '../models';
+
+import { BlockChainModule } from '../blockchainClient';
+
+let blockchainClient = new BlockChainModule.BlockchainClient();
+
+export class GetpapersController {
+  constructor() { }
+
+ @post('/getpapers', {
+   responses: {
+      '200': {
+        description: 'Todo model instance',
+        content: { 'application/json': { schema: { 'x-ts-type': Getpapers } } },
+      },
+    },
+  })
+  async createGetpapers(@requestBody() requestBody: Getpapers): Promise&lt;Getpapers&gt; {
+    console.log('Buy, requestBody: ')
+    console.log(requestBody)
+
+    let networkObj = await blockchainClient.connectToNetwork();
+    if (!networkObj) {
+      let errString = 'Error connecting to network';
+      let getpapers = new Getpapers({ issuer: errString });
+      return getpapers;
+    }
+    console.log('newtork obj: ')
+    console.log(networkObj)
+
+    let dataForGetpapers = {
+      function: 'getAllPapersFromIssuer',
+      issuer: requestBody.issuer,
+      contract: networkObj.contract
+    };
+
+    var resultString = await blockchainClient.getpapers(dataForGetpapers);
+
+    console.log('result from blockchainClient.submitTransaction in controller: ')
+    console.log(resultString);
+    let result = JSON.parse(resultString);
+    return result;
+  }
+
+}
+</code></pre>
+<p>Save this file!</p>
+<p><strong>5.</strong> Now, that we have made some further changes to our digibank
+folder, let's push it back up to GitHub :</p>
+<pre><code>tecadmin@ubuntubase:~/Desktop/digibank$ cd /home/tecadmin/Desktop/digibank
+*
+* I realize, that I'm cd-ing into a folder I'm already in, but it is to make sure everyone in the lab is in the right folder!
+*
+tecadmin@ubuntubase:~/Desktop/digibank$ git add *
+tecadmin@ubuntubase:~/Desktop/digibank$ git commit -m 'blockchain is awesome' 
+*
+* Your file changes and other output messages
+*
+tecadmin@ubuntubase:~/Desktop/digibank$ git push
+Counting objects: 53, done.
+Delta compression using up to 8 threads.
+Compressing objects: 100% (48/48), done.
+Writing objects: 100% (53/53), 13.95 KiB | 0 bytes/s, done.
+Total 53 (delta 6), reused 0 (delta 0)
+remote: Resolving deltas: 100% (6/6), done.
+To github.com:austingrice/digibank.git
+   140abdf..0666159  master -&gt; master
+</code></pre>
+<p><strong>LET JENKINS GO TO WORK BY MAKING A K8S DEPLOYMENT</strong></p>
+<p><strong>xxiv</strong> You can again click back to main project and see successfully running job.
+<img alt="image" src="../jenkinsimages/see triggered job.png" /></p>
+<p><strong>xxv</strong> We can also see how Jenkins keeps track of the jobs triggered by Github.
+<img alt="image" src="../jenkinsimages/triggered_from_git.png" /></p>
+<p><strong>xxvi</strong> We can also see our console output again selecting the screen from the picture in step <code>xxv</code> above this one. This console should show another successful job and we can now again visit the updated loopback.
+<img alt="image" src="../jenkinsimages/see_it_Deploy_succcessfully.png" /></p>
+<p><strong>6.</strong> Once you have your kubernetes deployment of our loopback
+application, go ahead and open it. Then go to the <code>GetpapersController</code>
+and then paste in the text below once you click on <code>Try it Out</code> :</p>
+<pre><code>{
+  "issuer": "Digibank"
+}
+</code></pre>
+<p><img alt="image" src="../cicdimages/getpapers.png" /></p>
+<p><strong>xxvii</strong> It's time to cleanup the Github webhook since you are done with it. Go back to your fork of Github repository for this lab. Go to the settings page for the repository and then Webhooks. Click delete to clean up the Webhook.
+<img alt="image" src="../jenkinsimages/cleanup_webhooks.png" /></p>
+<p><strong>xxvii</strong> Finally, get a message confirming your deletion and pat yourself on the back for a job well done, but of course don't forget our now familiar friend Jenkins.
+<img alt="image" src="../jenkinsimages/all_clean.png" /></p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../references/" class="btn btn-neutral float-right" title="Additional Resources">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../ibpdeploy/" class="btn btn-neutral" title="Part 2 - Deploy Smart Contract"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/ibm-blockchain-wsc/ImmersionWorkshop.git" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../ibpdeploy/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../references/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+
+</body>
+</html>
