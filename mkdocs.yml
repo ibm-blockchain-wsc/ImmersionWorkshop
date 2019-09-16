@@ -22,6 +22,6 @@ nav:
         - Part 3 - CICD: cicd.md
     - Additional Resources: references.md
 
-theme: readthedocs
+theme: material
 markdown_extensions:
   - admonition
