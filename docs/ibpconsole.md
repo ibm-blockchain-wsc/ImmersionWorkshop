@@ -106,21 +106,18 @@ In relation to the diagram in the overview section that showed our finished netw
 
 ![image](images/ibpconsole/0060_AddCertificateAuthority.png)
 
-**Step 3.3:** Type in **Team*xx* Org1 CA** where *xx* is your two-digit team id, and then click the blue **Next** button:
+**Step 3.3:** Type **Team*xx* Org1 CA** where *xx* is your two-digit team id, and then click the blue **Next** button:
 
 ![image](images/ibpconsole/0070_AddCertificateAuthoritySideBar2.png)
 
-**Step 3.4:** Type in **admin** for the *CA administrator enroll id* and **adminpw** for the *CA administrator enroll secret* and then click the blue **Next** button:
+**Step 3.4:** Type **admin** for the *CA administrator enroll id* and **adminpw** for the *CA administrator enroll secret* and then click the blue **Next** button:
 
 ![image](images/ibpconsole/0080_AddCertificateAuthoritySideBar3.png)
 
-**Step 3.5:** In the *Resource allocation* settings section, change the *Memory* setting from *200* to *100*, and click the **Next** button:
-
-!!! note
-       You may need to scroll down in the *Resource allocation* section to see the *Memory* field.
+**Step 3.5:** Leave the *Resource allocation* settings unchanged, and click the **Next** button:
 
 !!! important
-       It is very important to change the *Resource allocation* settings throughout the lab to the values provided in these instructions, in order to ensure that each team has enough resources.
+       In a production environment with high volumes, you would need to increase the default settings.  Be a good neighbor and keep the defaults throughout this lab, whenever you come to this *Resource allocation* screen as you deploy components.  This will ensure that we have enough resources for all students to do the lab!
 
 ![image](images/ibpconsole/0090_AddCertificateAuthoritySideBar4.png)
 
@@ -143,7 +140,7 @@ is shown in this screenshot).
 If the box does not turn green in a minute, try reloading the page in your browser. Contact an instructor for help if it does not
 turn green and show the running status when you hover your cursor over the button.
 
-Once your certificate authority is running, click on its tile so that you can proceed to the next section where you will add users.
+**Once your certificate authority is running, click on its tile** so that you can proceed to the next section where you will add users.
 
 ![image](images/ibpconsole/0120_Org1CertificateAuthorityRunning.png)
 
@@ -154,7 +151,7 @@ Section 4: Add new users using your Org1 Certificate Authority
 
 ![image](images/ibpconsole/0130_AddUsers.png)
 
-**Step 4.2:** Type in **org1admin** for the *Enroll id*,  **org1adminpw** for the *Enroll secret*, select **client** for the *Type* field, and then click the blue **Next** button:
+**Step 4.2:** Type **org1admin** for the *Enroll id*,  **org1adminpw** for the *Enroll secret*, select **client** for the *Type* field, and then click the blue **Next** button:
 
 ![image](images/ibpconsole/0140_AddUserOrg1Admin1.png)
 
@@ -166,7 +163,7 @@ Section 4: Add new users using your Org1 Certificate Authority
 
 ![image](images/ibpconsole/0160_AfterOrg1AdminAdded.png)
 
-**Step 4.5:** Type in **peer1** for the *Enroll id*,  **peer1pw** for the *Enroll secret*, select **peer** for the *Type* field, and then click the blue **Next** button:
+**Step 4.5:** Type **peer1** for the *Enroll id*,  **peer1pw** for the *Enroll secret*, select **peer** for the *Type* field, and then click the blue **Next** button:
 
 ![image](images/ibpconsole/0170_AddUserPeer1_1.png)
 
@@ -271,12 +268,7 @@ Review the values your entered for correctness and then click the blue **Next** 
 
 ![image](images/ibpconsole/0310_AddOrg1PeerSidebar4.png)
 
-**Step 6.6:** In the *Resource allocation* settings section, make the following changes, and click the **Next** button:
-
-- In the *Peer container* section, change *CPU* to **0.1**
-- In the *Peer container* section, change *Memory* to **800**
-- In the *CouchDB container* section, change *CPU* to **0.1**
-- In the *CouchDB container* section, change *Memory* to **200**
+**Step 6.6:** Leave the *Resource allocation* settings unchanged and click the **Next** button:
 
 ![image](images/ibpconsole/0320_AddOrg1PeerSidebar5.png)
 
@@ -302,9 +294,9 @@ Section 7: Create a certificate authority for an Ordering Service organization
 In this lab you will create three organizations- two organizations will run peer nodes and run smart contracts. One of the organizations will provide the ordering service for the blockchain network.  In the real world each of the three organizations would likely use their own instance of the IBM Blockchain Platform console to create their necessary artifacts.  (You have already done much of this for the first peer organization, **Team*xx* Org1**, in the previous sections of this lab).
 
 !!! note
-       You will carry out activities for all three organizations from your browser for purposes of this lab. This will somewhat simplify the steps you'll need to perform versus the real world scenario where this activity is being carried out separately by each organization. The procedure to perform the tasks in the "real world" case are outlined in the IBM Blockchain Platform documentation- basically, it involves exporting information about your organization into JSON files, and providing this information "out-of-band" to the other organizations. 
+       You will carry out activities for all three organizations from your browser for purposes of this lab. This will somewhat simplify the steps you'll need to perform versus the real-world scenario where this activity is being carried out separately by each organization. The procedure to perform the tasks in the "real world" case are outlined in the IBM Blockchain Platform documentation- basically, it involves exporting information about your organization into JSON files, and providing this information "out-of-band" to the other organizations. 
 
-       In an earlier step you exported your generated certificate and its private key. While it is a JSON file, this is not the file you would ever send to another organization, as it contains your private key which should never be shared with other organizations. The exported JSON files that are used for inter-organizational tasks contain only public information which is safe to share.
+       In an earlier step you exported your generated certificate and its private key. While it is a JSON file, this is not a file you would ever send to another organization, as it contains your private key which should never be shared with other organizations. The exported JSON files that are used for inter-organizational tasks contain only public information which is safe to share.
 
 Our network will look like this at the completion of this section:
 
@@ -321,7 +313,7 @@ Our network will look like this at the completion of this section:
 
 ![image](images/ibpconsole/0380_AddOrderingCASidebar1.png)
 
-**Step 7.3:** Type in **Team*xx* Ordering Service CA** where *xx* is your two-digit team id, and then click the blue **Next** button:
+**Step 7.3:** Type **Team*xx* Ordering Service CA** where *xx* is your two-digit team id, and then click the blue **Next** button:
 
 ![image](images/ibpconsole/0390_AddOrderingCASidebar2.png)
 
@@ -332,7 +324,7 @@ Our network will look like this at the completion of this section:
 
 ![image](images/ibpconsole/0400_AddOrderingCASidebar3.png)
 
-**Step 7.5:** In the *Resource allocation* settings section, change the *Memory* setting from *200* to *100*, and click the **Next** button:
+**Step 7.5:** Leave the *Resource allocation* settings unchanged, and click the **Next** button:
 
 ![image](images/ibpconsole/0410_AddOrderingCASidebar4.png)
 
@@ -349,7 +341,7 @@ If it is gray, and you hover your cursor over it, you may see a message indicati
 If your button does not turn green in a minute, try reloading the page in your browser. Contact an instructor for help if it does not
 turn green and show the running status when you hover your cursor over the button.
 
-Once your Ordering Service certificate authority is running, click on its tile so that you can proceed to the next section where you will add users.
+**Once your Ordering Service certificate authority is running, click on its tile** so that you can proceed to the next section where you will add users.
 
 ![image](images/ibpconsole/0440_AddOrderingCARunning.png)
 
@@ -360,7 +352,7 @@ Section 8: Add new users using your Ordering Service Certificate Authority
 
 ![image](images/ibpconsole/0450_AddUsers.png)
 
-**Step 8.2:** Type in **osadmin** for the *Enroll id*,  **osadminpw** for the *Enroll secret*, select **client** for the *Type* field, and then click the blue **Next** button:
+**Step 8.2:** Type **osadmin** for the *Enroll id*,  **osadminpw** for the *Enroll secret*, select **client** for the *Type* field, and then click the blue **Next** button:
 
 ![image](images/ibpconsole/0460_AddUserOrderingAdmin1.png)
 
@@ -372,7 +364,7 @@ Section 8: Add new users using your Ordering Service Certificate Authority
 
 ![image](images/ibpconsole/0480_AfterOrderingAdminAdded.png)
 
-**Step 8.5:** Type in **os1** for the *Enroll id*,  **os1pw** for the *Enroll secret*, select **peer** for the *Type* field, and then click the blue **Next** button:
+**Step 8.5:** Type **os1** for the *Enroll id*,  **os1pw** for the *Enroll secret*, select **peer** for the *Type* field, and then click the blue **Next** button:
 
 !!! note
        The *peer* value on this panel is used for both peer nodes and ordering service nodes.
@@ -431,7 +423,7 @@ Review the values you have entered per the above list, and then click the blue *
 
 ![image](images/ibpconsole/0570_CreateOrderingMSP.png)
 
-**Step 9.7:** You should now see the definition for your new Ordering Service MSP listed on your screen alongside the MSP your created earlier for your peer organization. Scroll up and click the **Nodes** icon in the icon palette on your left- it is the topmost icon on this palette, and you will be ready to proceed to the next section:
+**Step 9.7:** You should now see the definition for your new Ordering Service MSP listed on your screen alongside the MSP your created earlier for your peer organization. **Scroll up and click the *Nodes* icon** in the icon palette on your left- it is the topmost icon on this palette, and you will be ready to proceed to the next section:
 
 ![image](images/ibpconsole/0580_CreateOrderingMSPFinished.png)
 
@@ -477,7 +469,7 @@ Review the values your entered for correctness and then click the blue **Next** 
 
 ![image](images/ibpconsole/0630_AddOrdererSidebar4.png)
 
-**Step 10.6:** In the *Resource allocation* section, change *CPU* to **0.1** and change *Memory* to **200** and click the **Next** button:
+**Step 10.6:** Leave the *Resource allocation* settings unchanged and click the **Next** button:
 
 ![image](images/ibpconsole/0640_AddOrdererSidebar5.png)
 
@@ -498,7 +490,7 @@ Review the values your entered for correctness and then click the blue **Next** 
 
 **Step 10.10:**  It can take a minute or two on our lab system for the ordering service to come up completely, and you may need to refresh your browser in order to see the box turn green. If your ordering service is still not ready after a couple of minutes and after you have tried refreshing your browser, ask an instructor for help.  The ordering service must be ready, as indicated by a green box in the upper right of its tile, similar to what is shown below, before you can continue.
 
-Once it is ready, click on its tile and continue to the next section of the lab.
+**Once it is ready, click on its tile and continue to the next section of the lab.**
 
 ![image](images/ibpconsole/0680_AddOrdererRunning.png)
 
@@ -598,11 +590,11 @@ We will define the second peer organization now.  The pattern is identical to wh
 
 ![image](images/ibpconsole/0830_AddOrg2CASidebar2.png)
 
-**Step 14.4:** Type in **admin** for the *CA administrator enroll id* and **adminpw** for the *CA administrator enroll secret* and then click the blue **Next** button:
+**Step 14.4:** Type **admin** for the *CA administrator enroll id* and **adminpw** for the *CA administrator enroll secret* and then click the blue **Next** button:
 
 ![image](images/ibpconsole/0840_AddOrg2CASidebar3.png)
 
-**Step 14.5:** In the *Resource allocation* settings section, change the *Memory* setting from *200* to *100*, and click the **Next** button:
+**Step 14.5:** Leave the *Resource allocation* settings unchanged, and click the **Next** button:
 
 ![image](images/ibpconsole/0850_AddOrg2CASidebar4.png)
 
@@ -620,7 +612,7 @@ is shown in this screenshot):
 If the box does not turn green in a minute, try reloading the page in your browser. Contact an instructor for help if it does not
 turn green and show the running status when you hover your cursor over the button.
 
-Once your certificate authority is running, click on its tile so that you can proceed to the next section where you will add users.
+**Once your certificate authority is running, click on its tile** so that you can proceed to the next section where you will add users.
 
 ![image](images/ibpconsole/0880_AddOrg2CARunning.png)
 
@@ -631,7 +623,7 @@ Section 15: Add new users using your Org2 Certificate Authority
 
 ![image](images/ibpconsole/0890_AddOrg2Users.png)
 
-**Step 15.2:** Type in **org2admin** for the *Enroll id*,  **org2adminpw** for the *Enroll secret*, select **client** for the *Type* field, and then click the blue **Next** button:
+**Step 15.2:** Type **org2admin** for the *Enroll id*,  **org2adminpw** for the *Enroll secret*, select **client** for the *Type* field, and then click the blue **Next** button:
 
 ![image](images/ibpconsole/0900_AddUserOrg2Admin1.png)
 
@@ -643,7 +635,7 @@ Section 15: Add new users using your Org2 Certificate Authority
 
 ![image](images/ibpconsole/0920_AfterOrg2AdminAdded.png)
 
-**Step 15.5:** Type in **peer2** for the *Enroll id*,  **peer2pw** for the *Enroll secret*, select **peer** for the *Type* field, and then click the blue **Next** button:
+**Step 15.5:** Type **peer2** for the *Enroll id*,  **peer2pw** for the *Enroll secret*, select **peer** for the *Type* field, and then click the blue **Next** button:
 
 ![image](images/ibpconsole/0930_AddUserPeer2_1.png)
 
@@ -699,7 +691,7 @@ Review the values you have entered per the above list, and then click the blue *
 
 ![image](images/ibpconsole/1010_CreateOrg2MSP.png)
 
-**Step 16.7:** You should now see the definition for your new MSP listed on your screen. Scroll up and click the **Nodes** icon in the icon palette on your left- it is the topmost icon on this palette- and you will be ready to proceed to the next section:
+**Step 16.7:** You should now see the definition for your new MSP listed on your screen. Scroll up and **click the *Nodes* icon in the icon palette** on your left- it is the topmost icon on this palette- and you will be ready to proceed to the next section:
 
 ![image](images/ibpconsole/1020_CreateOrg2MSPFinished.png)
 
@@ -743,12 +735,7 @@ Review the values your entered for correctness and then click the blue **Next** 
 
 ![image](images/ibpconsole/1070_AddOrg2PeerSidebar4.png)
 
-**Step 17.6:** In the *Resource allocation* settings section, make the following changes, and click the **Next** button:
-
-- In the *Peer container* section, change *CPU* to **0.1**
-- In the *Peer container* section, change *Memory* to **800**
-- In the *CouchDB container* section, change *CPU* to **0.1**
-- In the *CouchDB container* section, change *Memory* to **200**
+**Step 17.6:** Leave the *Resource allocation* settings unchanged and click the **Next** button:
 
 ![image](images/ibpconsole/1080_AddOrg2PeerSidebar5.png)
 
@@ -857,7 +844,7 @@ You will now join *Org2's* peer to the channel:
 
 ![image](images/ibpconsole/1270_PeerAddSidebar1.png)
 
-**Step 20.3:** Type in **team*xx*-channel1**, where *xx* is your two-digit team id, in the *Channel* field and click the **Next** button:
+**Step 20.3:** Type **team*xx*-channel1**, where *xx* is your two-digit team id, in the *Channel* field and click the **Next** button:
 
 ![image](images/ibpconsole/1280_PeerAddSidebar2.png)
 
@@ -913,7 +900,7 @@ An anchor peer is a peer whose external endpoint address is published in the cha
 
 ![image](images/ibpconsole/1360_BlockCountUpdated.png)
 
-**Step 21.5:** You should see further confirmation that your block height is 4, and you can see that the last two blocks were added about a second or two apart. We used the console to add both anchor peers with one click, but each anchor peer update is packaged as a separate channel configuration update transaction, each in its own block. Hyperledger Fabric can have many application transactions in a block, but it only allows one configuration update in a block by itself- that is, it cannot be mixed in a block with application transactions.
+**Step 21.5:** You should see further confirmation that your block height is 4, and you can see that the last two blocks were added about a second or two apart. We used the console to add both anchor peers with one click, but each anchor peer update is packaged as a separate channel configuration update transaction, each in its own block. Hyperledger Fabric can have many application transactions in a block, but it only allows one configuration update in a block by itself- that is, not only can it not be mixed in a block with application transactions, it won’t even be in a block with other configuration update transactions.  Each configuration update transaction gets its very own block.
 
 ![image](images/ibpconsole/1370_BlockHeight4.png)
 
