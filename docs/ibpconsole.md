@@ -1,6 +1,6 @@
 # IBM Blockchain Platform for Multicloud Part 1 - Create a Blockchain Network
 
-## Section 1: Create a Blockchain lab overview
+## Section 1: Create a Blockchain Network lab overview
 
 You will use the IBM Blockchain Platform console in this lab to create a blockchain network.
 The network will consist of three organizations.
