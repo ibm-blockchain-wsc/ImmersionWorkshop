@@ -1,5 +1,6 @@
-Section 1: IBM Blockchain Platform console lab overview
-=======================================================
+# IBM Blockchain Platform for Multicloud Part 1 - Create a Blockchain Network
+
+## Section 1: Create a Blockchain lab overview
 
 You will use the IBM Blockchain Platform console in this lab to create a blockchain network.
 The network will consist of three organizations.
@@ -44,8 +45,7 @@ The sections in this lab are as follows:
 - Section 20: Joining your peer for Org2 to the channel
 - Section 21: Defining an anchor peer for each of your two peer organizations
 
-Section 2: Log in to the IBM Blockchain Platform console
-========================================================
+## Section 2: Log in to the IBM Blockchain Platform console
 
 !!! important
         The lab environment is using self-signed SSL certificates and your browser will not trust them without explicit action on your part so part of this initial section on logging in involves establishing this trust. You will first need to go to the URL address specified for your infrastructure.  The IP address in the URL will be the same for each team, but each team will have a different port. 
@@ -88,8 +88,7 @@ Go ahead and click on the **Proceed to 192.168.22.81 (unsafe)** link that is sho
 
 ![image](images/ibpconsole/0043_WelcomeGraphics.png)
 
-Section 3: Create a Certificate Authority for your first organization
-=====================================================================
+## Section 3: Create a Certificate Authority for your first organization
 
 In a Hyperledger Fabric network, each organization will typically have their own certificate authority. The certificate authority is used to issue identities- consisting of X.509 public certificates and matching private keys- for end users, client applications, administrators, and peer and ordering service nodes. In most uses cases each organization will want to have control over the identities they issue, so the typical practice is that each organization provides their own certificate authority. We will follow that practice in this lab. 
 
@@ -144,8 +143,7 @@ turn green and show the running status when you hover your cursor over the butto
 
 ![image](images/ibpconsole/0120_Org1CertificateAuthorityRunning.png)
 
-Section 4: Add new users using your Org1 Certificate Authority
-==============================================================
+## Section 4: Add new users using your Org1 Certificate Authority
 
 **Step 4.1:** Click the **Register user** button on the right side of the screen:
 
@@ -176,8 +174,7 @@ Click the **Organizations** icon on the palette on the left of your screen and c
 
 ![image](images/ibpconsole/0190_AfterPeer1Added.png)
 
-Section 5: Create an MSP for your organization
-==============================================
+## Section 5: Create an MSP for your organization
 
 The *Membership Service Provider* (MSP) component is integral to the private and permissioned Hyperledger Fabric as it provides the authentication- "who are you?"- and authorization - "ok, we believe you are whom you say you are, but are you permitted to do what you are asking to do?"- services.  The infrastructure that the MSP needs to do its job must be in place before you create your peer node. This step will create this for your "Org1".
 
@@ -228,8 +225,8 @@ Review the values you have entered per the above list, and then click the blue *
 
 ![image](images/ibpconsole/0260_CreateOrg1MSPFinished.png)
 
-Section 6: Create a peer node for your organization
-===================================================
+## Section 6: Create a peer node for your organization
+
 
 A peer node is where smart contracts- in essence, your blockchain business transactions- run.  Peer nodes also store the ledgers. We will create a peer for your **Team*xx* Org1** in this section and our fledgling network will then look like this: 
 
@@ -288,8 +285,7 @@ Review the values your entered for correctness and then click the blue **Next** 
 
 ![image](images/ibpconsole/0360_AddOrg1PeerRunning.png)
 
-Section 7: Create a certificate authority for an Ordering Service organization
-==============================================================================
+## Section 7: Create a certificate authority for an Ordering Service organization
 
 In this lab you will create three organizations- two organizations will run peer nodes and run smart contracts. One of the organizations will provide the ordering service for the blockchain network.  In the real world each of the three organizations would likely use their own instance of the IBM Blockchain Platform console to create their necessary artifacts.  (You have already done much of this for the first peer organization, **Team*xx* Org1**, in the previous sections of this lab).
 
@@ -345,8 +341,7 @@ turn green and show the running status when you hover your cursor over the butto
 
 ![image](images/ibpconsole/0440_AddOrderingCARunning.png)
 
-Section 8: Add new users using your Ordering Service Certificate Authority
-==========================================================================
+## Section 8: Add new users using your Ordering Service Certificate Authority
 
 **Step 8.1:** Click the **Register user** button on the right side of the screen:
 
@@ -380,8 +375,7 @@ Click the **Organizations** icon on the palette on the left of your screen and c
 
 ![image](images/ibpconsole/0510_AfterOS1Added.png)
 
-Section 9: Create an MSP for your Ordering Service organization
-===============================================================
+## Section 9: Create an MSP for your Ordering Service organization
 
 Our trusty lodestar shows us what will be added to our nascent network now:
 
@@ -427,8 +421,7 @@ Review the values you have entered per the above list, and then click the blue *
 
 ![image](images/ibpconsole/0580_CreateOrderingMSPFinished.png)
 
-Section 10: Create an ordering service node for your organization
-=================================================================
+## Section 10: Create an ordering service node for your organization
 
 Having created the MSP, you may now create the ordering service node. Ordering service nodes receive proposed transactions from peer nodes, package them into blocks, and then deliver these blocks to peer nodes to commit to the ledger. Ordering service nodes are pretty important, in other words.
 
@@ -494,8 +487,7 @@ Review the values your entered for correctness and then click the blue **Next** 
 
 ![image](images/ibpconsole/0680_AddOrdererRunning.png)
 
-Section 11: Add your peer organization to a consortium
-======================================================
+## Section 11: Add your peer organization to a consortium
 
 **Step 11.1:** Click the blue **Add organization** tile in the *Consortium members* section:
 
@@ -509,8 +501,7 @@ Section 11: Add your peer organization to a consortium
 
 ![image](images/ibpconsole/0710_AddOrganizationToConsortiumFinished.png)
 
-Section 12: Create a channel
-============================
+## Section 12: Create a channel
 
 You won't get very far without an ordering service node, because they are the animals that create blocks. You won't get very far without a peer, as peers run smart contracts, which create transactions that are sent to an ordering service node. 
  
@@ -550,8 +541,7 @@ The line between the ordering service node and your first peer organization node
 
 ![image](images/ibpconsole/0780_ChannelPendingPeerAdd.png)
 
-Section 13: Join a peer to the channel
-======================================
+##Section 13: Join a peer to the channel
 
 In the previous section you defined a channel, **team*xx*channel1**, and made your **Team*xx* Org1** organization a member of the channel. However, in order for a particular peer within that organization to participate in the channel, that peer has to join the channel. Our simple lab network only has one peer in the organization, but in most production implementations an organization will have multiple peers. When the peer joins a channel, it will receive all of the blocks in the channel that were created prior to the time the peer joined the channel, until it catches up.
 
@@ -567,8 +557,7 @@ Our evolving network diagram only gets a subtle change from this section-  the l
 
 ![image](images/ibpconsole/0800_ChannelPeerAdded.png)
 
-Section 14: Define the certificate authority for a second peer organization
-===========================================================================
+## Section 14: Define the certificate authority for a second peer organization
 
 You have now already defined two organizations- **Team*xx* Org1** and **Team*xx* Ordering Service**. The *Ordering Service* organization provides the ordering service and does not itself initiate blockchain transactions. Most, if not all, realistic blockchain networks will involve multiple organizations initiating blockchain transactions. So you will now define a second peer organization to participate in the network. Your network will thus have three organizations- two peer organizations that are collaborating in the blockchain network, and the ordering service organization which is, essentially, a service provider.
 
@@ -616,8 +605,7 @@ turn green and show the running status when you hover your cursor over the butto
 
 ![image](images/ibpconsole/0880_AddOrg2CARunning.png)
 
-Section 15: Add new users using your Org2 Certificate Authority
-===============================================================
+## Section 15: Add new users using your Org2 Certificate Authority
 
 **Step 15.1:** Click the **Register user** button on the right side of the screen:
 
@@ -648,8 +636,7 @@ Click the **Organizations** icon on the palette on the left of your screen and c
 
 ![image](images/ibpconsole/0950_AfterPeer2Added.png)
 
-Section 16: Create an MSP for your second peer organization
-===========================================================
+## Section 16: Create an MSP for your second peer organization
 
 Defining the MSP for **Team*xx* Org2** will bring our network one step closer to fruition:
 
@@ -695,8 +682,7 @@ Review the values you have entered per the above list, and then click the blue *
 
 ![image](images/ibpconsole/1020_CreateOrg2MSPFinished.png)
 
-Section 17: Create a peer node for your second peer organization
-================================================================
+## Section 17: Create a peer node for your second peer organization
 
 The most useful German phrase I know is *noch einmal Bier, bitte!*, which translates to *another beer, please!* So I am asking you kindly, *noch einmal peer, bitte!*, that is, please define a peer for your second organization:
 
@@ -755,8 +741,7 @@ Review the values your entered for correctness and then click the blue **Next** 
 
 ![image](images/ibpconsole/1120_AddOrg2PeerRunning.png)
 
-Section 18: Add your new peer organization to the consortium
-============================================================
+## Section 18: Add your new peer organization to the consortium
 
 **Step 18.1:** Click on your **Team*xx* Orderin...** tile (the full name is most likely truncated on your screen) under the *Ordering services* section:
 
@@ -774,8 +759,7 @@ Section 18: Add your new peer organization to the consortium
 
 ![image](images/ibpconsole/1160_AddOrg2ToConsortiumFinished.png)
 
-Section 19: Add your Org2 organization to the channel
-=====================================================
+## Section 19: Add your Org2 organization to the channel
 
 **Team*xx* Org2** can now become a member of channels since you added it to the consortium in the prior section. Take advantage of that good fortune and add it as a member of your channel:
 
@@ -829,8 +813,7 @@ Click the **Channel details** tab to the right of the **Transaction overview** t
 !!! note
         Although *Org2* is listed as a channel member, you don't see it listed in the section above that in the *Nodes* section. That is because you have not joined a peer from *Org2* to the channel yet.  You will do that next.
 
-Section 20: Join your peer for Org2 to the channel
-=================================================
+## Section 20: Join your peer for Org2 to the channel
 
 You will now join *Org2's* peer to the channel:
 
@@ -864,8 +847,7 @@ You will now join *Org2's* peer to the channel:
 
 ![image](images/ibpconsole/1320_ViewChannel2.png)
 
-Section 21: Define an anchor peer for each of your two peer organizations
-=========================================================================
+## Section 21: Define an anchor peer for each of your two peer organizations
 
 And now, for the *coup de grâce*, the finishing stroke of this lab, you will define an anchor peer for each of your two peer organizations.
 
