@@ -418,15 +418,15 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#section-1-export-commercial-paper-and-commercial-bond" class="md-nav__link">
-    Section 1: Export Commercial Paper and Commercial Bond
+  <a href="#section-1-export-commercial-paper-smart-contract" class="md-nav__link">
+    Section 1: Export Commercial Paper Smart Contract
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#section-2-install-commercial-bond-to-your-blockchain-network" class="md-nav__link">
-    Section 2: Install Commercial Bond to your Blockchain Network
+  <a href="#section-2-install-paper-contract-to-your-blockchain-network" class="md-nav__link">
+    Section 2: Install Paper Contract to your Blockchain Network
   </a>
   
 </li>
@@ -562,15 +562,15 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#section-1-export-commercial-paper-and-commercial-bond" class="md-nav__link">
-    Section 1: Export Commercial Paper and Commercial Bond
+  <a href="#section-1-export-commercial-paper-smart-contract" class="md-nav__link">
+    Section 1: Export Commercial Paper Smart Contract
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#section-2-install-commercial-bond-to-your-blockchain-network" class="md-nav__link">
-    Section 2: Install Commercial Bond to your Blockchain Network
+  <a href="#section-2-install-paper-contract-to-your-blockchain-network" class="md-nav__link">
+    Section 2: Install Paper Contract to your Blockchain Network
   </a>
   
 </li>
@@ -663,22 +663,18 @@
                 
                 
                 <h1 id="ibm-blockchain-platform-for-multicloud-part-2-deploying-a-smart-contract">IBM Blockchain Platform for Multicloud Part 2 - Deploying a Smart Contract</h1>
-<p>This lab will walk you through deploying the smart contracts that you worked with from the VSCode labs: namely <code>commercial-bond</code> and <code>commercial-paper</code>. This lab assumes that you have successfully completed the <a href="../ibpconsole/">IBM Blockchain Platform for Multicloud Part 1 - Deploying a blockchain network lab</a>. If you have not completed part 1, you must do so before continuing with this lab.</p>
-<h2 id="section-1-export-commercial-paper-and-commercial-bond">Section 1: Export Commercial Paper and Commercial Bond</h2>
-<p>Remember from the VSCode labs, you have already packaged up the commercial paper (<code>papercontract@0.0.2</code>) and commercial bond (<code>commercial-bond</code>) smart contracts. Now you will export each to their own smart contract package (<em>in .cds format</em>) and deploy them onto your IBM Blockchain Platform for Multicloud peers.</p>
+<p>This lab will walk you through deploying the smart contract that you worked with from the VSCode labs: namely <code>commercial-paper</code>. This lab assumes that you have successfully completed the <a href="../ibpconsole/">IBM Blockchain Platform for Multicloud Part 1 - Deploying a blockchain network lab</a>. If you have not completed part 1, you must do so before continuing with this lab.</p>
+<h2 id="section-1-export-commercial-paper-smart-contract">Section 1: Export Commercial Paper Smart Contract</h2>
+<p>Remember from the VSCode labs, you have already packaged up the commercial paper (<code>papercontract@0.0.4</code>) smart contract. Now you will export the contract to its own smart contract package (<em>in .cds format</em>) and deploy it to your IBM Blockchain Platform network.</p>
 <div class="admonition note">
-<p class="admonition-title">Note<p>If you did not complete the VSCode labs, you can still continue with this lab. You need to download the .cds packages here: <a href="../files/papercontract@0.0.2.cds">commercial-paper</a> and <a href="../files/commercial-bond@0.0.1.cds">commercial-bond</a>. Save them to <code>/home/tecadmin/</code> on your lab image. Then you can skip to Section 2 of this lab.</p>
+<p class="admonition-title">Note<p>If you did not complete the VSCode labs, you can still continue with this lab. You need to download the .cds package here: <a href="../files/papercontract@0.0.4.cds">commercial-paper</a> and save it to your lab image. Then you can skip to Section 2 of this lab.</p>
 </p>
 </div>
-<p><strong>1.</strong> Go back to your VSCode editor, and go to the IBM Blockchain Platform Extension view. Under the <code>Smart Contract Packages</code> panel, right-click on <code>commercial-bond@0.0.1</code> and select <code>Export Package</code> (you will have many less packages than the screen shots below!):</p>
+<p><strong>1.</strong> Go back to your VSCode editor, and go to the IBM Blockchain Platform Extension view. Under the <code>Smart Contract Packages</code> panel, right-click on <code>papercontract@0.0.4</code> and select <code>Export Package</code>:</p>
 <p><img alt="image" src="../images/ibpdeploy/ibpdeploy1.png" /></p>
 <p><strong>2.</strong> Select the location <code>/home/tecadmin/</code>, and click <code>Enter</code>. Upon successful exporting, you will see a message like below:</p>
-<p><img alt="image" src="../images/ibpdeploy/ibpdeploy2.png" /></p>
-<p><strong>3.</strong> Now, in the same VSCode IBM Blockchain Platform Extension view. Under the <code>Smart Contract Packages</code> panel, right-click on <code>papercontract@0.0.2</code> and select <code>Export Package</code>:</p>
-<p><img alt="image" src="../images/ibpdeploy/ibpdeploy3.png" /></p>
-<p><strong>4.</strong> Select the location <code>/home/tecadmin/</code>, and click <code>Enter</code>. Upon successful exporting, you will see a message like below:</p>
 <p><img alt="image" src="../images/ibpdeploy/ibpdeploy4.png" /></p>
-<h2 id="section-2-install-commercial-bond-to-your-blockchain-network">Section 2: Install Commercial Bond to your Blockchain Network</h2>
+<h2 id="section-2-install-paper-contract-to-your-blockchain-network">Section 2: Install Paper Contract to your Blockchain Network</h2>
 <p><strong>1.</strong> Go back to your IBM Blockchain Platform Console at your assigned URL. Go to the <code>Smart Contracts</code> panel, and select <code>Install Smart Contract</code>:</p>
 <p><img alt="image" src="../images/ibpdeploy/ibpdeploy5.png" /></p>
 <p><strong>2.</strong> In the <code>Install Smart Contract</code> side panel, upload the <code>commercial-bond@0.0.1.cds</code> package, and click <code>Next</code>.</p>
@@ -740,8 +736,8 @@
 <p><strong>2.</strong> Scroll down to the <code>Instantiated Contracts</code> section. Click on the three dots to the right of <code>papercontract</code> and select <code>Connect with SDK</code>:</p>
 <p><img alt="image" src="../images/ibpdeploy/ibpdeploy27.png" /></p>
 <p><strong>3.</strong> In the <code>Connect with SDK</code> side panel, you want to select the following:
-* MSP for connection: <code>team19org1msp</code>
-* Certificate Authority: <code>Team19 Org1 CA</code></p>
+<em> MSP for connection: <code>team19org1msp</code>
+</em> Certificate Authority: <code>Team19 Org1 CA</code></p>
 <p>And then click on <code>Download connection profile</code> button at the bottom. Then you can click on <code>Close</code>.</p>
 <h2 id="section-9-create-a-new-gateway-in-vscode-ibm-blockchain-platform-extension">Section 9: Create a new Gateway in VSCode IBM Blockchain Platform Extension</h2>
 <p>Now you can use that connection profile to create a new gateway in VSCode IBM Blockchain Platform Extension.</p>
