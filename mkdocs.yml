@@ -19,7 +19,7 @@ nav:
     - IBM Blockchain Platform for Multicloud on Linux on Z Lab: 
         - Part 1 - Create a Blockchain Network: ibpconsole.md
         - Part 2 - Deploy Smart Contract: ibpdeploy.md
-        - Part 3 - CICD: cicd.md
+#        - Part 3 - CICD: cicd.md
     - Additional Resources: references.md
 
 theme: material
