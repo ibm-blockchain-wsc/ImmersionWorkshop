@@ -17,7 +17,8 @@
 * [World Wire](https://www.ibm.com/blockchain/solutions/world-wire "world wire")
 * [Unbounded - Blockchain Network Finder](https://unbounded.network/ "unbounded network")
 
-## Additional VSCode Labs
+## Additional Labs
+* [Vehicle Lifecycle Demo Use Case Walkthrough](files/VLD_lab.pdf)
 * [IBM Blockchain Platform VSCode Extension Lab: Add Indices for Better Performing Queries](https://dwakeman.github.io/blockchain-stuff/files/Lab6-IBPVSCodeQueriesWithIndexes.pdf "indexes")
 
 ## Lab resources
