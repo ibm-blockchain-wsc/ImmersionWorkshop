@@ -3,9 +3,9 @@ repo_url: https://github.com/ibm-blockchain-wsc/ImmersionWorkshop.git
 edit_uri: ''
 nav:
     - Home: index.md
-    - Use Case Walkthrough:
-        - Introduction: immunichain-home.md
-        - Part 1: immunichain.md
+#    - Use Case Walkthrough:
+#        - Introduction: immunichain-home.md
+#        - Part 1: immunichain.md
 #    - VSCode Lab:
 #        - Introduction: vscode-home.md
 #        - Part 1 - Create Smart Contract: vscode-part1.md
