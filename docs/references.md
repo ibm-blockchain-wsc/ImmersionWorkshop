@@ -22,4 +22,4 @@
 * [IBM Blockchain Platform VSCode Extension Lab: Add Indices for Better Performing Queries](https://dwakeman.github.io/blockchain-stuff/files/Lab6-IBPVSCodeQueriesWithIndexes.pdf "indexes")
 
 ## Lab resources
-* [Port List for IBM Blockchain Platform Lab](https://ibm-blockchain-wsc.github.io/ImmersionWorkshop/portList)
+* [Port List for IBM Blockchain Platform Lab](portList.md)
