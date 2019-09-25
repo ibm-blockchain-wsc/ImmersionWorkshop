@@ -201,7 +201,13 @@ Now we are ready to submit a test transaction.
 
 ![image](images/ibpdeploy/ibpdeploy43.png)
 
-**2.** Type in "MagnetoCorp","00002","2020-07-31","2020-12-31","6000000" inside the brackets as the argument:
+**2.** Copy and paste the following inside the brackets as the argument:
+
+```
+"MagnetoCorp","00002","2020-07-31","2020-12-31","6000000"
+```
+
+Example:
 
 ![image](images/ibpdeploy/ibpdeploy44.png)
 
