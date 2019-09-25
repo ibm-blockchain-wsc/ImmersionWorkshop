@@ -314,8 +314,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#section-7-register-client-user-for-teamxx-org2" class="md-nav__link">
-    Section 7: Register client user for TeamXX Org2
+  <a href="#section-7-register-client-user-for-teamxx-org2-optional" class="md-nav__link">
+    Section 7: Register client user for TeamXX Org2 (Optional)
   </a>
   
 </li>
@@ -432,8 +432,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#section-7-register-client-user-for-teamxx-org2" class="md-nav__link">
-    Section 7: Register client user for TeamXX Org2
+  <a href="#section-7-register-client-user-for-teamxx-org2-optional" class="md-nav__link">
+    Section 7: Register client user for TeamXX Org2 (Optional)
   </a>
   
 </li>
@@ -510,6 +510,7 @@
 <p><strong>3.</strong> Now select both peers to install to and press <code>Install Smart Contract</code>. Note this is not a very realistic situation because we are installing to peers from two separate organizations. In reality, the smart contract would be shared in a private Github repo with members of the blockchain network and each organization would install the smart contract to their own peers through their console.</p>
 <p><img alt="image" src="../images/ibpdeploy/ibpdeploy7.png" /></p>
 <p><strong>4.</strong> Now, tou should see 'papercontract' appear in the <code>Installed Smart Contracts</code> panel.</p>
+<p><img alt="image" src="../images/ibpdeploy/ibpdeploy8.png" /></p>
 <h2 id="section-3-instantiate-paper-contract">Section 3: Instantiate Paper Contract</h2>
 <p><strong>1.</strong> From the <code>Smart Contracts - Installed Smart Contracts</code> panel, select the three dots to the right of <code>papercontract</code> and select <code>Instantiate</code>:</p>
 <p><img alt="image" src="../images/ibpdeploy/ibpdeploy16.png" /></p>
@@ -521,14 +522,14 @@
 <p><img alt="image" src="../images/ibpdeploy/ibpdeploy13.png" /></p>
 <p><strong>5.</strong> In the next side panel, skip adding a private data collection and just hit <code>Next</code>.</p>
 <p><img alt="image" src="../images/ibpdeploy/ibpdeploy14.png" /></p>
-<p><strong>6.</strong> In the next panel, type in <code>instantiate</code> as the function name. And leave the arguments box blank.</p>
+<p><strong>6.</strong> In the next panel, leave the function name blank (it will by default call the <code>init</code> function in the smart contract which is what we want for <code>papercontract</code>) And leave the arguments box blank. Simply select the <code>Instantiate smart contract</code> button.</p>
 <p><img alt="image" src="../images/ibpdeploy/ibpdeploy15.png" /></p>
-<p><strong>7.</strong> At the end of the flow, if you scroll down on the <code>Smart Contracts</code> panel, you will see the list of <code>Instantiated Smart Contracts</code> includes <code>papercontract</code>:</p>
+<p><strong>7.</strong> First time initiation could take a while because the Node smart contract is pulling in all the package dependencies from the NPM registry. After a few minutes, instantiation should complete. If you scroll down on the <code>Smart Contracts</code> panel, you will see the list of <code>Instantiated Smart Contracts</code> now includes <code>papercontract</code>:</p>
 <p><img alt="image" src="../images/ibpdeploy/ibpdeploy17.png" /></p>
-<p>Now that you have the smart contract instantiated on the channel, you are ready to connect to the smart contract from VSCode.</p>
+<p>Now that you have the smart contract instantiated on the channel, you are ready to move on to the next step.</p>
 <h2 id="section-6-register-client-user-for-teamxx-org1">Section 6: Register client user for TeamXX Org1</h2>
-<p>We need to register a client user to use to enroll application identities for Org1.</p>
-<p><strong>1.</strong> Go to the Nodes view on your IBM Blockchain Platform Console, and navigate to the Certificate Authorities section. Then select <code>TeamXX Org1 CA</code>:</p>
+<p>Now you need to register a client user to use to enroll application identities for Org1. In real life, as the blockchain network administrator for your organization, you might want to register a distinct client user for each business application that has a need to access the smart contract. In this case, the same client user is used to enroll a number of application identities. Another development pattern is to register a distinct client user for each distinct application identity. You can register a client user through the Fabric application SDK as well, though that is not covered in this lab.</p>
+<p><strong>1.</strong> Go to the Nodes view on your IBM Blockchain Platform Console, and navigate to the <code>Certificate Authorities</code> section. Then select <code>TeamXX Org1 CA</code>:</p>
 <p><img alt="image" src="../images/ibpdeploy/ibpdeploy18.png" /></p>
 <p><strong>2.</strong> In the <code>TeamXX Org1 CA</code> view, select <code>Register user</code>:</p>
 <p><img alt="image" src="../images/ibpdeploy/ibpdeploy19.png" /></p>
@@ -538,35 +539,29 @@
 <p><img alt="image" src="../images/ibpdeploy/ibpdeploy21.png" /></p>
 <p><strong>5.</strong> Now you should see the <code>app-admin</code> user you added show up under <code>Registered users</code>:</p>
 <p><img alt="image" src="../images/ibpdeploy/ibpdeploy22.png" /></p>
-<h2 id="section-7-register-client-user-for-teamxx-org2">Section 7: Register client user for TeamXX Org2</h2>
-<p>Now we will register a client user for enrolling application identities for Org2.</p>
+<h2 id="section-7-register-client-user-for-teamxx-org2-optional">Section 7: Register client user for TeamXX Org2 (Optional)</h2>
+<p>Now we will register a client user for enrolling application identities for Org2. This section is optional. In the sections that follow, you will only connect to Org1's peer and invoke transactions against that endpoint. You will only need to register client user for Org2 if you wish to connect to Org2's peer.</p>
 <p><strong>1.</strong> Go to the Nodes view on your IBM Blockchain Platform Console, and navigate to the Certificate Authorities section. Then select <code>TeamXX Org2 CA</code>:</p>
 <p><img alt="image" src="../images/ibpdeploy/ibpdeploy23.png" /></p>
-<p><strong>2.</strong> In the <code>TeamXX Org2 CA</code> view, select <code>Register user</code>:</p>
-<p><img alt="image" src="../images/ibpdeploy/ibpdeploy24.png" /></p>
-<p><strong>3.</strong> In the <code>Register User</code> side panel, fill in the following fields for the user, then hit <code>Next</code>:</p>
-<p><img alt="image" src="../images/ibpdeploy/ibpdeploy20.png" /></p>
-<p><strong>4.</strong> In the next panel, just press <code>Next</code>:</p>
-<p><img alt="image" src="../images/ibpdeploy/ibpdeploy21.png" /></p>
-<p><strong>5.</strong> Now you should see the new user you added show up under <code>Registered users</code>:</p>
-<p><img alt="image" src="../images/ibpdeploy/ibpdeploy25.png" /></p>
+<p><strong>2.</strong> Follow the same steps from Section 6, 2-5, in order to register a client user for Org2.</p>
 <h2 id="section-8-download-the-connection-profile-to-connect-to-teamxx-org1-peer">Section 8: Download the connection profile to connect to TeamXX Org1 Peer</h2>
-<p>The connection profile is a .JSON file that describes all the connection endpoints, MSP information, channel information and certification information required to connect to your peer. A client application wishing to invoke transactions against a smart contract would require this file to obtain the necessary information needed to make that connection. Without IBM Blockchain Platform, this is a file you would put together yourself using existing sample connection profiles available in the Hyperledger Fabric community. With the IBM Blockchain Platform, you can download an already made file from the IBM Blockchain Platform Console.</p>
-<p><strong>1.</strong> Go to the <code>Smart Contracts</code> view from the Console:</p>
-<p><img alt="image" src="../images/ibpdeploy/ibpdeploy26.png" /></p>
-<p><strong>2.</strong> Scroll down to the <code>Instantiated Contracts</code> section. Click on the three dots to the right of <code>papercontract</code> and select <code>Connect with SDK</code>:</p>
+<p>The connection profile is a .JSON file that describes all the connection endpoints, MSP information, channel information and certification information required to connect to your organization's peer. A client application wishing to invoke transactions against a smart contract would require this file to obtain the necessary information needed to make that connection. Without IBM Blockchain Platform, this is a file you would put together yourself using existing sample connection profiles available in the Hyperledger Fabric community. With the IBM Blockchain Platform, you can download a ready-made file from the IBM Blockchain Platform Console.</p>
+<p><strong>1.</strong> Go to the <code>Smart Contracts</code> view from the Console menu on the left. Scroll down to the <code>Instantiated Contracts</code> section. Click on the three dots to the right of <code>papercontract</code> and select <code>Connect with SDK</code>:</p>
 <p><img alt="image" src="../images/ibpdeploy/ibpdeploy27.png" /></p>
-<p><strong>3.</strong> In the <code>Connect with SDK</code> side panel, you want to select the following:
-<em> MSP for connection: <code>team19org1msp</code>
-</em> Certificate Authority: <code>Team19 Org1 CA</code></p>
+<p><strong>3.</strong> In the <code>Connect with SDK</code> side panel, you want to select the following (Remember to replace the <code>XX</code> below with your team number):
+<em> MSP for connection: <code>teamXXorg1msp</code>
+</em> Certificate Authority: <code>TeamXX Org1 CA</code></p>
 <p>And then click on <code>Download connection profile</code> button at the bottom. Then you can click on <code>Close</code>.</p>
 <h2 id="section-9-create-a-new-gateway-in-vscode-ibm-blockchain-platform-extension">Section 9: Create a new Gateway in VSCode IBM Blockchain Platform Extension</h2>
 <p>Now you can use that connection profile to create a new gateway in VSCode IBM Blockchain Platform Extension.</p>
-<p><strong>1.</strong> In the VSCode IBM Blockchain Platform view, click on the <code>+</code> in the <code>Fabric Gateways</code> panel:</p>
+<p><strong>1.</strong> In the VSCode IBM Blockchain Platform view, click on the <code>+</code> in the <code>Fabric Gateways</code> panel (if you are still connected to your local gateway you will need to disconnect from this gateway first. You can do so by clicking on the door icon where the <code>+</code> should be):</p>
 <p><img alt="image" src="../images/ibpdeploy/ibpdeploy28.png" /></p>
-<p><strong>2.</strong> Then in the pop-up window, type in <code>teamXX-ibp</code> as your new gateway name.</p>
+<p><strong>2.</strong> Then in the pop-up window at the top of VSCode, select <code>Create a gateway from a connection profile</code>:</p>
 <p><img alt="image" src="../images/ibpdeploy/ibpdeploy29.png" /></p>
-<p><strong>3.</strong> Upon success, you will see the following message in the OUTPUT panel in VSCode: <code>[SUCCESS] Successfully added a new gateway</code>.</p>
+<p><strong>3.</strong> Next you will be asked to enter the name of the gateway. Enter <code>teamXX-ibp</code>, remembering to replace <code>XX</code> with your team number. </p>
+<p><strong>4.</strong> Finally, you will be asked to browse to the connection profile that you downloaded from Section 8. Browse to it, and select Open. </p>
+<p><strong>5.</strong> Upon success, you will see the <code>teamXX-ibp</code> show up in the <code>Fabric Gateways</code> panel as follows:</p>
+<p><img alt="image" src="../images/ibpdeploy/ibpdeploy_gateway.png" /></p>
 <h2 id="section-10-create-a-new-wallet-and-identity-in-vscode-ibm-blockchain-platform-extension">Section 10: Create a new wallet and identity in VSCode IBM Blockchain Platform Extension</h2>
 <p><strong>1.</strong> In the VSCode IBM Blockchain Platform view, click on the <code>+</code> in the <code>Fabric Wallets</code> panel:</p>
 <p><img alt="image" src="../images/ibpdeploy/ibpdeploy30.png" /></p>
@@ -579,21 +574,14 @@
 <p><strong>5.</strong> Enter <code>teamXXorg1msp</code> as the MSPID (important to replace the xx with your team number)</p>
 <p><img alt="image" src="../images/ibpdeploy/ibpdeploy34.png" /></p>
 <p><strong>6.</strong> Pick <code>Select a gateway and provide an enrollment ID and secret</code></p>
-<p><img alt="image" src="../images/ibpdeploy/ibpdeploy35.png" /></p>
-<p><strong>7.</strong> Choose <code>teamXX-ibp</code> as the gateway you want to enroll and identity with:</p>
 <p><img alt="image" src="../images/ibpdeploy/ibpdeploy36.png" /></p>
-<p><strong>8.</strong> Type <code>app-admin</code> as the enrollment ID:</p>
+<p><strong>7.</strong> Choose <code>teamXX-ibp</code> as the gateway you want to enroll and identity with:</p>
 <p><img alt="image" src="../images/ibpdeploy/ibpdeploy37.png" /></p>
+<p><strong>8.</strong> Type <code>app-admin</code> as the enrollment ID:</p>
+<p><img alt="image" src="../images/ibpdeploy/ibpdeploy35.png" /></p>
 <p><strong>9.</strong> Type <code>app-adminpw</code> as the enrollment secret:</p>
 <p><img alt="image" src="../images/ibpdeploy/ibpdeploy38.png" /></p>
-<p><strong>10.</strong> Upon success you will see the following messages in the OUTPUT panel:</p>
-<pre><code>[6/26/2019 10:23:14 PM] [INFO] addWallet
-[6/26/2019 10:23:18 PM] [INFO] addWalletIdentity
-[6/26/2019 10:23:56 PM] [SUCCESS] Successfully added identity to wallet
-[6/26/2019 10:23:56 PM] [SUCCESS] Successfully added a new wallet
-</code></pre>
-
-<p>You will also see the new wallet and identity in the <code>Fabric Wallets</code> panel:</p>
+<p><strong>10.</strong> Upon success you will see the new wallet and identity in the <code>Fabric Wallets</code> panel:</p>
 <p><img alt="image" src="../images/ibpdeploy/ibpdeploy39.png" /></p>
 <h2 id="section-11-connect-to-the-teamxx-ibp-gateway">Section 11: Connect to the teamXX-ibp gateway</h2>
 <p>Now that you have created a wallet and enrolled an ID and password, you are ready to connect to the <code>teamXX-ibp</code> gateway.</p>
@@ -601,35 +589,31 @@
 <p><img alt="image" src="../images/ibpdeploy/ibpdeploy40.png" /></p>
 <p><strong>2.</strong> In the pop-up window, select <code>teamXX-wallet</code>.</p>
 <p><img alt="image" src="../images/ibpdeploy/ibpdeploy41.png" /></p>
-<p><strong>3.</strong> Upon success, you will see the following message in the OUPUT panel:</p>
-<pre><code>[6/26/2019 10:29:46 PM] [INFO] connect
-[6/26/2019 10:29:47 PM] [SUCCESS] Connecting to team19-ibp
-</code></pre>
-
-<p><strong>4.</strong> You will also see your new gateway represented in the <code>Fabric Gateways</code> panel:</p>
+<p><strong>3.</strong> Upon success, you will also see your new gateway represented in the <code>Fabric Gateways</code> panel. Expand the twisties until you see your <code>papercontract</code> transactions:</p>
 <p><img alt="image" src="../images/ibpdeploy/ibpdeploy42.png" /></p>
 <h2 id="section-12-issue-a-transaction-to-test-the-connection">Section 12: Issue a transaction to test the connection</h2>
 <p>Now we are ready to submit a test transaction.</p>
-<p><strong>1.</strong> From the <code>Fabric Gateways</code> panel, expand into the <code>commercial-bond@0.0.1</code> contract, right-click on the <code>getAllBondsFromIssuer</code> transaction and select <code>Submit Transaction</code>:</p>
+<p><strong>1.</strong> From the <code>Fabric Gateways</code> panel, expand into the <code>papercontract@0.0.4</code> contract, right-click on the <code>issue</code> transaction and select <code>Submit Transaction</code>:</p>
 <p><img alt="image" src="../images/ibpdeploy/ibpdeploy43.png" /></p>
-<p><strong>2.</strong> Type in "Digibank" inside the brackets as the argument:</p>
+<p><strong>2.</strong> Type in "MagnetoCorp","00002","2020-07-31","2020-12-31","6000000" inside the brackets as the argument:</p>
 <p><img alt="image" src="../images/ibpdeploy/ibpdeploy44.png" /></p>
 <p><strong>3.</strong> Hit <code>Enter</code> on the transient data pop-up window.</p>
-<p><strong>4.</strong> Upon success you will see the two bonds listed in the OUTPUT panel:</p>
-<pre><code>[6/26/2019 10:40:22 PM] [INFO] submitting transaction getAllBondsFromIssuer with args Digibank
-[6/26/2019 10:40:26 PM] [SUCCESS] Returned value from getAllBondsFromIssuer: &quot;[{\&quot;Key\&quot;:\&quot;\\u0000org.bondnet.commercialbondlist\\u0000\\\&quot;Digibank\\\&quot;\\u0000\\\&quot;00001\\\&quot;\\u0000\&quot;,\&quot;Record\&quot;:{\&quot;bondNumber\&quot;:\&quot;00001\&quot;,\&quot;class\&quot;:\&quot;org.bondnet.commercialbond\&quot;,\&quot;currentState\&quot;:1,\&quot;faceValue\&quot;:\&quot;50000\&quot;,\&quot;interestRate\&quot;:\&quot;0.04\&quot;,\&quot;issueDateTime\&quot;:\&quot;2019-05-17\&quot;,\&quot;issuer\&quot;:\&quot;Digibank\&quot;,\&quot;key\&quot;:\&quot;\\\&quot;Digibank\\\&quot;:\\\&quot;00001\\\&quot;\&quot;,\&quot;maturityDateTime\&quot;:\&quot;2020-05-17\&quot;,\&quot;owner\&quot;:\&quot;Digibank\&quot;}},{\&quot;Key\&quot;:\&quot;\\u0000org.bondnet.commercialbondlist\\u0000\\\&quot;Digibank\\\&quot;\\u0000\\\&quot;00002\\\&quot;\\u0000\&quot;,\&quot;Record\&quot;:{\&quot;bondNumber\&quot;:\&quot;00002\&quot;,\&quot;class\&quot;:\&quot;org.bondnet.commercialbond\&quot;,\&quot;currentState\&quot;:1,\&quot;faceValue\&quot;:\&quot;50000\&quot;,\&quot;interestRate\&quot;:\&quot;0.04\&quot;,\&quot;issueDateTime\&quot;:\&quot;2019-07-17\&quot;,\&quot;issuer\&quot;:\&quot;Digibank\&quot;,\&quot;key\&quot;:\&quot;\\\&quot;Digibank\\\&quot;:\\\&quot;00002\\\&quot;\&quot;,\&quot;maturityDateTime\&quot;:\&quot;2020-07-17\&quot;,\&quot;owner\&quot;:\&quot;Digibank\&quot;}}]&quot;
+<p><strong>4.</strong> Upon success you will see the results from the issue transaction in the OUTPUT panel in VSCode:</p>
+<pre><code>[9/24/2019 10:49:57 PM] [INFO] submitTransaction
+[9/24/2019 10:51:08 PM] [INFO] submitting transaction issue with args MagnetoCorp,00002,2020-07-31,2020-12-31,6000000
+[9/24/2019 10:51:11 PM] [SUCCESS] Returned value from issue: {&quot;class&quot;:&quot;org.papernet.commercialpaper&quot;,&quot;key&quot;:&quot;\&quot;MagnetoCorp\&quot;:\&quot;00002\&quot;&quot;,&quot;currentState&quot;:1,&quot;issuer&quot;:&quot;MagnetoCorp&quot;,&quot;paperNumber&quot;:&quot;00002&quot;,&quot;issueDateTime&quot;:&quot;2020-07-31&quot;,&quot;maturityDateTime&quot;:&quot;2020-12-31&quot;,&quot;faceValue&quot;:&quot;6000000&quot;,&quot;owner&quot;:&quot;MagnetoCorp&quot;}
 </code></pre>
 
-<p><strong>5.</strong> Now, return to the IBM Blockchain Platform console at your assigned URL. Go to the Channels view, and click on the <code>team19-channel1</code> tile.</p>
+<p><strong>5.</strong> Now, return to the IBM Blockchain Platform console at your assigned URL. Go to the Channels view, and click on the <code>teamXX-channel1</code> tile.</p>
 <p><img alt="image" src="../images/ibpdeploy/ibpdeploy45.png" /></p>
-<p><strong>6.</strong> You should see the block height at 7. Now scroll down to <code>Block History</code> section, and click on the block at the top of the table.</p>
+<p><strong>6.</strong> You should see the block height at 8. Now scroll down to <code>Block History</code> section, and click on the block at the top of the table.</p>
 <p><img alt="image" src="../images/ibpdeploy/ibpdeploy46.png" /></p>
-<p><strong>7.</strong> Now you will see a list of transactions in block #6. Click on the top most transaction (there should only be one):</p>
+<p><strong>7.</strong> Now you will see a list of transactions in block #7. Click on the top most transaction (there should only be one):</p>
 <p><img alt="image" src="../images/ibpdeploy/ibpdeploy47.png" /></p>
 <p><strong>8.</strong> In the side panel you should see the digibank transaction that you just submitted via the VSCode IBM Blockchain Platform Extension.</p>
 <p><img alt="image" src="../images/ibpdeploy/ibpdeploy48.png" /></p>
 <p><strong>9.</strong> OPTIONAL: you can submit additional transactions through VSCode, and watch the block height increase and look at the transaction in the IBM Blockchain Platform Console.</p>
-<p>Congraulations!! You've now successfully enrolled an application identity and used it to invoke transactions against a smart contract deployed to IBM Blockchain Platform.</p>
+<p>Congratulations!! You've now successfully enrolled an application identity and used it to invoke transactions against a smart contract deployed to IBM Blockchain Platform.</p>
                 
                   
                 
