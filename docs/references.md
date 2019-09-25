@@ -1,5 +1,5 @@
 ##  Please take a few minutes to provide us feedback
-* [Workshop evaluation](https://tec-feedback.mybluemix.net/event/PCOY-BCPSBP "Workshop evaluation")
+* [Workshop evaluation](https://tec-feedback.mybluemix.net/event/APOI-BEFHYN "Workshop evaluation")
 
 ## Additional Resources
 * [What is blockchain?](https://www.ibm.com/blockchain/what-is-blockchain "what is blockchain")
