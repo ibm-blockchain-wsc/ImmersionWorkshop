@@ -31,7 +31,7 @@ Remember from the VSCode labs, you have already packaged up the commercial paper
 
 ![image](images/ibpdeploy/ibpdeploy7.png)
 
-**4.** Now, tou should see 'papercontract' appear in the `Installed Smart Contracts` panel.
+**4.** Now, you should see `papercontract` appear in the `Installed Smart Contracts` panel.
 
 ![image](images/ibpdeploy/ibpdeploy8.png)
 
@@ -233,7 +233,7 @@ Example:
 
 ![image](images/ibpdeploy/ibpdeploy47.png)
 
-**8.** In the side panel you should see the digibank transaction that you just submitted via the VSCode IBM Blockchain Platform Extension.
+**8.** In the side panel you should see the issue transaction that you just submitted via the VSCode IBM Blockchain Platform Extension.
 
 ![image](images/ibpdeploy/ibpdeploy48.png)
 
