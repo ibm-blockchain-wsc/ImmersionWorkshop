@@ -509,7 +509,7 @@
 <p><img alt="image" src="../images/ibpdeploy/ibpdeploy6.png" /></p>
 <p><strong>3.</strong> Now select both peers to install to and press <code>Install Smart Contract</code>. Note this is not a very realistic situation because we are installing to peers from two separate organizations. In reality, the smart contract would be shared in a private Github repo with members of the blockchain network and each organization would install the smart contract to their own peers through their console.</p>
 <p><img alt="image" src="../images/ibpdeploy/ibpdeploy7.png" /></p>
-<p><strong>4.</strong> Now, tou should see 'papercontract' appear in the <code>Installed Smart Contracts</code> panel.</p>
+<p><strong>4.</strong> Now, you should see <code>papercontract</code> appear in the <code>Installed Smart Contracts</code> panel.</p>
 <p><img alt="image" src="../images/ibpdeploy/ibpdeploy8.png" /></p>
 <h2 id="section-3-instantiate-paper-contract">Section 3: Instantiate Paper Contract</h2>
 <p><strong>1.</strong> From the <code>Smart Contracts - Installed Smart Contracts</code> panel, select the three dots to the right of <code>papercontract</code> and select <code>Instantiate</code>:</p>
@@ -549,8 +549,8 @@
 <p><strong>1.</strong> Go to the <code>Smart Contracts</code> view from the Console menu on the left. Scroll down to the <code>Instantiated Contracts</code> section. Click on the three dots to the right of <code>papercontract</code> and select <code>Connect with SDK</code>:</p>
 <p><img alt="image" src="../images/ibpdeploy/ibpdeploy27.png" /></p>
 <p><strong>3.</strong> In the <code>Connect with SDK</code> side panel, you want to select the following (Remember to replace the <code>XX</code> below with your team number):
-* MSP for connection: <code>teamXXorg1msp</code>
-* Certificate Authority: <code>TeamXX Org1 CA</code></p>
+<em> MSP for connection: <code>teamXXorg1msp</code>
+</em> Certificate Authority: <code>TeamXX Org1 CA</code></p>
 <p>And then click on <code>Download connection profile</code> button at the bottom. Then you can click on <code>Close</code>.</p>
 <h2 id="section-9-create-a-new-gateway-in-vscode-ibm-blockchain-platform-extension">Section 9: Create a new Gateway in VSCode IBM Blockchain Platform Extension</h2>
 <p>Now you can use that connection profile to create a new gateway in VSCode IBM Blockchain Platform Extension.</p>
@@ -614,7 +614,7 @@
 <p><img alt="image" src="../images/ibpdeploy/ibpdeploy46.png" /></p>
 <p><strong>7.</strong> Now you will see a list of transactions in block #7. Click on the top most transaction (there should only be one):</p>
 <p><img alt="image" src="../images/ibpdeploy/ibpdeploy47.png" /></p>
-<p><strong>8.</strong> In the side panel you should see the digibank transaction that you just submitted via the VSCode IBM Blockchain Platform Extension.</p>
+<p><strong>8.</strong> In the side panel you should see the issue transaction that you just submitted via the VSCode IBM Blockchain Platform Extension.</p>
 <p><img alt="image" src="../images/ibpdeploy/ibpdeploy48.png" /></p>
 <p><strong>9.</strong> OPTIONAL: you can submit additional transactions through VSCode, and watch the block height increase and look at the transaction in the IBM Blockchain Platform Console.</p>
 <p>Congratulations!! You've now successfully enrolled an application identity and used it to invoke transactions against a smart contract deployed to IBM Blockchain Platform.</p>
