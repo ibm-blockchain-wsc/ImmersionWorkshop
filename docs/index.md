@@ -7,7 +7,7 @@ Welcome! This two-day workshop combines lectures and hands-on labs to teach you 
 * 8:45am -  Introductions
 * 9am -     [Introduction to Enterprise Blockchain](files/BlockchainExplained.pdf)
 * 9:45am -  [Demo: Vehicle Lifecycle Demo](files/Vehicle_Lifecycle_Demo.pdf)
-* 10:15am - [Blockchain Use Cases](files/Blockchain_Use_Cases_Dallas.pdf)
+* 10:15am - [Blockchain Use Cases](files/BlockchainUseCasesNYC.pdf)
 * 11am - [Lab: Developer Journey Part 1 - Create Smart Contract Package](files/IBP_Lab1.pdf)
 * 11:30am  -   [Lab: Developer Journey Part 2 - Using an Existing Contract](files/IBP_Lab2.pdf)
 * Noon -    Lunch
