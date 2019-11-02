@@ -5,20 +5,21 @@ Welcome! This two-day workshop combines lectures and hands-on labs to teach you 
 
 ### Day 1
 * 8:45am -  Introductions
-* 9am -     [Lecture: Introduction to Enterprise Blockchain](files/BlockchainExplained.pdf)
-* 10am -    [Demo: Vehicle Lifecycle Demo](files/Vehicle_Lifecycle_Demo.pdf)
-* 10:30am - [Lab: Developer Journey Part 1 - Create Smart Contract Package]
-* 11am  -   [Lab: Developer Journey Part 2 - Using an Existing Contract]
+* 9am -     [Introduction to Enterprise Blockchain](files/BlockchainExplained.pdf)
+* 9:45am -  [Demo: Vehicle Lifecycle Demo](files/Vehicle_Lifecycle_Demo.pdf)
+* 10:15am - [Blockchain Use Cases](files/BlockchainUseCasesNYC.pdf)
+* 11am - [Lab: Developer Journey Part 1 - Create Smart Contract Package](files/IBP_Lab1.pdf)
+* 11:30am  -   [Lab: Developer Journey Part 2 - Using an Existing Contract](files/IBP_Lab2.pdf)
 * Noon -    Lunch
-* 1pm -     [Lecture: Hyperledger Fabric Technology Deep Dive Part 1](files/BlockchainExploredPart1.pdf)
-* 2pm -     [Lab: Developer Journey Part 3 - Commercial Paper]
-* 3:30pm -     [Lecture: Hyperledger Fabric Technology Deep Dive Part 2](files/BlockchainExploredPart2.pdf)
+* 1pm -     [Hyperledger Fabric Technology Deep Dive Part 1](files/BlockchainExploredPart1.pdf)
+* 2pm -     [Lab: Developer Journey Part 3 - Commercial Paper](files/IBP_Lab3.pdf)
+* 3:30pm -     [Hyperledger Fabric Technology Deep Dive Part 2](files/BlockchainExploredPart2.pdf)
 * 4:30pm -     Day 1 Wrap up
 
 ### Day 2
-* 9am - [Lecture: IBM Blockchain Platform and LinuxONE](files/BlockchainPlatform.pdf)
-* 10am - [Lecture: Kubernetes Explained](files/Kubernetes_Explained_Woodworth.pdf)
-* 11am - [Lecture: Next Steps](files/BlockchainNextSteps_PR.pdf)
+* 9am - [IBM Blockchain Platform and LinuxONE](files/BlockchainPlatform.pdf)
+* 10am - [Kubernetes Explained](files/Kubernetes_Explained_Woodworth.pdf)
+* 11am - [Next Steps](files/BlockchainNextSteps_PR.pdf)
 * Noon - Lunch
 * 1pm - [Lab: IBM Blockchain Platform Part 1 - Deploy Network](ibpconsole.md)
 * 2:30pm - [Lab: IBM Blockchain Platform Part 2 - Deploy Smart Contract](ibpdeploy.md)

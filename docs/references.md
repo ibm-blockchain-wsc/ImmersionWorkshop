@@ -1,5 +1,5 @@
 ##  Please take a few minutes to provide us feedback
-* [Workshop evaluation](https://tec-feedback.mybluemix.net/event/PCOY-BCPSBP "Workshop evaluation")
+* [Workshop evaluation](https://tec-feedback.mybluemix.net/event/APOI-BEFHYN "Workshop evaluation")
 
 ## Additional Resources
 * [What is blockchain?](https://www.ibm.com/blockchain/what-is-blockchain "what is blockchain")
@@ -17,8 +17,9 @@
 * [World Wire](https://www.ibm.com/blockchain/solutions/world-wire "world wire")
 * [Unbounded - Blockchain Network Finder](https://unbounded.network/ "unbounded network")
 
-## Additional VSCode Labs
+## Additional Labs
+* [Vehicle Lifecycle Demo Use Case Walkthrough](files/VLD_lab.pdf)
 * [IBM Blockchain Platform VSCode Extension Lab: Add Indices for Better Performing Queries](https://dwakeman.github.io/blockchain-stuff/files/Lab6-IBPVSCodeQueriesWithIndexes.pdf "indexes")
 
 ## Lab resources
-* [Port List for IBM Blockchain Platform Lab](https://ibm-blockchain-wsc.github.io/ImmersionWorkshop/portList)
+* [Port List for IBM Blockchain Platform Lab](portList.md)
