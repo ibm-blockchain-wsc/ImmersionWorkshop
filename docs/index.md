@@ -26,7 +26,7 @@ Welcome! This two-day workshop combines lectures and hands-on labs to teach you 
 
 ## Acknowledgements
 
-* Thanks to the following people who helped us test out the labs: Elvin Galarza, Kevin Breitenother, Victoria Coates
+* Thanks to the following people who helped us test out the labs: Elvin Galarza, Kevin Breitenother, Victoria Coates, Brandon Nguyen
 * Thanks to Matt Lucas, Matthew Golby-kirk and David Gorman for the workshop materials
 
 ## Authors
