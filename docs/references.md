@@ -1,5 +1,5 @@
 ##  Please take a few minutes to provide us feedback
-* [Workshop evaluation](https://tec-feedback.mybluemix.net/event/APOI-BEFHYN "Workshop evaluation")
+* [Workshop evaluation](https://tec-feedback.mybluemix.net/event/PCOY-BHDL95 "Workshop evaluation")
 
 ## Additional Resources
 * [What is blockchain?](https://www.ibm.com/blockchain/what-is-blockchain "what is blockchain")
@@ -10,12 +10,13 @@
 * [Blockchain Essentials Badge](https://developer.ibm.com/courses/all/blockchain-essentials "blockchain essentials")
 
 
-## Existing Networks
+## Existing Networks and Code Patterns
 * [IBM Food Trust](https://www.ibm.com/blockchain/solutions/food-trust "food trust")
 * [TradeLens](https://www.ibm.com/blogs/think/2018/11/tradelens-how-ibm-and-maersk-are-sharing-blockchain-to-build-a-global-trade-platform/ "tradelens")
 * [Trusted Identity](https://www.ibm.com/blogs/blockchain/2018/08/ibm-blockchain-trusted-identity-sovrin-steward-closed-beta-offering/ "identity")
 * [World Wire](https://www.ibm.com/blockchain/solutions/world-wire "world wire")
 * [Unbounded - Blockchain Network Finder](https://unbounded.network/ "unbounded network")
+* [IBM Blockchain Code Patterns](https://developer.ibm.com/patterns/category/blockchain/ "code patterns")
 
 ## Additional Labs
 * [Vehicle Lifecycle Demo Use Case Walkthrough](files/VLD_lab.pdf)
