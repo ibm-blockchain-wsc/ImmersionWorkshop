@@ -19,7 +19,7 @@ The diagram below provides a view of what your blockchain network will look like
 ![image](images/ibpconsole/0005_LabGoal.png)
 
 !!! important
-        You will be assigned a two-digit team id by your instructor, and everywhere in this lab where you see **Team*xx* ** in the instructions, you must substitute *xx* with the two-digit id you have been assigned.
+        You will be assigned a two-digit team ID by your instructor, and everywhere in this lab where you see **Team*xx* ** in the instructions, you must substitute *xx* with the two-digit id you have been assigned.
 
 The sections in this lab are as follows:
 
@@ -72,12 +72,12 @@ If you see a security warning after entering the URL, click the **Advanced** but
 !!! note
         In most cases this URL will be the same as the URL from *Step 2.1*, only with the port number one less than the port number from that step.  But double-check this with the addresses provided to you by your instructor
 
-![image](images/ibpconsole/0010_CertificateIssue.png)
+![image](images/ibpconsole/0007_ProxyIPBefore2.png)
 
 **Step 2.6:** The reason you are seeing these security messages is because of a self-signed certificate in our lab environment.
-Go ahead and click on the **Proceed to 192.168.22.81 (unsafe)** link that is shown below:
+Go ahead and click on the **Accept the Risk and Continue** button that is shown below:
 
-![image](images/ibpconsole/0020_CertificateIssue.png)
+![image](images/ibpconsole/0015_CertificateIssue.png)
 
 **Step 2.7:** Enter your team's userid and password, which will have been provided to you by the instructor, and click the *Login* button:
 
@@ -101,43 +101,36 @@ In relation to the diagram in the overview section that showed our finished netw
 
 ![image](images/ibpconsole/0050_NodesEmpty.png)
 
-**Step 3.2:** Click **Create an IBM Cloud Private Certificate Authority** and then click the blue **Next** button:
+**Step 3.2:** Click **Create a Certificate Authority** and then click the blue **Next** button:
 
 ![image](images/ibpconsole/0060_AddCertificateAuthority.png)
 
-**Step 3.3:** Type **Team*xx* Org1 CA** where *xx* is your two-digit team id, and then click the blue **Next** button:
+**Step 3.3:** Fill in the *Step 2 of 3* screen as follows, and then click the blue **Next** button:
+
+|Field label|Value|Comments|
+|-----------|-----|--------|
+|CA display name|**Team*xx* Org1 CA**|Substitute your two-digit team ID for *xx*|
+|CA administrator enroll ID|**admin**||
+|CA administrator enroll secret|**adminpw**||
 
 ![image](images/ibpconsole/0070_AddCertificateAuthoritySideBar2.png)
 
-**Step 3.4:** Type **admin** for the *CA administrator enroll id* and **adminpw** for the *CA administrator enroll secret* and then click the blue **Next** button:
-
-![image](images/ibpconsole/0080_AddCertificateAuthoritySideBar3.png)
-
-**Step 3.5:** Leave the *Resource allocation* settings unchanged, and click the **Next** button:
-
-!!! important
-       In a production environment with high volumes, you would need to increase the default settings.  Be a good neighbor and keep the defaults throughout this lab, whenever you come to this *Resource allocation* screen as you deploy components.  This will ensure that we have enough resources for all students to do the lab!
-
-![image](images/ibpconsole/0090_AddCertificateAuthoritySideBar4.png)
-
-**Step 3.6:** Review your settings and click the **Add Certificate Authority** button:
+**Step 3.4:** Review your settings on the *Step 3 of 3* screen and click the **Add Certificate Authority** button:
 
 !!! note 
        Throughout this lab, when passwords are entered, you can click the icon that looks like an eye to see the password you have 
        entered.  It is recommended that you do this for the lab to ensure you have entered the intended password. The screenshots shown
        in this lab will show the passwords that you should enter.
 
-![image](images/ibpconsole/0100_AddCertificateAuthoritySideBar5.png)
+![image](images/ibpconsole/0100_AddCertificateAuthoritySideBar3.png)
 
-**Step 3.7:** You will see a tile for your new certificate authority. Observe the box in the upper right corner of the tile.
-If it is gray, and you hover your cursor over it, you may see a message indicating that the status is pending. (The gray box, but not the status message,
-is shown in this screenshot).
+**Step 3.5:** You will see a tile for your new certificate authority. Observe the box in the upper right corner of the tile.
+If it is gray, and you hover your cursor over it, you may see a message indicating that the status is pending. 
+In about a minute, the box in the upper right should turn green, indicating that the certificate authority is running.
 
-![image](images/ibpconsole/0110_Org1CertificateAuthority.png)
-
-**Step 3.8:** In about a minute, the box in the upper right should turn green, indicating that the certificate authority is running.
-If the box does not turn green in a minute, try reloading the page in your browser. Contact an instructor for help if it does not
-turn green and show the running status when you hover your cursor over the button.
+!!! note
+       If the box in the upper right corner of the tile does not turn green in a minute or two, try reloading the page in your browser. Contact an instructor for help if it does
+       not turn green and show the running status when you hover your cursor over this box.
 
 **Once your certificate authority is running, click on its tile** so that you can proceed to the next section where you will add users.
 
@@ -145,31 +138,60 @@ turn green and show the running status when you hover your cursor over the butto
 
 ## Section 4: Add new users using your Org1 Certificate Authority
 
-**Step 4.1:** Click the **Register user** button on the right side of the screen:
+**Step 4.1:** You must first associate an administrative identity with your certificate authority, so click the **Associate identity** button as shown in this screen snippet:
+
+![image](images/ibpconsole/0125_AssociateIdentity.png)
+
+**Step 4.2:** Ensure that the **Enroll ID** Button is selected in the *Associate Identity* sidebar panel, fill out the panel as directed in the below table, and then click the blue **Associate Identity** button:
+
+|Field label|Value|Comments|
+|-----------|-----|--------|
+|Enroll ID|**admin**||
+|Enroll secret|**adminpw**|click the "eye" icon to see the password|
+|Identity display name|**Team*xx* Org1 CA Identity**|substitute your two-digit team ID for *xx*|
+
+![image](images/ibpconsole/0126_AssociateIdentity2.png)
+
+**Step 4.3:** You should now see the *admin* userid in the list of registered users. This userid is intended to be used by a person acting as the *registrar* of this Certificate Authority.  Next you will create a userid for use by a person who will be the blockchain network administrator for the organization. Click the **Register user** button on the right side of the screen:
 
 ![image](images/ibpconsole/0130_AddUsers.png)
 
-**Step 4.2:** Type **org1admin** for the *Enroll id*,  **org1adminpw** for the *Enroll secret*, select **client** for the *Type* field, and then click the blue **Next** button:
+**Step 4.4:** In the *Step 1 of 2* panel, fill it out as guided by the following table, and then click the blue **Next** button:
+
+|Field label|Value|Comments|
+|-----------|-----|--------|
+|Enroll ID|**org1admin**||
+|Enroll secret|**org1adminpw**|click the "eye" icon to see the password|
+|Type|**client**|This will be populated for you|
 
 ![image](images/ibpconsole/0140_AddUserOrg1Admin1.png)
 
-**Step 4.3:** We will not be using custom attributes in this lab, so all you have to do on this screen is click the **Register user** button:
+**Step 4.5:** We will not be using custom attributes in this lab, so all you have to do on this screen is click the **Register user** button:
 
 ![image](images/ibpconsole/0150_AddUserOrg1Admin2.png)
 
-**Step 4.4:** You should now see the userid you just registered, **org1admin**, listed on the screen. You also need to create a userid that your peer node will operate as, so click the **Register user** button again:
+**Step 4.6:** You should now see the userid you just registered, **org1admin**, listed on the screen. You also need to create a userid that your peer node will operate as, so click the **Register user** button again:
 
 ![image](images/ibpconsole/0160_AfterOrg1AdminAdded.png)
 
-**Step 4.5:** Type **peer1** for the *Enroll id*,  **peer1pw** for the *Enroll secret*, select **peer** for the *Type* field, and then click the blue **Next** button:
+**Step 4.7:** In the *Step 1 of 2* panel, fill it out as guided by the following table, and then click the blue **Next** button:
+
+!!! important
+       It is **critical** that you change the value of the *Type* field from *client* to *peer* for this userid!
+
+|Field label|Value|Comments|
+|-----------|-----|--------|
+|Enroll ID|**peer1**||
+|Enroll secret|**peer1pw**|click the "eye" icon to see the password|
+|Type|**peer**|Choose from dropdown list|
 
 ![image](images/ibpconsole/0170_AddUserPeer1_1.png)
 
-**Step 4.6:** Just click the **Register user** button at the bottom of the screen:
+**Step 4.8:** Just click the **Register user** button at the bottom of the screen:
 
 ![image](images/ibpconsole/0180_AddUserPeer1_2.png)
 
-**Step 4.7:** You should now see the **peer1** userid listed along with the others on this screen.
+**Step 4.9:** You should now see the **peer1** userid listed along with the others on this screen.
 Click the **Organizations** icon on the palette on the left of your screen and continue to the next section of the lab:
 
 ![image](images/ibpconsole/0190_AfterPeer1Added.png)
@@ -188,21 +210,23 @@ As we add components throughout the lab, the diagram that maps to our final goal
 
 **Step 5.2:** Enter the following values as instructed here:
 
-- Type **Team*xx* Org1 MSP**, where *xx* is your two-digit team id, in the *MSP display name* field
-- Type **team*xx*org1msp**, where *xx* is your two-digit team id, in the *MSP ID* field
-- For the *Root Certificate Authority* field, select **Team*xx* Org1 CA** 
+|Field label|Value|Comments|
+|-----------|-----|--------|
+|MSP display name|**Team*x*x Org1 MSP**|substitute your two-digit team ID for *xx*|
+|MSP ID|**teamxxorg1msp**|substitute your two-digit team ID for *xx*|
+|Root Certificate Authority|**Team*xx* Org1 CA**|Expand the *Root Certificate Authority details* section to see this field. Choose from dropdown list, where *xx* is your team ID.|
  
 The sidebar panel contains more information than will likely fit in your browser window, so review the values you have entered per the above list, and then scroll down within the sidebar panel:
 
 ![image](images/ibpconsole/0210_CreateOrg1MSPSidebar1.png)
 
-**Step 5.3:**  In the *Generate organization admin certificate* section, enter the following values as instructed here:
+**Step 5.3:**  Once you have selected the root certificate authority, you will see that the *Root certificates* and *TLS root certificates* fields have been populated with apparent nonsense that is actually base64-encoded X.509 certificates. Scroll down below this and you will see a line that says *Generate organization admin certificate and save admin identity to wallet*. Fill out the three fields beneath this in accordance with the below table, and then click the **Generate** button, which should become active once you enter values for the three fields:
 
-- Select **org1admin** for the *Enroll ID* field
-- Type **org1adminpw** in the *Enroll secret* field. Click the "eyeball" icon if necessary to show the password you've entered. 
-- Type **Team*xx* Org1 Admin**, where *xx* is your two-digit team id, in the *Identity name* field
-
-Review the values you have entered per the above list, and then click the blue **Generate** button:
+|Field label|Value|Comments|
+|-----------|-----|--------|
+|Enroll ID|**org1admin**|Select from dropdown list. It will not be the default presented to you, so make sure you select it.|
+|Enroll secret|**org1adminpw**||
+|Identity name|**Team*xx* Org1 Admin**|substitute your team ID for *xx*|
 
 ![image](images/ibpconsole/0220_CreateOrg1MSPSidebar1b.png)
 
@@ -236,32 +260,32 @@ A peer node is where smart contracts- in essence, your blockchain business trans
 
 ![image](images/ibpconsole/0270_AddOrg1Peer.png)
 
-**Step 6.2:** Click the **Create an IBM Cloud Private peer** button and then click the blue **Next** button:
+**Step 6.2:** Click the **Create a peer** button and then click the blue **Next** button:
 
 ![image](images/ibpconsole/0280_AddOrg1PeerSidebar1.png)
 
-**Step 6.3:** Type **Team*xx* Peer Org1**, where *xx* is your two-digit team id, in the *Peer display name* field and then click the blue **Next** button:
+**Step 6.3:** Type **Team*xx* Peer Org1**, where *xx* is your two-digit team ID, in the *Peer display name* field and then click the blue **Next** button:
 
 ![image](images/ibpconsole/0290_AddOrg1PeerSidebar2.png)
 
-**Step 6.4:** Enter or select the following values on this panel:
+**Step 6.4:** Enter or select the following values on the *Step 3 of 7* panel as directed by the following table, and then click the blue **Next** button:
 
-- Select **Team*xx* Org1 CA**, where *xx* is your two-digit team id, for the *Certificate Authority* field
-- Select **peer1** for the *Peer enroll ID* field
-- Type **peer1pw** in the *Peer enroll secret* field
-- Select **Team*xx* Org1 MSP**, where *xx* is your two-digit team id, for the *Organization MSP* field  
-
-Review the values you entered or selected to ensure they match the above list, and then click the blue **Next** button:
+|Field label|Value|Comments|
+|-----------|-----|--------|
+|Certificate Authority|**Team*xx* Org1 CA**|Select from dropdown list if this choice is not already presented to you, where *xx* is your two-digit team ID|
+|Peer enroll ID|**peer1**|Select from dropdown list|
+|Peer enroll secret|**peer1pw**||
+|Organization MSP|**Team*xx* Org1 MSP**|Select from dropdown list, where *xx* is your two-digit team ID|
 
 ![image](images/ibpconsole/0300_AddOrg1PeerSidebar3.png)
 
-**Step 6.5:** Enter or select the following values on this panel:
+**Step 6.5:** Enter or select the following values on the *Step 4 of 7*  panel as shown in the table below, and then click the blue **Next** button:
 
-- Select **peer1** for the *TLS CA enroll ID* field
-- Type **peer1pw** in the *TLS CA enroll secret* field
-- Leave the *TLS CSR hostname* field blank
-
-Review the values your entered for correctness and then click the blue **Next** button:
+|Field label|Value|Comments|
+|-----------|-----|--------|
+|TLS CA enroll ID|**peer1**|Select from dropdown list|
+|TLS CA enroll secret|**peer1pw**||
+|TLS CSR hostname||Leave this field blank|
 
 ![image](images/ibpconsole/0310_AddOrg1PeerSidebar4.png)
 
@@ -269,19 +293,33 @@ Review the values your entered for correctness and then click the blue **Next** 
 
 ![image](images/ibpconsole/0320_AddOrg1PeerSidebar5.png)
 
-**Step 6.7:** Select **Team*xx* Org1 Admin**, where *xx* is your two-digit team id, for the *Identity* field, and click **Next**:
+**Step 6.7:** Select **Team*xx* Org1 Admin**, where *xx* is your two-digit team ID, for the *Identity* field, and click **Next**:
 
 ![image](images/ibpconsole/0330_AddOrg1PeerSidebar6.png)
 
-**Step 6.8:** The *Summary* panel provides a review of the values you entered or selected in the prior panels. Click the **Add peer** button to continue:
+**Step 6.8:** The *Summary* panel provides a review of the values you entered or selected in the prior panels. You may need to scroll down to see all of the values. The values you entered should match up with the table below. If not, use the **Back** button as necessary to correct your entries.  The table below shows the expected value (where *xx* is your two-digit team ID) and which of the seven panels in the *Add Peer* flow was used to set this value:
+
+|Field label|Expected Value|Comments|
+|-----------|--------------|--------|
+|Peer display name|**Team*xx* Peer Org1**|Set in *Step 2 of 7* panel|
+|Certificate Authority|**Team*xx* Org1 CA**|Set in *Step 3 of 7* panel|
+|Peer enroll ID|**peer1**|Set in *Step 3 of 7* panel|
+|Peer enroll secret|**peer1pw**|Set in *Step 3 of 7* panel|
+|Organization MSP|**Team*xx* Org1 MSP**|Set in *Step 3 of 7* panel|
+|TLS CA enroll ID|**peer1**|Set in *Step 4 of 7* panel|
+|TLS CA enroll secret|**peer1pw**|Set in *Step 4 of 7* panel|
+|CPU (VPC) usage total|**1.6**|Not set by you- calculated from defaults|
+|Memory usage total|**2800M**|Not set by you- calculated from deaults|
+|Storage usage total|**200Gi**|Not set by you- calculated from defaults|
+|State database|**CouchDB**|Not set by you- default value|
+|Associated identity|**Team*xx* Org1 Admin**|Set in *Step 6 of 7* panel|
+
+If you have to use the **Back** button to make any corrections, you can return to the summary on *Step 7 of 7* by clicking **Next** the necessary number of times. When you are ready to proceed, click the **Add peer** button to continue:
 
 ![image](images/ibpconsole/0340_AddOrg1PeerSidebar7.png)
 
 **Step 6.9:** Similarly to when you created the certificate authority earlier, you should see your new peer listed, along with a gray box in the upper right of its tile, showing that the status of this peer is "pending" if you hover your cursor over the gray box.
-
-![image](images/ibpconsole/0350_AddOrg1PeerPending.png)
-
-**Step 6.10:**  It can take a minute or two on our lab system for the peer to come up completely, and you may need to refresh your browser in order to see the box turn green. If your peer is still not ready after a couple of minutes and after you have tried refreshing your browser, ask an instructor for help.  The peer must be ready, as indicated by a green box in the upper right of the peer's tile, similar to what is shown below, before you can continue:
+It can take a minute or two on our lab system for the peer to come up completely, and you may need to refresh your browser in order to see the box turn green. If your peer is still not ready after a couple of minutes and after you have tried refreshing your browser, ask an instructor for help.  The peer must be ready, as indicated by a green box in the upper right of the peer's tile, similar to what is shown below, before you can continue:
 
 ![image](images/ibpconsole/0360_AddOrg1PeerRunning.png)
 
@@ -302,40 +340,34 @@ Our network will look like this at the completion of this section:
 
 ![image](images/ibpconsole/0370_AddOrderingCABegin.png)
 
-**Step 7.2:** Click **Create an IBM Cloud Private Certificate Authority** and then click the blue **Next** button:
+**Step 7.2:** Click **Create a Certificate Authority** and then click the blue **Next** button:
 
 !!! note
        The steps in this section are essentially the same as in *Section 3*, just with different values being entered as appropriate.
 
-![image](images/ibpconsole/0380_AddOrderingCASidebar1.png)
+![image](images/ibpconsole/0060_AddCertificateAuthority.png)
 
-**Step 7.3:** Type **Team*xx* Ordering Service CA** where *xx* is your two-digit team id, and then click the blue **Next** button:
+**Step 7.3:** Fill in the *Step 2 of 3* screen as follows, and then click the blue **Next** button:
+
+|Field label|Value|Comments|
+|-----------|-----|--------|
+|CA display name|**Team*xx* Ordering Service CA**|Substitute your two-digit team ID for *xx*|
+|CA administrator enroll ID|**admin**||
+|CA administrator enroll secret|**adminpw**||
 
 ![image](images/ibpconsole/0390_AddOrderingCASidebar2.png)
 
-**Step 7.4:** Type in **admin** for the *CA administrator enroll id* and **adminpw** for the *CA administrator enroll secret* and then click the blue **Next** button:
-
-!!! important
-       May I kindly suggest that for real world implementations you use stronger, less predictable, passwords?
-
-![image](images/ibpconsole/0400_AddOrderingCASidebar3.png)
-
-**Step 7.5:** Leave the *Resource allocation* settings unchanged, and click the **Next** button:
-
-![image](images/ibpconsole/0410_AddOrderingCASidebar4.png)
-
-**Step 7.6:** Review your settings and click the **Add Certificate Authority** button:
+**Step 7.4:** Review your settings and click the **Add Certificate Authority** button:
 
 ![image](images/ibpconsole/0420_AddOrderingCASidebar5.png)
 
-**Step 7.7:** You will see a tile for your new certificate authority. Observe the box in the upper right corner of the tile.
-If it is gray, and you hover your cursor over it, you may see a message indicating that the status is pending. (The gray box, but not the status message, is shown in this screenshot):
+**Step 7.5:** You will see a tile for your new certificate authority. Observe the box in the upper right corner of the tile.
+If it is gray, and you hover your cursor over it, you may see a message indicating that the status is pending. 
+In about a minute, the box in the upper right should turn green, indicating that the certificate authority is running.
 
-![image](images/ibpconsole/0430_AddOrderingCAPending.png)
-
-**Step 7.8:** In about a minute, the button in the upper right should turn green, indicating that the certificate authority is running.
-If your button does not turn green in a minute, try reloading the page in your browser. Contact an instructor for help if it does not
-turn green and show the running status when you hover your cursor over the button.
+!!! note
+       If the box in the upper right corner of the tile does not turn green in a minute or two, try reloading the page in your browser. Contact an instructor for help if it does
+       not turn green and show the running status when you hover your cursor over this box.
 
 **Once your Ordering Service certificate authority is running, click on its tile** so that you can proceed to the next section where you will add users.
 
@@ -343,34 +375,63 @@ turn green and show the running status when you hover your cursor over the butto
 
 ## Section 8: Add new users using your Ordering Service Certificate Authority
 
-**Step 8.1:** Click the **Register user** button on the right side of the screen:
+**Step 8.1:** You must first associate an administrative identity with your certificate authority, so click the **Associate identity** button as shown in this screen snippet:
 
-![image](images/ibpconsole/0450_AddUsers.png)
+![image](images/ibpconsole/0125_AssociateIdentity.png)
 
-**Step 8.2:** Type **osadmin** for the *Enroll id*,  **osadminpw** for the *Enroll secret*, select **client** for the *Type* field, and then click the blue **Next** button:
+**Step 8.2:** Ensure that the **Enroll ID** Button is selected in the *Associate Identity* sidebar panel, fill out the panel as directed in the below table, and then click the blue **Associate Identity** button:
+
+|Field label|Value|Comments|
+|-----------|-----|--------|
+|Enroll ID|**admin**||
+|Enroll secret|**adminpw**|click the "eye" icon to see the password|
+|Identity display name|**Team*xx* Ordering Service CA Identity**|substitute your two-digit team ID for *xx*|
+
+![image](images/ibpconsole/0446_AssociateIdentity2.png)
+
+**Step 8.3:** You should now see the *admin* userid in the list of registered users. This userid is intended to be used by a person acting as the *registrar* of this Certificate Authority.  Next you will create a userid for use by a person who will be the blockchain network administrator for the organization. Click the **Register user** button on the right side of the screen:
+
+![image](images/ibpconsole/0130_AddUsers.png)
+
+**Step 8.4:** In the *Step 1 of 2* panel, fill it out as guided by the following table, and then click the blue **Next** button:
+
+|Field label|Value|Comments|
+|-----------|-----|--------|
+|Enroll ID|**osadmin**||
+|Enroll secret|**osadminpw**|click the "eye" icon to see the password|
+|Type|**client**|This will be populated for you|
 
 ![image](images/ibpconsole/0460_AddUserOrderingAdmin1.png)
 
-**Step 8.3:** We will not be using custom attributes in this lab, so all you have to do on this screen is click the **Register user** button:
+**Step 8.5:** We will not be using custom attributes in this lab, so all you have to do on this screen is click the **Register user** button:
 
 ![image](images/ibpconsole/0470_AddUserOrderingAdmin2.png)
 
-**Step 8.4:** You should now see the userid you just registered, **osadmin**, listed on the screen. You also need to create a userid that your ordering service node will operate as, so click the **Register user** button again:
+**Step 8.6:** You should now see the userid you just registered, **osadmin**, listed on the screen. You also need to create a userid that your ordering service node will operate as, so click the **Register user** button again:
 
 ![image](images/ibpconsole/0480_AfterOrderingAdminAdded.png)
 
-**Step 8.5:** Type **os1** for the *Enroll id*,  **os1pw** for the *Enroll secret*, select **peer** for the *Type* field, and then click the blue **Next** button:
+**Step 8.7:** In the *Step 1 of 2* panel, fill it out as guided by the following table, and then click the blue **Next** button:
+
+!!! important
+       It is **critical** that you change the value of the *Type* field from *client* to *peer* for this userid!
+
+|Field label|Value|Comments|
+|-----------|-----|--------|
+|Enroll ID|**os1**||
+|Enroll secret|**os1pw**|click the "eye" icon to see the password|
+|Type|**peer**|Choose from dropdown list|
 
 !!! note
        The *peer* value on this panel is used for both peer nodes and ordering service nodes.
 
 ![image](images/ibpconsole/0490_AddUserOS1_1.png)
 
-**Step 8.6:** Just click the **Register user** button at the bottom of the screen:
+**Step 8.8:** Just click the **Register user** button at the bottom of the screen:
 
 ![image](images/ibpconsole/0500_AddUserOS1_2.png)
 
-**Step 8.7:** You should now see the **os1** userid listed along with the others on this screen.
+**Step 8.9:** You should now see the **os1** userid listed along with the others on this screen.
 Click the **Organizations** icon on the palette on the left of your screen and continue to the next section of the lab:
 
 ![image](images/ibpconsole/0510_AfterOS1Added.png)
@@ -387,21 +448,23 @@ Our trusty lodestar shows us what will be added to our nascent network now:
 
 **Step 9.2:** Enter the following values as instructed here:
 
-- Type **Team*xx* Ordering Service MSP**, where *xx* is your two-digit team id, in the *MSP display name* field
-- Type **team*xx*osmsp**, where *xx* is your two-digit team id, in the *MSP ID* field
-- For the *Root Certificate Authority* field, ensure that **Team*xx* Ordering Service CA** is selected
-
+|Field label|Value|Comments|
+|-----------|-----|--------|
+|MSP display name|**Team*xx* Ordering Service MSP**|substitute your two-digit team ID for *xx*|
+|MSP ID|**teamxxosmsp**|substitute your two-digit team ID for *xx*|
+|Root Certificate Authority|**Team*xx* Ordering Service CA**|Expand the *Root Certificate Authority details* section to see this field. Choose from dropdown list, where *xx* is your team ID.|
+ 
 The sidebar panel contains more information than will likely fit in your browser window, so review the values you have entered per the above list, and then scroll down within the sidebar panel:
 
 ![image](images/ibpconsole/0530_CreateOrderingMSPSidebar1.png)
 
-**Step 9.3:**  In the *Generate organization admin certificate* section, enter the following values as instructed here:
+**Step 9.3:**  Once you have selected the root certificate authority, you will see that the *Root certificates* and *TLS root certificates* fields have been populated with base64-encoded X.509 certificates. Scroll down below this and you will see a line that says *Generate organization admin certificate and save admin identity to wallet*. Fill out the three fields beneath this in accordance with the below table, and then click the **Generate** button, which should become active once you enter values for the three fields:
 
-- Select **osadmin** for the *Enroll ID* field
-- Type **osadminpw** in the *Enroll secret* field. Click the "eyeball" icon if necessary to show the password you've entered.
-- Type **Team*xx* Ordering Service Admin**, where *xx* is your two-digit team id, in the *Identity name* field
-
-Review the values you have entered per the above list, and then click the blue **Generate** button:
+|Field label|Value|Comments|
+|-----------|-----|--------|
+|Enroll ID|**osadmin**|Select from dropdown list. It will not be the default presented to you, so make sure you select it.|
+|Enroll secret|**osadminpw**||
+|Identity name|**Team*xx* Ordering Service Admin**|substitute your team ID for *xx*|
 
 ![image](images/ibpconsole/0540_CreateOrderingMSPSidebar1b.png)
 
@@ -409,15 +472,18 @@ Review the values you have entered per the above list, and then click the blue *
 
 ![image](images/ibpconsole/0550_CreateOrderingMSPSidebar1c.png)
 
-**Step 9.5:** Save the exported JSON file in a location that you can remember. This example shows it being saved to a folder named *json* that was created already. You can use the file save window to create a new folder to match this name if you would like, although it isn't strictly necessary for this lab.
+**Step 9.5:** Save the exported JSON file in a location that you can remember. The sample screenshot below shows it being saved to a folder named *json* that was created already. You can use the file save window to create a new folder to match this name if you would like, although it isn't strictly necessary for this lab.  
+
+!!!note
+       You probably won't need this saved file for this lab if you use the same browser window for the duration of the lab, but the saved file may be necessary if, for whatever reason, you do have to use a new browser window or session, so go ahead and save it!
 
 ![image](images/ibpconsole/0560_CreateOrderingMSPSaveIdentity.png)
 
-**Step 9.6:** Click the **Create MSP definition** button in the lower right of your screen:
+**Step 9.6:** Click the blue **Create MSP definition** button in the lower right of your screen:
 
 ![image](images/ibpconsole/0570_CreateOrderingMSP.png)
 
-**Step 9.7:** You should now see the definition for your new Ordering Service MSP listed on your screen alongside the MSP your created earlier for your peer organization. **Scroll up and click the *Nodes* icon** in the icon palette on your left- it is the topmost icon on this palette, and you will be ready to proceed to the next section:
+**Step 9.7:** You should now see the definition for your new MSP listed on your screen. **Scroll up and click the *Nodes* icon in the icon palette on your left**- it is the topmost icon on this palette, and you will be ready to proceed to the next section:
 
 ![image](images/ibpconsole/0580_CreateOrderingMSPFinished.png)
 
@@ -433,32 +499,32 @@ Our star is running out of leg room all cramped up by the circle in our drawing 
 
 ![image](images/ibpconsole/0590_AddOrderingNode.png)
 
-**Step 10.2:** Click the **Create an IBM Cloud Private Ordering service** button and then click the blue **Next** button:
+**Step 10.2:** Click the **Create an Ordering service** button and then click the blue **Next** button:
 
 ![image](images/ibpconsole/0600_AddOrdererSidebar1.png)
 
-**Step 10.3:** Type **Team*xx* Ordering Service**, where *xx* is your two-digit team id, in the *Ordering service display name* field, leave the *Number of ordering nodes* field set to **One ordering node**, and then click the blue **Next** button:
+**Step 10.3:** Type **Team*xx* Ordering Service**, where *xx* is your two-digit team ID, in the *Ordering service display name* field, leave the *Number of ordering nodes* field set to **One ordering node**, and then click the blue **Next** button:
 
 ![image](images/ibpconsole/0610_AddOrdererSidebar2.png)
 
-**Step 10.4:** Enter or select the following values on this panel:
+**Step 10.4:** Enter or select the following values on the *Step 3 of 7*  panel using the following table as a guide, and then click the blue **Next** button:
 
-- Select **Team*xx* Ordering Service CA**, where *xx* is your two-digit team id, for the *Certificate Authority* field
-- Select **os1** for the *Ordering service enroll ID* field
-- Type **os1pw** in the *Ordering service enroll secret* field
-- Select **Team*xx* Ordering Service MSP**, where *xx* is your two-digit team id, for the *Organization MSP* field
-
-Review the values you entered or selected to ensure they match the above list, and then click the blue **Next** button:
+|Field label|Value|Comments|
+|-----------|-----|--------|
+|Certificate Authority|**Team*xx* Ordering Service CA**|Select from dropdown list if this choice is not already presented to you, where *xx* is your two-digit team ID|
+|Ordering service enroll ID|**os1**|Select from dropdown list. It will not be the default presented to you, so make sure you select it.|
+|Ordering service enroll secret|**os1pw**||
+|Organization MSP|**Team*xx* Ordering Service MSP**|Select from dropdown list, where *xx* is your two-digit team ID|
 
 ![image](images/ibpconsole/0620_AddOrdererSidebar3.png)
 
-**Step 10.5:** Enter or select the following values on this panel:
+**Step 10.5:** Enter or select the following values on the *Step 4 of 7* panel and then click the blue **Next** button:
 
-- Select **os1** for the *TLS CA enroll ID* field
-- Type **os1pw** in the *TLS CA enroll secret* field
-- Leave the *TLS CSR hostname* field blank
-
-Review the values your entered for correctness and then click the blue **Next** button:
+|Field label|Value|Comments|
+|-----------|-----|--------|
+|TLS CA enroll ID|**os1**|Select from dropdown list|
+|TLS CA enroll secret|**os1pw**||
+|TLS CSR hostname||Leave this field blank|
 
 ![image](images/ibpconsole/0630_AddOrdererSidebar4.png)
 
@@ -466,22 +532,35 @@ Review the values your entered for correctness and then click the blue **Next** 
 
 ![image](images/ibpconsole/0640_AddOrdererSidebar5.png)
 
-**Step 10.7:** Select **Team*xx* Ordering Service Admin**, where *xx* is your two-digit team id, for the *Identity* field, and click **Next**:
+**Step 10.7:** Select **Team*xx* Ordering Service Admin**, where *xx* is your two-digit team ID, for the *Identity* field, and click **Next**:
 
 ![image](images/ibpconsole/0650_AddOrdererSidebar6.png)
 
-**Step 10.8:** The *Summary* panel provides a review of the values you entered or selected in the prior panels. Click the **Add ordering service** button to continue:
+**Step 10.8:** The *Summary* panel provides a review of the values you entered or selected in the prior panels. You may need to scroll down to see all of the values. The values you entered should match up with the table below. If not, use the **Back** button as necessary to correct your entries.  The table below shows the expected value (where *xx* is your two-digit team ID) and which of the seven panels in the *Add ordering service* flow was used to set this value:
+
+|Field label|Expected Value|Comments|
+|-----------|--------------|--------|
+|Ordering service display name|**Team*xx* Ordering Service**|Set in *Step 2 of 7* panel|
+|Certificate Authority|**Team*xx* Ordering Service CA**|Set in *Step 3 of 7* panel|
+|Ordering service enroll ID|**os1**|Set in *Step 3 of 7* panel|
+|Ordering service enroll secret|**os1pw**|Set in *Step 3 of 7* panel|
+|Organization MSP|**Team*xx* Ordering Service MSP**|Set in *Step 3 of 7* panel|
+|TLS CA enroll ID|**os1**|Set in *Step 4 of 7* panel|
+|TLS CA enroll secret|**os1pw**|Set in *Step 4 of 7* panel|
+|CPU (VPC) usage total|**0.35**|Not set by you- calculated from defaults|
+|Memory usage total|**700M**|Not set by you- calculated from deaults|
+|Storage usage total|**100Gi**|Not set by you- default value|
+|Associated identity|**Team*xx* Ordering Service Admin**|Set in *Step 6 of 7* panel|
+
+If you have to use the **Back** button to make any corrections, you can return to the summary on *Step 7 of 7* by clicking **Next** the necessary number of times. When you are ready to proceed, click the **Add ordering service** button to continue:
 
 ![image](images/ibpconsole/0660_AddOrdererSidebar7.png)
 
 **Step 10.9:** Similarly to when you created the certificate authority earlier, you should see your new ordering service listed, along with a gray box in the upper right of its tile, showing that the status of this ordering service is "pending" if you hover your cursor over the gray box.
+It can take a minute or two on our lab system for the ordering service to come up completely, and you may need to refresh your browser in order to see the box turn green. If your ordering service is still not ready after a couple of minutes and after you have tried refreshing your browser, ask an instructor for help.  The ordering service must be ready, as indicated by a green box in the upper right of its tile, similar to what is shown below, before you can continue.
 
 !!! note
-       The above instruction pertains to the tile listed in the *Ordering services* section, not to the similarly named tile in the *Certificate Authorities* section
-
-![image](images/ibpconsole/0670_AddOrdererPending.png)
-
-**Step 10.10:**  It can take a minute or two on our lab system for the ordering service to come up completely, and you may need to refresh your browser in order to see the box turn green. If your ordering service is still not ready after a couple of minutes and after you have tried refreshing your browser, ask an instructor for help.  The ordering service must be ready, as indicated by a green box in the upper right of its tile, similar to what is shown below, before you can continue.
+       This step pertains to the tile listed in the *Ordering services* section, not to the similarly named tile in the *Certificate Authorities* section
 
 **Once it is ready, click on its tile and continue to the next section of the lab.**
 
@@ -493,7 +572,10 @@ Review the values your entered for correctness and then click the blue **Next** 
 
 ![image](images/ibpconsole/0690_UpdateConsortium1.png)
 
-**Step 11.2:** Click the **Existing MSP ID** button, select **Team*xx* Org1 MSP** where *xx* is your two-digit team id, and then click the **Add organization** button:
+**Step 11.2:** Click the **Existing MSP ID** button, select **Team*xx* Org1 MSP** where *xx* is your two-digit team ID, and then click the **Add organization** button:
+
+!!! important
+       Ensure that you select **Team*xx* Org1 MSP** from the dropdown list. This will probably not be the default choice provided to you.
 
 ![image](images/ibpconsole/0700_AddOrganizationToConsortium.png)
 
@@ -521,7 +603,7 @@ The line between the ordering service node and your first peer organization node
 
 ![image](images/ibpconsole/0730_JoinChannel_1.png)
 
-**Step 12.3:** Enter **team*xx*-channel1** in the *Channel name* field, and select **Team*xx* Ordering Service** for the *Ordering service* field, where *xx* is your two-digit team id.  Scroll down in the sidebar panel to enter more values as described in the next step:
+**Step 12.3:** Enter **team*xx*-channel1** in the *Channel name* field, and select **Team*xx* Ordering Service** for the *Ordering service* field, where *xx* is your two-digit team ID.  Scroll down in the sidebar panel to enter more values as described in the next step:
 
 ![image](images/ibpconsole/0740_JoinChannelSidebar1a.png)
 
@@ -549,7 +631,7 @@ Our evolving network diagram only gets a subtle change from this section-  the l
 
 ![image](images/ibpconsole/0785_DiagramPeer1JoinChannel.png)
 
-**Step 13.1:** For the *Choose from available peers* field, select **Team*xx* Peer Org1**, where *xx* is your two-digit team id, and click the **Join channel** button in the lower right:
+**Step 13.1:** For the *Choose from available peers* field, select **Team*xx* Peer Org1**, where *xx* is your two-digit team ID, and click the **Join channel** button in the lower right:
 
 ![image](images/ibpconsole/0790_ChannelPendingPeerAddSidebar1.png)
 
@@ -571,35 +653,31 @@ We will define the second peer organization now.  The pattern is identical to wh
 
 ![image](images/ibpconsole/0810_AddOrg2Begin.png)
 
-**Step 14.2:** Click **Create an IBM Cloud Private Certificate Authority** and then click the blue **Next** button:
+**Step 14.2:** Click **Create a Certificate Authority** and then click the blue **Next** button:
 
-![image](images/ibpconsole/0820_AddOrg2CASidebar1.png)
+![image](images/ibpconsole/0060_AddCertificateAuthority.png)
 
-**Step 14.3:** Type in **Team*xx* Org2 CA** where *xx* is your two-digit team id, and then click the blue **Next** button:
+**Step 14.3:** Fill in the *Step 2 of 3* screen as follows, and then click the blue **Next** button:
+
+|Field label|Value|Comments|
+|-----------|-----|--------|
+|CA display name|**Team*xx* Org2 CA**|Substitute your two-digit team ID for *xx*|
+|CA administrator enroll ID|**admin**||
+|CA administrator enroll secret|**adminpw**||
 
 ![image](images/ibpconsole/0830_AddOrg2CASidebar2.png)
 
-**Step 14.4:** Type **admin** for the *CA administrator enroll id* and **adminpw** for the *CA administrator enroll secret* and then click the blue **Next** button:
-
-![image](images/ibpconsole/0840_AddOrg2CASidebar3.png)
-
-**Step 14.5:** Leave the *Resource allocation* settings unchanged, and click the **Next** button:
-
-![image](images/ibpconsole/0850_AddOrg2CASidebar4.png)
-
-**Step 14.6:** Review your settings and click the **Add Certificate Authority** button:
+**Step 14.4:** Review your settings on the *Step 3 of 3* screen and click the **Add Certificate Authority** button:
 
 ![image](images/ibpconsole/0860_AddOrg2CASidebar5.png)
 
-**Step 14.7:** You will see a tile for your new certificate authority. Observe the box in the upper right corner of the tile.
-If it is gray, and you hover your cursor over it, you may see a message indicating that the status is pending. (The gray box, but not the status message,
-is shown in this screenshot):
+**Step 14.5:** You will see a tile for your new certificate authority. Observe the box in the upper right corner of the tile.
+If it is gray, and you hover your cursor over it, you may see a message indicating that the status is pending. 
+In about a minute, the box in the upper right should turn green, indicating that the certificate authority is running.
 
-![image](images/ibpconsole/0870_AddOrg2CAPending.png)
-
-**Step 14.8:** In about a minute, the box in the upper right should turn green, indicating that the certificate authority is running.
-If the box does not turn green in a minute, try reloading the page in your browser. Contact an instructor for help if it does not
-turn green and show the running status when you hover your cursor over the button.
+!!! note
+       If the box in the upper right corner of the tile does not turn green in a minute or two, try reloading the page in your browser. Contact an instructor for help if it does
+       not turn green and show the running status when you hover your cursor over this box.
 
 **Once your certificate authority is running, click on its tile** so that you can proceed to the next section where you will add users.
 
@@ -607,31 +685,60 @@ turn green and show the running status when you hover your cursor over the butto
 
 ## Section 15: Add new users using your Org2 Certificate Authority
 
-**Step 15.1:** Click the **Register user** button on the right side of the screen:
+**Step 15.1:** You must first associate an administrative identity with your certificate authority, so click the **Associate identity** button as shown in this screen snippet:
 
-![image](images/ibpconsole/0890_AddOrg2Users.png)
+![image](images/ibpconsole/0125_AssociateIdentity.png)
 
-**Step 15.2:** Type **org2admin** for the *Enroll id*,  **org2adminpw** for the *Enroll secret*, select **client** for the *Type* field, and then click the blue **Next** button:
+**Step 15.2:** Ensure that the **Enroll ID** Button is selected in the *Associate Identity* sidebar panel, fill out the panel as directed in the below table, and then click the blue **Associate Identity** button:
+
+|Field label|Value|Comments|
+|-----------|-----|--------|
+|Enroll ID|**admin**||
+|Enroll secret|**adminpw**|click the "eye" icon to see the password|
+|Identity display name|**Team*xx* Org2 CA Identity**|substitute your two-digit team ID for *xx*|
+
+![image](images/ibpconsole/0896_AssociateIdentity2.png)
+
+**Step 15.3:** You should now see the *admin* userid in the list of registered users. This userid is intended to be used by a person acting as the *registrar* of this Certificate Authority.  Next you will create a userid for use by a person who will be the blockchain network administrator for the organization. Click the **Register user** button on the right side of the screen:
+
+![image](images/ibpconsole/0130_AddUsers.png)
+
+**Step 15.4:** In the *Step 1 of 2* panel, fill it out as guided by the following table, and then click the blue **Next** button:
+
+|Field label|Value|Comments|
+|-----------|-----|--------|
+|Enroll ID|**org2admin**||
+|Enroll secret|**org2adminpw**|click the "eye" icon to see the password|
+|Type|**client**|This will be populated for you|
 
 ![image](images/ibpconsole/0900_AddUserOrg2Admin1.png)
 
-**Step 15.3:** We will not be using custom attributes in this lab, so all you have to do on this screen is click the **Register user** button:
+**Step 15.5:** We will not be using custom attributes in this lab, so all you have to do on this screen is click the **Register user** button:
 
 ![image](images/ibpconsole/0910_AddUserOrg2Admin2.png)
 
-**Step 15.4:** You should now see the userid you just registered, **org2admin**, listed on the screen. You also need to create a userid that your peer node will operate as, so click the **Register user** button again:
+**Step 15.6:** You should now see the userid you just registered, **org1admin**, listed on the screen. You also need to create a userid that your peer node will operate as, so click the **Register user** button again:
 
 ![image](images/ibpconsole/0920_AfterOrg2AdminAdded.png)
 
-**Step 15.5:** Type **peer2** for the *Enroll id*,  **peer2pw** for the *Enroll secret*, select **peer** for the *Type* field, and then click the blue **Next** button:
+**Step 15.7:** In the *Step 1 of 2* panel, fill it out as guided by the following table, and then click the blue **Next** button:
+
+!!! important
+       It is **critical** that you change the value of the *Type* field from *client* to *peer* for this userid!
+
+|Field label|Value|Comments|
+|-----------|-----|--------|
+|Enroll ID|**peer2**||
+|Enroll secret|**peer2pw**|click the "eye" icon to see the password|
+|Type|**peer**|Choose from dropdown list|
 
 ![image](images/ibpconsole/0930_AddUserPeer2_1.png)
 
-**Step 15.6:** Just click the **Register user** button at the bottom of the screen:
+**Step 15.8:** Just click the **Register user** button at the bottom of the screen:
 
 ![image](images/ibpconsole/0940_AddUserPeer2_2.png)
 
-**Step 15.7:** You should now see the **peer2** userid listed along with the others on this screen.
+**Step 15.9:** You should now see the **peer2** userid listed along with the others on this screen.
 Click the **Organizations** icon on the palette on the left of your screen and continue to the next section of the lab:
 
 ![image](images/ibpconsole/0950_AfterPeer2Added.png)
@@ -648,21 +755,26 @@ Defining the MSP for **Team*xx* Org2** will bring our network one step closer to
 
 **Step 16.2:** Enter the following values as instructed here:
 
-- Type **Team*xx* Org2 MSP**, where *xx* is your two-digit team id, in the *MSP display name* field
-- Type **team*xx*org2msp**, where *xx* is your two-digit team id, in the *MSP ID* field
-- For the *Root Certificate Authority* field, ensure that **Team*xx* Org2 CA** is selected
+|Field label|Value|Comments|
+|-----------|-----|--------|
+|MSP display name|**Team*x*x Org2 MSP**|substitute your two-digit team ID for *xx*|
+|MSP ID|**teamxxorg2msp**|substitute your two-digit team ID for *xx*|
+|Root Certificate Authority|**Team*xx* Org2 CA**|Expand the *Root Certificate Authority details* section to see this field. Choose from dropdown list, where *xx* is your team ID.|
+ 
+!!! important
+       Ensure that you selected your certificate authority for your *Org2*, and not *Org1*, in the *Root Certificate Authority* field. It's easy to mistakenly choose *Org1*'s certificate authority here, and this often turns ecstasy to melancholy.
 
 The sidebar panel contains more information than will likely fit in your browser window, so review the values you have entered per the above list, and then scroll down within the sidebar panel:
 
 ![image](images/ibpconsole/0970_CreateOrg2MSPSidebar1.png)
 
-**Step 16.3:**  In the *Generate organization admin certificate* section, enter the following values as instructed here:
+**Step 16.3:**  Once you have selected the root certificate authority, you will see that the *Root certificates* and *TLS root certificates* fields have been populated with base64-encoded X.509 certificates. Scroll down below this and you will see a line that says *Generate organization admin certificate and save admin identity to wallet*. Fill out the three fields beneath this in accordance with the below table, and then click the **Generate** button, which should become active once you enter values for the three fields:
 
-- Select **org2admin** for the *Enroll ID* field
-- Type **org2adminpw** in the *Enroll secret* field. Click the "eyeball" icon if necessary to show the password you've entered.
-- Type **Team*xx* Org2 Admin**, where *xx* is your two-digit team id, in the *Identity name* field
-
-Review the values you have entered per the above list, and then click the blue **Generate** button:
+|Field label|Value|Comments|
+|-----------|-----|--------|
+|Enroll ID|**org2admin**|Select from dropdown list. It will not be the default presented to you, so make sure you select it.|
+|Enroll secret|**org2adminpw**||
+|Identity name|**Team*xx* Org2 Admin**|substitute your team ID for *xx*|
 
 ![image](images/ibpconsole/0980_CreateOrg2MSPSidebar1b.png)
 
@@ -692,52 +804,66 @@ The most useful German phrase I know is *noch einmal Bier, bitte!*, which transl
 
 ![image](images/ibpconsole/1030_AddOrg2Peer.png)
 
-**Step 17.2:** Click the **Create an IBM Cloud Private peer** button and then click the blue **Next** button:
+**Step 17.2:** Click the **Create a peer** button and then click the blue **Next** button:
 
-![image](images/ibpconsole/1040_AddOrg2PeerSidebar1.png)
+![image](images/ibpconsole/0280_AddOrg1PeerSidebar1.png)
 
-**Step 17.3:** Type **Team*xx* Peer Org2**, where *xx* is your two-digit team id, in the *Peer display name* field and then click the blue **Next** button:
+**Step 17.3:** Type **Team*xx* Peer Org2**, where *xx* is your two-digit team ID, in the *Peer display name* field and then click the blue **Next** button:
 
 ![image](images/ibpconsole/1050_AddOrg2PeerSidebar2.png)
 
-**Step 17.4:** Enter or select the following values on this panel:
+**Step 17.4:** Enter or select the following values on the *Step 3 of 7* panel as directed by the following table, and then click the blue **Next** button:
 
-- Select **Team*xx* Org2 CA**, where *xx* is your two-digit team id, for the *Certificate Authority* field
-- Select **peer2** for the *Peer enroll ID* field
-- Type **peer2pw** in the *Peer enroll secret* field
-- Select **Team*xx* Org2 MSP**, where *xx* is your two-digit team id, for the *Organization MSP* field
-
-Review the values you entered or selected to ensure they match the above list, and then click the blue **Next** button:
+|Field label|Value|Comments|
+|-----------|-----|--------|
+|Certificate Authority|**Team*xx* Org2 CA**|Select from dropdown list if this choice is not already presented to you, where *xx* is your two-digit team ID|
+|Peer enroll ID|**peer2**|Select from dropdown list|
+|Peer enroll secret|**peer2pw**||
+|Organization MSP|**Team*xx* Org2 MSP**|Select from dropdown list, where *xx* is your two-digit team ID|
 
 ![image](images/ibpconsole/1060_AddOrg2PeerSidebar3.png)
 
-**Step 17.5:** Enter or select the following values on this panel:
+**Step 17.5:** Enter or select the following values on the *Step 4 of 7*  panel as shown in the table below, and then click the blue **Next** button:
 
-- Select **peer2** for the *TLS CA enroll ID* field
-- Type **peer2pw** in the *TLS CA enroll secret* field
-- Leave the *TLS CSR hostname* field blank
-
-Review the values your entered for correctness and then click the blue **Next** button:
+|Field label|Value|Comments|
+|-----------|-----|--------|
+|TLS CA enroll ID|**peer2**|Select from dropdown list|
+|TLS CA enroll secret|**peer2pw**||
+|TLS CSR hostname||Leave this field blank|
 
 ![image](images/ibpconsole/1070_AddOrg2PeerSidebar4.png)
 
 **Step 17.6:** Leave the *Resource allocation* settings unchanged and click the **Next** button:
 
-![image](images/ibpconsole/1080_AddOrg2PeerSidebar5.png)
+![image](images/ibpconsole/0320_AddOrg1PeerSidebar5.png)
 
-**Step 17.7:** Select **Team*xx* Org2 Admin**, where *xx* is your two-digit team id, for the *Identity* field, and click **Next**:
+**Step 17.7:** Select **Team*xx* Org2 Admin**, where *xx* is your two-digit team ID, for the *Identity* field, and click **Next**:
 
 ![image](images/ibpconsole/1090_AddOrg2PeerSidebar6.png)
 
-**Step 17.8:** The *Summary* panel provides a review of the values you entered or selected in the prior panels. Click the **Add peer** button to continue:
+**Step 17.8:** The *Summary* panel provides a review of the values you entered or selected in the prior panels. You may need to scroll down to see all of the values. The values you entered should match up with the table below. If not, use the **Back** button as necessary to correct your entries.  The table below shows the expected value (where *xx* is your two-digit team ID) and which of the seven panels in the *Add Peer* flow was used to set this value:
+
+|Field label|Expected Value|Comments|
+|-----------|--------------|--------|
+|Peer display name|**Team*xx* Peer Org2**|Set in *Step 2 of 7* panel|
+|Certificate Authority|**Team*xx* Org2 CA**|Set in *Step 3 of 7* panel|
+|Peer enroll ID|**peer2**|Set in *Step 3 of 7* panel|
+|Peer enroll secret|**peer2pw**|Set in *Step 3 of 7* panel|
+|Organization MSP|**Team*xx* Org2 MSP**|Set in *Step 3 of 7* panel|
+|TLS CA enroll ID|**peer2**|Set in *Step 4 of 7* panel|
+|TLS CA enroll secret|**peer2pw**|Set in *Step 4 of 7* panel|
+|CPU (VPC) usage total|**1.6**|Not set by you- calculated from defaults|
+|Memory usage total|**2800M**|Not set by you- calculated from deaults|
+|Storage usage total|**200Gi**|Not set by you- calculated from defaults|
+|State database|**CouchDB**|Not set by you- default value|
+|Associated identity|**Team*xx* Org2 Admin**|Set in *Step 6 of 7* panel|
+
+If you have to use the **Back** button to make any corrections, you can return to the summary on *Step 7 of 7* by clicking **Next** the necessary number of times. When you are ready to proceed, click the **Add peer** button to continue:
 
 ![image](images/ibpconsole/1100_AddOrg2PeerSidebar7.png)
 
 **Step 17.9:** Similarly to when you created your other peer earlier, you should see your new peer listed, along with a gray box in the upper right of its tile, showing that the status of this peer is "pending" if you hover your cursor over the gray box.
-
-![image](images/ibpconsole/1110_AddOrg2PeerPending.png)
-
-**Step 17.10:**  It can take a minute or two on our lab system for the peer to come up completely, and you may need to refresh your browser in order to see the box turn green. If your peer is still not ready after a couple of minutes and after you have tried refreshing your browser, ask an instructor for help.  The peer must be ready, as indicated by a green box in the upper right of the peer's tile, similar to what is shown below, before you can continue:
+It can take a minute or two on our lab system for the peer to come up completely, and you may need to refresh your browser in order to see the box turn green. If your peer is still not ready after a couple of minutes and after you have tried refreshing your browser, ask an instructor for help.  The peer must be ready, as indicated by a green box in the upper right of the peer's tile, similar to what is shown below, before you can continue:
 
 ![image](images/ibpconsole/1120_AddOrg2PeerRunning.png)
 
@@ -751,7 +877,7 @@ Review the values your entered for correctness and then click the blue **Next** 
 
 ![image](images/ibpconsole/1140_UpdateConsortium1.png)
 
-**Step 18.3:** Click the **Existing MSP ID** button, select **Team*xx* Org2 MSP** where *xx* is your two-digit team id, and then click the **Add organization** button:
+**Step 18.3:** Click the **Existing MSP ID** button, select **Team*xx* Org2 MSP** where *xx* is your two-digit team ID, and then click the **Add organization** button:
 
 ![image](images/ibpconsole/1150_AddOrg2ToConsortium.png)
 
@@ -785,7 +911,7 @@ You will add the organization to the channel membership now.
 
 ![image](images/ibpconsole/1200_UpdateChannelSidebar1.png)
 
-**Step 19.5:** Select **Team*xx* Org2 MSP (team*xx*org2msp)**, where *xx* is your two-digit team id, for the *Select a channel member* field, and click the **Add** button to the right of the field:
+**Step 19.5:** Select **Team*xx* Org2 MSP (team*xx*org2msp)**, where *xx* is your two-digit team ID, for the *Select a channel member* field, and click the **Add** button to the right of the field:
 
 ![image](images/ibpconsole/1210_UpdateChannelSidebar1b.png)
 
@@ -793,7 +919,7 @@ You will add the organization to the channel membership now.
 
 ![image](images/ibpconsole/1220_UpdateChannelSidebar1c.png)
 
-**Step 19.7:** You are adding your *Org2* to the channel, but until it is added, your *Org1* is the only member of the channel. Therefore, you will select values pointing to *Org1* in the *Channel updater organization* section. Select **Team*xx* Org1 MSP (team*xx*org1msp)** for the *Channel updater MSP* field, select **Team*xx* Org1 Admin** for the *Identity* field, and click the **Send proposal** button:
+**Step 19.7:** Scroll down until you get to the *Channel updater organization* section. You are adding your *Org2* to the channel, but until it is added, your *Org1* is the only member of the channel. Therefore, you will select values pointing to *Org1*, since *Org1* is the organization that will allow *Org2* to join. Select **Team*xx* Org1 MSP (team*xx*org1msp)** for the *Channel updater MSP* field, select **Team*xx* Org1 Admin** for the *Identity* field, and click the **Send proposal** button:
 
 ![image](images/ibpconsole/1230_UpdateChannelSidebar1d.png)
 
@@ -823,15 +949,15 @@ You will now join *Org2's* peer to the channel:
 
 ![image](images/ibpconsole/1260_JoinOrg2PeerToChannelBegin.png)
 
-**Step 20.2:** Ensure that **Team*xx* Ordering Service**, where *xx* is your two-digit team id, is selected for the *Ordering service* field and click the blue **Next** button:
+**Step 20.2:** Ensure that **Team*xx* Ordering Service**, where *xx* is your two-digit team ID, is selected for the *Ordering service* field and click the blue **Next** button:
 
 ![image](images/ibpconsole/1270_PeerAddSidebar1.png)
 
-**Step 20.3:** Type **team*xx*-channel1**, where *xx* is your two-digit team id, in the *Channel* field and click the **Next** button:
+**Step 20.3:** Type **team*xx*-channel1**, where *xx* is your two-digit team ID, in the *Channel* field and click the **Next** button:
 
 ![image](images/ibpconsole/1280_PeerAddSidebar2.png)
 
-**Step 20.4:** In the *Choose from available peers* section, select **Team*xx* Peer Org2**, where *xx* is your two-digit team id, and then click the blue **Join channel** button:
+**Step 20.4:** In the *Choose from available peers* section, select **Team*xx* Peer Org2**, where *xx* is your two-digit team ID, and then click the blue **Join channel** button:
 
 ![image](images/ibpconsole/1290_PeerAddSidebar3.png)
 
