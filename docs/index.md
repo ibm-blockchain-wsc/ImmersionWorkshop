@@ -4,16 +4,19 @@ Welcome! This two-day workshop combines lectures and hands-on labs to teach you 
 ## Agenda
 
 ### Day 1
-* 8:45am -  Introductions
-* 9am -     [Introduction to Enterprise Blockchain](files/BlockchainExplained.pdf)
-* 9:45am -  [Demo: Vehicle Lifecycle Demo](files/Vehicle_Lifecycle_Demo.pdf)
-* 10:15am - [Blockchain Use Cases](files/BlockchainUseCasesNYC.pdf)
-* 11am - [Lab: Developer Journey Part 1 - Create Smart Contract Package](files/IBP_Lab1.pdf)
-* 11:30am  -   [Lab: Developer Journey Part 2 - Using an Existing Contract](files/IBP_Lab2.pdf)
-* Noon -    Lunch
-* 1pm -     [Hyperledger Fabric Technology Deep Dive Part 1](files/BlockchainExploredPart1.pdf)
-* 2pm -     [Lab: Developer Journey Part 3 - Commercial Paper](files/IBP_Lab3.pdf)
-* 3:30pm -     [Hyperledger Fabric Technology Deep Dive Part 2](files/BlockchainExploredPart2.pdf)
+* 9am -  CNM Kickoff and Introductions
+* 9:15am - [Introduction to Enterprise Blockchain](files/BlockchainExplained.pdf)
+* 10am -  [Demo: Vehicle Lifecycle Demo](files/Vehicle_Lifecycle_Demo.pdf)
+* 10:10am - [Demo: IMMUNIChain](docs/immunichain.md)
+* 10:20am - CNM Use Cases
+* 10:40am - Break
+* 11am - Introduction to LinuxONE and Hyper Protect Services
+* 11:30am - Lunch
+* 12:30pm - Developer lab kickoff
+* 1pm - [Lab: Developer Journey Part 1 - Create Smart Contract Package](files/IBP_Lab1.pdf)
+* 2pm - [Hyperledger Fabric Technology Deep Dive](files/BlockchainExploredPart1.pdf)
+* 3pm  -  [Lab: Developer Journey Part 2 - Using an Existing Contract](files/IBP_Lab2.pdf)
+* 4pm -   [Lab: Developer Journey Part 3 - Commercial Paper](files/IBP_Lab3.pdf)
 * 4:30pm -     Day 1 Wrap up
 
 ### Day 2
@@ -21,8 +24,9 @@ Welcome! This two-day workshop combines lectures and hands-on labs to teach you 
 * 10am - [Kubernetes Explained](files/Kubernetes_Explained_Woodworth.pdf)
 * 11am - [Next Steps](files/BlockchainNextSteps_PR.pdf)
 * Noon - Lunch
-* 1pm - [Lab: IBM Blockchain Platform Part 1 - Deploy Network](ibpconsole.md)
-* 2:30pm - [Lab: IBM Blockchain Platform Part 2 - Deploy Smart Contract](ibpdeploy.md)
+* 1pm - IBM Blockchain Platform lab kickoff
+* 1:30pm - [Lab: IBM Blockchain Platform Part 1 - Deploy Network](ibpconsole.md)
+* 3pm - [Lab: IBM Blockchain Platform Part 2 - Deploy Smart Contract](ibpdeploy.md)
 * 4pm - Day 2 Wrap Up
 
 ## Acknowledgements
