@@ -12,9 +12,9 @@ Welcome! This two-day workshop combines lectures and hands-on labs to teach you 
 * 10:40am - Break
 * 11am - Introduction to LinuxONE and Hyper Protect Services
 * 11:30am - Lunch
-* 12:30pm - Developer lab kickoff
+* 12:30pm - [Developer lab kickoff](files/UsingIBMBlockchainPlatform.pdf)
 * 1pm - [Lab: Developer Journey Part 1 - Create Smart Contract Package](files/IBP_Lab1.pdf)
-* 2pm - [Hyperledger Fabric Technology Deep Dive](files/BlockchainExploredPart1.pdf)
+* 2pm - [Hyperledger Fabric Technology Deep Dive](files/HyperledgerFabricDeepDive.pdf)
 * 3pm  -  [Lab: Developer Journey Part 2 - Using an Existing Contract](files/IBP_Lab2.pdf)
 * 4pm -   [Lab: Developer Journey Part 3 - Commercial Paper](files/IBP_Lab3.pdf)
 * 4:30pm -     Day 1 Wrap up
