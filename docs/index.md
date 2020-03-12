@@ -5,12 +5,12 @@ Welcome! This two-day workshop combines lectures and hands-on labs to teach you 
 
 ### Day 1
 * 9am -  CNM Kickoff and Introductions
-* 9:15am - [Introduction to Enterprise Blockchain](files/BlockchainExplained.pdf)
+* 9:15am - [Introduction to Enterprise Blockchain](files/BlockchainExplainedCNM.pdf)
 * 10am -  [Demo: Vehicle Lifecycle Demo](files/Vehicle_Lifecycle_Demo.pdf)
-* 10:10am - [Demo: IMMUNIChain](docs/immunichain.md)
-* 10:20am - CNM Use Cases
+* 10:10am - [Demo: IMMUNIChain](docs/immunichain-home.md)
+* 10:20am - [CNM Use Cases](files/BlockchainUseCasesCNM.pdf)
 * 10:40am - Break
-* 11am - Introduction to LinuxONE and Hyper Protect Services
+* 11am - [Introduction to LinuxONE and Hyper Protect Services](files/LinuxONEHP.pdf)
 * 11:30am - Lunch
 * 12:30pm - [Developer lab kickoff](files/UsingIBMBlockchainPlatform.pdf)
 * 1pm - [Lab: Developer Journey Part 1 - Create Smart Contract Package](files/IBP_Lab1.pdf)
