@@ -285,7 +285,7 @@ A peer node is where smart contracts- in essence, your blockchain business trans
 
 ![image](images/ibpconsole/0280_AddOrg1PeerSidebar1.png)
 
-**Step 6.3:** Type **Team*xx* Org1 Peer**, where *xx* is your two-digit team ID, in the *Peer display name* field and then click the blue **Next** button:
+**Step 6.3:** Leave all of the *Advanced deployment options* unchecked. Type **Team*xx* Org1 Peer**, where *xx* is your two-digit team ID, in the *Peer display name* field and then click the blue **Next** button:
 
 ![image](images/ibpconsole/0290_AddOrg1PeerSidebar2.png)
 
@@ -297,6 +297,7 @@ A peer node is where smart contracts- in essence, your blockchain business trans
 |Peer enroll ID|**peer1**|Select from dropdown list|
 |Peer enroll secret|**peer1pw**||
 |Organization MSP|**Team*xx* Org1 MSP**|Select from dropdown list, where *xx* is your two-digit team ID|
+|TLS CSR hostname||leave blank|
 
 ![image](images/ibpconsole/0300_AddOrg1PeerSidebar3.png)
 
@@ -588,7 +589,7 @@ It can take a minute or two on our lab system for the ordering service to come u
 
 ## Section 11: Add your Teamxx Org1 organization to a consortium
 
-**Step 11.1:** Click the **Add organization** button in the *Consortium members* section:
+**Step 11.1:** In the *Consortium members* section, which is below the *Ordering service administrators* section, click the **Add organization** button:
 
 ![image](images/ibpconsole/0690_UpdateConsortium1.png)
 
@@ -849,7 +850,7 @@ The most useful German phrase I know is *noch einmal Bier, bitte!*, which transl
 
 **Step 17.2:** Click the **Create a peer** button and then click the blue **Next** button.
 
-**Step 17.3:** Type **Team*xx* Org2 Peer**, where *xx* is your two-digit team ID, in the *Peer display name* field and then click the blue **Next** button.
+**Step 17.3:** Leave all of the *Advanced deployment options* unchecked. Type **Team*xx* Org2 Peer**, where *xx* is your two-digit team ID, in the *Peer display name* field and then click the blue **Next** button.
 
 **Step 17.4:** Enter or select the following values on the *Step 3 of 5* panel as directed by the following table, and then click the blue **Next** button.
 
@@ -859,6 +860,7 @@ The most useful German phrase I know is *noch einmal Bier, bitte!*, which transl
 |Peer enroll ID|**peer2**|Select from dropdown list|
 |Peer enroll secret|**peer2pw**||
 |Organization MSP|**Team*xx* Org2 MSP**|Select from dropdown list, where *xx* is your two-digit team ID|
+|TLS CSR hostname||leave blank|
 
 **Step 17.5:** On the *Associate Identity* screen, select **Team*xx* Org2 MSP Admin**, where *xx* is your two-digit team ID, for the *Peer administrator identity* field, and click **Next**.
 
@@ -972,8 +974,6 @@ When you have ensured that you have entered the right values, click the blue **U
 Click the **Channel details** tab, which is to the right of the **Transaction overview** tab:
 
 ![image](images/ibpconsole/1240_UpdateChannelFinished.png)
-
-CONSTRUCTION
 
 **Step 19.11:** In the *Channel members* section  of the panel, you should now see both of your peer organizations listed as members. Once you have verified this, click the **Channels** icon on the icon palette on the left:
 
