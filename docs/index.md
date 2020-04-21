@@ -1,33 +1,30 @@
 # Blockchain Immersion Wildfire Workshop
-Welcome! This two-day workshop combines lectures and hands-on labs to teach you the fundamentals of blockchain for business. On Day 1, we focus on the open source framework called Hyperledger Fabric that powers blockchain for business. On Day 2, you will learn about the IBM-specific offerings that leverage Hyperledger Fabric, and how our unique combination of expertise, governance and operations tooling, and infrastructure capabilities with Linux on Z can help you achieve business results faster and more securely.
+Welcome! This virtual workshop combines lectures and hands-on labs to teach you the fundamentals of blockchain for business. We provide an overview of Enterprise Blockchain that is based on the open source framework called Hyperledger Fabric. You have the opportunity to go through labs from a blockchain developer perspective and a blockchain network operator perspective. Additionally, you will learn about the IBM-specific offerings that leverage Hyperledger Fabric, and how our unique combination of expertise, governance and operations tooling, and infrastructure capabilities with Linux on Z can help you achieve business results faster and more securely.
 
 ## Agenda
 
-### Day 1
-* 9am -  CNM Kickoff and Introductions
-* 9:15am - [Introduction to Enterprise Blockchain](files/BlockchainExplainedCNM.pdf)
-* 10am -  [Demo: Vehicle Lifecycle Demo](files/Vehicle_Lifecycle_Demo.pdf)
-* 10:10am - [Demo: IMMUNIChain](docs/immunichain-home.md)
-* 10:20am - [CNM Use Cases](files/BlockchainUseCasesCNM.pdf)
-* 10:40am - Break
-* 11am - [Introduction to LinuxONE and Hyper Protect Services](files/LinuxONEHP.pdf)
-* 11:30am - Lunch
-* 12:30pm - [Developer lab kickoff](files/UsingIBMBlockchainPlatform.pdf)
-* 1pm - [Lab: Developer Journey Part 1 - Create Smart Contract Package](files/IBP_Lab1.pdf)
-* 2pm - [Hyperledger Fabric Technology Deep Dive](files/HyperledgerFabricDeepDive.pdf)
-* 3pm  -  [Lab: Developer Journey Part 2 - Using an Existing Contract](files/IBP_Lab2.pdf)
-* 4pm -   [Lab: Developer Journey Part 3 - Commercial Paper](files/IBP_Lab3.pdf)
-* 4:30pm -     Day 1 Wrap up
+### April 21
+*  Workshop Kickoff and Introductions
+* [Introduction to Enterprise Blockchain](files/BlockchainExplainedVirtual.pdf)
+* [Demo: Vehicle Lifecycle Demo](files/Vehicle_Lifecycle_Demo.pdf)
+* [Demo: IMMUNIChain](docs/immunichain-home.md)
+* [Blockchain Use Cases](files/BlockchainUseCasesVirtual.pdf)
 
-### Day 2
-* 9am - [IBM Blockchain Platform and LinuxONE](files/BlockchainPlatform.pdf)
-* 10am - [Kubernetes Explained](files/Kubernetes_Explained_Woodworth.pdf)
-* 11am - [Next Steps](files/BlockchainNextSteps_PR.pdf)
-* Noon - Lunch
-* 1pm - IBM Blockchain Platform lab kickoff
-* 1:30pm - [Lab: IBM Blockchain Platform Part 1 - Deploy Network](ibpconsole.md)
-* 3pm - [Lab: IBM Blockchain Platform Part 2 - Deploy Smart Contract](ibpdeploy.md)
-* 4pm - Day 2 Wrap Up
+### April 22
+* [Developer lab kickoff](files/UsingIBMBlockchainPlatform.pdf)
+* [Lab: Developer Journey Part 1 - Create Smart Contract Package](files/IBP_Lab1.pdf)
+* [Lab: Developer Journey Part 2 - Using an Existing Contract](files/IBP_Lab2.pdf)
+* [Lab: Developer Journey Part 3 - Commercial Paper](files/IBP_Lab3.pdf)
+
+### April 23
+* [IBM Blockchain Platform and LinuxONE](files/BlockchainPlatform.pdf)
+* [Kubernetes Explained](files/Kubernetes_Explained_Woodworth.pdf)
+* [Next Steps](files/BlockchainNextSteps_PR.pdf)
+
+### April 24
+* IBM Blockchain Platform lab kickoff
+* [Lab: IBM Blockchain Platform Part 1 - Deploy Network](ibpconsole.md)
+* [Lab: IBM Blockchain Platform Part 2 - Deploy Smart Contract](ibpdeploy.md)
 
 ## Acknowledgements
 
