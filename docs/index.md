@@ -7,7 +7,8 @@ Welcome! This virtual workshop combines lectures and hands-on labs to teach you 
 *  Workshop Kickoff and Introductions
 * [Introduction to Enterprise Blockchain](files/BlockchainExplainedVirtual.pdf)
 * [Demo: Vehicle Lifecycle Demo](files/Vehicle_Lifecycle_Demo.pdf)
-* [Demo: IMMUNIChain](docs/immunichain-home.md)
+* [Demo: IMMUNIChain Introduction](immunichain-home.md) 
+* [IMMUNIChain Walk-through](immunichain.md) 
 * [Blockchain Use Cases](files/BlockchainUseCasesVirtual.pdf)
 
 ### April 22
