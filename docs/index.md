@@ -25,7 +25,7 @@ Welcome! This virtual workshop combines lectures and hands-on labs to teach you 
 * [Next Steps](files/BlockchainNextSteps_PR.pdf)
 
 ### April 24
-* IBM Blockchain Platform lab kickoff
+* [IBM Blockchain Platform lab kickoff](friday-lab-prep.md)
 * [Lab: IBM Blockchain Platform Part 1 - Deploy Network](ibpconsole.md)
 * [Lab: IBM Blockchain Platform Part 2 - Deploy Smart Contract](ibpdeploy.md)
 
