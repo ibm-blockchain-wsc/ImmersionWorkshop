@@ -17,6 +17,7 @@ Welcome! This virtual workshop combines lectures and hands-on labs to teach you 
 * [Lab: Developer Journey Part 1 - Create Smart Contract Package](files/IBP_Lab1.pdf)
 * [Lab: Developer Journey Part 2 - Using an Existing Contract](files/IBP_Lab2.pdf)
 * [Lab: Developer Journey Part 3 - Commercial Paper](files/IBP_Lab3.pdf)
+* [Lab errata and notes](lab-errata.md)
 
 ### April 23
 * [IBM Blockchain Platform and LinuxONE](files/BlockchainPlatform.pdf)
