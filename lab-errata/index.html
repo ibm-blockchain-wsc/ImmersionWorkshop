@@ -294,13 +294,29 @@
 <nav class="md-nav md-nav--secondary">
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">Table of contents</label>
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#lab-3-errata-and-notes" class="md-nav__link">
-    Lab 3 errata and notes:
+  <a href="#steps-20-21" class="md-nav__link">
+    Steps 20 &amp; 21
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-72" class="md-nav__link">
+    Step 72
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-95" class="md-nav__link">
+    Step 95
   </a>
   
 </li>
@@ -322,10 +338,9 @@
               
                 
                 
-                  <h1>Lab errata</h1>
-                
-                <h2 id="lab-3-errata-and-notes">Lab 3 errata and notes:</h2>
-<p><em>Steps 20 &amp; 21</em> - These steps have commands that span multiple lines in the document (3 or 4). You cannot copy and paste from the document to the command line in one operation because newline characters in the document will cause it to be 3 different commands, which will fail. You either have to type the whole command by hand, or, what may be easier-  copy and paste the lines one at a time and then hit Enter after pasting the last line of the command in the terminal. Better yet, copy the commands from here:</p>
+                <h1 id="lab-3-errata-and-notes">Lab 3 errata and notes:</h1>
+<h2 id="steps-20-21">Steps 20 &amp; 21</h2>
+<p>These steps have commands that span multiple lines in the document (3 or 4). You cannot copy and paste from the document to the command line in one operation because newline characters in the document will cause it to be 3 different commands, which will fail. You either have to type the whole command by hand, or, what may be easier-  copy and paste the lines one at a time and then hit Enter after pasting the last line of the command in the terminal. Better yet, copy the commands from here:</p>
 <p><em>Step 20 command</em>: </p>
 <pre><code>docker exec cliMagnetoCorp peer chaincode install -n papercontract -v 0.0.3-p /opt/gopath/src/github.com/contract -l node
 </code></pre>
@@ -334,8 +349,10 @@
 <pre><code>docker exec cliMagnetoCorp peer chaincode instantiate -n papercontract -v 0.0.3-l node -c '{&quot;Args&quot;:[&quot;org.papernet.commercialpaper:instantiate&quot;]}' -C mychannel -P &quot;AND ('Org1MSP.member')&quot;
 </code></pre>
 
-<p><em>Step 72</em>  - The instructions for this step are missing a dropdown selection asking you to choose between something like  ‘orderer.example.com’ or ‘peer0.org1.example.com’ --  choose the one that starts with peer*</p>
-<p><em>Step 95</em> – the instructions are missing the ” to the right of MagnetoCorp. It should be:</p>
+<h2 id="step-72">Step 72</h2>
+<p>The instructions for this step are missing a dropdown selection asking you to choose between something like  ‘orderer.example.com’ or ‘peer0.org1.example.com’ --  choose the one that starts with peer*</p>
+<h2 id="step-95">Step 95</h2>
+<p>The instructions are missing the ” to the right of MagnetoCorp. It should be:</p>
 <pre><code>&quot;MagnetoCorp&quot;,&quot;00005&quot;
 </code></pre>
                 
