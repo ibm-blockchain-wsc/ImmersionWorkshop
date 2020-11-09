@@ -1,4 +1,4 @@
-# IBM Blockchain Platform v2.1.3 Lab Part 1 - Create a Blockchain Network
+# IBM Blockchain Platform v2.5.0 Lab Part 1 - Create a Blockchain Network
 
 ## Section 1: Create a Blockchain Network lab overview
 
@@ -297,6 +297,7 @@ A peer node is where smart contracts- in essence, your blockchain business trans
 |Peer enroll ID|**peer1**|Select from dropdown list|
 |Peer enroll secret|**peer1pw**||
 |Organization MSP|**Team*xx* Org1 MSP**|Select from dropdown list, where *xx* is your two-digit team ID|
+|Fabric version|**1.4.7-2**|Select from dropdown list|
 |TLS CSR hostname||leave blank|
 
 ![image](images/ibpconsole/0300_AddOrg1PeerSidebar3.png)
@@ -315,6 +316,7 @@ A peer node is where smart contracts- in essence, your blockchain business trans
 |Peer enroll ID|**peer1**|Set in *Step 3 of 5* panel|
 |Peer enroll secret|**peer1pw**|Set in *Step 3 of 5* panel|
 |Organization MSP|**Team*xx* Org1 MSP**|Set in *Step 3 of 5* panel|
+|Version|**1.4.7-2**|Set in *Step 3 of 5* panel|
 |CPU (VPC) usage total|**1.6**|Not set by you- calculated from defaults|
 |Memory usage total|**2,800M**|Not set by you- calculated from defaults|
 |Storage usage total|**200Gi**|Not set by you- calculated from defaults|
@@ -548,6 +550,7 @@ Our star is running out of leg room all cramped up by the circle in our drawing 
 |Ordering service enroll ID|**os1**|Select from dropdown list. It will not be the default presented to you, so make sure you select it.|
 |Ordering service enroll secret|**os1pw**||
 |Organization MSP|**Team*xx* Ordering Service MSP**|Select from dropdown list, where *xx* is your two-digit team ID|
+|Fabric version|**1.4.7-2**|Select from dropdown list|
 
 ![image](images/ibpconsole/0620_AddOrdererSidebar3.png)
 
@@ -565,6 +568,7 @@ Our star is running out of leg room all cramped up by the circle in our drawing 
 |Ordering service enroll ID|**os1**|Set in *Step 3 of 5* panel|
 |Ordering service enroll secret|**os1pw**|Set in *Step 3 of 5* panel|
 |Organization MSP|**Team*xx* Ordering Service MSP**|Set in *Step 3 of 5* panel|
+|Version|**1.4.7-2**|Set in *Step 3 of 5* panel|
 |CPU (VPC) usage total|**0.35**|Not set by you- calculated from defaults|
 |Memory usage total|**700 M**|Not set by you- calculated from defaults|
 |Storage usage total|**100 Gi**|Not set by you- default value|
@@ -662,7 +666,7 @@ The line between the ordering service node and your first peer organization node
 !!!note
        If you entered some values incorrectly, click the *Back* button as necessary to navigate back through the screen flow until you get to the screen(s) necessary to correct your mistakes, and then navigate forward again with the *Next* button until you return to this *Review MSP information* screen and verify you have entered the expected values. Ask an instructor for help if necessary.
 
-When you have ensured that you have entered the right values, click the blue **Create MSP definition** button in the lower right of your screen:
+When you have ensured that you have entered the right values, click the blue **Create channel** button in the lower right of your screen:
 
 ![image](images/ibpconsole/0760_CreateChannelReview.png)
 
@@ -703,7 +707,7 @@ You are changing hats again, this time from your **Team*xx* Ordering Service** a
 We will define the second peer organization now.  The pattern is identical to what you did earlier for the first organization.
 
 !!! Note
-        This will be the third Certificate Authority you define in this lab, so we will show fewer screenshots of repetitive tasks, in this section and in subsequent sections.
+        This will be the third Certificate Authority you define in this lab, so we will show fewer screenshots of repetitive tasks in this section and in subsequent sections.
 
 **Step 14.1:** Click the **Nodes** icon on the icon palette on the left, and then click the blue **Add Certificate Authority** button.
 
@@ -861,6 +865,7 @@ The most useful German phrase I know is *noch einmal Bier, bitte!*, which transl
 |Peer enroll secret|**peer2pw**||
 |Organization MSP|**Team*xx* Org2 MSP**|Select from dropdown list, where *xx* is your two-digit team ID|
 |TLS CSR hostname||leave blank|
+|Fabric version|**1.4.7-2**|Select from dropdown list|
 
 **Step 17.5:** On the *Associate Identity* screen, select **Team*xx* Org2 MSP Admin**, where *xx* is your two-digit team ID, for the *Peer administrator identity* field, and click **Next**.
 
@@ -874,6 +879,7 @@ The most useful German phrase I know is *noch einmal Bier, bitte!*, which transl
 |Peer enroll ID|**peer2**|Set in *Step 3 of 5* panel|
 |Peer enroll secret|**peer2pw**|Set in *Step 3 of 5* panel|
 |Organization MSP|**Team*xx* Org2 MSP**|Set in *Step 3 of 5* panel|
+|Version|**1.4.7-2**|Set in *Step 3 of 5* panel|
 |CPU (VPC) usage total|**1.6**|Not set by you- calculated from defaults|
 |Memory usage total|**2,800M**|Not set by you- calculated from defaults|
 |Storage usage total|**200Gi**|Not set by you- calculated from defaults|

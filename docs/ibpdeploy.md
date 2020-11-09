@@ -1,29 +1,18 @@
-# IBM Blockchain Platform v2.1.3 Lab Part 2 - Deploying a Smart Contract
+# IBM Blockchain Platform v2.5.0 Lab Part 2 - Deploying a Smart Contract
 
-This lab will walk you through deploying the smart contract that you worked with from the VSCode labs: namely, `commercial-paper`. This lab assumes that you have successfully completed the [IBM Blockchain Platform v2.1.3 Lab Part 1 - Create a Blockchain Network](ibpconsole.md). If you have not completed part 1, you must do so before continuing with this lab.
+This lab will walk you through deploying the smart contract that you worked with from the VSCode labs: namely, `commercial-paper`. This lab assumes that you have successfully completed the [IBM Blockchain Platform v2.5.0 Lab Part 1 - Create a Blockchain Network](ibpconsole.md). If you have not completed part 1, you must do so before continuing with this lab.
 
-## Section 1: Export Commercial Paper Smart Contract
+## Section 1: Download the Commercial Paper Smart Contract package
 
-Remember from the VSCode labs, you have already packaged up the commercial paper (`papercontract@0.0.4`) smart contract. Now you will export the contract to its own smart contract package (*in .cds format*) and deploy it to your IBM Blockchain Platform network.
+**Step 1.1:** You need to download the .cds package from here: [commercial-paper](files/papercontract@0.0.4.cds). If you are not prompted for a location in which to save it, then your browser is probably saving it at a default location, which is probably `/home/blockchain/Downloads`.
 
-!!! note
-        If you did not complete the VSCode labs, you can still continue with this lab. You need to download the .cds package here: [commercial-paper](files/papercontract@0.0.4.cds) and save it to your lab image under the `/home/blockchain/` directory. Then you can skip to Section 2 of this lab.
+## Section 2: Install Commercial Paper Contract to your Blockchain Network
 
-**Step 1.1:** Go back to your VSCode editor, and go to the IBM Blockchain Platform Extension view. Under the *Smart Contract Packages* panel, right-click on **papercontract@0.0.4** and select `Export Package`:
-
-![image](images/ibpdeploy/ibpdeploy1.png)
-
-**Step 1.2:** Select the location `/home/blockchain/`, and click **Enter**. Upon successful exporting, you will see a message like below:
-
-![image](images/ibpdeploy/ibpdeploy4.png)
-
-## Section 2: Install Paper Contract to your Blockchain Network
-
-**Step 2.1:** Go back to your IBM Blockchain Platform Console at your assigned URL in your Firefox browser. Click on the *Smart Contracts* icon in the icon palette on the left, and in the *Smart contracts* panel, click the blue **Install Smart Contract** button:
+**Step 2.1:** Click on the *Smart Contracts* icon in the icon palette on the left, and in the *Smart contracts* panel, click the blue **Install Smart Contract** button:
 
 ![image](images/ibpdeploy/ibpdeploy5.png)
 
-**Step 2.2:** In the *(Step 1 of 2) Install Smart Contract* side panel, using the blue **Add File** button, upload the `papercontract@0.0.4.cds` package (from the location `/home/blockchain`), and click the **Next** button. The screenshot that follows shows that the name and version of the smart contract have replaced the *Add File* button:
+**Step 2.2:** In the *(Step 1 of 2) Install Smart Contract* side panel, using the blue **Add File** button, upload the `papercontract@0.0.4.cds` package (from the location `/home/blockchain/Downloads` or from wherever you saved it), and click the **Next** button. The screenshot that follows shows that the name and version of the smart contract have replaced the *Add File* button:
 
 ![image](images/ibpdeploy/ibpdeploy6.png)
 
@@ -88,7 +77,7 @@ Now you need to register a client user to use to enroll application identities f
 |-----------|-----|--------|
 |Enroll ID|**app-dev**||
 |Enroll secret|**app-devpw**|click the "eye" icon to see the password|
-|Type|**Client**|This will be populated for you|
+|Type|**client**|This will be populated for you|
 
 **Step 4.4:** In the *Register User (Step 2 of 2)* sidebar panel, just click the **Register user** button.
 
@@ -108,18 +97,19 @@ Now we will register a client user for enrolling application identities for Org2
 
 The connection profile is a JSON file that describes all the connection endpoints, MSP information, channel information and certificate information required to connect to your organization's peer. A client application wishing to invoke transactions against a smart contract would require this file to obtain the necessary information needed to make that connection. Without IBM Blockchain Platform, this is a file you would put together yourself using existing sample connection profiles available in the Hyperledger Fabric community. With the IBM Blockchain Platform, you can download a ready-made file from the IBM Blockchain Platform Console.
 
-**Step 6.1:** Select the **Smart contracts** icon from the icon palette on the left, scroll down to the *Instantiated smart contracts* section, click on the three dots to the right of `papercontract` and click **Connect with SDK**:
+**Step 6.1:** Select the **Organizations** icon from the icon palette on the left, then click the **Team*xx* Org1 MSP** tile, where *xx* is your two-digit team ID:
 
 ![image](images/ibpdeploy/ibpdeploy27.png)
 
-**Step 6.2.** In the *Connect with SDK* sidebar panel, you want to select the following (Remember to replace the `xx` below with your team number):
+**Step 6.2:** Click the blue **Create connection profile** button:
 
-* MSP for connection: `Teamxx Org1 MSP`
-* Certificate Authority: `TeamXX Org1 CA`
+![image](images/ibpdeploy/ibpdeploy275.png)
 
-And then click on the **Download connection profile** button at the bottom. You may need to scroll down in the sidebar panel to see this button. Use the file save dialog to save the profile under its default name of `teamxx-channel1_papercontract_profile.json` (where *xx* is your two-digit team ID). Keep track of where you saved this profile, as you will be using it in the next section. 
+**Step 6.3.** In the *Create connection profile* sidebar panel, select your **Team*xx* Org1 Peer**, where *xx* is your two-digit team ID, and click the blue **Download connection profile** button:
 
-Click the **Close** button to close the sidebar panel after you have downloaded the connection profile.
+![image](images/ibpdeploy/ibpdeploy278.png)
+
+Use the file save dialog to save the profile under its default name of `teamxxorg1msp_profile.json` (where *xx* is your two-digit team ID). Keep track of where you saved this profile, as you will be using it in the next section.
 
 ## Section 7: Create a new Gateway in VSCode IBM Blockchain Platform Extension
 
@@ -158,13 +148,13 @@ Now you can use that connection profile you just downloaded to create a new gate
 
 ![image](images/ibpdeploy/ibpdeploy32.png)
 
-**Step 8.4:** Type **isabella** as the name for the identity, and press **Enter**:
-
-![image](images/ibpdeploy/ibpdeploy33.png)
-
-**Step 8.5:** Type **team*xx*org1msp** as the MSPID, where *xx* is your two-digit team ID, and press **Enter**:
+**Step 8.4:** Type **team*xx*org1msp** as the MSPID, where *xx* is your two-digit team ID, and press **Enter**:
 
 ![image](images/ibpdeploy/ibpdeploy34.png)
+
+**Step 8.5:** Type **isabella** as the name for the identity, and press **Enter**:
+
+![image](images/ibpdeploy/ibpdeploy33.png)
 
 **Step 8.6:** Pick **Select a gateway and provide an enrollment ID and secret**:
 
@@ -251,4 +241,4 @@ Example:
 
 **Step 10.9:** OPTIONAL: you can submit additional transactions through VSCode, and watch the block height increase and look at the transaction in the IBM Blockchain Platform Console.
 
-Congratulations!! You've now successfully enrolled an application identity and used it to invoke transactions against a smart contract deployed to IBM Blockchain Platform v2.1.3!
+Congratulations!! You've now successfully enrolled an application identity and used it to invoke transactions against a smart contract deployed to IBM Blockchain Platform v2.5.0!
