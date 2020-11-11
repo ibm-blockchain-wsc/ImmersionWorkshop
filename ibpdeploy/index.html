@@ -13,7 +13,7 @@
     
     
       
-        <title>Part 2 - Deploy Smart Contract - Blockchain Immersion Workshop</title>
+        <title>Part 2 - Deploy a Smart Contract - Blockchain Immersion Workshop</title>
       
     
     
@@ -84,7 +84,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              Part 2 - Deploy Smart Contract
+              Part 2 - Deploy a Smart Contract
             
           </span>
         </div>
@@ -193,22 +193,48 @@
       
 
 
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Choose your own lab
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Choose your own lab" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        <span class="md-nav__icon md-icon"></span>
+        Choose your own lab
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../lab-intro/" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
   <li class="md-nav__item">
     <a href="../assignment/" class="md-nav__link">
       Skytap image assignments
     </a>
   </li>
 
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="../lab-intro/" class="md-nav__link">
-      Choose your own lab - introduction
-    </a>
+        
+      </ul>
+    </nav>
   </li>
 
     
@@ -221,19 +247,31 @@
 
   <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" checked>
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
     
-    <label class="md-nav__link" for="nav-4">
-      IBM Blockchain Platform v2.5.0 on Linux on IBM Z Lab
+    <label class="md-nav__link" for="nav-3">
+      Build your first network on Linux on IBM Z Lab
       <span class="md-nav__icon md-icon"></span>
     </label>
-    <nav class="md-nav" aria-label="IBM Blockchain Platform v2.5.0 on Linux on IBM Z Lab" data-md-level="1">
-      <label class="md-nav__title" for="nav-4">
+    <nav class="md-nav" aria-label="Build your first network on Linux on IBM Z Lab" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
         <span class="md-nav__icon md-icon"></span>
-        IBM Blockchain Platform v2.5.0 on Linux on IBM Z Lab
+        Build your first network on Linux on IBM Z Lab
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../console-urls/" class="md-nav__link">
+      IBM Blockchain Platform Console URL assignments
+    </a>
+  </li>
+
         
           
           
@@ -262,12 +300,12 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
-        Part 2 - Deploy Smart Contract
+        Part 2 - Deploy a Smart Contract
         <span class="md-nav__icon md-icon"></span>
       </label>
     
     <a href="./" class="md-nav__link md-nav__link--active">
-      Part 2 - Deploy Smart Contract
+      Part 2 - Deploy a Smart Contract
     </a>
     
       
@@ -484,20 +522,20 @@
                 
                 
                 <h1 id="ibm-blockchain-platform-v250-lab-part-2-deploying-a-smart-contract">IBM Blockchain Platform v2.5.0 Lab Part 2 - Deploying a Smart Contract<a class="headerlink" href="#ibm-blockchain-platform-v250-lab-part-2-deploying-a-smart-contract" title="Permanent link">&para;</a></h1>
-<p>This lab will walk you through deploying the smart contract that you worked with from the VSCode labs: namely, <code>commercial-paper</code>. This lab assumes that you have successfully completed the <a href="../ibpconsole/">IBM Blockchain Platform v2.5.0 Lab Part 1 - Create a Blockchain Network</a>. If you have not completed part 1, you must do so before continuing with this lab.</p>
+<p>This lab will walk you through deploying a smart contract called <em>commercial-paper</em> that is supplied as a sample by the Hyperledger Fabric project. This lab assumes that you have successfully completed the <a href="../ibpconsole/">IBM Blockchain Platform v2.5.0 Lab Part 1 - Create a Blockchain Network</a>. If you have not completed part 1, you must do so before continuing with this lab.</p>
 <h2 id="section-1-download-the-commercial-paper-smart-contract-package">Section 1: Download the Commercial Paper Smart Contract package<a class="headerlink" href="#section-1-download-the-commercial-paper-smart-contract-package" title="Permanent link">&para;</a></h2>
 <p><strong>Step 1.1:</strong> You need to download the .cds package from here: <a href="../files/papercontract%400.0.4.cds">commercial-paper</a>. If you are not prompted for a location in which to save it, then your browser is probably saving it at a default location, which is probably <code>/home/blockchain/Downloads</code>.</p>
 <h2 id="section-2-install-commercial-paper-contract-to-your-blockchain-network">Section 2: Install Commercial Paper Contract to your Blockchain Network<a class="headerlink" href="#section-2-install-commercial-paper-contract-to-your-blockchain-network" title="Permanent link">&para;</a></h2>
-<p><strong>Step 2.1:</strong> Click on the <em>Smart Contracts</em> icon in the icon palette on the left, and in the <em>Smart contracts</em> panel, click the blue <strong>Install Smart Contract</strong> button:</p>
+<p><strong>Step 2.1:</strong> Click on the <em>Smart Contracts</em> icon in the icon palette on the left, and in the <em>Smart contracts</em> panel, click the blue <strong>Install smart contract</strong> button:</p>
 <p><img alt="image" src="../images/ibpdeploy/ibpdeploy5.png" /></p>
-<p><strong>Step 2.2:</strong> In the <em>(Step 1 of 2) Install Smart Contract</em> side panel, using the blue <strong>Add File</strong> button, upload the <code>papercontract@0.0.4.cds</code> package (from the location <code>/home/blockchain/Downloads</code> or from wherever you saved it), and click the <strong>Next</strong> button. The screenshot that follows shows that the name and version of the smart contract have replaced the <em>Add File</em> button:</p>
+<p><strong>Step 2.2:</strong> In the <em>(Step 1 of 2) Install smart contract</em> side panel, using the blue <strong>Add File</strong> button, upload the <code>papercontract@0.0.4.cds</code> package (from the location <code>/home/blockchain/Downloads</code> or from wherever you saved it), and click the <strong>Next</strong> button. The screenshot that follows shows that the name and version of the smart contract have replaced the <em>Add File</em> button:</p>
 <p><img alt="image" src="../images/ibpdeploy/ibpdeploy6.png" /></p>
-<p><strong>Step 2.3:</strong> Now select both peers (ensure each has a check mark to the right of it) and click the <strong>Install Smart Contract</strong> button. Note that in this lab we are installing to peers from two separate organizations. In most "real world" situations, the smart contract would be shared with members of the blockchain network, in a private Github repo or through some other means, and each organization would install the smart contract to its own peers through its own console.</p>
+<p><strong>Step 2.3:</strong> Now select both peers (ensure each has a check mark to the right of it) and click the <strong>Install smart contract</strong> button. Note that in this lab we are installing to peers from two separate organizations. In most "real world" situations, the smart contract would be shared with members of the blockchain network, in a private Github repo or through some other means, and each organization would install the smart contract to its own peers through its own console.</p>
 <p><img alt="image" src="../images/ibpdeploy/ibpdeploy7.png" /></p>
-<p><strong>Step 2.4:</strong> Now, you should see <code>papercontract</code> appear in the <em>Installed Smart Contracts</em> section of the <em>Smart Contracts</em> screen:</p>
+<p><strong>Step 2.4:</strong> Now, you should see <code>papercontract</code> appear in the <em>Installed smart contracts</em> section of the <em>Smart contracts</em> screen:</p>
 <p><img alt="image" src="../images/ibpdeploy/ibpdeploy8.png" /></p>
 <h2 id="section-3-instantiate-paper-contract">Section 3: Instantiate Paper Contract<a class="headerlink" href="#section-3-instantiate-paper-contract" title="Permanent link">&para;</a></h2>
-<p><strong>Step 3.1:</strong> From the <em>Installed Smart Contracts</em> section of the <em>Smart Contracts</em>  panel, select the three dots to the right of <code>papercontract</code> and select <strong>Instantiate</strong>:</p>
+<p><strong>Step 3.1:</strong> From the <em>Installed smart contracts</em> section of the <em>Smart contracts</em>  panel, select the three dots to the right of <code>papercontract</code> and select <strong>Instantiate</strong>:</p>
 <p><img alt="image" src="../images/ibpdeploy/ibpdeploy16.png" /></p>
 <p><strong>Step 3.2:</strong> In the <em>Instantiate smart contract (Step 1 of 5)</em> sidebar panel, select <strong>team<em>xx</em>-channel1</strong>, where <em>xx</em> is your two-digit team ID, in the <em>Channel</em> field and click the <strong>Next</strong> button:</p>
 <p><img alt="image" src="../images/ibpdeploy/ibpdeploy11.png" /></p>
@@ -575,8 +613,8 @@
 <p><img alt="image" src="../images/ibpdeploy/ibpdeploy28.png" /></p>
 <p><strong>Step 7.2:</strong> Then in the popup window at the top of VSCode, select <strong>Create a gateway from a connection profile</strong>:</p>
 <p><img alt="image" src="../images/ibpdeploy/ibpdeploy29.png" /></p>
-<p><strong>Step 7.3:</strong> Next you will be asked to enter the name of the gateway. Type <strong>team<em>xx</em>-ibp</strong>, remembering to replace <em>xx</em> with your team number, and press <strong>Enter</strong>. </p>
-<p><strong>Step 7.4:</strong> Finally, you will be asked to browse to the connection profile that you downloaded from <em>Section 6</em>. Browse to it, and select <strong>Open</strong>. </p>
+<p><strong>Step 7.3:</strong> Next you will be asked to enter the name of the gateway. Type <strong>team<em>xx</em>-ibp</strong>, remembering to replace <em>xx</em> with your team number, and press <strong>Enter</strong>.</p>
+<p><strong>Step 7.4:</strong> Finally, you will be asked to browse to the connection profile that you downloaded from <em>Section 6</em>. Browse to it, and click <strong>Select</strong>.</p>
 <p><strong>Step 7.5:</strong> Upon success, you will see <em>team</em><em>xx</em><em>-ibp</em>, where <em>xx</em> is your two-digit team ID, show up in the <em>Fabric Gateways</em> panel as follows:</p>
 <p><img alt="image" src="../images/ibpdeploy/ibpdeploy_gateway.png" /></p>
 <h2 id="section-8-create-a-new-wallet-and-identity-in-vscode-ibm-blockchain-platform-extension">Section 8: Create a new wallet and identity in VSCode IBM Blockchain Platform Extension<a class="headerlink" href="#section-8-create-a-new-wallet-and-identity-in-vscode-ibm-blockchain-platform-extension" title="Permanent link">&para;</a></h2>
@@ -588,10 +626,10 @@
 <p><img alt="image" src="../images/ibpdeploy/ibpdeploy32.png" /></p>
 <p><strong>Step 8.4:</strong> Type <strong>team<em>xx</em>org1msp</strong> as the MSPID, where <em>xx</em> is your two-digit team ID, and press <strong>Enter</strong>:</p>
 <p><img alt="image" src="../images/ibpdeploy/ibpdeploy34.png" /></p>
-<p><strong>Step 8.5:</strong> Type <strong>isabella</strong> as the name for the identity, and press <strong>Enter</strong>:</p>
-<p><img alt="image" src="../images/ibpdeploy/ibpdeploy33.png" /></p>
-<p><strong>Step 8.6:</strong> Pick <strong>Select a gateway and provide an enrollment ID and secret</strong>:</p>
+<p><strong>Step 8.5:</strong> Pick <strong>Select a gateway and provide an enrollment ID and secret</strong>:</p>
 <p><img alt="image" src="../images/ibpdeploy/ibpdeploy36.png" /></p>
+<p><strong>Step 8.6:</strong> Type <strong>isabella</strong> as the name for the identity, and press <strong>Enter</strong>:</p>
+<p><img alt="image" src="../images/ibpdeploy/ibpdeploy33.png" /></p>
 <p><strong>Step 8.7:</strong> Choose <strong>team<em>xx</em>-ibp</strong> as the gateway you want to enroll and identity with, where <em>xx</em> is your two-digit team ID:</p>
 <p><img alt="image" src="../images/ibpdeploy/ibpdeploy37.png" /></p>
 <p><strong>Step 8.8:</strong> Type <strong>app-dev</strong> as the enrollment ID and press <strong>Enter</strong>:</p>
@@ -619,7 +657,7 @@
 <p><img alt="image" src="../images/ibpdeploy/ibpdeploy44.png" /></p>
 <p><strong>Step 10.3:</strong> Press <strong>Enter</strong> on the transient data popup window.</p>
 <div class="admonition note">
-<p class="admonition-title">Read this if your transaction timed out<p>This step may take several minutes. When you <em>instantiated</em> the smart contract in <em>Section 3</em>, it built a Docker image for the smart contract on only one peer, the peer on which you chose to run the instantiate proposal (see <em>Step 3.4</em>).  The Docker image for the other peer will be built on first use, and this transaction may time out. If it does, simply run steps <em>10.1</em> through <em>10.3</em> again, and it should succeed this time. </p>
+<p class="admonition-title">Read this if your transaction timed out<p>This step may take several minutes. When you <em>instantiated</em> the smart contract in <em>Section 3</em>, it built a Docker image for the smart contract on only one peer, the peer on which you chose to run the instantiate proposal (see <em>Step 3.4</em>).  The Docker image for the other peer will be built on first use, and this transaction may time out. If it does, simply run steps <em>10.1</em> through <em>10.3</em> again, and it should succeed this time.</p>
 </p>
 </div>
 <p><strong>Step 10.4:</strong> Upon success you will see the results from the issue transaction in the <em>OUTPUT</em> panel in VSCode, similar to what is shown here:</p>

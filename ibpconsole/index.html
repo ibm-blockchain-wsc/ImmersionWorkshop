@@ -193,22 +193,48 @@
       
 
 
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Choose your own lab
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Choose your own lab" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        <span class="md-nav__icon md-icon"></span>
+        Choose your own lab
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../lab-intro/" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
   <li class="md-nav__item">
     <a href="../assignment/" class="md-nav__link">
       Skytap image assignments
     </a>
   </li>
 
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="../lab-intro/" class="md-nav__link">
-      Choose your own lab - introduction
-    </a>
+        
+      </ul>
+    </nav>
   </li>
 
     
@@ -221,19 +247,31 @@
 
   <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" checked>
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
     
-    <label class="md-nav__link" for="nav-4">
-      IBM Blockchain Platform v2.5.0 on Linux on IBM Z Lab
+    <label class="md-nav__link" for="nav-3">
+      Build your first network on Linux on IBM Z Lab
       <span class="md-nav__icon md-icon"></span>
     </label>
-    <nav class="md-nav" aria-label="IBM Blockchain Platform v2.5.0 on Linux on IBM Z Lab" data-md-level="1">
-      <label class="md-nav__title" for="nav-4">
+    <nav class="md-nav" aria-label="Build your first network on Linux on IBM Z Lab" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
         <span class="md-nav__icon md-icon"></span>
-        IBM Blockchain Platform v2.5.0 on Linux on IBM Z Lab
+        Build your first network on Linux on IBM Z Lab
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../console-urls/" class="md-nav__link">
+      IBM Blockchain Platform Console URL assignments
+    </a>
+  </li>
+
         
           
           
@@ -425,7 +463,7 @@
 
   <li class="md-nav__item">
     <a href="../ibpdeploy/" class="md-nav__link">
-      Part 2 - Deploy Smart Contract
+      Part 2 - Deploy a Smart Contract
     </a>
   </li>
 
@@ -637,7 +675,7 @@ Then you will create a second peer organization, and add it to the channel.</p>
 <p>The diagram below provides a view of what your blockchain network will look like upon completion of the lab:</p>
 <p><img alt="image" src="../images/ibpconsole/0005_LabGoal.png" /></p>
 <div class="admonition important">
-<p class="admonition-title">Important<p>You will be assigned a two-digit team ID by your instructor, and everywhere in this lab where you see <em><em>Team</em>xx</em> ** in the instructions, you must substitute <em>xx</em> with the two-digit id you have been assigned.</p>
+<p class="admonition-title">Important<p>You will be assigned a two-digit team ID by your instructor, and everywhere in this lab where you see <em><em>Team</em>xx</em> ** in the instructions, you must substitute <em>xx</em> with the two-digit id you have been assigned. Look for your two-digit id (and your IBM Blockchain Platform Console URL for <em>Step 2.1</em>) <a href="../console-urls/" target="_new">here</a>.</p>
 </p>
 </div>
 <p>The sections in this lab are as follows:</p>
@@ -668,7 +706,7 @@ Then you will create a second peer organization, and add it to the channel.</p>
 <p class="admonition-title">Important<p>The lab environment is using self-signed SSL certificates and your browser will not trust them without explicit action on your part so part of this initial section on logging in involves establishing this trust. You will first need to go to the URL address provided by your instructor.</p>
 </p>
 </div>
-<p><strong>Step 2.1:</strong> Open a new tab in your Firefox browser window and enter the unique URL for your IBM Blockchain Platform console. This URL will be provided to you by your instructor. </p>
+<p><strong>Step 2.1:</strong> Open a new tab in your Firefox browser window and enter the unique URL for your IBM Blockchain Platform console. This URL will be provided to you by your instructor.</p>
 <div class="admonition note">
 <p class="admonition-title">Note<p>Your URL will be similar to <em><a href="https://workshop-00-ibp-console-console.apps.atsocpd3.dmz:443">https://workshop-00-ibp-console-console.apps.atsocpd3.dmz:443</a></em>, but this is just an example, so make sure you use the actual URL given to you by your instructor!</p>
 </p>
@@ -1191,6 +1229,10 @@ In about a minute, the box in the upper right should turn green, indicating that
 <p><strong>Step 8.3:</strong> You should now see the <em>admin</em> userid in the list of registered users. This userid is intended to be used by a person acting as the <em>registrar</em> of this Certificate Authority.  Next you will create a userid for use by a person who will be the blockchain network administrator for the organization. Click the <strong>Register user</strong> button on the right side of the screen:</p>
 <p><img alt="image" src="../images/ibpconsole/0130_AddUsers.png" /></p>
 <p><strong>Step 8.4:</strong> In the <em>Step 1 of 2</em> panel, fill it out as guided by the following table, and then click the blue <strong>Next</strong> button:</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>It is <strong>critical</strong> that you change the value of the <em>Type</em> field from <em>client</em> to <em>admin</em> for this userid!</p>
+</div>
 <table>
 <thead>
 <tr>
@@ -1418,7 +1460,7 @@ fill out the three fields beneath this in accordance with the below table, and t
 <p><img alt="image" src="../images/ibpconsole/0620_AddOrdererSidebar3.png" /></p>
 <p><strong>Step 10.5:</strong> On the <em>Associate Identity</em> screen, select <strong>Team<em>xx</em> Ordering Service MSP Admin</strong>, where <em>xx</em> is your two-digit team ID, for the <em>Orderer administrator identity</em> field, and click <strong>Next</strong>:</p>
 <p><img alt="image" src="../images/ibpconsole/0650_AddOrdererSidebar6.png" /></p>
-<p><strong>Step 10.6:</strong> The <em>Summary</em> panel provides a review of the values you entered or selected in the prior panels. You may need to scroll down to see all of the values. The values you entered should match up with the table below. If not, use the <strong>Back</strong> button as necessary to correct your entries.  The table below shows the expected value (where <em>xx</em> is your two-digit team ID) and which of the seven panels in the <em>Add ordering service</em> flow was used to set this value:</p>
+<p><strong>Step 10.6:</strong> The <em>Summary</em> panel provides a review of the values you entered or selected in the prior panels. You may need to scroll down to see all of the values. The values you entered should match up with the table below. If not, use the <strong>Back</strong> button as necessary to correct your entries.  The table below shows the expected value (where <em>xx</em> is your two-digit team ID) and which of the five panels in the <em>Add ordering service</em> flow was used to set this value:</p>
 <table>
 <thead>
 <tr>
@@ -1551,7 +1593,7 @@ It can take a minute or two on our lab system for the ordering service to come u
 </tr>
 <tr>
 <td>Organizations</td>
-<td><em><em>team</em>xx</em>org1msp</td>
+<td><strong>team<em>xx</em>org1msp</strong></td>
 </tr>
 <tr>
 <td>Policy</td>
@@ -1674,6 +1716,10 @@ In about a minute, the box in the upper right should turn green, indicating that
 <p><strong>Step 15.3:</strong> You should now see the <em>admin</em> userid in the list of registered users. This userid is intended to be used by a person acting as the <em>registrar</em> of this Certificate Authority.  Next you will create a userid for use by a person who will be the blockchain network administrator for the organization. Click the <strong>Register user</strong> button on the right side of the screen:</p>
 <p><img alt="image" src="../images/ibpconsole/0130_AddUsers.png" /></p>
 <p><strong>Step 15.4:</strong> In the <em>Step 1 of 2</em> panel, fill it out as guided by the following table, and then click the blue <strong>Next</strong> button:</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>It is <strong>critical</strong> that you change the value of the <em>Type</em> field from <em>client</em> to <em>admin</em> for this userid!</p>
+</div>
 <table>
 <thead>
 <tr>
@@ -1888,7 +1934,7 @@ fill out the three fields beneath this in accordance with the below table, and t
 </tbody>
 </table>
 <p><strong>Step 17.5:</strong> On the <em>Associate Identity</em> screen, select <strong>Team<em>xx</em> Org2 MSP Admin</strong>, where <em>xx</em> is your two-digit team ID, for the <em>Peer administrator identity</em> field, and click <strong>Next</strong>.</p>
-<p><strong>Step 17.6:</strong> The <em>Summary</em> panel provides a review of the values you entered or selected in the prior panels. You may need to scroll down to see all of the values. The values you entered should match up with the table below. If not, use the <strong>Back</strong> button as necessary to correct your entries.  The table below shows the expected value (where <em>xx</em> is your two-digit team ID) and which of the seven panels in the <em>Add Peer</em> flow was used to set this value:</p>
+<p><strong>Step 17.6:</strong> The <em>Summary</em> panel provides a review of the values you entered or selected in the prior panels. You may need to scroll down to see all of the values. The values you entered should match up with the table below. If not, use the <strong>Back</strong> button as necessary to correct your entries.  The table below shows the expected value (where <em>xx</em> is your two-digit team ID) and which of the five panels in the <em>Add Peer</em> flow was used to set this value:</p>
 <table>
 <thead>
 <tr>
@@ -2088,7 +2134,7 @@ It can take a minute or two on our lab system for the peer to come up completely
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../lab-intro/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../console-urls/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
@@ -2097,7 +2143,7 @@ It can take a minute or two on our lab system for the peer to come up completely
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Choose your own lab - introduction
+                IBM Blockchain Platform Console URL assignments
               </div>
             </div>
           </a>
@@ -2109,7 +2155,7 @@ It can take a minute or two on our lab system for the peer to come up completely
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Part 2 - Deploy Smart Contract
+                Part 2 - Deploy a Smart Contract
               </div>
             </div>
             <div class="md-footer-nav__button md-icon">
