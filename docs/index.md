@@ -1,36 +1,25 @@
 # Blockchain Immersion Wildfire Workshop
 Welcome! This virtual workshop combines lectures and hands-on labs to teach you the fundamentals of blockchain for business. We provide an overview of Enterprise Blockchain that is based on the open source framework called Hyperledger Fabric. You have the opportunity to go through labs from a blockchain developer perspective and a blockchain network operator perspective. Additionally, you will learn about the IBM-specific offerings that leverage Hyperledger Fabric, and how our unique combination of expertise, governance and operations tooling, and infrastructure capabilities with Linux on Z can help you achieve business results faster and more securely.
 
-## Agenda
+## November 12 Workshop Agenda
 
-### April 21
-*  Workshop Kickoff and Introductions
-* [Introduction to Enterprise Blockchain](files/BlockchainExplainedVirtual.pdf)
-* [Demo: Vehicle Lifecycle Demo](files/Vehicle_Lifecycle_Demo.pdf)
-* [Vehicle Lifecycle Github Repo](https://github.com/IBM-Blockchain/vehicle-manufacture)
-* [Demo: IMMUNIChain Introduction](immunichain-home.md) 
-* [IMMUNIChain Walk-through](immunichain.md) 
-* [Blockchain Use Cases](files/BlockchainUseCasesVirtual.pdf)
+### Lectures
+* 11am EST - Workshop Kickoff and Introductions
+* 11:05am  - Introduction to Enterprise Blockchain
+* 11:35am - Application Demo and Use Case Discussion
+* 5 min virtual break
+* 12:10pm - Introduction to IBM Blockchain Platform and LinuxONE
+* 12:40pm - Orchestrating IBM Blockchain Platform for Agility with Red Hat OpenShift Container Platform
 
-### April 22
-* [Developer lab kickoff](files/UsingIBMBlockchainPlatform.pdf)
-* [Lab: Developer Journey Part 1 - Create Smart Contract Package](files/IBP_Lab1.pdf)
-* [Lab: Developer Journey Part 2 - Using an Existing Contract](files/IBP_Lab2.pdf)
-* [Lab: Developer Journey Part 3 - Commercial Paper](files/IBP_Lab3.pdf)
-* [Lab errata and notes](lab-errata.md)
+### Choose your own Labs
+* 1:15pm [Lab kickoff](lab-intro.md)
+* Developer Journey, "Series A"
+* Join A Network, "Series B"
+* Build your first network
+* [IBM MQ Bridge for Blockchain](files/IBP_MQ_Bridge_Lab.pdf)
 
-### April 23
-* [IBM Blockchain Platform and LinuxONE](files/BlockchainPlatform.pdf)
-* [Kubernetes Explained](files/Kubernetes_Explained_Woodworth.pdf)
-* [Next Steps](files/BlockchainNextSteps_PR.pdf)
 
-### April 24
-* [IBM Blockchain Platform lab kickoff](friday-lab-prep.md)
-
-[//]: # (* [IBM Blockchain Platform Console URL assignments](console-urls.md))
-
-* [Lab: IBM Blockchain Platform Part 1 - Deploy Network](ibpconsole.md)
-* [Lab: IBM Blockchain Platform Part 2 - Deploy Smart Contract](ibpdeploy.md)
+* [IBM Blockchain Platform Console URL assignments](console-urls.md)
 
 ## Acknowledgements
 
