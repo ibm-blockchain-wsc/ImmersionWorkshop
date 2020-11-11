@@ -192,19 +192,31 @@
       
       
 
+
+  <li class="md-nav__item">
+    <a href="../assignment/" class="md-nav__link">
+      Skytap image assignments
+    </a>
+  </li>
+
+    
+      
+      
+      
+
   
 
 
   <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
     
-    <label class="md-nav__link" for="nav-2">
+    <label class="md-nav__link" for="nav-3">
       IBM Blockchain Platform v2.5.0 on Linux on IBM Z Lab
       <span class="md-nav__icon md-icon"></span>
     </label>
     <nav class="md-nav" aria-label="IBM Blockchain Platform v2.5.0 on Linux on IBM Z Lab" data-md-level="1">
-      <label class="md-nav__title" for="nav-2">
+      <label class="md-nav__title" for="nav-3">
         <span class="md-nav__icon md-icon"></span>
         IBM Blockchain Platform v2.5.0 on Linux on IBM Z Lab
       </label>
@@ -459,11 +471,11 @@
               
                 
                 
-                <h1 id="ibm-blockchain-platform-v250-lab-part-2-deploying-a-smart-contract">IBM Blockchain Platform v2.5.0 Lab Part 2 - Deploying a Smart Contract</h1>
+                <h1 id="ibm-blockchain-platform-v250-lab-part-2-deploying-a-smart-contract">IBM Blockchain Platform v2.5.0 Lab Part 2 - Deploying a Smart Contract<a class="headerlink" href="#ibm-blockchain-platform-v250-lab-part-2-deploying-a-smart-contract" title="Permanent link">&para;</a></h1>
 <p>This lab will walk you through deploying the smart contract that you worked with from the VSCode labs: namely, <code>commercial-paper</code>. This lab assumes that you have successfully completed the <a href="../ibpconsole/">IBM Blockchain Platform v2.5.0 Lab Part 1 - Create a Blockchain Network</a>. If you have not completed part 1, you must do so before continuing with this lab.</p>
-<h2 id="section-1-download-the-commercial-paper-smart-contract-package">Section 1: Download the Commercial Paper Smart Contract package</h2>
+<h2 id="section-1-download-the-commercial-paper-smart-contract-package">Section 1: Download the Commercial Paper Smart Contract package<a class="headerlink" href="#section-1-download-the-commercial-paper-smart-contract-package" title="Permanent link">&para;</a></h2>
 <p><strong>Step 1.1:</strong> You need to download the .cds package from here: <a href="../files/papercontract%400.0.4.cds">commercial-paper</a>. If you are not prompted for a location in which to save it, then your browser is probably saving it at a default location, which is probably <code>/home/blockchain/Downloads</code>.</p>
-<h2 id="section-2-install-commercial-paper-contract-to-your-blockchain-network">Section 2: Install Commercial Paper Contract to your Blockchain Network</h2>
+<h2 id="section-2-install-commercial-paper-contract-to-your-blockchain-network">Section 2: Install Commercial Paper Contract to your Blockchain Network<a class="headerlink" href="#section-2-install-commercial-paper-contract-to-your-blockchain-network" title="Permanent link">&para;</a></h2>
 <p><strong>Step 2.1:</strong> Click on the <em>Smart Contracts</em> icon in the icon palette on the left, and in the <em>Smart contracts</em> panel, click the blue <strong>Install Smart Contract</strong> button:</p>
 <p><img alt="image" src="../images/ibpdeploy/ibpdeploy5.png" /></p>
 <p><strong>Step 2.2:</strong> In the <em>(Step 1 of 2) Install Smart Contract</em> side panel, using the blue <strong>Add File</strong> button, upload the <code>papercontract@0.0.4.cds</code> package (from the location <code>/home/blockchain/Downloads</code> or from wherever you saved it), and click the <strong>Next</strong> button. The screenshot that follows shows that the name and version of the smart contract have replaced the <em>Add File</em> button:</p>
@@ -472,7 +484,7 @@
 <p><img alt="image" src="../images/ibpdeploy/ibpdeploy7.png" /></p>
 <p><strong>Step 2.4:</strong> Now, you should see <code>papercontract</code> appear in the <em>Installed Smart Contracts</em> section of the <em>Smart Contracts</em> screen:</p>
 <p><img alt="image" src="../images/ibpdeploy/ibpdeploy8.png" /></p>
-<h2 id="section-3-instantiate-paper-contract">Section 3: Instantiate Paper Contract</h2>
+<h2 id="section-3-instantiate-paper-contract">Section 3: Instantiate Paper Contract<a class="headerlink" href="#section-3-instantiate-paper-contract" title="Permanent link">&para;</a></h2>
 <p><strong>Step 3.1:</strong> From the <em>Installed Smart Contracts</em> section of the <em>Smart Contracts</em>  panel, select the three dots to the right of <code>papercontract</code> and select <strong>Instantiate</strong>:</p>
 <p><img alt="image" src="../images/ibpdeploy/ibpdeploy16.png" /></p>
 <p><strong>Step 3.2:</strong> In the <em>Instantiate smart contract (Step 1 of 5)</em> sidebar panel, select <strong>team<em>xx</em>-channel1</strong>, where <em>xx</em> is your two-digit team ID, in the <em>Channel</em> field and click the <strong>Next</strong> button:</p>
@@ -492,7 +504,7 @@
 </p>
 </div>
 <p>Now that you have the smart contract instantiated on the channel, you are ready to move on to the next step.</p>
-<h2 id="section-4-register-client-user-for-teamxx-org1">Section 4: Register client user for TeamXX Org1</h2>
+<h2 id="section-4-register-client-user-for-teamxx-org1">Section 4: Register client user for TeamXX Org1<a class="headerlink" href="#section-4-register-client-user-for-teamxx-org1" title="Permanent link">&para;</a></h2>
 <p>Now you need to register a client user to use to enroll application identities for Org1. In real life, as the blockchain network administrator for your organization, you might want to register a distinct client user for each business application that has a need to access the smart contract. In this case, the same client user is used to enroll a number of application identities. Another development pattern is to register a distinct client user for each distinct application identity. You can register a client user through the Fabric application SDK as well, though that is not covered in this lab.</p>
 <p><strong>Step 4.1:</strong> Go to the <em>Nodes</em> view on your IBM Blockchain Platform Console, and navigate to the <em>Certificate Authorities</em> section. Then select <strong>Team<em>xx</em> Org1 CA</strong>, where <em>xx</em> is your two-digit team ID:</p>
 <p><img alt="image" src="../images/ibpdeploy/ibpdeploy18.png" /></p>
@@ -528,11 +540,11 @@
 <p><strong>Step 4.4:</strong> In the <em>Register User (Step 2 of 2)</em> sidebar panel, just click the <strong>Register user</strong> button.</p>
 <p><strong>Step 4.5:</strong> Now you should see the <code>app-dev</code> user you added show up under <em>Registered users</em>:</p>
 <p><img alt="image" src="../images/ibpdeploy/ibpdeploy22.png" /></p>
-<h2 id="section-5-register-client-user-for-teamxx-org2-optional">Section 5: Register client user for TeamXX Org2 (Optional)</h2>
+<h2 id="section-5-register-client-user-for-teamxx-org2-optional">Section 5: Register client user for TeamXX Org2 (Optional)<a class="headerlink" href="#section-5-register-client-user-for-teamxx-org2-optional" title="Permanent link">&para;</a></h2>
 <p>Now we will register a client user for enrolling application identities for Org2. This section is optional. In the sections that follow, you will only connect directly to Org1's peer. You will only need to register a client user for Org2 if you wish to connect to go above and beyond the steps in this lab and try connecting directly to Org2's peer.</p>
 <p><strong>Step 5.1:</strong> Go to the <em>Nodes</em> view on your IBM Blockchain Platform Console, and navigate to the <em>Certificate Authorities</em> section. Then select <strong>Team<em>xx</em> Org2 CA</strong>, where <em>xx</em> is your two-digit team ID.</p>
 <p><strong>Step 5.2.</strong> Follow the same steps from <em>Section 4, Steps 4.2-4.5</em> in order to register a client user, also named <em>app-dev</em>, for Org2.</p>
-<h2 id="section-6-download-the-connection-profile-to-connect-to-teamxx-org1-peer">Section 6: Download the connection profile to connect to TeamXX Org1 Peer</h2>
+<h2 id="section-6-download-the-connection-profile-to-connect-to-teamxx-org1-peer">Section 6: Download the connection profile to connect to TeamXX Org1 Peer<a class="headerlink" href="#section-6-download-the-connection-profile-to-connect-to-teamxx-org1-peer" title="Permanent link">&para;</a></h2>
 <p>The connection profile is a JSON file that describes all the connection endpoints, MSP information, channel information and certificate information required to connect to your organization's peer. A client application wishing to invoke transactions against a smart contract would require this file to obtain the necessary information needed to make that connection. Without IBM Blockchain Platform, this is a file you would put together yourself using existing sample connection profiles available in the Hyperledger Fabric community. With the IBM Blockchain Platform, you can download a ready-made file from the IBM Blockchain Platform Console.</p>
 <p><strong>Step 6.1:</strong> Select the <strong>Organizations</strong> icon from the icon palette on the left, then click the <strong>Team<em>xx</em> Org1 MSP</strong> tile, where <em>xx</em> is your two-digit team ID:</p>
 <p><img alt="image" src="../images/ibpdeploy/ibpdeploy27.png" /></p>
@@ -541,7 +553,7 @@
 <p><strong>Step 6.3.</strong> In the <em>Create connection profile</em> sidebar panel, select your <strong>Team<em>xx</em> Org1 Peer</strong>, where <em>xx</em> is your two-digit team ID, and click the blue <strong>Download connection profile</strong> button:</p>
 <p><img alt="image" src="../images/ibpdeploy/ibpdeploy278.png" /></p>
 <p>Use the file save dialog to save the profile under its default name of <code>teamxxorg1msp_profile.json</code> (where <em>xx</em> is your two-digit team ID). Keep track of where you saved this profile, as you will be using it in the next section.</p>
-<h2 id="section-7-create-a-new-gateway-in-vscode-ibm-blockchain-platform-extension">Section 7: Create a new Gateway in VSCode IBM Blockchain Platform Extension</h2>
+<h2 id="section-7-create-a-new-gateway-in-vscode-ibm-blockchain-platform-extension">Section 7: Create a new Gateway in VSCode IBM Blockchain Platform Extension<a class="headerlink" href="#section-7-create-a-new-gateway-in-vscode-ibm-blockchain-platform-extension" title="Permanent link">&para;</a></h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>You will be using the IBM Blockchain Platform VSCode extension for the next few sections but leave your Firefox browser tab for the IBM Blockchain Platform Console open (you can minimize your browser window if you'd like) as you will be going back to it in the latter half of <em>Section 10</em>.</p>
@@ -555,7 +567,7 @@
 <p><strong>Step 7.4:</strong> Finally, you will be asked to browse to the connection profile that you downloaded from <em>Section 6</em>. Browse to it, and select <strong>Open</strong>. </p>
 <p><strong>Step 7.5:</strong> Upon success, you will see <em>team</em><em>xx</em><em>-ibp</em>, where <em>xx</em> is your two-digit team ID, show up in the <em>Fabric Gateways</em> panel as follows:</p>
 <p><img alt="image" src="../images/ibpdeploy/ibpdeploy_gateway.png" /></p>
-<h2 id="section-8-create-a-new-wallet-and-identity-in-vscode-ibm-blockchain-platform-extension">Section 8: Create a new wallet and identity in VSCode IBM Blockchain Platform Extension</h2>
+<h2 id="section-8-create-a-new-wallet-and-identity-in-vscode-ibm-blockchain-platform-extension">Section 8: Create a new wallet and identity in VSCode IBM Blockchain Platform Extension<a class="headerlink" href="#section-8-create-a-new-wallet-and-identity-in-vscode-ibm-blockchain-platform-extension" title="Permanent link">&para;</a></h2>
 <p><strong>Step 8.1:</strong> In the VSCode IBM Blockchain Platform view, click on the <code>+</code> in the <code>Fabric Wallets</code> panel:</p>
 <p><img alt="image" src="../images/ibpdeploy/ibpdeploy30.png" /></p>
 <p><strong>Step 8.2.</strong> Select <strong>create a new wallet and add an identity</strong> in the popup window:</p>
@@ -576,7 +588,7 @@
 <p><img alt="image" src="../images/ibpdeploy/ibpdeploy38.png" /></p>
 <p><strong>Step 8.10:</strong> Upon success you will see the new wallet and identity in the <em>Fabric Wallets</em> panel:</p>
 <p><img alt="image" src="../images/ibpdeploy/ibpdeploy39.png" /></p>
-<h2 id="section-9-connect-to-the-teamxx-ibp-gateway">Section 9: Connect to the teamxx-ibp gateway</h2>
+<h2 id="section-9-connect-to-the-teamxx-ibp-gateway">Section 9: Connect to the teamxx-ibp gateway<a class="headerlink" href="#section-9-connect-to-the-teamxx-ibp-gateway" title="Permanent link">&para;</a></h2>
 <p>Now that you have created a wallet and enrolled an ID and password, you are ready to connect to the <em>teamxx-ibp</em> gateway.</p>
 <p><strong>Step 9.1:</strong> Click on <strong>team<em>xx</em>-ibp</strong>, in the <em>Fabric Gateways</em> panel, where <em>xx</em> is your two-digit team ID:</p>
 <p><img alt="image" src="../images/ibpdeploy/ibpdeploy40.png" /></p>
@@ -584,13 +596,13 @@
 <p><img alt="image" src="../images/ibpdeploy/ibpdeploy41.png" /></p>
 <p><strong>Step 9.3:</strong> Upon success, you will also see your new gateway represented in the <em>Fabric Gateways</em> panel. Expand the twisties until you see your <code>papercontract</code> transactions:</p>
 <p><img alt="image" src="../images/ibpdeploy/ibpdeploy42.png" /></p>
-<h2 id="section-10-issue-a-transaction-to-test-the-connection">Section 10: Issue a transaction to test the connection</h2>
+<h2 id="section-10-issue-a-transaction-to-test-the-connection">Section 10: Issue a transaction to test the connection<a class="headerlink" href="#section-10-issue-a-transaction-to-test-the-connection" title="Permanent link">&para;</a></h2>
 <p>Now we are ready to submit a test transaction.</p>
 <p><strong>Step 10.1:</strong> From the <em>Fabric Gateways</em> panel, expand into the <code>papercontract@0.0.4</code> contract, right-click on the <strong>issue</strong> transaction and select <strong>Submit Transaction</strong>:</p>
 <p><img alt="image" src="../images/ibpdeploy/ibpdeploy43.png" /></p>
 <p><strong>Step 10.2:</strong> Copy and paste the following inside the brackets as the argument, and then press <strong>Enter</strong>:</p>
-<pre><code>&quot;MagnetoCorp&quot;,&quot;00002&quot;,&quot;2020-07-31&quot;,&quot;2020-12-31&quot;,&quot;6000000&quot;
-</code></pre>
+<div class="highlight"><pre><span></span><code>&quot;MagnetoCorp&quot;,&quot;00002&quot;,&quot;2020-07-31&quot;,&quot;2020-12-31&quot;,&quot;6000000&quot;
+</code></pre></div>
 <p>Example:</p>
 <p><img alt="image" src="../images/ibpdeploy/ibpdeploy44.png" /></p>
 <p><strong>Step 10.3:</strong> Press <strong>Enter</strong> on the transient data popup window.</p>
@@ -599,10 +611,10 @@
 </p>
 </div>
 <p><strong>Step 10.4:</strong> Upon success you will see the results from the issue transaction in the <em>OUTPUT</em> panel in VSCode, similar to what is shown here:</p>
-<pre><code>[4/15/2020 4:49:08 PM] [INFO] submitTransaction
+<div class="highlight"><pre><span></span><code>[4/15/2020 4:49:08 PM] [INFO] submitTransaction
 [4/15/2020 4:49:15 PM] [INFO] submitting transaction issue with args MagnetoCorp,00002,2020-07-31,2020-12-31,6000000 on channel teamxx-channel1
 [4/15/2020 4:49:26 PM] [SUCCESS] Returned value from issue: {&quot;class&quot;:&quot;org.papernet.commercialpaper&quot;,&quot;key&quot;:&quot;\&quot;MagnetoCorp\&quot;:\&quot;00002\&quot;&quot;,&quot;currentState&quot;:1,&quot;issuer&quot;:&quot;MagnetoCorp&quot;,&quot;paperNumber&quot;:&quot;00002&quot;,&quot;issueDateTime&quot;:&quot;2020-07-31&quot;,&quot;maturityDateTime&quot;:&quot;2020-12-31&quot;,&quot;faceValue&quot;:&quot;6000000&quot;,&quot;owner&quot;:&quot;MagnetoCorp&quot;}
-</code></pre>
+</code></pre></div>
 <p><strong>Step 10.5:</strong> Now, return to the IBM Blockchain Platform Console at your assigned URL in Firefox. Go to the <em>Channels</em> view, and click on the <strong>team<em>xx</em>-channel1</strong> tile, where <em>xx</em> is your two-digit team ID:</p>
 <p><img alt="image" src="../images/ibpdeploy/ibpdeploy45.png" /></p>
 <p><strong>Step 10.6:</strong> You should see that the block height is now 6. In the <em>Block History</em> section, click on the block at the top of the table:</p>

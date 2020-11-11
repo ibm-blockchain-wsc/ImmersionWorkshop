@@ -192,19 +192,31 @@
       
       
 
+
+  <li class="md-nav__item">
+    <a href="../assignment/" class="md-nav__link">
+      Skytap image assignments
+    </a>
+  </li>
+
+    
+      
+      
+      
+
   
 
 
   <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
     
-    <label class="md-nav__link" for="nav-2">
+    <label class="md-nav__link" for="nav-3">
       IBM Blockchain Platform v2.5.0 on Linux on IBM Z Lab
       <span class="md-nav__icon md-icon"></span>
     </label>
     <nav class="md-nav" aria-label="IBM Blockchain Platform v2.5.0 on Linux on IBM Z Lab" data-md-level="1">
-      <label class="md-nav__title" for="nav-2">
+      <label class="md-nav__title" for="nav-3">
         <span class="md-nav__icon md-icon"></span>
         IBM Blockchain Platform v2.5.0 on Linux on IBM Z Lab
       </label>
@@ -599,8 +611,8 @@
               
                 
                 
-                <h1 id="ibm-blockchain-platform-v250-lab-part-1-create-a-blockchain-network">IBM Blockchain Platform v2.5.0 Lab Part 1 - Create a Blockchain Network</h1>
-<h2 id="section-1-create-a-blockchain-network-lab-overview">Section 1: Create a Blockchain Network lab overview</h2>
+                <h1 id="ibm-blockchain-platform-v250-lab-part-1-create-a-blockchain-network">IBM Blockchain Platform v2.5.0 Lab Part 1 - Create a Blockchain Network<a class="headerlink" href="#ibm-blockchain-platform-v250-lab-part-1-create-a-blockchain-network" title="Permanent link">&para;</a></h1>
+<h2 id="section-1-create-a-blockchain-network-lab-overview">Section 1: Create a Blockchain Network lab overview<a class="headerlink" href="#section-1-create-a-blockchain-network-lab-overview" title="Permanent link">&para;</a></h2>
 <p>You will use the IBM Blockchain Platform console in this lab to create a blockchain network.
 The network will consist of three organizations.
 Two of these organizations will represent organizations that want to participate in the blockchain network and submit transactions.
@@ -613,14 +625,14 @@ Then you will create a second peer organization, and add it to the channel.</p>
 <p>The diagram below provides a view of what your blockchain network will look like upon completion of the lab:</p>
 <p><img alt="image" src="../images/ibpconsole/0005_LabGoal.png" /></p>
 <div class="admonition important">
-<p class="admonition-title">Important<p>You will be assigned a two-digit team ID by your instructor, and everywhere in this lab where you see <strong>Team<em>xx</em> </strong> in the instructions, you must substitute <em>xx</em> with the two-digit id you have been assigned.</p>
+<p class="admonition-title">Important<p>You will be assigned a two-digit team ID by your instructor, and everywhere in this lab where you see <em><em>Team</em>xx</em> ** in the instructions, you must substitute <em>xx</em> with the two-digit id you have been assigned.</p>
 </p>
 </div>
 <p>The sections in this lab are as follows:</p>
 <ul>
 <li>Section 1: This overview</li>
 <li>Section 2: Logging in to the IBM Blockchain Platform console</li>
-<li>Section 3: Creating a Certificate Authority for your first peer organization, "Team<em>xx</em> Org1"</li>
+<li>Section 3: Creating a Certificate Authority for your first peer organization, "Teamxx Org1"</li>
 <li>Section 4: Adding new users using your Team<em>xx</em> Org1 Certificate Authority</li>
 <li>Section 5: Creating an MSP for your Team<em>xx</em> Org1 organization</li>
 <li>Section 6: Creating a peer node for your Team<em>xx</em> Org1 organization</li>
@@ -634,19 +646,19 @@ Then you will create a second peer organization, and add it to the channel.</p>
 <li>Section 14: Creating a Certificate Authority for your second peer organization, "Team<em>xx</em> Org2"</li>
 <li>Section 15: Adding new users using your Team<em>xx</em> Org2 Certificate Authority</li>
 <li>Section 16: Creating an MSP for your Team<em>xx</em> Org2 organization</li>
-<li>Section 17: Creating a peer node for your Team*<em>xx</em> Org2 organization</li>
+<li>Section 17: Creating a peer node for your Team<em>xx</em> Org2 organization</li>
 <li>Section 18: Adding your Team<em>xx</em> Org2 organization to the consortium</li>
 <li>Section 19: Adding your Team<em>xx</em> Org2 organization to the channel</li>
 <li>Section 20: Joining your Team<em>xx</em> Org2 peer to the channel</li>
 </ul>
-<h2 id="section-2-log-in-to-the-ibm-blockchain-platform-console">Section 2: Log in to the IBM Blockchain Platform console</h2>
+<h2 id="section-2-log-in-to-the-ibm-blockchain-platform-console">Section 2: Log in to the IBM Blockchain Platform console<a class="headerlink" href="#section-2-log-in-to-the-ibm-blockchain-platform-console" title="Permanent link">&para;</a></h2>
 <div class="admonition important">
 <p class="admonition-title">Important<p>The lab environment is using self-signed SSL certificates and your browser will not trust them without explicit action on your part so part of this initial section on logging in involves establishing this trust. You will first need to go to the URL address provided by your instructor.</p>
 </p>
 </div>
 <p><strong>Step 2.1:</strong> Open a new tab in your Firefox browser window and enter the unique URL for your IBM Blockchain Platform console. This URL will be provided to you by your instructor. </p>
 <div class="admonition note">
-<p class="admonition-title">Note<p>Your URL will similar to <em>https://workshop-00-ibpconsole-console.apps.atsocpd3.dmz:443</em>, but this is just an example, so make sure you use the actual URL given to you by your instructor!</p>
+<p class="admonition-title">Note<p>Your URL will be similar to <em><a href="https://workshop-00-ibp-console-console.apps.atsocpd3.dmz:443">https://workshop-00-ibp-console-console.apps.atsocpd3.dmz:443</a></em>, but this is just an example, so make sure you use the actual URL given to you by your instructor!</p>
 </p>
 </div>
 <p>If you see a security warning after entering the URL, click the <strong>Advanced</strong> button, which is highlighted in the below screen snippet:</p>
@@ -664,8 +676,8 @@ Go ahead and click on the <strong>Accept the Risk and Continue</strong> button t
 <p class="admonition-title">Note<p>If you do not see this welcome screen with the graphics, you can view it at any time by clicking the <strong>Get started</strong> link at the top of your screen, and then clicking the <strong>Understand</strong> box on the left.</p>
 </p>
 </div>
-<h2 id="section-3-create-a-certificate-authority-for-your-first-peer-organization-teamxx-org1">Section 3: Create a Certificate Authority for your first peer organization, "Teamxx Org1"</h2>
-<p>In a Hyperledger Fabric network, each organization will typically have their own certificate authority. The certificate authority is used to issue identities- consisting of X.509 public certificates and matching private keys- for end users, client applications, administrators, and peer and ordering service nodes. In most uses cases each organization will want to have control over the identities they issue, so the typical practice is that each organization provides their own certificate authority. We will follow that practice in this lab. </p>
+<h2 id="section-3-create-a-certificate-authority-for-your-first-peer-organization-teamxx-org1">Section 3: Create a Certificate Authority for your first peer organization, "Teamxx Org1"<a class="headerlink" href="#section-3-create-a-certificate-authority-for-your-first-peer-organization-teamxx-org1" title="Permanent link">&para;</a></h2>
+<p>In a Hyperledger Fabric network, each organization will typically have their own certificate authority. The certificate authority is used to issue identities- consisting of X.509 public certificates and matching private keys- for end users, client applications, administrators, and peer and ordering service nodes. In most use cases each organization will want to have control over the identities they issue, so the typical practice is that each organization provides their own certificate authority. We will follow that practice in this lab. </p>
 <p>You are starting with a blank slate, and our first component to add is the certificate authority for our first peer organization.
 In relation to the diagram in the overview section that showed our finished network upon successful lab completion, here is the component that will be added in this section:</p>
 <p><img alt="image" src="../images/ibpconsole/0045_DiagramOrg1CA.png" /> </p>
@@ -727,7 +739,7 @@ In about a minute, the box in the upper right should turn green, indicating that
 </div>
 <p><strong>Once your certificate authority is running, click on its tile</strong> so that you can proceed to the next section where you will add users.</p>
 <p><img alt="image" src="../images/ibpconsole/0120_Org1CertificateAuthorityRunning.png" /></p>
-<h2 id="section-4-add-new-users-using-your-teamxx-org1-certificate-authority">Section 4: Add new users using your Team<em>xx</em> Org1 Certificate Authority</h2>
+<h2 id="section-4-add-new-users-using-your-teamxx-org1-certificate-authority">Section 4: Add new users using your Team<em>xx</em> Org1 Certificate Authority<a class="headerlink" href="#section-4-add-new-users-using-your-teamxx-org1-certificate-authority" title="Permanent link">&para;</a></h2>
 <p><strong>Step 4.1:</strong> You must first associate an administrative identity with your certificate authority, so click the <strong>Associate identity</strong> button as shown in this screen snippet:</p>
 <p><img alt="image" src="../images/ibpconsole/0125_AssociateIdentity.png" /></p>
 <p><strong>Step 4.2:</strong> Ensure that the <strong>Enroll ID</strong> Button is selected in the <em>Associate Identity</em> sidebar panel, fill out the panel as directed in the below table, and then click the blue <strong>Associate Identity</strong> button:</p>
@@ -761,6 +773,10 @@ In about a minute, the box in the upper right should turn green, indicating that
 <p><strong>Step 4.3:</strong> You should now see the <em>admin</em> userid in the list of registered users. This userid is intended to be used by a person acting as the <em>registrar</em> of this Certificate Authority.  Next you will create a userid for use by a person who will be the blockchain network administrator for the organization. Click the <strong>Register user</strong> button on the right side of the screen:</p>
 <p><img alt="image" src="../images/ibpconsole/0130_AddUsers.png" /></p>
 <p><strong>Step 4.4:</strong> In the <em>Step 1 of 2</em> panel, fill it out as guided by the following table, and then click the blue <strong>Next</strong> button:</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>It is <strong>critical</strong> that you change the value of the <em>Type</em> field from <em>client</em> to <em>admin</em> for this userid!</p>
+</div>
 <table>
 <thead>
 <tr>
@@ -829,7 +845,7 @@ In about a minute, the box in the upper right should turn green, indicating that
 <p><strong>Step 4.9:</strong> You should now see the <strong>peer1</strong> userid listed along with the others on this screen.
 Click the <strong>Organizations</strong> icon on the palette on the left of your screen and continue to the next section of the lab:</p>
 <p><img alt="image" src="../images/ibpconsole/0190_AfterPeer1Added.png" /></p>
-<h2 id="section-5-create-an-msp-for-your-organization">Section 5: Create an MSP for your organization</h2>
+<h2 id="section-5-create-an-msp-for-your-organization">Section 5: Create an MSP for your organization<a class="headerlink" href="#section-5-create-an-msp-for-your-organization" title="Permanent link">&para;</a></h2>
 <p>The <em>Membership Service Provider</em> (MSP) component is integral to the private and permissioned Hyperledger Fabric as it provides the authentication- "who are you?"- and authorization - "ok, we believe you are whom you say you are, but are you permitted to do what you are asking to do?"- services.  The infrastructure that the MSP needs to do its job must be in place before you create your peer node. This step will create this for your "Team<em>xx</em> Org1" organization.</p>
 <p>As we add components throughout the lab, the diagram that maps to our final goal will be shown, with the new component to be added in any given section annotated with a bright red star, as in the below diagram which shows that we will be adding your <strong>Team<em>xx</em> Org1</strong>'s MSP:</p>
 <p><img alt="image" src="../images/ibpconsole/0195_DiagramOrg1MSP.png" /></p>
@@ -898,6 +914,10 @@ fill out the three fields beneath this in accordance with the below table, and t
 <p><strong>Step 5.7:</strong> Save the exported JSON file in a location that you can remember. The sample screenshot below shows it being saved to a folder named <em>Downloads</em>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
+<p>If you are not prompted for a location in which to save the file, it is probably because your browser settings automatically download files to your $HOME/Downloads directory, which is fine.  This advice holds true for any time in the lab when you are asked to save a file.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
 <p>You probably won't need this saved file for this lab if you use the same browser window for the duration of the lab, but the saved file may be necessary if, for whatever reason, you do have to use a new browser window or session, so go ahead and save it!</p>
 </div>
 <p><img alt="image" src="../images/ibpconsole/0240_CreateOrg1MSPSaveIdentity.png" /></p>
@@ -936,9 +956,9 @@ fill out the three fields beneath this in accordance with the below table, and t
 </div>
 <p>When you have ensured that you have entered the right values, click the blue <strong>Create MSP definition</strong> button in the lower right of your screen:</p>
 <p><img alt="image" src="../images/ibpconsole/0250_CreateOrg1MSP.png" /></p>
-<p><strong>Step 5.10:</strong> You should now see the definition for your new MSP listed on your screen. Click the <strong>Nodes</strong> icon in the icon palette on your left- it is the topmost icon on this palette, and you will be ready to proceed to the next section:</p>
+<p><strong>Step 5.10:</strong> You should now see the definition for your new MSP listed on your screen. Click the <strong>Nodes</strong> icon in the icon palette on your left- it is the topmost icon on this palette- and you will be ready to proceed to the next section:</p>
 <p><img alt="image" src="../images/ibpconsole/0260_CreateOrg1MSPFinished.png" /></p>
-<h2 id="section-6-create-a-peer-node-for-your-teamxx-org1-organization">Section 6: Create a peer node for your Teamxx Org1 organization</h2>
+<h2 id="section-6-create-a-peer-node-for-your-teamxx-org1-organization">Section 6: Create a peer node for your Teamxx Org1 organization<a class="headerlink" href="#section-6-create-a-peer-node-for-your-teamxx-org1-organization" title="Permanent link">&para;</a></h2>
 <p>A peer node is where smart contracts- in essence, your blockchain business transactions- run.  Peer nodes also store the ledgers. We will create a peer for your <strong>Team<em>xx</em> Org1</strong> in this section and our fledgling network will then look like this: </p>
 <p><img alt="image" src="../images/ibpconsole/0265_DiagramOrg1Peer.png" /></p>
 <p><strong>Step 6.1:</strong> Click the <strong>Add peer</strong> button:</p>
@@ -992,7 +1012,7 @@ fill out the three fields beneath this in accordance with the below table, and t
 <p><img alt="image" src="../images/ibpconsole/0300_AddOrg1PeerSidebar3.png" /></p>
 <p><strong>Step 6.5:</strong> On the <em>Associate Identity</em> screen, select <strong>Team<em>xx</em> Org1 MSP Admin</strong>, where <em>xx</em> is your two-digit team ID, for the <em>Peer administrator identity</em> field, and click <strong>Next</strong>:</p>
 <p><img alt="image" src="../images/ibpconsole/0330_AddOrg1PeerSidebar6.png" /></p>
-<p><strong>Step 6.6:</strong> The <em>Summary</em> panel provides a review of the values you entered or selected in the prior panels. You may need to scroll down to see all of the values. The values you entered should match up with the table below. If not, use the <strong>Back</strong> button as necessary to correct your entries.  The table below shows the expected value (where <em>xx</em> is your two-digit team ID) and which of the seven panels in the <em>Add Peer</em> flow was used to set this value:</p>
+<p><strong>Step 6.6:</strong> The <em>Summary</em> panel provides a review of the values you entered or selected in the prior panels. You may need to scroll down to see all of the values. The values you entered should match up with the table below. If not, use the <strong>Back</strong> button as necessary to correct your entries.  The table below shows the expected value (where <em>xx</em> is your two-digit team ID) and which of the five panels in the <em>Add Peer</em> flow was used to set this value:</p>
 <table>
 <thead>
 <tr>
@@ -1068,7 +1088,7 @@ fill out the three fields beneath this in accordance with the below table, and t
 <p><strong>Step 6.7:</strong> Similarly to when you created the certificate authority earlier, you should see your new peer listed, along with a gray box in the upper right of its tile, showing that the status of this peer is "pending" if you hover your cursor over the gray box.
 It can take a minute or two on our lab system for the peer to come up completely, and you may need to refresh your browser in order to see the box turn green. If your peer is still not ready after a couple of minutes and after you have tried refreshing your browser, ask an instructor for help.  The peer must be ready, as indicated by a green box in the upper right of the peer's tile, similar to what is shown below, before you can continue:</p>
 <p><img alt="image" src="../images/ibpconsole/0360_AddOrg1PeerRunning.png" /></p>
-<h2 id="section-7-create-a-certificate-authority-for-an-ordering-service-organization">Section 7: Create a Certificate Authority for an Ordering Service organization</h2>
+<h2 id="section-7-create-a-certificate-authority-for-an-ordering-service-organization">Section 7: Create a Certificate Authority for an Ordering Service organization<a class="headerlink" href="#section-7-create-a-certificate-authority-for-an-ordering-service-organization" title="Permanent link">&para;</a></h2>
 <p>In this lab you will create three organizations- two organizations will run peer nodes and run smart contracts. One of the organizations will provide the ordering service for the blockchain network.  In the real world each of the three organizations would likely use their own instance of the IBM Blockchain Platform console to create their necessary artifacts.  (You have already done much of this for the first peer organization, <strong>Team<em>xx</em> Org1</strong>, in the previous sections of this lab).</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -1125,7 +1145,7 @@ In about a minute, the box in the upper right should turn green, indicating that
 </div>
 <p><strong>Once your Ordering Service certificate authority is running, click on its tile</strong> so that you can proceed to the next section where you will add users.</p>
 <p><img alt="image" src="../images/ibpconsole/0440_AddOrderingCARunning.png" /></p>
-<h2 id="section-8-add-new-users-using-your-ordering-service-certificate-authority">Section 8: Add new users using your Ordering Service Certificate Authority</h2>
+<h2 id="section-8-add-new-users-using-your-ordering-service-certificate-authority">Section 8: Add new users using your Ordering Service Certificate Authority<a class="headerlink" href="#section-8-add-new-users-using-your-ordering-service-certificate-authority" title="Permanent link">&para;</a></h2>
 <p><strong>Step 8.1:</strong> You must first associate an administrative identity with your certificate authority, so click the <strong>Associate identity</strong> button as shown in this screen snippet:</p>
 <p><img alt="image" src="../images/ibpconsole/0125_AssociateIdentity.png" /></p>
 <p><strong>Step 8.2:</strong> Ensure that the <strong>Enroll ID</strong> Button is selected in the <em>Associate Identity</em> sidebar panel, fill out the panel as directed in the below table, and then click the blue <strong>Associate Identity</strong> button:</p>
@@ -1227,7 +1247,7 @@ In about a minute, the box in the upper right should turn green, indicating that
 <p><strong>Step 8.9:</strong> You should now see the <strong>os1</strong> userid listed along with the others on this screen.
 Click the <strong>Organizations</strong> icon on the palette on the left of your screen and continue to the next section of the lab:</p>
 <p><img alt="image" src="../images/ibpconsole/0510_AfterOS1Added.png" /></p>
-<h2 id="section-9-create-an-msp-for-your-ordering-service-organization">Section 9: Create an MSP for your Ordering Service organization</h2>
+<h2 id="section-9-create-an-msp-for-your-ordering-service-organization">Section 9: Create an MSP for your Ordering Service organization<a class="headerlink" href="#section-9-create-an-msp-for-your-ordering-service-organization" title="Permanent link">&para;</a></h2>
 <p>Our trusty lodestar shows us what will be added to our nascent network now:</p>
 <p><img alt="image" src="../images/ibpconsole/0515_DiagramOrdererMSP.png" /></p>
 <p><strong>Step 9.1:</strong> You should see a screen that looks like below. You now need to create an MSP definition for your Ordering Service organization, just as you did earlier for your peer (<strong>Team<em>xx</em> Org1 MSP</strong>) organization. Click the <strong>Create MSP definition</strong> button to get started:</p>
@@ -1336,7 +1356,7 @@ fill out the three fields beneath this in accordance with the below table, and t
 <p><img alt="image" src="../images/ibpconsole/0570_CreateOrderingMSP.png" /></p>
 <p><strong>Step 9.10:</strong> You should now see the definition for your new MSP listed on your screen. Click the <strong>Nodes</strong> icon in the icon palette on your left- it is the topmost icon on this palette, and you will be ready to proceed to the next section:</p>
 <p><img alt="image" src="../images/ibpconsole/0580_CreateOrderingMSPFinished.png" /></p>
-<h2 id="section-10-create-an-ordering-service-node-for-your-ordering-service-organization">Section 10: Create an ordering service node for your Ordering Service organization</h2>
+<h2 id="section-10-create-an-ordering-service-node-for-your-ordering-service-organization">Section 10: Create an ordering service node for your Ordering Service organization<a class="headerlink" href="#section-10-create-an-ordering-service-node-for-your-ordering-service-organization" title="Permanent link">&para;</a></h2>
 <p>Having created the MSP, you may now create the ordering service node. Ordering service nodes receive proposed transactions from peer nodes, package them into blocks, and then deliver these blocks to peer nodes to commit to the ledger. Ordering service nodes are pretty important, in other words.</p>
 <p>Our star is running out of leg room all cramped up by the circle in our drawing but hopefully you can see what she is trying to highlight in this iteration of our journey:</p>
 <p><img alt="image" src="../images/ibpconsole/0585_DiagramOrdererNode.png" /></p>
@@ -1467,7 +1487,7 @@ It can take a minute or two on our lab system for the ordering service to come u
 </div>
 <p><strong>Once it is ready, click on its tile and continue to the next section of the lab.</strong></p>
 <p><img alt="image" src="../images/ibpconsole/0680_AddOrdererRunning.png" /></p>
-<h2 id="section-11-add-your-teamxx-org1-organization-to-a-consortium">Section 11: Add your Teamxx Org1 organization to a consortium</h2>
+<h2 id="section-11-add-your-teamxx-org1-organization-to-a-consortium">Section 11: Add your Teamxx Org1 organization to a consortium<a class="headerlink" href="#section-11-add-your-teamxx-org1-organization-to-a-consortium" title="Permanent link">&para;</a></h2>
 <p><strong>Step 11.1:</strong> In the <em>Consortium members</em> section, which is below the <em>Ordering service administrators</em> section, click the <strong>Add organization</strong> button:</p>
 <p><img alt="image" src="../images/ibpconsole/0690_UpdateConsortium1.png" /></p>
 <p><strong>Step 11.2:</strong> Click the <strong>Existing MSP ID</strong> button, select <strong>Team<em>xx</em> Org1 MSP (teamxxorg1msp)</strong> where <em>xx</em> is your two-digit team ID, and then click the <strong>Add organization</strong> button:</p>
@@ -1478,7 +1498,7 @@ It can take a minute or two on our lab system for the ordering service to come u
 <p><img alt="image" src="../images/ibpconsole/0700_AddOrganizationToConsortium.png" /></p>
 <p><strong>Step 11.3:</strong> You should now see your peer organization, <strong>team<em>xx</em>org1msp</strong>, listed as a member of your consortium:</p>
 <p><img alt="image" src="../images/ibpconsole/0710_AddOrganizationToConsortiumFinished.png" /></p>
-<h2 id="section-12-create-a-channel">Section 12: Create a channel</h2>
+<h2 id="section-12-create-a-channel">Section 12: Create a channel<a class="headerlink" href="#section-12-create-a-channel" title="Permanent link">&para;</a></h2>
 <p>You won't get very far without an ordering service node, because they are the animals that create blocks. You won't get very far without a peer, as peers run smart contracts, which create transactions that are sent to an ordering service node. </p>
 <p>Well, you won't get much stuff done without a channel either, because a transaction proposal is sent from a peer to an ordering service node over a channel. </p>
 <p>You will define a channel in this section and in its definition you will make your <strong>Team<em>xx</em> Org1</strong> peer organization a member of the channel. The actual definition of the channel is verified at the ordering service node and it keeps track of all channels.  (You can define multiple channels in a Hyperledger Fabric network but for simplicity this lab will only have you define one).</p>
@@ -1543,7 +1563,7 @@ It can take a minute or two on our lab system for the ordering service to come u
 <p><img alt="image" src="../images/ibpconsole/0760_CreateChannelReview.png" /></p>
 <p><strong>Step 12.10:</strong> You should now see your channel listed. Click where it says <strong>Pending- add peer</strong> and continue to the next section:</p>
 <p><img alt="image" src="../images/ibpconsole/0780_ChannelPendingPeerAdd.png" /></p>
-<h2 id="section-13-join-your-teamxx-org1-peer-to-the-channel">Section 13: Join your Teamxx Org1 peer to the channel</h2>
+<h2 id="section-13-join-your-teamxx-org1-peer-to-the-channel">Section 13: Join your Teamxx Org1 peer to the channel<a class="headerlink" href="#section-13-join-your-teamxx-org1-peer-to-the-channel" title="Permanent link">&para;</a></h2>
 <p>In the previous section you defined a channel, <strong>team<em>xx</em>channel1</strong>, and made your <strong>Team<em>xx</em> Org1</strong> organization a member of the channel. However, in order for a particular peer within that organization to participate in the channel, that peer has to join the channel. Our simple lab network only has one peer in the organization, but in most production implementations an organization will have multiple peers. When the peer joins a channel, it will receive all of the blocks in the channel that were created prior to the time the peer joined the channel, until it catches up.</p>
 <p>Our evolving network diagram only gets a subtle change from this section-  the line from the ordering service node to the circle representing our organization, indicating that our organization is a member of the channel, has been extended with a line segment from the circle to our peer, indicating that our peer has now joined the channel:</p>
 <p><img alt="image" src="../images/ibpconsole/0785_DiagramPeer1JoinChannel.png" /></p>
@@ -1559,7 +1579,7 @@ It can take a minute or two on our lab system for the ordering service to come u
 <p class="admonition-title">Information<p>The first block created in a channel is called the <em>genesis block</em>, and it contains configuration data for the channel. The second block in this channel is for a configuration transaction that defined <strong>Team<em>xx</em> Org1 Peer</strong> as an <em>anchor peer</em> for the <strong>Team<em>xx</em> Org1</strong> organization. An anchor peer is a peer whose external endpoint address is published in the channel configuration. This way other organizations can reach this peer. An organization must provide at least one anchor peer for service discovery or private data collections to work.</p>
 </p>
 </div>
-<h2 id="section-14-create-a-certificate-authority-for-your-second-peer-organization-teamxx-org2">Section 14: Create a Certificate Authority for your second peer organization, "Teamxx Org2"</h2>
+<h2 id="section-14-create-a-certificate-authority-for-your-second-peer-organization-teamxx-org2">Section 14: Create a Certificate Authority for your second peer organization, "Teamxx Org2"<a class="headerlink" href="#section-14-create-a-certificate-authority-for-your-second-peer-organization-teamxx-org2" title="Permanent link">&para;</a></h2>
 <p>You have now already defined two organizations- <strong>Team<em>xx</em> Org1</strong> and <strong>Team<em>xx</em> Ordering Service</strong>. The <em>Ordering Service</em> organization provides the ordering service and does not itself initiate blockchain transactions. Most, if not all, realistic blockchain networks will involve multiple organizations initiating blockchain transactions. So you will now define a second peer organization to participate in the network. Your network will thus have three organizations- two peer organizations that are collaborating in the blockchain network, and the ordering service organization which is, essentially, a service provider.</p>
 <p>You are changing hats again, this time from your <strong>Team<em>xx</em> Ordering Service</strong> administrator hat to your <strong>Team<em>xx</em> Org2</strong> administrator hat. Our network diagram is coming along quite nicely:</p>
 <p><img alt="image" src="../images/ibpconsole/0805_DiagramOrg2CA.png" /></p>
@@ -1609,7 +1629,7 @@ In about a minute, the box in the upper right should turn green, indicating that
 </div>
 <p><strong>Once your certificate authority is running, click on its tile</strong> so that you can proceed to the next section where you will add users.</p>
 <p><img alt="image" src="../images/ibpconsole/0880_AddOrg2CARunning.png" /></p>
-<h2 id="section-15-add-new-users-using-your-teamxx-org2-certificate-authority">Section 15: Add new users using your Teamxx Org2 Certificate Authority</h2>
+<h2 id="section-15-add-new-users-using-your-teamxx-org2-certificate-authority">Section 15: Add new users using your Teamxx Org2 Certificate Authority<a class="headerlink" href="#section-15-add-new-users-using-your-teamxx-org2-certificate-authority" title="Permanent link">&para;</a></h2>
 <p><strong>Step 15.1:</strong> You must first associate an administrative identity with your certificate authority, so click the <strong>Associate identity</strong> button as shown in this screen snippet:</p>
 <p><img alt="image" src="../images/ibpconsole/0125_AssociateIdentity.png" /></p>
 <p><strong>Step 15.2:</strong> Ensure that the <strong>Enroll ID</strong> Button is selected in the <em>Associate Identity</em> sidebar panel, fill out the panel as directed in the below table, and then click the blue <strong>Associate Identity</strong> button:</p>
@@ -1705,7 +1725,7 @@ In about a minute, the box in the upper right should turn green, indicating that
 <p><strong>Step 15.9:</strong> You should now see the <strong>peer2</strong> userid listed along with the others on this screen.
 Click the <strong>Organizations</strong> icon on the palette on the left of your screen and continue to the next section of the lab:</p>
 <p><img alt="image" src="../images/ibpconsole/0950_AfterPeer2Added.png" /></p>
-<h2 id="section-16-create-an-msp-for-your-second-peer-organization">Section 16: Create an MSP for your second peer organization</h2>
+<h2 id="section-16-create-an-msp-for-your-second-peer-organization">Section 16: Create an MSP for your second peer organization<a class="headerlink" href="#section-16-create-an-msp-for-your-second-peer-organization" title="Permanent link">&para;</a></h2>
 <p>Defining the MSP for <strong>Team<em>xx</em> Org2</strong> will bring our network one step closer to fruition:</p>
 <p><img alt="image" src="../images/ibpconsole/0955_DiagramOrg2MSP.png" /></p>
 <p><strong>Step 16.1:</strong> You should see the MSP definitions for your other two organizations. Click the blue <strong>Create MSP definition</strong> button.</p>
@@ -1807,7 +1827,7 @@ fill out the three fields beneath this in accordance with the below table, and t
 </div>
 <p>When you have ensured that you have entered the right values, click the blue <strong>Create MSP definition</strong> button in the lower right of your screen.</p>
 <p><strong>Step 16.9:</strong> You should now see the definition for your new MSP listed on your screen. Scroll up and <strong>click the <em>Nodes</em> icon in the icon palette</strong> on your left- it is the topmost icon on this palette- and you will be ready to proceed to the next section.</p>
-<h2 id="section-17-create-a-peer-node-for-your-second-peer-organization">Section 17: Create a peer node for your second peer organization</h2>
+<h2 id="section-17-create-a-peer-node-for-your-second-peer-organization">Section 17: Create a peer node for your second peer organization<a class="headerlink" href="#section-17-create-a-peer-node-for-your-second-peer-organization" title="Permanent link">&para;</a></h2>
 <p>The most useful German phrase I know is <em>noch einmal Bier, bitte!</em>, which translates to <em>another beer, please!</em> So I am asking you kindly, <em>noch einmal peer, bitte!</em>, that is, please define a peer for your second organization:</p>
 <p><img alt="image" src="../images/ibpconsole/1025_DiagramOrg2Peer.png" /></p>
 <p><strong>Step 17.1:</strong> Click the blue <strong>Add peer</strong> button.</p>
@@ -1932,7 +1952,7 @@ fill out the three fields beneath this in accordance with the below table, and t
 <p><strong>Step 17.7:</strong> You should see your new peer listed, along with a gray box in the upper right of its tile, showing that the status of this peer is "pending" if you hover your cursor over the gray box.
 It can take a minute or two on our lab system for the peer to come up completely, and you may need to refresh your browser in order to see the box turn green. If your peer is still not ready after a couple of minutes and after you have tried refreshing your browser, ask an instructor for help.  The peer must be ready, as indicated by a green box in the upper right of the peer's tile, similar to what is shown below, before you can continue:</p>
 <p><img alt="image" src="../images/ibpconsole/1120_AddOrg2PeerRunning.png" /></p>
-<h2 id="section-18-add-your-teamxx-org2-organization-to-the-consortium">Section 18: Add your Teamxx Org2 organization to the consortium</h2>
+<h2 id="section-18-add-your-teamxx-org2-organization-to-the-consortium">Section 18: Add your Teamxx Org2 organization to the consortium<a class="headerlink" href="#section-18-add-your-teamxx-org2-organization-to-the-consortium" title="Permanent link">&para;</a></h2>
 <p><strong>Step 18.1:</strong> Click on your <strong>Team<em>xx</em> Orderin...</strong> tile (the full name is most likely truncated on your screen) under the <em>Ordering services</em> section:</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -1942,7 +1962,7 @@ It can take a minute or two on our lab system for the peer to come up completely
 <p><strong>Step 18.2:</strong> Click the blue <strong>Add organization</strong> button in the <em>Consortium members</em> section.</p>
 <p><strong>Step 18.3:</strong> Click the <strong>Existing MSP ID</strong> button, select <strong>Team<em>xx</em> Org2 MSP (team<em>xx</em>org2msp)</strong> where <em>xx</em> is your two-digit team ID, and then click the <strong>Add organization</strong> button.</p>
 <p><strong>Step 18.4:</strong> You should now see your second peer organization, <strong>team<em>xx</em>org2msp</strong>, listed as a member of your consortium.</p>
-<h2 id="section-19-add-your-teamxx-org2-organization-to-the-channel">Section 19: Add your Teamxx Org2 organization to the channel</h2>
+<h2 id="section-19-add-your-teamxx-org2-organization-to-the-channel">Section 19: Add your Teamxx Org2 organization to the channel<a class="headerlink" href="#section-19-add-your-teamxx-org2-organization-to-the-channel" title="Permanent link">&para;</a></h2>
 <p><strong>Team<em>xx</em> Org2</strong> can now become a member of channels since you added it to the consortium in the prior section. Take advantage of that good fortune and add it as a member of your channel:</p>
 <p><img alt="image" src="../images/ibpconsole/1165_DiagramChannelOrg2.png" /></p>
 <p>When you created your <strong>team<em>xx</em>-channel1</strong> channel earlier in the lab, your new <strong>Team<em>xx</em> Org2</strong> organization did not exist yet. If it had existed at the time, you could have added it to the channel membership when you created the channel.</p>
@@ -2004,7 +2024,7 @@ It can take a minute or two on our lab system for the peer to come up completely
 </div>
 <p>When you have ensured that you have entered the right values, click the blue <strong>Update channel</strong> button in the lower right of your screen.</p>
 <p><img alt="image" src="../images/ibpconsole/1235_UpdateChannelReviewChannelInformation2.png" /></p>
-<p><strong>Step 19.10:</strong> Notice that the block height is now three. The most recent block, that has an ID of <em>2</em>- block numbering starts at zero- contains a transaction that contains the configuration update you just made, which added your <em>Team</em><em>xx</em><em> Org2</em> to the channel.</p>
+<p><strong>Step 19.10:</strong> Notice that the block height is now three. The most recent block, that has an ID of <em>2</em>- block numbering starts at zero- contains a transaction that contains the configuration update you just made, which added your <em>Team</em><em>xx</em>* Org2* to the channel.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Hyperledger Fabric distinguishes configuration update transactions from typical application transactions. The IBM Blockchain Platform console does not show details of configuration update transactions nor include them in the count of transactions that it will display. That is, if you display a block that has a configuration update transaction, the IBM Blockchain Platform console will show <em>0 transactions</em> for that block.  (A block of application transactions can contain multiple transactions, but a configuration update transaction is the only transaction in its block. That is, a block does not contain a mix of application transactions and configuration update transactions).</p>
@@ -2017,8 +2037,8 @@ It can take a minute or two on our lab system for the peer to come up completely
 <p class="admonition-title">Note<p>Although <strong>team<em>xx</em>org2msp</strong> is listed in the <em>Channel members</em> section, you don't see it listed above that in the <em>Nodes</em> section. That is because you have not joined a peer from <strong>team<em>xx</em>org2msp</strong> to the channel yet.  You will do that next.</p>
 </p>
 </div>
-<h2 id="section-20-join-your-teamxx-org2-peer-to-the-channel">Section 20: Join your Teamxx Org2 peer to the channel</h2>
-<p>You will now join <em>Team</em><em>xx</em><em> Org2 Peer</em> to the channel:</p>
+<h2 id="section-20-join-your-teamxx-org2-peer-to-the-channel">Section 20: Join your Teamxx Org2 peer to the channel<a class="headerlink" href="#section-20-join-your-teamxx-org2-peer-to-the-channel" title="Permanent link">&para;</a></h2>
+<p>You will now join <em>Team</em><em>xx</em>* Org2 Peer* to the channel:</p>
 <p><img alt="image" src="../images/ibpconsole/1255_DiagramPeer2JoinChannel.png" /></p>
 <p><strong>Step 20.1:</strong> Now that your <em>Org2</em> is a member of the channel, you can join your peer from <em>Org2</em> to the channel. Click the blue <strong>Join channel</strong> button:</p>
 <p><img alt="image" src="../images/ibpconsole/1260_JoinOrg2PeerToChannelBegin.png" /></p>
@@ -2056,7 +2076,7 @@ It can take a minute or two on our lab system for the peer to come up completely
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href=".." class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../assignment/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
@@ -2065,7 +2085,7 @@ It can take a minute or two on our lab system for the peer to come up completely
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Home
+                Skytap image assignments
               </div>
             </div>
           </a>

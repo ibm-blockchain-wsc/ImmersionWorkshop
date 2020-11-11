@@ -188,16 +188,28 @@
       
 
 
+  <li class="md-nav__item">
+    <a href="../assignment/" class="md-nav__link">
+      Skytap image assignments
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
     
-    <label class="md-nav__link" for="nav-2">
+    <label class="md-nav__link" for="nav-3">
       IBM Blockchain Platform v2.5.0 on Linux on IBM Z Lab
       <span class="md-nav__icon md-icon"></span>
     </label>
     <nav class="md-nav" aria-label="IBM Blockchain Platform v2.5.0 on Linux on IBM Z Lab" data-md-level="1">
-      <label class="md-nav__title" for="nav-2">
+      <label class="md-nav__title" for="nav-3">
         <span class="md-nav__icon md-icon"></span>
         IBM Blockchain Platform v2.5.0 on Linux on IBM Z Lab
       </label>
@@ -269,30 +281,33 @@ on the right and then click on the copy button to the right of the URL</p>
 <p><img alt="image" src="../cicdimages/forkgithub.png" /></p>
 <p><strong>4.</strong> Then go to your terminal and navigate to your <code>Desktop</code> folder.
 Once you are there, enter the command below :</p>
-<pre><code>tecadmin@ubuntubase:~/Desktop$ cd ~
-tecadmin@ubuntubase:~/Desktop$ git clone https://github.com/austingrice/digibank.git
-Cloning into 'digibank'...
-remote: Enumerating objects: 56, done.
-remote: Counting objects: 100% (56/56), done.
-remote: Compressing objects: 100% (43/43), done.
-remote: Total 56 (delta 6), reused 53 (delta 6), pack-reused 0
-Unpacking objects: 100% (56/56), done.
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="err">tecadmin@ubuntubase:~/Desktop$ cd ~</span>
+<span class="err">tecadmin@ubuntubase:~/Desktop$ git clone https://github.com/austingrice/digibank.git</span>
+<span class="err">Cloning into &#39;digibank&#39;...</span>
+<span class="c">remote: Enumerating objects: 56, done.</span>
+<span class="c">remote: Counting objects: 100% (56/56), done.</span>
+<span class="c">remote: Compressing objects: 100% (43/43), done.</span>
+<span class="c">remote: Total 56 (delta 6), reused 53 (delta 6), pack-reused 0</span>
+<span class="err">Unpacking objects: 100% (56/56), done.</span>
+</code></pre></div>
+
 <p><strong>5.</strong> While you are in the terminal, navigate to the folder where you
 downloaded your <code>connection profile</code> from Part 2, Section 8 and step 2.
 :</p>
-<pre><code>For example:
+<div class="codehilite"><pre><span></span><code><span class="n">For</span> <span class="n">example</span><span class="p">:</span>
 
-tecadmin@ubuntubase:~/Desktop$ cd ../Downloads
-tecadmin@ubuntubase:~/Downloads$ ls -l 
-*
-drwxr-xr-x  5 tecadmin  tecadmin  160 Jun 11 12:53 &lt;Your_Connection_Profile&gt;
-*
-</code></pre>
+<span class="n">tecadmin</span><span class="err">@</span><span class="n">ubuntubase</span><span class="p">:</span><span class="o">~/</span><span class="n">Desktop</span><span class="o">$</span> <span class="n">cd</span> <span class="o">../</span><span class="n">Downloads</span>
+<span class="n">tecadmin</span><span class="err">@</span><span class="n">ubuntubase</span><span class="p">:</span><span class="o">~/</span><span class="n">Downloads</span><span class="o">$</span> <span class="n">ls</span> <span class="o">-</span><span class="n">l</span> 
+<span class="o">*</span>
+<span class="n">drwxr</span><span class="o">-</span><span class="n">xr</span><span class="o">-</span><span class="n">x</span>  <span class="mi">5</span> <span class="n">tecadmin</span>  <span class="n">tecadmin</span>  <span class="mi">160</span> <span class="n">Jun</span> <span class="mi">11</span> <span class="mi">12</span><span class="p">:</span><span class="mi">53</span> <span class="o">&lt;</span><span class="n">Your_Connection_Profile</span><span class="o">&gt;</span>
+<span class="o">*</span>
+</code></pre></div>
+
 <p><strong>6.</strong> When you are there, enter this command to copy our connection
 profile to our new digibank folder :</p>
-<pre><code>tecadmin@ubuntubase:~/Downloads$ cp connectionprofile.json /home/tecadmin/Desktop/digibank/
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="n">tecadmin</span><span class="err">@</span><span class="n">ubuntubase</span><span class="p">:</span><span class="o">~/</span><span class="n">Downloads</span><span class="o">$</span> <span class="n">cp</span> <span class="n">connectionprofile</span><span class="o">.</span><span class="n">json</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">tecadmin</span><span class="o">/</span><span class="n">Desktop</span><span class="o">/</span><span class="n">digibank</span><span class="o">/</span>
+</code></pre></div>
+
 <p><strong>7.</strong> From here, go into VSCode and add the <code>digibank</code> folder to the
 workplace. To do this, go to the Editor perspective and then right
 click on the empty black space and select <code>Add Folder to Workspace</code>.
@@ -310,90 +325,96 @@ everything the same! You can find your CA port by opening your
 <code>networkConnection.json</code> file and looking for the IP address under the
 <code>certificateAuthorities</code> section. It should have a <code>192.168.22.81:3xxx</code>
 IP address. :</p>
-<pre><code>{
-  "connection_file": "/home/tecadmin/Desktop/digibank/networkConnection.json",
-  "appAdmin": "app-admin",
-  "appAdminSecret": "app-adminpw",
-  "orgMSPID": "teamXXorg1msp",
-  "caName": "https://192.168.22.81:&lt;Put_Your_CA_Port_Here&gt;",
-  "userName": "app-admin",
-  "gatewayDiscovery": {
-    "enabled": true,
-    "asLocalhost": false
-  }
-}
+<div class="codehilite"><pre><span></span><code><span class="err">{</span>
+  <span class="ss">&quot;connection_file&quot;</span><span class="p">:</span> <span class="ss">&quot;/home/tecadmin/Desktop/digibank/networkConnection.json&quot;</span><span class="p">,</span>
+  <span class="ss">&quot;appAdmin&quot;</span><span class="p">:</span> <span class="ss">&quot;app-admin&quot;</span><span class="p">,</span>
+  <span class="ss">&quot;appAdminSecret&quot;</span><span class="p">:</span> <span class="ss">&quot;app-adminpw&quot;</span><span class="p">,</span>
+  <span class="ss">&quot;orgMSPID&quot;</span><span class="p">:</span> <span class="ss">&quot;teamXXorg1msp&quot;</span><span class="p">,</span>
+  <span class="ss">&quot;caName&quot;</span><span class="p">:</span> <span class="ss">&quot;https://192.168.22.81:&lt;Put_Your_CA_Port_Here&gt;&quot;</span><span class="p">,</span>
+  <span class="ss">&quot;userName&quot;</span><span class="p">:</span> <span class="ss">&quot;app-admin&quot;</span><span class="p">,</span>
+  <span class="ss">&quot;gatewayDiscovery&quot;</span><span class="p">:</span> <span class="err">{</span>
+    <span class="ss">&quot;enabled&quot;</span><span class="p">:</span> <span class="k">true</span><span class="p">,</span>
+    <span class="ss">&quot;asLocalhost&quot;</span><span class="p">:</span> <span class="k">false</span>
+  <span class="err">}</span>
+<span class="err">}</span>
 
---- CHANGES TO ---
+<span class="c1">--- CHANGES TO ---</span>
 
-{
-  "connection_file": "/home/tecadmin/Desktop/digibank/networkConnection.json",
-  "appAdmin": "app-admin",
-  "appAdminSecret": "app-adminpw",
-  "orgMSPID": "team19org1msp",
-  "caName": "https://192.168.22.81:31142",
-  "userName": "app-admin",
-  "gatewayDiscovery": {
-    "enabled": true,
-    "asLocalhost": false
-  }
-}
-</code></pre>
+<span class="err">{</span>
+  <span class="ss">&quot;connection_file&quot;</span><span class="p">:</span> <span class="ss">&quot;/home/tecadmin/Desktop/digibank/networkConnection.json&quot;</span><span class="p">,</span>
+  <span class="ss">&quot;appAdmin&quot;</span><span class="p">:</span> <span class="ss">&quot;app-admin&quot;</span><span class="p">,</span>
+  <span class="ss">&quot;appAdminSecret&quot;</span><span class="p">:</span> <span class="ss">&quot;app-adminpw&quot;</span><span class="p">,</span>
+  <span class="ss">&quot;orgMSPID&quot;</span><span class="p">:</span> <span class="ss">&quot;team19org1msp&quot;</span><span class="p">,</span>
+  <span class="ss">&quot;caName&quot;</span><span class="p">:</span> <span class="ss">&quot;https://192.168.22.81:31142&quot;</span><span class="p">,</span>
+  <span class="ss">&quot;userName&quot;</span><span class="p">:</span> <span class="ss">&quot;app-admin&quot;</span><span class="p">,</span>
+  <span class="ss">&quot;gatewayDiscovery&quot;</span><span class="p">:</span> <span class="err">{</span>
+    <span class="ss">&quot;enabled&quot;</span><span class="p">:</span> <span class="k">true</span><span class="p">,</span>
+    <span class="ss">&quot;asLocalhost&quot;</span><span class="p">:</span> <span class="k">false</span>
+  <span class="err">}</span>
+<span class="err">}</span>
+</code></pre></div>
+
 <p><strong>Save this File!</strong></p>
 <p><strong>10.</strong> Within the <code>digibank</code> folder there is a <code>src</code> folder. Within the
 <code>src</code> there will be a <code>blockchainClient.ts</code> file. You can click on the
 file to open it up and then navigate to <code>line 38</code>. Go ahead and rename
 the channel to match the channel name in your IBM Blockchain for
 Multicloud console. :</p>
-<pre><code>const network = await gateway.getNetwork('teamXX-channel1');
+<div class="codehilite"><pre><span></span><code><span class="k">const</span> <span class="n">network</span> <span class="o">=</span> <span class="n">await</span> <span class="n">gateway</span><span class="o">.</span><span class="n">getNetwork</span><span class="p">(</span><span class="s1">&#39;teamXX-channel1&#39;</span><span class="p">);</span>
 
---- CHANGES TO ---
+<span class="o">---</span> <span class="n">CHANGES</span> <span class="n">TO</span> <span class="o">---</span>
 
-const network = await gateway.getNetwork('team19-channel1');
-</code></pre>
+<span class="k">const</span> <span class="n">network</span> <span class="o">=</span> <span class="n">await</span> <span class="n">gateway</span><span class="o">.</span><span class="n">getNetwork</span><span class="p">(</span><span class="s1">&#39;team19-channel1&#39;</span><span class="p">);</span>
+</code></pre></div>
+
 <p><strong>Save this File!</strong></p>
 <p><strong>11.</strong> From the CLI application, navigate to the <code>digibank/Identity</code>
 folder and then run the command below :</p>
-<pre><code>tecadmin@ubuntubase:~/Downloads$ cd /home/tecadmin/Desktop/digibank/Identity
-tecadmin@ubuntubase:~/Desktop/digibank/Identity$ npm install
-*
-*
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="n">tecadmin</span><span class="err">@</span><span class="n">ubuntubase</span><span class="p">:</span><span class="o">~/</span><span class="n">Downloads</span><span class="o">$</span> <span class="n">cd</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">tecadmin</span><span class="o">/</span><span class="n">Desktop</span><span class="o">/</span><span class="n">digibank</span><span class="o">/</span><span class="n">Identity</span>
+<span class="n">tecadmin</span><span class="err">@</span><span class="n">ubuntubase</span><span class="p">:</span><span class="o">~/</span><span class="n">Desktop</span><span class="o">/</span><span class="n">digibank</span><span class="o">/</span><span class="n">Identity</span><span class="o">$</span> <span class="n">npm</span> <span class="n">install</span>
+<span class="o">*</span>
+<span class="o">*</span>
+</code></pre></div>
+
 <p><strong>12.</strong> Once npm has completed some installations, run the command below
 to enroll our user :</p>
-<pre><code>tecadmin@ubuntubase:~/Desktop/digibank/Identity$ node enroll.js
-Wallet path: /home/tecadmin/Desktop/digibank/IBP
-msg: Successfully enrolled admin user app-admin and imported it into the wallet
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="err">tecadmin@ubuntubase:~/Desktop/digibank/Identity$ node enroll.js</span>
+<span class="err">Wallet path: /home/tecadmin/Desktop/digibank/IBP</span>
+<span class="c">msg: Successfully enrolled admin user app-admin and imported it into the wallet</span>
+</code></pre></div>
+
 <p><strong>13.</strong> The previous step created a certificate and public/private key
 pair for us. We can check that by entering the command below :</p>
-<pre><code>tecadmin@ubuntubase:~/Desktop/digibank/Identity$ ls -l ../IBP
-total 4
-drwxr-xr-x 2 tecadmin tecadmin 4096 Jun 27 00:39 app-admin
-tecadmin@ubuntubase:~/Desktop/digibank/Identity$ ls -l ../IBP/app-admin
-total 12
--rw-r--r-- 1 tecadmin tecadmin  246 Jun 27 00:39 5b17e99aa4da28c2dad4d834409e01c543f19965840b3ba4482049111893897e-priv
--rw-r--r-- 1 tecadmin tecadmin  182 Jun 27 00:39 5b17e99aa4da28c2dad4d834409e01c543f19965840b3ba4482049111893897e-pub
--rw-r--r-- 1 tecadmin tecadmin 1104 Jun 27 00:39 app-admin
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="err">tecadmin@ubuntubase:~/Desktop/digibank/Identity$ ls -l ../IBP</span>
+<span class="err">total 4</span>
+<span class="err">drwxr-xr-x 2 tecadmin tecadmin 4096 Jun 27 00:39 app-admin</span>
+<span class="err">tecadmin@ubuntubase:~/Desktop/digibank/Identity$ ls -l ../IBP/app-admin</span>
+<span class="err">total 12</span>
+<span class="err">-rw-r--r-- 1 tecadmin tecadmin  246 Jun 27 00:39 5b17e99aa4da28c2dad4d834409e01c543f19965840b3ba4482049111893897e-priv</span>
+<span class="err">-rw-r--r-- 1 tecadmin tecadmin  182 Jun 27 00:39 5b17e99aa4da28c2dad4d834409e01c543f19965840b3ba4482049111893897e-pub</span>
+<span class="err">-rw-r--r-- 1 tecadmin tecadmin 1104 Jun 27 00:39 app-admin</span>
+</code></pre></div>
+
 <p><strong>14.</strong> Then change the Jenkinsfile to match your team :</p>
 <p><img alt="image" src="../jenkinsimages/add_your_team_jenkinsfile.png" /></p>
 <p><strong>15.</strong> Once npm has completed some installations, enter the next
 command below to push our changes to our GitHub account :</p>
-<pre><code>tecadmin@ubuntubase:~/Desktop/digibank$ git add *
-tecadmin@ubuntubase:~/Desktop/digibank$ git commit -m 'blockchain is awesome' 
-*
-* Your file changes and other output messages
-*
-tecadmin@ubuntubase:~/Desktop/digibank$ git push
-Counting objects: 53, done.
-Delta compression using up to 8 threads.
-Compressing objects: 100% (48/48), done.
-Writing objects: 100% (53/53), 13.95 KiB | 0 bytes/s, done.
-Total 53 (delta 6), reused 0 (delta 0)
-remote: Resolving deltas: 100% (6/6), done.
-To github.com:austingrice/digibank.git
-   140abdf..0666159  master -&gt; master
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="err">tecadmin@ubuntubase:~/Desktop/digibank$ git add *</span>
+<span class="err">tecadmin@ubuntubase:~/Desktop/digibank$ git commit -m &#39;blockchain is awesome&#39; </span>
+<span class="err">*</span>
+<span class="err">* Your file changes and other output messages</span>
+<span class="err">*</span>
+<span class="err">tecadmin@ubuntubase:~/Desktop/digibank$ git push</span>
+<span class="err">Counting objects: 53, done.</span>
+<span class="err">Delta compression using up to 8 threads.</span>
+<span class="err">Compressing objects: 100% (48/48), done.</span>
+<span class="err">Writing objects: 100% (53/53), 13.95 KiB | 0 bytes/s, done.</span>
+<span class="err">Total 53 (delta 6), reused 0 (delta 0)</span>
+<span class="c">remote: Resolving deltas: 100% (6/6), done.</span>
+<span class="err">To github.com:austingrice/digibank.git</span>
+<span class="err">   140abdf..0666159  master -&gt; master</span>
+</code></pre></div>
+
 <p><strong>16.</strong> Go back to your GitHub repository of <code>digibank</code> and then hit the
 <code>refresh</code> button to confirm your changes took.</p>
 <p><strong>JENKINS THEN GOES TO WORK FOR K8S LOOPBACKAPI</strong></p>
@@ -407,10 +428,11 @@ To github.com:austingrice/digibank.git
 <img alt="image" src="../jenkinsimages/add_webhook.png" /></p>
 <p><strong>iv</strong> Configure your webhook.
 <img alt="image" src="../jenkinsimages/Webhook_settings.png" /></p>
-<pre><code>1. smee url: The smee url will be provided to you for the lab as it is auto-generated for each lab.
-2. `application/json` content type
-3. Leave the rest as defaults as shown and click `Add Webhook`
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="err">1. smee url: The smee url will be provided to you for the lab as it is auto-generated for each lab.</span>
+<span class="err">2. `application/json` content type</span>
+<span class="err">3. Leave the rest as defaults as shown and click `Add Webhook`</span>
+</code></pre></div>
+
 <p>You may be wondering why we are providing a smee url here and not a jenkins url. Our Jenkins service is not accessible from the public internet. Thus, we can use smee, which is a service that serves as a proxy for webhooks. It acts as a local sidecar container to the Jenkins master (running in the same Kubernetes pod) on it's network. While the services such as GitHub on the public internet can't initaite connections with it, it can initiate connections with them. Using this method, smee forwards Jenkins webhooks when it hears of them via a connection to a public smee service (addressable from the internet) which is in turn listening for github webhooks from your github repositories. </p>
 <p><strong>v</strong> See successful Webhook creation message.
 <img alt="image" src="../jenkinsimages/success_message.png" /></p>
@@ -456,15 +478,16 @@ will submit transactions for us).</p>
 <p><strong>18.</strong> Go ahead and toggle on the <code>IssueController</code> and then click on
 <code>Try it Out</code> in the top right. Go ahead and enter the text below to
 issue a new paper :</p>
-<pre><code>{
-  "issuer": "Digibank",
-  "paperNumber": "0032",
-  "issueDateTime": "2020-05-31",
-  "maturityDateTime": "2020-11-30",
-  "faceValue": "500",
-  "paperRate": "0.02"
-}
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="err">{</span>
+<span class="err">  &quot;issuer&quot;: &quot;Digibank&quot;,</span>
+<span class="err">  &quot;paperNumber&quot;: &quot;0032&quot;,</span>
+<span class="err">  &quot;issueDateTime&quot;: &quot;2020-05-31&quot;,</span>
+<span class="err">  &quot;maturityDateTime&quot;: &quot;2020-11-30&quot;,</span>
+<span class="err">  &quot;faceValue&quot;: &quot;500&quot;,</span>
+<span class="err">  &quot;paperRate&quot;: &quot;0.02&quot;</span>
+<span class="err">}</span>
+</code></pre></div>
+
 <p><strong>19.</strong> Then click on the <code>Execute</code> button below. Then, let it spin
 around for a moment, but it should come back with some type of response
 in the response body. Sometimes, it might continuously spin. It will
@@ -477,25 +500,27 @@ should come back.</p>
 <p><img alt="image" src="../cicdimages/issue.png" /></p>
 <p><strong>20.</strong> Do a similar transaction for <code>Buy</code> once you click on
 <code>Try it Out</code> in the top right :</p>
-<pre><code>{
-  "issuer": "Digibank",
-  "paperNumber": "0032",
-  "currentOwner": "Digibank",
-  "newOwner": "MagnetoCorp",
-  "price": "400",
-  "purchaseDateTime": "2020-06-10"
-}
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="err">{</span>
+<span class="err">  &quot;issuer&quot;: &quot;Digibank&quot;,</span>
+<span class="err">  &quot;paperNumber&quot;: &quot;0032&quot;,</span>
+<span class="err">  &quot;currentOwner&quot;: &quot;Digibank&quot;,</span>
+<span class="err">  &quot;newOwner&quot;: &quot;MagnetoCorp&quot;,</span>
+<span class="err">  &quot;price&quot;: &quot;400&quot;,</span>
+<span class="err">  &quot;purchaseDateTime&quot;: &quot;2020-06-10&quot;</span>
+<span class="err">}</span>
+</code></pre></div>
+
 <p><img alt="image" src="../cicdimages/buy.png" /></p>
 <p><strong>21.</strong> Do the same for the <code>Redeem</code> transaction once you click on
 <code>Try it Out</code> in the top right :</p>
-<pre><code>{
-  "issuer": "Digibank",
-  "paperNumber": "0032",
-  "redeemingOwner": "MagnetoCorp",
-  "redeemDateTime": "2020-11-30"
-}
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="err">{</span>
+<span class="err">  &quot;issuer&quot;: &quot;Digibank&quot;,</span>
+<span class="err">  &quot;paperNumber&quot;: &quot;0032&quot;,</span>
+<span class="err">  &quot;redeemingOwner&quot;: &quot;MagnetoCorp&quot;,</span>
+<span class="err">  &quot;redeemDateTime&quot;: &quot;2020-11-30&quot;</span>
+<span class="err">}</span>
+</code></pre></div>
+
 <p><strong>22.</strong> All of these transactions are being recorded on the IBM
 Blockchain Platform by going to your channel list and then viewing the
 block height and list of transactions.</p>
@@ -512,11 +537,11 @@ repository and controller. Make sure your are in the
 <strong>Desktop/digibank</strong> folder. Also, it is very important that what you
 see below is what you enter. Make sure you don't see dashes (<code>-</code>) in any
 of the prompts. :</p>
-<pre><code>--- Make the Getpapers Model ---
+<div class="codehilite"><pre><span></span><code><span class="gd">--- Make the Getpapers Model ---</span>
 
 tecadmin@ubuntubase:~/Desktop/digibank$ cd /home/tecadmin/Desktop/digibank/ 
 *
-* I realize, that I'm cd-ing into a folder I'm already in, but it is to make sure everyone in the lab is in the right folder!
+* I realize, that I&#39;m cd-ing into a folder I&#39;m already in, but it is to make sure everyone in the lab is in the right folder!
 *
 tecadmin@ubuntubase:~/Desktop/digibank$ lb4 model
 ? Model class name: Getpapers
@@ -524,7 +549,7 @@ tecadmin@ubuntubase:~/Desktop/digibank$ lb4 model
 ? Allow additional (free-form) properties? No
 Model Getpapers will be created in src/models/getpapers.model.ts
 
-Let's add a property to Getpapers
+Let&#39;s add a property to Getpapers
 Enter an empty property name when done
 
 ? Enter the property name: issuer
@@ -533,7 +558,7 @@ Enter an empty property name when done
 ? Is it required?: No
 ? Default value [leave blank for none]:
 
-Let's add another property to Getpapers
+Let&#39;s add another property to Getpapers
 Enter an empty property name when done
 
 ? Enter the property name:
@@ -542,7 +567,7 @@ Enter an empty property name when done
 
 Model Getpapers was created in src/models/
 
--- Create the Getpapers Repository ---
+<span class="gd">-- Create the Getpapers Repository ---</span>
 
 tecadmin@ubuntubase:~/Desktop/digibank$ lb4 repository
 ? Please select the datasource DbDatasource
@@ -553,7 +578,7 @@ tecadmin@ubuntubase:~/Desktop/digibank$ lb4 repository
 
 Repository GetpapersRepository was created in src/repositories/
 
---- Create the Getpapers Controller ---
+<span class="gd">--- Create the Getpapers Controller ---</span>
 
 tecadmin@ubuntubase:~/Desktop/digibank$ lb4 controller
 ? Controller class name: Getpapers
@@ -568,104 +593,108 @@ Controller Getpapers will be created in src/controllers/getpapers.controller.ts
    update src/controllers/index.ts
 
 Controller Getpapers was created in src/controllers/
-</code></pre>
+</code></pre></div>
+
 <p><strong>3.</strong> Within VSCode, navigate to the <code>digibank/src/repository</code> folder.
 You will see 6 files, with 4 of them being our repositories. Open the
 <code>getpaper.repository.ts</code> file and make a change that I lay out below on
 line 8 :</p>
-<pre><code>typeof Getpapers.prototype.,
+<div class="codehilite"><pre><span></span><code><span class="n">typeof</span> <span class="n">Getpapers</span><span class="p">.</span><span class="n">prototype</span><span class="p">.,</span>
 
---- Change To ---
+<span class="c1">--- Change To ---</span>
 
-// typeof Getpapers.prototype.,
-</code></pre>
+<span class="o">//</span> <span class="n">typeof</span> <span class="n">Getpapers</span><span class="p">.</span><span class="n">prototype</span><span class="p">.,</span>
+</code></pre></div>
+
 <p>Save this file!</p>
 <p><strong>4.</strong> Within our <code>digibank/src/controllers</code> folder, open the
 <code>getpapers.controller.ts</code> file and delete all of the code within that
 controller. Next, paste in the code below :</p>
-<pre><code>// Copyright IBM Corp. 2017,2018. All Rights Reserved.
-// Node module: @loopback/example-todo
-// This file is licensed under the MIT License.
-// License text available at https://opensource.org/licenses/MIT
+<div class="codehilite"><pre><span></span><code><span class="o">//</span> <span class="n">Copyright</span> <span class="n">IBM</span> <span class="n">Corp</span><span class="o">.</span> <span class="mi">2017</span><span class="p">,</span><span class="mf">2018.</span> <span class="n">All</span> <span class="n">Rights</span> <span class="n">Reserved</span><span class="o">.</span>
+<span class="o">//</span> <span class="n">Node</span> <span class="n">module</span><span class="p">:</span> <span class="nd">@loopback</span><span class="o">/</span><span class="n">example</span><span class="o">-</span><span class="n">todo</span>
+<span class="o">//</span> <span class="n">This</span> <span class="nb">file</span> <span class="ow">is</span> <span class="n">licensed</span> <span class="n">under</span> <span class="n">the</span> <span class="n">MIT</span> <span class="n">License</span><span class="o">.</span>
+<span class="o">//</span> <span class="n">License</span> <span class="n">text</span> <span class="n">available</span> <span class="n">at</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">opensource</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">licenses</span><span class="o">/</span><span class="n">MIT</span>
 
-import {
-  del,
-  get,
-  getFilterSchemaFor,
-  param,
-  patch,
-  post,
-  put,
-  requestBody,
-} from '@loopback/rest';
-import { Getpapers } from '../models';
+<span class="kn">import</span> <span class="p">{</span>
+  <span class="k">del</span><span class="p">,</span>
+  <span class="n">get</span><span class="p">,</span>
+  <span class="n">getFilterSchemaFor</span><span class="p">,</span>
+  <span class="n">param</span><span class="p">,</span>
+  <span class="n">patch</span><span class="p">,</span>
+  <span class="n">post</span><span class="p">,</span>
+  <span class="n">put</span><span class="p">,</span>
+  <span class="n">requestBody</span><span class="p">,</span>
+<span class="p">}</span> <span class="kn">from</span> <span class="s1">&#39;@loopback/rest&#39;</span><span class="p">;</span>
+<span class="kn">import</span> <span class="p">{</span> <span class="n">Getpapers</span> <span class="p">}</span> <span class="kn">from</span> <span class="s1">&#39;../models&#39;</span><span class="p">;</span>
 
-import { BlockChainModule } from '../blockchainClient';
+<span class="kn">import</span> <span class="p">{</span> <span class="n">BlockChainModule</span> <span class="p">}</span> <span class="kn">from</span> <span class="s1">&#39;../blockchainClient&#39;</span><span class="p">;</span>
 
-let blockchainClient = new BlockChainModule.BlockchainClient();
+<span class="n">let</span> <span class="n">blockchainClient</span> <span class="o">=</span> <span class="n">new</span> <span class="n">BlockChainModule</span><span class="o">.</span><span class="n">BlockchainClient</span><span class="p">();</span>
 
-export class GetpapersController {
-  constructor() { }
+<span class="n">export</span> <span class="k">class</span> <span class="nc">GetpapersController</span> <span class="p">{</span>
+  <span class="n">constructor</span><span class="p">()</span> <span class="p">{</span> <span class="p">}</span>
 
- @post('/getpapers', {
-   responses: {
-      '200': {
-        description: 'Todo model instance',
-        content: { 'application/json': { schema: { 'x-ts-type': Getpapers } } },
-      },
-    },
-  })
-  async createGetpapers(@requestBody() requestBody: Getpapers): Promise&lt;Getpapers&gt; {
-    console.log('Buy, requestBody: ')
-    console.log(requestBody)
+ <span class="nd">@post</span><span class="p">(</span><span class="s1">&#39;/getpapers&#39;</span><span class="p">,</span> <span class="p">{</span>
+   <span class="n">responses</span><span class="p">:</span> <span class="p">{</span>
+      <span class="s1">&#39;200&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="n">description</span><span class="p">:</span> <span class="s1">&#39;Todo model instance&#39;</span><span class="p">,</span>
+        <span class="n">content</span><span class="p">:</span> <span class="p">{</span> <span class="s1">&#39;application/json&#39;</span><span class="p">:</span> <span class="p">{</span> <span class="n">schema</span><span class="p">:</span> <span class="p">{</span> <span class="s1">&#39;x-ts-type&#39;</span><span class="p">:</span> <span class="n">Getpapers</span> <span class="p">}</span> <span class="p">}</span> <span class="p">},</span>
+      <span class="p">},</span>
+    <span class="p">},</span>
+  <span class="p">})</span>
+  <span class="n">async</span> <span class="n">createGetpapers</span><span class="p">(</span><span class="nd">@requestBody</span><span class="p">()</span> <span class="n">requestBody</span><span class="p">:</span> <span class="n">Getpapers</span><span class="p">):</span> <span class="n">Promise</span><span class="o">&lt;</span><span class="n">Getpapers</span><span class="o">&gt;</span> <span class="p">{</span>
+    <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s1">&#39;Buy, requestBody: &#39;</span><span class="p">)</span>
+    <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">requestBody</span><span class="p">)</span>
 
-    let networkObj = await blockchainClient.connectToNetwork();
-    if (!networkObj) {
-      let errString = 'Error connecting to network';
-      let getpapers = new Getpapers({ issuer: errString });
-      return getpapers;
-    }
-    console.log('newtork obj: ')
-    console.log(networkObj)
+    <span class="n">let</span> <span class="n">networkObj</span> <span class="o">=</span> <span class="n">await</span> <span class="n">blockchainClient</span><span class="o">.</span><span class="n">connectToNetwork</span><span class="p">();</span>
+    <span class="k">if</span> <span class="p">(</span><span class="err">!</span><span class="n">networkObj</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">let</span> <span class="n">errString</span> <span class="o">=</span> <span class="s1">&#39;Error connecting to network&#39;</span><span class="p">;</span>
+      <span class="n">let</span> <span class="n">getpapers</span> <span class="o">=</span> <span class="n">new</span> <span class="n">Getpapers</span><span class="p">({</span> <span class="n">issuer</span><span class="p">:</span> <span class="n">errString</span> <span class="p">});</span>
+      <span class="k">return</span> <span class="n">getpapers</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s1">&#39;newtork obj: &#39;</span><span class="p">)</span>
+    <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">networkObj</span><span class="p">)</span>
 
-    let dataForGetpapers = {
-      function: 'getAllPapersFromIssuer',
-      issuer: requestBody.issuer,
-      contract: networkObj.contract
-    };
+    <span class="n">let</span> <span class="n">dataForGetpapers</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="n">function</span><span class="p">:</span> <span class="s1">&#39;getAllPapersFromIssuer&#39;</span><span class="p">,</span>
+      <span class="n">issuer</span><span class="p">:</span> <span class="n">requestBody</span><span class="o">.</span><span class="n">issuer</span><span class="p">,</span>
+      <span class="n">contract</span><span class="p">:</span> <span class="n">networkObj</span><span class="o">.</span><span class="n">contract</span>
+    <span class="p">};</span>
 
-    var resultString = await blockchainClient.getpapers(dataForGetpapers);
+    <span class="n">var</span> <span class="n">resultString</span> <span class="o">=</span> <span class="n">await</span> <span class="n">blockchainClient</span><span class="o">.</span><span class="n">getpapers</span><span class="p">(</span><span class="n">dataForGetpapers</span><span class="p">);</span>
 
-    console.log('result from blockchainClient.submitTransaction in controller: ')
-    console.log(resultString);
-    let result = JSON.parse(resultString);
-    return result;
-  }
+    <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s1">&#39;result from blockchainClient.submitTransaction in controller: &#39;</span><span class="p">)</span>
+    <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">resultString</span><span class="p">);</span>
+    <span class="n">let</span> <span class="n">result</span> <span class="o">=</span> <span class="n">JSON</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">resultString</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">result</span><span class="p">;</span>
+  <span class="p">}</span>
 
-}
-</code></pre>
+<span class="p">}</span>
+</code></pre></div>
+
 <p>Save this file!</p>
 <p><strong>5.</strong> Now, that we have made some further changes to our digibank
 folder, let's push it back up to GitHub :</p>
-<pre><code>tecadmin@ubuntubase:~/Desktop/digibank$ cd /home/tecadmin/Desktop/digibank
-*
-* I realize, that I'm cd-ing into a folder I'm already in, but it is to make sure everyone in the lab is in the right folder!
-*
-tecadmin@ubuntubase:~/Desktop/digibank$ git add *
-tecadmin@ubuntubase:~/Desktop/digibank$ git commit -m 'blockchain is awesome' 
-*
-* Your file changes and other output messages
-*
-tecadmin@ubuntubase:~/Desktop/digibank$ git push
-Counting objects: 53, done.
-Delta compression using up to 8 threads.
-Compressing objects: 100% (48/48), done.
-Writing objects: 100% (53/53), 13.95 KiB | 0 bytes/s, done.
-Total 53 (delta 6), reused 0 (delta 0)
-remote: Resolving deltas: 100% (6/6), done.
-To github.com:austingrice/digibank.git
-   140abdf..0666159  master -&gt; master
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="err">tecadmin@ubuntubase:~/Desktop/digibank$ cd /home/tecadmin/Desktop/digibank</span>
+<span class="err">*</span>
+<span class="err">* I realize, that I&#39;m cd-ing into a folder I&#39;m already in, but it is to make sure everyone in the lab is in the right folder!</span>
+<span class="err">*</span>
+<span class="err">tecadmin@ubuntubase:~/Desktop/digibank$ git add *</span>
+<span class="err">tecadmin@ubuntubase:~/Desktop/digibank$ git commit -m &#39;blockchain is awesome&#39; </span>
+<span class="err">*</span>
+<span class="err">* Your file changes and other output messages</span>
+<span class="err">*</span>
+<span class="err">tecadmin@ubuntubase:~/Desktop/digibank$ git push</span>
+<span class="err">Counting objects: 53, done.</span>
+<span class="err">Delta compression using up to 8 threads.</span>
+<span class="err">Compressing objects: 100% (48/48), done.</span>
+<span class="err">Writing objects: 100% (53/53), 13.95 KiB | 0 bytes/s, done.</span>
+<span class="err">Total 53 (delta 6), reused 0 (delta 0)</span>
+<span class="c">remote: Resolving deltas: 100% (6/6), done.</span>
+<span class="err">To github.com:austingrice/digibank.git</span>
+<span class="err">   140abdf..0666159  master -&gt; master</span>
+</code></pre></div>
+
 <p><strong>LET JENKINS GO TO WORK BY MAKING A K8S DEPLOYMENT</strong></p>
 <p><strong>xxiv</strong> You can again click back to main project and see successfully running job.
 <img alt="image" src="../jenkinsimages/see%20triggered%20job.png" /></p>
@@ -676,10 +705,11 @@ To github.com:austingrice/digibank.git
 <p><strong>6.</strong> Once you have your kubernetes deployment of our loopback
 application, go ahead and open it. Then go to the <code>GetpapersController</code>
 and then paste in the text below once you click on <code>Try it Out</code> :</p>
-<pre><code>{
-  "issuer": "Digibank"
-}
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="err">{</span>
+<span class="err">  &quot;issuer&quot;: &quot;Digibank&quot;</span>
+<span class="err">}</span>
+</code></pre></div>
+
 <p><img alt="image" src="../cicdimages/getpapers.png" /></p>
 <p><strong>xxvii</strong> It's time to cleanup the Github webhook since you are done with it. Go back to your fork of Github repository for this lab. Go to the settings page for the repository and then Webhooks. Click delete to clean up the Webhook.
 <img alt="image" src="../jenkinsimages/cleanup_webhooks.png" /></p>

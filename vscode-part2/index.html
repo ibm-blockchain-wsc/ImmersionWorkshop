@@ -193,16 +193,28 @@
       
 
 
+  <li class="md-nav__item">
+    <a href="../assignment/" class="md-nav__link">
+      Skytap image assignments
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
     
-    <label class="md-nav__link" for="nav-2">
+    <label class="md-nav__link" for="nav-3">
       IBM Blockchain Platform v2.5.0 on Linux on IBM Z Lab
       <span class="md-nav__icon md-icon"></span>
     </label>
     <nav class="md-nav" aria-label="IBM Blockchain Platform v2.5.0 on Linux on IBM Z Lab" data-md-level="1">
-      <label class="md-nav__title" for="nav-2">
+      <label class="md-nav__title" for="nav-3">
         <span class="md-nav__icon md-icon"></span>
         IBM Blockchain Platform v2.5.0 on Linux on IBM Z Lab
       </label>
@@ -278,7 +290,7 @@
               
                 
                 
-                <h1 id="section-1-commercial-paper-overview">Section 1: Commercial Paper Overview</h1>
+                <h1 id="section-1-commercial-paper-overview">Section 1: Commercial Paper Overview<a class="headerlink" href="#section-1-commercial-paper-overview" title="Permanent link">&para;</a></h1>
 <p>This tutorial works with a sample commercial paper trading network
 called <code>PaperNet</code>. Commercial paper is a type of unsecured lending in
 the form of a "promissory note". The papers are normally issued by large
@@ -372,40 +384,43 @@ then eventually redeem it.</p>
             transactions through the CLI and VSCode.</p>
 </li>
 </ul>
-<h1 id="section-2-setting-the-stage">Section 2: Setting the Stage</h1>
+<h1 id="section-2-setting-the-stage">Section 2: Setting the Stage<a class="headerlink" href="#section-2-setting-the-stage" title="Permanent link">&para;</a></h1>
 <p><strong>1.</strong> Navigate to your Desktop and then do a git clone of a repository
 to gather all the things you need to run through this tutorial :</p>
-<pre><code>tecadmin@ubuntubase:~$ cd Desktop/
-tecadmin@ubuntubase:~/Desktop$ ls -l
-total 0
-drwxr-xr-x  16 tecadmin  tecadmin  512 Jun 11 12:34 Kale
-tecadmin@ubuntubase:~/Desktop$ git clone https://github.com/austingrice/fabric-samples-cp.git
-Cloning into 'fabric-samples-cp'...
-remote: Enumerating objects: 85, done.
-remote: Counting objects: 100% (85/85), done.
-remote: Compressing objects: 100% (71/71), done.
-remote: Total 2658 (delta 26), reused 71 (delta 13), pack-reused 2573
-Receiving objects: 100% (2658/2658), 927.08 KiB | 0 bytes/s, done.
-Resolving deltas: 100% (1293/1293), done.
-tecadmin@ubuntubase:~/Desktop$ ls -l
-total 0
-drwxr-xr-x  22 tecadmin  tecadmin  704 Jun 11 12:41 fabric-samples-cp
-drwxr-xr-x  16 tecadmin  tecadmin  512 Jun 11 12:34 Kale
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="err">tecadmin@ubuntubase:~$ cd Desktop/</span>
+<span class="err">tecadmin@ubuntubase:~/Desktop$ ls -l</span>
+<span class="err">total 0</span>
+<span class="err">drwxr-xr-x  16 tecadmin  tecadmin  512 Jun 11 12:34 Kale</span>
+<span class="err">tecadmin@ubuntubase:~/Desktop$ git clone https://github.com/austingrice/fabric-samples-cp.git</span>
+<span class="err">Cloning into &#39;fabric-samples-cp&#39;...</span>
+<span class="c">remote: Enumerating objects: 85, done.</span>
+<span class="c">remote: Counting objects: 100% (85/85), done.</span>
+<span class="c">remote: Compressing objects: 100% (71/71), done.</span>
+<span class="c">remote: Total 2658 (delta 26), reused 71 (delta 13), pack-reused 2573</span>
+<span class="err">Receiving objects: 100% (2658/2658), 927.08 KiB | 0 bytes/s, done.</span>
+<span class="err">Resolving deltas: 100% (1293/1293), done.</span>
+<span class="err">tecadmin@ubuntubase:~/Desktop$ ls -l</span>
+<span class="err">total 0</span>
+<span class="err">drwxr-xr-x  22 tecadmin  tecadmin  704 Jun 11 12:41 fabric-samples-cp</span>
+<span class="err">drwxr-xr-x  16 tecadmin  tecadmin  512 Jun 11 12:34 Kale</span>
+</code></pre></div>
+
 <p><strong>2.</strong> Then, do a <code>docker network list</code> to see all the running Docker
 networks :</p>
-<pre><code>tecadmin@ubuntubase:~/Desktop$ docker network list
-NETWORK ID          NAME                            DRIVER              SCOPE
-ad2e1a3e2fc2        bridge                          bridge              local
-35837170ae5b        fabricvscodelocalfabric_basic   bridge              local
-c5e0411b0d34        host                            host                local
-42ffa501f2f9        none                            null                local
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="err">tecadmin@ubuntubase:~/Desktop$ docker network list</span>
+<span class="err">NETWORK ID          NAME                            DRIVER              SCOPE</span>
+<span class="err">ad2e1a3e2fc2        bridge                          bridge              local</span>
+<span class="err">35837170ae5b        fabricvscodelocalfabric_basic   bridge              local</span>
+<span class="err">c5e0411b0d34        host                            host                local</span>
+<span class="err">42ffa501f2f9        none                            null                local</span>
+</code></pre></div>
+
 <p><strong>3.</strong> The network we are operating out of is the
 <code>fabricvscodelocalfabric_basic</code> network. You can see that by entering
 the following command below :</p>
-<pre><code>tecadmin@ubuntubase:~/Desktop$ docker network inspect fabricvscodelocalfabric_basic
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="err">tecadmin@ubuntubase:~/Desktop$ docker network inspect fabricvscodelocalfabric_basic</span>
+</code></pre></div>
+
 <p>That command will show you all the containers running in this network.
 In a nutshell, docker networks are natural ways to isolate containers
 from other containers or other networks. Having containers within a
@@ -416,8 +431,9 @@ network.</p>
 work from an Untitled Workplace, but have the <code>fabric-samples-cp</code> folder
 in there.</p>
 <p><strong>5.</strong> Within VSCode, navigate to the folder below within MagnetoCorp :</p>
-<pre><code>fabric-samples-cp -&gt; commercial-paper -&gt; organizations -&gt; magnetocorp -&gt; configuration -&gt; cli
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="err">fabric-samples-cp -&gt; commercial-paper -&gt; organizations -&gt; magnetocorp -&gt; configuration -&gt; cli</span>
+</code></pre></div>
+
 <p>You will see two files in there. One file is <code>monitordocker.sh</code> that
 will produce log messages across the network that you specify it to look
 at. If you click on this file to open it up, you'll see the file is
@@ -432,18 +448,20 @@ container. This will make more sense once we install and instantiate the
 smart contract from this container instead of VSCode.</p>
 <p><strong>6.</strong> Now from the terminal navigate to the cli directory within
 MagnetoCorp. <strong>NOTE:</strong> scroll over to see the entire command below :</p>
-<pre><code>tecadmin@ubuntubase:~/Desktop$ cd fabric-samples-cp/commercial-paper/organization/magnetocorp/configuration/cli/
-tecadmin@ubuntubase:~/Desktop/fabric-samples-cp/commercial-paper/organization/magnetocorp/configuration/cli/$ ls -l
-total 16
--rw-r--r--  1 tecadmin  tecadmin  1168 Jun 11 12:41 docker-compose.yml
--rwxr-xr-x  1 tecadmin  tecadmin   751 Jun 11 12:44 monitordocker.sh
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="err">tecadmin@ubuntubase:~/Desktop$ cd fabric-samples-cp/commercial-paper/organization/magnetocorp/configuration/cli/</span>
+<span class="err">tecadmin@ubuntubase:~/Desktop/fabric-samples-cp/commercial-paper/organization/magnetocorp/configuration/cli/$ ls -l</span>
+<span class="err">total 16</span>
+<span class="err">-rw-r--r--  1 tecadmin  tecadmin  1168 Jun 11 12:41 docker-compose.yml</span>
+<span class="err">-rwxr-xr-x  1 tecadmin  tecadmin   751 Jun 11 12:44 monitordocker.sh</span>
+</code></pre></div>
+
 <p><strong>7.</strong> From here, we can actually start the <code>monitordocker.sh</code> script by
 entering the command below. <strong>NOTE:</strong> scroll over to see the entire
 command below :</p>
-<pre><code>tecadmin@ubuntubase:~/Desktop/fabric-samples-cp/commercial-paper/organization/magnetocorp/configuration/cli/$ ./monitordocker.sh fabricvscodelocalfabric_basic
-#
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="err">tecadmin@ubuntubase:~/Desktop/fabric-samples-cp/commercial-paper/organization/magnetocorp/configuration/cli/$ ./monitordocker.sh fabricvscodelocalfabric_basic</span>
+<span class="err">#</span>
+</code></pre></div>
+
 <p><strong>8.</strong> Since this terminal is occupied with log messages, let's open
 another terminal tab. We can open a new tab by clicking on <code>File</code> and
 then selecting <code>New Tab</code></p>
@@ -452,14 +470,15 @@ file path that you were in on the previous tab. Now that we have a
 command line ready, go ahead and enter the command below that will
 create a <code>cliMagnetoCorp</code> container for our docker network to use.
 <strong>NOTE:</strong> scroll over to see the entire command below :</p>
-<pre><code>tecadmin@ubuntubase:~/Desktop/fabric-samples-cp/commercial-paper/organization/magnetocorp/configuration/cli/$ docker-compose -f docker-compose.yml up -d cliMagnetoCorp
-.
-. # We'll see docker messages
-.
-Status: Downloaded newer image for hyperledger/fabric-tools:latest
-Creating cliMagnetoCorp ... 
-Creating cliMagnetoCorp ... done
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="n">tecadmin</span><span class="err">@</span><span class="n">ubuntubase</span><span class="p">:</span><span class="o">~/</span><span class="n">Desktop</span><span class="o">/</span><span class="n">fabric</span><span class="o">-</span><span class="n">samples</span><span class="o">-</span><span class="n">cp</span><span class="o">/</span><span class="n">commercial</span><span class="o">-</span><span class="n">paper</span><span class="o">/</span><span class="n">organization</span><span class="o">/</span><span class="n">magnetocorp</span><span class="o">/</span><span class="n">configuration</span><span class="o">/</span><span class="n">cli</span><span class="o">/$</span> <span class="n">docker</span><span class="o">-</span><span class="n">compose</span> <span class="o">-</span><span class="n">f</span> <span class="n">docker</span><span class="o">-</span><span class="n">compose</span><span class="o">.</span><span class="n">yml</span> <span class="n">up</span> <span class="o">-</span><span class="n">d</span> <span class="n">cliMagnetoCorp</span>
+<span class="o">.</span>
+<span class="o">.</span> <span class="c1"># We&#39;ll see docker messages</span>
+<span class="o">.</span>
+<span class="n">Status</span><span class="p">:</span> <span class="n">Downloaded</span> <span class="n">newer</span> <span class="n">image</span> <span class="k">for</span> <span class="n">hyperledger</span><span class="o">/</span><span class="n">fabric</span><span class="o">-</span><span class="n">tools</span><span class="p">:</span><span class="n">latest</span>
+<span class="n">Creating</span> <span class="n">cliMagnetoCorp</span> <span class="o">...</span> 
+<span class="n">Creating</span> <span class="n">cliMagnetoCorp</span> <span class="o">...</span> <span class="n">done</span>
+</code></pre></div>
+
 <p><img alt="image" src="../vscode-images/papernet_magnetocorp.png" /></p>
 <p>When we first install the smart contract, we will go through the
 cliMagnetoCorp container, which is our Administrator Console. This will
@@ -472,13 +491,14 @@ containers. We should see two new containers - <code>cliMagnetoCorp</code> and
 containers together in one network - and no, not in a blockchain
 network. They are, however, the components that make up our local
 blockchain network :-)</p>
-<h1 id="section-3-install-and-instantiate-commercial-paper-smart-contract">Section 3: Install and Instantiate Commercial Paper Smart Contract</h1>
+<h1 id="section-3-install-and-instantiate-commercial-paper-smart-contract">Section 3: Install and Instantiate Commercial Paper Smart Contract<a class="headerlink" href="#section-3-install-and-instantiate-commercial-paper-smart-contract" title="Permanent link">&para;</a></h1>
 <p>Before we actually install the commercial paper smart contract, let's
 actually open the file to see what the smart contract is trying to do.</p>
 <p><strong>1.</strong> From your explorer perspective within VSCode, navigate from the
 <code>fabric-samples-cp</code> folder to the contract folder of MagnetoCorp :</p>
-<pre><code>fabric-samples-cp -&gt; commercial-paper -&gt; organization -&gt; magnetocorp -&gt; contract
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="err">fabric-samples-cp -&gt; commercial-paper -&gt; organization -&gt; magnetocorp -&gt; contract</span>
+</code></pre></div>
+
 <p>Within the lib folder, you'll see 3 javascript (.js) files in there.
 Click on the papercontract.js file, which will open it within VSCode</p>
 <p><img alt="image" src="../vscode-images/2-2-1.png" /></p>
@@ -488,64 +508,71 @@ follow pretty closely to this one</p>
 <p>Below, these 2 lines of code bring into scope two key Hyperledger Fabric
 classes that will be used extensively by the smart contract --
 <code>Contract and Context</code> :</p>
-<pre><code>// Fabric smart contract classes
-const { Contract, Context } = require('fabric-contract-api');
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="o">//</span> <span class="n">Fabric</span> <span class="n">smart</span> <span class="n">contract</span> <span class="n">classes</span>
+<span class="k">const</span> <span class="p">{</span> <span class="n">Contract</span><span class="p">,</span> <span class="n">Context</span> <span class="p">}</span> <span class="o">=</span> <span class="n">require</span><span class="p">(</span><span class="s1">&#39;fabric-contract-api&#39;</span><span class="p">);</span>
+</code></pre></div>
+
 <p>Below, we define the smart contract class <code>CommercialPaperContract</code>
 based on the built-in Fabric Contract class. The methods which implement
 the key transactions to issue, buy and redeem commercial paper are
 defined within this class :</p>
-<pre><code>/**
-* Define commercial paper smart contract by extending Fabric Contract class
-*
-*/
-class CommercialPaperContract extends Contract {
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="o">/**</span>
+<span class="o">*</span> <span class="n">Define</span> <span class="n">commercial</span> <span class="n">paper</span> <span class="n">smart</span> <span class="n">contract</span> <span class="n">by</span> <span class="n">extending</span> <span class="n">Fabric</span> <span class="n">Contract</span> <span class="k">class</span>
+<span class="o">*</span>
+<span class="o">*/</span>
+<span class="k">class</span> <span class="n">CommercialPaperContract</span> <span class="k">extends</span> <span class="n">Contract</span> <span class="p">{</span>
+</code></pre></div>
+
 <p>Below, this method defines the commercial paper <code>issue</code> transaction for
 the commercial paper blockchain network. The parameters that are passed
 to this method will be used to create the new commercial paper. Locate
 and examine the buy and redeem transactions within the smart contract :</p>
-<pre><code>/**
-* Issue commercial paper
-*
-* @param {Context} ctx the transaction context
-* @param {String} issuer commercial paper issuer
-* @param {Integer} paperNumber paper number for this issuer
-* @param {String} issueDateTime paper issue date
-* @param {String} maturityDateTime paper maturity date
-* @param {Integer} faceValue face value of paper
-*/
-async issue(ctx, issuer, paperNumber, issueDateTime, maturityDateTime, faceValue) {
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="err">/**</span>
+<span class="err">* Issue commercial paper</span>
+<span class="err">*</span>
+<span class="err">* @param {Context} ctx the transaction context</span>
+<span class="err">* @param {String} issuer commercial paper issuer</span>
+<span class="err">* @param {Integer} paperNumber paper number for this issuer</span>
+<span class="err">* @param {String} issueDateTime paper issue date</span>
+<span class="err">* @param {String} maturityDateTime paper maturity date</span>
+<span class="err">* @param {Integer} faceValue face value of paper</span>
+<span class="err">*/</span>
+<span class="err">async issue(ctx, issuer, paperNumber, issueDateTime, maturityDateTime, faceValue) {</span>
+</code></pre></div>
+
 <p>Within the <code>issue</code> transaction, this statement creates a new commercial
 paper in memory using the CommercialPaper class with the supplied
 transaction inputs. Examine the buy, get paper and redeem transactions
 to see how they similarly use this class :</p>
-<pre><code>// create an instance of the paper
-let paper = CommercialPaper.createInstance(issuer, paperNumber, issueDateTime, maturityDateTime, faceValue);
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="err">// create an instance of the paper</span>
+<span class="err">let paper = CommercialPaper.createInstance(issuer, paperNumber, issueDateTime, maturityDateTime, faceValue);</span>
+</code></pre></div>
+
 <p>Below, this statement adds the new commercial paper to the ledger using
 <code>ctx.paperList</code>, an instance of a PaperList class that was created when
 the smart contract context CommercialPaperContext was initialized.
 Again, examine the buy and redeem methods to see how they use this class
 :</p>
-<pre><code>// Add the paper to the list of all similar commercial papers in the ledger world state
-await ctx.paperList.addPaper(paper);
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="err">// Add the paper to the list of all similar commercial papers in the ledger world state</span>
+<span class="err">await ctx.paperList.addPaper(paper);</span>
+</code></pre></div>
+
 <p>Below you will find that this statement returns a binary buffer as
 response from the issue transaction for processing by the caller of the
 smart contract :</p>
-<pre><code>// Must return a serialized paper to caller of smart contract
-return paper.toBuffer();
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="err">// Must return a serialized paper to caller of smart contract</span>
+<span class="err">return paper.toBuffer();</span>
+</code></pre></div>
+
 <p><strong>2.</strong> Now that we have an understanding of the smart contract, let's
 actually install it on our peer through our terminal application.
 <strong>NOTE:</strong> scroll over to see the entire command below :</p>
-<pre><code>tecadmin@ubuntubase:~/Desktop/fabric-samples-cp/commercial-paper/organization/magnetocorp/configuration/cli/$ docker exec cliMagnetoCorp peer chaincode install -n papercontract -v 0 -p /opt/gopath/src/github.com/contract -l node
-2019-06-11 17:48:23.721 UTC [chaincodeCmd] checkChaincodeCmdParams -&gt; INFO 001 Using default escc
-2019-06-11 17:48:23.721 UTC [chaincodeCmd] checkChaincodeCmdParams -&gt; INFO 002 Using default vscc
-2019-06-11 17:48:23.862 UTC [chaincodeCmd] install -&gt; INFO 003 Installed remotely response:&lt;status:200 payload:"OK" &gt;
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="n">tecadmin</span><span class="nv">@ubuntubase</span><span class="err">:</span><span class="o">~/</span><span class="n">Desktop</span><span class="o">/</span><span class="n">fabric</span><span class="o">-</span><span class="n">samples</span><span class="o">-</span><span class="n">cp</span><span class="o">/</span><span class="n">commercial</span><span class="o">-</span><span class="n">paper</span><span class="o">/</span><span class="n">organization</span><span class="o">/</span><span class="n">magnetocorp</span><span class="o">/</span><span class="n">configuration</span><span class="o">/</span><span class="n">cli</span><span class="o">/</span><span class="err">$</span><span class="w"> </span><span class="n">docker</span><span class="w"> </span><span class="k">exec</span><span class="w"> </span><span class="n">cliMagnetoCorp</span><span class="w"> </span><span class="n">peer</span><span class="w"> </span><span class="n">chaincode</span><span class="w"> </span><span class="n">install</span><span class="w"> </span><span class="o">-</span><span class="n">n</span><span class="w"> </span><span class="n">papercontract</span><span class="w"> </span><span class="o">-</span><span class="n">v</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">-</span><span class="n">p</span><span class="w"> </span><span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">gopath</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">github</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">contract</span><span class="w"> </span><span class="o">-</span><span class="n">l</span><span class="w"> </span><span class="n">node</span><span class="w"></span>
+<span class="mi">2019</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">11</span><span class="w"> </span><span class="mi">17</span><span class="err">:</span><span class="mi">48</span><span class="err">:</span><span class="mf">23.721</span><span class="w"> </span><span class="n">UTC</span><span class="w"> </span><span class="o">[</span><span class="n">chaincodeCmd</span><span class="o">]</span><span class="w"> </span><span class="n">checkChaincodeCmdParams</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">INFO</span><span class="w"> </span><span class="mi">001</span><span class="w"> </span><span class="k">Using</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="n">escc</span><span class="w"></span>
+<span class="mi">2019</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">11</span><span class="w"> </span><span class="mi">17</span><span class="err">:</span><span class="mi">48</span><span class="err">:</span><span class="mf">23.721</span><span class="w"> </span><span class="n">UTC</span><span class="w"> </span><span class="o">[</span><span class="n">chaincodeCmd</span><span class="o">]</span><span class="w"> </span><span class="n">checkChaincodeCmdParams</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">INFO</span><span class="w"> </span><span class="mi">002</span><span class="w"> </span><span class="k">Using</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="n">vscc</span><span class="w"></span>
+<span class="mi">2019</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">11</span><span class="w"> </span><span class="mi">17</span><span class="err">:</span><span class="mi">48</span><span class="err">:</span><span class="mf">23.862</span><span class="w"> </span><span class="n">UTC</span><span class="w"> </span><span class="o">[</span><span class="n">chaincodeCmd</span><span class="o">]</span><span class="w"> </span><span class="n">install</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">INFO</span><span class="w"> </span><span class="mi">003</span><span class="w"> </span><span class="n">Installed</span><span class="w"> </span><span class="n">remotely</span><span class="w"> </span><span class="nl">response</span><span class="p">:</span><span class="o">&lt;</span><span class="nl">status</span><span class="p">:</span><span class="mi">200</span><span class="w"> </span><span class="nl">payload</span><span class="p">:</span><span class="ss">&quot;OK&quot;</span><span class="w"> </span><span class="o">&gt;</span><span class="w"></span>
+</code></pre></div>
+
 <p>A message saying 200 is a great sign to see.</p>
 <p>If you notice, we are not in the contract folder of our command line
 interface. Instead, we are entering the <code>cliMagnetoCorp</code> docker
@@ -566,12 +593,13 @@ is revealed when you hover your mouse over the Local Fabric Ops panel</p>
 <p><strong>4.</strong> Since we have installed the smart contract, we should actually
 make it active by instantiating it. <strong>NOTE:</strong> scroll over to see the
 entire command below :</p>
-<pre><code>tecadmin@ubuntubase:~/Desktop/fabric-samples-cp/commercial-paper/organization/magnetocorp/configuration/cli/$ docker exec cliMagnetoCorp peer chaincode instantiate -n papercontract -v 0 -l node -c '{"Args":["org.papernet.commercialpaper:instantiate"]}' -C mychannel -P ""
-2019-06-11 17:50:34.673 UTC [chaincodeCmd] InitCmdFactory -&gt; INFO 001 Retrieved channel (mychannel) orderer endpoint:   orderer.example.com:17050
-2019-06-11 17:50:34.675 UTC [chaincodeCmd] checkChaincodeCmdParams -&gt; INFO 002 Using default escc
-2019-06-11 17:50:34.675 UTC [chaincodeCmd] checkChaincodeCmdParams -&gt; INFO 003 Using default vscc
-tecadmin@ubuntubase:~/Desktop/fabric-samples-cp/commercial-paper/organization/magnetocorp/configuration/cli/$
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="n">tecadmin</span><span class="nv">@ubuntubase</span><span class="err">:</span><span class="o">~/</span><span class="n">Desktop</span><span class="o">/</span><span class="n">fabric</span><span class="o">-</span><span class="n">samples</span><span class="o">-</span><span class="n">cp</span><span class="o">/</span><span class="n">commercial</span><span class="o">-</span><span class="n">paper</span><span class="o">/</span><span class="n">organization</span><span class="o">/</span><span class="n">magnetocorp</span><span class="o">/</span><span class="n">configuration</span><span class="o">/</span><span class="n">cli</span><span class="o">/</span><span class="err">$</span><span class="w"> </span><span class="n">docker</span><span class="w"> </span><span class="k">exec</span><span class="w"> </span><span class="n">cliMagnetoCorp</span><span class="w"> </span><span class="n">peer</span><span class="w"> </span><span class="n">chaincode</span><span class="w"> </span><span class="n">instantiate</span><span class="w"> </span><span class="o">-</span><span class="n">n</span><span class="w"> </span><span class="n">papercontract</span><span class="w"> </span><span class="o">-</span><span class="n">v</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">-</span><span class="n">l</span><span class="w"> </span><span class="n">node</span><span class="w"> </span><span class="o">-</span><span class="n">c</span><span class="w"> </span><span class="s1">&#39;{&quot;Args&quot;:[&quot;org.papernet.commercialpaper:instantiate&quot;]}&#39;</span><span class="w"> </span><span class="o">-</span><span class="n">C</span><span class="w"> </span><span class="n">mychannel</span><span class="w"> </span><span class="o">-</span><span class="n">P</span><span class="w"> </span><span class="ss">&quot;&quot;</span><span class="w"></span>
+<span class="mi">2019</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">11</span><span class="w"> </span><span class="mi">17</span><span class="err">:</span><span class="mi">50</span><span class="err">:</span><span class="mf">34.673</span><span class="w"> </span><span class="n">UTC</span><span class="w"> </span><span class="o">[</span><span class="n">chaincodeCmd</span><span class="o">]</span><span class="w"> </span><span class="n">InitCmdFactory</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">INFO</span><span class="w"> </span><span class="mi">001</span><span class="w"> </span><span class="n">Retrieved</span><span class="w"> </span><span class="n">channel</span><span class="w"> </span><span class="p">(</span><span class="n">mychannel</span><span class="p">)</span><span class="w"> </span><span class="n">orderer</span><span class="w"> </span><span class="nl">endpoint</span><span class="p">:</span><span class="w">   </span><span class="n">orderer</span><span class="p">.</span><span class="n">example</span><span class="p">.</span><span class="nl">com</span><span class="p">:</span><span class="mi">17050</span><span class="w"></span>
+<span class="mi">2019</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">11</span><span class="w"> </span><span class="mi">17</span><span class="err">:</span><span class="mi">50</span><span class="err">:</span><span class="mf">34.675</span><span class="w"> </span><span class="n">UTC</span><span class="w"> </span><span class="o">[</span><span class="n">chaincodeCmd</span><span class="o">]</span><span class="w"> </span><span class="n">checkChaincodeCmdParams</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">INFO</span><span class="w"> </span><span class="mi">002</span><span class="w"> </span><span class="k">Using</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="n">escc</span><span class="w"></span>
+<span class="mi">2019</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">11</span><span class="w"> </span><span class="mi">17</span><span class="err">:</span><span class="mi">50</span><span class="err">:</span><span class="mf">34.675</span><span class="w"> </span><span class="n">UTC</span><span class="w"> </span><span class="o">[</span><span class="n">chaincodeCmd</span><span class="o">]</span><span class="w"> </span><span class="n">checkChaincodeCmdParams</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">INFO</span><span class="w"> </span><span class="mi">003</span><span class="w"> </span><span class="k">Using</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="n">vscc</span><span class="w"></span>
+<span class="n">tecadmin</span><span class="nv">@ubuntubase</span><span class="err">:</span><span class="o">~/</span><span class="n">Desktop</span><span class="o">/</span><span class="n">fabric</span><span class="o">-</span><span class="n">samples</span><span class="o">-</span><span class="n">cp</span><span class="o">/</span><span class="n">commercial</span><span class="o">-</span><span class="n">paper</span><span class="o">/</span><span class="n">organization</span><span class="o">/</span><span class="n">magnetocorp</span><span class="o">/</span><span class="n">configuration</span><span class="o">/</span><span class="n">cli</span><span class="o">/</span><span class="err">$</span><span class="w"></span>
+</code></pre></div>
+
 <p>As you can see in the image below, we are instantiating a copy of the
 commercial paper smart contract on our MagnetoCorp peer. Similar to the
 installation of the smart contract, the instantiation goes into the
@@ -584,42 +612,48 @@ command prompt back without any error messages. You can really verify it
 worked by going back to the VSCode and refreshing the Local Fabric Ops
 panel and you should see it under the instantiate section.</p>
 <p><img alt="image" src="../vscode-images/2-2-5.png" /></p>
-<h1 id="section-4-create-identities-and-submit-transactions">Section 4: Create Identities and Submit Transactions</h1>
+<h1 id="section-4-create-identities-and-submit-transactions">Section 4: Create Identities and Submit Transactions<a class="headerlink" href="#section-4-create-identities-and-submit-transactions" title="Permanent link">&para;</a></h1>
 <p>Now that we have a ready-to-use smart contract, let's issue some
 identities so that those identities can invoke and query transactions.</p>
 <p><strong>1.</strong> You should be within the cli folder of the MagnetoCorp folder.
 You can confirm this by issuing the command below. <strong>NOTE:</strong> scroll over
 to see the entire command below :</p>
-<pre><code>tecadmin@ubuntubase:~/Desktop/fabric-samples-cp/commercial-paper/organization/magnetocorp/configuration/cli/$ pwd
-/home/tecadmin/Desktop/fabric-samples-cp/commercial-paper/organization/magnetocorp/configuration/cli
-tecadmin@ubuntubase:~/Desktop/fabric-samples-cp/commercial-paper/organization/magnetocorp/configuration/cli/$
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="err">tecadmin@ubuntubase:~/Desktop/fabric-samples-cp/commercial-paper/organization/magnetocorp/configuration/cli/$ pwd</span>
+<span class="err">/home/tecadmin/Desktop/fabric-samples-cp/commercial-paper/organization/magnetocorp/configuration/cli</span>
+<span class="err">tecadmin@ubuntubase:~/Desktop/fabric-samples-cp/commercial-paper/organization/magnetocorp/configuration/cli/$</span>
+</code></pre></div>
+
 <p><strong>2.</strong> This is a good sign. Issue the following command below to get to
 the application folder within MagnetoCorp. <strong>NOTE:</strong> scroll over to see
 the entire command below :</p>
-<pre><code>tecadmin@ubuntubase:~/Desktop/fabric-samples-cp/commercial-paper/organization/magnetocorp/configuration/cli/$ cd ../../application/
-tecadmin@ubuntubase:~/Desktop/fabric-samples/commercial-paper/organization/magnetocorp/application$
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="err">tecadmin@ubuntubase:~/Desktop/fabric-samples-cp/commercial-paper/organization/magnetocorp/configuration/cli/$ cd ../../application/</span>
+<span class="err">tecadmin@ubuntubase:~/Desktop/fabric-samples/commercial-paper/organization/magnetocorp/application$</span>
+</code></pre></div>
+
 <p><strong>3.</strong> Within VSCode, navigate to the same folder :</p>
-<pre><code>fabric-samples-cp -&gt; commercial-paper -&gt; organization -&gt; magnetocorp -&gt; appplication
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="err">fabric-samples-cp -&gt; commercial-paper -&gt; organization -&gt; magnetocorp -&gt; appplication</span>
+</code></pre></div>
+
 <p><strong>4.</strong> In that folder, you should see a file called <code>addtoWallet.js</code>.
 Go ahead and click on it to open it up.</p>
 <p><strong>5.</strong> On line 25, you should see what is below :</p>
-<pre><code>const key = fs.readFileSync(path.join(credPath, '/msp/keystore/&lt;PUT_PRIVATE_KEY_HERE&gt;')).toString();
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="k">const</span> <span class="n">key</span> <span class="o">=</span> <span class="n">fs</span><span class="o">.</span><span class="n">readFileSync</span><span class="p">(</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">credPath</span><span class="p">,</span> <span class="s1">&#39;/msp/keystore/&lt;PUT_PRIVATE_KEY_HERE&gt;&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">toString</span><span class="p">();</span>
+</code></pre></div>
+
 <p><strong>6.</strong> To put in the file name of your actual private key, you can enter the command below
 in your terminal application to find the key's file name. <strong>NOTE:</strong> scroll over
 to see the entire command below :</p>
-<pre><code>tecadmin@ubuntubase:~/Desktop/fabric-samples-cp/commercial-paper/organization/magnetocorp/application$ ls -l /home/tecadmin/.fabric-vscode/runtime/crypto-config/peerOrganizations/org1.example.com/users/User1@org1.example.com/msp/keystore/
--rw-------@ 1 tecadmin  tecadmin  241 Jun 11 08:57 e7a117b799890646fe1d6e688d9c979845a411830400b673e2fe7dc01f91f9b8_sk
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="err">tecadmin@ubuntubase:~/Desktop/fabric-samples-cp/commercial-paper/organization/magnetocorp/application$ ls -l /home/tecadmin/.fabric-vscode/runtime/crypto-config/peerOrganizations/org1.example.com/users/User1@org1.example.com/msp/keystore/</span>
+<span class="err">-rw-------@ 1 tecadmin  tecadmin  241 Jun 11 08:57 e7a117b799890646fe1d6e688d9c979845a411830400b673e2fe7dc01f91f9b8_sk</span>
+</code></pre></div>
+
 <p><strong>7.</strong> Now, copy your private key's file name,
 <code>e7a117b799890646fe1d6e688d9c979845a411830400b673e2fe7dc01f91f9b8_sk</code> in this example- but your name will differ- 
 and paste it in the field asking for your private key. For example, line 25
 looks like this now. <strong>NOTE:</strong> scroll over to see the entire key file name below:</p>
-<pre><code>const key = fs.readFileSync(path.join(credPath, '/msp/keystore/e7a117b799890646fe1d6e688d9c979845a411830400b673e2fe7dc01f91f9b8_sk')).toString();
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="k">const</span> <span class="n">key</span> <span class="o">=</span> <span class="n">fs</span><span class="o">.</span><span class="n">readFileSync</span><span class="p">(</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">credPath</span><span class="p">,</span> <span class="s1">&#39;/msp/keystore/e7a117b799890646fe1d6e688d9c979845a411830400b673e2fe7dc01f91f9b8_sk&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">toString</span><span class="p">();</span>
+</code></pre></div>
+
 <p><strong>NOTE:</strong> It is of the upmost importance that you are doing this from the
 <code>magnetocorp/application</code> folder and you save this file. We will do the
 DigiBank folder here in a second.</p>
@@ -628,35 +662,38 @@ DigiBank folder here in a second.</p>
 <p><strong>9.</strong> Back in your terminal application, you can enter the command
 below to install some dependencies. <strong>NOTE:</strong> scroll over to see the
 entire command below :</p>
-<pre><code>tecadmin@ubuntubase:~/Desktop/fabric-samples-cp/commercial-paper/organization/magnetocorp/application$ npm install 
-.
-. # A bunch of output, with some of the output repeating
-.
-node-pre-gyp WARN Using request for node-pre-gyp https download 
-[grpc] Success: "/home/tecadmin/Desktop/fabric-samples/commercial-paper/organization/magnetocorp/application/node_modules/grpc/src/node/extension_binary/node-v57-darwin-x64-unknown/grpc_node.node" is installed via remote
-npm notice created a lockfile as package-lock.json. You should commit this file.
-npm WARN nodejs@1.0.0 No description
-npm WARN nodejs@1.0.0 No repository field.
+<div class="codehilite"><pre><span></span><code><span class="n">tecadmin</span><span class="p">@</span><span class="nl">ubuntubase</span><span class="p">:</span><span class="o">~/</span><span class="n">Desktop</span><span class="o">/</span><span class="n">fabric</span><span class="o">-</span><span class="n">samples</span><span class="o">-</span><span class="n">cp</span><span class="o">/</span><span class="n">commercial</span><span class="o">-</span><span class="n">paper</span><span class="o">/</span><span class="n">organization</span><span class="o">/</span><span class="n">magnetocorp</span><span class="o">/</span><span class="n">application$</span> <span class="n">npm</span> <span class="n">install</span> 
+<span class="p">.</span>
+<span class="p">.</span> <span class="err">#</span> <span class="n">A</span> <span class="n">bunch</span> <span class="n">of</span> <span class="n">output</span><span class="p">,</span> <span class="n">with</span> <span class="n">some</span> <span class="n">of</span> <span class="n">the</span> <span class="n">output</span> <span class="n">repeating</span>
+<span class="p">.</span>
+<span class="n">node</span><span class="o">-</span><span class="n">pre</span><span class="o">-</span><span class="n">gyp</span> <span class="n">WARN</span> <span class="n">Using</span> <span class="n">request</span> <span class="k">for</span> <span class="n">node</span><span class="o">-</span><span class="n">pre</span><span class="o">-</span><span class="n">gyp</span> <span class="n">https</span> <span class="n">download</span> 
+<span class="p">[</span><span class="n">grpc</span><span class="p">]</span> <span class="nl">Success</span><span class="p">:</span> <span class="s">&quot;/home/tecadmin/Desktop/fabric-samples/commercial-paper/organization/magnetocorp/application/node_modules/grpc/src/node/extension_binary/node-v57-darwin-x64-unknown/grpc_node.node&quot;</span> <span class="n">is</span> <span class="n">installed</span> <span class="n">via</span> <span class="n">remote</span>
+<span class="n">npm</span> <span class="n">notice</span> <span class="n">created</span> <span class="n">a</span> <span class="n">lockfile</span> <span class="n">as</span> <span class="n">package</span><span class="o">-</span><span class="n">lock</span><span class="p">.</span><span class="n">json</span><span class="p">.</span> <span class="n">You</span> <span class="n">should</span> <span class="n">commit</span> <span class="n">this</span> <span class="n">file</span><span class="p">.</span>
+<span class="n">npm</span> <span class="n">WARN</span> <span class="n">nodejs</span><span class="mf">@1.0.0</span> <span class="n">No</span> <span class="n">description</span>
+<span class="n">npm</span> <span class="n">WARN</span> <span class="n">nodejs</span><span class="mf">@1.0.0</span> <span class="n">No</span> <span class="n">repository</span> <span class="n">field</span><span class="p">.</span>
 
-added 318 packages in 36.994s
-</code></pre>
+<span class="n">added</span> <span class="mi">318</span> <span class="n">packages</span> <span class="k">in</span> <span class="mf">36.994</span><span class="n">s</span>
+</code></pre></div>
+
 <p><strong>10.</strong> Since we are in our command line, let's issue the following
 command that will create Isabella. <strong>NOTE:</strong> scroll over to see the
 entire command below :</p>
-<pre><code>tecadmin@ubuntubase:~/Desktop/fabric-samples-cp/commercial-paper/organization/magnetocorp/application$ node addToWallet.js 
-done
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="err">tecadmin@ubuntubase:~/Desktop/fabric-samples-cp/commercial-paper/organization/magnetocorp/application$ node addToWallet.js </span>
+<span class="err">done</span>
+</code></pre></div>
+
 <p><strong>11.</strong> We will know it worked if we can execute the following command
 successfully. <strong>NOTE:</strong> scroll over to see the entire command below :</p>
-<pre><code>tecadmin@ubuntubase:~/Desktop/fabric-samples-cp/commercial-paper/organization/magnetocorp/application$ ls -l ../identity/user/isabella/wallet/
-total 0
-drwxr-xr-x  5 tecadmin  tecadmin  160 Jun 11 12:53 User1@org1.example.com
-tecadmin@ubuntubase:~/Desktop/fabric-samples-cp/commercial-paper/organization/magnetocorp/application$ ls -l ../identity/user/isabella/wallet/User1@org1.example.com/
-total 24
--rw-r--r--  1 tecadmin  tecadmin  1037 Jun 11 12:53 User1@org1.example.com
--rw-r--r--  1 tecadmin  tecadmin   246 Jun 11 12:53 e7a117b799890646fe1d6e688d9c979845a411830400b673e2fe7dc01f91f9b8-priv
--rw-r--r--  1 tecadmin  tecadmin   182 Jun 11 12:53 e7a117b799890646fe1d6e688d9c979845a411830400b673e2fe7dc01f91f9b8-pub
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="err">tecadmin@ubuntubase:~/Desktop/fabric-samples-cp/commercial-paper/organization/magnetocorp/application$ ls -l ../identity/user/isabella/wallet/</span>
+<span class="err">total 0</span>
+<span class="err">drwxr-xr-x  5 tecadmin  tecadmin  160 Jun 11 12:53 User1@org1.example.com</span>
+<span class="err">tecadmin@ubuntubase:~/Desktop/fabric-samples-cp/commercial-paper/organization/magnetocorp/application$ ls -l ../identity/user/isabella/wallet/User1@org1.example.com/</span>
+<span class="err">total 24</span>
+<span class="err">-rw-r--r--  1 tecadmin  tecadmin  1037 Jun 11 12:53 User1@org1.example.com</span>
+<span class="err">-rw-r--r--  1 tecadmin  tecadmin   246 Jun 11 12:53 e7a117b799890646fe1d6e688d9c979845a411830400b673e2fe7dc01f91f9b8-priv</span>
+<span class="err">-rw-r--r--  1 tecadmin  tecadmin   182 Jun 11 12:53 e7a117b799890646fe1d6e688d9c979845a411830400b673e2fe7dc01f91f9b8-pub</span>
+</code></pre></div>
+
 <p>Keys are vital to understanding how transactions and identity work
 within a blockchain network. Below is a breakdown of the keys and
 certificate used in this example:</p>
@@ -680,67 +717,75 @@ You can find the code by clicking on <code>issue.js</code> within the
 <p>Below we bring two key Hyperledger Fabric SDK classes into scope --
 <code>Wallet and Gateway</code>. Because Isabella's X.509 certificate is in the
 local file system, the application uses FileSystemWallet :</p>
-<pre><code>// Bring key classes into scope, most importantly Fabric SDK network class 
-const { FileSystemWallet, Gateway } = require('fabric-network');
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="o">//</span> <span class="n">Bring</span> <span class="n">key</span> <span class="n">classes</span> <span class="n">into</span> <span class="n">scope</span><span class="p">,</span> <span class="n">most</span> <span class="n">importantly</span> <span class="n">Fabric</span> <span class="n">SDK</span> <span class="n">network</span> <span class="k">class</span> 
+<span class="k">const</span> <span class="p">{</span> <span class="n">FileSystemWallet</span><span class="p">,</span> <span class="n">Gateway</span> <span class="p">}</span> <span class="o">=</span> <span class="n">require</span><span class="p">(</span><span class="s1">&#39;fabric-network&#39;</span><span class="p">);</span>
+</code></pre></div>
+
 <p>Below, this statement identifies that the application will use
 Isabella's wallet when it connects to the blockchain network channel.
 The application will select a particular identity within Isabella's
 wallet. (The wallet must have been loaded with Isabella's X.509
 certificate -- that's what addToWallet.js does):</p>
-<pre><code>// A wallet stores a collection of identities for use 
-const wallet = new FileSystemWallet('../identity/user/isabella/wallet');
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="o">//</span> <span class="n">A</span> <span class="n">wallet</span> <span class="n">stores</span> <span class="n">a</span> <span class="n">collection</span> <span class="n">of</span> <span class="n">identities</span> <span class="k">for</span> <span class="n">use</span> 
+<span class="k">const</span> <span class="n">wallet</span> <span class="o">=</span> <span class="n">new</span> <span class="n">FileSystemWallet</span><span class="p">(</span><span class="s1">&#39;../identity/user/isabella/wallet&#39;</span><span class="p">);</span>
+</code></pre></div>
+
 <p>This line of code, below, connects to the network using the gateway
 identified by connectionProfile, using the identity referred to in
 connectionOptions. See how <code>../gateway/networkConnection.yaml</code> and
 <code>User1@org1.example.com</code> are used for these values respectively:</p>
-<pre><code>// Connect to gateway using application specified parameters 
-await gateway.connect(connectionProfile, connectionOptions);
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="err">// Connect to gateway using application specified parameters </span>
+<span class="err">await gateway.connect(connectionProfile, connectionOptions);</span>
+</code></pre></div>
+
 <p>Below in the couple lines of code, the application connects to the
 network channel <code>mychannel</code>, where the papercontract was previously
 instantiated. If you had a different channel name, you would have to
 modify this line of code:</p>
-<pre><code>// Access commercial paper network 
-const network = await gateway.getNetwork('mychannel');
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="o">//</span> <span class="n">Access</span> <span class="n">commercial</span> <span class="n">paper</span> <span class="n">network</span> 
+<span class="k">const</span> <span class="n">network</span> <span class="o">=</span> <span class="n">await</span> <span class="n">gateway</span><span class="o">.</span><span class="n">getNetwork</span><span class="p">(</span><span class="s1">&#39;mychannel&#39;</span><span class="p">);</span>
+</code></pre></div>
+
 <p>Below, this statement gives the application addressability to the smart
 contract defined by the namespace <code>org.papernet.commercialpaper</code> within
 <code>papercontract</code>. Once an application has issued <code>getContract</code>, it can
 submit any transaction implemented within it:</p>
-<pre><code>// Get addressability to commercial paper contract 
-const contract = await network.getContract('papercontract', 'org.papernet.comm...');
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="o">//</span> <span class="n">Get</span> <span class="n">addressability</span> <span class="n">to</span> <span class="n">commercial</span> <span class="n">paper</span> <span class="n">contract</span> 
+<span class="k">const</span> <span class="n">contract</span> <span class="o">=</span> <span class="n">await</span> <span class="n">network</span><span class="o">.</span><span class="n">getContract</span><span class="p">(</span><span class="s1">&#39;papercontract&#39;</span><span class="p">,</span> <span class="s1">&#39;org.papernet.comm...&#39;</span><span class="p">);</span>
+</code></pre></div>
+
 <p>Below, these lines of code submit a transaction to the network using the
 issue transaction defined within the smart contract.
 <code>MagnetoCorp, 00001</code> are the values to be used by the issue transaction
 to create a new commercial paper:</p>
-<pre><code>// issue commercial paper 
-const issueResponse = await contract.submitTransaction('issue','MagnetoCorp', '00001', '2020-05-31', '2020-11-30','5000000');
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="o">//</span> <span class="n">issue</span> <span class="n">commercial</span> <span class="n">paper</span> 
+<span class="k">const</span> <span class="n">issueResponse</span> <span class="o">=</span> <span class="n">await</span> <span class="n">contract</span><span class="o">.</span><span class="n">submitTransaction</span><span class="p">(</span><span class="s1">&#39;issue&#39;</span><span class="p">,</span><span class="s1">&#39;MagnetoCorp&#39;</span><span class="p">,</span> <span class="s1">&#39;00001&#39;</span><span class="p">,</span> <span class="s1">&#39;2020-05-31&#39;</span><span class="p">,</span> <span class="s1">&#39;2020-11-30&#39;</span><span class="p">,</span><span class="s1">&#39;5000000&#39;</span><span class="p">);</span>
+</code></pre></div>
+
 <p>This statement, below, processes the response from the issue
 transaction. The response needs to be deserialized from a buffer into
 paper, a CommercialPaper object which can be interpreted correctly by
 the application:</p>
-<pre><code>// process response let paper =
-CommercialPaper.fromBuffer(issueResponse);
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="err">// process response let paper =</span>
+<span class="err">CommercialPaper.fromBuffer(issueResponse);</span>
+</code></pre></div>
+
 <p><strong>13.</strong> Now that we have Isabella from MagnetoCorp, let's perform the
 issue transaction from our terminal. <strong>NOTE:</strong> scroll over to see the
 entire command below:</p>
-<pre><code>tecadmin@ubuntubase:~/Desktop/fabric-samples-cp/commercial-paper/organization/magnetocorp/application$ node issue.js
-Connect to Fabric gateway.
-Use network channel: mychannel.
-Use org.papernet.commercialpaper smart contract.
-Submit commercial paper issue transaction.
-2019-02-22T17:55:20.631Z - info: [TransactionEventHandler]: _strategySuccess: strategy success for transaction "f8e124886d6cb84434cb6a996f4889145c0541199c88bab7d4d85ae41266e51e"
-Process issue transaction response.
-MagnetoCorp commercial paper : 00001 successfully issued for value 5000000
-Transaction complete.
-Disconnect from Fabric gateway.
-Issue program complete.
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="n">tecadmin</span><span class="nv">@ubuntubase</span><span class="err">:</span><span class="o">~/</span><span class="n">Desktop</span><span class="o">/</span><span class="n">fabric</span><span class="o">-</span><span class="n">samples</span><span class="o">-</span><span class="n">cp</span><span class="o">/</span><span class="n">commercial</span><span class="o">-</span><span class="n">paper</span><span class="o">/</span><span class="n">organization</span><span class="o">/</span><span class="n">magnetocorp</span><span class="o">/</span><span class="n">application</span><span class="err">$</span><span class="w"> </span><span class="n">node</span><span class="w"> </span><span class="n">issue</span><span class="p">.</span><span class="n">js</span><span class="w"></span>
+<span class="k">Connect</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">Fabric</span><span class="w"> </span><span class="n">gateway</span><span class="p">.</span><span class="w"></span>
+<span class="k">Use</span><span class="w"> </span><span class="n">network</span><span class="w"> </span><span class="nl">channel</span><span class="p">:</span><span class="w"> </span><span class="n">mychannel</span><span class="p">.</span><span class="w"></span>
+<span class="k">Use</span><span class="w"> </span><span class="n">org</span><span class="p">.</span><span class="n">papernet</span><span class="p">.</span><span class="n">commercialpaper</span><span class="w"> </span><span class="n">smart</span><span class="w"> </span><span class="n">contract</span><span class="p">.</span><span class="w"></span>
+<span class="n">Submit</span><span class="w"> </span><span class="n">commercial</span><span class="w"> </span><span class="n">paper</span><span class="w"> </span><span class="n">issue</span><span class="w"> </span><span class="k">transaction</span><span class="p">.</span><span class="w"></span>
+<span class="mi">2019</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">22</span><span class="nl">T17</span><span class="p">:</span><span class="mi">55</span><span class="err">:</span><span class="mf">20.631</span><span class="n">Z</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nl">info</span><span class="p">:</span><span class="w"> </span><span class="o">[</span><span class="n">TransactionEventHandler</span><span class="o">]</span><span class="err">:</span><span class="w"> </span><span class="nl">_strategySuccess</span><span class="p">:</span><span class="w"> </span><span class="n">strategy</span><span class="w"> </span><span class="n">success</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="k">transaction</span><span class="w"> </span><span class="ss">&quot;f8e124886d6cb84434cb6a996f4889145c0541199c88bab7d4d85ae41266e51e&quot;</span><span class="w"></span>
+<span class="n">Process</span><span class="w"> </span><span class="n">issue</span><span class="w"> </span><span class="k">transaction</span><span class="w"> </span><span class="n">response</span><span class="p">.</span><span class="w"></span>
+<span class="n">MagnetoCorp</span><span class="w"> </span><span class="n">commercial</span><span class="w"> </span><span class="n">paper</span><span class="w"> </span><span class="err">:</span><span class="w"> </span><span class="mi">00001</span><span class="w"> </span><span class="n">successfully</span><span class="w"> </span><span class="n">issued</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="k">value</span><span class="w"> </span><span class="mi">5000000</span><span class="w"></span>
+<span class="k">Transaction</span><span class="w"> </span><span class="n">complete</span><span class="p">.</span><span class="w"></span>
+<span class="k">Disconnect</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">Fabric</span><span class="w"> </span><span class="n">gateway</span><span class="p">.</span><span class="w"></span>
+<span class="n">Issue</span><span class="w"> </span><span class="n">program</span><span class="w"> </span><span class="n">complete</span><span class="p">.</span><span class="w"></span>
+</code></pre></div>
+
 <p>This successfully committed a transaction to the ledger. See how it
 outputted a transaction hash for us. You can look at our
 <code>monitoring docker</code> terminal tab as well.</p>
@@ -761,63 +806,71 @@ third tab will act as DigiBank.</p>
 <p><strong>15.</strong> We now need to switch to a new directory, specifically the
 application folder of DigiBank. <strong>NOTE:</strong> scroll over to see the entire
 command below:</p>
-<pre><code>tecadmin@ubuntubase:~/Desktop/fabric-samples-cp/commercial-paper/organization/magnetocorp/application$ cd ../../digibank/application/
-tecadmin@ubuntubase:~/Desktop/fabric-samples-cp/commercial-paper/organization/digibank/application$
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="err">tecadmin@ubuntubase:~/Desktop/fabric-samples-cp/commercial-paper/organization/magnetocorp/application$ cd ../../digibank/application/</span>
+<span class="err">tecadmin@ubuntubase:~/Desktop/fabric-samples-cp/commercial-paper/organization/digibank/application$</span>
+</code></pre></div>
+
 <p><strong>16.</strong> Within VSCode, navigate to the application folder of DigiBank :</p>
-<pre><code>fabric-samples-cp -&gt; commercial-paper -&gt; organization -&gt; digibank -&gt; application
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="err">fabric-samples-cp -&gt; commercial-paper -&gt; organization -&gt; digibank -&gt; application</span>
+</code></pre></div>
+
 <p><strong>17.</strong> Similarly, you will see <code>&lt;PUT_PRIVATE_KEY_HERE&gt;</code> in the
 <code>addtoWallet.js</code> file within the <code>application</code> folder. On line 25, you
 should see what is below :</p>
-<pre><code>const key = fs.readFileSync(path.join(credPath, '/msp/keystore/&lt;PUT_PRIVATE_KEY_HERE&gt;')).toString();
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="k">const</span> <span class="n">key</span> <span class="o">=</span> <span class="n">fs</span><span class="o">.</span><span class="n">readFileSync</span><span class="p">(</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">credPath</span><span class="p">,</span> <span class="s1">&#39;/msp/keystore/&lt;PUT_PRIVATE_KEY_HERE&gt;&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">toString</span><span class="p">();</span>
+</code></pre></div>
+
 <p><strong>18.</strong> To put in an actual private keys's file name, you can enter the command below
 in your terminal application to find the key's file name. <strong>NOTE:</strong> scroll over
 to see the entire key below:</p>
-<pre><code>tecadmin@ubuntubase:~/Desktop/fabric-samples-cp/commercial-paper/organization/digibank/application$ ls -l /home/tecadmin/.fabric-vscode/runtime/crypto-config/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/keystore/
--rw-------@ 1 tecadmin  tecadmin  241 Jun 11 08:57 4fd5a19cad827af71cf356d629f95c41f77e27db09d268a3c72aabdaead43737_sk
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="err">tecadmin@ubuntubase:~/Desktop/fabric-samples-cp/commercial-paper/organization/digibank/application$ ls -l /home/tecadmin/.fabric-vscode/runtime/crypto-config/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/keystore/</span>
+<span class="err">-rw-------@ 1 tecadmin  tecadmin  241 Jun 11 08:57 4fd5a19cad827af71cf356d629f95c41f77e27db09d268a3c72aabdaead43737_sk</span>
+</code></pre></div>
+
 <p><strong>19.</strong> Now, copy your private key's file name,
 <code>4fd5a19cad827af71cf356d629f95c41f77e27db09d268a3c72aabdaead43737_sk</code> in our example- yours will differ- 
 and paste in the field asking for your private key. For example, line 25
 looks like this now. <strong>NOTE:</strong> scroll over to see the entire file name below:</p>
-<pre><code>const key = fs.readFileSync(path.join(credPath, '/msp/keystore/4fd5a19cad827af71cf356d629f95c41f77e27db09d268a3c72aabdaead43737_sk')).toString();
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="k">const</span> <span class="n">key</span> <span class="o">=</span> <span class="n">fs</span><span class="o">.</span><span class="n">readFileSync</span><span class="p">(</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">credPath</span><span class="p">,</span> <span class="s1">&#39;/msp/keystore/4fd5a19cad827af71cf356d629f95c41f77e27db09d268a3c72aabdaead43737_sk&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">toString</span><span class="p">();</span>
+</code></pre></div>
+
 <p><strong>NOTE:</strong> It is of the upmost importance that you are doing this from the
 <code>digibank/application</code> folder and you save this file.</p>
 <p><strong>20.</strong> Now we can install some dependencies that are required to create
 our identity. To do this, enter the command that is below. <strong>NOTE:</strong>
 scroll over to see the entire command below :</p>
-<pre><code>tecadmin@ubuntubase:~/Desktop/fabric-samples-cp/commercial-paper/organization/digibank/application$ npm install 
-.
-. # A bunch of output, with some of the output repeating
-.
-node-pre-gyp WARN Using request for node-pre-gyp https download 
-[grpc] Success: "/home/tecadmin/Desktop/fabric-samples/commercial-paper/organization/magnetocorp/application/node_modules/grpc/src/node/extension_binary/node-v57-darwin-x64-unknown/grpc_node.node" is installed via remote
-npm notice created a lockfile as package-lock.json. You should commit this file.
-npm WARN nodejs@1.0.0 No description
-npm WARN nodejs@1.0.0 No repository field.
+<div class="codehilite"><pre><span></span><code><span class="n">tecadmin</span><span class="p">@</span><span class="nl">ubuntubase</span><span class="p">:</span><span class="o">~/</span><span class="n">Desktop</span><span class="o">/</span><span class="n">fabric</span><span class="o">-</span><span class="n">samples</span><span class="o">-</span><span class="n">cp</span><span class="o">/</span><span class="n">commercial</span><span class="o">-</span><span class="n">paper</span><span class="o">/</span><span class="n">organization</span><span class="o">/</span><span class="n">digibank</span><span class="o">/</span><span class="n">application$</span> <span class="n">npm</span> <span class="n">install</span> 
+<span class="p">.</span>
+<span class="p">.</span> <span class="err">#</span> <span class="n">A</span> <span class="n">bunch</span> <span class="n">of</span> <span class="n">output</span><span class="p">,</span> <span class="n">with</span> <span class="n">some</span> <span class="n">of</span> <span class="n">the</span> <span class="n">output</span> <span class="n">repeating</span>
+<span class="p">.</span>
+<span class="n">node</span><span class="o">-</span><span class="n">pre</span><span class="o">-</span><span class="n">gyp</span> <span class="n">WARN</span> <span class="n">Using</span> <span class="n">request</span> <span class="k">for</span> <span class="n">node</span><span class="o">-</span><span class="n">pre</span><span class="o">-</span><span class="n">gyp</span> <span class="n">https</span> <span class="n">download</span> 
+<span class="p">[</span><span class="n">grpc</span><span class="p">]</span> <span class="nl">Success</span><span class="p">:</span> <span class="s">&quot;/home/tecadmin/Desktop/fabric-samples/commercial-paper/organization/magnetocorp/application/node_modules/grpc/src/node/extension_binary/node-v57-darwin-x64-unknown/grpc_node.node&quot;</span> <span class="n">is</span> <span class="n">installed</span> <span class="n">via</span> <span class="n">remote</span>
+<span class="n">npm</span> <span class="n">notice</span> <span class="n">created</span> <span class="n">a</span> <span class="n">lockfile</span> <span class="n">as</span> <span class="n">package</span><span class="o">-</span><span class="n">lock</span><span class="p">.</span><span class="n">json</span><span class="p">.</span> <span class="n">You</span> <span class="n">should</span> <span class="n">commit</span> <span class="n">this</span> <span class="n">file</span><span class="p">.</span>
+<span class="n">npm</span> <span class="n">WARN</span> <span class="n">nodejs</span><span class="mf">@1.0.0</span> <span class="n">No</span> <span class="n">description</span>
+<span class="n">npm</span> <span class="n">WARN</span> <span class="n">nodejs</span><span class="mf">@1.0.0</span> <span class="n">No</span> <span class="n">repository</span> <span class="n">field</span><span class="p">.</span>
 
-added 318 packages in 36.994s
-</code></pre>
+<span class="n">added</span> <span class="mi">318</span> <span class="n">packages</span> <span class="k">in</span> <span class="mf">36.994</span><span class="n">s</span>
+</code></pre></div>
+
 <p><strong>21.</strong> Since we are in our command line, let's issue the following
 command that will create Balaji. <strong>NOTE:</strong> scroll over to see the
 entire command below:</p>
-<pre><code>tecadmin@ubuntubase:~/Desktop/fabric-samples-cp/commercial-paper/organization/digibank/application$ node addToWallet.js 
-done
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="err">tecadmin@ubuntubase:~/Desktop/fabric-samples-cp/commercial-paper/organization/digibank/application$ node addToWallet.js </span>
+<span class="err">done</span>
+</code></pre></div>
+
 <p><strong>22.</strong> We will know it worked if we can execute the following command
 successfully. <strong>NOTE:</strong> scroll over to see the entire command below :</p>
-<pre><code>tecadmin@ubuntubase:~/Desktop/fabric-samples-cp/commercial-paper/organization/digibank/application$ ls -l ../identity/user/balaji/wallet/
-total 0
-drwxr-xr-x  5 tecadmin  tecadmin  160 Jun 11 12:53 Admin@org1.example.com
-tecadmin@ubuntubase:~/Desktop/fabric-samples-cp/commercial-paper/organization/digibank/application$ ls -l ../identity/user/balaji/wallet/Admin@org1.example.com/
-total 24
--rw-r--r--  1 tecadmin  tecadmin  1037 Jun 11 12:53 User1@org1.example.com
--rw-r--r--  1 tecadmin  tecadmin   246 Jun 11 12:53 4fd5a19cad827af71cf356d629f95c41f77e27db09d268a3c72aabdaead43737-priv
--rw-r--r--  1 tecadmin  tecadmin   182 Jun 11 12:53 4fd5a19cad827af71cf356d629f95c41f77e27db09d268a3c72aabdaead43737-pub
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="err">tecadmin@ubuntubase:~/Desktop/fabric-samples-cp/commercial-paper/organization/digibank/application$ ls -l ../identity/user/balaji/wallet/</span>
+<span class="err">total 0</span>
+<span class="err">drwxr-xr-x  5 tecadmin  tecadmin  160 Jun 11 12:53 Admin@org1.example.com</span>
+<span class="err">tecadmin@ubuntubase:~/Desktop/fabric-samples-cp/commercial-paper/organization/digibank/application$ ls -l ../identity/user/balaji/wallet/Admin@org1.example.com/</span>
+<span class="err">total 24</span>
+<span class="err">-rw-r--r--  1 tecadmin  tecadmin  1037 Jun 11 12:53 User1@org1.example.com</span>
+<span class="err">-rw-r--r--  1 tecadmin  tecadmin   246 Jun 11 12:53 4fd5a19cad827af71cf356d629f95c41f77e27db09d268a3c72aabdaead43737-priv</span>
+<span class="err">-rw-r--r--  1 tecadmin  tecadmin   182 Jun 11 12:53 4fd5a19cad827af71cf356d629f95c41f77e27db09d268a3c72aabdaead43737-pub</span>
+</code></pre></div>
+
 <p>Based on the picture below, we now have 2 participants in this network.
 Obviously, this is MagnetoCorp (Isabella) and DigiBank (Balaji). Both
 participants are allowed to interact with the commercial paper
@@ -827,82 +880,86 @@ blockchain network through their application.</p>
 submit a couple of transactions from Balaji and DigiBank. Go ahead and
 get the latest status of our paper by entering the command below.
 <strong>NOTE:</strong> scroll over to see the entire command below:</p>
-<pre><code>tecadmin@ubuntubase:~/Desktop/fabric-samples-cp/commercial-paper/organization/digibank/application$ node getPaper.js
-Connect to Fabric gateway.
-Use network channel: mychannel.
-Use org.papernet.commercialpaper smart contract.
-Submit commercial paper getPaper transaction.
-Process getPaper transaction response.
- +--------- Paper Retrieved ---------+ 
- | Paper number: "00001"
- | Paper is owned by: "MagnetoCorp"
- | Paper is currently: "ISSUED"
- | Paper face value: "5000000"
- | Paper is issued by: "MagnetoCorp"
- | Paper issue on: "2020-05-31"
- | Paper matures on: "2020-11-30"
- +-----------------------------------+ 
-Transaction complete.
-Disconnect from Fabric gateway.
-getPaper program complete.
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="err">tecadmin@ubuntubase:~/Desktop/fabric-samples-cp/commercial-paper/organization/digibank/application$ node getPaper.js</span>
+<span class="err">Connect to Fabric gateway.</span>
+<span class="err">Use network channel: mychannel.</span>
+<span class="err">Use org.papernet.commercialpaper smart contract.</span>
+<span class="err">Submit commercial paper getPaper transaction.</span>
+<span class="err">Process getPaper transaction response.</span>
+<span class="err"> +--------- Paper Retrieved ---------+ </span>
+<span class="err"> | Paper number: &quot;00001&quot;</span>
+<span class="err"> | Paper is owned by: &quot;MagnetoCorp&quot;</span>
+<span class="err"> | Paper is currently: &quot;ISSUED&quot;</span>
+<span class="err"> | Paper face value: &quot;5000000&quot;</span>
+<span class="err"> | Paper is issued by: &quot;MagnetoCorp&quot;</span>
+<span class="err"> | Paper issue on: &quot;2020-05-31&quot;</span>
+<span class="err"> | Paper matures on: &quot;2020-11-30&quot;</span>
+<span class="err"> +-----------------------------------+ </span>
+<span class="err">Transaction complete.</span>
+<span class="err">Disconnect from Fabric gateway.</span>
+<span class="err">getPaper program complete.</span>
+</code></pre></div>
+
 <p><strong>24.</strong> Now that we know the current status of our <code>00001</code> paper,
 let's go ahead and buy and redeem the paper by entering the command
 below. <strong>NOTE:</strong> scroll over to see the entire command below :</p>
-<pre><code>tecadmin@ubuntubase:~/Desktop/fabric-samples-cp/commercial-paper/organization/digibank/application$ node buy.js
-Connect to Fabric gateway.
-Use network channel: mychannel.
-Use org.papernet.commercialpaper smart contract.
-Submit commercial paper buy transaction.
-2019-02-28T19:52:17.372Z - info: [TransactionEventHandler]: _strategySuccess: strategy success for transaction "871e7743c58e406575d4e553330faae3711c0a65a2f677b6e6d398650069d81a"
-Process buy transaction response.
-MagnetoCorp commercial paper : 00001 successfully purchased by DigiBank
-Transaction complete.
-Disconnect from Fabric gateway.
-Buy program complete.
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="n">tecadmin</span><span class="nv">@ubuntubase</span><span class="err">:</span><span class="o">~/</span><span class="n">Desktop</span><span class="o">/</span><span class="n">fabric</span><span class="o">-</span><span class="n">samples</span><span class="o">-</span><span class="n">cp</span><span class="o">/</span><span class="n">commercial</span><span class="o">-</span><span class="n">paper</span><span class="o">/</span><span class="n">organization</span><span class="o">/</span><span class="n">digibank</span><span class="o">/</span><span class="n">application</span><span class="err">$</span><span class="w"> </span><span class="n">node</span><span class="w"> </span><span class="n">buy</span><span class="p">.</span><span class="n">js</span><span class="w"></span>
+<span class="k">Connect</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">Fabric</span><span class="w"> </span><span class="n">gateway</span><span class="p">.</span><span class="w"></span>
+<span class="k">Use</span><span class="w"> </span><span class="n">network</span><span class="w"> </span><span class="nl">channel</span><span class="p">:</span><span class="w"> </span><span class="n">mychannel</span><span class="p">.</span><span class="w"></span>
+<span class="k">Use</span><span class="w"> </span><span class="n">org</span><span class="p">.</span><span class="n">papernet</span><span class="p">.</span><span class="n">commercialpaper</span><span class="w"> </span><span class="n">smart</span><span class="w"> </span><span class="n">contract</span><span class="p">.</span><span class="w"></span>
+<span class="n">Submit</span><span class="w"> </span><span class="n">commercial</span><span class="w"> </span><span class="n">paper</span><span class="w"> </span><span class="n">buy</span><span class="w"> </span><span class="k">transaction</span><span class="p">.</span><span class="w"></span>
+<span class="mi">2019</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">28</span><span class="nl">T19</span><span class="p">:</span><span class="mi">52</span><span class="err">:</span><span class="mf">17.372</span><span class="n">Z</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nl">info</span><span class="p">:</span><span class="w"> </span><span class="o">[</span><span class="n">TransactionEventHandler</span><span class="o">]</span><span class="err">:</span><span class="w"> </span><span class="nl">_strategySuccess</span><span class="p">:</span><span class="w"> </span><span class="n">strategy</span><span class="w"> </span><span class="n">success</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="k">transaction</span><span class="w"> </span><span class="ss">&quot;871e7743c58e406575d4e553330faae3711c0a65a2f677b6e6d398650069d81a&quot;</span><span class="w"></span>
+<span class="n">Process</span><span class="w"> </span><span class="n">buy</span><span class="w"> </span><span class="k">transaction</span><span class="w"> </span><span class="n">response</span><span class="p">.</span><span class="w"></span>
+<span class="n">MagnetoCorp</span><span class="w"> </span><span class="n">commercial</span><span class="w"> </span><span class="n">paper</span><span class="w"> </span><span class="err">:</span><span class="w"> </span><span class="mi">00001</span><span class="w"> </span><span class="n">successfully</span><span class="w"> </span><span class="n">purchased</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">DigiBank</span><span class="w"></span>
+<span class="k">Transaction</span><span class="w"> </span><span class="n">complete</span><span class="p">.</span><span class="w"></span>
+<span class="k">Disconnect</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">Fabric</span><span class="w"> </span><span class="n">gateway</span><span class="p">.</span><span class="w"></span>
+<span class="n">Buy</span><span class="w"> </span><span class="n">program</span><span class="w"> </span><span class="n">complete</span><span class="p">.</span><span class="w"></span>
+</code></pre></div>
+
 <p><strong>25.</strong> We can finish the cycle of paper <code>00001</code> by doing a redeem
 transaction. The command is below. <strong>NOTE:</strong> scroll over to see the
 entire command below :</p>
-<pre><code>tecadmin@ubuntubase:~/Desktop/fabric-samples-cp/commercial-paper/organization/digibank/application$ node redeem.js 
-Connect to Fabric gateway.
-Use network channel: mychannel.
-Use org.papernet.commercialpaper smart contract.
-Submit commercial paper redeem transaction.
-2019-02-28T19:52:46.452Z - info: [TransactionEventHandler]: _strategySuccess: strategy success for transaction "c26ecbf1077d99a5ea025c339ffabd88eb22cf4e6ac5ff8d9b570cd6c38eb531"
-Process redeem transaction response.
-MagnetoCorp commercial paper : 00001 successfully redeemed with MagnetoCorp
-Transaction complete.
-Disconnect from Fabric gateway.
-Redeem program complete
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="n">tecadmin</span><span class="nv">@ubuntubase</span><span class="err">:</span><span class="o">~/</span><span class="n">Desktop</span><span class="o">/</span><span class="n">fabric</span><span class="o">-</span><span class="n">samples</span><span class="o">-</span><span class="n">cp</span><span class="o">/</span><span class="n">commercial</span><span class="o">-</span><span class="n">paper</span><span class="o">/</span><span class="n">organization</span><span class="o">/</span><span class="n">digibank</span><span class="o">/</span><span class="n">application</span><span class="err">$</span><span class="w"> </span><span class="n">node</span><span class="w"> </span><span class="n">redeem</span><span class="p">.</span><span class="n">js</span><span class="w"> </span>
+<span class="k">Connect</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">Fabric</span><span class="w"> </span><span class="n">gateway</span><span class="p">.</span><span class="w"></span>
+<span class="k">Use</span><span class="w"> </span><span class="n">network</span><span class="w"> </span><span class="nl">channel</span><span class="p">:</span><span class="w"> </span><span class="n">mychannel</span><span class="p">.</span><span class="w"></span>
+<span class="k">Use</span><span class="w"> </span><span class="n">org</span><span class="p">.</span><span class="n">papernet</span><span class="p">.</span><span class="n">commercialpaper</span><span class="w"> </span><span class="n">smart</span><span class="w"> </span><span class="n">contract</span><span class="p">.</span><span class="w"></span>
+<span class="n">Submit</span><span class="w"> </span><span class="n">commercial</span><span class="w"> </span><span class="n">paper</span><span class="w"> </span><span class="n">redeem</span><span class="w"> </span><span class="k">transaction</span><span class="p">.</span><span class="w"></span>
+<span class="mi">2019</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">28</span><span class="nl">T19</span><span class="p">:</span><span class="mi">52</span><span class="err">:</span><span class="mf">46.452</span><span class="n">Z</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nl">info</span><span class="p">:</span><span class="w"> </span><span class="o">[</span><span class="n">TransactionEventHandler</span><span class="o">]</span><span class="err">:</span><span class="w"> </span><span class="nl">_strategySuccess</span><span class="p">:</span><span class="w"> </span><span class="n">strategy</span><span class="w"> </span><span class="n">success</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="k">transaction</span><span class="w"> </span><span class="ss">&quot;c26ecbf1077d99a5ea025c339ffabd88eb22cf4e6ac5ff8d9b570cd6c38eb531&quot;</span><span class="w"></span>
+<span class="n">Process</span><span class="w"> </span><span class="n">redeem</span><span class="w"> </span><span class="k">transaction</span><span class="w"> </span><span class="n">response</span><span class="p">.</span><span class="w"></span>
+<span class="n">MagnetoCorp</span><span class="w"> </span><span class="n">commercial</span><span class="w"> </span><span class="n">paper</span><span class="w"> </span><span class="err">:</span><span class="w"> </span><span class="mi">00001</span><span class="w"> </span><span class="n">successfully</span><span class="w"> </span><span class="n">redeemed</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">MagnetoCorp</span><span class="w"></span>
+<span class="k">Transaction</span><span class="w"> </span><span class="n">complete</span><span class="p">.</span><span class="w"></span>
+<span class="k">Disconnect</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">Fabric</span><span class="w"> </span><span class="n">gateway</span><span class="p">.</span><span class="w"></span>
+<span class="n">Redeem</span><span class="w"> </span><span class="n">program</span><span class="w"> </span><span class="n">complete</span><span class="w"></span>
+</code></pre></div>
+
 <p><strong>26.</strong> To confirm that we actually redeemed the paper, you can do a
 <code>getPaper</code> transaction to see that it was, indeed, redeemed. <strong>NOTE:</strong>
 scroll over to see the entire command below :</p>
-<pre><code>tecadmin@ubuntubase:~/Desktop/fabric-samples-cp/commercial-paper/organization/digibank/application$ node getPaper.js
-Connect to Fabric gateway.
-Use network channel: mychannel.
-Use org.papernet.commercialpaper smart contract.
-Submit commercial paper getPaper transaction.
-Process getPaper transaction response.
-+--------- Paper Retrieved ---------+ 
-| Paper number: "00001"
-| Paper is owned by: "MagnetoCorp"
-| Paper is currently: "REDEEMED"
-| Paper face value: "5000000"
-| Paper is issued by: "MagnetoCorp"
-| Paper issue on: "2020-05-31"
-| Paper matures on: "2020-11-30"
-+-----------------------------------+ 
-Transaction complete.
-Disconnect from Fabric gateway.
-getPaper program complete
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="err">tecadmin@ubuntubase:~/Desktop/fabric-samples-cp/commercial-paper/organization/digibank/application$ node getPaper.js</span>
+<span class="err">Connect to Fabric gateway.</span>
+<span class="err">Use network channel: mychannel.</span>
+<span class="err">Use org.papernet.commercialpaper smart contract.</span>
+<span class="err">Submit commercial paper getPaper transaction.</span>
+<span class="err">Process getPaper transaction response.</span>
+<span class="err">+--------- Paper Retrieved ---------+ </span>
+<span class="err">| Paper number: &quot;00001&quot;</span>
+<span class="err">| Paper is owned by: &quot;MagnetoCorp&quot;</span>
+<span class="err">| Paper is currently: &quot;REDEEMED&quot;</span>
+<span class="err">| Paper face value: &quot;5000000&quot;</span>
+<span class="err">| Paper is issued by: &quot;MagnetoCorp&quot;</span>
+<span class="err">| Paper issue on: &quot;2020-05-31&quot;</span>
+<span class="err">| Paper matures on: &quot;2020-11-30&quot;</span>
+<span class="err">+-----------------------------------+ </span>
+<span class="err">Transaction complete.</span>
+<span class="err">Disconnect from Fabric gateway.</span>
+<span class="err">getPaper program complete</span>
+</code></pre></div>
+
 <p>Now, we have run through the full lifecycle of one paper through the
 command line interface (CLI). In the following sections we will use a
 mixture of the CLI, the VSCode user interface, and a loopback API service
 application.</p>
-<h1 id="section-5-create-fabric-gateways-and-submit-transactions">Section 5: Create Fabric Gateways and Submit Transactions</h1>
+<h1 id="section-5-create-fabric-gateways-and-submit-transactions">Section 5: Create Fabric Gateways and Submit Transactions<a class="headerlink" href="#section-5-create-fabric-gateways-and-submit-transactions" title="Permanent link">&para;</a></h1>
 <p>In the previous section, we created two identities -
 <code>Isabella and Balaji</code> - and then completed a full lifecycle of one paper.
 Let's create a fabric gateway for Isabella and Balaji and then submit
@@ -911,20 +968,23 @@ some more transactions.</p>
 of the sections you'll see is called <code>Fabric Gateways</code>. If you click on
 the gear icon in the bottom left, select <code>Command Palette..</code>. You'll be
 given a prompt and you can enter this command below :</p>
-<pre><code>&gt;IBM Blockchain Platform: Add Gateway
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="err">&gt;IBM Blockchain Platform: Add Gateway</span>
+</code></pre></div>
+
 <p><strong>2.</strong> For our first Gateway, let's create MagnetoCorp. So when it
 prompts you for: <code>Enter a name for the gateway</code> enter the following
 below :</p>
-<pre><code>MagnetoCorp
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="err">MagnetoCorp</span>
+</code></pre></div>
+
 <p><strong>3.</strong> Then it will prompt you for a path to the connection profile.
 Click on browse and it will open a file window. Navigate to the path
 below and select <code>networkConnection.yaml</code>. <strong>NOTE:</strong> scroll over to see
 the entire file path below :</p>
-<pre><code>Desktop -&gt; fabric-samples-cp -&gt; commercial-paper -&gt; organization -&gt; magnetocorp -&gt; gateway -&gt; networkConnection.yaml
-.
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="err">Desktop -&gt; fabric-samples-cp -&gt; commercial-paper -&gt; organization -&gt; magnetocorp -&gt; gateway -&gt; networkConnection.yaml</span>
+<span class="err">.</span>
+</code></pre></div>
+
 <p><strong>4.</strong> Then it will place that new gateway in the <code>Fabric Gateway</code>
 section within the IBM Blockchain Platform Extension. Now that we have a
 gateway, we need to create an identity to use this gateway. To do this,
@@ -938,9 +998,10 @@ she has a wallet folder.</p>
 and then select <code>Browse</code>. It will then pop-up a file window. From there,
 you can navigate to the following path below. <strong>NOTE:</strong> scroll over to
 see the entire file path below:</p>
-<pre><code>Desktop -&gt; fabric-samples-cp -&gt; commercial-paper -&gt; organization -&gt; magnetocorp -&gt; identity -&gt; user -&gt; isabella -&gt; wallet
-.
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="err">Desktop -&gt; fabric-samples-cp -&gt; commercial-paper -&gt; organization -&gt; magnetocorp -&gt; identity -&gt; user -&gt; isabella -&gt; wallet</span>
+<span class="err">.</span>
+</code></pre></div>
+
 <p>Once you have selected <code>wallet</code>, click on <code>select</code> to choose this
 option. Then it will add a wallet, called <code>wallet</code>, to our
 <code>Fabric Wallets</code> section of the extension.</p>
@@ -950,14 +1011,15 @@ say <code>wallet</code> in a sentence. From there, select <code>Edit Wallet</cod
 open a <code>settings.json</code> file with your wallet name and wallet path
 highlighted. Go ahead and <strong>only</strong> change the <code>wallet name</code> to
 <code>MagnetoCorpWallet</code>. Look below to see the example:</p>
-<pre><code>"name": "wallet",
-"walletPath": "/home/tecadmin/Desktop/fabric-samples-cp/commercial-paper/organization/magnetocorp/identity/user/isabella/wallet"
+<div class="codehilite"><pre><span></span><code><span class="ss">&quot;name&quot;</span><span class="p">:</span> <span class="ss">&quot;wallet&quot;</span><span class="p">,</span>
+<span class="ss">&quot;walletPath&quot;</span><span class="p">:</span> <span class="ss">&quot;/home/tecadmin/Desktop/fabric-samples-cp/commercial-paper/organization/magnetocorp/identity/user/isabella/wallet&quot;</span>
 
----- CHANGE TO -----
+<span class="c1">---- CHANGE TO -----</span>
 
-"name": "MagnetoCorpWallet",
-"walletPath": "/home/tecadmin/Desktop/fabric-samples-cp/commercial-paper/organization/magnetocorp/identity/user/isabella/wallet"
-</code></pre>
+<span class="ss">&quot;name&quot;</span><span class="p">:</span> <span class="ss">&quot;MagnetoCorpWallet&quot;</span><span class="p">,</span>
+<span class="ss">&quot;walletPath&quot;</span><span class="p">:</span> <span class="ss">&quot;/home/tecadmin/Desktop/fabric-samples-cp/commercial-paper/organization/magnetocorp/identity/user/isabella/wallet&quot;</span>
+</code></pre></div>
+
 <p><strong>8.</strong> Once you have made that change, go ahead and save this file by
 doing a <code>File -&gt; Save</code> or <code>Control + S</code>. Also - leave this file open as
 we will want to change the name for DigiBank once we create their
@@ -966,20 +1028,23 @@ wallet.</p>
 them. So click on the gear icon in the bottom left, select
 <code>Command Palette..</code>. You'll be given a prompt and you can enter this
 command below:</p>
-<pre><code>&gt;IBM Blockchain Platform: Add Gateway
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="err">&gt;IBM Blockchain Platform: Add Gateway</span>
+</code></pre></div>
+
 <p><strong>10.</strong> For our second Gateway, let's create DigiBank. So when it
 prompts you for: <code>Enter a name for the gateway</code> enter the following
 below:</p>
-<pre><code>DigiBank
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="err">DigiBank</span>
+</code></pre></div>
+
 <p><strong>11.</strong> Then it will prompt you for a path to the connection profile.
 Click on browse and it will open a file window. Navigate to the path
 below and select <code>networkConnection.yaml</code>. <strong>NOTE:</strong> scroll over to see
 the entire file path below:</p>
-<pre><code>Desktop -&gt; fabric-samples-cp -&gt; commercial-paper -&gt; organization -&gt; digibank -&gt; gateway -&gt; networkConnection.yaml
-.
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="err">Desktop -&gt; fabric-samples-cp -&gt; commercial-paper -&gt; organization -&gt; digibank -&gt; gateway -&gt; networkConnection.yaml</span>
+<span class="err">.</span>
+</code></pre></div>
+
 <p><strong>12.</strong> Then it will place that new gateway in the <code>Fabric Gateway</code>
 section within the IBM Blockchain Platform Extension. Now that we have a
 gateway, we need to create an identity to use this gateway. To do this,
@@ -993,9 +1058,10 @@ she has a wallet folder.</p>
 and then select <code>Browse</code>. It will then pop-up a file window. From there,
 you can navigate to the following path below. <strong>NOTE:</strong> scroll over to
 see the entire file path below:</p>
-<pre><code>Desktop -&gt; fabric-samples-cp -&gt; commercial-paper -&gt; organization -&gt; digibank -&gt; identity -&gt; user -&gt; balaji -&gt; wallet
-.
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="err">Desktop -&gt; fabric-samples-cp -&gt; commercial-paper -&gt; organization -&gt; digibank -&gt; identity -&gt; user -&gt; balaji -&gt; wallet</span>
+<span class="err">.</span>
+</code></pre></div>
+
 <p>Once you have selected <code>wallet</code>, click on <code>select</code> to choose this
 option. Then it will add a wallet, called <code>wallet</code>, to our
 <code>Fabric Wallets</code> section of the extension.</p>
@@ -1004,14 +1070,15 @@ section, go ahead and right click on <code>wallet</code>. From there, select
 <code>Edit Wallet</code> and it will open a <code>settings.json</code> file with your wallet
 name and wallet path highlighted. Go ahead and <strong>only</strong> change the
 <code>wallet name</code> to <code>DigiBankWallet</code>. Look below to see the example:</p>
-<pre><code>"name": "wallet",
-"walletPath": "/home/tecadmin/Desktop/fabric-samples-cp/commercial-paper/organization/digibank/identity/user/balaji/wallet"
+<div class="codehilite"><pre><span></span><code><span class="ss">&quot;name&quot;</span><span class="p">:</span> <span class="ss">&quot;wallet&quot;</span><span class="p">,</span>
+<span class="ss">&quot;walletPath&quot;</span><span class="p">:</span> <span class="ss">&quot;/home/tecadmin/Desktop/fabric-samples-cp/commercial-paper/organization/digibank/identity/user/balaji/wallet&quot;</span>
 
----- CHANGE TO -----
+<span class="c1">---- CHANGE TO -----</span>
 
-"name": "DigiBankWallet",
-"walletPath": "/home/tecadmin/Desktop/fabric-samples-cp/commercial-paper/organization/digibank/identity/user/balaji/wallet"
-</code></pre>
+<span class="ss">&quot;name&quot;</span><span class="p">:</span> <span class="ss">&quot;DigiBankWallet&quot;</span><span class="p">,</span>
+<span class="ss">&quot;walletPath&quot;</span><span class="p">:</span> <span class="ss">&quot;/home/tecadmin/Desktop/fabric-samples-cp/commercial-paper/organization/digibank/identity/user/balaji/wallet&quot;</span>
+</code></pre></div>
+
 <p><strong>16.</strong> Once you have made that change, go ahead and save this file by
 doing a <code>File -&gt; Save</code> or <code>Control + S</code>. Now within your
 <code>Fabric Wallets</code> section, you should have <code>MagnetCorpWallet</code> and
@@ -1042,8 +1109,9 @@ transaction. First click on the <code>MagnetoCorp</code> gateway and untoggle ti
 you see the transactions within the <code>papercontract@0</code>. From there,
 <code>right click</code> on the <code>issue</code> transaction and select
 <code>Submit Transaction</code>. Within the brackets, place the text below:</p>
-<pre><code>"MagnetoCorp", "00002", "2020-05-31", "2020-11-30", "5000000"
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="err">&quot;MagnetoCorp&quot;, &quot;00002&quot;, &quot;2020-05-31&quot;, &quot;2020-11-30&quot;, &quot;5000000&quot;</span>
+</code></pre></div>
+
 <p>You can hit enter again to bypass the next prompt asking for transient
 data. That will execute the transaction and issue paper <code>00002</code></p>
 <p><strong>21.</strong> To make sure we are all operating on the same paper number, we
@@ -1051,44 +1119,47 @@ need to change a few files. I have broken down the files we need to
 change below within VSCode in the Editor perspective.</p>
 <p>From <code>digibank/application</code> folder, within the <code>getPaper.js</code> file
 on line <code>68</code>:</p>
-<pre><code>const getPaperResponse = await contract.evaluateTransaction('getPaper', 'MagnetoCorp', '00001');
+<div class="codehilite"><pre><span></span><code><span class="k">const</span> <span class="n">getPaperResponse</span> <span class="o">=</span> <span class="n">await</span> <span class="n">contract</span><span class="o">.</span><span class="n">evaluateTransaction</span><span class="p">(</span><span class="s1">&#39;getPaper&#39;</span><span class="p">,</span> <span class="s1">&#39;MagnetoCorp&#39;</span><span class="p">,</span> <span class="s1">&#39;00001&#39;</span><span class="p">);</span>
 
----- CHANGE TO ----
+<span class="o">----</span> <span class="n">CHANGE</span> <span class="n">TO</span> <span class="o">----</span>
 
-const getPaperResponse = await contract.evaluateTransaction('getPaper', 'MagnetoCorp', '00002');
-</code></pre>
+<span class="k">const</span> <span class="n">getPaperResponse</span> <span class="o">=</span> <span class="n">await</span> <span class="n">contract</span><span class="o">.</span><span class="n">evaluateTransaction</span><span class="p">(</span><span class="s1">&#39;getPaper&#39;</span><span class="p">,</span> <span class="s1">&#39;MagnetoCorp&#39;</span><span class="p">,</span> <span class="s1">&#39;00002&#39;</span><span class="p">);</span>
+</code></pre></div>
+
 <p><strong>Make sure you save this file.</strong></p>
 <p>From <code>`digibank/application</code> folder, within the <code>redeem.js</code> file on
 line <code>67</code>:</p>
-<pre><code>const redeemResponse = await contract.submitTransaction('redeem', 'MagnetoCorp', '00001', 'DigiBank', '2020-11-30');
+<div class="codehilite"><pre><span></span><code><span class="k">const</span> <span class="n">redeemResponse</span> <span class="o">=</span> <span class="n">await</span> <span class="n">contract</span><span class="o">.</span><span class="n">submitTransaction</span><span class="p">(</span><span class="s1">&#39;redeem&#39;</span><span class="p">,</span> <span class="s1">&#39;MagnetoCorp&#39;</span><span class="p">,</span> <span class="s1">&#39;00001&#39;</span><span class="p">,</span> <span class="s1">&#39;DigiBank&#39;</span><span class="p">,</span> <span class="s1">&#39;2020-11-30&#39;</span><span class="p">);</span>
 
----- CHANGE TO ----
+<span class="o">----</span> <span class="n">CHANGE</span> <span class="n">TO</span> <span class="o">----</span>
 
-const redeemResponse = await contract.submitTransaction('redeem', 'MagnetoCorp', '00002', 'DigiBank', '2020-11-30');
-</code></pre>
+<span class="k">const</span> <span class="n">redeemResponse</span> <span class="o">=</span> <span class="n">await</span> <span class="n">contract</span><span class="o">.</span><span class="n">submitTransaction</span><span class="p">(</span><span class="s1">&#39;redeem&#39;</span><span class="p">,</span> <span class="s1">&#39;MagnetoCorp&#39;</span><span class="p">,</span> <span class="s1">&#39;00002&#39;</span><span class="p">,</span> <span class="s1">&#39;DigiBank&#39;</span><span class="p">,</span> <span class="s1">&#39;2020-11-30&#39;</span><span class="p">);</span>
+</code></pre></div>
+
 <p><strong>Make sure you save this file.</strong></p>
 <p><strong>22.</strong> Now we can execute more transactions. First, jump back to the
 CLI and do a <code>getPaper.js</code> transaction. Below you will see what the
 command is to execute the transaction. <strong>NOTE:</strong> scroll over to see the entire command below:</p>
-<pre><code>tecadmin@ubuntubase:~/Desktop/fabric-samples-cp/commercial-paper/organization/digibank/application$ node getPaper.js
-Connect to Fabric gateway.
-Use network channel: mychannel.
-Use org.papernet.commercialpaper smart contract.
-Submit commercial paper getPaper transaction.
-Process getPaper transaction response.
- +--------- Paper Retrieved ---------+ 
- | Paper number: "00002"
- | Paper is owned by: "MagnetoCorp"
- | Paper is currently: "ISSUED"
- | Paper face value: "5000000"
- | Paper is issued by: "MagnetoCorp"
- | Paper issue on: "2020-05-31"
- | Paper matures on: "2020-11-30"
- +-----------------------------------+ 
-Transaction complete.
-Disconnect from Fabric gateway.
-getPaper program complete.
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="err">tecadmin@ubuntubase:~/Desktop/fabric-samples-cp/commercial-paper/organization/digibank/application$ node getPaper.js</span>
+<span class="err">Connect to Fabric gateway.</span>
+<span class="err">Use network channel: mychannel.</span>
+<span class="err">Use org.papernet.commercialpaper smart contract.</span>
+<span class="err">Submit commercial paper getPaper transaction.</span>
+<span class="err">Process getPaper transaction response.</span>
+<span class="err"> +--------- Paper Retrieved ---------+ </span>
+<span class="err"> | Paper number: &quot;00002&quot;</span>
+<span class="err"> | Paper is owned by: &quot;MagnetoCorp&quot;</span>
+<span class="err"> | Paper is currently: &quot;ISSUED&quot;</span>
+<span class="err"> | Paper face value: &quot;5000000&quot;</span>
+<span class="err"> | Paper is issued by: &quot;MagnetoCorp&quot;</span>
+<span class="err"> | Paper issue on: &quot;2020-05-31&quot;</span>
+<span class="err"> | Paper matures on: &quot;2020-11-30&quot;</span>
+<span class="err"> +-----------------------------------+ </span>
+<span class="err">Transaction complete.</span>
+<span class="err">Disconnect from Fabric gateway.</span>
+<span class="err">getPaper program complete.</span>
+</code></pre></div>
+
 <p><strong>23.</strong> Within VSCode and the IBM Blockchain Platform, we can buy the
 same paper. To do this, leave the <code>MagnetoCorp</code> gateway, and then click on the
 <code>DigiBank</code> gateway.</p>
@@ -1096,85 +1167,90 @@ same paper. To do this, leave the <code>MagnetoCorp</code> gateway, and then cli
 <code>papercontract@0</code> smart contract. From there, <code>right click</code> on the <code>buy</code>
 transaction and select <code>Submit Transaction</code>. Once it gives you a prompt,
 enter the text below between the brackets:</p>
-<pre><code>"MagnetoCorp","00002","MagnetoCorp","DigiBank","4900000","2019-07-31"
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="err">&quot;MagnetoCorp&quot;,&quot;00002&quot;,&quot;MagnetoCorp&quot;,&quot;DigiBank&quot;,&quot;4900000&quot;,&quot;2019-07-31&quot;</span>
+</code></pre></div>
+
 <p>Then hit <code>enter</code> to go to the next prompt. Hit <code>enter</code> once again to
 bypass the transient data prompt. Then that will execute the <code>buy</code>
 transaction.</p>
 <p><strong>25.</strong> To confirm that the transaction worked (other than the log
 messages in the output window), we can do a <code>getPaper</code> transaction from
 the CLI again. <strong>NOTE:</strong> scroll over to see the entire command below:</p>
-<pre><code>tecadmin@ubuntubase:~/Desktop/fabric-samples-cp/commercial-paper/organization/digibank/application$ node getPaper.js
-Connect to Fabric gateway.
-Use network channel: mychannel.
-Use org.papernet.commercialpaper smart contract.
-Submit commercial paper getPaper transaction.
-Process getPaper transaction response.
-+--------- Paper Retrieved ---------+ 
- | Paper number: "00002"
- | Paper is owned by: "DigiBank"
- | Paper is currently: "TRADING"
- | Paper face value: "5000000"
- | Paper is issued by: "MagnetoCorp"
- | Paper issue on: "2020-05-31"
- | Paper matures on: "2020-11-30"
- +-----------------------------------+ 
-Transaction complete.
-Disconnect from Fabric gateway.
-getPaper program complete.
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="err">tecadmin@ubuntubase:~/Desktop/fabric-samples-cp/commercial-paper/organization/digibank/application$ node getPaper.js</span>
+<span class="err">Connect to Fabric gateway.</span>
+<span class="err">Use network channel: mychannel.</span>
+<span class="err">Use org.papernet.commercialpaper smart contract.</span>
+<span class="err">Submit commercial paper getPaper transaction.</span>
+<span class="err">Process getPaper transaction response.</span>
+<span class="err">+--------- Paper Retrieved ---------+ </span>
+<span class="err"> | Paper number: &quot;00002&quot;</span>
+<span class="err"> | Paper is owned by: &quot;DigiBank&quot;</span>
+<span class="err"> | Paper is currently: &quot;TRADING&quot;</span>
+<span class="err"> | Paper face value: &quot;5000000&quot;</span>
+<span class="err"> | Paper is issued by: &quot;MagnetoCorp&quot;</span>
+<span class="err"> | Paper issue on: &quot;2020-05-31&quot;</span>
+<span class="err"> | Paper matures on: &quot;2020-11-30&quot;</span>
+<span class="err"> +-----------------------------------+ </span>
+<span class="err">Transaction complete.</span>
+<span class="err">Disconnect from Fabric gateway.</span>
+<span class="err">getPaper program complete.</span>
+</code></pre></div>
+
 <p><strong>26.</strong> From the same CLI, we can do a <code>redeem.js</code> transaction. <strong>NOTE:</strong> scroll over to see the entire command below:</p>
-<pre><code>tecadmin@ubuntubase:~/Desktop/fabric-samples/commercial-paper/organization/digibank/application$ node redeem.js 
-Connect to Fabric gateway.
-Use network channel: mychannel.
-Use org.papernet.commercialpaper smart contract.
-Submit commercial paper redeem transaction.
-2019-02-28T19:52:46.452Z - info: [TransactionEventHandler]: _strategySuccess: strategy success for transaction "c26ecbf1077d99a5ea025c339ffabd88eb22cf4e6ac5ff8d9b570cd6c38eb531"
-Process redeem transaction response.
-MagnetoCorp commercial paper : 00002 successfully redeemed with MagnetoCorp
-Transaction complete.
-Disconnect from Fabric gateway.
-Redeem program complete.
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="n">tecadmin</span><span class="nv">@ubuntubase</span><span class="err">:</span><span class="o">~/</span><span class="n">Desktop</span><span class="o">/</span><span class="n">fabric</span><span class="o">-</span><span class="n">samples</span><span class="o">/</span><span class="n">commercial</span><span class="o">-</span><span class="n">paper</span><span class="o">/</span><span class="n">organization</span><span class="o">/</span><span class="n">digibank</span><span class="o">/</span><span class="n">application</span><span class="err">$</span><span class="w"> </span><span class="n">node</span><span class="w"> </span><span class="n">redeem</span><span class="p">.</span><span class="n">js</span><span class="w"> </span>
+<span class="k">Connect</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">Fabric</span><span class="w"> </span><span class="n">gateway</span><span class="p">.</span><span class="w"></span>
+<span class="k">Use</span><span class="w"> </span><span class="n">network</span><span class="w"> </span><span class="nl">channel</span><span class="p">:</span><span class="w"> </span><span class="n">mychannel</span><span class="p">.</span><span class="w"></span>
+<span class="k">Use</span><span class="w"> </span><span class="n">org</span><span class="p">.</span><span class="n">papernet</span><span class="p">.</span><span class="n">commercialpaper</span><span class="w"> </span><span class="n">smart</span><span class="w"> </span><span class="n">contract</span><span class="p">.</span><span class="w"></span>
+<span class="n">Submit</span><span class="w"> </span><span class="n">commercial</span><span class="w"> </span><span class="n">paper</span><span class="w"> </span><span class="n">redeem</span><span class="w"> </span><span class="k">transaction</span><span class="p">.</span><span class="w"></span>
+<span class="mi">2019</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">28</span><span class="nl">T19</span><span class="p">:</span><span class="mi">52</span><span class="err">:</span><span class="mf">46.452</span><span class="n">Z</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nl">info</span><span class="p">:</span><span class="w"> </span><span class="o">[</span><span class="n">TransactionEventHandler</span><span class="o">]</span><span class="err">:</span><span class="w"> </span><span class="nl">_strategySuccess</span><span class="p">:</span><span class="w"> </span><span class="n">strategy</span><span class="w"> </span><span class="n">success</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="k">transaction</span><span class="w"> </span><span class="ss">&quot;c26ecbf1077d99a5ea025c339ffabd88eb22cf4e6ac5ff8d9b570cd6c38eb531&quot;</span><span class="w"></span>
+<span class="n">Process</span><span class="w"> </span><span class="n">redeem</span><span class="w"> </span><span class="k">transaction</span><span class="w"> </span><span class="n">response</span><span class="p">.</span><span class="w"></span>
+<span class="n">MagnetoCorp</span><span class="w"> </span><span class="n">commercial</span><span class="w"> </span><span class="n">paper</span><span class="w"> </span><span class="err">:</span><span class="w"> </span><span class="mi">00002</span><span class="w"> </span><span class="n">successfully</span><span class="w"> </span><span class="n">redeemed</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">MagnetoCorp</span><span class="w"></span>
+<span class="k">Transaction</span><span class="w"> </span><span class="n">complete</span><span class="p">.</span><span class="w"></span>
+<span class="k">Disconnect</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">Fabric</span><span class="w"> </span><span class="n">gateway</span><span class="p">.</span><span class="w"></span>
+<span class="n">Redeem</span><span class="w"> </span><span class="n">program</span><span class="w"> </span><span class="n">complete</span><span class="p">.</span><span class="w"></span>
+</code></pre></div>
+
 <p><strong>27.</strong> Again, we can confirm that this was recorded by doing another
 <code>getPaper.js</code> transaction. <strong>NOTE:</strong> scroll over to see the entire
 command below:</p>
-<pre><code>tecadmin@ubuntubase:~/Desktop/fabric-samples-cp/commercial-paper/organization/digibank/application$ node getPaper.js
-Connect to Fabric gateway.
-Use network channel: mychannel.
-Use org.papernet.commercialpaper smart contract.
-Submit commercial paper getPaper transaction.
-Process getPaper transaction response.
- +--------- Paper Retrieved ---------+ 
- | Paper number: "00002"
- | Paper is owned by: "MagnetoCorp"
- | Paper is currently: "REDEEMED"
- | Paper face value: "5000000"
- | Paper is issued by: "MagnetoCorp"
- | Paper issue on: "2020-05-31"
- | Paper matures on: "2020-11-30"
- +-----------------------------------+ 
-Transaction complete.
-Disconnect from Fabric gateway.
-getPaper program complete.
-</code></pre>
-<h1 id="section-6-lab-clean-up">Section 6: Lab Clean-Up</h1>
+<div class="codehilite"><pre><span></span><code><span class="err">tecadmin@ubuntubase:~/Desktop/fabric-samples-cp/commercial-paper/organization/digibank/application$ node getPaper.js</span>
+<span class="err">Connect to Fabric gateway.</span>
+<span class="err">Use network channel: mychannel.</span>
+<span class="err">Use org.papernet.commercialpaper smart contract.</span>
+<span class="err">Submit commercial paper getPaper transaction.</span>
+<span class="err">Process getPaper transaction response.</span>
+<span class="err"> +--------- Paper Retrieved ---------+ </span>
+<span class="err"> | Paper number: &quot;00002&quot;</span>
+<span class="err"> | Paper is owned by: &quot;MagnetoCorp&quot;</span>
+<span class="err"> | Paper is currently: &quot;REDEEMED&quot;</span>
+<span class="err"> | Paper face value: &quot;5000000&quot;</span>
+<span class="err"> | Paper is issued by: &quot;MagnetoCorp&quot;</span>
+<span class="err"> | Paper issue on: &quot;2020-05-31&quot;</span>
+<span class="err"> | Paper matures on: &quot;2020-11-30&quot;</span>
+<span class="err"> +-----------------------------------+ </span>
+<span class="err">Transaction complete.</span>
+<span class="err">Disconnect from Fabric gateway.</span>
+<span class="err">getPaper program complete.</span>
+</code></pre></div>
+
+<h1 id="section-6-lab-clean-up">Section 6: Lab Clean-Up<a class="headerlink" href="#section-6-lab-clean-up" title="Permanent link">&para;</a></h1>
 <p>This lab has run its course, but now it is time to clean up. Don't worry, this is a very short section! </p>
 <p><strong>1.</strong> Entering the following commands to stop and remove our docker containers. Then we can remove the images as well. Look at the following commands below
 ::</p>
-<pre><code>tecadmin@ubuntubase:~/Desktop/fabric-samples-cp/commercial-paper/organization/digibank/application$ docker stop $(docker ps -a -q)
-*
-*
-* Docker container IDs
-*
-*
-tecadmin@ubuntubase:~/Desktop/fabric-samples-cp/commercial-paper/organization/digibank/application$ docker rm $(docker ps -a -q)
-*
-*
-* Docker container IDs
-*
-*
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="err">tecadmin@ubuntubase:~/Desktop/fabric-samples-cp/commercial-paper/organization/digibank/application$ docker stop $(docker ps -a -q)</span>
+<span class="err">*</span>
+<span class="err">*</span>
+<span class="err">* Docker container IDs</span>
+<span class="err">*</span>
+<span class="err">*</span>
+<span class="err">tecadmin@ubuntubase:~/Desktop/fabric-samples-cp/commercial-paper/organization/digibank/application$ docker rm $(docker ps -a -q)</span>
+<span class="err">*</span>
+<span class="err">*</span>
+<span class="err">* Docker container IDs</span>
+<span class="err">*</span>
+<span class="err">*</span>
+</code></pre></div>
+
 <p><strong>2.</strong> From within the IBM Blockchain Platform Extension in VSCode, find the <code>Local Fabric Ops</code> section and hover your cursor in that section. Within that section, click on the three dots (<code>...</code>) in the top right. Then select <code>Teardown Fabric Runtime</code>. This will clear the local Fabric cleanly.</p>
 <p><strong>3.</strong> Once that has ran its course, click on the three dots (<code>...</code>) and select <code>Start Fabric Runtime</code>. This will start up a new local Fabric that we will use in the next part of the lab. </p>
 <p>That's it!</p>

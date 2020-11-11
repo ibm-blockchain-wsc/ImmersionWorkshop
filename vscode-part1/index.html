@@ -193,16 +193,28 @@
       
 
 
+  <li class="md-nav__item">
+    <a href="../assignment/" class="md-nav__link">
+      Skytap image assignments
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
     
-    <label class="md-nav__link" for="nav-2">
+    <label class="md-nav__link" for="nav-3">
       IBM Blockchain Platform v2.5.0 on Linux on IBM Z Lab
       <span class="md-nav__icon md-icon"></span>
     </label>
     <nav class="md-nav" aria-label="IBM Blockchain Platform v2.5.0 on Linux on IBM Z Lab" data-md-level="1">
-      <label class="md-nav__title" for="nav-2">
+      <label class="md-nav__title" for="nav-3">
         <span class="md-nav__icon md-icon"></span>
         IBM Blockchain Platform v2.5.0 on Linux on IBM Z Lab
       </label>
@@ -278,7 +290,7 @@
               
                 
                 
-                <h1 id="section-1-overview">Section 1: Overview</h1>
+                <h1 id="section-1-overview">Section 1: Overview<a class="headerlink" href="#section-1-overview" title="Permanent link">&para;</a></h1>
 <p>In this part of the lab, we will guide you through the steps for
 generating, installing and instantiating a smart contract and then
 testing that smart contract to verify that it works. Before all of that,
@@ -344,25 +356,26 @@ breakdown of Part 1 of our lab:</p>
             ledger.</p>
 </li>
 </ul>
-<h1 id="section-2-start-up-a-blockchain-network">Section 2: Start Up a Blockchain Network</h1>
+<h1 id="section-2-start-up-a-blockchain-network">Section 2: Start Up a Blockchain Network<a class="headerlink" href="#section-2-start-up-a-blockchain-network" title="Permanent link">&para;</a></h1>
 <p><strong>NOTE:</strong> For Part 1 of our lab, we will be using the terminal within
 VSCode. Do <strong>not</strong> execute the commands within the actual terminal
 application. You can enter them from the terminal application, but the
 instructions below will all be within the VSCode terminal. In Part 2 of
 this lab, you will use the terminal application.</p>
 <p><strong>1.</strong> Open up your terminal and type in the following commands below :</p>
-<pre><code>tecadmin@ubuntubase:~$ node -v # We want Node to be v8.x or higher
-v8.11.3
-tecadmin@ubuntubase:~$ npm -v # We want NPM to be v5.x or higher
-5.6.0
-tecadmin@ubuntubase:~$ yo --version # We want yo to be v2.x or higher
-2.0.5
-tecadmin@ubuntubase:~$ docker --version # We want Docker to be v17.06.2-ce or higher
-Docker version 17.06.2-ce, build cec0b72
-tecadmin@ubuntubase:~$ docker-compose --version # We want Docker Compose to be v1.14.0 or higher
-docker-compose version 1.14.0, build c7bdf9e
-tecadmin@ubuntubase:~$
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="err">tecadmin@ubuntubase:~$ node -v # We want Node to be v8.x or higher</span>
+<span class="err">v8.11.3</span>
+<span class="err">tecadmin@ubuntubase:~$ npm -v # We want NPM to be v5.x or higher</span>
+<span class="err">5.6.0</span>
+<span class="err">tecadmin@ubuntubase:~$ yo --version # We want yo to be v2.x or higher</span>
+<span class="err">2.0.5</span>
+<span class="err">tecadmin@ubuntubase:~$ docker --version # We want Docker to be v17.06.2-ce or higher</span>
+<span class="err">Docker version 17.06.2-ce, build cec0b72</span>
+<span class="err">tecadmin@ubuntubase:~$ docker-compose --version # We want Docker Compose to be v1.14.0 or higher</span>
+<span class="err">docker-compose version 1.14.0, build c7bdf9e</span>
+<span class="err">tecadmin@ubuntubase:~$</span>
+</code></pre></div>
+
 <p>If you get a version that doesn't support our qualifications, raise your
 hand and tell the instructor.</p>
 <p><strong>2.</strong> From the Ubuntu Desktop, click on Visual Studio Code. The Visual
@@ -370,7 +383,7 @@ Studio Code icon is on the right above the <code>Cisco Anyconnect</code> icon on
 the toolbar on the left.</p>
 <p><strong>3.</strong> Once you are in the Visual Studio Code application, you should
 see an outline of a block just below the extensions button
-(approximately the 6th button in VSCode). Go ahead and click on that
+(approximately the 6<sup>th</sup> button in VSCode). Go ahead and click on that
 button. Once you do, you'll see a similar screen as the image below</p>
 <p><img alt="image" src="../vscode-images/1.png" /></p>
 <p><strong>4.</strong> Hover your mouse over the <code>Local Fabric Ops</code> panel and we'll see
@@ -396,14 +409,15 @@ images.</p>
 <p><strong>5.</strong> How do we know if we have a successful blockchain network up and
 running? I'm glad you asked! We will see messages flooding the <code>Output</code>
 panel. We will want to see a message that resembles the one below :</p>
-<pre><code>[2/20/2019 7:26:54 PM] [INFO] 2019-02-21 00:26:34.756 UTC [cli.common] readBlock -&gt; INFO 002 Received block: 0
-[2/20/2019 7:26:54 PM] [INFO] 2019-02-21 00:26:34.930 UTC [channelCmd] InitCmdFactory -&gt; INFO 001 Endorser and orderer connections initialized
-[2/20/2019 7:26:55 PM] [INFO] 2019-02-21 00:26:35.458 UTC [channelCmd] executeJoin -&gt; INFO 002 Successfully submitted proposal to join channel
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="o">[</span><span class="n">2/20/2019 7:26:54 PM</span><span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="n">INFO</span><span class="o">]</span><span class="w"> </span><span class="mi">2019</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">21</span><span class="w"> </span><span class="mi">00</span><span class="err">:</span><span class="mi">26</span><span class="err">:</span><span class="mf">34.756</span><span class="w"> </span><span class="n">UTC</span><span class="w"> </span><span class="o">[</span><span class="n">cli.common</span><span class="o">]</span><span class="w"> </span><span class="n">readBlock</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">INFO</span><span class="w"> </span><span class="mi">002</span><span class="w"> </span><span class="n">Received</span><span class="w"> </span><span class="nl">block</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
+<span class="o">[</span><span class="n">2/20/2019 7:26:54 PM</span><span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="n">INFO</span><span class="o">]</span><span class="w"> </span><span class="mi">2019</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">21</span><span class="w"> </span><span class="mi">00</span><span class="err">:</span><span class="mi">26</span><span class="err">:</span><span class="mf">34.930</span><span class="w"> </span><span class="n">UTC</span><span class="w"> </span><span class="o">[</span><span class="n">channelCmd</span><span class="o">]</span><span class="w"> </span><span class="n">InitCmdFactory</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">INFO</span><span class="w"> </span><span class="mi">001</span><span class="w"> </span><span class="n">Endorser</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">orderer</span><span class="w"> </span><span class="n">connections</span><span class="w"> </span><span class="n">initialized</span><span class="w"></span>
+<span class="o">[</span><span class="n">2/20/2019 7:26:55 PM</span><span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="n">INFO</span><span class="o">]</span><span class="w"> </span><span class="mi">2019</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">21</span><span class="w"> </span><span class="mi">00</span><span class="err">:</span><span class="mi">26</span><span class="err">:</span><span class="mf">35.458</span><span class="w"> </span><span class="n">UTC</span><span class="w"> </span><span class="o">[</span><span class="n">channelCmd</span><span class="o">]</span><span class="w"> </span><span class="n">executeJoin</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">INFO</span><span class="w"> </span><span class="mi">002</span><span class="w"> </span><span class="n">Successfully</span><span class="w"> </span><span class="n">submitted</span><span class="w"> </span><span class="n">proposal</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="k">join</span><span class="w"> </span><span class="n">channel</span><span class="w"></span>
+</code></pre></div>
+
 <p><strong>6.</strong> We can verify that everything is up and working by entering the
 <code>docker ps -a</code> command that will print out all of our
 containers.</p>
-<h2 id="section-3-create-our-smart-contract">Section 3: Create our Smart Contract</h2>
+<h2 id="section-3-create-our-smart-contract">Section 3: Create our Smart Contract<a class="headerlink" href="#section-3-create-our-smart-contract" title="Permanent link">&para;</a></h2>
 <p>Now that we have a local running Hyperledger Fabric network, let's
 create our Smart Contract that we will then install and instantiate onto
 our network.</p>
@@ -413,21 +427,24 @@ do a series of commands, some that are VSCode-related and some that are
 IBM Blockchain Platform-related.</p>
 <p><strong>2.</strong> You will notice a series of commands pop up. Go ahead and enter
 this command below into the search bar :</p>
-<pre><code>&gt;IBM Blockchain Platform: Create Smart Contract Project
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="err">&gt;IBM Blockchain Platform: Create Smart Contract Project</span>
+</code></pre></div>
+
 <p><img alt="image" src="../vscode-images/1-2-6.png" /></p>
 <p>This command will generate a skeleton smart contract for us. We will
 walk through all that it generates in a second.</p>
 <p><strong>3.</strong> We might get a message that says the text below. If we don't,
 proceed onto the next step. :</p>
-<pre><code>Can this extension install missing npm packages before proceeding?
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="err">Can this extension install missing npm packages before proceeding?</span>
+</code></pre></div>
+
 <p>Select <code>yes</code> if that message comes up. What it is installing is
 <code>generator-fabric</code> which is actually the generator that creates our
 skeleton smart contract.</p>
 <p><strong>4.</strong> We'll then get a message that says :</p>
-<pre><code>Chose smart contract language (esc to cancel)
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="err">Chose smart contract language (esc to cancel)</span>
+</code></pre></div>
+
 <p>Choose <code>JavaScript</code> as our smart contract language of choice</p>
 <p><strong>5.</strong> The next prompt will ask you
 <code>Name the type of asset managed by this smart contract</code>. You can put
@@ -451,52 +468,57 @@ smart contract:</p>
 <p>The line of code below will bring into scope a key Hyperledger
 Fabric class that will be used extensively by the smart contract --
 Contract :</p>
-<pre><code>const { Contract } = require('fabric-contract-api');
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="k">const</span> <span class="p">{</span> <span class="n">Contract</span> <span class="p">}</span> <span class="o">=</span> <span class="n">require</span><span class="p">(</span><span class="s1">&#39;fabric-contract-api&#39;</span><span class="p">);</span>
+</code></pre></div>
+
 <p>Below, we define the smart contract class KaleContract based on the
 built-in Fabric Contract class. The methods which implement the key
 transactions are defined within this class :</p>
-<pre><code>class KaleContract extends Contract {
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="n">KaleContract</span> <span class="k">extends</span> <span class="n">Contract</span> <span class="p">{</span>
+</code></pre></div>
+
 <p>Below, the function is called createKale and it takes kaleId and a
 value, both of which are strings. When this transaction is submitted, a
 new asset will be created, with key kaleId and value value. For example
 if we were to create "001", "A bunch of kale", then when we later read
 the value of key 001, we'll learn the value of that particular state is
 "A bunch of kale" :</p>
-<pre><code>async createKale(ctx, kaleId, value) {
-    const exists = await this.kaleExists(ctx, kaleId);
-    if (exists) {
-        throw new Error(`The kale ${kaleId} already exists`);
-    }
-    const asset = { value };
-    const buffer = Buffer.from(JSON.stringify(asset));
-    await ctx.stub.putState(kaleId, buffer);
-}
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="n">async</span> <span class="n">createKale</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">kaleId</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">const</span> <span class="n">exists</span> <span class="o">=</span> <span class="n">await</span> <span class="n">this</span><span class="o">.</span><span class="n">kaleExists</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">kaleId</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">exists</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">throw</span> <span class="n">new</span> <span class="n">Error</span><span class="p">(</span><span class="err">`</span><span class="n">The</span> <span class="n">kale</span> <span class="o">$</span><span class="p">{</span><span class="n">kaleId</span><span class="p">}</span> <span class="n">already</span> <span class="n">exists</span><span class="err">`</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">const</span> <span class="n">asset</span> <span class="o">=</span> <span class="p">{</span> <span class="n">value</span> <span class="p">};</span>
+    <span class="k">const</span> <span class="n">buffer</span> <span class="o">=</span> <span class="n">Buffer</span><span class="o">.</span><span class="n">from</span><span class="p">(</span><span class="n">JSON</span><span class="o">.</span><span class="n">stringify</span><span class="p">(</span><span class="n">asset</span><span class="p">));</span>
+    <span class="n">await</span> <span class="n">ctx</span><span class="o">.</span><span class="n">stub</span><span class="o">.</span><span class="n">putState</span><span class="p">(</span><span class="n">kaleId</span><span class="p">,</span> <span class="n">buffer</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+
 <p>You'll often hear such transactions, like below, referred to as
 "queries". As you can see, this function only takes kaleId, and will
 return the value of whatever state that key points to. :</p>
-<pre><code>async readKale(ctx, kaleId) {
-    const exists = await this.kaleExists(ctx, kaleId);
-    if (!exists) {
-        throw new Error(`The kale ${kaleId} does not exist`);
-    }
-    const buffer = await ctx.stub.getState(kaleId);
-    const asset = JSON.parse(buffer.toString());
-    return asset;
-}
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="n">async</span> <span class="n">readKale</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">kaleId</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">const</span> <span class="n">exists</span> <span class="o">=</span> <span class="n">await</span> <span class="n">this</span><span class="o">.</span><span class="n">kaleExists</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">kaleId</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">exists</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">throw</span> <span class="n">new</span> <span class="n">Error</span><span class="p">(</span><span class="err">`</span><span class="n">The</span> <span class="n">kale</span> <span class="o">$</span><span class="p">{</span><span class="n">kaleId</span><span class="p">}</span> <span class="n">does</span> <span class="ow">not</span> <span class="n">exist</span><span class="err">`</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">const</span> <span class="n">buffer</span> <span class="o">=</span> <span class="n">await</span> <span class="n">ctx</span><span class="o">.</span><span class="n">stub</span><span class="o">.</span><span class="n">getState</span><span class="p">(</span><span class="n">kaleId</span><span class="p">);</span>
+    <span class="k">const</span> <span class="n">asset</span> <span class="o">=</span> <span class="n">JSON</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">buffer</span><span class="o">.</span><span class="n">toString</span><span class="p">());</span>
+    <span class="k">return</span> <span class="n">asset</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
 <p>Take a look at the other transactions in the contract at your leisure,
 then when you're happy, let's move on to packaging and deploying that
 contract so that we can start using it...</p>
-<h1 id="section-4-package-install-and-instantiate-our-smart-contract">Section 4: Package, Install and Instantiate our Smart Contract</h1>
+<h1 id="section-4-package-install-and-instantiate-our-smart-contract">Section 4: Package, Install and Instantiate our Smart Contract<a class="headerlink" href="#section-4-package-install-and-instantiate-our-smart-contract" title="Permanent link">&para;</a></h1>
 <p><strong>1.</strong> Jump back down to the IBM Blockchain Platform section (the
 outline of a block icon). From there, click on the gear button in the
 bottom left and click on <code>Command Palette...</code>. Once it gives you a
 prompt in the top, enter the text that is below :</p>
-<pre><code>&gt;IBM Blockchain Platform: Package a Smart Contract Project
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="err">&gt;IBM Blockchain Platform: Package a Smart Contract Project</span>
+</code></pre></div>
+
 <p><img alt="image" src="../vscode-images/1-3-2.png" /></p>
 <p><strong>2.</strong> Then it will bring in the <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#75;&#97;&#108;&#101;&#64;&#48;&#46;&#48;&#46;&#49;">&#75;&#97;&#108;&#101;&#64;&#48;&#46;&#48;&#46;&#49;</a> package into our
 <code>Smart Contract Packages</code> section. If you had multiple folders open in
@@ -517,7 +539,7 @@ prompt. Then it will ask if you want to
 <code>Provide a Private Data collection configuration file</code> and you can
 select <code>No</code>. Then it will instantiate our <code>Kale</code> smart contract to our
 channel, called <code>mychannel</code>.</p>
-<h1 id="section-5-submit-transactions">Section 5: Submit Transactions</h1>
+<h1 id="section-5-submit-transactions">Section 5: Submit Transactions<a class="headerlink" href="#section-5-submit-transactions" title="Permanent link">&para;</a></h1>
 <p><strong>1.</strong> From the IBM Blockchain Platform Extension, you can click on the
 <code>local_fabric</code> gateway. It will then use the <code>admin</code> ID. It will display
 all of your channels that this gateway can see, in this case it is only
@@ -531,19 +553,21 @@ arguments you want to pass in. You can enter the text below. It will
 give you another prompt for transient data, but you can hit enter to
 bypass this prompt and it will then execute the transaction. <strong>NOTE:</strong>
 Put your arguments between the brackets:</p>
-<pre><code>"001", "a bunch of kale"
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="err">&quot;001&quot;, &quot;a bunch of kale&quot;</span>
+</code></pre></div>
+
 <p>See what I did there? Anyways..</p>
 <p><strong>3.</strong> Now we can confirm that the transaction actually occured. There
 are a couple of ways we could do this. The first way we can test this
 out is by entering the following text below in our VSCode terminal:</p>
-<pre><code>docker logs fabricvscodelocalfabric_peer0.org1.example.com | grep block
-*
-*
-2019-06-11 14:36:33.321 UTC [gossip.privdata] StoreBlock -&gt; INFO 0a1 [mychannel] Received block [3] from buffer
-2019-06-11 14:36:33.322 UTC [committer.txvalidator] Validate -&gt; INFO 0a2 [mychannel] Validated block [3] in 0ms
-2019-06-11 14:36:33.432 UTC [kvledger] CommitWithPvtData -&gt; INFO 0a3 [mychannel] Committed block [3] with 1 transaction(s) in 109ms (state_validation=11ms block_commit=70ms state_commit=11ms)
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="n">docker</span><span class="w"> </span><span class="n">logs</span><span class="w"> </span><span class="n">fabricvscodelocalfabric_peer0</span><span class="p">.</span><span class="n">org1</span><span class="p">.</span><span class="n">example</span><span class="p">.</span><span class="n">com</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">grep</span><span class="w"> </span><span class="n">block</span><span class="w"></span>
+<span class="o">*</span><span class="w"></span>
+<span class="o">*</span><span class="w"></span>
+<span class="mi">2019</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">11</span><span class="w"> </span><span class="mi">14</span><span class="err">:</span><span class="mi">36</span><span class="err">:</span><span class="mf">33.321</span><span class="w"> </span><span class="n">UTC</span><span class="w"> </span><span class="o">[</span><span class="n">gossip.privdata</span><span class="o">]</span><span class="w"> </span><span class="n">StoreBlock</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">INFO</span><span class="w"> </span><span class="mi">0</span><span class="n">a1</span><span class="w"> </span><span class="o">[</span><span class="n">mychannel</span><span class="o">]</span><span class="w"> </span><span class="n">Received</span><span class="w"> </span><span class="n">block</span><span class="w"> </span><span class="o">[</span><span class="n">3</span><span class="o">]</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">buffer</span><span class="w"></span>
+<span class="mi">2019</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">11</span><span class="w"> </span><span class="mi">14</span><span class="err">:</span><span class="mi">36</span><span class="err">:</span><span class="mf">33.322</span><span class="w"> </span><span class="n">UTC</span><span class="w"> </span><span class="o">[</span><span class="n">committer.txvalidator</span><span class="o">]</span><span class="w"> </span><span class="n">Validate</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">INFO</span><span class="w"> </span><span class="mi">0</span><span class="n">a2</span><span class="w"> </span><span class="o">[</span><span class="n">mychannel</span><span class="o">]</span><span class="w"> </span><span class="n">Validated</span><span class="w"> </span><span class="n">block</span><span class="w"> </span><span class="o">[</span><span class="n">3</span><span class="o">]</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="mi">0</span><span class="n">ms</span><span class="w"></span>
+<span class="mi">2019</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">11</span><span class="w"> </span><span class="mi">14</span><span class="err">:</span><span class="mi">36</span><span class="err">:</span><span class="mf">33.432</span><span class="w"> </span><span class="n">UTC</span><span class="w"> </span><span class="o">[</span><span class="n">kvledger</span><span class="o">]</span><span class="w"> </span><span class="n">CommitWithPvtData</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">INFO</span><span class="w"> </span><span class="mi">0</span><span class="n">a3</span><span class="w"> </span><span class="o">[</span><span class="n">mychannel</span><span class="o">]</span><span class="w"> </span><span class="n">Committed</span><span class="w"> </span><span class="n">block</span><span class="w"> </span><span class="o">[</span><span class="n">3</span><span class="o">]</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">transaction</span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="mi">109</span><span class="n">ms</span><span class="w"> </span><span class="p">(</span><span class="n">state_validation</span><span class="o">=</span><span class="mi">11</span><span class="n">ms</span><span class="w"> </span><span class="n">block_commit</span><span class="o">=</span><span class="mi">70</span><span class="n">ms</span><span class="w"> </span><span class="n">state_commit</span><span class="o">=</span><span class="mi">11</span><span class="n">ms</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
+
 <p><strong>4.</strong> The other option would be to right click on the <code>readKale</code>
 transaction in the <code>Fabric Gateway</code> section. Once you right click on
 <code>readKale</code> you can select <code>Evaluate Transaction</code>, which doesn't actually
@@ -551,42 +575,46 @@ get recorded as a transaction, but rather as a query. If you select
 <code>Submit Transaction</code>, that would be recorded as a transaction. Once it
 gives you a prompt, enter the text below. Then hit <code>enter</code> and then
 <code>enter</code> again to bypass the transient data prompt and execute the query:</p>
-<pre><code>"001"
+<div class="codehilite"><pre><span></span><code><span class="ss">&quot;001&quot;</span><span class="w"></span>
 
-Output Logs:
-[6/11/2019 2:37:11 PM] [INFO] submitting transaction readKale with args 001
-[6/11/2019 2:37:13 PM] [SUCCESS] Returned value from readKale: {"value":"a bunch of kale"}
-</code></pre>
+<span class="k">Output</span><span class="w"> </span><span class="nl">Logs</span><span class="p">:</span><span class="w"></span>
+<span class="o">[</span><span class="n">6/11/2019 2:37:11 PM</span><span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="n">INFO</span><span class="o">]</span><span class="w"> </span><span class="n">submitting</span><span class="w"> </span><span class="k">transaction</span><span class="w"> </span><span class="n">readKale</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">args</span><span class="w"> </span><span class="mi">001</span><span class="w"></span>
+<span class="o">[</span><span class="n">6/11/2019 2:37:13 PM</span><span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="n">SUCCESS</span><span class="o">]</span><span class="w"> </span><span class="n">Returned</span><span class="w"> </span><span class="k">value</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="nl">readKale</span><span class="p">:</span><span class="w"> </span><span class="err">{</span><span class="ss">&quot;value&quot;</span><span class="err">:</span><span class="ss">&quot;a bunch of kale&quot;</span><span class="err">}</span><span class="w"></span>
+</code></pre></div>
+
 <p><strong>5.</strong> We can also update our Kale by right clicking on the <code>updateKale</code>
 transaction and selecting <code>Submit Transaction</code>. You can enter the text
 below to update our existing kale. Again, hit <code>enter</code> to go to the next
 prompt and then <code>enter</code> again to bypass the transient data prompt and
 execute our transaction:</p>
-<pre><code>"001", "a bunch of organic kale"
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="err">&quot;001&quot;, &quot;a bunch of organic kale&quot;</span>
+</code></pre></div>
+
 <p><strong>6.</strong> Now, we can repeat step 4 and execute the <code>readKale</code> transaction.
 This time, select <code>Submit Transaction</code> instead of
 <code>Evaluate Transaction</code>. Here is what to enter in the prompt:</p>
-<pre><code>"001"
+<div class="codehilite"><pre><span></span><code><span class="ss">&quot;001&quot;</span><span class="w"></span>
 
- Output Logs:
-[6/11/2019 2:42:56 PM] [INFO] evaluateTransaction
-[6/11/2019 2:43:01 PM] [INFO] evaluating transaction readKale with args 001
-[6/11/2019 2:43:01 PM] [SUCCESS] Returned value from readKale: {"value":"a bunch of organic kale"}
-</code></pre>
+<span class="w"> </span><span class="k">Output</span><span class="w"> </span><span class="nl">Logs</span><span class="p">:</span><span class="w"></span>
+<span class="o">[</span><span class="n">6/11/2019 2:42:56 PM</span><span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="n">INFO</span><span class="o">]</span><span class="w"> </span><span class="n">evaluateTransaction</span><span class="w"></span>
+<span class="o">[</span><span class="n">6/11/2019 2:43:01 PM</span><span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="n">INFO</span><span class="o">]</span><span class="w"> </span><span class="n">evaluating</span><span class="w"> </span><span class="k">transaction</span><span class="w"> </span><span class="n">readKale</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">args</span><span class="w"> </span><span class="mi">001</span><span class="w"></span>
+<span class="o">[</span><span class="n">6/11/2019 2:43:01 PM</span><span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="n">SUCCESS</span><span class="o">]</span><span class="w"> </span><span class="n">Returned</span><span class="w"> </span><span class="k">value</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="nl">readKale</span><span class="p">:</span><span class="w"> </span><span class="err">{</span><span class="ss">&quot;value&quot;</span><span class="err">:</span><span class="ss">&quot;a bunch of organic kale&quot;</span><span class="err">}</span><span class="w"></span>
+</code></pre></div>
+
 <p><strong>7.</strong> Because Barry is on a major health kick and is hungry for some
 organic Kale, we can execute the <code>deleteKale</code> transaction after Barry transforms the Kale into its base nutrients fighting for attention along with everything else in his bloodstream. To do this,
 right click on the <code>deleteKale</code> transaction and select <code>submit transaction</code> and enter this between the
 brackets. Hit <code>enter</code> to go to the next prompt and then <code>enter</code> once
 more to actually execute the transaction:</p>
-<pre><code>"001"
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="err">&quot;001&quot;</span>
+</code></pre></div>
+
 <p><strong>8.</strong> To confirm that it is actually deleted, you can execute the
 <code>readKale</code> transaction once more. Once you do that, you'll get an error
 message in the bottom right. Those errors talk about endorsement failure
 or no peers are available to be queried, but the real issue is that
 there is no kale with an ID of <code>001</code></p>
-<h1 id="section-6-tests">Section 6: Tests</h1>
+<h1 id="section-6-tests">Section 6: Tests<a class="headerlink" href="#section-6-tests" title="Permanent link">&para;</a></h1>
 <p><strong>1.</strong> VSCode gives us a couple ways to test our smart contract. We will
 test them both, but let's focus on unit testing first.</p>
 <p><strong>2.</strong> If you go to the <code>Editor</code> perspective, toggle the <code>test</code>
@@ -595,35 +623,36 @@ folder. Then right click on the <code>kale-contract.js</code> file and select
 <p><img alt="image" src="../vscode-images/1-5-2.png" /></p>
 <p><strong>3.</strong> Once you get your terminal prompt, enter the text below to test
 our smart contract out:</p>
-<pre><code>tecadmin@ubuntubase:~/Documents/Kale/tests$ npm test
+<div class="codehilite"><pre><span></span><code><span class="n">tecadmin</span><span class="nv">@ubuntubase</span><span class="err">:</span><span class="o">~/</span><span class="n">Documents</span><span class="o">/</span><span class="n">Kale</span><span class="o">/</span><span class="n">tests</span><span class="err">$</span><span class="w"> </span><span class="n">npm</span><span class="w"> </span><span class="n">test</span><span class="w"></span>
 
-Output Logs:
- KaleContract
+<span class="k">Output</span><span class="w"> </span><span class="nl">Logs</span><span class="p">:</span><span class="w"></span>
+<span class="w"> </span><span class="n">KaleContract</span><span class="w"></span>
 
-#kaleExists
-✓ should return true for a kale
-✓ should return false for a kale that does not exist
-#createKale
-✓ should create a kale
-✓ should throw an error for a kale that already exists
-#readKale
-✓ should return a kale
-✓ should throw an error for a kale that does not exist
-#updateKale
-✓ should update a kale
-✓ should throw an error for a kale that does not exist
-#deleteKale
-✓ should delete a kale
-✓ should throw an error for a kale that does not exist
+<span class="n">#kaleExists</span><span class="w"></span>
+<span class="err">✓</span><span class="w"> </span><span class="n">should</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="k">true</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">kale</span><span class="w"></span>
+<span class="err">✓</span><span class="w"> </span><span class="n">should</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="k">false</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">kale</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">does</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">exist</span><span class="w"></span>
+<span class="n">#createKale</span><span class="w"></span>
+<span class="err">✓</span><span class="w"> </span><span class="n">should</span><span class="w"> </span><span class="k">create</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">kale</span><span class="w"></span>
+<span class="err">✓</span><span class="w"> </span><span class="n">should</span><span class="w"> </span><span class="k">throw</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">error</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">kale</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">already</span><span class="w"> </span><span class="ow">exists</span><span class="w"></span>
+<span class="n">#readKale</span><span class="w"></span>
+<span class="err">✓</span><span class="w"> </span><span class="n">should</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">kale</span><span class="w"></span>
+<span class="err">✓</span><span class="w"> </span><span class="n">should</span><span class="w"> </span><span class="k">throw</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">error</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">kale</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">does</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">exist</span><span class="w"></span>
+<span class="n">#updateKale</span><span class="w"></span>
+<span class="err">✓</span><span class="w"> </span><span class="n">should</span><span class="w"> </span><span class="k">update</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">kale</span><span class="w"></span>
+<span class="err">✓</span><span class="w"> </span><span class="n">should</span><span class="w"> </span><span class="k">throw</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">error</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">kale</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">does</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">exist</span><span class="w"></span>
+<span class="n">#deleteKale</span><span class="w"></span>
+<span class="err">✓</span><span class="w"> </span><span class="n">should</span><span class="w"> </span><span class="k">delete</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">kale</span><span class="w"></span>
+<span class="err">✓</span><span class="w"> </span><span class="n">should</span><span class="w"> </span><span class="k">throw</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">error</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">kale</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">does</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">exist</span><span class="w"></span>
 
-10 passing (334ms)
+<span class="mi">10</span><span class="w"> </span><span class="n">passing</span><span class="w"> </span><span class="p">(</span><span class="mi">334</span><span class="n">ms</span><span class="p">)</span><span class="w"></span>
 
-=============================== Coverage summary ===============================
-Statements : 100% ( 29/29 )
-Branches : 100% ( 10/10 )
-Functions : 100% ( 5/5 )
-Lines : 100% ( 29/29 )
-</code></pre>
+<span class="o">===============================</span><span class="w"> </span><span class="n">Coverage</span><span class="w"> </span><span class="n">summary</span><span class="w"> </span><span class="o">===============================</span><span class="w"></span>
+<span class="n">Statements</span><span class="w"> </span><span class="err">:</span><span class="w"> </span><span class="mi">100</span><span class="o">%</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="mi">29</span><span class="o">/</span><span class="mi">29</span><span class="w"> </span><span class="p">)</span><span class="w"></span>
+<span class="n">Branches</span><span class="w"> </span><span class="err">:</span><span class="w"> </span><span class="mi">100</span><span class="o">%</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="mi">10</span><span class="o">/</span><span class="mi">10</span><span class="w"> </span><span class="p">)</span><span class="w"></span>
+<span class="n">Functions</span><span class="w"> </span><span class="err">:</span><span class="w"> </span><span class="mi">100</span><span class="o">%</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="mi">5</span><span class="o">/</span><span class="mi">5</span><span class="w"> </span><span class="p">)</span><span class="w"></span>
+<span class="n">Lines</span><span class="w"> </span><span class="err">:</span><span class="w"> </span><span class="mi">100</span><span class="o">%</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="mi">29</span><span class="o">/</span><span class="mi">29</span><span class="w"> </span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
+
 <p>You should get all green signs with some check marks. That is a good
 sign that transactions should work as they are. Very nice!</p>
 <p><strong>4.</strong> Another way we can test is by generating a smart contract test
@@ -638,18 +667,20 @@ prompts you for which test language you prefer.</p>
 some messaging in the bottom right. Once that is done, scroll down to
 <code>line 72</code> in the file that was generated.</p>
 <p><strong>6.</strong> On <code>line 74</code>, enter the following within the brackets:</p>
-<pre><code>"001", "a new bunch of kale"
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="err">&quot;001&quot;, &quot;a new bunch of kale&quot;</span>
+</code></pre></div>
+
 <p><strong>7.</strong> Then save this file by either doing <code>Control + s</code> or by doing
 <code>File -&gt; Save</code>. Once you have done that, there should be a button that
 says <code>Run Test</code> in between lines 71 and 72. You can click on <code>Run Test</code>
 to actually run the test:</p>
-<pre><code>Output Logs:
-KaleContract-Kale@0.0.1
-✓ createKale (2352ms)
+<div class="codehilite"><pre><span></span><code><span class="n">Output</span> <span class="nl">Logs</span><span class="p">:</span>
+<span class="n">KaleContract</span><span class="o">-</span><span class="n">Kale</span><span class="mf">@0.0.1</span>
+<span class="err">✓</span> <span class="n">createKale</span> <span class="p">(</span><span class="mi">2352</span><span class="n">ms</span><span class="p">)</span>
 
-1 passing (3s)
-</code></pre>
+<span class="mi">1</span> <span class="n">passing</span> <span class="p">(</span><span class="mi">3</span><span class="n">s</span><span class="p">)</span>
+</code></pre></div>
+
 <p><strong>8.</strong> All the other transactions will work as well, but you will need
 to save the file before trying to run the tests. Please try a few of the
 tests for yourself.</p>

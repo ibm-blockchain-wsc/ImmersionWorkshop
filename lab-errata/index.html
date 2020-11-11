@@ -193,16 +193,28 @@
       
 
 
+  <li class="md-nav__item">
+    <a href="../assignment/" class="md-nav__link">
+      Skytap image assignments
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
     
-    <label class="md-nav__link" for="nav-2">
+    <label class="md-nav__link" for="nav-3">
       IBM Blockchain Platform v2.5.0 on Linux on IBM Z Lab
       <span class="md-nav__icon md-icon"></span>
     </label>
     <nav class="md-nav" aria-label="IBM Blockchain Platform v2.5.0 on Linux on IBM Z Lab" data-md-level="1">
-      <label class="md-nav__title" for="nav-2">
+      <label class="md-nav__title" for="nav-3">
         <span class="md-nav__icon md-icon"></span>
         IBM Blockchain Platform v2.5.0 on Linux on IBM Z Lab
       </label>
@@ -307,21 +319,21 @@
               
                 
                 
-                <h1 id="lab-3-errata-and-notes">Lab 3 errata and notes:</h1>
-<h2 id="steps-20-21">Steps 20 &amp; 21</h2>
+                <h1 id="lab-3-errata-and-notes">Lab 3 errata and notes:<a class="headerlink" href="#lab-3-errata-and-notes" title="Permanent link">&para;</a></h1>
+<h2 id="steps-20-21">Steps 20 &amp; 21<a class="headerlink" href="#steps-20-21" title="Permanent link">&para;</a></h2>
 <p>These steps have commands that span multiple lines in the document (3 or 4). You cannot copy and paste from the document to the command line in one operation because newline characters in the document will cause it to be 3 different commands, which will fail. You either have to type the whole command by hand, or, what may be easier-  copy and paste the lines one at a time and then hit Enter after pasting the last line of the command in the terminal. Better yet, copy the commands from here:</p>
-<p><em>Step 20 command</em>: </p>
-<pre><code>docker exec cliMagnetoCorp peer chaincode install -n papercontract -v 0.0.3-p /opt/gopath/src/github.com/contract -l node
-</code></pre>
-<p><em>Step 21 command</em>:</p>
-<pre><code>docker exec cliMagnetoCorp peer chaincode instantiate -n papercontract -v 0.0.3-l node -c '{&quot;Args&quot;:[&quot;org.papernet.commercialpaper:instantiate&quot;]}' -C mychannel -P &quot;AND ('Org1MSP.member')&quot;
-</code></pre>
-<h2 id="step-72">Step 72</h2>
+<p><em>Step 20 command</em>: 
+<div class="highlight"><pre><span></span><code>docker exec cliMagnetoCorp peer chaincode install -n papercontract -v 0.0.3-p /opt/gopath/src/github.com/contract -l node
+</code></pre></div>
+<em>Step 21 command</em>:
+<div class="highlight"><pre><span></span><code>docker exec cliMagnetoCorp peer chaincode instantiate -n papercontract -v 0.0.3-l node -c &#39;{&quot;Args&quot;:[&quot;org.papernet.commercialpaper:instantiate&quot;]}&#39; -C mychannel -P &quot;AND (&#39;Org1MSP.member&#39;)&quot;
+</code></pre></div></p>
+<h2 id="step-72">Step 72<a class="headerlink" href="#step-72" title="Permanent link">&para;</a></h2>
 <p>The instructions for this step are missing a dropdown selection asking you to choose between something like  ‘orderer.example.com’ or ‘peer0.org1.example.com’ --  choose the one that starts with peer*</p>
-<h2 id="step-95">Step 95</h2>
-<p>The instructions are missing the ” to the right of MagnetoCorp. It should be:</p>
-<pre><code>&quot;MagnetoCorp&quot;,&quot;00005&quot;
-</code></pre>
+<h2 id="step-95">Step 95<a class="headerlink" href="#step-95" title="Permanent link">&para;</a></h2>
+<p>The instructions are missing the ” to the right of MagnetoCorp. It should be:
+<div class="highlight"><pre><span></span><code>&quot;MagnetoCorp&quot;,&quot;00005&quot;
+</code></pre></div></p>
                 
               
               
