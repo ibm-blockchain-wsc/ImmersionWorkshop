@@ -30,7 +30,7 @@ markdown_extensions:
   - footnotes
   - pymdownx.arithmatex
   - pymdownx.betterem:
-      smart_enable: all
+      smart_enable: underscore
   - pymdownx.caret
   - pymdownx.critic
   - pymdownx.details
