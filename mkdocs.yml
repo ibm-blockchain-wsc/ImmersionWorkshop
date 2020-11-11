@@ -3,6 +3,7 @@ repo_url: https://github.com/ibm-blockchain-wsc/ImmersionWorkshop.git
 edit_uri: ''
 nav:
     - Home: index.md
+    - Skytap image assignments: assignment.md
 #    - Use Case Walkthrough:
 #        - Introduction: immunichain-home.md
 #        - Part 1: immunichain.md
@@ -25,3 +26,25 @@ nav:
 theme: material
 markdown_extensions:
   - admonition
+  - codehilite
+  - footnotes
+  - pymdownx.arithmatex
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.critic
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - pymdownx.magiclink
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tabbed
+  - pymdownx.tilde
+  - attr_list
+  - toc:
+      permalink: true
