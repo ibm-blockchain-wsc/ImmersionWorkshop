@@ -19,13 +19,13 @@ The diagram below provides a view of what your blockchain network will look like
 ![image](images/ibpconsole/0005_LabGoal.png)
 
 !!! important
-        You will be assigned a two-digit team ID by your instructor, and everywhere in this lab where you see **Team*xx* ** in the instructions, you must substitute *xx* with the two-digit id you have been assigned.
+        You will be assigned a two-digit team ID by your instructor, and everywhere in this lab where you see **Team*xx* ** in the instructions, you must substitute *xx* with the two-digit id you have been assigned. Look for your two-digit id (and your IBM Blockchain Platform Console URL for *Step 2.1*) [here](console-urls.md){target=_new}.
 
 The sections in this lab are as follows:
 
 - Section 1: This overview
 - Section 2: Logging in to the IBM Blockchain Platform console
-- Section 3: Creating a Certificate Authority for your first peer organization, "Team*xx* Org1"
+- Section 3: Creating a Certificate Authority for your first peer organization, "Teamxx Org1"
 - Section 4: Adding new users using your Team*xx* Org1 Certificate Authority
 - Section 5: Creating an MSP for your Team*xx* Org1 organization
 - Section 6: Creating a peer node for your Team*xx* Org1 organization
@@ -39,7 +39,7 @@ The sections in this lab are as follows:
 - Section 14: Creating a Certificate Authority for your second peer organization, "Team*xx* Org2"
 - Section 15: Adding new users using your Team*xx* Org2 Certificate Authority
 - Section 16: Creating an MSP for your Team*xx* Org2 organization
-- Section 17: Creating a peer node for your Team**xx* Org2 organization
+- Section 17: Creating a peer node for your Team*xx* Org2 organization
 - Section 18: Adding your Team*xx* Org2 organization to the consortium
 - Section 19: Adding your Team*xx* Org2 organization to the channel
 - Section 20: Joining your Team*xx* Org2 peer to the channel
@@ -49,10 +49,10 @@ The sections in this lab are as follows:
 !!! important
         The lab environment is using self-signed SSL certificates and your browser will not trust them without explicit action on your part so part of this initial section on logging in involves establishing this trust. You will first need to go to the URL address provided by your instructor.
 
-**Step 2.1:** Open a new tab in your Firefox browser window and enter the unique URL for your IBM Blockchain Platform console. This URL will be provided to you by your instructor. 
+**Step 2.1:** Open a new tab in your Firefox browser window and enter the unique URL for your IBM Blockchain Platform console. This URL will be provided to you by your instructor.
 
 !!! note
-        Your URL will similar to *https://workshop-00-ibpconsole-console.apps.atsocpd3.dmz:443*, but this is just an example, so make sure you use the actual URL given to you by your instructor!
+        Your URL will be similar to *https://workshop-00-ibp-console-console.apps.atsocpd3.dmz:443*, but this is just an example, so make sure you use the actual URL given to you by your instructor!
 
 If you see a security warning after entering the URL, click the **Advanced** button, which is highlighted in the below screen snippet:
 
@@ -80,7 +80,7 @@ Go ahead and click on the **Accept the Risk and Continue** button that is shown 
 
 ## Section 3: Create a Certificate Authority for your first peer organization, "Teamxx Org1"
 
-In a Hyperledger Fabric network, each organization will typically have their own certificate authority. The certificate authority is used to issue identities- consisting of X.509 public certificates and matching private keys- for end users, client applications, administrators, and peer and ordering service nodes. In most uses cases each organization will want to have control over the identities they issue, so the typical practice is that each organization provides their own certificate authority. We will follow that practice in this lab. 
+In a Hyperledger Fabric network, each organization will typically have their own certificate authority. The certificate authority is used to issue identities- consisting of X.509 public certificates and matching private keys- for end users, client applications, administrators, and peer and ordering service nodes. In most use cases each organization will want to have control over the identities they issue, so the typical practice is that each organization provides their own certificate authority. We will follow that practice in this lab. 
 
 You are starting with a blank slate, and our first component to add is the certificate authority for our first peer organization.
 In relation to the diagram in the overview section that showed our finished network upon successful lab completion, here is the component that will be added in this section:
@@ -153,6 +153,9 @@ In about a minute, the box in the upper right should turn green, indicating that
 ![image](images/ibpconsole/0130_AddUsers.png)
 
 **Step 4.4:** In the *Step 1 of 2* panel, fill it out as guided by the following table, and then click the blue **Next** button:
+
+!!! important
+       It is **critical** that you change the value of the *Type* field from *client* to *admin* for this userid!
 
 |Field label|Value|Comments|
 |-----------|-----|--------|
@@ -242,6 +245,9 @@ fill out the three fields beneath this in accordance with the below table, and t
 **Step 5.7:** Save the exported JSON file in a location that you can remember. The sample screenshot below shows it being saved to a folder named *Downloads*.
 
 !!!note
+       If you are not prompted for a location in which to save the file, it is probably because your browser settings automatically download files to your $HOME/Downloads directory, which is fine.  This advice holds true for any time in the lab when you are asked to save a file.
+
+!!!note
        You probably won't need this saved file for this lab if you use the same browser window for the duration of the lab, but the saved file may be necessary if, for whatever reason, you do have to use a new browser window or session, so go ahead and save it!
 
 ![image](images/ibpconsole/0240_CreateOrg1MSPSaveIdentity.png)
@@ -266,7 +272,7 @@ When you have ensured that you have entered the right values, click the blue **C
 
 ![image](images/ibpconsole/0250_CreateOrg1MSP.png)
 
-**Step 5.10:** You should now see the definition for your new MSP listed on your screen. Click the **Nodes** icon in the icon palette on your left- it is the topmost icon on this palette, and you will be ready to proceed to the next section:
+**Step 5.10:** You should now see the definition for your new MSP listed on your screen. Click the **Nodes** icon in the icon palette on your left- it is the topmost icon on this palette- and you will be ready to proceed to the next section:
 
 ![image](images/ibpconsole/0260_CreateOrg1MSPFinished.png)
 
@@ -306,7 +312,7 @@ A peer node is where smart contracts- in essence, your blockchain business trans
 
 ![image](images/ibpconsole/0330_AddOrg1PeerSidebar6.png)
 
-**Step 6.6:** The *Summary* panel provides a review of the values you entered or selected in the prior panels. You may need to scroll down to see all of the values. The values you entered should match up with the table below. If not, use the **Back** button as necessary to correct your entries.  The table below shows the expected value (where *xx* is your two-digit team ID) and which of the seven panels in the *Add Peer* flow was used to set this value:
+**Step 6.6:** The *Summary* panel provides a review of the values you entered or selected in the prior panels. You may need to scroll down to see all of the values. The values you entered should match up with the table below. If not, use the **Back** button as necessary to correct your entries.  The table below shows the expected value (where *xx* is your two-digit team ID) and which of the five panels in the *Add Peer* flow was used to set this value:
 
 |Field label|Expected Value|Comments|
 |-----------|--------------|--------|
@@ -405,6 +411,9 @@ In about a minute, the box in the upper right should turn green, indicating that
 ![image](images/ibpconsole/0130_AddUsers.png)
 
 **Step 8.4:** In the *Step 1 of 2* panel, fill it out as guided by the following table, and then click the blue **Next** button:
+
+!!! important
+       It is **critical** that you change the value of the *Type* field from *client* to *admin* for this userid!
 
 |Field label|Value|Comments|
 |-----------|-----|--------|
@@ -558,7 +567,7 @@ Our star is running out of leg room all cramped up by the circle in our drawing 
 
 ![image](images/ibpconsole/0650_AddOrdererSidebar6.png)
 
-**Step 10.6:** The *Summary* panel provides a review of the values you entered or selected in the prior panels. You may need to scroll down to see all of the values. The values you entered should match up with the table below. If not, use the **Back** button as necessary to correct your entries.  The table below shows the expected value (where *xx* is your two-digit team ID) and which of the seven panels in the *Add ordering service* flow was used to set this value:
+**Step 10.6:** The *Summary* panel provides a review of the values you entered or selected in the prior panels. You may need to scroll down to see all of the values. The values you entered should match up with the table below. If not, use the **Back** button as necessary to correct your entries.  The table below shows the expected value (where *xx* is your two-digit team ID) and which of the five panels in the *Add ordering service* flow was used to set this value:
 
 |Field label|Expected Value|Comments|
 |-----------|--------------|--------|
@@ -658,7 +667,7 @@ The line between the ordering service node and your first peer organization node
 |----------|-----|
 |Channel name|**team*xx*-channel1**|
 |Ordering service|**Team*xx* Ordering Service_1**|
-|Organizations|**team*xx*org1msp|
+|Organizations|**team*xx*org1msp**|
 |Policy|**1 out of 1**|
 |Organization creating channel|**Team*xx* Org1 MSP**|
 |Identity for organization creating channel|**Team*xx* Org1 MSP Admin**|
@@ -756,6 +765,9 @@ In about a minute, the box in the upper right should turn green, indicating that
 ![image](images/ibpconsole/0130_AddUsers.png)
 
 **Step 15.4:** In the *Step 1 of 2* panel, fill it out as guided by the following table, and then click the blue **Next** button:
+
+!!! important
+       It is **critical** that you change the value of the *Type* field from *client* to *admin* for this userid!
 
 |Field label|Value|Comments|
 |-----------|-----|--------|
@@ -869,7 +881,7 @@ The most useful German phrase I know is *noch einmal Bier, bitte!*, which transl
 
 **Step 17.5:** On the *Associate Identity* screen, select **Team*xx* Org2 MSP Admin**, where *xx* is your two-digit team ID, for the *Peer administrator identity* field, and click **Next**.
 
-**Step 17.6:** The *Summary* panel provides a review of the values you entered or selected in the prior panels. You may need to scroll down to see all of the values. The values you entered should match up with the table below. If not, use the **Back** button as necessary to correct your entries.  The table below shows the expected value (where *xx* is your two-digit team ID) and which of the seven panels in the *Add Peer* flow was used to set this value:
+**Step 17.6:** The *Summary* panel provides a review of the values you entered or selected in the prior panels. You may need to scroll down to see all of the values. The values you entered should match up with the table below. If not, use the **Back** button as necessary to correct your entries.  The table below shows the expected value (where *xx* is your two-digit team ID) and which of the five panels in the *Add Peer* flow was used to set this value:
 
 |Field label|Expected Value|Comments|
 |-----------|--------------|--------|

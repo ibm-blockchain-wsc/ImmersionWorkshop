@@ -1,6 +1,6 @@
 # IBM Blockchain Platform v2.5.0 Lab Part 2 - Deploying a Smart Contract
 
-This lab will walk you through deploying the smart contract that you worked with from the VSCode labs: namely, `commercial-paper`. This lab assumes that you have successfully completed the [IBM Blockchain Platform v2.5.0 Lab Part 1 - Create a Blockchain Network](ibpconsole.md). If you have not completed part 1, you must do so before continuing with this lab.
+This lab will walk you through deploying a smart contract called *commercial-paper* that is supplied as a sample by the Hyperledger Fabric project. This lab assumes that you have successfully completed the [IBM Blockchain Platform v2.5.0 Lab Part 1 - Create a Blockchain Network](ibpconsole.md). If you have not completed part 1, you must do so before continuing with this lab.
 
 ## Section 1: Download the Commercial Paper Smart Contract package
 
@@ -8,25 +8,25 @@ This lab will walk you through deploying the smart contract that you worked with
 
 ## Section 2: Install Commercial Paper Contract to your Blockchain Network
 
-**Step 2.1:** Click on the *Smart Contracts* icon in the icon palette on the left, and in the *Smart contracts* panel, click the blue **Install Smart Contract** button:
+**Step 2.1:** Click on the *Smart Contracts* icon in the icon palette on the left, and in the *Smart contracts* panel, click the blue **Install smart contract** button:
 
 ![image](images/ibpdeploy/ibpdeploy5.png)
 
-**Step 2.2:** In the *(Step 1 of 2) Install Smart Contract* side panel, using the blue **Add File** button, upload the `papercontract@0.0.4.cds` package (from the location `/home/blockchain/Downloads` or from wherever you saved it), and click the **Next** button. The screenshot that follows shows that the name and version of the smart contract have replaced the *Add File* button:
+**Step 2.2:** In the *(Step 1 of 2) Install smart contract* side panel, using the blue **Add File** button, upload the `papercontract@0.0.4.cds` package (from the location `/home/blockchain/Downloads` or from wherever you saved it), and click the **Next** button. The screenshot that follows shows that the name and version of the smart contract have replaced the *Add File* button:
 
 ![image](images/ibpdeploy/ibpdeploy6.png)
 
-**Step 2.3:** Now select both peers (ensure each has a check mark to the right of it) and click the **Install Smart Contract** button. Note that in this lab we are installing to peers from two separate organizations. In most "real world" situations, the smart contract would be shared with members of the blockchain network, in a private Github repo or through some other means, and each organization would install the smart contract to its own peers through its own console.
+**Step 2.3:** Now select both peers (ensure each has a check mark to the right of it) and click the **Install smart contract** button. Note that in this lab we are installing to peers from two separate organizations. In most "real world" situations, the smart contract would be shared with members of the blockchain network, in a private Github repo or through some other means, and each organization would install the smart contract to its own peers through its own console.
 
 ![image](images/ibpdeploy/ibpdeploy7.png)
 
-**Step 2.4:** Now, you should see `papercontract` appear in the *Installed Smart Contracts* section of the *Smart Contracts* screen:
+**Step 2.4:** Now, you should see `papercontract` appear in the *Installed smart contracts* section of the *Smart contracts* screen:
 
 ![image](images/ibpdeploy/ibpdeploy8.png)
 
 ## Section 3: Instantiate Paper Contract
 
-**Step 3.1:** From the *Installed Smart Contracts* section of the *Smart Contracts*  panel, select the three dots to the right of `papercontract` and select **Instantiate**:
+**Step 3.1:** From the *Installed smart contracts* section of the *Smart contracts*  panel, select the three dots to the right of `papercontract` and select **Instantiate**:
 
 ![image](images/ibpdeploy/ibpdeploy16.png)
 
@@ -126,9 +126,9 @@ Now you can use that connection profile you just downloaded to create a new gate
 
 ![image](images/ibpdeploy/ibpdeploy29.png)
 
-**Step 7.3:** Next you will be asked to enter the name of the gateway. Type **team*xx*-ibp**, remembering to replace *xx* with your team number, and press **Enter**. 
+**Step 7.3:** Next you will be asked to enter the name of the gateway. Type **team*xx*-ibp**, remembering to replace *xx* with your team number, and press **Enter**.
 
-**Step 7.4:** Finally, you will be asked to browse to the connection profile that you downloaded from *Section 6*. Browse to it, and select **Open**. 
+**Step 7.4:** Finally, you will be asked to browse to the connection profile that you downloaded from *Section 6*. Browse to it, and click **Select**.
 
 **Step 7.5:** Upon success, you will see *team**xx**-ibp*, where *xx* is your two-digit team ID, show up in the *Fabric Gateways* panel as follows:
 
@@ -152,13 +152,13 @@ Now you can use that connection profile you just downloaded to create a new gate
 
 ![image](images/ibpdeploy/ibpdeploy34.png)
 
-**Step 8.5:** Type **isabella** as the name for the identity, and press **Enter**:
-
-![image](images/ibpdeploy/ibpdeploy33.png)
-
-**Step 8.6:** Pick **Select a gateway and provide an enrollment ID and secret**:
+**Step 8.5:** Pick **Select a gateway and provide an enrollment ID and secret**:
 
 ![image](images/ibpdeploy/ibpdeploy36.png)
+
+**Step 8.6:** Type **isabella** as the name for the identity, and press **Enter**:
+
+![image](images/ibpdeploy/ibpdeploy33.png)
 
 **Step 8.7:** Choose **team*xx*-ibp** as the gateway you want to enroll and identity with, where *xx* is your two-digit team ID:
 
@@ -213,7 +213,7 @@ Example:
 **Step 10.3:** Press **Enter** on the transient data popup window.
 
 !!! Note "Read this if your transaction timed out"
-        This step may take several minutes. When you *instantiated* the smart contract in *Section 3*, it built a Docker image for the smart contract on only one peer, the peer on which you chose to run the instantiate proposal (see *Step 3.4*).  The Docker image for the other peer will be built on first use, and this transaction may time out. If it does, simply run steps *10.1* through *10.3* again, and it should succeed this time. 
+        This step may take several minutes. When you *instantiated* the smart contract in *Section 3*, it built a Docker image for the smart contract on only one peer, the peer on which you chose to run the instantiate proposal (see *Step 3.4*).  The Docker image for the other peer will be built on first use, and this transaction may time out. If it does, simply run steps *10.1* through *10.3* again, and it should succeed this time.
 
 **Step 10.4:** Upon success you will see the results from the issue transaction in the *OUTPUT* panel in VSCode, similar to what is shown here:
 

@@ -19,11 +19,12 @@ Both Series A and Series B lab instructions can be found within VSCode inside yo
 
 The lab instructions for the MQ Integration lab can be found [here](files/IBP_MQ_Bridge_Lab.pdf). A copy is also staged inside your [assigned SkyTap image](assignment.md).
 
-### Blockchain Network Operator Lab
+### Build your first network on Linux on IBM Z Lab
 In these labs you will setup, operate, and test a blockchain network.
 
 From your [assigned SkyTap image](assignment.md), you will access [your assigned IBM Blockchain Platform console](console-urls.md). 
 
 The Lab instructions:
-* [Part 1](ibpconsole.md)
-* [Part 2](ibpdeploy.md)
+
+* [Part 1 - Create a Blockchain Network](ibpconsole.md)
+* [Part 2 - Deploy a Smart Contract](ibpdeploy.md)

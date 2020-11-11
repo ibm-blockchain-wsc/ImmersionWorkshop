@@ -15,7 +15,7 @@ Welcome! This virtual workshop combines lectures and hands-on labs to teach you 
 * 1:15pm [Lab kickoff](lab-intro.md)
 * Developer Journey, "Series A"
 * Join A Network, "Series B"
-* Build your first network
+* [Build your first network on Linux on IBM Z](ibpconsole.md)
 * [IBM MQ Bridge for Blockchain](files/IBP_MQ_Bridge_Lab.pdf)
 
 
