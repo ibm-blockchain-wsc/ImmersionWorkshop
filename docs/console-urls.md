@@ -1,5 +1,5 @@
-     
-#Build your first network lab  IBM Blockchain Platform Console assignments
+
+# Build your first network lab  IBM Blockchain Platform Console assignments
 
 *team01* [TBA](https://workshop-01-ibp-console-console.apps.atsocpd3.dmz)
 
@@ -41,4 +41,16 @@
 
 *team20* [TBA](https://workshop-20-ibp-console-console.apps.atsocpd3.dmz)
 
+*team21* [TBA](https://workshop-21-ibp-console-console.apps.atsocpd3.dmz)
 
+*team22* [TBA](https://workshop-22-ibp-console-console.apps.atsocpd3.dmz)
+
+*team23* [TBA](https://workshop-23-ibp-console-console.apps.atsocpd3.dmz)
+
+*team24* [TBA](https://workshop-24-ibp-console-console.apps.atsocpd3.dmz)
+
+*team25* [TBA](https://workshop-25-ibp-console-console.apps.atsocpd3.dmz)
+
+*team26* [TBA](https://workshop-26-ibp-console-console.apps.atsocpd3.dmz)
+
+*team27* [TBA](https://workshop-27-ibp-console-console.apps.atsocpd3.dmz)

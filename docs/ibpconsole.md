@@ -1,8 +1,8 @@
-# IBM Blockchain Platform v2.5.0 Lab Part 1 - Create a Blockchain Network
+# Build your first network on Linux on IBM Z Lab Part 1 - Create a Blockchain Network
 
 ## Section 1: Create a Blockchain Network lab overview
 
-You will use the IBM Blockchain Platform console in this lab to create a blockchain network.
+You will use the IBM Blockchain Platform v2.5.0 console in this lab to create a blockchain network.
 The network will consist of three organizations.
 Two of these organizations will represent organizations that want to participate in the blockchain network and submit transactions.
 They will be referred to as *peer organizations* throughout the lab.
@@ -19,7 +19,7 @@ The diagram below provides a view of what your blockchain network will look like
 ![image](images/ibpconsole/0005_LabGoal.png)
 
 !!! important
-        You will be assigned a two-digit team ID by your instructor, and everywhere in this lab where you see **Team*xx* ** in the instructions, you must substitute *xx* with the two-digit id you have been assigned. Look for your two-digit id (and your IBM Blockchain Platform Console URL for *Step 2.1*) [here](console-urls.md){target=_new}.
+        You will be assigned a two-digit team ID by your instructor, and everywhere in this lab where you see **Team*xx*** in the instructions, you must substitute *xx* with the two-digit id you have been assigned. Look for your two-digit id (and your IBM Blockchain Platform Console URL for *Step 2.1*) [here](console-urls.md){target=_new}.
 
 The sections in this lab are as follows:
 
@@ -52,7 +52,7 @@ The sections in this lab are as follows:
 **Step 2.1:** Open a new tab in your Firefox browser window and enter the unique URL for your IBM Blockchain Platform console. This URL will be provided to you by your instructor.
 
 !!! note
-        Your URL will be similar to *https://workshop-00-ibp-console-console.apps.atsocpd3.dmz:443*, but this is just an example, so make sure you use the actual URL given to you by your instructor!
+        Your URL will be similar to *https://workshop-00-ibp-console-console.apps.atsocpd3.dmz:443*, but this is just an example, so make sure you use the actual URL given to you by your instructor [here](console-urls.md){target=_blank rel="noopener"}
 
 If you see a security warning after entering the URL, click the **Advanced** button, which is highlighted in the below screen snippet:
 
@@ -80,12 +80,12 @@ Go ahead and click on the **Accept the Risk and Continue** button that is shown 
 
 ## Section 3: Create a Certificate Authority for your first peer organization, "Teamxx Org1"
 
-In a Hyperledger Fabric network, each organization will typically have their own certificate authority. The certificate authority is used to issue identities- consisting of X.509 public certificates and matching private keys- for end users, client applications, administrators, and peer and ordering service nodes. In most use cases each organization will want to have control over the identities they issue, so the typical practice is that each organization provides their own certificate authority. We will follow that practice in this lab. 
+In a Hyperledger Fabric network, each organization will typically have their own certificate authority. The certificate authority is used to issue identities- consisting of X.509 public certificates and matching private keys- for end users, client applications, administrators, and peer and ordering service nodes. In most use cases each organization will want to have control over the identities they issue, so the typical practice is that each organization provides their own certificate authority. We will follow that practice in this lab.
 
 You are starting with a blank slate, and our first component to add is the certificate authority for our first peer organization.
 In relation to the diagram in the overview section that showed our finished network upon successful lab completion, here is the component that will be added in this section:
 
-![image](images/ibpconsole/0045_DiagramOrg1CA.png) 
+![image](images/ibpconsole/0045_DiagramOrg1CA.png)
 
 **Step 3.1:** You will be on a screen which lets you define three types of nodes- *Peers*, *Certificate Authorities*, and *Ordering services*. Click the blue **Add Certificate Authority** button:
 
@@ -113,15 +113,14 @@ In relation to the diagram in the overview section that showed our finished netw
 
 **Step 3.4:** Review your settings on the *Step 3 of 3* screen and click the **Add Certificate Authority** button:
 
-!!! note 
-       Throughout this lab, when passwords are entered, you can click the icon that looks like an eye to see the password you have 
-       entered.  It is recommended that you do this for the lab to ensure you have entered the intended password. The screenshots shown
+!!! note
+       Throughout this lab, when passwords are entered, you can click the icon that looks like an eye to see the password you have entered.  It is recommended that you do this for the lab to ensure you have entered the intended password. The screenshots shown
        in this lab will show the passwords that you should enter.
 
 ![image](images/ibpconsole/0100_AddCertificateAuthoritySideBar3.png)
 
 **Step 3.5:** You will see a tile for your new certificate authority. Observe the box in the upper right corner of the tile.
-If it is gray, and you hover your cursor over it, you may see a message indicating that the status is pending. 
+If it is gray, and you hover your cursor over it, you may see a message indicating that the status is pending.
 In about a minute, the box in the upper right should turn green, indicating that the certificate authority is running.
 
 !!! note
@@ -202,7 +201,7 @@ The *Membership Service Provider* (MSP) component is integral to the private and
 As we add components throughout the lab, the diagram that maps to our final goal will be shown, with the new component to be added in any given section annotated with a bright red star, as in the below diagram which shows that we will be adding your **Team*xx* Org1**'s MSP:
 
 ![image](images/ibpconsole/0195_DiagramOrg1MSP.png)
- 
+
 **Step 5.1:** You should see a screen that looks like below, indicating that you have yet to create a *Membership Service Provider (MSP)* definition for your organization. Click the **Create MSP definition** button:
 
 ![image](images/ibpconsole/0200_CreateOrg1MSP.png)
@@ -213,17 +212,17 @@ As we add components throughout the lab, the diagram that maps to our final goal
 |-----------|-----|--------|
 |MSP display name|**Team*xx* Org1 MSP**|substitute your two-digit team ID for *xx*|
 |MSP ID|**teamxxorg1msp**|substitute your two-digit team ID for *xx*|
- 
+
 ![image](images/ibpconsole/0210_CreateOrg1MSPSidebar1.png)
 
 **Step 5.3:**  On the *Root Certificate Authority details* screen, select **Team*xx* Org1 CA** from the dropdown list.
-Once you have selected the root certificate authority, you will see that the *Root certificates* and *TLS root certificates* fields appear and are populated with apparent nonsense that is actually base64-encoded X.509 certificates. 
+Once you have selected the root certificate authority, you will see that the *Root certificates* and *TLS root certificates* fields appear and are populated with apparent nonsense that is actually base64-encoded X.509 certificates.
 
 Click the **Next** button:
 
 ![image](images/ibpconsole/0212_RootCertificateAuthorityDetails.png)
 
-**Step 5.4:**  On the *Admin certificates* screen, 
+**Step 5.4:**  On the *Admin certificates* screen,
 fill out the three fields beneath this in accordance with the below table, and then click the **Generate** button, which should become active once you enter values for the three fields:
 
 |Field label|Value|Comments|
@@ -278,11 +277,10 @@ When you have ensured that you have entered the right values, click the blue **C
 
 ## Section 6: Create a peer node for your Teamxx Org1 organization
 
-
-A peer node is where smart contracts- in essence, your blockchain business transactions- run.  Peer nodes also store the ledgers. We will create a peer for your **Team*xx* Org1** in this section and our fledgling network will then look like this: 
+A peer node is where smart contracts- in essence, your blockchain business transactions- run.  Peer nodes also store the ledgers. We will create a peer for your **Team*xx* Org1** in this section and our fledgling network will then look like this:
 
 ![image](images/ibpconsole/0265_DiagramOrg1Peer.png)
- 
+
 **Step 6.1:** Click the **Add peer** button:
 
 ![image](images/ibpconsole/0270_AddOrg1Peer.png)
@@ -345,7 +343,7 @@ It can take a minute or two on our lab system for the peer to come up completely
 In this lab you will create three organizations- two organizations will run peer nodes and run smart contracts. One of the organizations will provide the ordering service for the blockchain network.  In the real world each of the three organizations would likely use their own instance of the IBM Blockchain Platform console to create their necessary artifacts.  (You have already done much of this for the first peer organization, **Team*xx* Org1**, in the previous sections of this lab).
 
 !!! note
-       You will carry out activities for all three organizations from your browser for purposes of this lab. This will somewhat simplify the steps you'll need to perform versus the real-world scenario where this activity is being carried out separately by each organization. The procedure to perform the tasks in the "real world" case are outlined in the IBM Blockchain Platform documentation- basically, it involves exporting information about your organization into JSON files, and providing this information "out-of-band" to the other organizations. 
+       You will carry out activities for all three organizations from your browser for purposes of this lab. This will somewhat simplify the steps you'll need to perform versus the real-world scenario where this activity is being carried out separately by each organization. The procedure to perform the tasks in the "real world" case are outlined in the IBM Blockchain Platform documentation- basically, it involves exporting information about your organization into JSON files, and providing this information "out-of-band" to the other organizations.
 
        In an earlier step you exported your generated certificate and its private key. While it is a JSON file, this is not a file you would ever send to another organization, as it contains your private key which should never be shared with other organizations. The exported JSON files that are used for inter-organizational tasks contain only public information which is safe to share.
 
@@ -379,7 +377,7 @@ Our network will look like this at the completion of this section:
 ![image](images/ibpconsole/0420_AddOrderingCASidebar5.png)
 
 **Step 7.5:** You will see a tile for your new certificate authority. Observe the box in the upper right corner of the tile.
-If it is gray, and you hover your cursor over it, you may see a message indicating that the status is pending. 
+If it is gray, and you hover your cursor over it, you may see a message indicating that the status is pending.
 In about a minute, the box in the upper right should turn green, indicating that the certificate authority is running.
 
 !!! note
@@ -469,19 +467,19 @@ Our trusty lodestar shows us what will be added to our nascent network now:
 |-----------|-----|--------|
 |MSP display name|**Team*xx* Ordering Service MSP**|substitute your two-digit team ID for *xx*|
 |MSP ID|**teamxxosmsp**|substitute your two-digit team ID for *xx*|
- 
+
 The sidebar panel contains more information than will likely fit in your browser window, so review the values you have entered per the above list, and then scroll down within the sidebar panel:
 
 ![image](images/ibpconsole/0530_CreateOrderingMSPSidebar1.png)
 
 **Step 9.3:**  On the *Root Certificate Authority details* screen, select **Team*xx* Ordering Service CA** from the dropdown list.
-Once you have selected the root certificate authority, you will see that the *Root certificates* and *TLS root certificates* fields appear and are populated with apparent nonsense that is actually base64-encoded X.509 certificates. 
+Once you have selected the root certificate authority, you will see that the *Root certificates* and *TLS root certificates* fields appear and are populated with apparent nonsense that is actually base64-encoded X.509 certificates.
 
 Click the **Next** button:
 
 ![image](images/ibpconsole/0532_RootCertificateAuthorityDetails.png)
 
-**Step 9.4:**  On the *Admin certificates* screen, 
+**Step 9.4:**  On the *Admin certificates* screen,
 fill out the three fields beneath this in accordance with the below table, and then click the **Generate** button, which should become active once you enter values for the three fields:
 
 |Field label|Value|Comments|
@@ -584,7 +582,7 @@ Our star is running out of leg room all cramped up by the circle in our drawing 
 |Associated identity|**Team*xx* Ordering Service MSP Admin**|Set in *Step 4 of 5* panel|
 
 !!! Note
-        If you have to use the **Back** button to make any corrections, you can return to the summary on *Step 5 of 5* by clicking **Next** the necessary number of times. 
+        If you have to use the **Back** button to make any corrections, you can return to the summary on *Step 5 of 5* by clicking **Next** the necessary number of times.
 
 When you have ensured that you have entered the right values, click the blue **Add ordering service** button in the lower right of your screen:
 
@@ -619,9 +617,9 @@ It can take a minute or two on our lab system for the ordering service to come u
 
 ## Section 12: Create a channel
 
-You won't get very far without an ordering service node, because they are the animals that create blocks. You won't get very far without a peer, as peers run smart contracts, which create transactions that are sent to an ordering service node. 
- 
-Well, you won't get much stuff done without a channel either, because a transaction proposal is sent from a peer to an ordering service node over a channel. 
+You won't get very far without an ordering service node, because they are the animals that create blocks. You won't get very far without a peer, as peers run smart contracts, which create transactions that are sent to an ordering service node.
+
+Well, you won't get much stuff done without a channel either, because a transaction proposal is sent from a peer to an ordering service node over a channel.
 
 You will define a channel in this section and in its definition you will make your **Team*xx* Org1** peer organization a member of the channel. The actual definition of the channel is verified at the ordering service node and it keeps track of all channels.  (You can define multiple channels in a Hyperledger Fabric network but for simplicity this lab will only have you define one).
 
@@ -641,7 +639,7 @@ The line between the ordering service node and your first peer organization node
 
 ![image](images/ibpconsole/0740_CreateChannelPrerequisites.png)
 
-**Step 12.4:** On the *Channel details* panel, enter **team*xx*-channel1** in the *Channel name* field, and select **Team*xx* Ordering Service** for the *Ordering service* field, where *xx* is your two-digit team ID, then click the **Next** button to continue: 
+**Step 12.4:** On the *Channel details* panel, enter **team*xx*-channel1** in the *Channel name* field, and select **Team*xx* Ordering Service** for the *Ordering service* field, where *xx* is your two-digit team ID, then click the **Next** button to continue:
 
 ![image](images/ibpconsole/0742_CreateChannelChannelDetails.png)
 
@@ -683,7 +681,7 @@ When you have ensured that you have entered the right values, click the blue **C
 
 ![image](images/ibpconsole/0780_ChannelPendingPeerAdd.png)
 
-##Section 13: Join your Teamxx Org1 peer to the channel
+## Section 13: Join your Teamxx Org1 peer to the channel
 
 In the previous section you defined a channel, **team*xx*channel1**, and made your **Team*xx* Org1** organization a member of the channel. However, in order for a particular peer within that organization to participate in the channel, that peer has to join the channel. Our simple lab network only has one peer in the organization, but in most production implementations an organization will have multiple peers. When the peer joins a channel, it will receive all of the blocks in the channel that were created prior to the time the peer joined the channel, until it catches up.
 
@@ -735,7 +733,7 @@ We will define the second peer organization now.  The pattern is identical to wh
 ![image](images/ibpconsole/0860_AddOrg2CASidebar5.png)
 
 **Step 14.5:** You will see a tile for your new certificate authority. Observe the box in the upper right corner of the tile.
-If it is gray, and you hover your cursor over it, you may see a message indicating that the status is pending. 
+If it is gray, and you hover your cursor over it, you may see a message indicating that the status is pending.
 In about a minute, the box in the upper right should turn green, indicating that the certificate authority is running.
 
 !!! note
@@ -811,16 +809,16 @@ Defining the MSP for **Team*xx* Org2** will bring our network one step closer to
 |-----------|-----|--------|
 |MSP display name|**Team*xx* Org2 MSP**|substitute your two-digit team ID for *xx*|
 |MSP ID|**teamxxorg2msp**|substitute your two-digit team ID for *xx*|
- 
+
 **Step 16.3:**  On the *Root Certificate Authority details* screen, select **Team*xx* Org2 CA** from the dropdown list.
-Once you have selected the root certificate authority, you will see that the *Root certificates* and *TLS root certificates* fields appear and are populated with apparent nonsense that is actually base64-encoded X.509 certificates. 
+Once you have selected the root certificate authority, you will see that the *Root certificates* and *TLS root certificates* fields appear and are populated with apparent nonsense that is actually base64-encoded X.509 certificates.
 
 !!! important
        Ensure that you selected your certificate authority for your *Org2*, and not *Org1*, in the *Root Certificate Authority* field. It's easy to mistakenly choose *Org1*'s certificate authority here, and this often turns ecstasy to melancholy.
 
 Click the **Next** button.
 
-**Step 16.4:**  On the *Admin certificates* screen, 
+**Step 16.4:**  On the *Admin certificates* screen,
 fill out the three fields beneath this in accordance with the below table, and then click the **Generate** button, which should become active once you enter values for the three fields:
 
 |Field label|Value|Comments|
@@ -833,7 +831,7 @@ fill out the three fields beneath this in accordance with the below table, and t
 
 **Step 16.6:** Select the **Save File** radio button in the dialog window that appears, and click the **OK** button.
 
-**Step 16.7:** Save the exported JSON file in a location that you can remember. 
+**Step 16.7:** Save the exported JSON file in a location that you can remember.
 
 !!!note
        You probably won't need this saved file for this lab if you use the same browser window for the duration of the lab, but the saved file may be necessary if, for whatever reason, you do have to use a new browser window or session, so go ahead and save it!
@@ -1036,4 +1034,3 @@ You will now join *Team**xx** Org2 Peer* to the channel:
 
 !!! important "Congratulations!!"
         You have made it to the end of this lab! Job well done!  But after all that work you haven't run any smart contracts on your new network yet! Don't worry, that occurs in the [next lab](ibpdeploy.md).  You will not have toiled in vain.
-

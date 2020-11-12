@@ -1,4 +1,4 @@
-# IBM Blockchain Platform v2.5.0 Lab Part 2 - Deploying a Smart Contract
+# Build your first network on Linux on IBM Z Lab Part 2 - Deploying a Smart Contract
 
 This lab will walk you through deploying a smart contract called *commercial-paper* that is supplied as a sample by the Hyperledger Fabric project. This lab assumes that you have successfully completed the [IBM Blockchain Platform v2.5.0 Lab Part 1 - Create a Blockchain Network](ibpconsole.md). If you have not completed part 1, you must do so before continuing with this lab.
 
