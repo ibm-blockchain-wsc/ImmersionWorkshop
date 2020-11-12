@@ -3,8 +3,8 @@ You have the opportunity to try your hand at four sets of blockchain labs. It is
 
 ![image](images/BlockchainLabFlow.png)
 
-
-### All four labs will be done on your [assigned SkyTap image](assignment.md)
+!!! important
+        All four labs will be done on your [assigned SkyTap image](assignment.md). Please get your assigned image first.
 
 ### Blockchain Developer Labs
 If you want to develop smart contracts and applications that interact with the smart contracts, the recommendation is that you start with the "Series A" modules, followed by either "Series B" or the MQ Integration lab.
@@ -13,11 +13,14 @@ If you want to develop smart contracts and applications that interact with the s
 
 **Series B** labs allow you to join an existing DriveNet network that is running on Linux on Z. The genesis behind this series of modules is that some clients will likely start out by joining an existing network, versus starting a fresh one of their own.
 
+!!! important
+        You need to have access to a working email address in order to do the Series B labs. IF you don't have this access, please let your instructor know.
+
 Both Series A and Series B lab instructions can be found within VSCode inside your [assigned SkyTap image](assignment.md).
 
 **IBM MQ Integration** lab will show you how to integrate a sample blockchain network with another application via IBM MQ Bridge. You will setup the MQ Bridge to pull changes made to the blockchain network and send those updates to another application. This is useful when you need to integrate your blockchain network to existing legacy applications within your enterprise.
 
-The lab instructions for the MQ Integration lab can be found [here](files/IBP_MQ_Bridge_Lab.pdf). A copy is also staged inside your [assigned SkyTap image](assignment.md).
+The lab instructions for the MQ Integration lab can be found [here](files/IBP_MQ_Bridge_Lab.pdf). A copy is also staged inside your [assigned SkyTap image](assignment.md) in directory `/home/blockchain/Desktop/Lab Guides`.
 
 ### Build your first network on Linux on IBM Z Lab
 In these labs you will setup, operate, and test a blockchain network.

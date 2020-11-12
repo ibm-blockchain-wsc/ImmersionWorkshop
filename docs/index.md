@@ -12,14 +12,7 @@ Welcome! This virtual workshop combines lectures and hands-on labs to teach you 
 * 12:40pm - Orchestrating IBM Blockchain Platform for Agility with Red Hat OpenShift Container Platform
 
 ### Choose your own Labs
-* 1:15pm [Lab kickoff](lab-intro.md)
-* Developer Journey, "Series A"
-* Join A Network, "Series B"
-* [Build your first network on Linux on IBM Z](ibpconsole.md)
-* [IBM MQ Bridge for Blockchain](files/IBP_MQ_Bridge_Lab.pdf)
-
-
-* [IBM Blockchain Platform Console URL assignments](console-urls.md)
+* 1:15pm [Lab kickoff](lab-intro.md) --> READ THIS FIRST
 
 ## Acknowledgements
 
