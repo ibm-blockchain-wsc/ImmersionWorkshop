@@ -8,9 +8,8 @@
       
       
       
-      
       <link rel="shortcut icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.1.4">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.0.2">
     
     
       
@@ -18,10 +17,10 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.358818c7.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.38780c08.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.f0267088.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.3f72e892.min.css">
         
       
     
@@ -57,7 +56,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#ibm-blockchain-platform-v250-lab-part-1-create-a-blockchain-network" class="md-skip">
+        <a href="#build-your-first-network-on-linux-on-ibm-z-lab-part-1-create-a-blockchain-network" class="md-skip">
           Skip to content
         </a>
       
@@ -66,9 +65,7 @@
       
     </div>
     
-      
-
-<header class="md-header" data-md-component="header">
+      <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid" aria-label="Header">
     <a href=".." title="Blockchain Immersion Workshop" class="md-header-nav__button md-logo" aria-label="Blockchain Immersion Workshop">
       
@@ -153,9 +150,7 @@
               <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
-                    
-
-<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
     <a href=".." title="Blockchain Immersion Workshop" class="md-nav__button md-logo" aria-label="Blockchain Immersion Workshop">
       
@@ -666,9 +661,9 @@
               
                 
                 
-                <h1 id="ibm-blockchain-platform-v250-lab-part-1-create-a-blockchain-network">IBM Blockchain Platform v2.5.0 Lab Part 1 - Create a Blockchain Network<a class="headerlink" href="#ibm-blockchain-platform-v250-lab-part-1-create-a-blockchain-network" title="Permanent link">&para;</a></h1>
+                <h1 id="build-your-first-network-on-linux-on-ibm-z-lab-part-1-create-a-blockchain-network">Build your first network on Linux on IBM Z Lab Part 1 - Create a Blockchain Network<a class="headerlink" href="#build-your-first-network-on-linux-on-ibm-z-lab-part-1-create-a-blockchain-network" title="Permanent link">&para;</a></h1>
 <h2 id="section-1-create-a-blockchain-network-lab-overview">Section 1: Create a Blockchain Network lab overview<a class="headerlink" href="#section-1-create-a-blockchain-network-lab-overview" title="Permanent link">&para;</a></h2>
-<p>You will use the IBM Blockchain Platform console in this lab to create a blockchain network.
+<p>You will use the IBM Blockchain Platform v2.5.0 console in this lab to create a blockchain network.
 The network will consist of three organizations.
 Two of these organizations will represent organizations that want to participate in the blockchain network and submit transactions.
 They will be referred to as <em>peer organizations</em> throughout the lab.
@@ -680,7 +675,7 @@ Then you will create a second peer organization, and add it to the channel.</p>
 <p>The diagram below provides a view of what your blockchain network will look like upon completion of the lab:</p>
 <p><img alt="image" src="../images/ibpconsole/0005_LabGoal.png" /></p>
 <div class="admonition important">
-<p class="admonition-title">Important<p>You will be assigned a two-digit team ID by your instructor, and everywhere in this lab where you see <em><em>Team</em>xx</em> ** in the instructions, you must substitute <em>xx</em> with the two-digit id you have been assigned. Look for your two-digit id (and your IBM Blockchain Platform Console URL for <em>Step 2.1</em>) <a href="../console-urls/" target="_new">here</a>.</p>
+<p class="admonition-title">Important<p>You will be assigned a two-digit team ID by your instructor, and everywhere in this lab where you see <strong>Team<em>xx</em></strong> in the instructions, you must substitute <em>xx</em> with the two-digit id you have been assigned. Look for your two-digit id (and your IBM Blockchain Platform Console URL for <em>Step 2.1</em>) <a href="../console-urls/" target="_new">here</a>.</p>
 </p>
 </div>
 <p>The sections in this lab are as follows:</p>
@@ -713,7 +708,7 @@ Then you will create a second peer organization, and add it to the channel.</p>
 </div>
 <p><strong>Step 2.1:</strong> Open a new tab in your Firefox browser window and enter the unique URL for your IBM Blockchain Platform console. This URL will be provided to you by your instructor.</p>
 <div class="admonition note">
-<p class="admonition-title">Note<p>Your URL will be similar to <em><a href="https://workshop-00-ibp-console-console.apps.atsocpd3.dmz:443">https://workshop-00-ibp-console-console.apps.atsocpd3.dmz:443</a></em>, but this is just an example, so make sure you use the actual URL given to you by your instructor!</p>
+<p class="admonition-title">Note<p>Your URL will be similar to <em><a href="https://workshop-00-ibp-console-console.apps.atsocpd3.dmz:443">https://workshop-00-ibp-console-console.apps.atsocpd3.dmz:443</a></em>, but this is just an example, so make sure you use the actual URL given to you by your instructor <a href="../console-urls/" rel="noopener" target="_blank">here</a></p>
 </p>
 </div>
 <p>If you see a security warning after entering the URL, click the <strong>Advanced</strong> button, which is highlighted in the below screen snippet:</p>
@@ -732,10 +727,10 @@ Go ahead and click on the <strong>Accept the Risk and Continue</strong> button t
 </p>
 </div>
 <h2 id="section-3-create-a-certificate-authority-for-your-first-peer-organization-teamxx-org1">Section 3: Create a Certificate Authority for your first peer organization, "Teamxx Org1"<a class="headerlink" href="#section-3-create-a-certificate-authority-for-your-first-peer-organization-teamxx-org1" title="Permanent link">&para;</a></h2>
-<p>In a Hyperledger Fabric network, each organization will typically have their own certificate authority. The certificate authority is used to issue identities- consisting of X.509 public certificates and matching private keys- for end users, client applications, administrators, and peer and ordering service nodes. In most use cases each organization will want to have control over the identities they issue, so the typical practice is that each organization provides their own certificate authority. We will follow that practice in this lab. </p>
+<p>In a Hyperledger Fabric network, each organization will typically have their own certificate authority. The certificate authority is used to issue identities- consisting of X.509 public certificates and matching private keys- for end users, client applications, administrators, and peer and ordering service nodes. In most use cases each organization will want to have control over the identities they issue, so the typical practice is that each organization provides their own certificate authority. We will follow that practice in this lab.</p>
 <p>You are starting with a blank slate, and our first component to add is the certificate authority for our first peer organization.
 In relation to the diagram in the overview section that showed our finished network upon successful lab completion, here is the component that will be added in this section:</p>
-<p><img alt="image" src="../images/ibpconsole/0045_DiagramOrg1CA.png" /> </p>
+<p><img alt="image" src="../images/ibpconsole/0045_DiagramOrg1CA.png" /></p>
 <p><strong>Step 3.1:</strong> You will be on a screen which lets you define three types of nodes- <em>Peers</em>, <em>Certificate Authorities</em>, and <em>Ordering services</em>. Click the blue <strong>Add Certificate Authority</strong> button:</p>
 <p><img alt="image" src="../images/ibpconsole/0050_NodesEmpty.png" /></p>
 <div class="admonition note">
@@ -779,13 +774,12 @@ In relation to the diagram in the overview section that showed our finished netw
 <p><strong>Step 3.4:</strong> Review your settings on the <em>Step 3 of 3</em> screen and click the <strong>Add Certificate Authority</strong> button:</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Throughout this lab, when passwords are entered, you can click the icon that looks like an eye to see the password you have 
-   entered.  It is recommended that you do this for the lab to ensure you have entered the intended password. The screenshots shown
+<p>Throughout this lab, when passwords are entered, you can click the icon that looks like an eye to see the password you have entered.  It is recommended that you do this for the lab to ensure you have entered the intended password. The screenshots shown
    in this lab will show the passwords that you should enter.</p>
 </div>
 <p><img alt="image" src="../images/ibpconsole/0100_AddCertificateAuthoritySideBar3.png" /></p>
 <p><strong>Step 3.5:</strong> You will see a tile for your new certificate authority. Observe the box in the upper right corner of the tile.
-If it is gray, and you hover your cursor over it, you may see a message indicating that the status is pending. 
+If it is gray, and you hover your cursor over it, you may see a message indicating that the status is pending.
 In about a minute, the box in the upper right should turn green, indicating that the certificate authority is running.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -930,10 +924,10 @@ Click the <strong>Organizations</strong> icon on the palette on the left of your
 </table>
 <p><img alt="image" src="../images/ibpconsole/0210_CreateOrg1MSPSidebar1.png" /></p>
 <p><strong>Step 5.3:</strong>  On the <em>Root Certificate Authority details</em> screen, select <strong>Team<em>xx</em> Org1 CA</strong> from the dropdown list.
-Once you have selected the root certificate authority, you will see that the <em>Root certificates</em> and <em>TLS root certificates</em> fields appear and are populated with apparent nonsense that is actually base64-encoded X.509 certificates. </p>
+Once you have selected the root certificate authority, you will see that the <em>Root certificates</em> and <em>TLS root certificates</em> fields appear and are populated with apparent nonsense that is actually base64-encoded X.509 certificates.</p>
 <p>Click the <strong>Next</strong> button:</p>
 <p><img alt="image" src="../images/ibpconsole/0212_RootCertificateAuthorityDetails.png" /></p>
-<p><strong>Step 5.4:</strong>  On the <em>Admin certificates</em> screen, 
+<p><strong>Step 5.4:</strong>  On the <em>Admin certificates</em> screen,
 fill out the three fields beneath this in accordance with the below table, and then click the <strong>Generate</strong> button, which should become active once you enter values for the three fields:</p>
 <table>
 <thead>
@@ -1014,7 +1008,7 @@ fill out the three fields beneath this in accordance with the below table, and t
 <p><strong>Step 5.10:</strong> You should now see the definition for your new MSP listed on your screen. Click the <strong>Nodes</strong> icon in the icon palette on your left- it is the topmost icon on this palette- and you will be ready to proceed to the next section:</p>
 <p><img alt="image" src="../images/ibpconsole/0260_CreateOrg1MSPFinished.png" /></p>
 <h2 id="section-6-create-a-peer-node-for-your-teamxx-org1-organization">Section 6: Create a peer node for your Teamxx Org1 organization<a class="headerlink" href="#section-6-create-a-peer-node-for-your-teamxx-org1-organization" title="Permanent link">&para;</a></h2>
-<p>A peer node is where smart contracts- in essence, your blockchain business transactions- run.  Peer nodes also store the ledgers. We will create a peer for your <strong>Team<em>xx</em> Org1</strong> in this section and our fledgling network will then look like this: </p>
+<p>A peer node is where smart contracts- in essence, your blockchain business transactions- run.  Peer nodes also store the ledgers. We will create a peer for your <strong>Team<em>xx</em> Org1</strong> in this section and our fledgling network will then look like this:</p>
 <p><img alt="image" src="../images/ibpconsole/0265_DiagramOrg1Peer.png" /></p>
 <p><strong>Step 6.1:</strong> Click the <strong>Add peer</strong> button:</p>
 <p><img alt="image" src="../images/ibpconsole/0270_AddOrg1Peer.png" /></p>
@@ -1147,7 +1141,7 @@ It can take a minute or two on our lab system for the peer to come up completely
 <p>In this lab you will create three organizations- two organizations will run peer nodes and run smart contracts. One of the organizations will provide the ordering service for the blockchain network.  In the real world each of the three organizations would likely use their own instance of the IBM Blockchain Platform console to create their necessary artifacts.  (You have already done much of this for the first peer organization, <strong>Team<em>xx</em> Org1</strong>, in the previous sections of this lab).</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>You will carry out activities for all three organizations from your browser for purposes of this lab. This will somewhat simplify the steps you'll need to perform versus the real-world scenario where this activity is being carried out separately by each organization. The procedure to perform the tasks in the "real world" case are outlined in the IBM Blockchain Platform documentation- basically, it involves exporting information about your organization into JSON files, and providing this information "out-of-band" to the other organizations. </p>
+<p>You will carry out activities for all three organizations from your browser for purposes of this lab. This will somewhat simplify the steps you'll need to perform versus the real-world scenario where this activity is being carried out separately by each organization. The procedure to perform the tasks in the "real world" case are outlined in the IBM Blockchain Platform documentation- basically, it involves exporting information about your organization into JSON files, and providing this information "out-of-band" to the other organizations.</p>
 <p>In an earlier step you exported your generated certificate and its private key. While it is a JSON file, this is not a file you would ever send to another organization, as it contains your private key which should never be shared with other organizations. The exported JSON files that are used for inter-organizational tasks contain only public information which is safe to share.</p>
 </div>
 <p>Our network will look like this at the completion of this section:</p>
@@ -1191,7 +1185,7 @@ It can take a minute or two on our lab system for the peer to come up completely
 <p><strong>Step 7.4:</strong> Review your settings and click the <strong>Add Certificate Authority</strong> button:</p>
 <p><img alt="image" src="../images/ibpconsole/0420_AddOrderingCASidebar5.png" /></p>
 <p><strong>Step 7.5:</strong> You will see a tile for your new certificate authority. Observe the box in the upper right corner of the tile.
-If it is gray, and you hover your cursor over it, you may see a message indicating that the status is pending. 
+If it is gray, and you hover your cursor over it, you may see a message indicating that the status is pending.
 In about a minute, the box in the upper right should turn green, indicating that the certificate authority is running.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -1336,10 +1330,10 @@ Click the <strong>Organizations</strong> icon on the palette on the left of your
 <p>The sidebar panel contains more information than will likely fit in your browser window, so review the values you have entered per the above list, and then scroll down within the sidebar panel:</p>
 <p><img alt="image" src="../images/ibpconsole/0530_CreateOrderingMSPSidebar1.png" /></p>
 <p><strong>Step 9.3:</strong>  On the <em>Root Certificate Authority details</em> screen, select <strong>Team<em>xx</em> Ordering Service CA</strong> from the dropdown list.
-Once you have selected the root certificate authority, you will see that the <em>Root certificates</em> and <em>TLS root certificates</em> fields appear and are populated with apparent nonsense that is actually base64-encoded X.509 certificates. </p>
+Once you have selected the root certificate authority, you will see that the <em>Root certificates</em> and <em>TLS root certificates</em> fields appear and are populated with apparent nonsense that is actually base64-encoded X.509 certificates.</p>
 <p>Click the <strong>Next</strong> button:</p>
 <p><img alt="image" src="../images/ibpconsole/0532_RootCertificateAuthorityDetails.png" /></p>
-<p><strong>Step 9.4:</strong>  On the <em>Admin certificates</em> screen, 
+<p><strong>Step 9.4:</strong>  On the <em>Admin certificates</em> screen,
 fill out the three fields beneath this in accordance with the below table, and then click the <strong>Generate</strong> button, which should become active once you enter values for the three fields:</p>
 <table>
 <thead>
@@ -1533,7 +1527,7 @@ fill out the three fields beneath this in accordance with the below table, and t
 </tbody>
 </table>
 <div class="admonition note">
-<p class="admonition-title">Note<p>If you have to use the <strong>Back</strong> button to make any corrections, you can return to the summary on <em>Step 5 of 5</em> by clicking <strong>Next</strong> the necessary number of times. </p>
+<p class="admonition-title">Note<p>If you have to use the <strong>Back</strong> button to make any corrections, you can return to the summary on <em>Step 5 of 5</em> by clicking <strong>Next</strong> the necessary number of times.</p>
 </p>
 </div>
 <p>When you have ensured that you have entered the right values, click the blue <strong>Add ordering service</strong> button in the lower right of your screen:</p>
@@ -1558,8 +1552,8 @@ It can take a minute or two on our lab system for the ordering service to come u
 <p><strong>Step 11.3:</strong> You should now see your peer organization, <strong>team<em>xx</em>org1msp</strong>, listed as a member of your consortium:</p>
 <p><img alt="image" src="../images/ibpconsole/0710_AddOrganizationToConsortiumFinished.png" /></p>
 <h2 id="section-12-create-a-channel">Section 12: Create a channel<a class="headerlink" href="#section-12-create-a-channel" title="Permanent link">&para;</a></h2>
-<p>You won't get very far without an ordering service node, because they are the animals that create blocks. You won't get very far without a peer, as peers run smart contracts, which create transactions that are sent to an ordering service node. </p>
-<p>Well, you won't get much stuff done without a channel either, because a transaction proposal is sent from a peer to an ordering service node over a channel. </p>
+<p>You won't get very far without an ordering service node, because they are the animals that create blocks. You won't get very far without a peer, as peers run smart contracts, which create transactions that are sent to an ordering service node.</p>
+<p>Well, you won't get much stuff done without a channel either, because a transaction proposal is sent from a peer to an ordering service node over a channel.</p>
 <p>You will define a channel in this section and in its definition you will make your <strong>Team<em>xx</em> Org1</strong> peer organization a member of the channel. The actual definition of the channel is verified at the ordering service node and it keeps track of all channels.  (You can define multiple channels in a Hyperledger Fabric network but for simplicity this lab will only have you define one).</p>
 <p>The line between the ordering service node and your first peer organization node represents that our ordering service knows about our new channel and that our peer organization is a member of the new channel:</p>
 <p><img alt="image" src="../images/ibpconsole/0715_DiagramChannelOrg1.png" /></p>
@@ -1569,7 +1563,7 @@ It can take a minute or two on our lab system for the ordering service to come u
 <p><img alt="image" src="../images/ibpconsole/0730_JoinChannel_1.png" /></p>
 <p><strong>Step 12.3:</strong> You may read the information on the <em>Prerequisites</em> panel, but you will not have to do anything- the prior sections of the lab have met the prerequisites!  Click on the blue <strong>Next</strong> button to continue:</p>
 <p><img alt="image" src="../images/ibpconsole/0740_CreateChannelPrerequisites.png" /></p>
-<p><strong>Step 12.4:</strong> On the <em>Channel details</em> panel, enter <strong>team<em>xx</em>-channel1</strong> in the <em>Channel name</em> field, and select <strong>Team<em>xx</em> Ordering Service</strong> for the <em>Ordering service</em> field, where <em>xx</em> is your two-digit team ID, then click the <strong>Next</strong> button to continue: </p>
+<p><strong>Step 12.4:</strong> On the <em>Channel details</em> panel, enter <strong>team<em>xx</em>-channel1</strong> in the <em>Channel name</em> field, and select <strong>Team<em>xx</em> Ordering Service</strong> for the <em>Ordering service</em> field, where <em>xx</em> is your two-digit team ID, then click the <strong>Next</strong> button to continue:</p>
 <p><img alt="image" src="../images/ibpconsole/0742_CreateChannelChannelDetails.png" /></p>
 <p><strong>Step 12.5:</strong> On the <em>Organizations</em> panel, select <strong>Team<em>xx</em> Org1 MSP (team<em>xx</em>org1msp)</strong> for the <em>Channel member</em> field and click the <strong>Add</strong> button to the right of your selection:</p>
 <p><img alt="image" src="../images/ibpconsole/0744_CreateChannelOrganizations1.png" /></p>
@@ -1679,7 +1673,7 @@ It can take a minute or two on our lab system for the ordering service to come u
 <p><strong>Step 14.4:</strong> Review your settings on the <em>Step 3 of 3</em> sidebar panel and click the <strong>Add Certificate Authority</strong> button:</p>
 <p><img alt="image" src="../images/ibpconsole/0860_AddOrg2CASidebar5.png" /></p>
 <p><strong>Step 14.5:</strong> You will see a tile for your new certificate authority. Observe the box in the upper right corner of the tile.
-If it is gray, and you hover your cursor over it, you may see a message indicating that the status is pending. 
+If it is gray, and you hover your cursor over it, you may see a message indicating that the status is pending.
 In about a minute, the box in the upper right should turn green, indicating that the certificate authority is running.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -1815,13 +1809,13 @@ Click the <strong>Organizations</strong> icon on the palette on the left of your
 </tbody>
 </table>
 <p><strong>Step 16.3:</strong>  On the <em>Root Certificate Authority details</em> screen, select <strong>Team<em>xx</em> Org2 CA</strong> from the dropdown list.
-Once you have selected the root certificate authority, you will see that the <em>Root certificates</em> and <em>TLS root certificates</em> fields appear and are populated with apparent nonsense that is actually base64-encoded X.509 certificates. </p>
+Once you have selected the root certificate authority, you will see that the <em>Root certificates</em> and <em>TLS root certificates</em> fields appear and are populated with apparent nonsense that is actually base64-encoded X.509 certificates.</p>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
 <p>Ensure that you selected your certificate authority for your <em>Org2</em>, and not <em>Org1</em>, in the <em>Root Certificate Authority</em> field. It's easy to mistakenly choose <em>Org1</em>'s certificate authority here, and this often turns ecstasy to melancholy.</p>
 </div>
 <p>Click the <strong>Next</strong> button.</p>
-<p><strong>Step 16.4:</strong>  On the <em>Admin certificates</em> screen, 
+<p><strong>Step 16.4:</strong>  On the <em>Admin certificates</em> screen,
 fill out the three fields beneath this in accordance with the below table, and then click the <strong>Generate</strong> button, which should become active once you enter values for the three fields:</p>
 <table>
 <thead>
@@ -1851,7 +1845,7 @@ fill out the three fields beneath this in accordance with the below table, and t
 </table>
 <p><strong>Step 16.5:</strong> The prior step generated a public certificate and a matching private key. This private key is stored by the IBM Blockchain Platform console in your local browser storage and nowhere else. In order to ensure that you can retrieve your private key later, you must now click the <strong>Export</strong> button which will prompt you to save your private key (along with the public certificate) in a JSON file on your hard drive.</p>
 <p><strong>Step 16.6:</strong> Select the <strong>Save File</strong> radio button in the dialog window that appears, and click the <strong>OK</strong> button.</p>
-<p><strong>Step 16.7:</strong> Save the exported JSON file in a location that you can remember. </p>
+<p><strong>Step 16.7:</strong> Save the exported JSON file in a location that you can remember.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>You probably won't need this saved file for this lab if you use the same browser window for the duration of the lab, but the saved file may be necessary if, for whatever reason, you do have to use a new browser window or session, so go ahead and save it!</p>
@@ -2187,8 +2181,8 @@ It can take a minute or two on our lab system for the peer to come up completely
       
     </div>
     
-      <script src="../assets/javascripts/vendor.7e0ee788.min.js"></script>
-      <script src="../assets/javascripts/bundle.b3a72adc.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
+      <script src="../assets/javascripts/vendor.77e55a48.min.js"></script>
+      <script src="../assets/javascripts/bundle.9554a270.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
       
       <script>
         app = initialize({
