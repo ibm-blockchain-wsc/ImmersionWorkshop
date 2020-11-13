@@ -5,10 +5,10 @@ Welcome! This virtual workshop combines lectures and hands-on labs to teach you 
 
 ### Lectures
 * 11am EST - Workshop Kickoff and Introductions
-* 11:05am  - Introduction to Enterprise Blockchain
+* 11:05am  - [Introduction to Enterprise Blockchain](files/BlockchainIntro.pdf)
 * 11:35am - [Application Demo and Use Case Discussion](files/NovBlockchainWorkshopUseCase.pdf)
 * 5 min virtual break
-* 12:10pm - Introduction to IBM Blockchain Platform and LinuxONE
+* 12:10pm - [Introduction to IBM Blockchain Platform and LinuxONE](files/BlockchainOnZ.pdf)
 * 12:40pm - [Orchestrating IBM Blockchain Platform for Agility with Red Hat OpenShift Container Platform](files/Orchestrating_IBM_Blockchain_Platform_for_Agility_with_Red_Hat_OpenShift_Container_Platform.pdf)
 
 ### Choose your own Labs
