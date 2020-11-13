@@ -8,8 +8,9 @@
       
       
       
+      
       <link rel="shortcut icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.0.2">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.1.4">
     
     
       
@@ -17,10 +18,10 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.38780c08.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.358818c7.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.3f72e892.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.f0267088.min.css">
         
       
     
@@ -65,7 +66,9 @@
       
     </div>
     
-      <header class="md-header" data-md-component="header">
+      
+
+<header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid" aria-label="Header">
     <a href=".." title="Blockchain Immersion Workshop" class="md-header-nav__button md-logo" aria-label="Blockchain Immersion Workshop">
       
@@ -150,7 +153,9 @@
               <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
-                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+                    
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
     <a href=".." title="Blockchain Immersion Workshop" class="md-nav__button md-logo" aria-label="Blockchain Immersion Workshop">
       
@@ -474,94 +479,94 @@ intended). Type this:</p>
 <p>This command will print as much of the file as it can on your screen but
 will pause until you hit the space bar before displaying the rest of the file's
 contents. Here are the complete contents of this file:</p>
-<div class="codehilite"><pre><span></span><code><span class="err">{</span>
-   <span class="ss">&quot;name&quot;</span><span class="p">:</span> <span class="ss">&quot;Docker Compose Network&quot;</span><span class="p">,</span>
-   <span class="ss">&quot;x-networkId&quot;</span><span class="p">:</span> <span class="ss">&quot;not-important&quot;</span><span class="p">,</span>
-   <span class="ss">&quot;x-type&quot;</span><span class="p">:</span> <span class="ss">&quot;hlfv1&quot;</span><span class="p">,</span>
-   <span class="ss">&quot;description&quot;</span><span class="p">:</span> <span class="ss">&quot;Connection Profile for an IBM Blockchain Network&quot;</span><span class="p">,</span>
-   <span class="ss">&quot;version&quot;</span><span class="p">:</span> <span class="ss">&quot;1.0.0&quot;</span><span class="p">,</span>
-   <span class="ss">&quot;client&quot;</span><span class="p">:</span> <span class="err">{</span>
-       <span class="ss">&quot;organization&quot;</span><span class="p">:</span> <span class="ss">&quot;Org0MSP&quot;</span>
-   <span class="err">}</span><span class="p">,</span>
-   <span class="ss">&quot;channels&quot;</span><span class="p">:</span> <span class="err">{</span>
-       <span class="ss">&quot;mychannel&quot;</span><span class="p">:</span> <span class="err">{</span>
-           <span class="ss">&quot;orderers&quot;</span><span class="p">:</span> <span class="p">[</span>
-               <span class="ss">&quot;fabric-orderer&quot;</span>
+<div class="codehilite"><pre><span></span><code><span class="p">{</span>
+   <span class="s">&quot;name&quot;</span><span class="o">:</span> <span class="s">&quot;Docker Compose Network&quot;</span><span class="p">,</span>
+   <span class="s">&quot;x-networkId&quot;</span><span class="o">:</span> <span class="s">&quot;not-important&quot;</span><span class="p">,</span>
+   <span class="s">&quot;x-type&quot;</span><span class="o">:</span> <span class="s">&quot;hlfv1&quot;</span><span class="p">,</span>
+   <span class="s">&quot;description&quot;</span><span class="o">:</span> <span class="s">&quot;Connection Profile for an IBM Blockchain Network&quot;</span><span class="p">,</span>
+   <span class="s">&quot;version&quot;</span><span class="o">:</span> <span class="s">&quot;1.0.0&quot;</span><span class="p">,</span>
+   <span class="s">&quot;client&quot;</span><span class="o">:</span> <span class="p">{</span>
+       <span class="s">&quot;organization&quot;</span><span class="o">:</span> <span class="s">&quot;Org0MSP&quot;</span>
+   <span class="p">},</span>
+   <span class="s">&quot;channels&quot;</span><span class="o">:</span> <span class="p">{</span>
+       <span class="s">&quot;mychannel&quot;</span><span class="o">:</span> <span class="p">{</span>
+           <span class="s">&quot;orderers&quot;</span><span class="o">:</span> <span class="p">[</span>
+               <span class="s">&quot;fabric-orderer&quot;</span>
            <span class="p">],</span>
-           <span class="ss">&quot;peers&quot;</span><span class="p">:</span> <span class="err">{</span>  
-               <span class="ss">&quot;fabric-peer-org1&quot;</span> <span class="p">:</span> <span class="err">{</span>
-                                   <span class="ss">&quot;x-chaincode&quot;</span><span class="p">:</span> <span class="err">{}</span>
-                                <span class="err">}</span>
-           <span class="err">}</span><span class="p">,</span>
-           <span class="ss">&quot;chaincodes&quot;</span><span class="p">:</span> <span class="p">[</span>
-               <span class="ss">&quot;marbles:v4&quot;</span>
+           <span class="s">&quot;peers&quot;</span><span class="o">:</span> <span class="p">{</span>  
+               <span class="s">&quot;fabric-peer-org1&quot;</span> <span class="o">:</span> <span class="p">{</span>
+                                   <span class="s">&quot;x-chaincode&quot;</span><span class="o">:</span> <span class="p">{}</span>
+                                <span class="p">}</span>
+           <span class="p">},</span>
+           <span class="s">&quot;chaincodes&quot;</span><span class="o">:</span> <span class="p">[</span>
+               <span class="s">&quot;marbles:v4&quot;</span>
            <span class="p">],</span>
-           <span class="ss">&quot;x-blockDelay&quot;</span><span class="p">:</span> <span class="mi">1000</span>
-       <span class="err">}</span>
-   <span class="err">}</span><span class="p">,</span>
-   <span class="ss">&quot;organizations&quot;</span><span class="p">:</span> <span class="err">{</span>
-       <span class="ss">&quot;Org0MSP&quot;</span><span class="p">:</span> <span class="err">{</span>
-           <span class="ss">&quot;mspid&quot;</span><span class="p">:</span> <span class="ss">&quot;Org0MSP&quot;</span><span class="p">,</span>
-           <span class="ss">&quot;peers&quot;</span><span class="p">:</span> <span class="p">[</span>
-               <span class="ss">&quot;fabric-peer-org1&quot;</span>
+           <span class="s">&quot;x-blockDelay&quot;</span><span class="o">:</span> <span class="mh">1000</span>
+       <span class="p">}</span>
+   <span class="p">},</span>
+   <span class="s">&quot;organizations&quot;</span><span class="o">:</span> <span class="p">{</span>
+       <span class="s">&quot;Org0MSP&quot;</span><span class="o">:</span> <span class="p">{</span>
+           <span class="s">&quot;mspid&quot;</span><span class="o">:</span> <span class="s">&quot;Org0MSP&quot;</span><span class="p">,</span>
+           <span class="s">&quot;peers&quot;</span><span class="o">:</span> <span class="p">[</span>
+               <span class="s">&quot;fabric-peer-org1&quot;</span>
            <span class="p">],</span>
-           <span class="ss">&quot;certificateAuthorities&quot;</span><span class="p">:</span> <span class="p">[</span>
-               <span class="ss">&quot;fabric-ca-org1&quot;</span>
+           <span class="s">&quot;certificateAuthorities&quot;</span><span class="o">:</span> <span class="p">[</span>
+               <span class="s">&quot;fabric-ca-org1&quot;</span>
            <span class="p">]</span>
-       <span class="err">}</span>
-   <span class="err">}</span><span class="p">,</span>
-   <span class="ss">&quot;orderers&quot;</span><span class="p">:</span> <span class="err">{</span>
-       <span class="ss">&quot;fabric-orderer&quot;</span><span class="p">:</span> <span class="err">{</span>
-           <span class="ss">&quot;url&quot;</span><span class="p">:</span> <span class="ss">&quot;grpcs://localhost:7050&quot;</span><span class="p">,</span>
-           <span class="ss">&quot;grpcOptions&quot;</span><span class="p">:</span> <span class="err">{</span>
-               <span class="ss">&quot;ssl-target-name-override&quot;</span><span class="p">:</span> <span class="ss">&quot;orderer.blockchain.com&quot;</span><span class="p">,</span>
-               <span class="ss">&quot;grpc.http2.keepalive_time&quot;</span><span class="p">:</span> <span class="mi">300</span><span class="p">,</span>
-               <span class="ss">&quot;grpc.keepalive_time_ms&quot;</span><span class="p">:</span> <span class="mi">300000</span><span class="p">,</span>
-               <span class="ss">&quot;grpc.http2.keepalive_timeout&quot;</span><span class="p">:</span> <span class="mi">35</span><span class="p">,</span>
-               <span class="ss">&quot;grpc.keepalive_timeout_ms&quot;</span><span class="p">:</span> <span class="mi">3500</span>
-           <span class="err">}</span><span class="p">,</span>
-           <span class="ss">&quot;tlsCACerts&quot;</span><span class="p">:</span> <span class="err">{</span>
-               <span class="ss">&quot;path&quot;</span><span class="p">:</span> <span class="ss">&quot;../../crypto-config/ordererOrganizations/blockchain.com/orderers/orderer.blockchain.com/tls/ca.crt&quot;</span>
-           <span class="err">}</span>
-       <span class="err">}</span>
+       <span class="p">}</span>
+   <span class="p">},</span>
+   <span class="s">&quot;orderers&quot;</span><span class="o">:</span> <span class="p">{</span>
+       <span class="s">&quot;fabric-orderer&quot;</span><span class="o">:</span> <span class="p">{</span>
+           <span class="s">&quot;url&quot;</span><span class="o">:</span> <span class="s">&quot;grpcs://localhost:7050&quot;</span><span class="p">,</span>
+           <span class="s">&quot;grpcOptions&quot;</span><span class="o">:</span> <span class="p">{</span>
+               <span class="s">&quot;ssl-target-name-override&quot;</span><span class="o">:</span> <span class="s">&quot;orderer.blockchain.com&quot;</span><span class="p">,</span>
+               <span class="s">&quot;grpc.http2.keepalive_time&quot;</span><span class="o">:</span> <span class="mh">300</span><span class="p">,</span>
+               <span class="s">&quot;grpc.keepalive_time_ms&quot;</span><span class="o">:</span> <span class="mh">300000</span><span class="p">,</span>
+               <span class="s">&quot;grpc.http2.keepalive_timeout&quot;</span><span class="o">:</span> <span class="mh">35</span><span class="p">,</span>
+               <span class="s">&quot;grpc.keepalive_timeout_ms&quot;</span><span class="o">:</span> <span class="mh">3500</span>
+           <span class="p">},</span>
+           <span class="s">&quot;tlsCACerts&quot;</span><span class="o">:</span> <span class="p">{</span>
+               <span class="s">&quot;path&quot;</span><span class="o">:</span> <span class="s">&quot;../../crypto-config/ordererOrganizations/blockchain.com/orderers/orderer.blockchain.com/tls/ca.crt&quot;</span>
+           <span class="p">}</span>
+       <span class="p">}</span>
 
-   <span class="err">}</span><span class="p">,</span>
-   <span class="ss">&quot;peers&quot;</span><span class="p">:</span> <span class="err">{</span>
-       <span class="ss">&quot;fabric-peer-org1&quot;</span><span class="p">:</span> <span class="err">{</span>
-           <span class="ss">&quot;url&quot;</span><span class="p">:</span> <span class="ss">&quot;grpcs://localhost:7051&quot;</span><span class="p">,</span>
-           <span class="ss">&quot;eventUrl&quot;</span><span class="p">:</span> <span class="ss">&quot;grpcs://localhost:7053&quot;</span><span class="p">,</span>
-           <span class="ss">&quot;grpcOptions&quot;</span><span class="p">:</span> <span class="err">{</span>
-               <span class="ss">&quot;ssl-target-name-override&quot;</span><span class="p">:</span> <span class="ss">&quot;peer0.unitedmarbles.com&quot;</span><span class="p">,</span>
-               <span class="ss">&quot;grpc.http2.keepalive_time&quot;</span><span class="p">:</span> <span class="mi">300</span><span class="p">,</span>
-               <span class="ss">&quot;grpc.keepalive_time_ms&quot;</span><span class="p">:</span> <span class="mi">300000</span><span class="p">,</span>
-               <span class="ss">&quot;grpc.http2.keepalive_timeout&quot;</span><span class="p">:</span> <span class="mi">35</span><span class="p">,</span>
-               <span class="ss">&quot;grpc.keepalive_timeout_ms&quot;</span><span class="p">:</span> <span class="mi">3500</span>
-           <span class="err">}</span><span class="p">,</span>
-           <span class="ss">&quot;tlsCACerts&quot;</span><span class="p">:</span> <span class="err">{</span>
-               <span class="ss">&quot;path&quot;</span><span class="p">:</span> <span class="ss">&quot;../../crypto-config/peerOrganizations/unitedmarbles.com/peers/peer0.unitedmarbles.com/tls/ca.crt&quot;</span>
-           <span class="err">}</span>
-       <span class="err">}</span>
-   <span class="err">}</span><span class="p">,</span>
-   <span class="ss">&quot;certificateAuthorities&quot;</span><span class="p">:</span> <span class="err">{</span>
-       <span class="ss">&quot;fabric-ca-org1&quot;</span><span class="p">:</span> <span class="err">{</span>
-           <span class="ss">&quot;url&quot;</span><span class="p">:</span> <span class="ss">&quot;https://localhost:7054&quot;</span><span class="p">,</span>
-           <span class="ss">&quot;httpOptions&quot;</span><span class="p">:</span> <span class="err">{</span>
-               <span class="ss">&quot;ssl-target-name-override&quot;</span><span class="p">:</span> <span class="ss">&quot;ca.unitedmarbles.com&quot;</span><span class="p">,</span>
-               <span class="ss">&quot;verify&quot;</span><span class="p">:</span> <span class="k">true</span>
-           <span class="err">}</span><span class="p">,</span>
-           <span class="ss">&quot;tlsCACerts&quot;</span><span class="p">:</span> <span class="err">{</span>
-               <span class="ss">&quot;path&quot;</span><span class="p">:</span> <span class="ss">&quot;../../crypto-config/peerOrganizations/unitedmarbles.com/ca/ca.unitedmarbles.com-cert.pem&quot;</span>
-           <span class="err">}</span><span class="p">,</span>
-           <span class="ss">&quot;registrar&quot;</span><span class="p">:</span> <span class="p">[</span>
-               <span class="err">{</span>
-                   <span class="ss">&quot;enrollId&quot;</span><span class="p">:</span> <span class="ss">&quot;admin&quot;</span><span class="p">,</span>
-                   <span class="ss">&quot;enrollSecret&quot;</span><span class="p">:</span> <span class="ss">&quot;adminpw&quot;</span>
-               <span class="err">}</span>
+   <span class="p">},</span>
+   <span class="s">&quot;peers&quot;</span><span class="o">:</span> <span class="p">{</span>
+       <span class="s">&quot;fabric-peer-org1&quot;</span><span class="o">:</span> <span class="p">{</span>
+           <span class="s">&quot;url&quot;</span><span class="o">:</span> <span class="s">&quot;grpcs://localhost:7051&quot;</span><span class="p">,</span>
+           <span class="s">&quot;eventUrl&quot;</span><span class="o">:</span> <span class="s">&quot;grpcs://localhost:7053&quot;</span><span class="p">,</span>
+           <span class="s">&quot;grpcOptions&quot;</span><span class="o">:</span> <span class="p">{</span>
+               <span class="s">&quot;ssl-target-name-override&quot;</span><span class="o">:</span> <span class="s">&quot;peer0.unitedmarbles.com&quot;</span><span class="p">,</span>
+               <span class="s">&quot;grpc.http2.keepalive_time&quot;</span><span class="o">:</span> <span class="mh">300</span><span class="p">,</span>
+               <span class="s">&quot;grpc.keepalive_time_ms&quot;</span><span class="o">:</span> <span class="mh">300000</span><span class="p">,</span>
+               <span class="s">&quot;grpc.http2.keepalive_timeout&quot;</span><span class="o">:</span> <span class="mh">35</span><span class="p">,</span>
+               <span class="s">&quot;grpc.keepalive_timeout_ms&quot;</span><span class="o">:</span> <span class="mh">3500</span>
+           <span class="p">},</span>
+           <span class="s">&quot;tlsCACerts&quot;</span><span class="o">:</span> <span class="p">{</span>
+               <span class="s">&quot;path&quot;</span><span class="o">:</span> <span class="s">&quot;../../crypto-config/peerOrganizations/unitedmarbles.com/peers/peer0.unitedmarbles.com/tls/ca.crt&quot;</span>
+           <span class="p">}</span>
+       <span class="p">}</span>
+   <span class="p">},</span>
+   <span class="s">&quot;certificateAuthorities&quot;</span><span class="o">:</span> <span class="p">{</span>
+       <span class="s">&quot;fabric-ca-org1&quot;</span><span class="o">:</span> <span class="p">{</span>
+           <span class="s">&quot;url&quot;</span><span class="o">:</span> <span class="s">&quot;https://localhost:7054&quot;</span><span class="p">,</span>
+           <span class="s">&quot;httpOptions&quot;</span><span class="o">:</span> <span class="p">{</span>
+               <span class="s">&quot;ssl-target-name-override&quot;</span><span class="o">:</span> <span class="s">&quot;ca.unitedmarbles.com&quot;</span><span class="p">,</span>
+               <span class="s">&quot;verify&quot;</span><span class="o">:</span> <span class="n">true</span>
+           <span class="p">},</span>
+           <span class="s">&quot;tlsCACerts&quot;</span><span class="o">:</span> <span class="p">{</span>
+               <span class="s">&quot;path&quot;</span><span class="o">:</span> <span class="s">&quot;../../crypto-config/peerOrganizations/unitedmarbles.com/ca/ca.unitedmarbles.com-cert.pem&quot;</span>
+           <span class="p">},</span>
+           <span class="s">&quot;registrar&quot;</span><span class="o">:</span> <span class="p">[</span>
+               <span class="p">{</span>
+                   <span class="s">&quot;enrollId&quot;</span><span class="o">:</span> <span class="s">&quot;admin&quot;</span><span class="p">,</span>
+                   <span class="s">&quot;enrollSecret&quot;</span><span class="o">:</span> <span class="s">&quot;adminpw&quot;</span>
+               <span class="p">}</span>
            <span class="p">],</span>
-           <span class="ss">&quot;caName&quot;</span><span class="p">:</span> <span class="ss">&quot;ca-org0&quot;</span>
-       <span class="err">}</span>
-   <span class="err">}</span>
-<span class="err">}</span>
+           <span class="s">&quot;caName&quot;</span><span class="o">:</span> <span class="s">&quot;ca-org0&quot;</span>
+       <span class="p">}</span>
+   <span class="p">}</span>
+<span class="p">}</span>
 </code></pre></div>
 
 <p>This is a standard Hyperledger Fabric connection profile. This lab does
@@ -1357,8 +1362,8 @@ this command will feed that output into the Docker <em>rmi</em> command, and rem
       
     </div>
     
-      <script src="../assets/javascripts/vendor.77e55a48.min.js"></script>
-      <script src="../assets/javascripts/bundle.9554a270.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
+      <script src="../assets/javascripts/vendor.7e0ee788.min.js"></script>
+      <script src="../assets/javascripts/bundle.b3a72adc.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
       
       <script>
         app = initialize({
