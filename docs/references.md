@@ -1,5 +1,8 @@
-##  Please take a few minutes to provide us feedback
+## Please take a few minutes to provide us feedback
 * [Workshop evaluation](https://survey.ibm-zcouncil.com/limesurvey/index.php/546618?lang=en "Workshop evaluation")
+
+## Blockchain for Developers Learning Path
+* [Blockchain Learning Path](https://cognitiveclass.ai/learn/blockchain-for-developers "blockchain learning path")
 
 ## Additional Resources
 * [What is blockchain?](https://www.ibm.com/blockchain/what-is-blockchain "what is blockchain")
