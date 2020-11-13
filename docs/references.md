@@ -23,3 +23,7 @@
 * [Vehicle Lifecycle Github Repo](https://github.com/IBM-Blockchain/vehicle-manufacture)
 * [Demo: IMMUNIChain Introduction](immunichain-home.md) 
 * [IMMUNIChain Walk-through - Not available at the moment](immunichain.md) 
+
+## Build Your First Network on Linux on IBM Z labs in PDF
+* [Part 1](files/BuildYourNetworkLab-Part1.pdf)
+* [Part 2](files/BuildYourNetworkLab-Part2.pdf)
