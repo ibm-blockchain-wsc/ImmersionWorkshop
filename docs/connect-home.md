@@ -9,7 +9,7 @@ All of the components in the above diagram reside within an IBM Cloud Private (I
 This lab is broken into two parts. In the first part, you will interact with your deployed peer, and enable the Marbles front end application to connect to the marbles chaincode installed on your peer. In the second part, you will go through the process of enabling the Marbles application to deploy inside an ICP Kubernetes cluster. You will be able to transact marbles with the other lab participants who are all acting as their own organizations in the Marbles business network.
 
 !!! note
-    This lab runs on Linux on IBM Z systems in the IBM Washington Systems Center (WSC). In order to connect to this environment, you must use the CISCO AnyConnect client to establish a virtual private network (VPN) connection into the WSC network. You will be given connection information at the beginning of the lab.
+    This lab runs on Linux on IBM Z systems that are located in Herndon, Virginia, USA, and are managed by IBM America's *Advanced Technology Group - IBM Z* team. In order to connect to this environment, you must use the CISCO AnyConnect client to establish a virtual private network (VPN) connection into a private network in which these systems reside. You will be given connection information at the beginning of the lab.
 
 !!! tip
     If you find any typos, errors, or just want to provide helpful feedback to make this lab better, please click on the GitHub icon in the lower left corner of this page to be taken to our GitHub repository, from where you can create an Issue to suggest a correction or improvement. Thanks for your feedback!
